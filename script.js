@@ -40,4 +40,26 @@ const map = L.map('map', {
     .addTo(map)
     .bindPopup('Rivendell')
     .openPopup();
+
+  // Define the path (polyline)
+  const pathCoordinates = [
+    [convertYCoordinate(479), 876], // Hobbiton
+    [convertYCoordinate(483), 1027], // Bree
+    [convertYCoordinate(458), 1363]  // Rivendell
+  ];
   
+  // Create the polyline and add it to a variable
+  const path = L.polyline(pathCoordinates, { color: 'blue' });
+  
+  // Add the polyline to the map (but initially don't show it)
+  let pathVisible = false;
+  
+  // Toggle the path visibility
+  document.getElementById('toggleButton').addEventListener('click', function() {
+    if (pathVisible) {
+      path.remove(); // Remove the path from the map
+    } else {
+      path.addTo(map); // Add the path to the map
+    }
+    pathVisible = !pathVisible; // Toggle the visibility state
+  });

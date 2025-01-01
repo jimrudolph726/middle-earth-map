@@ -14,10 +14,20 @@
       height: 100vh;
       width: 100%;
     }
+    #toggleButton {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: white;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
   <div id="map"></div>
+  <button id="toggleButton">Toggle Path</button>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
