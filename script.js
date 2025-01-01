@@ -109,7 +109,7 @@ const map = L.map('map', {
       } else {
         minastirithMarker.addTo(map);  // Add Hobbiton marker to the map
         breeMarker.addTo(map); 
-        toggleMenButton.innerHTML = 'Show Men';  // Change button text
+        toggleMenButton.innerHTML = 'Hide Men';  // Change button text
       }
       isMinasTirithVisible = !isMinasTirithVisible;
     });
