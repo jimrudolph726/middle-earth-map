@@ -8,8 +8,17 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
         #map {
+            width: 100%;
             height: 600px;
+            border: 2px solid #ddd;
         }
     </style>
 </head>
@@ -32,7 +41,7 @@
 
         // Add the georeferenced map image overlay (use a PNG/JPG format for testing)
         L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', 
-                       [[-30, -90], [30, 90]])  // Adjust bounds to match the image
+                       [[-60, -150], [60, 150]])  // Adjust bounds to match your image
             .addTo(map);
 
         // Load the GeoJSON file from the GitHub repository
