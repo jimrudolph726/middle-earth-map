@@ -42,14 +42,11 @@ const map = L.map('map', {
   
   // Set up markers using the convertYCoordinate function with raw Y-values
   const hobbitonMarker = L.marker([convertYCoordinate(2329), 2247], { icon: HobbitsIcon })// Hobbiton
-    .addTo(map)
     .bindPopup('Hobbiton');
   const micheldelvingMarker = L.marker([convertYCoordinate(2388), 2110], { icon: HobbitsIcon }) // Hobbiton
-  .addTo(map)
   .bindPopup('Michel Delving');
   
   const breeMarker = L.marker([convertYCoordinate(2251), 2794], { icon: MenIcon }) // Bree
-    .addTo(map)
     .bindPopup('Bree');
   
   L.marker([convertYCoordinate(2244), 4240]) // Rivendell
@@ -57,7 +54,6 @@ const map = L.map('map', {
     .bindPopup('Rivendell');
 
   const minastirithMarker = L.marker([convertYCoordinate(5113), 5726], { icon: MenIcon }) // Minas Tirith
-    .addTo(map)
     .bindPopup('Minas Tirith');
 
   // Define the path (polyline)
@@ -85,7 +81,7 @@ const map = L.map('map', {
   });
 
   // Toggle button functionality for Hobbits
-  let isHobbitonVisible = true; // Initially, Hobbiton marker is visible
+  let isHobbitonVisible = false; // Initially, Hobbiton marker is visible
   const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
 
   toggleHobbitsButton.addEventListener('click', () => {
@@ -102,7 +98,7 @@ const map = L.map('map', {
   });
 
     // Toggle button functionality for Hobbits
-    let isMinasTirithVisible = true; // Initially, Hobbiton marker is visible
+    let isMinasTirithVisible = false; // Initially, Hobbiton marker is visible
     const toggleMenButton = document.getElementById('toggleMenButton');
   
     toggleMenButton.addEventListener('click', () => {
