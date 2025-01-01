@@ -27,14 +27,20 @@ const map = L.map('map', {
     .addTo(map)
     .bindPopup('Hobbiton')
     .openPopup();
+  
+  const breeX = 1027; // X-coordinate from Paint
+  const breeY = 483; // Y-coordinate from Paint
 
   // Add a marker for demonstration
-  L.marker([1027, 483]) // Coordinates in the same scale as the image dimensions
+  L.marker([imageHeight - breeX, breeY]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Bree')
-    .openPopup();  
+    .openPopup(); 
+    
+  const rivendellX = 1363; // X-coordinate from Paint
+  const rivendellY = 458; // Y-coordinate from Paint
 
-  L.marker([1363, 458]) // Coordinates in the same scale as the image dimensions
+  L.marker([imageHeight - rivendellX, rivendellY]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Rivendell')
     .openPopup();  
