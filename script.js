@@ -11,7 +11,7 @@ L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map
                [[-60, -150], [60, 150]])  // Adjust the bounds to match your image
     .addTo(map);
 
-// Load the GeoJSON file from the GitHub repository (or local path)
+// Load the GeoJSON file from the GitHub repository
 fetch('https://raw.githubusercontent.com/your-username/your-repository/main/points.geojson')
     .then(response => response.json())
     .then(data => {
