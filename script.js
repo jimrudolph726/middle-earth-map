@@ -1,1 +1,27 @@
+// script.js
 
+// Initialize the map
+const map = L.map('map', {
+    crs: L.CRS.Simple, // Use simple coordinate reference system for flat maps
+    minZoom: -2, // Allows zooming out to see the whole image
+  });
+  
+  // Image dimensions (width and height in pixels)
+  const imageWidth = 2048; // Adjust to your image's width
+  const imageHeight = 1536; // Adjust to your image's height
+  
+  // Define the image bounds ([top-left corner, bottom-right corner])
+  const imageBounds = [[0, 0], [imageHeight, imageWidth]];
+  
+  // Add the image as a map layer
+  const imageUrl = 'middle_earth.jpg'; // Path to your image file
+  L.imageOverlay(imageUrl, imageBounds).addTo(map);
+  
+  // Set the view to fit the image
+  map.fitBounds(imageBounds);
+  
+  // Add a marker for demonstration
+  L.marker([500, 1000]) // Coordinates in the same scale as the image dimensions
+    .addTo(map)
+    .bindPopup('Welcome to Middle-earth!')
+    .openPopup();  

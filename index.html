@@ -1,43 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Middle Earth Map</title>
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <style>
-        /* Full-screen map */
-        #map {
-            width: 100%;
-            height: 100vh;
-            border: 2px solid #ddd;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Middle-earth Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-
-    <!-- Map container -->
-    <div id="map"></div>
-
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-    <script>
-        // Initialize the map centered at the coordinates (0, 0) with zoom level 2
-        var map = L.map('map').setView([0, 0], 2);
-
-        // Add OpenStreetMap tile layer (this is the background map)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Add the image overlay (Middle Earth map) with specified bounds
-        L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', 
-            [[-60, -150], [60, 150]]) // Adjust the bounds to match the image
-            .addTo(map);
-    </script>
-
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
