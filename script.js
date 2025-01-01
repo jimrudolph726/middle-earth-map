@@ -19,8 +19,6 @@ const map = L.map('map', {
   
   // Set the view to fit the image
   map.fitBounds(imageBounds);
-  
-
 
   // Add a marker for demonstration
   L.marker([imageHeight - 1027, 483]) // Coordinates in the same scale as the image dimensions
