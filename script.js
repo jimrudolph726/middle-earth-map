@@ -38,6 +38,10 @@ const map = L.map('map', {
     .addTo(map)
     .bindPopup('Rivendell');
 
+  L.marker([convertYCoordinate(1696), 1182]) // Rivendell
+    .addTo(map)
+    .bindPopup('Minas Tirith');
+
   // Define the path (polyline)
   const pathCoordinates = [
     [convertYCoordinate(479), 876], // Hobbiton
