@@ -67,3 +67,18 @@ const map = L.map('map', {
     }
     isPathVisible = !isPathVisible;
   });
+
+  // Toggle button functionality for Hobbits
+  let isHobbitonVisible = true; // Initially, Hobbiton marker is visible
+  const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
+
+  toggleHobbitsButton.addEventListener('click', () => {
+    if (isHobbitonVisible) {
+      map.removeLayer(hobbitonMarker);  // Remove Hobbiton marker from the map
+      toggleHobbitsButton.innerHTML = 'Show Hobbits';  // Change button text
+    } else {
+      hobbitonMarker.addTo(map);  // Add Hobbiton marker to the map
+      toggleHobbitsButton.innerHTML = 'Hide Hobbits';  // Change button text
+    }
+    isHobbitonVisible = !isHobbitonVisible;
+  });
