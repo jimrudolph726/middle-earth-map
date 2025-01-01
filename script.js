@@ -61,8 +61,8 @@ const map = L.map('map', {
           <h3>Rivendell</h3>
           <a href="https://thainsbook.minastirith.cz/rivendell.html" target="_blank">https://thainsbook.minastirith.cz/rivendell.html</a>
       </div>
-  `)
-    .addTo(map);
+  `);
+  
   const minastirithMarker = L.marker([convertYCoordinate(5113), 5726], { icon: MenIcon }) // Minas Tirith
     .bindPopup('Minas Tirith');
 
