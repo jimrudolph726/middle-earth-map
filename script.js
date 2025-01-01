@@ -20,18 +20,20 @@ const map = L.map('map', {
   // Set the view to fit the image
   map.fitBounds(imageBounds);
   
+
+
   // Add a marker for demonstration
-  L.marker([1027, 483]) // Coordinates in the same scale as the image dimensions
+  L.marker([imageHeight - 1027, 483]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Bree')
     .openPopup();  
 
-  L.marker([876, 479]) // Coordinates in the same scale as the image dimensions
+  L.marker([imageHeight - 876, 479]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Hobbiton')
     .openPopup();  
 
-  L.marker([1363, 458]) // Coordinates in the same scale as the image dimensions
+  L.marker([imageHeight - 1363, 458]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Rivendell')
     .openPopup();  
