@@ -1,55 +1,57 @@
 body {
-  display: flex;
-  position: relative; /* Ensures the sections are positioned relative to the body */
-}
-
-#map {
-  height: 100vh;
-  width: 80%; /* Adjust width to leave space for the paths section */
-}
-
-#pathsSection {
-  width: 10%; /* This will take up 10% of the page width */
-  position: relative; /* Change to relative to make it flow naturally */
-  padding: 20px;
-  background-color: #f4f4f4;
-  height: auto; /* Let it adjust based on content */
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#toggleButton {
-  background-color: white;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1000;
-  width: 100%;
-  text-align: center;
-}
-
-#pathsSection h2 {
-  margin-top: 0;
-}
-
-#locationsSection {
-  width: 10%;
-  position: relative; /* Change to relative to make it flow naturally */
-  top: 50px;  /* Adjust this to position it below the Paths section */
-  right: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-  height: auto;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#toggleHobbitsButton {
-  background-color: white;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1000;
-  width: 100%;
-  text-align: center;
-}
-
-#locationsSection h2 {
-  margin-top: 0;
-}
+    display: flex;
+    position: relative;
+  }
+  
+  #map {
+    height: 100vh;
+    width: 80%; /* Adjust width to leave space for the paths section */
+  }
+  
+  #pathsSection {
+    width: 10%; /* This will take up 20% of the page width */
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    height: 100vh;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #toggleButton {
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #pathsSection h2 {
+    margin-top: 0;
+  }
+  
+  #locationsSection {
+    width: 10%;
+    position: absolute;
+    top: 800px;  /* Adjust this to position it below the Paths section */
+    right: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    height: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #toggleHobbitsButton {
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #locationsSection h2 {
+    margin-top: 0;
+  }
