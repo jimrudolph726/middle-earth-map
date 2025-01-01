@@ -59,10 +59,10 @@ const map = L.map('map', {
   .bindPopup(`
       <div>
           <h3>Rivendell</h3>
-          <a href="https://thainsbook.minastirith.cz/rivendell.html" target="_blank">https://thainsbook.minastirith.cz/rivendell.html</a>
+          <button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button>
       </div>
   `);
-  
+
   const minastirithMarker = L.marker([convertYCoordinate(5113), 5726], { icon: MenIcon }) // Minas Tirith
     .bindPopup('Minas Tirith');
 
