@@ -3,7 +3,8 @@
 // Initialize the map
 const map = L.map('map', {
     crs: L.CRS.Simple, // Use simple coordinate reference system for flat maps
-    minZoom: -2, // Allows zooming out to see the whole image
+    minZoom: -2,
+    zoom: -1, // Allows zooming out to see the whole image
   });
   
   // Image dimensions (width and height in pixels)
