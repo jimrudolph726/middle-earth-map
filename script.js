@@ -72,6 +72,9 @@ const map = L.map('map', {
   let isHobbitonVisible = true; // Initially, Hobbiton marker is visible
   const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
 
+  // Initially add the Hobbiton marker to the map
+  hobbitonMarker.addTo(map);
+
   toggleHobbitsButton.addEventListener('click', () => {
     if (isHobbitonVisible) {
       map.removeLayer(hobbitonMarker);  // Remove Hobbiton marker from the map
