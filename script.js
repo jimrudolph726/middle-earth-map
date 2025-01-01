@@ -2,13 +2,19 @@
 
 const HobbitsIcon = L.icon({
   iconUrl: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png', // Path to your custom image
-  iconSize: [32, 32],  // Size of the icon (adjust as needed)
+  iconSize: [48, 48],  // Size of the icon (adjust as needed)
   iconAnchor: [16, 32], // Point of the icon that will be at the marker's location
   popupAnchor: [0, -32] // Position of the popup relative to the icon
 });
 const MenIcon = L.icon({
   iconUrl: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png', // Path to your custom image
-  iconSize: [32, 32],  // Size of the icon (adjust as needed)
+  iconSize: [48, 48],  // Size of the icon (adjust as needed)
+  iconAnchor: [16, 32], // Point of the icon that will be at the marker's location
+  popupAnchor: [0, -32] // Position of the popup relative to the icon
+});
+const RivendellIcon = L.icon({
+  iconUrl: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png', // Path to your custom image
+  iconSize: [48, 48],  // Size of the icon (adjust as needed)
   iconAnchor: [16, 32], // Point of the icon that will be at the marker's location
   popupAnchor: [0, -32] // Position of the popup relative to the icon
 });
@@ -49,7 +55,7 @@ const map = L.map('map', {
   const breeMarker = L.marker([convertYCoordinate(2251), 2794], { icon: MenIcon }) // Bree
     .bindPopup('Bree');
   
-  L.marker([convertYCoordinate(2244), 4240]) // Rivendell
+  const rivendellMarker = L.marker([convertYCoordinate(2244), 4240], { icon: RivendellIcon })  // Rivendell
     .addTo(map)
     .bindPopup('Rivendell');
 
@@ -112,4 +118,19 @@ const map = L.map('map', {
         toggleMenButton.innerHTML = 'Hide Men';  // Change button text
       }
       isMinasTirithVisible = !isMinasTirithVisible;
+    });
+
+    
+    // Toggle button functionality for Hobbits
+    let isRivendellVisible = false; // Initially, Hobbiton marker is visible
+    const toggleElvesButton = document.getElementById('toggleElvesButton');
+    toggleElvesButton.addEventListener('click', () => {
+      if (isRivendellVisible) {
+        map.removeLayer(rivendellMarker); // Remove Hobbiton marker from the map 
+        toggleMenButton.innerHTML = 'Show Elves';  // Change button text
+      } else {
+        rivendellMarker.addTo(map);  // Add Hobbiton marker to the map
+        toggleElvesButton.innerHTML = 'Hide Elves';  // Change button text
+      }
+      isRivendellVisible = !isRivendellVisible;
     });
