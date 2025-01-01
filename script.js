@@ -88,7 +88,7 @@ const map = L.map('map', {
       map.removeLayer(micheldelvingMarker);  // Remove Hobbiton marker from the map
       toggleHobbitsButton.innerHTML = 'Show Hobbits';  // Change button text
     } else {
-      hobbitonMarker.addTo(map);  // Add Hobbiton marker to the map
+      micheldelvingMarker.addTo(map);  // Add Hobbiton marker to the map
       toggleHobbitsButton.innerHTML = 'Hide Hobbits';  // Change button text
     }
     isMichelDelvingVisible = !isMichelDelvingVisible;
