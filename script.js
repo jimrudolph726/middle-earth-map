@@ -7,14 +7,14 @@ const map = L.map('map', {
   });
   
   // Image dimensions (width and height in pixels)
-  const imageWidth = 2500; // Adjust to your image's width
-  const imageHeight = 1667; // Adjust to your image's height
+  const imageWidth = 8740; // Adjust to your image's width
+  const imageHeight = 8208; // Adjust to your image's height
   
   // Define the image bounds ([top-left corner, bottom-right corner])
   const imageBounds = [[0, 0], [imageHeight, imageWidth]];
   
   // Add the image as a map layer
-  const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth2.png'; // Path to your image file
+  const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png'; // Path to your image file
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
   
   // Set the view to fit the image
@@ -26,27 +26,27 @@ const map = L.map('map', {
   }
   
   // Set up markers using the convertYCoordinate function with raw Y-values
-  L.marker([convertYCoordinate(479), 876]) // Hobbiton
+  L.marker([convertYCoordinate(2329), 2247]) // Hobbiton
     .addTo(map)
     .bindPopup('Hobbiton');
   
-  L.marker([convertYCoordinate(483), 1027]) // Bree
+  L.marker([convertYCoordinate(2251), 2794]) // Bree
     .addTo(map)
     .bindPopup('Bree');
   
-  L.marker([convertYCoordinate(458), 1363]) // Rivendell
+  L.marker([convertYCoordinate(2244), 4240]) // Rivendell
     .addTo(map)
     .bindPopup('Rivendell');
 
-  L.marker([convertYCoordinate(1182), 1696]) // Rivendell
+  L.marker([convertYCoordinate(5113), 5726]) // Rivendell
     .addTo(map)
     .bindPopup('Minas Tirith');
 
   // Define the path (polyline)
   const pathCoordinates = [
-    [convertYCoordinate(479), 876], // Hobbiton
-    [convertYCoordinate(483), 1027], // Bree
-    [convertYCoordinate(458), 1363]  // Rivendell
+    [convertYCoordinate(2329), 2247], // Hobbiton
+    [convertYCoordinate(2251), 2794], // Bree
+    [convertYCoordinate(5113), 5726]  // Rivendell
   ];
   
   const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
