@@ -53,7 +53,7 @@ const map = L.map('map', {
   
   const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
 
-  // Toggle button functionality
+  // Toggle button functionality for Paths
   let isPathVisible = false;
   const toggleButton = document.getElementById('toggleButton');
   
@@ -66,4 +66,51 @@ const map = L.map('map', {
       toggleButton.innerHTML = 'Hide Fellowship Path';  // Change button text
     }
     isPathVisible = !isPathVisible;
+  });
+  
+  // Toggle button functionality for Locations
+  let isMenVisible = false;
+  let isElvesVisible = false;
+  let isHobbitsVisible = false;
+  
+  const toggleMen = document.getElementById('toggleMen');
+  const toggleElves = document.getElementById('toggleElves');
+  const toggleHobbits = document.getElementById('toggleHobbits');
+  
+  // Men toggle (Bree and Minas Tirith)
+  toggleMen.addEventListener('click', () => {
+    if (isMenVisible) {
+      map.removeLayer(bree);
+      map.removeLayer(minasTirith);
+      toggleMen.innerHTML = 'Men';  // Change button text back
+    } else {
+      bree.addTo(map);
+      minasTirith.addTo(map);
+      toggleMen.innerHTML = 'Hide Men';  // Change button text
+    }
+    isMenVisible = !isMenVisible;
+  });
+  
+  // Elves toggle (Rivendell)
+  toggleElves.addEventListener('click', () => {
+    if (isElvesVisible) {
+      map.removeLayer(rivendell);
+      toggleElves.innerHTML = 'Elves';  // Change button text back
+    } else {
+      rivendell.addTo(map);
+      toggleElves.innerHTML = 'Hide Elves';  // Change button text
+    }
+    isElvesVisible = !isElvesVisible;
+  });
+  
+  // Hobbits toggle (Hobbiton)
+  toggleHobbits.addEventListener('click', () => {
+    if (isHobbitsVisible) {
+      map.removeLayer(hobbiton);
+      toggleHobbits.innerHTML = 'Hobbits';  // Change button text back
+    } else {
+      hobbiton.addTo(map);
+      toggleHobbits.innerHTML = 'Hide Hobbits';  // Change button text
+    }
+    isHobbitsVisible = !isHobbitsVisible;
   });

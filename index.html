@@ -5,15 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Middle-earth Map</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <!-- Link to your external CSS file -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="map"></div>
+  
+  <!-- Paths Section -->
   <div id="pathsSection">
-    <h2>Paths</h2>
+    <h3>Paths</h3>
     <button id="toggleButton">Fellowship Path</button>
   </div>
+  
+  <!-- Locations Section -->
+  <div id="locationsSection">
+    <h3>Locations</h3>
+    <button id="toggleMen">Men</button>
+    <button id="toggleElves">Elves</button>
+    <button id="toggleHobbits">Hobbits</button>
+  </div>
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
