@@ -49,19 +49,19 @@ const map = L.map('map', {
     [convertYCoordinate(458), 1363]  // Rivendell
   ];
   
-  const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' }).addTo(map);
+  const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
 
   // Toggle button functionality
   let isPathVisible = false;
   const toggleButton = document.getElementById('toggleButton');
-
+  
   toggleButton.addEventListener('click', () => {
-  if (isPathVisible) {
-    map.removeLayer(fellowshipPath);
-    toggleButton.innerHTML = 'Fellowship Path'; // Change button text
-  } else {
-    fellowshipPath.addTo(map);
-    toggleButton.innerHTML = 'Hide Fellowship Path'; // Change button text
-  }
-  isPathVisible = !isPathVisible;
-});
+    if (isPathVisible) {
+      map.removeLayer(fellowshipPath);  // Remove path from the map
+      toggleButton.innerHTML = 'Fellowship Path';  // Change button text back
+    } else {
+      fellowshipPath.addTo(map);  // Add path to the map
+      toggleButton.innerHTML = 'Hide Fellowship Path';  // Change button text
+    }
+    isPathVisible = !isPathVisible;
+  });
