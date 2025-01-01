@@ -42,7 +42,8 @@ const map = L.map('map', {
   const SamFrodoPathUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png'; // Path to your image file
   const SamFrodoPathOverlay = L.imageOverlay(SamFrodoPathUrl, imageBounds).addTo(map);
 
-
+  // Hide the path initially
+  fellowshipPathOverlay.setOpacity(0);
   
   // Set the view to fit the image
   map.fitBounds(imageBounds);
@@ -80,21 +81,6 @@ const map = L.map('map', {
   ];
   
   const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
-
-  // Toggle button functionality
-  let isPathVisible = false;
-  const toggleButton = document.getElementById('toggleButton');
-  
-  toggleButton.addEventListener('click', () => {
-    if (isPathVisible) {
-      map.removeLayer(fellowshipPath);  // Remove path from the map
-      toggleButton.innerHTML = 'Fellowship Path';  // Change button text back
-    } else {
-      fellowshipPath.addTo(map);  // Add path to the map
-      toggleButton.innerHTML = 'Hide Fellowship Path';  // Change button text
-    }
-    isPathVisible = !isPathVisible;
-  });
 
   // Toggle button functionality for Hobbits
   let isHobbitonVisible = false; // Initially, Hobbiton marker is visible
@@ -143,4 +129,15 @@ const map = L.map('map', {
         toggleElvesButton.innerHTML = 'Hide Elves';  // Change button text
       }
       isRivendellVisible = !isRivendellVisible;
+    });
+
+        // Add event listener to the Fellowship Path button to toggle visibility
+    document.getElementById('toggleSamFrodoPathButton').addEventListener('click', function() {
+      if (fellowshipPathOverlay._map) {
+        // If the path is currently displayed, hide it
+        fellowshipPathOverlay.setOpacity(0); 
+      } else {
+        // Otherwise, display the path
+        fellowshipPathOverlay.setOpacity(1); 
+      }
     });
