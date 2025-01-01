@@ -56,7 +56,6 @@ const map = L.map('map', {
     .bindPopup('Bree');
   
   const rivendellMarker = L.marker([convertYCoordinate(2244), 4240], { icon: RivendellIcon })  // Rivendell
-    .addTo(map)
     .bindPopup('Rivendell');
 
   const minastirithMarker = L.marker([convertYCoordinate(5113), 5726], { icon: MenIcon }) // Minas Tirith
