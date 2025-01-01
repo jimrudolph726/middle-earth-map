@@ -48,7 +48,7 @@ const map = L.map('map', {
   .addTo(map)
   .bindPopup('Michel Delving');
   
-  L.marker([convertYCoordinate(2251), 2794], { icon: HobbitsIcon }) // Bree
+  const breeMarker = L.marker([convertYCoordinate(2251), 2794], { icon: MenIcon }) // Bree
     .addTo(map)
     .bindPopup('Bree');
   
@@ -108,9 +108,11 @@ const map = L.map('map', {
     toggleMenButton.addEventListener('click', () => {
       if (isMinasTirithVisible) {
         map.removeLayer(minastirithMarker); // Remove Hobbiton marker from the map 
+        map.removeLayer(breeMarker); 
         toggleMenButton.innerHTML = 'Show Men';  // Change button text
       } else {
         minastirithMarker.addTo(map);  // Add Hobbiton marker to the map
+        breeMarker.addTo(map); 
         toggleMenButton.innerHTML = 'Show Men';  // Change button text
       }
       isMinasTirithVisible = !isMinasTirithVisible;
