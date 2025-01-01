@@ -105,6 +105,7 @@ toggleElvesButton.addEventListener('click', () => {
   visibilityState.elves = toggleVisibility(markers.rivendell, toggleElvesButton, visibilityState.elves);
 });
 
+// Change for Sam Frodo Path toggle specifically
 const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
 toggleSamFrodoPathButton.addEventListener('click', () => {
   visibilityState.samFrodoPath = toggleVisibility(SamFrodoPathOverlay, toggleSamFrodoPathButton, visibilityState.samFrodoPath);
