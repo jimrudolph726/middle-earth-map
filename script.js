@@ -28,18 +28,15 @@ const map = L.map('map', {
   // Set up markers using the convertYCoordinate function with raw Y-values
   L.marker([convertYCoordinate(479), 876]) // Hobbiton
     .addTo(map)
-    .bindPopup('Hobbiton')
-    .openPopup();
+    .bindPopup('Hobbiton');
   
   L.marker([convertYCoordinate(483), 1027]) // Bree
     .addTo(map)
-    .bindPopup('Bree')
-    .openPopup();
+    .bindPopup('Bree');
   
   L.marker([convertYCoordinate(458), 1363]) // Rivendell
     .addTo(map)
-    .bindPopup('Rivendell')
-    .openPopup();
+    .bindPopup('Rivendell');
 
   // Define the path (polyline)
   const pathCoordinates = [
