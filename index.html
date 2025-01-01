@@ -39,9 +39,9 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Add the georeferenced map image overlay (use a PNG/JPG format for testing)
+        // Add the georeferenced map image overlay with the corrected bounds
         L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', 
-                       [[-60, -150], [60, 150]])  // Adjust bounds to match your image
+                       [[35.0543450529999987, -103.5250501050000054], [50.2197752080000015, -75.3454657030000021]])  // Adjust bounds to match your image
             .addTo(map);
 
         // Load the GeoJSON file from the GitHub repository
