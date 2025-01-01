@@ -13,4 +13,7 @@ map.setView([34.0, -118.0], 5); // Example coordinates for a location in Middle-
 L.marker([34.0, -118.0]).addTo(map)
     .bindPopup('<b>Minas Tirith</b><br>Capital of Gondor')
     .openPopup();
-L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', [[-90, -180], [90, 180]]).addTo(map);
+
+// Add the Middle-Earth image overlay with custom bounds
+L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', 
+[[-60, -150], [60, 150]]).addTo(map);
