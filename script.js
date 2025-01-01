@@ -1,4 +1,39 @@
 // script.js
+// Add a FeatureGroup to store editable layers
+const drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+// Add Leaflet.Draw control to the map
+const drawControl = new L.Control.Draw({
+    edit: {
+        featureGroup: drawnItems, // Allows editing of drawn items
+    },
+    draw: {
+        polyline: true,  // Enable polyline drawing
+        polygon: false,  // Disable polygon drawing
+        circle: false,   // Disable circle drawing
+        marker: false,   // Disable marker creation
+        rectangle: false // Disable rectangle drawing
+    }
+});
+map.addControl(drawControl);
+
+map.on('draw:created', function (event) {
+  const layer = event.layer;
+
+  // Add the drawn layer to the FeatureGroup
+  drawnItems.addLayer(layer);
+
+  // Get the coordinates of the path
+  if (event.layerType === 'polyline') {
+      const coordinates = layer.getLatLngs();
+      console.log('Path coordinates:', coordinates);
+
+      // Example: Display coordinates as an alert
+      alert(JSON.stringify(coordinates));
+  }
+});
+
 
 const HobbitsIcon = L.icon({
   iconUrl: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png', // Path to your custom image
