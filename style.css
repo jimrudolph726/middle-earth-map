@@ -31,3 +31,26 @@ body {
     margin-top: 0;
   }
   
+  #locationsSection {
+    width: 10%;
+    position: absolute;
+    top: 100px;  /* Adjust this to position it below the Paths section */
+    right: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    height: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #toggleHobbitsButton {
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #locationsSection h2 {
+    margin-top: 0;
+  }
