@@ -7,6 +7,9 @@
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Leaflet-Geotiff plugin -->
+    <script src="https://unpkg.com/leaflet-geotiff@1.0.0/leaflet-geotiff.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,10 +42,11 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Add the georeferenced map image overlay
-        L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', 
-                       [[-60, -150], [60, 150]])  // Adjust bounds based on Middle-Earth's geographic area
-            .addTo(map);
+        // Add the GeoTIFF overlay using Leaflet-Geotiff plugin
+        L.geotiff('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.tif', {
+            band: 0, // Specify the band if your GeoTIFF has multiple bands
+            renderer: L.DomUtil.create('canvas') // Use a canvas renderer for efficient rendering
+        }).addTo(map);
 
         // Load the GeoJSON file from the GitHub repository
         fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/points.geojson')
