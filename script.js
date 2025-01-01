@@ -31,6 +31,9 @@ const map = L.map('map', {
   const hobbitonMarker = L.marker([convertYCoordinate(2329), 2247]) // Hobbiton
     .addTo(map)
     .bindPopup('Hobbiton');
+  const micheldelvingMarker = L.marker([convertYCoordinate(2388), 2110]) // Hobbiton
+  .addTo(map)
+  .bindPopup('Hobbiton');
   
   L.marker([convertYCoordinate(2251), 2794]) // Bree
     .addTo(map)
@@ -81,4 +84,14 @@ const map = L.map('map', {
       toggleHobbitsButton.innerHTML = 'Hide Hobbits';  // Change button text
     }
     isHobbitonVisible = !isHobbitonVisible;
+    if (isMichelDelvingVisible) {
+      map.removeLayer(micheldelvingMarker);  // Remove Hobbiton marker from the map
+      toggleHobbitsButton.innerHTML = 'Show Hobbits';  // Change button text
+    } else {
+      hobbitonMarker.addTo(map);  // Add Hobbiton marker to the map
+      toggleHobbitsButton.innerHTML = 'Hide Hobbits';  // Change button text
+    }
+    isMichelDelvingVisible = !isMichelDelvingVisible;
+
+
   });
