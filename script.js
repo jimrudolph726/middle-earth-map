@@ -4,7 +4,7 @@
 const map = L.map('map', {
     crs: L.CRS.Simple, // Use simple coordinate reference system for flat maps
     minZoom: -5, // Allow zooming out more
-    maxZoom: -1, // You can adjust this to restrict zooming in
+    maxZoom: 2, // You can adjust this to restrict zooming in
     zoom: -5, // Set the initial zoom level
   });
   
