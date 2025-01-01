@@ -33,7 +33,7 @@ const map = L.map('map', {
     .bindPopup('Hobbiton');
   const micheldelvingMarker = L.marker([convertYCoordinate(2388), 2110]) // Hobbiton
   .addTo(map)
-  .bindPopup('Hobbiton');
+  .bindPopup('Michel Delving');
   
   L.marker([convertYCoordinate(2251), 2794]) // Bree
     .addTo(map)
