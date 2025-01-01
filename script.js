@@ -20,32 +20,24 @@ const map = L.map('map', {
   // Set the view to fit the image
   map.fitBounds(imageBounds);
   
-  function adjustYCoordinate(y)
-  {
-    return imageHeight - y
+// Function to convert the Y-coordinate
+  function convertYCoordinate(y) {
+    return imageHeight - y;
   }
-
-//   const hobbitonX = 876; // X-coordinate from Paint
-//   const hobbitonY = 479; // Y-coordinate from Paint
-
-  L.marker([adjustYCoordinate(479), 876]) // Convert Y-coordinate
+  
+  // Set up markers using the convertYCoordinate function with raw Y-values
+  L.marker([convertYCoordinate(479), 876]) // Hobbiton
     .addTo(map)
     .bindPopup('Hobbiton')
     .openPopup();
   
-  const breeX = 1027; // X-coordinate from Paint
-  const breeY = 483; // Y-coordinate from Paint
-
-  // Add a marker for demonstration
-  L.marker([imageHeight - breeY, breeX]) // Coordinates in the same scale as the image dimensions
+  L.marker([convertYCoordinate(483), 1027]) // Bree
     .addTo(map)
     .bindPopup('Bree')
-    .openPopup(); 
-    
-  const rivendellX = 1363; // X-coordinate from Paint
-  const rivendellY = 458; // Y-coordinate from Paint
-
-  L.marker([imageHeight - rivendellY, rivendellX]) // Coordinates in the same scale as the image dimensions
+    .openPopup();
+  
+  L.marker([convertYCoordinate(458), 1363]) // Rivendell
     .addTo(map)
     .bindPopup('Rivendell')
-    .openPopup();  
+    .openPopup();
+  
