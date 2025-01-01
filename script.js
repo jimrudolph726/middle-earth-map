@@ -26,10 +26,7 @@ const map = L.map('map', {
     .bindPopup('Welcome to Middle-earth!')
     .openPopup();  
 
-  const hobbitonX = 876; // X-coordinate from Paint
-  const hobbitonY = 479; // Y-coordinate from Paint
-    
-  L.marker([imageHeight - hobbitonY, hobbitonX]) // Convert Y-coordinate
+  L.marker([876, 479]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Hobbiton')
-    .openPopup();
+    .openPopup();  
