@@ -8,8 +8,17 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
         #map {
+            width: 100%;
             height: 600px;
+            border: 2px solid #ddd;
         }
     </style>
 </head>
@@ -29,6 +38,22 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+
+        // Add the georeferenced map image overlay
+        L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', 
+                       [[-60, -150], [60, 150]])  // Adjust bounds based on Middle-Earth's geographic area
+            .addTo(map);
+
+        // Load the GeoJSON file from the GitHub repository
+        fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/points.geojson')
+            .then(response => response.json())
+            .then(data => {
+                // Add the GeoJSON data to the map
+                L.geoJSON(data).addTo(map);
+            })
+            .catch(error => {
+                console.error('Error loading GeoJSON file:', error);
+            });
     </script>
 
 </body>
