@@ -34,7 +34,7 @@ body {
   #locationsSection {
     width: 10%;
     position: absolute;
-    top: 200px;  /* Adjust this to position it below the Paths section */
+    top: 300px;  /* Adjust this to position it below the Paths section */
     right: 0;
     padding: 20px;
     background-color: #f4f4f4;
