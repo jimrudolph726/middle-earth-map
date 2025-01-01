@@ -20,15 +20,18 @@ const map = L.map('map', {
   // Set the view to fit the image
   map.fitBounds(imageBounds);
 
+  const hobbitonX = 876; // X-coordinate from Paint
+  const hobbitonY = 479; // Y-coordinate from Paint
+
+  L.marker([imageHeight - hobbitonY, hobbitonX]) // Convert Y-coordinate
+    .addTo(map)
+    .bindPopup('Hobbiton')
+    .openPopup();
+
   // Add a marker for demonstration
   L.marker([1027, 483]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Bree')
-    .openPopup();  
-
-  L.marker([1500, 500]) // Coordinates in the same scale as the image dimensions
-    .addTo(map)
-    .bindPopup('Hobbiton')
     .openPopup();  
 
   L.marker([1363, 458]) // Coordinates in the same scale as the image dimensions
