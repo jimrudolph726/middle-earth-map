@@ -26,7 +26,7 @@ const map = L.map('map', {
     .bindPopup('Welcome to Middle-earth!')
     .openPopup();  
 
-L.marker([876, 479]) // Coordinates in the same scale as the image dimensions
-.addTo(map)
-.bindPopup('Hobbiton')
-.openPopup();  
+  L.marker([876, 479]) // Coordinates in the same scale as the image dimensions
+    .addTo(map)
+    .bindPopup('Hobbiton')
+    .openPopup();  
