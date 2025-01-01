@@ -1,5 +1,12 @@
 // script.js
 
+const HobbitsIcon = L.icon({
+  iconUrl: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png', // Path to your custom image
+  iconSize: [32, 32],  // Size of the icon (adjust as needed)
+  iconAnchor: [16, 32], // Point of the icon that will be at the marker's location
+  popupAnchor: [0, -32] // Position of the popup relative to the icon
+});
+
 // Initialize the map
 const map = L.map('map', {
     crs: L.CRS.Simple, // Use simple coordinate reference system for flat maps
@@ -28,10 +35,10 @@ const map = L.map('map', {
   }
   
   // Set up markers using the convertYCoordinate function with raw Y-values
-  const hobbitonMarker = L.marker([convertYCoordinate(2329), 2247]) // Hobbiton
+  const hobbitonMarker = L.marker([convertYCoordinate(2329), 2247], { icon: HobbitsIcon })// Hobbiton
     .addTo(map)
     .bindPopup('Hobbiton');
-  const micheldelvingMarker = L.marker([convertYCoordinate(2388), 2110]) // Hobbiton
+  const micheldelvingMarker = L.marker([convertYCoordinate(2388), 2110], { icon: HobbitsIcon }) // Hobbiton
   .addTo(map)
   .bindPopup('Michel Delving');
   
