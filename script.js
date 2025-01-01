@@ -26,7 +26,7 @@ const map = L.map('map', {
     .bindPopup('Bree')
     .openPopup();  
 
-  L.marker([876, 479]) // Coordinates in the same scale as the image dimensions
+  L.marker([1500, 500]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Hobbiton')
     .openPopup();  
