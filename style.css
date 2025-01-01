@@ -8,7 +8,7 @@ body {
   }
   
   #pathsSection {
-    width: 20%; /* This will take up 20% of the page width */
+    width: 10%; /* This will take up 20% of the page width */
     position: absolute;
     top: 0;
     right: 0;

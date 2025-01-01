@@ -38,7 +38,7 @@ const map = L.map('map', {
     .addTo(map)
     .bindPopup('Rivendell');
 
-  L.marker([convertYCoordinate(1696), 1182]) // Rivendell
+  L.marker([convertYCoordinate(1182), 1696]) // Rivendell
     .addTo(map)
     .bindPopup('Minas Tirith');
 
