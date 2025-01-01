@@ -40,11 +40,8 @@ const map = L.map('map', {
 
   // Add the image as a map layer
   const SamFrodoPathUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png'; // Path to your image file
-  const SamFrodoPathOverlay = L.imageOverlay(SamFrodoPathUrl, imageBounds).addTo(map);
+  const SamFrodoPathOverlay = L.imageOverlay(SamFrodoPathUrl, imageBounds);
 
-  // Hide the path initially
-  fellowshipPathOverlay.setOpacity(0);
-  
   // Set the view to fit the image
   map.fitBounds(imageBounds);
   
@@ -131,13 +128,16 @@ const map = L.map('map', {
       isRivendellVisible = !isRivendellVisible;
     });
 
-        // Add event listener to the Fellowship Path button to toggle visibility
-    document.getElementById('toggleSamFrodoPathButton').addEventListener('click', function() {
-      if (fellowshipPathOverlay._map) {
-        // If the path is currently displayed, hide it
-        fellowshipPathOverlay.setOpacity(0); 
+    // Toggle button functionality for Hobbits
+    let SamFrodoPathVisible = false; // Initially, Hobbiton marker is visible
+    const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
+    toggleSamFrodoPathButton.addEventListener('click', () => {
+      if (SamFrodoPathVisible) {
+        map.removeLayer(SamFrodoPathOverlay); // Remove Hobbiton marker from the map 
+        toggleElvesButton.innerHTML = "Show Sam and Frodo's Path";  // Change button text
       } else {
-        // Otherwise, display the path
-        fellowshipPathOverlay.setOpacity(1); 
+        SamFrodoPathOverlay.addTo(map);  // Add Hobbiton marker to the map
+        toggleSamFrodoPathButton.innerHTML = "Hide Sam and Frodo's Path";  // Change button text
       }
+      SamFrodoPathVisible = !SamFrodoPathVisible;
     });
