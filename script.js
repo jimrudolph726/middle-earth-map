@@ -77,21 +77,13 @@ const map = L.map('map', {
 
   toggleHobbitsButton.addEventListener('click', () => {
     if (isHobbitonVisible) {
-      map.removeLayer(hobbitonMarker);  // Remove Hobbiton marker from the map
+      map.removeLayer(hobbitonMarker); // Remove Hobbiton marker from the map
+      map.removeLayer(micheldelvingMarker);  
       toggleHobbitsButton.innerHTML = 'Show Hobbits';  // Change button text
     } else {
       hobbitonMarker.addTo(map);  // Add Hobbiton marker to the map
+      micheldelvingMarker.addTo(map);
       toggleHobbitsButton.innerHTML = 'Hide Hobbits';  // Change button text
     }
     isHobbitonVisible = !isHobbitonVisible;
-    if (isMichelDelvingVisible) {
-      map.removeLayer(micheldelvingMarker);  // Remove Hobbiton marker from the map
-      toggleHobbitsButton.innerHTML = 'Show Hobbits';  // Change button text
-    } else {
-      micheldelvingMarker.addTo(map);  // Add Hobbiton marker to the map
-      toggleHobbitsButton.innerHTML = 'Hide Hobbits';  // Change button text
-    }
-    isMichelDelvingVisible = !isMichelDelvingVisible;
-
-
   });
