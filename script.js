@@ -6,6 +6,12 @@ const HobbitsIcon = L.icon({
   iconAnchor: [16, 32], // Point of the icon that will be at the marker's location
   popupAnchor: [0, -32] // Position of the popup relative to the icon
 });
+const MenIcon = L.icon({
+  iconUrl: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png', // Path to your custom image
+  iconSize: [32, 32],  // Size of the icon (adjust as needed)
+  iconAnchor: [16, 32], // Point of the icon that will be at the marker's location
+  popupAnchor: [0, -32] // Position of the popup relative to the icon
+});
 
 // Initialize the map
 const map = L.map('map', {
@@ -42,7 +48,7 @@ const map = L.map('map', {
   .addTo(map)
   .bindPopup('Michel Delving');
   
-  L.marker([convertYCoordinate(2251), 2794]) // Bree
+  L.marker([convertYCoordinate(2251), 2794], { icon: HobbitsIcon }) // Bree
     .addTo(map)
     .bindPopup('Bree');
   
@@ -50,7 +56,7 @@ const map = L.map('map', {
     .addTo(map)
     .bindPopup('Rivendell');
 
-  L.marker([convertYCoordinate(5113), 5726]) // Minas Tirith
+  const minastirithMarker = L.marker([convertYCoordinate(5113), 5726], { icon: MenIcon }) // Minas Tirith
     .addTo(map)
     .bindPopup('Minas Tirith');
 
@@ -94,3 +100,18 @@ const map = L.map('map', {
     }
     isHobbitonVisible = !isHobbitonVisible;
   });
+
+    // Toggle button functionality for Hobbits
+    let isMinasTirithVisible = true; // Initially, Hobbiton marker is visible
+    const toggleMenButton = document.getElementById('toggleMenButton');
+  
+    toggleMenButton.addEventListener('click', () => {
+      if (isMinasTirithVisible) {
+        map.removeLayer(minastirithMarker); // Remove Hobbiton marker from the map 
+        toggleMenButton.innerHTML = 'Show Men';  // Change button text
+      } else {
+        minastirithMarker.addTo(map);  // Add Hobbiton marker to the map
+        toggleMenButton.innerHTML = 'Show Men';  // Change button text
+      }
+      isMinasTirithVisible = !isMinasTirithVisible;
+    });
