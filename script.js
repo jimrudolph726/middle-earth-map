@@ -3,7 +3,7 @@
 // Initialize the map
 const map = L.map('map', {
     crs: L.CRS.Simple, // Use simple coordinate reference system for flat maps
-    minZoom: -50, // Allow zooming out more
+    minZoom: -40, // Allow zooming out more
     maxZoom: -1, // You can adjust this to restrict zooming in
     zoom: -5, // Set the initial zoom level
   });
@@ -48,7 +48,7 @@ const map = L.map('map', {
   const pathCoordinates = [
     [convertYCoordinate(2329), 2247], // Hobbiton
     [convertYCoordinate(2251), 2794], // Bree
-    [convertYCoordinate(5113), 5726]  // Rivendell
+    [convertYCoordinate(2244), 4240]  // Rivendell
   ];
   
   const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
