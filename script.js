@@ -28,7 +28,7 @@ const map = L.map('map', {
   }
   
   // Set up markers using the convertYCoordinate function with raw Y-values
-  L.marker([convertYCoordinate(2329), 2247]) // Hobbiton
+  const hobbitonMarker = L.marker([convertYCoordinate(2329), 2247]) // Hobbiton
     .addTo(map)
     .bindPopup('Hobbiton');
   
@@ -71,9 +71,6 @@ const map = L.map('map', {
   // Toggle button functionality for Hobbits
   let isHobbitonVisible = true; // Initially, Hobbiton marker is visible
   const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
-
-  // Initially add the Hobbiton marker to the map
-  hobbitonMarker.addTo(map);
 
   toggleHobbitsButton.addEventListener('click', () => {
     if (isHobbitonVisible) {
