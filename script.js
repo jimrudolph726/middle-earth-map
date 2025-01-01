@@ -127,7 +127,7 @@ const map = L.map('map', {
     toggleElvesButton.addEventListener('click', () => {
       if (isRivendellVisible) {
         map.removeLayer(rivendellMarker); // Remove Hobbiton marker from the map 
-        toggleMenButton.innerHTML = 'Show Elves';  // Change button text
+        toggleElvesButton.innerHTML = 'Show Elves';  // Change button text
       } else {
         rivendellMarker.addTo(map);  // Add Hobbiton marker to the map
         toggleElvesButton.innerHTML = 'Hide Elves';  // Change button text
