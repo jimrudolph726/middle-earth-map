@@ -14,7 +14,7 @@ const map = L.map('map', {
   const imageBounds = [[0, 0], [imageHeight, imageWidth]];
   
   // Add the image as a map layer
-  const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle_earth2.jpg'; // Path to your image file
+  const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth2.jpg'; // Path to your image file
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
   
   // Set the view to fit the image
