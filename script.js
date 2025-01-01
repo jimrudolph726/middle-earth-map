@@ -37,6 +37,11 @@ const map = L.map('map', {
   // Add the image as a map layer
   const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png'; // Path to your image file
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+  // Add the image as a map layer
+  const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png'; // Path to your image file
+  L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
   
   // Set the view to fit the image
   map.fitBounds(imageBounds);
