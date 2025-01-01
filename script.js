@@ -134,7 +134,7 @@ const map = L.map('map', {
     toggleSamFrodoPathButton.addEventListener('click', () => {
       if (SamFrodoPathVisible) {
         map.removeLayer(SamFrodoPathOverlay); // Remove Hobbiton marker from the map 
-        toggleElvesButton.innerHTML = "Show Sam and Frodo's Path";  // Change button text
+        toggleSamFrodoPathButton.innerHTML = "Show Sam and Frodo's Path";  // Change button text
       } else {
         SamFrodoPathOverlay.addTo(map);  // Add Hobbiton marker to the map
         toggleSamFrodoPathButton.innerHTML = "Hide Sam and Frodo's Path";  // Change button text
