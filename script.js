@@ -12,7 +12,7 @@ L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map
     .addTo(map);
 
 // Load the GeoJSON file from the GitHub repository
-fetch('https://raw.githubusercontent.com/your-username/your-repository/main/points.geojson')
+fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/points.geojson')
     .then(response => response.json())
     .then(data => {
         // Add the GeoJSON data to the map
