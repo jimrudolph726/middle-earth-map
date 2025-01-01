@@ -61,6 +61,15 @@ body {
     text-align: center;
   }
 
+  #toggleElvesButton {
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+  }
+
   #locationsSection h2 {
     margin-top: 0;
   }
