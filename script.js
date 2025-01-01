@@ -19,11 +19,16 @@ const map = L.map('map', {
   
   // Set the view to fit the image
   map.fitBounds(imageBounds);
+  
+  function adjustYCoordinate(y)
+  {
+    return imageHeight - y
+  }
 
-  const hobbitonX = 876; // X-coordinate from Paint
-  const hobbitonY = 479; // Y-coordinate from Paint
+//   const hobbitonX = 876; // X-coordinate from Paint
+//   const hobbitonY = 479; // Y-coordinate from Paint
 
-  L.marker([imageHeight - hobbitonY, hobbitonX]) // Convert Y-coordinate
+  L.marker([adjustYCoordinate(479), 876]) // Convert Y-coordinate
     .addTo(map)
     .bindPopup('Hobbiton')
     .openPopup();
@@ -32,7 +37,7 @@ const map = L.map('map', {
   const breeY = 483; // Y-coordinate from Paint
 
   // Add a marker for demonstration
-  L.marker([imageHeight - breeX, breeY]) // Coordinates in the same scale as the image dimensions
+  L.marker([imageHeight - breeY, breeX]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Bree')
     .openPopup(); 
@@ -40,7 +45,7 @@ const map = L.map('map', {
   const rivendellX = 1363; // X-coordinate from Paint
   const rivendellY = 458; // Y-coordinate from Paint
 
-  L.marker([imageHeight - rivendellX, rivendellY]) // Coordinates in the same scale as the image dimensions
+  L.marker([imageHeight - rivendellY, rivendellX]) // Coordinates in the same scale as the image dimensions
     .addTo(map)
     .bindPopup('Rivendell')
     .openPopup();  
