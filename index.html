@@ -7,20 +7,11 @@
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- Leaflet-Geotiff plugin -->
-    <script src="https://unpkg.com/leaflet-geotiff@1.0.0/leaflet-geotiff.js"></script>
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Full-screen map */
         #map {
             width: 100%;
-            height: 600px;
+            height: 100vh;
             border: 2px solid #ddd;
         }
     </style>
@@ -34,30 +25,18 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
     <script>
-        // Initialize the map
-        var map = L.map('map').setView([0, 0], 2); // Set initial coordinates and zoom level
+        // Initialize the map centered at the coordinates (0, 0) with zoom level 2
+        var map = L.map('map').setView([0, 0], 2);
 
-        // Add OpenStreetMap tile layer
+        // Add OpenStreetMap tile layer (this is the background map)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Add the GeoTIFF overlay using Leaflet-Geotiff plugin
-        L.geotiff('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.tif', {
-            band: 0, // Specify the band if your GeoTIFF has multiple bands
-            renderer: L.DomUtil.create('canvas') // Use a canvas renderer for efficient rendering
-        }).addTo(map);
-
-        // Load the GeoJSON file from the GitHub repository
-        fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/points.geojson')
-            .then(response => response.json())
-            .then(data => {
-                // Add the GeoJSON data to the map
-                L.geoJSON(data).addTo(map);
-            })
-            .catch(error => {
-                console.error('Error loading GeoJSON file:', error);
-            });
+        // Add the image overlay (Middle Earth map) with specified bounds
+        L.imageOverlay('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.jpg', 
+            [[-60, -150], [60, 150]]) // Adjust the bounds to match the image
+            .addTo(map);
     </script>
 
 </body>
