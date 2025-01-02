@@ -39,9 +39,27 @@ const imageBounds = [[0, 0], [imageHeight, imageWidth]];
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png';
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-// Path overlay
-const SamFrodoPathUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png';
-const SamFrodoPathOverlay = L.imageOverlay(SamFrodoPathUrl, imageBounds);
+// Overlay data with names and URLs
+const overlayData = [
+  { name: 'SamFrodoPathOverlay', url: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png' }
+];
+
+// Function to create overlays
+const createOverlays = (data, bounds) => {
+  const overlays = {};
+  data.forEach(({ name, url }) => {
+    overlays[name] = L.imageOverlay(url, bounds);
+  });
+  return overlays;
+};
+
+// Generate overlays dynamically
+const overlays = createOverlays(overlayData, imageBounds);
+
+// Example usage
+console.log(overlays.SamFrodoPathOverlay); // Access the generated overlay
+console.log(overlays.MerryPippinPathOverlay); // Access the generated overlay
+
 
 // Set the view to fit the image
 map.fitBounds(imageBounds);
@@ -71,13 +89,13 @@ const addCheckboxListener = (checkboxId, markerKey, overlay = false) => {
   document.getElementById(checkboxId).addEventListener('change', (event) => {
     if (event.target.checked) {
       if (overlay) {
-        SamFrodoPathOverlay.addTo(map);
+        overlay.addTo(map);
       } else {
         markers[markerKey].addTo(map);
       }
     } else {
       if (overlay) {
-        map.removeLayer(SamFrodoPathOverlay);
+        map.removeLayer(overlay);
       } else {
         map.removeLayer(markers[markerKey]);
       }
@@ -90,4 +108,4 @@ addCheckboxListener('hobbitsCheckbox', 'hobbiton');
 addCheckboxListener('hobbitsCheckbox', 'micheldelving');
 addCheckboxListener('menCheckbox', 'minastirith');
 addCheckboxListener('elvesCheckbox', 'rivendell');
-addCheckboxListener('samfrodopathCheckbox', '', true);
+addCheckboxListener('samFrodoPathCheckbox', null, overlays.SamFrodoPathOverlay);
