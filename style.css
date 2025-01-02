@@ -14,7 +14,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 20px 50px; /* Increase padding on both sides */
+  padding: 0 50px; /* Increase padding on both sides */
   background-color: #f4f4f4;
   height: 100vh;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
@@ -35,7 +35,7 @@ body {
   position: absolute;
   top: 150px;  /* Adjust this to position it below the Paths section */
   right: 0;
-  padding: 20px 50px; /* Increase padding on both sides */
+  padding: 0 50px; /* Increase padding on both sides */
   background-color: #f4f4f4;
   height: auto;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
