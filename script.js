@@ -84,7 +84,7 @@ let visibilityState = {
   hobbits: false,
   men: false,
   elves: false,
-  samFrodoPath: false
+  SamFrodoPathVisible: false
 };
 
 // Toggle buttons for markers and path
@@ -105,8 +105,6 @@ toggleElvesButton.addEventListener('click', () => {
   visibilityState.elves = toggleVisibility(markers.rivendell, toggleElvesButton, visibilityState.elves);
 });
 
-
-let SamFrodoPathVisible = false; // Initially, Hobbiton marker is visible
 const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
 toggleSamFrodoPathButton.addEventListener('click', () => {
   if (SamFrodoPathVisible) {
