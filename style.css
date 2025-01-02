@@ -13,7 +13,7 @@ body {
   width: 10%; /* This will take up 20% of the page width */
   position: absolute;
   top: 0;
-  right: 250px;
+  right: 50px;
   padding: 20px;
   background-color: #f4f4f4;
   height: 100vh;
@@ -34,7 +34,7 @@ body {
   width: 10%;
   position: absolute;
   top: 150px;  /* Adjust this to position it below the Paths section */
-  right: 250px;
+  right: 50px;
   padding: 20px;
   background-color: #f4f4f4;
   height: auto;
