@@ -19,15 +19,6 @@ body {
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   }
   
-  #toggleSamFrodoPathButton {
-    background-color: white;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    width: 100%;
-    text-align: center;
-  }
-  
   #pathsSection h2 {
     margin-top: 0;
   }
@@ -41,33 +32,6 @@ body {
     background-color: #f4f4f4;
     height: auto;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  #toggleHobbitsButton {
-    background-color: white;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    width: 100%;
-    text-align: center;
-  }
-  
-  #toggleMenButton {
-    background-color: white;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    width: 100%;
-    text-align: center;
-  }
-
-  #toggleElvesButton {
-    background-color: white;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    width: 100%;
-    text-align: center;
   }
 
   #locationsSection h2 {
