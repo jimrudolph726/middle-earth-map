@@ -1,39 +1,52 @@
 body {
-    display: flex;
-    position: relative;
-  }
-  
-  #map {
-    height: 100vh;
-    width: 80%; /* Adjust width to leave space for the paths section */
-  }
-  
-  #pathsSection {
-    width: 10%; /* This will take up 20% of the page width */
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-    height: 100vh;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  #pathsSection h2 {
-    margin-top: 0;
-  }
-  
-  #locationsSection {
-    width: 10%;
-    position: absolute;
-    top: 150px;  /* Adjust this to position it below the Paths section */
-    right: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-    height: auto;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  }
+  display: flex;
+  position: relative;
+  font-family: 'Cinzel', serif; /* Apply the fantasy-style font */
+}
 
-  #locationsSection h2 {
-    margin-top: 0;
-  }
+#map {
+  height: 100vh;
+  width: 80%; /* Adjust width to leave space for the paths section */
+}
+
+#pathsSection {
+  width: 10%; /* This will take up 20% of the page width */
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  height: 100vh;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#pathsSection h2 {
+  margin-top: 0;
+  font-size: 2rem; /* Increase font size for headers */
+  font-weight: 700; /* Make the header bold */
+}
+
+#pathsSection label {
+  font-size: 1.2rem; /* Make the checkbox label text bigger */
+}
+
+#locationsSection {
+  width: 10%;
+  position: absolute;
+  top: 150px;  /* Adjust this to position it below the Paths section */
+  right: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  height: auto;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#locationsSection h2 {
+  margin-top: 0;
+  font-size: 2rem; /* Increase font size for headers */
+  font-weight: 700; /* Make the header bold */
+}
+
+#locationsSection label {
+  font-size: 1.2rem; /* Make the checkbox label text bigger */
+}
