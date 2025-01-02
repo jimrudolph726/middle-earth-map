@@ -101,11 +101,11 @@ function toggleVisibility(layer, button, state) {
 }
 
 // Toggle buttons for markers and path
-const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
-toggleHobbitsButton.addEventListener('click', () => {
-  visibilityState.hobbits = toggleVisibility(markers.hobbiton, toggleHobbitsButton, visibilityState.hobbits);
-  visibilityState.micheldelving = toggleVisibility(markers.micheldelving, toggleHobbitsButton, visibilityState.micheldelving);
-});
+// const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
+// toggleHobbitsButton.addEventListener('click', () => {
+//   visibilityState.hobbits = toggleVisibility(markers.hobbiton, toggleHobbitsButton, visibilityState.hobbits);
+//   visibilityState.micheldelving = toggleVisibility(markers.micheldelving, toggleHobbitsButton, visibilityState.micheldelving);
+// });
 
 const toggleMenButton = document.getElementById('toggleMenButton');
 toggleMenButton.addEventListener('click', () => {
@@ -122,4 +122,15 @@ toggleElvesButton.addEventListener('click', () => {
 const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
 toggleSamFrodoPathButton.addEventListener('click', () => {
   visibilityState.SamFrodoPathVisible = toggleVisibility(SamFrodoPathOverlay, toggleSamFrodoPathButton, visibilityState.SamFrodoPathVisible);
+});
+
+// Add event listeners to the checkboxes
+document.getElementById('hobbitsCheckbox').addEventListener('change', (event) => {
+  if (event.target.checked) {
+    markers.hobbiton.addTo(map);
+    markers.micheldelving.addTo(map);
+  } else {
+    map.removeLayer(markers.hobbiton);
+    map.removeLayer(markers.micheldelving);
+  }
 });
