@@ -106,6 +106,7 @@ toggleElvesButton.addEventListener('click', () => {
 });
 
 
+let SamFrodoPathVisible = false; // Initially, Hobbiton marker is visible
 const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
 toggleSamFrodoPathButton.addEventListener('click', () => {
   if (SamFrodoPathVisible) {
