@@ -79,7 +79,7 @@ function toggleVisibility(layer, button, state) {
   return !state;
 }
 
-// Initialize toggle states
+// Initialize toggle statesa
 let visibilityState = {
   hobbits: false,
   men: false,
@@ -105,8 +105,24 @@ toggleElvesButton.addEventListener('click', () => {
   visibilityState.elves = toggleVisibility(markers.rivendell, toggleElvesButton, visibilityState.elves);
 });
 
-// Change for Sam Frodo Path toggle specifically
+
 const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
 toggleSamFrodoPathButton.addEventListener('click', () => {
-  visibilityState.samFrodoPath = toggleVisibility(SamFrodoPathOverlay, toggleSamFrodoPathButton, visibilityState.samFrodoPath);
+  if (SamFrodoPathVisible) {
+    map.removeLayer(SamFrodoPathOverlay); // Remove Hobbiton marker from the map 
+    toggleSamFrodoPathButton.innerHTML = "Show Sam and Frodo's Path";  // Change button text
+  } else {
+    SamFrodoPathOverlay.addTo(map);  // Add Hobbiton marker to the map
+    toggleSamFrodoPathButton.innerHTML = "Hide Sam and Frodo's Path";  // Change button text
+  }
+  SamFrodoPathVisible = !SamFrodoPathVisible;
 });
+
+
+
+
+// // Change for Sam Frodo Path toggle specifically
+// const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
+// toggleSamFrodoPathButton.addEventListener('click', () => {
+//   visibilityState.samFrodoPath = toggleVisibility(SamFrodoPathOverlay, toggleSamFrodoPathButton, visibilityState.samFrodoPath);
+// });
