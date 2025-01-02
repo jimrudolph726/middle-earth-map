@@ -76,49 +76,50 @@ let visibilityState = {
 };
 
 // Function to toggle visibility of layers
-function toggleVisibility(layer, button, state, label) {
+function toggleVisibility(layer, button, state) {
   if (layer instanceof L.ImageOverlay) { 
     // If the layer is an ImageOverlay (like the SamFrodoPath)
     if (state) {
       map.removeLayer(layer);
-      button.innerHTML = `Show ${label}`;
+      button.innerHTML = `Show Sam Frodo Path`;
     } else {
       layer.addTo(map);
-      button.innerHTML = `Hide ${label}`;
+      button.innerHTML = `Hide Sam Frodo Path`;
     }
   } else if (layer instanceof L.Marker) {
     // Handle marker layers as before (if it's a marker)
     if (state) {
       map.removeLayer(layer);
-      button.innerHTML = `Show ${label}`;
+      button.innerHTML = `Show ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
     } else {
       layer.addTo(map);
-      button.innerHTML = `Hide ${label}`;
+      button.innerHTML = `Hide ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
     }
   }
 
   return !state;
 }
 
-
+// Toggle buttons for markers and path
 const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
 toggleHobbitsButton.addEventListener('click', () => {
-  visibilityState.hobbits = toggleVisibility(markers.hobbiton, toggleHobbitsButton, visibilityState.hobbits, 'Hobbits');
-  visibilityState.micheldelving = toggleVisibility(markers.micheldelving, toggleHobbitsButton, visibilityState.micheldelving, 'Michel Delving');
+  visibilityState.hobbits = toggleVisibility(markers.hobbiton, toggleHobbitsButton, visibilityState.hobbits);
+  visibilityState.micheldelving = toggleVisibility(markers.micheldelving, toggleHobbitsButton, visibilityState.micheldelving);
 });
 
 const toggleMenButton = document.getElementById('toggleMenButton');
 toggleMenButton.addEventListener('click', () => {
-  visibilityState.men = toggleVisibility(markers.minastirith, toggleMenButton, visibilityState.men, 'Men');
-  visibilityState.bree = toggleVisibility(markers.bree, toggleMenButton, visibilityState.bree, 'Bree');
+  visibilityState.men = toggleVisibility(markers.minastirith, toggleMenButton, visibilityState.men);
+  visibilityState.bree = toggleVisibility(markers.bree, toggleMenButton, visibilityState.bree);
 });
 
 const toggleElvesButton = document.getElementById('toggleElvesButton');
 toggleElvesButton.addEventListener('click', () => {
-  visibilityState.elves = toggleVisibility(markers.rivendell, toggleElvesButton, visibilityState.elves, 'Elves');
+  visibilityState.elves = toggleVisibility(markers.rivendell, toggleElvesButton, visibilityState.elves);
 });
 
+// Change for Sam Frodo Path toggle specifically
 const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
 toggleSamFrodoPathButton.addEventListener('click', () => {
-  visibilityState.samFrodoPath = toggleVisibility(SamFrodoPathOverlay, toggleSamFrodoPathButton, visibilityState.samFrodoPath, 'Sam Frodo Path');
+  visibilityState.SamFrodoPathVisible = toggleVisibility(SamFrodoPathOverlay, toggleSamFrodoPathButton, visibilityState.SamFrodoPathVisible);
 });
