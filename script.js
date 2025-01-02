@@ -8,10 +8,19 @@ const createIcon = (url) => L.icon({
   popupAnchor: [0, -32]
 });
 
-// Create marker icons
-const HobbitsIcon = createIcon('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png');
-const MenIcon = createIcon('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png');
-const RivendellIcon = createIcon('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png');
+// Map of icon URLs
+const iconUrls = {
+  hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
+  men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
+  rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png'
+};
+
+// Initialize icons
+const icons = {
+  HobbitsIcon: createIcon(iconUrls.hobbits),
+  MenIcon: createIcon(iconUrls.men),
+  RivendellIcon: createIcon(iconUrls.rivendell)
+};
 
 // Initialize the map
 const map = L.map('map', {
@@ -30,7 +39,7 @@ const imageBounds = [[0, 0], [imageHeight, imageWidth]];
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png';
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-// Add the path overlay
+// Path overlay
 const SamFrodoPathUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png';
 const SamFrodoPathOverlay = L.imageOverlay(SamFrodoPathUrl, imageBounds);
 
@@ -38,20 +47,18 @@ const SamFrodoPathOverlay = L.imageOverlay(SamFrodoPathUrl, imageBounds);
 map.fitBounds(imageBounds);
 
 // Function to convert the Y-coordinate
-function convertYCoordinate(y) {
-  return imageHeight - y;
-}
+const convertYCoordinate = (y) => imageHeight - y;
 
-// Create markers and their coordinates
+// Locations with coordinates and icons
 const locations = {
-  hobbiton: { coords: [convertYCoordinate(2329), 2247], icon: HobbitsIcon, popup: 'Hobbiton' },
-  micheldelving: { coords: [convertYCoordinate(2388), 2110], icon: HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
-  bree: { coords: [convertYCoordinate(2251), 2794], icon: MenIcon, popup: 'Bree' },
-  rivendell: { coords: [convertYCoordinate(2244), 4240], icon: RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
-  minastirith: { coords: [convertYCoordinate(5113), 5726], icon: MenIcon, popup: 'Minas Tirith' }
+  hobbiton: { coords: [convertYCoordinate(2329), 2247], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
+  micheldelving: { coords: [convertYCoordinate(2388), 2110], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
+  bree: { coords: [convertYCoordinate(2251), 2794], icon: icons.MenIcon, popup: 'Bree' },
+  rivendell: { coords: [convertYCoordinate(2244), 4240], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
+  minastirith: { coords: [convertYCoordinate(5113), 5726], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 
-// Add markers to the map
+// Create markers and add to map
 const markers = Object.keys(locations).reduce((acc, key) => {
   const { coords, icon, popup } = locations[key];
   const marker = L.marker(coords, { icon }).bindPopup(popup);
@@ -59,37 +66,28 @@ const markers = Object.keys(locations).reduce((acc, key) => {
   return acc;
 }, {});
 
-// Add event listeners to the checkboxes
-document.getElementById('hobbitsCheckbox').addEventListener('change', (event) => {
-  if (event.target.checked) {
-    markers.hobbiton.addTo(map);
-    markers.micheldelving.addTo(map);
-  } else {
-    map.removeLayer(markers.hobbiton);
-    map.removeLayer(markers.micheldelving);
-  }
-});
+// Add event listeners for checkbox changes
+const addCheckboxListener = (checkboxId, markerKey, overlay = false) => {
+  document.getElementById(checkboxId).addEventListener('change', (event) => {
+    if (event.target.checked) {
+      if (overlay) {
+        SamFrodoPathOverlay.addTo(map);
+      } else {
+        markers[markerKey].addTo(map);
+      }
+    } else {
+      if (overlay) {
+        map.removeLayer(SamFrodoPathOverlay);
+      } else {
+        map.removeLayer(markers[markerKey]);
+      }
+    }
+  });
+};
 
-document.getElementById('menCheckbox').addEventListener('change', (event) => {
-  if (event.target.checked) {
-    markers.minastirith.addTo(map);
-  } else {
-    map.removeLayer(markers.minastirith);
-  }
-});
-
-document.getElementById('elvesCheckbox').addEventListener('change', (event) => {
-  if (event.target.checked) {
-    markers.rivendell.addTo(map);
-  } else {
-    map.removeLayer(markers.rivendell);
-  }
-});
-
-document.getElementById('samfrodopathCheckbox').addEventListener('change', (event) => {
-  if (event.target.checked) {
-    SamFrodoPathOverlay.addTo(map);
-  } else {
-    map.removeLayer(SamFrodoPathOverlay);
-  }
-});
+// Attach event listeners to checkboxes
+addCheckboxListener('hobbitsCheckbox', 'hobbiton');
+addCheckboxListener('hobbitsCheckbox', 'micheldelving');
+addCheckboxListener('menCheckbox', 'minastirith');
+addCheckboxListener('elvesCheckbox', 'rivendell');
+addCheckboxListener('samfrodopathCheckbox', '', true);
