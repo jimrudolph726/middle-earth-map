@@ -10,11 +10,11 @@ body {
 }
 
 #pathsSection {
-  width: 10%; /* This will take up 20% of the page width */
+  width: 12%; /* Increase width by 50px */
   position: absolute;
   top: 0;
   right: 50px;
-  padding: 20px;
+  padding: 20px 30px; /* Increase padding on both sides */
   background-color: #f4f4f4;
   height: 100vh;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
@@ -31,11 +31,11 @@ body {
 }
 
 #locationsSection {
-  width: 10%;
+  width: 12%; /* Increase width by 50px */
   position: absolute;
   top: 150px;  /* Adjust this to position it below the Paths section */
   right: 50px;
-  padding: 20px;
+  padding: 20px 30px; /* Increase padding on both sides */
   background-color: #f4f4f4;
   height: auto;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
