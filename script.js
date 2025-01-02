@@ -85,27 +85,21 @@ const markers = Object.keys(locations).reduce((acc, key) => {
 }, {});
 
 // Add event listeners for checkbox changes
-const addCheckboxListener = (checkboxId, markerKey, overlay = false) => {
+const addCheckboxListener = (checkboxId, element) => {
   document.getElementById(checkboxId).addEventListener('change', (event) => {
     if (event.target.checked) {
-      if (overlay) {
-        overlay.addTo(map);
-      } else {
-        markers[markerKey].addTo(map);
-      }
+      // Add the element (marker or overlay) to the map
+      element.addTo(map);
     } else {
-      if (overlay) {
-        map.removeLayer(overlay);
-      } else {
-        map.removeLayer(markers[markerKey]);
-      }
+      // Remove the element (marker or overlay) from the map
+      map.removeLayer(element);
     }
   });
 };
 
 // Attach event listeners to checkboxes
-addCheckboxListener('hobbitsCheckbox', 'hobbiton');
-addCheckboxListener('hobbitsCheckbox', 'micheldelving');
-addCheckboxListener('menCheckbox', 'minastirith');
-addCheckboxListener('elvesCheckbox', 'rivendell');
-addCheckboxListener('samFrodoPathCheckbox', null, overlays.SamFrodoPathOverlay);
+addCheckboxListener('hobbitsCheckbox', markers['hobbiton']);
+addCheckboxListener('hobbitsCheckbox', markers['micheldelving']);
+addCheckboxListener('menCheckbox', markers['minastirith']);
+addCheckboxListener('elvesCheckbox', markers['rivendell']);
+addCheckboxListener('samfrodopathCheckbox', overlays['SamFrodoPathOverlay']);
