@@ -10,7 +10,7 @@ body {
 }
 
 #pathsSection {
-  width: 15%; /* Increase width by 50px */
+  width: 13%; /* Increase width by 50px */
   position: absolute;
   top: 0;
   right: 0;
@@ -31,7 +31,7 @@ body {
 }
 
 #locationsSection {
-  width: 15%; /* Increase width by 50px */
+  width: 13%; /* Increase width by 50px */
   position: absolute;
   top: 150px;  /* Adjust this to position it below the Paths section */
   right: 0;
