@@ -98,7 +98,7 @@ let visibilityState = {
   hobbits: false,
   men: false,
   elves: false,
-  SamFrodoPathVisible: true
+  SamFrodoPathVisible: false
 };
 
 // Toggle buttons for markers and path
