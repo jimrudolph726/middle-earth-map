@@ -56,11 +56,6 @@ const createOverlays = (data, bounds) => {
 // Generate overlays dynamically
 const overlays = createOverlays(overlayData, imageBounds);
 
-// Example usage
-console.log(overlays.SamFrodoPathOverlay); // Access the generated overlay
-console.log(overlays.MerryPippinPathOverlay); // Access the generated overlay
-
-
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
