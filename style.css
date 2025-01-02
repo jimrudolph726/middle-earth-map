@@ -13,7 +13,7 @@ body {
   width: 12%; /* Increase width by 50px */
   position: absolute;
   top: 0;
-  right: 50px;
+  right: 30px;
   padding: 20px 30px; /* Increase padding on both sides */
   background-color: #f4f4f4;
   height: 100vh;
@@ -34,7 +34,7 @@ body {
   width: 12%; /* Increase width by 50px */
   position: absolute;
   top: 150px;  /* Adjust this to position it below the Paths section */
-  right: 50px;
+  right: 30px;
   padding: 20px 30px; /* Increase padding on both sides */
   background-color: #f4f4f4;
   height: auto;
