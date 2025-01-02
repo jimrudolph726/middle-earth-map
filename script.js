@@ -67,6 +67,14 @@ const pathCoordinates = [
 ];
 const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
 
+// Initialize toggle statesa
+let visibilityState = {
+  hobbits: false,
+  men: false,
+  elves: false,
+  SamFrodoPathVisible: false
+};
+
 // Function to toggle visibility of layers
 function toggleVisibility(layer, button, state) {
   if (layer instanceof L.ImageOverlay) { 
@@ -91,15 +99,6 @@ function toggleVisibility(layer, button, state) {
 
   return !state;
 }
-
-
-// Initialize toggle statesa
-let visibilityState = {
-  hobbits: false,
-  men: false,
-  elves: false,
-  SamFrodoPathVisible: false
-};
 
 // Toggle buttons for markers and path
 const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
