@@ -59,71 +59,6 @@ const markers = Object.keys(locations).reduce((acc, key) => {
   return acc;
 }, {});
 
-// Define the path (polyline)
-const pathCoordinates = [
-  locations.hobbiton.coords, 
-  locations.bree.coords, 
-  locations.rivendell.coords
-];
-const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
-
-// Initialize toggle statesa
-let visibilityState = {
-  hobbits: false,
-  men: false,
-  elves: false,
-  SamFrodoPathVisible: false
-};
-
-// Function to toggle visibility of layers
-function toggleVisibility(layer, button, state) {
-  if (layer instanceof L.ImageOverlay) { 
-    // If the layer is an ImageOverlay (like the SamFrodoPath)
-    if (state) {
-      map.removeLayer(layer);
-      button.innerHTML = `Show Sam Frodo Path`;
-    } else {
-      layer.addTo(map);
-      button.innerHTML = `Hide Sam Frodo Path`;
-    }
-  } else if (layer instanceof L.Marker) {
-    // Handle marker layers as before (if it's a marker)
-    if (state) {
-      map.removeLayer(layer);
-      button.innerHTML = `Show ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
-    } else {
-      layer.addTo(map);
-      button.innerHTML = `Hide ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
-    }
-  }
-
-  return !state;
-}
-
-// Toggle buttons for markers and path
-// const toggleHobbitsButton = document.getElementById('toggleHobbitsButton');
-// toggleHobbitsButton.addEventListener('click', () => {
-//   visibilityState.hobbits = toggleVisibility(markers.hobbiton, toggleHobbitsButton, visibilityState.hobbits);
-//   visibilityState.micheldelving = toggleVisibility(markers.micheldelving, toggleHobbitsButton, visibilityState.micheldelving);
-// });
-
-const toggleMenButton = document.getElementById('toggleMenButton');
-toggleMenButton.addEventListener('click', () => {
-  visibilityState.men = toggleVisibility(markers.minastirith, toggleMenButton, visibilityState.men);
-  visibilityState.bree = toggleVisibility(markers.bree, toggleMenButton, visibilityState.bree);
-});
-
-const toggleElvesButton = document.getElementById('toggleElvesButton');
-toggleElvesButton.addEventListener('click', () => {
-  visibilityState.elves = toggleVisibility(markers.rivendell, toggleElvesButton, visibilityState.elves);
-});
-
-// Change for Sam Frodo Path toggle specifically
-const toggleSamFrodoPathButton = document.getElementById('toggleSamFrodoPathButton');
-toggleSamFrodoPathButton.addEventListener('click', () => {
-  visibilityState.SamFrodoPathVisible = toggleVisibility(SamFrodoPathOverlay, toggleSamFrodoPathButton, visibilityState.SamFrodoPathVisible);
-});
-
 // Add event listeners to the checkboxes
 document.getElementById('hobbitsCheckbox').addEventListener('change', (event) => {
   if (event.target.checked) {
@@ -132,5 +67,29 @@ document.getElementById('hobbitsCheckbox').addEventListener('change', (event) =>
   } else {
     map.removeLayer(markers.hobbiton);
     map.removeLayer(markers.micheldelving);
+  }
+});
+
+document.getElementById('menCheckbox').addEventListener('change', (event) => {
+  if (event.target.checked) {
+    markers.minastirith.addTo(map);
+  } else {
+    map.removeLayer(markers.minastirith);
+  }
+});
+
+document.getElementById('elvesCheckbox').addEventListener('change', (event) => {
+  if (event.target.checked) {
+    markers.rivendell.addTo(map);
+  } else {
+    map.removeLayer(markers.rivendell);
+  }
+});
+
+document.getElementById('samfrodopathCheckbox').addEventListener('change', (event) => {
+  if (event.target.checked) {
+    SamFrodoPathOverlay.addTo(map);
+  } else {
+    map.removeLayer(SamFrodoPathOverlay);
   }
 });

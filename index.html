@@ -13,7 +13,10 @@
   <!-- Paths Section -->
   <div id="pathsSection">
     <h2>Paths</h2>
-    <button id="toggleSamFrodoPathButton">Show Sam and Frodo's Path</button>
+    <label for="samfrodopathCheckbox">
+      <input type="checkbox" id="samfrodopathCheckbox" /> Sam and Frodo's Path
+    </label>
+    <br>
   </div>
 
   <!-- Locations Section -->
@@ -23,8 +26,14 @@
       <input type="checkbox" id="hobbitsCheckbox" /> Hobbits
     </label>
     <br>
-    <button id="toggleMenButton">Show Men</button>
-    <button id="toggleElvesButton">Show Elves</button>
+    <label for="menCheckbox">
+      <input type="checkbox" id="menCheckbox" /> Men
+    </label>
+    <br>
+    <label for="elvesCheckbox">
+      <input type="checkbox" id="elvesCheckbox" /> Elves
+    </label>
+    <br>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
