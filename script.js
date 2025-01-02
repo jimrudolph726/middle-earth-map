@@ -67,17 +67,31 @@ const pathCoordinates = [
 ];
 const fellowshipPath = L.polyline(pathCoordinates, { color: 'blue' });
 
-// Add toggle button functionality
+// Function to toggle visibility of layers
 function toggleVisibility(layer, button, state) {
-  if (state) {
-    map.removeLayer(layer);
-    button.innerHTML = `Show ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
-  } else {
-    layer.addTo(map);
-    button.innerHTML = `Hide ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
+  if (layer instanceof L.ImageOverlay) { 
+    // If the layer is an ImageOverlay (like the SamFrodoPath)
+    if (state) {
+      map.removeLayer(layer);
+      button.innerHTML = `Show Sam Frodo Path`;
+    } else {
+      layer.addTo(map);
+      button.innerHTML = `Hide Sam Frodo Path`;
+    }
+  } else if (layer instanceof L.Marker) {
+    // Handle marker layers as before (if it's a marker)
+    if (state) {
+      map.removeLayer(layer);
+      button.innerHTML = `Show ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
+    } else {
+      layer.addTo(map);
+      button.innerHTML = `Hide ${layer.options.icon.options.iconUrl.split('/').pop().split('.')[0]}`;
+    }
   }
+
   return !state;
 }
+
 
 // Initialize toggle statesa
 let visibilityState = {
