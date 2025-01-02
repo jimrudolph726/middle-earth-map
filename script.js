@@ -33,7 +33,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Add the path overlay
 const SamFrodoPathUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png';
 const SamFrodoPathOverlay = L.imageOverlay(SamFrodoPathUrl, imageBounds);
-
+let SamFrodoPathVisible = false;
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
@@ -84,7 +84,7 @@ let visibilityState = {
   hobbits: false,
   men: false,
   elves: false,
-  SamFrodoPathVisible: false
+  // SamFrodoPathVisible: false
 };
 
 // Toggle buttons for markers and path
