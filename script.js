@@ -76,13 +76,17 @@ const locations = {
   minastirith: { coords: [convertYCoordinate(5113), 5726], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 
-// Create markers and add to map
-const markers = Object.keys(locations).reduce((acc, key) => {
-  const { coords, icon, popup } = locations[key];
-  const marker = L.marker(coords, { icon }).bindPopup(popup);
-  acc[key] = marker;
-  return acc;
-}, {});
+// Function to create markers from a locations dictionary
+const createMarkers = (locations) => {
+  return Object.keys(locations).reduce((acc, key) => {
+    const { coords, icon, popup } = locations[key];
+    const marker = L.marker(coords, { icon }).bindPopup(popup);
+    acc[key] = marker;
+    return acc;
+  }, {});
+};
+
+const markers = createMarkers(locations);
 
 // Add event listeners for checkbox changes
 const addCheckboxListener = (checkboxId, element) => {
