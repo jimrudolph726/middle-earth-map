@@ -1,23 +1,8 @@
 // script.js
 
 // import functions
-import { addCheckboxListener, createMarkers, createIcon } from './functions.js';
-
-
-
-// Map of icon URLs
-const iconUrls = {
-  hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
-  men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
-  rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png'
-};
-
-// Initialize icons
-const icons = {
-  HobbitsIcon: createIcon(iconUrls.hobbits),
-  MenIcon: createIcon(iconUrls.men),
-  RivendellIcon: createIcon(iconUrls.rivendell)
-};
+import { addCheckboxListener, createMarkers, createIcon, createPaths } from './functions.js';
+import { locations } from './variables.js';
 
 // Initialize the map
 const map = L.map('map', {
@@ -26,6 +11,14 @@ const map = L.map('map', {
   maxZoom: 2,
   zoom: -3,
 });
+
+// Map of icon URLs
+export const iconUrls = {
+  hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
+  men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
+  rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png'
+};
+
 
 // Image dimensions and bounds
 const imageWidth = 8740;
@@ -37,37 +30,17 @@ const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-m
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 // Overlay data with names and URLs
-const overlayData = [
+const pathsData = [
   { name: 'SamFrodoPathOverlay', url: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png' }
 ];
 
-// Function to create overlays
-const createOverlays = (data, bounds) => {
-  const overlays = {};
-  data.forEach(({ name, url }) => {
-    overlays[name] = L.imageOverlay(url, bounds);
-  });
-  return overlays;
-};
-
 // Generate overlays dynamically
-const overlays = createOverlays(overlayData, imageBounds);
+const overlays = createPaths(pathsData, imageBounds);
 
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
-// Function to convert the Y-coordinate
-const convertYCoordinate = (y) => imageHeight - y;
-
-// Locations with coordinates and icons
-const locations = {
-  hobbiton: { coords: [convertYCoordinate(2329), 2247], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
-  micheldelving: { coords: [convertYCoordinate(2388), 2110], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
-  bree: { coords: [convertYCoordinate(2251), 2794], icon: icons.MenIcon, popup: 'Bree' },
-  rivendell: { coords: [convertYCoordinate(2244), 4240], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
-  minastirith: { coords: [convertYCoordinate(5113), 5726], icon: icons.MenIcon, popup: 'Minas Tirith' }
-};
-
+// Create markers
 const markers = createMarkers(locations);
 
 // Attach event listeners to checkboxes

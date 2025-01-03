@@ -29,6 +29,18 @@ export const createIcon = (url) => L.icon({
     iconAnchor: [16, 32],
     popupAnchor: [0, -32]
   });
+
+  // Function to create overlays
+  export const createPaths = (data, bounds) => {
+    const overlays = {};
+    data.forEach(({ name, url }) => {
+      overlays[name] = L.imageOverlay(url, bounds);
+    });
+    return overlays;
+  };
+  // Function to convert the Y-coordinate
+  export const convertYCoordinate = (y) => imageHeight - y;
+
 //   const addCheckboxListenersForLocations = (markers, checkboxId) => {
 //     Object.values(markers).forEach((marker) => {
 //       // Send each marker and checkboxId to addCheckboxListener
