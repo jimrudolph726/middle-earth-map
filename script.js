@@ -22,6 +22,7 @@ map.fitBounds(imageBounds);
 const overlays = createPaths(pathsData, imageBounds);
 // Create markers
 const markers = createMarkers(locations);
+
 // Attach event listeners to checkboxes
 addCheckboxListener('hobbitsCheckbox', markers['hobbiton'], map);
 addCheckboxListener('hobbitsCheckbox', markers['micheldelving'], map);
