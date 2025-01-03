@@ -23,13 +23,15 @@ export const createMarkers = (locations) => {
   }, {});
 };
   
-// Function to create icons
-export const createIcon = (url) => L.icon({
+  // In functions.js
+export function createIcon(url) {
+  return L.icon({
     iconUrl: url,
-    iconSize: [48, 48],
+    iconSize: [48, 48],  // Adjust size as needed
     iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
+    popupAnchor: [0, -32],
   });
+}
 
   // Function to create overlays
   export const createPaths = (data, bounds) => {
