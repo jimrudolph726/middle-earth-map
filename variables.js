@@ -1,5 +1,10 @@
 import { convertYCoordinate, createIcon } from './functions.js';
 
+// Image dimensions and bounds
+const imageWidth = 8740;
+export const imageHeight = 8208;
+export const imageBounds = [[0, 0], [imageHeight, imageWidth]];
+
 // Map of icon URLs
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
@@ -23,7 +28,3 @@ export const locations = {
 };
   
 
-// Image dimensions and bounds
-const imageWidth = 8740;
-export const imageHeight = 8208;
-export const imageBounds = [[0, 0], [imageHeight, imageWidth]];
