@@ -1,7 +1,7 @@
 // script.js
 
 // import functions
-import { addCheckboxListenerSingle, addCheckboxListenerMultiple, createMarkers, createPaths } from './functions.js';
+import { addCheckboxListener, createMarkers, createPaths } from './functions.js';
 // Import variables
 import { locations, imageBounds, pathsData, hobbitlocations } from './variables.js';
 
