@@ -33,16 +33,18 @@ export function createIcon(url) {
   });
 }
 
-  // Function to create overlays
-  export const createPaths = (data, bounds) => {
-    const overlays = {};
-    data.forEach(({ name, url }) => {
-      overlays[name] = L.imageOverlay(url, bounds);
-    });
-    return overlays;
-  };
-  // Function to convert the Y-coordinate
-  export function convertYCoordinate(y) {imageHeight - y;}
+// Function to create overlays
+export const createPaths = (data, bounds) => {
+  const overlays = {};
+  data.forEach(({ name, url }) => {
+    overlays[name] = L.imageOverlay(url, bounds);
+  });
+  return overlays;
+};
+// Function to convert the Y-coordinate
+export function convertYCoordinate(y) {
+  return imageHeight - y;
+}
 
 //   const addCheckboxListenersForLocations = (markers, checkboxId) => {
 //     Object.values(markers).forEach((marker) => {
