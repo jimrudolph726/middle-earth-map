@@ -1,15 +1,9 @@
 // script.js
 
 // import functions
-import { addCheckboxListener } from './functions.js';
+import { addCheckboxListener, createMarkers, createIcon } from './functions.js';
 
-// Function to create icons
-const createIcon = (url) => L.icon({
-  iconUrl: url,
-  iconSize: [48, 48],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32]
-});
+
 
 // Map of icon URLs
 const iconUrls = {
