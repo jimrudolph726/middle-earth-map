@@ -87,8 +87,8 @@ const createMarkers = (locations) => {
 const markers = createMarkers(locations);
 
 // Attach event listeners to checkboxes
-addCheckboxListener('hobbitsCheckbox', markers['hobbiton']);
-addCheckboxListener('hobbitsCheckbox', markers['micheldelving']);
-addCheckboxListener('menCheckbox', markers['minastirith']);
-addCheckboxListener('elvesCheckbox', markers['rivendell']);
-addCheckboxListener('samfrodopathCheckbox', overlays['SamFrodoPathOverlay']);
+addCheckboxListener('hobbitsCheckbox', markers['hobbiton'], map);
+addCheckboxListener('hobbitsCheckbox', markers['micheldelving'], map);
+addCheckboxListener('menCheckbox', markers['minastirith'], map);
+addCheckboxListener('elvesCheckbox', markers['rivendell'], map);
+addCheckboxListener('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
