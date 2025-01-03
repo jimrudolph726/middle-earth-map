@@ -1,7 +1,14 @@
 import { convertYCoordinate, createIcon } from './functions.js';
 
+// Map of icon URLs
+const iconUrls = {
+    hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
+    men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
+    rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png'
+  };
+
 // Initialize icons
-export const icons = {
+const icons = {
     HobbitsIcon: createIcon(iconUrls.hobbits),
     MenIcon: createIcon(iconUrls.men),
     RivendellIcon: createIcon(iconUrls.rivendell)

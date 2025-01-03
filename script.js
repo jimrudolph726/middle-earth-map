@@ -1,7 +1,7 @@
 // script.js
 
 // import functions
-import { addCheckboxListener, createMarkers, createIcon, createPaths } from './functions.js';
+import { addCheckboxListener, createMarkers, createPaths } from './functions.js';
 import { locations } from './variables.js';
 
 // Initialize the map
@@ -11,13 +11,6 @@ const map = L.map('map', {
   maxZoom: 2,
   zoom: -3,
 });
-
-// Map of icon URLs
-export const iconUrls = {
-  hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
-  men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
-  rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png'
-};
 
 // Image dimensions and bounds
 const imageWidth = 8740;
