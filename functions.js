@@ -46,9 +46,19 @@ export const addCheckboxListenerSingle = (checkboxId, element, map) => {
   });
 };
 
+// Function to handle multiple markers or overlays with a single checkbox
 export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
-  Object.values(markers).forEach((marker) => {
-    // Send each marker and checkboxId to addCheckboxListener
-    addCheckboxListenerSingle(checkboxId, marker, map);
+  document.getElementById(checkboxId).addEventListener('change', (event) => {
+    // Loop through the markers object and call addCheckboxListenerSingle for each marker
+    Object.values(markers).forEach((marker) => {
+      addCheckboxListenerSingle(checkboxId, marker, map); // Apply to each marker
+    });
   });
 };
+
+// export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
+//   Object.values(markers).forEach((marker) => {
+//     // Send each marker and checkboxId to addCheckboxListener
+//     addCheckboxListenerSingle(checkboxId, marker, map);
+//   });
+// };
