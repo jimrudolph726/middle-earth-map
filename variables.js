@@ -27,6 +27,11 @@ export const locations = {
   minastirith: { coords: [convertYCoordinate(imageHeight, 5113), 5726], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 
+export const hobbitlocations = {
+    hobbiton: { coords: [convertYCoordinate(imageHeight, 2329), 2247], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
+    micheldelving: { coords: [convertYCoordinate(imageHeight, 2388), 2110], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
+  };
+
 // Create path variables
 export const pathsData = [
     { name: 'SamFrodoPathOverlay', url: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png' }

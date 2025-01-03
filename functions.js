@@ -1,5 +1,20 @@
 // functions.js
 
+  // In functions.js
+  export function createIcon(url) {
+    return L.icon({
+      iconUrl: url,
+      iconSize: [48, 48],  // Adjust size as needed
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+  }
+
+  // Function to convert the Y-coordinate
+export function convertYCoordinate(imageHeight, y) {
+  return imageHeight - y;
+}
+  
 // Function to create markers from a locations dictionary
 export const createMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
@@ -10,16 +25,6 @@ export const createMarkers = (locations) => {
   }, {});
 };
   
-  // In functions.js
-export function createIcon(url) {
-  return L.icon({
-    iconUrl: url,
-    iconSize: [48, 48],  // Adjust size as needed
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32],
-  });
-}
-
 // Function to create overlays
 export const createPaths = (data, bounds) => {
   const overlays = {};
@@ -28,10 +33,6 @@ export const createPaths = (data, bounds) => {
   });
   return overlays;
 };
-// Function to convert the Y-coordinate
-export function convertYCoordinate(imageHeight, y) {
-  return imageHeight - y;
-}
 
 export const addCheckboxListener = (checkboxId, element, map) => {
   document.getElementById(checkboxId).addEventListener('change', (event) => {
@@ -45,9 +46,9 @@ export const addCheckboxListener = (checkboxId, element, map) => {
   });
 };
 
-//   const addCheckboxListenersForLocations = (markers, checkboxId) => {
-//     Object.values(markers).forEach((marker) => {
-//       // Send each marker and checkboxId to addCheckboxListener
-//       addCheckboxListener(checkboxId, marker);
-//     });
-//   };
+  export const addCheckboxListenersForLocations = (markers, checkboxId, map) => {
+    Object.values(markers).forEach((marker) => {
+      // Send each marker and checkboxId to addCheckboxListener
+      addCheckboxListener(checkboxId, marker, map);
+    });
+  };

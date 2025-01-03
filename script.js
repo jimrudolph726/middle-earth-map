@@ -3,7 +3,7 @@
 // import functions
 import { addCheckboxListener, createMarkers, createPaths } from './functions.js';
 // Import variables
-import { locations, imageBounds, pathsData } from './variables.js';
+import { locations, imageBounds, pathsData, hobbitlocations } from './variables.js';
 
 // Initialize the map
 const map = L.map('map', {
@@ -18,14 +18,16 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
-// Generate overlays dynamically
-const overlays = createPaths(pathsData, imageBounds);
 // Create markers
 const markers = createMarkers(locations);
+// Generate overlays dynamically
+const overlays = createPaths(pathsData, imageBounds);
 
 // Attach event listeners to checkboxes
-addCheckboxListener('hobbitsCheckbox', markers['hobbiton'], map);
-addCheckboxListener('hobbitsCheckbox', markers['micheldelving'], map);
+// addCheckboxListener('hobbitsCheckbox', markers['hobbiton'], map);
+// addCheckboxListener('hobbitsCheckbox', markers['micheldelving'], map);
+
+addCheckboxListenersForLocations('hobbitsCheckbox', hobbitlocations, map);
 addCheckboxListener('menCheckbox', markers['minastirith'], map);
 addCheckboxListener('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListener('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
