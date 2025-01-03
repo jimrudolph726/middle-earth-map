@@ -1,7 +1,7 @@
 // script.js
 
 // import functions
-import { addCheckboxListener, createMarkers, createPaths } from './functions.js';
+import { addCheckboxListenerSingle, addCheckboxListenerMultiple, createMarkers, createPaths } from './functions.js';
 // Import variables
 import { locations, imageBounds, pathsData, hobbitlocations } from './variables.js';
 
@@ -27,7 +27,7 @@ const overlays = createPaths(pathsData, imageBounds);
 // addCheckboxListener('hobbitsCheckbox', markers['hobbiton'], map);
 // addCheckboxListener('hobbitsCheckbox', markers['micheldelving'], map);
 
-addCheckboxListenersForLocations('hobbitsCheckbox', hobbitlocations, map);
-addCheckboxListener('menCheckbox', markers['minastirith'], map);
-addCheckboxListener('elvesCheckbox', markers['rivendell'], map);
-addCheckboxListener('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
+addCheckboxListenerMultiple('hobbitsCheckbox', hobbitlocations, map);
+addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
+addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
+addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);

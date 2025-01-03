@@ -34,7 +34,7 @@ export const createPaths = (data, bounds) => {
   return overlays;
 };
 
-export const addCheckboxListener = (checkboxId, element, map) => {
+export const addCheckboxListenerSingle = (checkboxId, element, map) => {
   document.getElementById(checkboxId).addEventListener('change', (event) => {
       if (event.target.checked) {
           // Add the element (marker or overlay) to the map
@@ -46,7 +46,7 @@ export const addCheckboxListener = (checkboxId, element, map) => {
   });
 };
 
-  export const addCheckboxListenersForLocations = (markers, checkboxId, map) => {
+  export const addCheckboxListenersMultiple = (markers, checkboxId, map) => {
     Object.values(markers).forEach((marker) => {
       // Send each marker and checkboxId to addCheckboxListener
       addCheckboxListener(checkboxId, marker, map);
