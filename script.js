@@ -1,5 +1,8 @@
 // script.js
 
+// import functions
+import { addCheckboxListener } from './functions.js';
+
 // Function to create icons
 const createIcon = (url) => L.icon({
   iconUrl: url,
@@ -82,19 +85,6 @@ const createMarkers = (locations) => {
 };
 
 const markers = createMarkers(locations);
-
-// Add event listeners for checkbox changes
-const addCheckboxListener = (checkboxId, element) => {
-  document.getElementById(checkboxId).addEventListener('change', (event) => {
-    if (event.target.checked) {
-      // Add the element (marker or overlay) to the map
-      element.addTo(map);
-    } else {
-      // Remove the element (marker or overlay) from the map
-      map.removeLayer(element);
-    }
-  });
-};
 
 // Attach event listeners to checkboxes
 addCheckboxListener('hobbitsCheckbox', markers['hobbiton']);
