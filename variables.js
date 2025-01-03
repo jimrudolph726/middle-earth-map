@@ -25,5 +25,5 @@ export const locations = {
 
 // Image dimensions and bounds
 const imageWidth = 8740;
-const imageHeight = 8208;
+export const imageHeight = 8208;
 export const imageBounds = [[0, 0], [imageHeight, imageWidth]];
