@@ -36,3 +36,22 @@ export const hobbitlocations = {
 export const pathsData = [
     { name: 'SamFrodoPathOverlay', url: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/samfrodopath.png' }
   ];
+
+export const samfrodosteps = {
+  september23rd: { 
+    coords: [convertYCoordinate(2411), 2355], 
+    icon: L.Icon.Default(),  // Use the default Leaflet icon
+    popup: `<div><h3>September 23rd</h3><p>Campsite: Green Hill Country</p>
+            <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"
+                    onmouseover="this.style.backgroundColor='#0056b3'" 
+                    onmouseout="this.style.backgroundColor='#007bff'">Learn more on Thain's Book</button></div>`
+  },
+  september24th: { 
+    coords: [convertYCoordinate(2395), 2463], 
+    icon: L.Icon.Default(),  // Use the default Leaflet icon
+    popup: `<div><h3>September 24th</h3><p>Campsite: West of Woodhall</p>
+            <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"
+                    onmouseover="this.style.backgroundColor='#0056b3'" 
+                    onmouseout="this.style.backgroundColor='#007bff'">Learn more on Thain's Book</button></div>`
+  }
+}
