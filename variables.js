@@ -39,7 +39,7 @@ export const pathsData = [
 
 export const samfrodosteps = {
   september23rd: { 
-    coords: [convertYCoordinate(2411), 2355], 
+    coords: [convertYCoordinate(imageHeight, 2411), 2355], 
     icon: icons.HobbitsIcon, 
     popup: `<div><h3>September 23rd</h3><p>Campsite: Green Hill Country</p>
             <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"
@@ -47,7 +47,7 @@ export const samfrodosteps = {
                     onmouseout="this.style.backgroundColor='#007bff'">Learn more on Thain's Book</button></div>`
   },
   september24th: { 
-    coords: [convertYCoordinate(2395), 2463], 
+    coords: [convertYCoordinate(imageHeight, 2395), 2463], 
     icon: icons.HobbitsIcon, 
     popup: `<div><h3>September 24th</h3><p>Campsite: West of Woodhall</p>
             <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"

@@ -21,7 +21,7 @@ map.fitBounds(imageBounds);
 // Create markers
 const markers = createMarkers(locations);
 const hobbitmarkers = createMarkers(hobbitlocations);
-// const samfrodomarkers = createMarkers(samfrodosteps);
+const samfrodomarkers = createMarkers(samfrodosteps);
 // Generate overlays dynamically
 const overlays = createPaths(pathsData, imageBounds);
 
@@ -33,4 +33,4 @@ addCheckboxListenerMultiple('hobbitsCheckbox', hobbitmarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
-// addCheckboxListenerMultiple('samfrodopathCheckbox', samfrodomarkers, map);
+addCheckboxListenerMultiple('samfrodopathCheckbox', samfrodomarkers, map);
