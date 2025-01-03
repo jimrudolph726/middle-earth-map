@@ -2,7 +2,7 @@
 
 // import functions
 import { addCheckboxListener, createMarkers, createPaths } from './functions.js';
-import { locations } from './variables.js';
+import { locations, imageBounds } from './variables.js';
 
 // Initialize the map
 const map = L.map('map', {
