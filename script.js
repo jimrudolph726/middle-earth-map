@@ -29,6 +29,6 @@ const overlays = createPaths(pathsData, imageBounds);
 // addCheckboxListener('hobbitsCheckbox', markers['micheldelving'], map);
 
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitmarkers, map);
-addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
-addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
-addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
+addCheckboxListenerMultiple('menCheckbox', markers['minastirith'], map);
+addCheckboxListenerMultiple('elvesCheckbox', markers['rivendell'], map);
+addCheckboxListenerMultiple('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);

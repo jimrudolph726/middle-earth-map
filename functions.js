@@ -47,30 +47,43 @@ export const addCheckboxListenerSingle = (checkboxId, element, map) => {
 };
 
 // Function to handle multiple markers or overlays with a single checkbox
+// export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
+//   const checkbox = document.getElementById(checkboxId);
+
+//   // Function to add or remove the markers based on checkbox state
+//   const updateMarkers = () => {
+//     Object.values(markers).forEach((marker) => {
+//       if (checkbox.checked) {
+//         // Add marker to map if checked
+//         marker.addTo(map);
+//       } else {
+//         // Remove marker from map if unchecked
+//         map.removeLayer(marker);
+//       }
+//     });
+//   };
+//   checkbox.addEventListener('change', (event) => {
+//     updateMarkers();
+//   });
+//   updateMarkers();
+// };
+
 export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
 
-  // Function to add or remove the markers based on checkbox state
-  const updateMarkers = () => {
-    Object.values(markers).forEach((marker) => {
-      if (checkbox.checked) {
-        // Add marker to map if checked
-        marker.addTo(map);
-      } else {
-        // Remove marker from map if unchecked
-        map.removeLayer(marker);
-      }
-    });
-  };
-  checkbox.addEventListener('change', (event) => {
-    updateMarkers();
-  });
-  updateMarkers();
-};
+  // Ensure markers is an array (if it's not, make it an array of a single element)
+  const markersArray = Array.isArray(markers) ? markers : Object.values(markers);
 
-// export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
-//   Object.values(markers).forEach((marker) => {
-//     // Send each marker and checkboxId to addCheckboxListener
-//     addCheckboxListenerSingle(checkboxId, marker, map);
-//   });
-// };
+  // Function to add/remove markers based on checkbox state
+  const toggleMarkers = () => {
+    markersArray.forEach(marker => 
+      checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
+    );
+  };
+
+  // Attach the change event listener
+  checkbox.addEventListener('change', toggleMarkers);
+
+  // Trigger toggleMarkers on load based on the initial checkbox state
+  toggleMarkers();
+};
