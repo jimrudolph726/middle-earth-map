@@ -34,41 +34,7 @@ export const createPaths = (data, bounds) => {
   return overlays;
 };
 
-export const addCheckboxListenerSingle = (checkboxId, element, map) => {
-  document.getElementById(checkboxId).addEventListener('change', (event) => {
-      if (event.target.checked) {
-          // Add the element (marker or overlay) to the map
-          element.addTo(map);
-      } else {
-          // Remove the element (marker or overlay) from the map
-          map.removeLayer(element);
-      }
-  });
-};
-
-// Function to handle multiple markers or overlays with a single checkbox
-// export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
-//   const checkbox = document.getElementById(checkboxId);
-
-//   // Function to add or remove the markers based on checkbox state
-//   const updateMarkers = () => {
-//     Object.values(markers).forEach((marker) => {
-//       if (checkbox.checked) {
-//         // Add marker to map if checked
-//         marker.addTo(map);
-//       } else {
-//         // Remove marker from map if unchecked
-//         map.removeLayer(marker);
-//       }
-//     });
-//   };
-//   checkbox.addEventListener('change', (event) => {
-//     updateMarkers();
-//   });
-//   updateMarkers();
-// };
-
-export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
+export const addCheckboxListener = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
 
   // Ensure markers is an array (if it's not, make it an array of a single element)
