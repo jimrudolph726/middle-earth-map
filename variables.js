@@ -41,17 +41,27 @@ export const samfrodosteps = {
   september23rd: { 
     coords: [convertYCoordinate(imageHeight, 2411), 2355], 
     icon: icons.HobbitsIcon, 
-    popup: `<div><h3>September 23rd</h3><p>Campsite: Green Hill Country</p>
-            <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"
-                    onmouseover="this.style.backgroundColor='#0056b3'" 
-                    onmouseout="this.style.backgroundColor='#007bff'">Learn more on Thain's Book</button></div>`
+    popup: `<div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
+                onmouseout="this.querySelector('.popup-content').style.display = 'none';">
+                <h3>September 23rd</h3>
+                <p>Campsite: Green Hill Country</p>
+                <div class="popup-content" style="display: none;">
+                    <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                    Learn more on Thain's Book</button>
+                </div>
+            </div>`
   },
   september24th: { 
     coords: [convertYCoordinate(imageHeight, 2395), 2463], 
     icon: icons.HobbitsIcon, 
-    popup: `<div><h3>September 24th</h3><p>Campsite: West of Woodhall</p>
-            <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"
-                    onmouseover="this.style.backgroundColor='#0056b3'" 
-                    onmouseout="this.style.backgroundColor='#007bff'">Learn more on Thain's Book</button></div>`
+    popup: `<div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
+                onmouseout="this.querySelector('.popup-content').style.display = 'none';">
+                <h3>September 24th</h3>
+                <p>Campsite: West of Woodhall</p>
+                <div class="popup-content" style="display: none;">
+                    <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                    Learn more on Thain's Book</button>
+                </div>
+            </div>`
   }
 }
