@@ -1,18 +1,5 @@
 // functions.js
 
-import { imageHeight } from './variables.js';
-export const addCheckboxListener = (checkboxId, element, map) => {
-    document.getElementById(checkboxId).addEventListener('change', (event) => {
-        if (event.target.checked) {
-            // Add the element (marker or overlay) to the map
-            element.addTo(map);
-        } else {
-            // Remove the element (marker or overlay) from the map
-            map.removeLayer(element);
-        }
-    });
-};
-
 // Function to create markers from a locations dictionary
 export const createMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
@@ -42,9 +29,21 @@ export const createPaths = (data, bounds) => {
   return overlays;
 };
 // Function to convert the Y-coordinate
-export function convertYCoordinate(y) {
+export function convertYCoordinate(imageHeight, y) {
   return imageHeight - y;
 }
+
+export const addCheckboxListener = (checkboxId, element, map) => {
+  document.getElementById(checkboxId).addEventListener('change', (event) => {
+      if (event.target.checked) {
+          // Add the element (marker or overlay) to the map
+          element.addTo(map);
+      } else {
+          // Remove the element (marker or overlay) from the map
+          map.removeLayer(element);
+      }
+  });
+};
 
 //   const addCheckboxListenersForLocations = (markers, checkboxId) => {
 //     Object.values(markers).forEach((marker) => {
