@@ -40,7 +40,7 @@ export const pathsData = [
 export const samfrodosteps = {
   september23rd: { 
     coords: [convertYCoordinate(2411), 2355], 
-    icon: L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),   // Use the default Leaflet icon
+    icon: icons.HobbitsIcon, 
     popup: `<div><h3>September 23rd</h3><p>Campsite: Green Hill Country</p>
             <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"
                     onmouseover="this.style.backgroundColor='#0056b3'" 
@@ -48,7 +48,7 @@ export const samfrodosteps = {
   },
   september24th: { 
     coords: [convertYCoordinate(2395), 2463], 
-    icon: L.icon({ iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),   // Use the default Leaflet icon
+    icon: icons.HobbitsIcon, 
     popup: `<div><h3>September 24th</h3><p>Campsite: West of Woodhall</p>
             <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;"
                     onmouseover="this.style.backgroundColor='#0056b3'" 
