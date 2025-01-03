@@ -20,6 +20,7 @@ map.fitBounds(imageBounds);
 
 // Create markers
 const markers = createMarkers(locations);
+const hobbitlocations = createMarkers(hobbitlocations);
 // Generate overlays dynamically
 const overlays = createPaths(pathsData, imageBounds);
 
