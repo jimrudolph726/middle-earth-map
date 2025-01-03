@@ -1,5 +1,6 @@
 // functions.js
 
+import { imageHeight } from './variables.js';
 export const addCheckboxListener = (checkboxId, element, map) => {
     document.getElementById(checkboxId).addEventListener('change', (event) => {
         if (event.target.checked) {

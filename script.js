@@ -12,10 +12,7 @@ const map = L.map('map', {
   zoom: -3,
 });
 
-// Image dimensions and bounds
-const imageWidth = 8740;
-const imageHeight = 8208;
-const imageBounds = [[0, 0], [imageHeight, imageWidth]];
+
 
 // Add the image as a map layer
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png';
