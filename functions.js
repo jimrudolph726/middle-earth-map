@@ -34,21 +34,26 @@ export const createPaths = (data, bounds) => {
   return overlays;
 };
 
-export const addCheckboxListenerSingle = (checkboxId, element, map) => {
-  document.getElementById(checkboxId).addEventListener('change', (event) => {
+export const addCheckboxListenerSingle = (checkboxId, marker, map) => {
+  const checkbox = document.getElementById(checkboxId);
+  if (checkbox) {
+    checkbox.addEventListener('change', (event) => {
       if (event.target.checked) {
-          // Add the element (marker or overlay) to the map
-          element.addTo(map);
+        // Add the marker to the map
+        marker.addTo(map);
       } else {
-          // Remove the element (marker or overlay) from the map
-          map.removeLayer(element);
+        // Remove the marker from the map
+        map.removeLayer(marker);
       }
-  });
+    });
+  }
 };
 
-export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
-  Object.values(markers).forEach((marker) => {
-    // Send each marker and checkboxId to addCheckboxListener
-    addCheckboxListenerSingle(checkboxId, marker, map);
+export const addCheckboxListenerMultiple = (checkboxIds, markers, map) => {
+  checkboxIds.forEach((checkboxId) => {
+    const marker = markers[checkboxId];
+    if (marker) {
+      addCheckboxListenerSingle(checkboxId, marker, map);
+    }
   });
 };
