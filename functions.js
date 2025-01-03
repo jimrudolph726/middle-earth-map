@@ -62,16 +62,11 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
       }
     });
   };
-
-  // Attach the event listener to the checkbox
   checkbox.addEventListener('change', (event) => {
     updateMarkers();
   });
-
-  // Immediately update markers based on the current state of the checkbox
   updateMarkers();
 };
-
 
 // export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
 //   Object.values(markers).forEach((marker) => {
