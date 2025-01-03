@@ -19,7 +19,6 @@ export const iconUrls = {
   rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png'
 };
 
-
 // Image dimensions and bounds
 const imageWidth = 8740;
 const imageHeight = 8208;
