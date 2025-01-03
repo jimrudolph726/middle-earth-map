@@ -46,7 +46,7 @@ export const addCheckboxListenerSingle = (checkboxId, element, map) => {
   });
 };
 
-export const addCheckboxListenerMultiple = (markers, checkboxId, map) => {
+export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   Object.values(markers).forEach((marker) => {
     // Send each marker and checkboxId to addCheckboxListener
     addCheckboxListenerSingle(checkboxId, marker, map);
