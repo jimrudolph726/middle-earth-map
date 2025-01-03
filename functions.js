@@ -12,3 +12,9 @@ export const addCheckboxListener = (checkboxId, element) => {
     });
   };
   
+  const addCheckboxListenersForLocations = (markers, checkboxId) => {
+    Object.values(markers).forEach((marker) => {
+      // Send each marker and checkboxId to addCheckboxListener
+      addCheckboxListener(checkboxId, marker);
+    });
+  };
