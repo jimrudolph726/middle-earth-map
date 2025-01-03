@@ -42,7 +42,7 @@ export function createIcon(url) {
     return overlays;
   };
   // Function to convert the Y-coordinate
-  export const convertYCoordinate = (y) => imageHeight - y;
+  export function convertYCoordinate(y) {imageHeight - y;}
 
 //   const addCheckboxListenersForLocations = (markers, checkboxId) => {
 //     Object.values(markers).forEach((marker) => {
