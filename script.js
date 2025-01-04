@@ -18,12 +18,32 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
-var latlngs = [
-  [5957, 2794],
-  [5964, 4240]
-];
+// var latlngs = [
+//   [5957, 2794],
+//   [5964, 4240]
+// ];
 
-var polyline = L.polyline(latlngs, {color: 'red', weight: 5}).addTo(map);
+// var polyline = L.polyline(latlngs, {color: 'red', weight: 5}).addTo(map);
+
+fetch('path.geojson')  // Replace with the correct path to your file
+.then(response => response.json())
+.then(data => {
+  // Create the GeoJSON layer and add it to the map
+  L.geoJSON(data, {
+    style: {
+      color: 'red',  // Line color
+      weight: 5      // Line thickness
+    }
+  }).addTo(map);
+})
+.catch(err => console.error('Error loading GeoJSON:', err));
+
+
+
+
+
+
+
 
 // Create markers
 const markers = createMarkers(locations);
