@@ -20,7 +20,7 @@ map.fitBounds(imageBounds);
 
 // Create markers
 const markers = createMarkers(locations);
-const pathmarkers = createpathMarkers(path);
+const pathmarkers = createMarkers(path);
 const hobbitmarkers = createMarkers(hobbitlocations);
 const samfrodomarkers = createMarkers(samfrodosteps);
 // Generate overlays dynamically

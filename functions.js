@@ -28,23 +28,6 @@ export const createMarkers = (locations) => {
     return acc;
   }, {});
 };
-  
-// Function to create path markers from a locations dictionary
-export const createpathMarkers = (locations) => {
-  return Object.keys(locations).reduce((acc, key) => {
-    const { coords, popup } = locations[key];
-    const marker = L.marker(coords, { icon }).bindPopup(popup);
-    acc[key] = marker;
-    return acc;
-  }, {});
-};
-
-
-
-
-
-
-
 
 
 // Function to create overlays
