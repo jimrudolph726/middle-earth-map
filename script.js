@@ -18,7 +18,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
-
+// t
 
 // var map = L.map('map').setView([51.505, -0.09], 13);
 
