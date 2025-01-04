@@ -26,17 +26,17 @@ map.fitBounds(imageBounds);
 // var polyline = L.polyline(latlngs, {color: 'red', weight: 5}).addTo(map);
 
 fetch('path.geojson')  // Replace with the correct path to your file
-.then(response => response.json())
-.then(data => {
-  // Create the GeoJSON layer and add it to the map
-  L.geoJSON(data, {
-    style: {
-      color: 'red',  // Line color
-      weight: 5      // Line thickness
-    }
-  }).addTo(map);
-})
-.catch(err => console.error('Error loading GeoJSON:', err));
+  .then(response => response.json())
+  .then(data => {
+    // Create the GeoJSON layer and add it to the map
+    L.geoJSON(data, {
+      style: {
+        color: 'red',  // Line color
+        weight: 5      // Line thickness
+      }
+    }).addTo(map);
+  })
+  .catch(err => console.error('Error loading GeoJSON:', err));
 
 
 
