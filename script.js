@@ -23,32 +23,29 @@ map.fitBounds(imageBounds);
 
 
 
-// Initialize the draw control and add it to the map
-const drawnItems = new L.FeatureGroup();
-map.addLayer(drawnItems);
-
-const drawControl = new L.Control.Draw({
-  edit: {
-    featureGroup: drawnItems,
-  },
+// Add Leaflet.draw functionality
+var drawControl = new L.Control.Draw({
   draw: {
-    polyline: true,  // Enable drawing of polylines
-    polygon: false,
-    circle: false,
-    rectangle: false,
-    marker: false,
+      polyline: true, // Enable polyline drawing
+      polygon: false, // Disable polygon drawing
+      rectangle: false, // Disable rectangle drawing
+      circle: false, // Disable circle drawing
+      marker: false // Disable marker drawing
+  },
+  edit: {
+      featureGroup: drawnItems // The feature group for editing drawn items
   }
 });
 map.addControl(drawControl);
 
-// Event listener to capture the drawn polyline
-map.on('draw:created', function (event) {
-  const layer = event.layer;
-  drawnItems.addLayer(layer);
+// Create a feature group to store drawn items
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
 
-  // You can get the coordinates of the drawn line here
-  const polylineCoordinates = layer.getLatLngs();
-  console.log(polylineCoordinates);
+// Event listener for when a user finishes drawing a line
+map.on('draw:created', function (e) {
+  var layer = e.layer;
+  drawnItems.addLayer(layer); // Add the drawn line to the feature group
 });
 
 
