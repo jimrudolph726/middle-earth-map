@@ -3,7 +3,7 @@
 // import functions
 import { addCheckboxListenerSingle, addCheckboxListenerMultiple, createMarkers, createPaths } from './functions.js';
 // Import variables
-import { locations, imageBounds, pathsData, hobbitlocations, samfrodosteps, path } from './variables.js';
+import { locations, imageBounds, pathsData, hobbitlocations, samfrodosteps } from './variables.js';
 
 // Initialize the map
 const map = L.map('map', {
