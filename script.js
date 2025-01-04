@@ -34,5 +34,5 @@ addCheckboxListenerMultiple('hobbitsCheckbox', hobbitmarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 // addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
-addCheckboxListenerSingle('samfrodopathCheckbox', pathmarkers, map);
+addCheckboxListenerSingle('samfrodopathCheckbox', pathmarkers['samfrodopathvars'], map);
 addCheckboxListenerMultiple('samfrodopathCheckbox', samfrodomarkers, map);
