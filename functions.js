@@ -15,6 +15,10 @@ export function convertYCoordinate(imageHeight, y) {
   return imageHeight - y;
 }
   
+
+
+
+
 // Function to create markers from a locations dictionary
 export const createMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
@@ -25,6 +29,24 @@ export const createMarkers = (locations) => {
   }, {});
 };
   
+// Function to create path markers from a locations dictionary
+export const createpathMarkers = (locations) => {
+  return Object.keys(locations).reduce((acc, key) => {
+    const { coords, popup } = locations[key];
+    const marker = L.marker(coords, { icon }).bindPopup(popup);
+    acc[key] = marker;
+    return acc;
+  }, {});
+};
+
+
+
+
+
+
+
+
+
 // Function to create overlays
 export const createPaths = (data, bounds) => {
   const overlays = {};

@@ -1,9 +1,9 @@
 // script.js
 
 // import functions
-import { addCheckboxListenerSingle, addCheckboxListenerMultiple, createMarkers, createPaths } from './functions.js';
+import { addCheckboxListenerSingle, addCheckboxListenerMultiple, createMarkers, createPaths, createpathMarkers } from './functions.js';
 // Import variables
-import { locations, imageBounds, pathsData, hobbitlocations, samfrodosteps } from './variables.js';
+import { locations, imageBounds, pathsData, hobbitlocations, samfrodosteps, path } from './variables.js';
 
 // Initialize the map
 const map = L.map('map', {
@@ -11,8 +11,7 @@ const map = L.map('map', {
   minZoom: -3,
   maxZoom: 2,
   zoom: -3,
-},
-{drawControl: true});
+});
 // Add the image as a map layer
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png';
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
@@ -21,6 +20,7 @@ map.fitBounds(imageBounds);
 
 // Create markers
 const markers = createMarkers(locations);
+const pathmarkers = createpathMarkers(path);
 const hobbitmarkers = createMarkers(hobbitlocations);
 const samfrodomarkers = createMarkers(samfrodosteps);
 // Generate overlays dynamically
@@ -33,5 +33,6 @@ const overlays = createPaths(pathsData, imageBounds);
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitmarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
-addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
+// addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
+addCheckboxListenerSingle('samfrodopathCheckbox', pathmarkers, map);
 addCheckboxListenerMultiple('samfrodopathCheckbox', samfrodomarkers, map);
