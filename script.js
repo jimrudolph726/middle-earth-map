@@ -18,18 +18,40 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
-// t
 
-// var map = L.map('map').setView([51.505, -0.09], 13);
 
-// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-// var geotiffLayer = L.leafletGeotiff('path_to_your_file.tif', {
-//     band: 0, // specify the band if needed
-//     opacity: 0.7,
-//     max: 255, // maximum value for the color scale
-//     min: 0    // minimum value for the color scale
-// }).addTo(map);
+
+
+// Initialize the draw control and add it to the map
+const drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+const drawControl = new L.Control.Draw({
+  edit: {
+    featureGroup: drawnItems,
+  },
+  draw: {
+    polyline: true,  // Enable drawing of polylines
+    polygon: false,
+    circle: false,
+    rectangle: false,
+    marker: false,
+  }
+});
+map.addControl(drawControl);
+
+// Event listener to capture the drawn polyline
+map.on('draw:created', function (event) {
+  const layer = event.layer;
+  drawnItems.addLayer(layer);
+
+  // You can get the coordinates of the drawn line here
+  const polylineCoordinates = layer.getLatLngs();
+  console.log(polylineCoordinates);
+});
+
+
 
 
 
