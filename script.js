@@ -23,7 +23,7 @@ var latlngs = [
   [5964, 4240]
 ];
 
-var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+var polyline = L.polyline(latlngs, {color: 'red', weight: 5}).addTo(map);
 
 // Create markers
 const markers = createMarkers(locations);
