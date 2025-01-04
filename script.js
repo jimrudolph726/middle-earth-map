@@ -18,6 +18,13 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
+var latlngs = [
+  [5957, -2794],
+  [5964, -4240]
+];
+
+var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
 // Create markers
 const markers = createMarkers(locations);
 const hobbitmarkers = createMarkers(hobbitlocations);
