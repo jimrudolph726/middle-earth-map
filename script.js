@@ -18,6 +18,21 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Set the view to fit the image
 map.fitBounds(imageBounds);
 
+
+
+// var map = L.map('map').setView([51.505, -0.09], 13);
+
+// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// var geotiffLayer = L.leafletGeotiff('path_to_your_file.tif', {
+//     band: 0, // specify the band if needed
+//     opacity: 0.7,
+//     max: 255, // maximum value for the color scale
+//     min: 0    // minimum value for the color scale
+// }).addTo(map);
+
+
+
 // Create markers
 const markers = createMarkers(locations);
 const hobbitmarkers = createMarkers(hobbitlocations);
