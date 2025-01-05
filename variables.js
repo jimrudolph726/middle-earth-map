@@ -31,9 +31,16 @@ export const hobbitlocations = {
   };
 
 export const samfrodosteps = {
-  september23rd: { coords: [38.03422, -95.09541], icon: icons.HobbitsIcon, popup: generatePopupContent('September 23rd',5,18,3.6,'Evening march.','Green Hill Country'),
+  September23: { coords: [38.03422, -95.09541], icon: icons.HobbitsIcon, popup: generatePopupContent('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
   },
   
-  september24th: { coords: [38.05616, -94.94954], icon: icons.HobbitsIcon, popup: generatePopupContent('September 24th',8,28,3.5,'Black Riders, Elves.','West of Woodhall'),
+  September24: { coords: [38.05616, -94.94954], icon: icons.HobbitsIcon, popup: generatePopupContent('September 24',8,28,3.5,'Black Riders, Elves.','West of Woodhall'),
   },
-};
+
+  September25: { coords: [38.06173, -94.90666], icon: icons.HobbitsIcon, popup: generatePopupContent('September 25',7.5,27,10.4,'Marish, Farmer Maggot wagon', 'Buckland.','Crickhollow'),
+  },
+  September26: { coords: [38.06173, -94.80477], icon: icons.HobbitsIcon, popup: generatePopupContent('September 26',10.5,25,2.4,'On ponies. Knoll, Old Man Willow.','The House of Tom Bombadil'),
+  },
+  September27: { coords: [38.05781, -94.80477], icon: icons.HobbitsIcon, popup: generatePopupContent('September 27','','','','Rain.','The House of Tom Bombadil'),
+  },
+  },

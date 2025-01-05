@@ -127,7 +127,7 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
                 <td style="border: 1px solid #ddd; padding: 8px;">${mileage}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Miles per Hour</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Miles per hour</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">${milesPerHour}</td>
             </tr>
             <tr>
