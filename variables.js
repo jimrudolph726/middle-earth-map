@@ -36,19 +36,49 @@ export const pathsData = [
   ];
 
 export const samfrodosteps = {
+  
   september23rd: { 
-    coords: [38.03422,-95.09541], 
+    coords: [38.03422, -95.09541], 
     icon: icons.HobbitsIcon, 
-    popup: `<div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
-                onmouseout="this.querySelector('.popup-content').style.display = 'none';">
-                <h3>September 23rd</h3>
-                <p>Campsite: Green Hill Country</p>
-                <div class="popup-content" style="display: none;">
-                    <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                    Learn more on Thain's Book</button>
-                </div>
-            </div>`
-  },
+    popup: `
+        <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
+             onmouseout="this.querySelector('.popup-content').style.display = 'none';">
+            <h3>September 23rd</h3>
+            <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
+                    <td style="border: 1px solid #ddd; padding: 8px;">September 23rd</td>
+                </tr>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Hours Travelled</th>
+                    <td style="border: 1px solid #ddd; padding: 8px;">5</td>
+                </tr>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Mileage</th>
+                    <td style="border: 1px solid #ddd; padding: 8px;">18</td>
+                </tr>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Miles per Hour</th>
+                    <td style="border: 1px solid #ddd; padding: 8px;">3.6</td>
+                </tr>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Comments</th>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Evening march.</td>
+                </tr>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Campsite</th>
+                    <td style="border: 1px solid #ddd; padding: 8px;">Green Hill Country</td>
+                </tr>
+            </table>
+            <div class="popup-content" style="display: none; margin-top: 10px;">
+                <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                    Learn more on Thain's Book
+                </button>
+            </div>
+        </div>
+    `
+},
+
   september24th: { 
     coords: [38.05616,-94.94954], 
     icon: icons.HobbitsIcon, 
