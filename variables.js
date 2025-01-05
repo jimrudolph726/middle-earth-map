@@ -22,7 +22,7 @@ const icons = {
 export const locations = {
   bree: { coords: [convertYCoordinate(imageHeight, 2251), 2794], icon: icons.MenIcon, popup: 'Bree' },
   rivendell: { coords: [38.16090,-93.43283], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
-  minastirith: { coords: [39.10641773621683, -94.59419575247209], icon: icons.MenIcon, popup: 'Minas Tirith' }
+  minastirith: { coords: [36.22034,-92.17869], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 
 export const hobbitlocations = {
