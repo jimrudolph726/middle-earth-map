@@ -66,3 +66,36 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   // Trigger toggleMarkers on load based on the initial checkbox state
   toggleMarkers();
 };
+
+// Function to create a polyline from a GeoJSON path
+export function createPolyline(pathName, color) {
+  // Define the URL to the GeoJSON file (could also be dynamic if needed)
+  const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
+
+  // Fetch and process the GeoJSON file
+  fetch(geojsonPath)
+    .then((response) => response.json())
+    .then((data) => {
+      // Extract the coordinates from the GeoJSON
+      const coordinates = data.features[0].geometry.coordinates;
+
+      // Flatten the array if it's nested too deeply (if needed)
+      const flatCoordinates = coordinates.flat();
+
+      // Convert GeoJSON coordinates (lon, lat) to Leaflet format (lat, lon)
+      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
+
+      // Create a polyline using the coordinates and color
+      const polyline = L.polyline(latLngs, {
+        color: color,     // Use the passed color for the polyline
+        weight: 5,         // Line thickness
+        opacity: 0.8,      // Line opacity
+      }).addTo(map);
+
+      // Optionally, adjust map to fit the bounds of the polyline
+      // map.fitBounds(polyline.getBounds());
+    })
+    .catch((error) => {
+      console.error('Error loading GeoJSON for ' + pathName + ':', error);
+    });
+}

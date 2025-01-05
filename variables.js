@@ -63,3 +63,5 @@ export const samfrodosteps = {
             </div>`
   }
 }
+
+const samfrodopath = 
