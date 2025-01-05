@@ -45,6 +45,7 @@ const samFrodoMarkers = createMarkers(samfrodosteps);
 // Add event listeners for checkboxes
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
+addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 
