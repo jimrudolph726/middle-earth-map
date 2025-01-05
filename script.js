@@ -43,14 +43,14 @@ const markers = createMarkers(locations);
 const hobbitMarkers = createMarkers(hobbitlocations);
 const samFrodoMarkers = createMarkers(samfrodosteps);
 
-const pathsraw = {samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }};
-
-const polylines = createPolyline(pathsraw);
-
 // Add event listeners for checkboxes
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 // addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 
-addpolylineCheckboxListeners(polylines, map);
+document.addEventListener('DOMContentLoaded', () => {
+  const pathsraw = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map } };
+  const polylines = createPolyline(pathsraw);
+  addpolylineCheckboxListeners(polylines, map);
+});
