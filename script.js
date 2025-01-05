@@ -11,7 +11,6 @@ import {
 
 import {
   locations,
-  pathsData,
   hobbitlocations,
   samfrodosteps,
 } from './variables.js';
