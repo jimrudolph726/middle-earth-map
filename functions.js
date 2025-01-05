@@ -107,3 +107,35 @@ export const createPolyline = (paths) => {
   // Return the polylines object
   return polylines;
 };
+
+
+
+export const addpolylineCheckboxListeners = (polylines, map) => {
+  // Loop through each key in the polylines object
+  Object.keys(polylines).forEach((key) => {
+    // Construct the checkbox ID using the polyline's key
+    const checkboxId = `${key}Checkbox`;
+
+    // Get the checkbox element from the DOM
+    const checkbox = document.getElementById(checkboxId);
+
+    // If the checkbox exists, add an event listener
+    if (checkbox) {
+      checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+          // Add the polyline to the map if the checkbox is checked
+          polylines[key].addTo(map);
+          console.log(`${key} polyline added to map.`);
+        } else {
+          // Remove the polyline from the map if the checkbox is unchecked
+          map.removeLayer(polylines[key]);
+          console.log(`${key} polyline removed from map.`);
+        }
+      });
+
+      console.log(`Listener added for ${key} checkbox.`);
+    } else {
+      console.warn(`Checkbox with ID '${checkboxId}' not found for polyline '${key}'.`);
+    }
+  });
+};
