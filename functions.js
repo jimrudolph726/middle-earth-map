@@ -95,9 +95,6 @@ export const createPolyline = (paths) => {
           opacity: 0.8,      // Line opacity
         });
 
-        // Add the polyline to the map inside the then block
-        polyline.addTo(map);
-
         // Optionally, you can log the polyline to verify it's added
         console.log(polyline);
 
