@@ -13,7 +13,6 @@ import {
   pathsData,
   hobbitlocations,
   samfrodosteps,
-  imageBounds,
 } from './variables.js';
 
 // Initialize the map with EPSG:4326 CRS
