@@ -51,7 +51,6 @@ addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
 addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 
+const pathsraw = {samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }};
 
-const samfrodopath = {path: 'samfrodopath', color: 'red' }
-
-createPolyline(samfrodopath.path, samfrodopath.color, map);
+const pathsprocessed = createPolyline(pathsraw);
