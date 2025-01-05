@@ -10,11 +10,6 @@
     });
   }
 
-  // Function to convert the Y-coordinate
-export function convertYCoordinate(imageHeight, y) {
-  return imageHeight - y;
-}
-  
 // Function to create markers from a locations dictionary
 export const createMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {

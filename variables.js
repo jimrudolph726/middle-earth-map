@@ -20,14 +20,14 @@ const icons = {
   };
 
 export const locations = {
-  bree: { coords: [convertYCoordinate(imageHeight, 2251), 2794], icon: icons.MenIcon, popup: 'Bree' },
+  bree: { coords: [38.15669,-94.65824], icon: icons.MenIcon, popup: 'Bree' },
   rivendell: { coords: [38.16090,-93.43283], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
   minastirith: { coords: [36.22034,-92.17869], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 
 export const hobbitlocations = {
-    hobbiton: { coords: [convertYCoordinate(imageHeight, 2329), 2247], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
-    micheldelving: { coords: [convertYCoordinate(imageHeight, 2388), 2110], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
+    hobbiton: { coords: [38.11071,-95.12346], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
+    micheldelving: { coords: [38.06427,-95.23447], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
   };
 
 export const samfrodosteps = {
