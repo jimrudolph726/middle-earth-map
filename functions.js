@@ -5,7 +5,7 @@
     return L.icon({
       iconUrl: url,
       iconSize: [48, 48],  // Adjust size as needed
-      iconAnchor: [0, 0],
+      iconAnchor: [16, 32],
       popupAnchor: [0, -32],
     });
   }
