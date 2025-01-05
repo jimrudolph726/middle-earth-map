@@ -15,12 +15,13 @@ import {
   samfrodosteps,
 } from './variables.js';
 
-// Initialize the map
+// Initialize the map with EPSG:4326 CRS
 const map = L.map('map', {
-  crs: L.CRS.Simple,
-  minZoom: -3,
-  maxZoom: 2,
-  zoom: -3,
+  crs: L.CRS.EPSG4326,
+  minZoom: -5, // Allow deep zoom for detailed inspection
+  maxZoom: 10, // Adjust as needed for your data
+  zoom: 0,
+  center: [0, 0], // Adjust to the approximate center of your raster if needed
 });
 
 // Add the image as a map layer
