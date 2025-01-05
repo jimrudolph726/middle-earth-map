@@ -51,9 +51,6 @@ addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListenerSingle('samfrodopathCheckbox', overlays['SamFrodoPathOverlay'], map);
 addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 
-// Call the function and store the polyline in a variable
-let samfrodopath;
-
 createPolyline('path1', 'red')
   .then((polyline) => {
     // Save the polyline in the variable
