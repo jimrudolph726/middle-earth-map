@@ -99,7 +99,7 @@ export const createPolyline = (paths) => {
         console.log(polyline);
 
         // Add the polyline to the map
-        polyline.addTo(map);
+        // polyline.addTo(map);
 
         // Return an object with the key and polyline
         return { [key]: polyline };
