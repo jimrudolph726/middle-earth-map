@@ -32,7 +32,7 @@ fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/mid
       const layer = new GeoRasterLayer({
         georaster,
         opacity: 1, // Adjust transparency
-        resolution: 256, // Adjust quality
+        resolution: 1024, // Adjust quality
       });
       layer.addTo(map);
 
