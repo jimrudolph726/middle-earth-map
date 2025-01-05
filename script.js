@@ -43,7 +43,7 @@ map.fitBounds(imageBounds);
 // Assuming you already have a Leaflet map initialized as 'map'
 
 // URL to your GeoJSON file
-const geojsonPath = 'path.geojson';
+const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/path.geojson';
 
 // Fetch and process the GeoJSON file
 fetch(geojsonPath)
