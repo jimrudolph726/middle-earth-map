@@ -37,6 +37,42 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Optionally, fit the map view to the bounds of the image
 map.fitBounds(imageBounds);
 
+// Assuming you already have a Leaflet map initialized as 'map'
+
+
+// Fetch and load the GeoJSON file
+fetch('path.geojson')
+  .then((response) => response.json())
+  .then((data) => {
+    // Add the GeoJSON layer to the map
+    const geojsonLayer = L.geoJSON(data, {
+      style: {
+        color: 'red', // Line color
+        weight: 5,     // Line thickness
+        opacity: 0.8,  // Line opacity
+      },
+      onEachFeature: function (feature, layer) {
+        // Optionally bind popups or other interactivity
+        layer.bindPopup(`Feature ID: ${feature.id}`);
+      },
+    });
+    geojsonLayer.addTo(map);
+
+  })
+  .catch((error) => {
+    console.error('Error loading GeoJSON:', error);
+  });
+
+
+
+
+
+
+
+
+
+
+
 // Create markers and paths
 const markers = createMarkers(locations);
 const hobbitMarkers = createMarkers(hobbitlocations);
