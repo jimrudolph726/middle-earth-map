@@ -24,15 +24,11 @@ const map = L.map('map', {
 });
 
 // Define the URL of your image (the .tif file)
-const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png';
+const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/output_file.png';
 
 // Define the bounds of your image in geographic coordinates (latitude/longitude)
 // You need to specify the coordinates of the top-left and bottom-right corners of the image
-const imageBounds = [
-  [44.9547670072369883, -93.3217380136984076], // Top-left corner
-  [44.9306312582254606, -93.2855126070141409]  // Bottom-right corner
-];
-
+const imageBounds = [[50.9384172749999991, -116.1398198509999986], [27.2271753850000024, -82.8417954509999959]];
 
 // Add the image as an overlay to the map
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
