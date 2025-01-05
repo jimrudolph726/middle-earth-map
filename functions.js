@@ -97,7 +97,10 @@ export const createPolyline = (paths) => {
 
         // Optionally, you can log the polyline to verify it's added
         console.log(polyline);
-
+        
+        // Add the polyline to the map
+        polyline.addTo(map);
+        
         // Return polyline if needed for further usage
         acc[key] = polyline;
       })
