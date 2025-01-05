@@ -91,7 +91,7 @@ export const createPolyline = (paths) => {
         console.log(polyline);
 
         // Add the polyline to the map
-        // polyline.addTo(map);
+        polyline.addTo(map);
 
         // Store the polyline in the polylines object
         polylines[key] = polyline;
