@@ -51,7 +51,6 @@ const polylines = createPolyline(pathsraw);
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
-addCheckboxListenerSingle('samfrodopathCheckbox', polylines['samfrodopath'], map);
 // addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 
 addpolylineCheckboxListeners(polylines, map);
