@@ -37,40 +37,37 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Optionally, fit the map view to the bounds of the image
 map.fitBounds(imageBounds);
 
-// Assuming you already have a Leaflet map initialized as 'map'
 
 
-// Assuming you already have a Leaflet map initialized as 'map'
 
 // URL to your GeoJSON file
 const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/path.geojson';
 
-// Fetch and process the GeoJSON file
 fetch(geojsonPath)
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
   .then((data) => {
-    // Extract the coordinates from the GeoJSON
+    console.log('GeoJSON Data:', data); // Debug: Check the data structure
+
     const coordinates = data.features[0].geometry.coordinates;
+    console.log('Coordinates:', coordinates); // Debug: Check extracted coordinates
 
-    // Convert GeoJSON coordinates (lon, lat) to Leaflet format (lat, lon)
     const latLngs = coordinates.map(coord => [coord[1], coord[0]]);
+    console.log('LatLngs:', latLngs); // Debug: Check converted coordinates
 
-    // Create a polyline using the coordinates
     const polyline = L.polyline(latLngs, {
-      color: 'blue',     // Line color
-      weight: 5,         // Line thickness
-      opacity: 0.8,      // Line opacity
+      color: 'red',
+      weight: 5,
+      opacity: 0.8,
     }).addTo(map);
-
   })
   .catch((error) => {
     console.error('Error loading GeoJSON:', error);
   });
-
-
-
-
-
 
 
 
