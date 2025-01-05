@@ -82,7 +82,7 @@ export const samfrodosteps = {
     popup: `
         <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
              onmouseout="this.querySelector('.popup-content').style.display = 'none';">
-            <h3>September 23rd</h3>
+            <h3>September 24th</h3>
             <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
                 <tr>
                     <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
