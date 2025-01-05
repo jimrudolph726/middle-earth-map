@@ -25,7 +25,7 @@ const map = L.map('map', {
 
 
 // Define the URL of your image (the .tif file)
-const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif';
+const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/output_file.png';
 
 // Define the bounds of your image in geographic coordinates (latitude/longitude)
 // You need to specify the coordinates of the top-left and bottom-right corners of the image
