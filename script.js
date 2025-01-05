@@ -37,7 +37,7 @@ const imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
 imageOverlay.getElement().style.transform = 'scaleX(0.8)'; // Adjust the 0.8 value as needed
 
 // Optionally, fit the map view to the bounds of the image
-map.fitBounds(imageBounds);
+// map.fitBounds(imageBounds);
 
 
 
