@@ -24,12 +24,6 @@ const map = L.map('map', {
   center: [0, 0], // Adjust to the approximate center of your raster if needed
 });
 
-// Add the image as a map layer
-// const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png';
-// L.imageOverlay(imageUrl, imageBounds).addTo(map);
-// // Set the view to fit the image
-// map.fitBounds(imageBounds);
-
 fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif') // Replace with your GeoTIFF file URL
   .then(response => response.arrayBuffer())
   .then(arrayBuffer => {
