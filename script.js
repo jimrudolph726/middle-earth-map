@@ -29,7 +29,11 @@ const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-m
 
 // Define the bounds of your image in geographic coordinates (latitude/longitude)
 // You need to specify the coordinates of the top-left and bottom-right corners of the image
-const imageBounds = [[50.9384172749999991, -116.1398198509999986], [27.2271753850000024, -82.8417954509999959]];
+const imageBounds = [
+  [4034651.3740917411632836, -10799671.9699563533067703],  // Bottom-left corner (EPSG:3857)
+  [4817084.7824006332084537, -9978064.8488599564880133]   // Top-right corner (EPSG:3857)
+];
+
 
 // Add the image as an overlay to the map
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
