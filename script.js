@@ -31,13 +31,21 @@ const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-m
 const imageBounds = [[50.9384172749999991, -116.1398198509999986], [27.2271753850000024, -82.8417954509999959]];
 
 // Add the image as an overlay to the map
-const imageOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(map);
-
-// Apply the CSS to visually compress the image horizontally
-// imageOverlay.getElement().style.transform = 'scaleX(0.8)'; // Adjust the 0.8 value as needed
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
 // Optionally, fit the map view to the bounds of the image
 map.fitBounds(imageBounds);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
