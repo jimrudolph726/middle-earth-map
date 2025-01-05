@@ -42,7 +42,7 @@ map.fitBounds(imageBounds);
 const markers = createMarkers(locations);
 const hobbitMarkers = createMarkers(hobbitlocations);
 const samFrodoMarkers = createMarkers(samfrodosteps);
-
+// d
 // Add event listeners for checkboxes
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
