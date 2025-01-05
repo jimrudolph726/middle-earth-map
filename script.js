@@ -23,7 +23,6 @@ const map = L.map('map', {
   center: [0, 0], // Adjust to the approximate center of your raster if needed
 });
 
-
 // Define the URL of your image (the .tif file)
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/output_file.png';
 
