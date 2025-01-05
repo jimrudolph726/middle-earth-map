@@ -42,19 +42,6 @@ map.fitBounds(imageBounds);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif') // Replace with your GeoTIFF file URL
 //   .then(response => response.arrayBuffer())
 //   .then(arrayBuffer => {
