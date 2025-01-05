@@ -41,7 +41,6 @@ map.fitBounds(imageBounds);
 const markers = createMarkers(locations);
 const hobbitMarkers = createMarkers(hobbitlocations);
 const samFrodoMarkers = createMarkers(samfrodosteps);
-const overlays = createPaths(pathsData, imageBounds);
 
 const pathsraw = {samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }};
 
