@@ -1,4 +1,4 @@
-import { convertYCoordinate, createIcon, generatePopupContent } from './functions.js';
+import { createIcon, generatePopupContent } from './functions.js';
 
 // Image dimensions and bounds
 const imageWidth = 8740;
