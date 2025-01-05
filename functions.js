@@ -108,3 +108,39 @@ export const addpolylineCheckboxListeners = (polylines, map) => {
   });
 };
 
+export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
+  return `
+    <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
+         onmouseout="this.querySelector('.popup-content').style.display = 'none';">
+        <h3>${date}</h3>
+        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${date}</td>
+            </tr>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Hours Travelled</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${hoursTravelled}</td>
+            </tr>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Mileage</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${mileage}</td>
+            </tr>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Miles per Hour</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${milesPerHour}</td>
+            </tr>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Comments</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${comments}</td>
+            </tr>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Campsite</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${campsite}</td>
+            </tr>
+        </table>
+        <div class="popup-content" style="display: none; margin-top: 10px;">
+        </div>
+    </div>
+  `;
+};
