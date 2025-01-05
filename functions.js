@@ -57,9 +57,6 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-
-
-
 export const createPolyline = (paths) => {
   const polylines = {}; // Object to store polylines by their keys
 
