@@ -44,7 +44,7 @@ const samFrodoMarkers = createMarkers(samfrodosteps);
 
 const pathsraw = {samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }};
 
-createPolyline(pathsraw);
+const polylines = createPolyline(pathsraw);
 
 // Add event listeners for checkboxes
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
