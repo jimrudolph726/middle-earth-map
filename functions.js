@@ -99,7 +99,7 @@ export const createPolyline = (paths) => {
         console.log(polyline);
 
         // Add the polyline to the map
-        // polyline.addTo(map);
+        polyline.addTo(map);
 
         // Return an object with the key and polyline
         return { [key]: polyline };
@@ -107,26 +107,4 @@ export const createPolyline = (paths) => {
       .catch((error) => {
         console.error('Error loading GeoJSON for ' + pathName + ':', error);
       });
-  });
-
-  // Wait for all fetch operations to complete
-  return Promise.all(polylinePromises)
-    .then((results) => {
-      // Combine the results into a single object
-      const polylines = results.reduce((acc, result) => {
-        return { ...acc, ...result };
-      }, {});
-
-      // After the polylines are created, add checkbox listeners
-      console.log('Polylines:', polylines);
-      Object.keys(polylines).forEach((key) => {
-        addCheckboxListenerSingle(`${key}Checkbox`, polylines[key], map);
-      });
-
-      // Return the polylines object so it can be used further
-      return polylines;
-    })
-    .catch((error) => {
-      console.error('Error creating polylines:', error);
-    });
-};
+  });}
