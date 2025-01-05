@@ -54,4 +54,4 @@ addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 
 const samfrodopath = {path: 'samfrodopath', color: 'red' }
 
-createPolyline(samfrodopath[path], samfrodopath[path], map)
+createPolyline(samfrodopath.path, samfrodopath.color, map);
