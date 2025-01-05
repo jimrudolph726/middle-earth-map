@@ -67,8 +67,7 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-// Function to create a polyline from a GeoJSON path
-export function createPolyline(pathName, color) {
+export function createPolyline(pathName, color, map) {
   // Define the URL to the GeoJSON file (could also be dynamic if needed)
   const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
@@ -92,7 +91,13 @@ export function createPolyline(pathName, color) {
         opacity: 0.8,      // Line opacity
       });
 
-      // Return the polyline object so it can be saved
+      // Add the polyline to the map inside the then block
+      polyline.addTo(map);
+
+      // Optionally, you can log the polyline to verify it's added
+      console.log(polyline);
+
+      // Return polyline if needed for further usage
       return polyline;
     })
     .catch((error) => {
