@@ -71,9 +71,6 @@ export const samfrodosteps = {
                 </tr>
             </table>
             <div class="popup-content" style="display: none; margin-top: 10px;">
-                <button style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                    Learn more on Thain's Book
-                </button>
             </div>
         </div>
     `
