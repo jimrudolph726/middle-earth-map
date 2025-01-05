@@ -30,29 +30,22 @@ const map = L.map('map', {
 // // Set the view to fit the image
 // map.fitBounds(imageBounds);
 
-// Load GeoTIFF and add to the map
-fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif')
-  .then((response) => response.arrayBuffer())
-  .then((arrayBuffer) => {
-    parseGeoraster(arrayBuffer)
-      .then((georaster) => {
-        // Ensure GeoRasterLayer is available
-        const GeoRasterLayer = window.GeoRasterLayer;
-        if (!GeoRasterLayer) {
-          throw new Error('GeoRasterLayer is not defined. Ensure the library is loaded.');
-        }
+fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif') // Replace with your GeoTIFF file URL
+  .then(response => response.arrayBuffer())
+  .then(arrayBuffer => {
+    parseGeoraster(arrayBuffer).then(georaster => {
+      console.log("Parsed GeoRaster:", georaster);
+      const layer = new GeoRasterLayer({
+        georaster,
+        opacity: 1, // Adjust transparency
+        resolution: 256, // Adjust quality
+      });
+      layer.addTo(map);
 
-        const layer = new GeoRasterLayer({
-          georaster,
-          opacity: 1, // Adjust transparency
-          resolution: 256, // Adjust for quality
-        });
-        layer.addTo(map);
-        map.fitBounds(layer.getBounds());
-      })
-      .catch((error) => console.error('Error parsing GeoRaster:', error));
+      map.fitBounds(layer.getBounds());
+    });
   })
-  .catch((error) => console.error('Error loading GeoTIFF:', error));
+  .catch(error => console.error("Error parsing GeoRaster:", error));
 
 // Create markers and paths
 const markers = createMarkers(locations);
