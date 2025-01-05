@@ -54,7 +54,8 @@ addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 createPolyline('path', 'red')
   .then((polyline) => {
     // Save the polyline in the variable
-    polyline.addTo(map);
+    samfrodopath = polyline
+    samfrodopath.addTo(map);
     
     console.log(polyline);  // Log the polyline to confirm
   })
