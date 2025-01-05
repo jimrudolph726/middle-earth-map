@@ -40,28 +40,33 @@ map.fitBounds(imageBounds);
 // Assuming you already have a Leaflet map initialized as 'map'
 
 
-// Fetch and load the GeoJSON file
-fetch('path.geojson')
+// Assuming you already have a Leaflet map initialized as 'map'
+
+// URL to your GeoJSON file
+const geojsonPath = 'path.geojson';
+
+// Fetch and process the GeoJSON file
+fetch(geojsonPath)
   .then((response) => response.json())
   .then((data) => {
-    // Add the GeoJSON layer to the map
-    const geojsonLayer = L.geoJSON(data, {
-      style: {
-        color: 'red', // Line color
-        weight: 5,     // Line thickness
-        opacity: 0.8,  // Line opacity
-      },
-      onEachFeature: function (feature, layer) {
-        // Optionally bind popups or other interactivity
-        layer.bindPopup(`Feature ID: ${feature.id}`);
-      },
-    });
-    geojsonLayer.addTo(map);
+    // Extract the coordinates from the GeoJSON
+    const coordinates = data.features[0].geometry.coordinates;
+
+    // Convert GeoJSON coordinates (lon, lat) to Leaflet format (lat, lon)
+    const latLngs = coordinates.map(coord => [coord[1], coord[0]]);
+
+    // Create a polyline using the coordinates
+    const polyline = L.polyline(latLngs, {
+      color: 'blue',     // Line color
+      weight: 5,         // Line thickness
+      opacity: 0.8,      // Line opacity
+    }).addTo(map);
 
   })
   .catch((error) => {
     console.error('Error loading GeoJSON:', error);
   });
+
 
 
 
