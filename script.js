@@ -63,7 +63,7 @@ fetch(geojsonPath)
     }).addTo(map);
 
     // Adjust map to fit the bounds of the polyline
-    map.fitBounds(polyline.getBounds());
+    // map.fitBounds(polyline.getBounds());
   })
   .catch((error) => {
     console.error('Error loading GeoJSON:', error);
