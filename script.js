@@ -49,8 +49,14 @@ addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 // addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const pathsraw = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map } };
-  const polylines = createPolyline(pathsraw);
+
+  console.log('Initializing polylines...');
+  const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
+  console.log('Polylines initialized:', polylines);
+
+  console.log('Adding checkbox listeners...');
   addpolylineCheckboxListeners(polylines, map);
+  console.log('Checkbox listeners added.');
 });

@@ -57,54 +57,29 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-export const createPolyline = (paths) => {
-  const polylines = {}; // Object to store polylines by their keys
-
-  // Loop through each path in the paths object
-  Object.keys(paths).forEach((key) => {
+export const createPolyline = async (paths) => {
+  const polylines = {};
+  const promises = Object.keys(paths).map(async (key) => {
     const { pathName, color, map } = paths[key];
-
-    // Define the URL to the GeoJSON file
     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
-    // Fetch the GeoJSON data directly
-    fetch(geojsonPath)
-      .then((response) => response.json())
-      .then((data) => {
-        // Extract the coordinates from the GeoJSON
-        const coordinates = data.features[0].geometry.coordinates;
-
-        // Flatten the array if it's nested too deeply (if needed)
-        const flatCoordinates = coordinates.flat();
-
-        // Convert GeoJSON coordinates (lon, lat) to Leaflet format (lat, lon)
-        const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
-
-        // Create a polyline using the coordinates and color
-        const polyline = L.polyline(latLngs, {
-          color: color,     // Use the passed color for the polyline
-          weight: 5,         // Line thickness
-          opacity: 0.8,      // Line opacity
-        });
-
-        // Optionally, you can log the polyline to verify it's added
-        console.log(polyline);
-
-        // Add the polyline to the map
-        // polyline.addTo(map);
-
-        // Store the polyline in the polylines object
-        polylines[key] = polyline;
-
-        // Optionally, you can also log this
-        console.log(`${key} polyline added to map.`);
-      })
-      .catch((error) => {
-        console.error('Error loading GeoJSON for ' + pathName + ':', error);
-      });
+    try {
+      const response = await fetch(geojsonPath);
+      console.log(`Response received for ${key}`);
+      const data = await response.json();
+      const coordinates = data.features[0].geometry.coordinates;
+      const flatCoordinates = coordinates.flat();
+      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
+      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
+      polyline.addTo(map);
+      polylines[key] = polyline;
+      console.log(`Polyline created and added for ${key}`);
+    } catch (error) {
+      console.error(`Error fetching data for ${key}:`, error);
+    }
   });
 
-  // Return the polylines object
+  await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
 };
 
