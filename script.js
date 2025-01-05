@@ -26,7 +26,7 @@ import { locations, imageBounds, pathsData, hobbitlocations, samfrodosteps } fro
 // var polyline = L.polyline(latlngs, {color: 'red', weight: 5}).addTo(map);
 
 const map = L.map('map').setView([0, 0], 2);
-fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.png') // Replace with your GeoTIFF file URL
+fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif') // Replace with your GeoTIFF file URL
 .then(response => response.arrayBuffer())
 .then(arrayBuffer => {
   parseGeoraster(arrayBuffer).then(georaster => {
