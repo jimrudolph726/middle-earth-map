@@ -71,7 +71,7 @@ export const createPolyline = async (paths) => {
       const flatCoordinates = coordinates.flat();
       const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
-      polyline.addTo(map);
+      // polyline.addTo(map);
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
     } catch (error) {
