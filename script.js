@@ -57,7 +57,7 @@ createPolyline('path', 'red')
     samfrodopath = polyline
     samfrodopath.addTo(map);
     
-    console.log(polyline);  // Log the polyline to confirm
+    console.log(samfrodopath);  // Log the polyline to confirm
   })
   .catch((error) => {
     console.error('Error:', error);
