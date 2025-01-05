@@ -37,33 +37,6 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 // Optionally, fit the map view to the bounds of the image
 map.fitBounds(imageBounds);
 
-
-
-
-
-
-
-// fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif') // Replace with your GeoTIFF file URL
-//   .then(response => response.arrayBuffer())
-//   .then(arrayBuffer => {
-//     parseGeoraster(arrayBuffer).then(georaster => {
-//       console.log("Parsed GeoRaster:", georaster);
-//       const layer = new GeoRasterLayer({
-//         georaster,
-//         opacity: 1, // Adjust transparency
-//         resolution: 1024, // Adjust quality
-//       });
-//       layer.addTo(map);
-
-//       map.fitBounds(layer.getBounds());
-//     });
-//   })
-//   .catch(error => console.error("Error parsing GeoRaster:", error));
-
-
-
-
-
 // Create markers and paths
 const markers = createMarkers(locations);
 const hobbitMarkers = createMarkers(hobbitlocations);
