@@ -25,16 +25,6 @@ export const createMarkers = (locations) => {
   }, {});
 };
 
-
-// Function to create overlays
-export const createPaths = (data, bounds) => {
-  const overlays = {};
-  data.forEach(({ name, url }) => {
-    overlays[name] = L.imageOverlay(url, bounds);
-  });
-  return overlays;
-};
-
 export const addCheckboxListenerSingle = (checkboxId, element, map) => {
   document.getElementById(checkboxId).addEventListener('change', (event) => {
       if (event.target.checked) {
@@ -67,16 +57,21 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
+
+
+
 export const createPolyline = (paths) => {
-  // Create an array of promises for each fetch operation
-  const polylinePromises = Object.keys(paths).map((key) => {
+  const polylines = {}; // Object to store polylines by their keys
+
+  // Loop through each path in the paths object
+  Object.keys(paths).forEach((key) => {
     const { pathName, color, map } = paths[key];
 
     // Define the URL to the GeoJSON file
     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
-    // Return a promise for each polyline
-    return fetch(geojsonPath)
+    // Fetch the GeoJSON data directly
+    fetch(geojsonPath)
       .then((response) => response.json())
       .then((data) => {
         // Extract the coordinates from the GeoJSON
@@ -101,10 +96,17 @@ export const createPolyline = (paths) => {
         // Add the polyline to the map
         polyline.addTo(map);
 
-        // Return an object with the key and polyline
-        return { [key]: polyline };
+        // Store the polyline in the polylines object
+        polylines[key] = polyline;
+
+        // Optionally, you can also log this
+        console.log(`${key} polyline added to map.`);
       })
       .catch((error) => {
         console.error('Error loading GeoJSON for ' + pathName + ':', error);
       });
-  });}
+  });
+
+  // Return the polylines object
+  return polylines;
+};

@@ -5,7 +5,6 @@ import {
   addCheckboxListenerSingle,
   addCheckboxListenerMultiple,
   createMarkers,
-  createPaths,
   createPolyline,
 } from './functions.js';
 
