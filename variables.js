@@ -37,7 +37,7 @@ export const pathsData = [
 
 export const samfrodosteps = {
   september23rd: { 
-    coords: [convertYCoordinate(imageHeight, 2411), 2355], 
+    coords: [38.03422,-95.09541], 
     icon: icons.HobbitsIcon, 
     popup: `<div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
                 onmouseout="this.querySelector('.popup-content').style.display = 'none';">
@@ -50,7 +50,7 @@ export const samfrodosteps = {
             </div>`
   },
   september24th: { 
-    coords: [convertYCoordinate(imageHeight, 2395), 2463], 
+    coords: [38.05616,-94.94954], 
     icon: icons.HobbitsIcon, 
     popup: `<div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
                 onmouseout="this.querySelector('.popup-content').style.display = 'none';">
