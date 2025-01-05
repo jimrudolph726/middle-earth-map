@@ -72,8 +72,8 @@ export function createPolyline(pathName, color) {
   // Define the URL to the GeoJSON file (could also be dynamic if needed)
   const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
-  // Fetch and process the GeoJSON file
-  fetch(geojsonPath)
+  // Return a promise that resolves to the polyline object
+  return fetch(geojsonPath)
     .then((response) => response.json())
     .then((data) => {
       // Extract the coordinates from the GeoJSON
@@ -90,10 +90,10 @@ export function createPolyline(pathName, color) {
         color: color,     // Use the passed color for the polyline
         weight: 5,         // Line thickness
         opacity: 0.8,      // Line opacity
-      }).addTo(map);
+      });
 
-      // Optionally, adjust map to fit the bounds of the polyline
-      // map.fitBounds(polyline.getBounds());
+      // Return the polyline object so it can be saved
+      return polyline;
     })
     .catch((error) => {
       console.error('Error loading GeoJSON for ' + pathName + ':', error);
