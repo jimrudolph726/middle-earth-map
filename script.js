@@ -25,27 +25,21 @@ import { locations, imageBounds, pathsData, hobbitlocations, samfrodosteps } fro
 
 // var polyline = L.polyline(latlngs, {color: 'red', weight: 5}).addTo(map);
 
-const map = L.map('map').setView([0, 0], 2);
 fetch('https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth-tif.tif') // Replace with your GeoTIFF file URL
-.then(response => response.arrayBuffer())
-.then(arrayBuffer => {
-  parseGeoraster(arrayBuffer).then(georaster => {
-    // Add the GeoTIFF layer
-    const layer = new GeoRasterLayer({
-      georaster,
-      opacity: 1, // Adjust transparency
-      resolution: 256, // Adjust for quality
+  .then(response => response.arrayBuffer())
+  .then(arrayBuffer => {
+    parseGeoraster(arrayBuffer).then(georaster => {
+      const layer = new GeoRasterLayer({
+        georaster,
+        opacity: 1, // Adjust transparency
+        resolution: 256, // Adjust for quality
+      });
+      layer.addTo(map);
+
+      map.fitBounds(layer.getBounds());
     });
-    layer.addTo(map);
-
-    // Fit the map to the bounds of the GeoTIFF
-    map.fitBounds(layer.getBounds());
-  });
-});
-
-
-
-
+  })
+  .catch(error => console.error('Error loading GeoTIFF:', error));
 
 
 // Create markers

@@ -4,18 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Middle-earth Map</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.draw@1.0.4/dist/leaflet.draw.css" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.draw@1.0.4/dist/leaflet.draw.css" />
-  <script src="https://unpkg.com/leaflet.draw@1.0.4/dist/leaflet.draw.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  
+  <!-- Leaflet Core -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/georaster-layer-for-leaflet/dist/georaster-layer-for-leaflet.bundle.min.js"></script>
+  
+  <!-- Leaflet Plugins -->
+  <script src="https://unpkg.com/leaflet.draw@1.0.4/dist/leaflet.draw.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/georaster-layer-for-leaflet@2.0.0/dist/georaster-layer-for-leaflet.browser.min.js"></script>
   <script src="https://unpkg.com/geotiff"></script>
   <script src="https://unpkg.com/georaster"></script>
-
-  
 </head>
 <body>
   <div id="map"></div>
@@ -26,7 +29,6 @@
     <label for="samfrodopathCheckbox">
       <input type="checkbox" id="samfrodopathCheckbox" /> Sam and Frodo
     </label>
-    <br>
   </div>
 
   <!-- Locations Section -->
@@ -35,19 +37,15 @@
     <label for="hobbitsCheckbox">
       <input type="checkbox" id="hobbitsCheckbox" /> Hobbits
     </label>
-    <br>
     <label for="menCheckbox">
       <input type="checkbox" id="menCheckbox" /> Men
     </label>
-    <br>
     <label for="elvesCheckbox">
       <input type="checkbox" id="elvesCheckbox" /> Elves
     </label>
-    <br>
   </div>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-geotiff@1.0.1/dist/leaflet-geotiff.min.js"></script>
+  <!-- Custom Script -->
   <script type="module" src="script.js"></script>
 </body>
 </html>
