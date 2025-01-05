@@ -43,4 +43,4 @@ export const samfrodosteps = {
   },
   September27: { coords: [38.05781, -94.80477], icon: icons.HobbitsIcon, popup: generatePopupContent('September 27','','','','Rain.','The House of Tom Bombadil'),
   },
-  },
+  };
