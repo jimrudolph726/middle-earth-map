@@ -46,7 +46,7 @@ const overlays = createPaths(pathsData, imageBounds);
 
 const pathsraw = {samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }};
 
-const polylines = createPolyline(pathsraw);
+createPolyline(pathsraw);
 
 // Add event listeners for checkboxes
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);

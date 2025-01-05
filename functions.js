@@ -67,16 +67,16 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-// Updated createPolyline function
 export const createPolyline = (paths) => {
-  return Object.keys(paths).reduce((acc, key) => {
+  // Create an array of promises for each fetch operation
+  const polylinePromises = Object.keys(paths).map((key) => {
     const { pathName, color, map } = paths[key];
 
-    // Define the URL to the GeoJSON file (could also be dynamic if needed)
+    // Define the URL to the GeoJSON file
     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
-    // Return a promise that resolves to the polyline object
-    fetch(geojsonPath)
+    // Return a promise for each polyline
+    return fetch(geojsonPath)
       .then((response) => response.json())
       .then((data) => {
         // Extract the coordinates from the GeoJSON
@@ -97,17 +97,36 @@ export const createPolyline = (paths) => {
 
         // Optionally, you can log the polyline to verify it's added
         console.log(polyline);
-        
+
         // Add the polyline to the map
         polyline.addTo(map);
-        
-        // Return polyline if needed for further usage
-        acc[key] = polyline;
+
+        // Return an object with the key and polyline
+        return { [key]: polyline };
       })
       .catch((error) => {
         console.error('Error loading GeoJSON for ' + pathName + ':', error);
       });
+  });
 
-    return acc;
-  }, {});
+  // Wait for all fetch operations to complete
+  return Promise.all(polylinePromises)
+    .then((results) => {
+      // Combine the results into a single object
+      const polylines = results.reduce((acc, result) => {
+        return { ...acc, ...result };
+      }, {});
+
+      // After the polylines are created, add checkbox listeners
+      console.log('Polylines:', polylines);
+      Object.keys(polylines).forEach((key) => {
+        addCheckboxListenerSingle(`${key}Checkbox`, polylines[key], map);
+      });
+
+      // Return the polylines object so it can be used further
+      return polylines;
+    })
+    .catch((error) => {
+      console.error('Error creating polylines:', error);
+    });
 };
