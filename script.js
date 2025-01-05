@@ -7,16 +7,18 @@ import {
   createMarkers,
   createPaths,
 } from './functions.js';
+
 import {
   locations,
   pathsData,
   hobbitlocations,
   samfrodosteps,
+  imageBounds,
 } from './variables.js';
 
 // Initialize the map with EPSG:4326 CRS
 const map = L.map('map', {
-  crs: L.CRS.EPSG4326,
+  crs: L.CRS.EPSG3857,
   minZoom: -5, // Allow deep zoom for detailed inspection
   maxZoom: 10, // Adjust as needed for your data
   zoom: 0,

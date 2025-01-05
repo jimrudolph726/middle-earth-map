@@ -3,7 +3,7 @@ import { convertYCoordinate, createIcon } from './functions.js';
 // Image dimensions and bounds
 const imageWidth = 8740;
 const imageHeight = 8208;
-// export const imageBounds = [[0, 0], [imageHeight, imageWidth]];
+export const imageBounds = [[0, 0], [imageHeight, imageWidth]];
 
 // Map of icon URLs
 const iconUrls = {
