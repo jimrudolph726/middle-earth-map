@@ -22,7 +22,7 @@ export const createMarkers = (locations) => {
     marker.bindPopup(popup);
 
     // Bind a tooltip that shows the popup content on hover
-    marker.bindTooltip(popup, { direction: 'top', permanent: false, interactive: true });
+    // marker.bindTooltip(popup, { direction: 'top', permanent: false, interactive: true });
 
     // Add an event listener to open the popup when the mouse enters the marker
     marker.on('mouseover', () => marker.openPopup());
