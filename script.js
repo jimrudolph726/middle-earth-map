@@ -5,6 +5,7 @@ import {
   addCheckboxListenerSingle,
   addCheckboxListenerMultiple,
   createMarkers,
+  createpathMarkers,
   createPolyline,
   addpolylineCheckboxListeners,
 } from './functions.js';
@@ -40,7 +41,7 @@ map.fitBounds(imageBounds);
 // Create markers and paths
 const markers = createMarkers(locations);
 const hobbitMarkers = createMarkers(hobbitlocations);
-const samFrodoMarkers = createMarkers(samfrodosteps);
+const samFrodoMarkers = createpathMarkers(samfrodosteps);
 // d
 // Add event listeners for checkboxes
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);

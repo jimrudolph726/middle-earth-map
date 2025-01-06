@@ -14,27 +14,24 @@
 export const createMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
     const { coords, icon, popup } = locations[key];
-
-    // Create a Leaflet marker with the given coordinates and icon
-    const marker = L.marker(coords, { icon });
-
-    // Bind the popup to the marker
-    marker.bindPopup(popup);
-
-    // Bind a tooltip that shows the popup content on hover
-    // marker.bindTooltip(popup, { direction: 'top', permanent: false, interactive: true });
-
-    // Add an event listener to open the popup when the mouse enters the marker
-    marker.on('mouseover', () => marker.openPopup());
-
-    // Add an event listener to close the popup when the mouse leaves the marker
-    marker.on('mouseout', () => marker.closePopup());
-
+    const marker = L.marker(coords, { icon }).bindPopup(popup);
     acc[key] = marker;
     return acc;
   }, {});
 };
 
+// Function to create markers from a locations dictionary
+export const createpathMarkers = (locations) => {
+  return Object.keys(locations).reduce((acc, key) => {
+    const { coords, icon, popup } = locations[key];
+    const marker = L.marker(coords, { icon });
+    marker.bindPopup(popup);
+    marker.on('mouseover', () => marker.openPopup());
+    marker.on('mouseout', () => marker.closePopup());
+    acc[key] = marker;
+    return acc;
+  }, {});
+};
 
 export const addCheckboxListenerSingle = (checkboxId, element, map) => {
   document.getElementById(checkboxId).addEventListener('change', (event) => {
