@@ -4,7 +4,7 @@
 import {
   addCheckboxListenerSingle,
   addCheckboxListenerMultiple,
-  createMarkers,
+  createlocationMarkers,
   createpathMarkers,
   createPolyline,
   addpolylineCheckboxListeners,
@@ -39,8 +39,8 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
 // Create markers and paths
-const markers = createMarkers(locations);
-const hobbitMarkers = createMarkers(hobbitlocations);
+const markers = createlocationMarkers(locations);
+const hobbitMarkers = createlocationMarkers(hobbitlocations);
 const samFrodoMarkers = createpathMarkers(samfrodosteps);
 // d
 // Add event listeners for checkboxes
