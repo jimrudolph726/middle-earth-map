@@ -39,7 +39,7 @@ export const samfrodosteps = {
   },
   September26: { coords: [38.06173, -94.80477], icon: icons.HobbitsIcon, popup: generatePopupContent('September 26',10.5,25,2.4,'On ponies. Knoll, Old Man Willow.','The House of Tom Bombadil'),
   },
-  September27: { coords: [38.05781, -94.80477], icon: icons.HobbitsIcon, popup: generatePopupContent('September 27',,,,'Rain.','The House of Tom Bombadil'),
+  September27: { coords: [38.05781, -94.80477], icon: icons.HobbitsIcon, popup: generatePopupContent('September 27'," "," "," ",'Rain.','The House of Tom Bombadil'),
   },
   September28: { coords: [38.05781, -94.69551], icon: icons.HobbitsIcon, popup: generatePopupContent('September 28',5,17,3.4,'Ponies. Sleep afternoon, captured in evening.','Barrow'),
   },
