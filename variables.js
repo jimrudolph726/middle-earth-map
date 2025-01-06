@@ -31,7 +31,7 @@ export const hobbitlocations = {
   };
 
 export const samfrodosteps = {
-  September23: { coords: [38.03396,-95.05867], icon: icons.HobbitsIcon, popup: generatePopupContent('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
+  September23: { coords: [38.05281,-95.04925], icon: icons.HobbitsIcon, popup: generatePopupContent('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
   },
   September24: { coords: [38.05369,-94.96909], icon: icons.HobbitsIcon, popup: generatePopupContent('September 24',8,28,3.5,'Black Riders, Elves.','West of Woodhall'),
   },
