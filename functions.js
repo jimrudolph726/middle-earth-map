@@ -75,33 +75,13 @@ export const createPolyline = async (paths) => {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-
-      // Log GeoJSON data for inspection
-      console.log("GeoJSON data:", data);
-
       const coordinates = data.features[0].geometry.coordinates;
-
-      // Since it's a MultiLineString, we need to process each line individually
-      let latLngs = coordinates.map(line => 
-        line.map(coord => [coord[1], coord[0]]) // Convert [longitude, latitude] to [lat, lng]
-      );
-
-      // Check for closed paths within each line (if first and last coordinates match)
-      latLngs = latLngs.filter(line => {
-        const firstCoord = line[0];
-        const lastCoord = line[line.length - 1];
-        // Only keep lines that aren't closed
-        return firstCoord[0] !== lastCoord[0] || firstCoord[1] !== lastCoord[1];
-      });
-
-      if (latLngs.length > 0) {
-        // Create the polyline using the filtered latLngs
-        const polyline = L.polyline(latLngs.flat(), { color, weight: 5, opacity: 0.8 });
-        polylines[key] = polyline;
-        console.log(`Polyline created and added for ${key}`);
-      } else {
-        console.log(`All paths for ${key} are closed, skipping polyline creation.`);
-      }
+      const flatCoordinates = coordinates.flat();
+      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
+      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
+      // polyline.addTo(map);
+      polylines[key] = polyline;
+      console.log(`Polyline created and added for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
@@ -110,6 +90,7 @@ export const createPolyline = async (paths) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
 };
+
 
 
 export const addpolylineCheckboxListeners = (polylines, map) => {
