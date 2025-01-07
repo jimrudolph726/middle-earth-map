@@ -2,8 +2,14 @@
 
   // In functions.js
 export function createIcon(url) {
-  // Determine the icon size based on the URL
-  const iconSize = url === iconUrls.tent ? [24, 24] : [48, 48];
+  let iconSize;
+
+  // Use if-else for more explicit logic
+  if (url === iconUrls.tent) {
+    iconSize = [24, 24]; // Specific size for tent
+  } else {
+    iconSize = [48, 48]; // Default size for other icons
+  }
 
   return L.icon({
     iconUrl: url,
@@ -12,6 +18,7 @@ export function createIcon(url) {
     popupAnchor: [0, -iconSize[1] / 2],
   });
 }
+  
   
 // Function to create markers from a locations dictionary
 export const createlocationMarkers = (locations) => {
