@@ -2,7 +2,6 @@
 import { iconUrls } from './variables.js';
   // In functions.js
 
-
 export function createIcon(url) {
   let iconSize;
 
@@ -15,7 +14,6 @@ export function createIcon(url) {
     popupAnchor: [0, -iconSize[1] / 2],
   });
 }
-  
   
 // Function to create markers from a locations dictionary
 export const createlocationMarkers = (locations) => {
