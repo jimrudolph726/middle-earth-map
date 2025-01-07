@@ -1,20 +1,15 @@
 // functions.js
-import { iconUrls } from './variables.js';
+
   // In functions.js
+  export function createIcon(url) {
+    return L.icon({
+      iconUrl: url,
+      iconSize: [48, 48],  // Adjust size as needed
+      iconAnchor: [32, 32],
+      popupAnchor: [0, -32],
+    });
+  }
 
-export function createIcon(url) {
-  let iconSize;
-
-  iconSize = [48, 48]; 
-
-  return L.icon({
-    iconUrl: url,
-    iconSize: iconSize,
-    iconAnchor: [iconSize[0] / 2, iconSize[1] / 2],
-    popupAnchor: [0, -iconSize[1] / 2],
-  });
-}
-  
 // Function to create markers from a locations dictionary
 export const createlocationMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
@@ -96,6 +91,8 @@ export const createPolyline = async (paths) => {
   return polylines;
 };
 
+
+
 export const addpolylineCheckboxListeners = (polylines, map) => {
   // Loop through each key in the polylines object
   Object.keys(polylines).forEach((key) => {
@@ -122,7 +119,7 @@ export const addpolylineCheckboxListeners = (polylines, map) => {
 export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
     <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
-          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
+         onmouseout="this.querySelector('.popup-content').style.display = 'none';">
         <h3>${date}</h3>
         <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
             <tr>
@@ -155,4 +152,3 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
     </div>
   `;
 };
-

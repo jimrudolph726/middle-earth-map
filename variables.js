@@ -6,7 +6,7 @@ const imageHeight = 8208;
 // export const imageBounds = [[0, 0], [imageHeight, imageWidth]];
 
 // Map of icon URLs
-export const iconUrls = {
+const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
     men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
