@@ -1,14 +1,17 @@
 // functions.js
 
   // In functions.js
-  export function createIcon(url) {
-    return L.icon({
-      iconUrl: url,
-      iconSize: [48, 48],  // Adjust size as needed
-      iconAnchor: [32, 32],
-      popupAnchor: [0, -32],
-    });
-  }
+export function createIcon(url) {
+  // Determine the icon size based on the URL
+  const iconSize = url === iconUrls.tent ? [30, 30] : [48, 48];
+
+  return L.icon({
+    iconUrl: url,
+    iconSize: iconSize,
+    iconAnchor: [iconSize[0] / 2, iconSize[1] / 2],
+    popupAnchor: [0, -iconSize[1] / 2],
+  });
+}
 
 // Function to create markers from a locations dictionary
 export const createlocationMarkers = (locations) => {
