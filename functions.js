@@ -3,7 +3,7 @@
   // In functions.js
 export function createIcon(url) {
   // Determine the icon size based on the URL
-  const iconSize = url === url.tent ? [30, 30] : [48, 48];
+  const iconSize = url === iconUrls.tent ? [24, 24] : [48, 48];
 
   return L.icon({
     iconUrl: url,
@@ -12,8 +12,7 @@ export function createIcon(url) {
     popupAnchor: [0, -iconSize[1] / 2],
   });
 }
-
-
+  
 // Function to create markers from a locations dictionary
 export const createlocationMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
