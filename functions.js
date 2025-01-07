@@ -1,5 +1,5 @@
 // functions.js
-
+import { iconUrls } from './variables.js';
   // In functions.js
 export function createIcon(url) {
   let iconSize;
