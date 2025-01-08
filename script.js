@@ -53,18 +53,13 @@ addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListenerMultiple('datesCheckbox', samFrodoMarkers, map);
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const pathsraw = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
-                             aragorn: { pathName: 'aragorn', color: 'blue', map: map }};
+const pathsraw = { 
+  samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
+  aragorn: { pathName: 'aragorn', color: 'blue', map: map }
+};
 
-  console.log('Initializing polylines...');
-  const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
-  console.log('Polylines initialized:', polylines);
-
-  console.log('Adding checkbox listeners...');
-  addpolylineCheckboxListeners(polylines, map);
-  console.log('Checkbox listeners added.');
-});
+const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
+addpolylineCheckboxListeners(polylines, map);
 
 const misty_mountains_url = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/misty_mountains.geojson';
 
