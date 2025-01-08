@@ -91,8 +91,6 @@ export const createPolyline = async (paths) => {
   return polylines;
 };
 
-
-
 export const addpolylineCheckboxListeners = (polylines, map) => {
   // Loop through each key in the polylines object
   Object.keys(polylines).forEach((key) => {
