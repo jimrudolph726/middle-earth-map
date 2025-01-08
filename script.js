@@ -51,7 +51,7 @@ addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
-addCheckboxListenerMultiple('samfrodopathCheckbox', samFrodoMarkers, map);
+addCheckboxListenerMultiple('datesCheckbox', samFrodoMarkers, map);
 
 document.addEventListener('DOMContentLoaded', async () => {
   const pathsraw = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
