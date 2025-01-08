@@ -50,3 +50,29 @@ body {
 #settlementsSection label {
   font-size: 1.2rem; /* Make the checkbox label text bigger */
 }
+
+
+
+
+
+#geographySection {
+  width: 13%; /* Increase width by 50px */
+  position: absolute;
+  top: 300px;  /* Adjust this to position it below the Paths section */
+  right: 0;
+  padding: 10px 30px; /* Increase padding on both sides */
+  background-color: #f4f4f4;
+  height: auto;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#geographySection h2 {
+  margin-top: 0;
+  font-size: 2rem; /* Increase font size for headers */
+  font-weight: 700; /* Make the header bold */
+}
+
+#geographySection label {
+  font-size: 1.2rem; /* Make the checkbox label text bigger */
+}
+

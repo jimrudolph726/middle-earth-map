@@ -68,26 +68,48 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const misty_mountains_url = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/misty_mountains.geojson';
 
-fetch(misty_mountains_url)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then(data => {
-    L.geoJSON(data, {
-      style: {
-        color: 'orange',
-        weight: 2,
-        fillOpacity: 0.5
-      },
-      onEachFeature: function (feature, layer) {
-        // Add popups or interactivity
-        layer.bindPopup(`Name: ${feature.properties.name}`);
+// Define the createPolygon function
+const createPolygon = function (url, map) {
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    }).addTo(map);
-  })
-  .catch(error => {
-    console.error('Error loading GeoJSON:', error);
-  });
+      return response.json();
+    })
+    .then(data => {
+      const polygon = L.geoJSON(data, {
+        style: {
+          color: 'orange',
+          weight: 2,
+          fillOpacity: 0.5
+        },
+        onEachFeature: function (feature, layer) {
+          // Add popups or interactivity
+          layer.bindPopup(`Name: ${feature.properties.name}`);
+        }
+      });
+      polygon.addTo(map); // Add the polygon to the map
+      return polygon; // Return the L.geoJSON object
+    })
+    .catch(error => {
+      console.error('Error loading GeoJSON:', error);
+    });
+};
+
+// Usage example
+const misty_mountains_url = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/misty_mountains.geojson';
+
+// Import the addCheckboxListenerSingle function
+import { addCheckboxListenerSingle } from './your-checkbox-module.js'; // Adjust the path as needed
+
+createPolygon(misty_mountains_url, map).then(misty_mountains => {
+  if (misty_mountains) {
+    console.log('Polygon added to map:', misty_mountains);
+
+    // Add a checkbox listener for the polygon
+    addCheckboxListenerSingle('mistymountainsCheckbox', misty_mountains, map);
+  } else {
+    console.error('Failed to add polygon to map.');
+  }
+});
