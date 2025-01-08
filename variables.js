@@ -2,6 +2,8 @@
 
 import { generatePopupContent } from './functions.js';
 
+const misty_mountains = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/misty_mountains.geojson'
+
 // Image dimensions and bounds
 const imageWidth = 8740;
 const imageHeight = 8208;
@@ -100,3 +102,15 @@ export const samfrodosteps = {
   October20throughDecember24: { coords: [44.94675556,-93.30550447], icon: icons.TentIcon, popup: generatePopupContent('October 20 through December 24',9,18,2,'March to Ford. Attack by Black Riders.','Rivendell'),
   },
   };
+
+L.geoJSON(misty_mountains, {
+  style: {
+    color: 'orange',
+    weight: 2,
+    fillOpacity: 0.5
+  },
+  onEachFeature: function (feature, layer) {
+    // Add popups or interactivity
+    layer.bindPopup(`Name: ${feature.properties.name}`);
+  }
+}).addTo(map);
