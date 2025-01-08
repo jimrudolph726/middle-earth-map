@@ -101,29 +101,5 @@ export const samfrodosteps = {
   },
   };
 
-  const misty_mountains_url = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/misty_mountains.geojson';
 
-  fetch(misty_mountains_url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      L.geoJSON(data, {
-        style: {
-          color: 'orange',
-          weight: 2,
-          fillOpacity: 0.5
-        },
-        onEachFeature: function (feature, layer) {
-          // Add popups or interactivity
-          layer.bindPopup(`Name: ${feature.properties.name}`);
-        }
-      }).addTo(map);
-    })
-    .catch(error => {
-      console.error('Error loading GeoJSON:', error);
-    });
   
