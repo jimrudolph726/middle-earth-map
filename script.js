@@ -89,7 +89,7 @@ const createPolygon = function (url, map) {
           layer.bindPopup(`Name: ${feature.properties.name}`);
         }
       });
-      polygon.addTo(map); // Add the polygon to the map
+      // polygon.addTo(map); // Add the polygon to the map
       return polygon; // Return the L.geoJSON object
     })
     .catch(error => {
