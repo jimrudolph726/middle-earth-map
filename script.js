@@ -20,7 +20,7 @@ import {
 const map = L.map('map', {
   crs: L.CRS.EPSG3857,
   minZoom: -5, // Allow deep zoom for detailed inspection
-  maxZoom: 20, // Adjust as needed for your data
+  maxZoom: 5, // Adjust as needed for your data
   zoom: 0,
   center: [0, 0], // Adjust to the approximate center of your raster if needed
 });
