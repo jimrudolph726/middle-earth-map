@@ -43,7 +43,7 @@ export const samfrodosteps = {
   },
   September27: { coords: [44.94651566,-93.31021725], icon: icons.TentIcon, popup: generatePopupContent('September 27'," "," "," ",'Rain.','The House of Tom Bombadil'),
   },
-  September28: { coords: [44.94662954,-93.30990298], icon: icons.TentIcon, popup: generatePopupContent('September 28',5,17,3.4,'Ponies. Sleep afternoon, captured in evening.','Barrow'),
+  September28: { coords: [44.94661806,-93.30984957], icon: icons.TentIcon, popup: generatePopupContent('September 28',5,17,3.4,'Ponies. Sleep afternoon, captured in evening.','Barrow'),
   },
   September29: { coords: [44.94674608,-93.30971762], icon: icons.TentIcon, popup: generatePopupContent('September 29',6,20,3.3,'Ponies. Start after lunch.','Bree'),
   },
