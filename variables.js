@@ -1,4 +1,4 @@
-import { createIcon, generatePopupContent } from './functions.js';
+import { generatePopupContent } from './functions.js';
 
 // Image dimensions and bounds
 const imageWidth = 8740;
@@ -12,7 +12,14 @@ const iconUrls = {
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
   };
-
+function createIcon(url) {
+  return L.icon({
+    iconUrl: url,
+    iconSize: [48, 48],  // Adjust size as needed
+    iconAnchor: [32, 32],
+    popupAnchor: [0, -32],
+  });
+}
 // Initialize icons
 const icons = {
     HobbitsIcon: createIcon(iconUrls.hobbits),

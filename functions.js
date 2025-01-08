@@ -1,14 +1,7 @@
 // functions.js
 
   // In functions.js
-  export function createIcon(url) {
-    return L.icon({
-      iconUrl: url,
-      iconSize: [48, 48],  // Adjust size as needed
-      iconAnchor: [32, 32],
-      popupAnchor: [0, -32],
-    });
-  }
+
 
 // Function to create markers from a locations dictionary
 export const createlocationMarkers = (locations) => {
