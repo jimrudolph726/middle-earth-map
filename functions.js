@@ -1,9 +1,5 @@
 // functions.js
 
-  // In functions.js
-
-
-// Function to create markers from a locations dictionary
 export const createlocationMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
     const { coords, icon, popup } = locations[key];
@@ -13,7 +9,6 @@ export const createlocationMarkers = (locations) => {
   }, {});
 };
 
-// Function to create markers from a locations dictionary
 export const createpathMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
     const { coords, icon, popup } = locations[key];

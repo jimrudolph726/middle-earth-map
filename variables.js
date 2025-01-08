@@ -1,3 +1,5 @@
+// variables.js
+
 import { generatePopupContent } from './functions.js';
 
 // Image dimensions and bounds
