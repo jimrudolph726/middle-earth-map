@@ -12,21 +12,22 @@ const iconUrls = {
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
   };
-function createIcon(url) {
+function createIcon(url, size = [48, 48]) {
   return L.icon({
     iconUrl: url,
-    iconSize: [48, 48],  // Adjust size as needed
-    iconAnchor: [24, 24],
-    popupAnchor: [0, -24],
+    iconSize: size,
+    iconAnchor: [size[0] / 2, size[1] / 2],
+    popupAnchor: [0, -size[1] / 2],
   });
 }
+
 // Initialize icons
 const icons = {
-    HobbitsIcon: createIcon(iconUrls.hobbits),
-    MenIcon: createIcon(iconUrls.men),
-    RivendellIcon: createIcon(iconUrls.rivendell),
-    TentIcon: createIcon(iconUrls.tent)
-  };
+  HobbitsIcon: createIcon(iconUrls.hobbits),
+  MenIcon: createIcon(iconUrls.men),
+  RivendellIcon: createIcon(iconUrls.rivendell),
+  TentIcon: createIcon(iconUrls.tent, [30, 30])
+};
 
 export const locations = {
   bree: { coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
