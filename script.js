@@ -98,10 +98,6 @@ const createPolygon = function (url, map) {
 };
 
 // Usage example
-const misty_mountains_url = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/misty_mountains.geojson';
-
-// Import the addCheckboxListenerSingle function
-import { addCheckboxListenerSingle } from './your-checkbox-module.js'; // Adjust the path as needed
 
 createPolygon(misty_mountains_url, map).then(misty_mountains => {
   if (misty_mountains) {
