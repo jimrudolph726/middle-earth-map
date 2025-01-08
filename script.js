@@ -13,7 +13,7 @@ import {
 import {
   locations,
   hobbitlocations,
-  samfrodosteps,
+  samfrodocampsites,
 } from './variables.js';
 
 // Initialize the map with EPSG:4326 CRS
@@ -44,14 +44,15 @@ map.fitBounds(imageBounds);
 // Create markers and paths
 const markers = createlocationMarkers(locations);
 const hobbitMarkers = createlocationMarkers(hobbitlocations);
-const samFrodoMarkers = createpathMarkers(samfrodosteps);
-// d
+const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
+
+
 // Add event listeners for checkboxes
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
-addCheckboxListenerMultiple('datesCheckbox', samFrodoMarkers, map);
+addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 const pathsraw = { 
   samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },

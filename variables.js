@@ -5,9 +5,8 @@ import { generatePopupContent } from './functions.js';
 // Image dimensions and bounds
 const imageWidth = 8740;
 const imageHeight = 8208;
-// export const imageBounds = [[0, 0], [imageHeight, imageWidth]];
 
-// Map of icon URLs
+// Icons
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
     men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
@@ -23,7 +22,6 @@ function createIcon(url, size = [48, 48]) {
   });
 }
 
-// Initialize icons
 const icons = {
   HobbitsIcon: createIcon(iconUrls.hobbits),
   MenIcon: createIcon(iconUrls.men),
@@ -31,6 +29,7 @@ const icons = {
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
+// Locations
 export const locations = {
   bree: { coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
   rivendell: { coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
@@ -42,7 +41,8 @@ export const hobbitlocations = {
     micheldelving: { coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
   };
 
-export const samfrodosteps = {
+  // Paths
+export const samfrodocampsites = {
   September23: { coords: [44.94642366,-93.31109147], icon: icons.TentIcon, popup: generatePopupContent('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
   },
   September24: { coords: [44.94646111,-93.31071990], icon: icons.TentIcon, popup: generatePopupContent('September 24',8,28,3.5,'Black Riders, Elves.','West of Woodhall'),
