@@ -76,7 +76,8 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
 };
 export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
-    const checkbox = document.getElementById(`${key}Checkbox`);
+    const CheckboxId = items[key].CheckboxId;
+    const checkbox = document.getElementById(`${CheckboxId}Checkbox`);
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
