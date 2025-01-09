@@ -1,24 +1,13 @@
 // functions.js
 
 export const createlocationMarkers = (locations) => {
-  return new Promise((resolve, reject) => {
-    try {
-      const markers = Object.keys(locations).reduce((acc, key) => {
-        const { coords, icon, popup } = locations[key];
-        const marker = L.marker(coords, { icon }).bindPopup(popup);
-        acc[key] = marker;
-        return acc;
-      }, {});
-      
-      // Resolve the promise once the markers are created
-      resolve(markers);
-    } catch (error) {
-      // Reject the promise if there's an error
-      reject(error);
-    }
-  });
+  return Object.keys(locations).reduce((acc, key) => {
+    const { coords, icon, popup } = locations[key];
+    const marker = L.marker(coords, { icon }).bindPopup(popup);
+    acc[key] = marker;
+    return acc;
+  }, {});
 };
-
 
 export const createpathMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
