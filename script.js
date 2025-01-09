@@ -39,9 +39,9 @@ const hobbitMarkers = createlocationMarkers(hobbitlocations);
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 
 // Add event listeners for checkboxes
-addCheckboxListenersForGroup('elvesCheckbox', elvesMarkers, map);
-addCheckboxListenersForGroup('menCheckbox', menMarkers, map);
-addCheckboxListenersForGroup('hobbitsCheckbox', hobbitMarkers, map);
+addCheckboxListenerMultiple('elvesCheckbox', elvesMarkers, map);
+addCheckboxListenerMultiple('menCheckbox', menMarkers, map);
+addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 // Add paths
