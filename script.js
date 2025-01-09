@@ -62,12 +62,8 @@ const pathsraw = {
 const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
 addpolylineCheckboxListeners(polylines, map);
 
-
-
-
 const mountain_ranges = {
   misty_mountains: {misty_mountains:'misty_mountains', color: 'orange', map: map },
-  // white_mountains: {white_mountains:'white_mountains', color: 'orange', map: map },
 }
 
 // Define the createPolygon function
@@ -102,7 +98,6 @@ const createPolygon = async (ranges) => {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
-
   await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
 };
