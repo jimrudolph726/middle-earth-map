@@ -108,13 +108,6 @@ createPolygon(mountain_ranges).then((polygons) => {
   // Log created polygons
   console.log('Polygons created:', polygons);
 
-  // Add polygons to the map dynamically
-  Object.keys(polygons).forEach((key) => {
-    if (polygons[key]) {
-      polygons[key].addTo(map);
-    }
-  });
-
   // Add checkbox listeners for all polygons
   Object.keys(polygons).forEach((key) => {
     addCheckboxListenerSingle(`${key}Checkbox`, polygons[key], map);
