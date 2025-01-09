@@ -38,7 +38,7 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
   `;
 };
 
-// Add checkbox listeners
+// Checkbox listener functions
 export const addCheckboxListenerSingle = (checkboxId, element, map) => {
   const checkbox = document.getElementById(checkboxId);
   if (checkbox) {
@@ -55,8 +55,6 @@ export const addCheckboxListenerSingle = (checkboxId, element, map) => {
     console.error(`Checkbox with ID "${checkboxId}" not found.`);
   }
 };
-
-
 export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
 
@@ -76,7 +74,6 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   // Trigger toggleMarkers on load based on the initial checkbox state
   toggleMarkers();
 };
-
 export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
@@ -94,7 +91,56 @@ export const addCheckboxListeners = (items, map) => {
   });
 };
 
-// Add map features
+// Paths functions
+export const createPolyline = async (paths) => {
+  const polylines = {};
+  const promises = Object.keys(paths).map(async (key) => {
+    const { pathName, color, map } = paths[key];
+    const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
+
+    try {
+      const response = await fetch(geojsonPath);
+      console.log(`Response received for ${key}`);
+      const data = await response.json();
+      const coordinates = data.features[0].geometry.coordinates;
+      const flatCoordinates = coordinates.flat();
+      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
+      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
+      // polyline.addTo(map);
+      polylines[key] = polyline;
+      console.log(`Polyline created and added for ${key}`);
+    } catch (error) {
+      console.error(`Error fetching data for ${key}:`, error);
+    }
+  });
+
+  await Promise.all(promises); // Wait for all fetches to complete
+  return polylines;
+};
+export const createpathMarkers = (locations) => {
+  return Object.keys(locations).reduce((acc, key) => {
+    const { coords, icon, popup } = locations[key];
+    const marker = L.marker(coords, { icon });
+    marker.bindPopup(popup);
+    marker.on('mouseover', () => marker.openPopup());
+    marker.on('mouseout', () => marker.closePopup());
+    acc[key] = marker;
+    return acc;
+  }, {});
+};
+
+
+// Location functions
+export const createlocationMarkers = (locations) => {
+  return Object.keys(locations).reduce((acc, key) => {
+    const { coords, icon, popup } = locations[key];
+    const marker = L.marker(coords, { icon }).bindPopup(popup);
+    acc[key] = marker;
+    return acc;
+  }, {});
+};
+
+// Geographic Features functions
 export const createPolygon = async (ranges) => {
   const polygons = {};
   const promises = Object.keys(ranges).map(async (key) => {
@@ -129,63 +175,4 @@ export const createPolygon = async (ranges) => {
 
   await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
-};
-
-export const createPolyline = async (paths) => {
-  const polylines = {};
-  const promises = Object.keys(paths).map(async (key) => {
-    const { pathName, color, map } = paths[key];
-    const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
-
-    try {
-      const response = await fetch(geojsonPath);
-      console.log(`Response received for ${key}`);
-      const data = await response.json();
-      const coordinates = data.features[0].geometry.coordinates;
-      const flatCoordinates = coordinates.flat();
-      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
-      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
-      // polyline.addTo(map);
-      polylines[key] = polyline;
-      console.log(`Polyline created and added for ${key}`);
-    } catch (error) {
-      console.error(`Error fetching data for ${key}:`, error);
-    }
-  });
-
-  await Promise.all(promises); // Wait for all fetches to complete
-  return polylines;
-};
-
-export const createlocationMarkers = (locations) => {
-  return Object.keys(locations).reduce((acc, key) => {
-    const { coords, icon, popup } = locations[key];
-    const marker = L.marker(coords, { icon }).bindPopup(popup);
-    acc[key] = marker;
-    return acc;
-  }, {});
-};
-
-export const createpathMarkers = (locations) => {
-  return Object.keys(locations).reduce((acc, key) => {
-    const { coords, icon, popup } = locations[key];
-    const marker = L.marker(coords, { icon });
-    marker.bindPopup(popup);
-    marker.on('mouseover', () => marker.openPopup());
-    marker.on('mouseout', () => marker.closePopup());
-    acc[key] = marker;
-    return acc;
-  }, {});
-};
-
-export const addCheckboxListenersForGroup = (checkboxId, markers, map) => {
-  if (Array.isArray(markers)) {
-    // Multiple markers
-    addCheckboxListenerMultiple(checkboxId, markers, map);
-  } else {
-    // Single marker
-    Object.keys(markers).forEach(markerKey => {
-      addCheckboxListenerSingle(`${checkboxId}-${markerKey}`, markers[markerKey], map);
-    });
-  }
 };
