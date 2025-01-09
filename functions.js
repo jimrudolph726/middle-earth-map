@@ -171,3 +171,15 @@ export const createpathMarkers = (locations) => {
     return acc;
   }, {});
 };
+
+export const addCheckboxListenersForGroup = (checkboxId, markers, map) => {
+  if (Array.isArray(markers)) {
+    // Multiple markers
+    addCheckboxListenerMultiple(checkboxId, markers, map);
+  } else {
+    // Single marker
+    Object.keys(markers).forEach(markerKey => {
+      addCheckboxListenerSingle(`${checkboxId}-${markerKey}`, markers[markerKey], map);
+    });
+  }
+};

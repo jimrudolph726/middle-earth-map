@@ -1,17 +1,18 @@
 // script.js
 
 import {
-  addCheckboxListenerSingle,
   addCheckboxListenerMultiple,
   createlocationMarkers,
   createpathMarkers,
   createPolyline,
   addCheckboxListeners,
-  createPolygon
+  createPolygon,
+  addCheckboxListenersForGroup
 } from './functions.js';
 
 import {
-  locations,
+  elveslocations,
+  menlocations,
   hobbitlocations,
   samfrodocampsites,
 } from './variables.js';
@@ -32,16 +33,15 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
 // Create markers
-const markers = createlocationMarkers(locations);
+const elvesMarkers = createlocationMarkers(elveslocations);
+const menMarkers = createlocationMarkers(menlocations);
 const hobbitMarkers = createlocationMarkers(hobbitlocations);
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 
 // Add event listeners for checkboxes
-addCheckboxListeners(hobbitMarkers, map);
-addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
-addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
-addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
-addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
+addCheckboxListenersForGroup('elvesCheckbox', elvesMarkers, map);
+addCheckboxListenersForGroup('menCheckbox', menMarkers, map);
+addCheckboxListenersForGroup('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 // Add paths
