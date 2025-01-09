@@ -32,7 +32,7 @@ const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505,
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
-// Paths and Campsites
+// Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
@@ -44,7 +44,6 @@ const hobbitMarkers = createlocationMarkers(hobbitlocations);
 addCheckboxListenerMultiple('elvesCheckbox', elvesMarkers, map);
 addCheckboxListenerMultiple('menCheckbox', menMarkers, map);
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
-
 
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners(polygons, map);});
