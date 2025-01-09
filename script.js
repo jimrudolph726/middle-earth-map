@@ -43,12 +43,13 @@ map.fitBounds(imageBounds);
 
 // Create markers and paths
 const markers = createlocationMarkers(locations);
-
+const hobbitMarkers = createlocationMarkers(hobbitlocations);
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 
 
-
-// addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
+// Add event listeners for checkboxes
+addCheckboxListeners(hobbitMarkers, map);
+addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 addCheckboxListenerSingle('menCheckbox', markers['minastirith'], map);
 addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
@@ -110,11 +111,4 @@ createPolygon(mountain_ranges).then((polygons) => {
   console.log('Polygons created:', polygons);
   // Add checkbox listeners for polygons
   addCheckboxListeners(polygons, map);
-});
-
-createlocationMarkers(hobbitlocations).then((acc) => {
-  // Use the markers and add checkbox listeners
-  addCheckboxListeners(acc, map);
-}).catch((error) => {
-  console.error('Error creating location markers:', error);
 });
