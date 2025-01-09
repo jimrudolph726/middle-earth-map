@@ -112,6 +112,6 @@ createPolygon(mountain_ranges).then((polygons) => {
   addCheckboxListeners(polygons, map);
 });
 
-createlocationMarkers(hobbitlocations).then((hobbitlocations) => {
-  addCheckboxListeners(hobbitlocations, map);
+createlocationMarkers(hobbitlocations).then((acc) => {
+  addCheckboxListeners(acc, map);
 });
