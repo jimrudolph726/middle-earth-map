@@ -24,7 +24,7 @@ const icons = {
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
-// Paths and Campsites
+// Paths and Campsite
 export const pathdata = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }, 
 aragorn: { pathName: 'aragorn', color: 'blue', map: map }
 };
