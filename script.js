@@ -113,5 +113,8 @@ createPolygon(mountain_ranges).then((polygons) => {
 });
 
 createlocationMarkers(hobbitlocations).then((acc) => {
+  // Use the markers and add checkbox listeners
   addCheckboxListeners(acc, map);
+}).catch((error) => {
+  console.error('Error creating location markers:', error);
 });
