@@ -144,7 +144,7 @@ export const createlocationMarkers = (locations) => {
 export const createPolygon = async (ranges) => {
   const polygons = {};
   const promises = Object.keys(ranges).map(async (key) => {
-    const { mountain_range_name, color, map } = ranges[key];
+    const { mountain_range_name, color, name } = ranges[key];
     const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${mountain_range_name}.geojson`;
 
     try {
@@ -161,7 +161,7 @@ export const createPolygon = async (ranges) => {
         },
         onEachFeature: (feature, layer) => {
           // Add popups or interactivity
-          layer.bindPopup(`Name: ${feature.properties.name}`);
+          layer.bindPopup(`Name: ${name}`);
         },
       });
 

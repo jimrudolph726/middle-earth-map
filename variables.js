@@ -8,7 +8,7 @@ const iconUrls = {
     men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
-  };
+};
 function createIcon(url, size = [48, 48]) {
   return L.icon({
     iconUrl: url,
@@ -17,7 +17,6 @@ function createIcon(url, size = [48, 48]) {
     popupAnchor: [0, -size[1] / 2],
   });
 }
-
 const icons = {
   HobbitsIcon: createIcon(iconUrls.hobbits),
   MenIcon: createIcon(iconUrls.men),
@@ -26,9 +25,9 @@ const icons = {
 };
 
 // Paths and Campsites
-export const pathdata = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
-                               aragorn: { pathName: 'aragorn', color: 'blue', map: map }};
-
+export const pathdata = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }, 
+aragorn: { pathName: 'aragorn', color: 'blue', map: map }
+};
 export const samfrodocampsites = {
 September23: { coords: [44.94642366,-93.31109147], icon: icons.TentIcon, popup: generatePopupContent('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
 },
@@ -87,21 +86,20 @@ October19: { coords: [44.9466948,-93.3059595], icon: icons.TentIcon, popup: gene
 October20throughDecember24: { coords: [44.94675556,-93.30550447], icon: icons.TentIcon, popup: generatePopupContent('October 20 through December 24',9,18,2,'March to Ford. Attack by Black Riders.','Rivendell'),
 },
 };
+
 // Locations
 export const elveslocations = {
   rivendell: { coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` }
 };
-
 export const menlocations = {
   bree: { coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
   minastirith: { coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
-
 export const hobbitlocations = {
     hobbiton: { coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
     micheldelving: { coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
 };
 
 // Geographic Features
-export const mountain_ranges = {misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },}
+export const mountain_ranges = {misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', name: 'Misty Mountains' },}
   
