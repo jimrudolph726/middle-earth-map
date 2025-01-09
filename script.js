@@ -7,7 +7,6 @@ import {
   createPolyline,
   addCheckboxListeners,
   createPolygon,
-  addCheckboxListenersForGroup
 } from './functions.js';
 
 import {
