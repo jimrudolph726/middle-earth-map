@@ -1,6 +1,5 @@
 // script.js
 
-// Import functions and variables
 import {
   addCheckboxListenerSingle,
   addCheckboxListenerMultiple,
@@ -17,36 +16,25 @@ import {
   samfrodocampsites,
 } from './variables.js';
 
-// Initialize the map with EPSG:4326 CRS
+// Map
 const map = L.map('map', {
   crs: L.CRS.EPSG3857,
-  minZoom: -5, // Allow deep zoom for detailed inspection
-  maxZoom: 20, // Adjust as needed for your data
+  minZoom: -5,
+  maxZoom: 20,
   zoom: 0,
-  center: [0, 0], // Adjust to the approximate center of your raster if needed
+  center: [0, 0],
 });
 
-// Define the URL of your image (the .tif file)
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/output_file.png';
-
-// Define the bounds of your image in geographic coordinates (latitude/longitude)
-// You need to specify the coordinates of the top-left and bottom-right corners of the image
-const imageBounds = [
-  [44.95133395351252, -93.31776393673807], // Top-left corner (latitude, longitude)
-  [44.93460911676505, -93.29255872642499], // Bottom-right corner (latitude, longitude)
-];
-
-// Add the image as an overlay to the map
+const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-// Optionally, fit the map view to the bounds of the image
 map.fitBounds(imageBounds);
 
-// Create markers and paths
+// Create markers
 const markers = createlocationMarkers(locations);
 const hobbitMarkers = createlocationMarkers(hobbitlocations);
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
-
 
 // Add event listeners for checkboxes
 addCheckboxListeners(hobbitMarkers, map);
@@ -56,26 +44,16 @@ addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
-const pathdata = { 
-  samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
-  aragorn: { pathName: 'aragorn', color: 'blue', map: map }
-};
-
-
+// Add paths
+const pathdata = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
+                        aragorn: { pathName: 'aragorn', color: 'blue', map: map }};
 createPolyline(pathdata).then((polylines) => {
   console.log('Polylines created:', polylines);
-  // Add checkbox listeners for polylines
-  addCheckboxListeners(polylines, map);
-});
+  addCheckboxListeners(polylines, map);});
 
-// Create Polygon function that only creates polygons, not adding them to the map
-
-const mountain_ranges = {
-  misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },
-}
-
+// Add polygons
+const mountain_ranges = {misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },}
 createPolygon(mountain_ranges).then((polygons) => {
   console.log('Polygons created:', polygons);
-  // Add checkbox listeners for polygons
   addCheckboxListeners(polygons, map);
 });

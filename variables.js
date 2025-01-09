@@ -2,10 +2,6 @@
 
 import { generatePopupContent } from './functions.js';
 
-// Image dimensions and bounds
-const imageWidth = 8740;
-const imageHeight = 8208;
-
 // Icons
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
