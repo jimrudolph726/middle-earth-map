@@ -38,12 +38,19 @@ const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 // Add Locations
-const elvesMarkers = createlocationMarkers(elveslocations);
+// const elvesMarkers = createlocationMarkers(elveslocations);
 const menMarkers = createlocationMarkers(menlocations);
 const hobbitMarkers = createlocationMarkers(hobbitlocations);
-addCheckboxListenerMultiple('elvesCheckbox', elvesMarkers, map);
+// addCheckboxListenerMultiple('elvesCheckbox', elvesMarkers, map);
 addCheckboxListenerMultiple('menCheckbox', menMarkers, map);
 addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 
+
+
+
+
+createlocationMarkers(elveslocations).then((markers) => {
+  addCheckboxListeners(markers, map); // Pass the resolved markers to addCheckboxListeners
+});
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners(polygons, map);});
