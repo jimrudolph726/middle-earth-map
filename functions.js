@@ -80,10 +80,8 @@ export const addCheckboxListeners = (items, map) => {
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
-          // Add the item (polygon or polyline) to the map when checkbox is checked
           items[key].addTo(map);
         } else {
-          // Remove the item (polygon or polyline) from the map when checkbox is unchecked
           map.removeLayer(items[key]);
         }
       });
