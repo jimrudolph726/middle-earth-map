@@ -129,14 +129,27 @@ export const createpathMarkers = (locations) => {
 };
 
 // Location functions
+// export const createlocationMarkers = (locations) => {
+//   return Object.keys(locations).reduce((acc, key) => {
+//     const { coords, icon, popup } = locations[key];
+//     const marker = L.marker(coords, { icon }).bindPopup(popup);
+//     acc[key] = marker;
+//     return acc;
+//   }, {});
+// };
+
 export const createlocationMarkers = (locations) => {
-  return Object.keys(locations).reduce((acc, key) => {
-    const { coords, icon, popup } = locations[key];
-    const marker = L.marker(coords, { icon }).bindPopup(popup);
-    acc[key] = marker;
-    return acc;
-  }, {});
+  return new Promise((resolve) => {
+    const markers = Object.keys(locations).reduce((acc, key) => {
+      const { coords, icon, popup } = locations[key];
+      const marker = L.marker(coords, { icon }).bindPopup(popup);
+      acc[key] = marker;
+      return acc;
+    }, {});
+    resolve(markers); // Resolve the promise with the created markers
+  });
 };
+
 
 // Geographic Features functions
 export const createPolygon = async (ranges) => {
