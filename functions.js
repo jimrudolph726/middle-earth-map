@@ -40,16 +40,22 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
 
 // Add checkbox listeners
 export const addCheckboxListenerSingle = (checkboxId, element, map) => {
-  document.getElementById(checkboxId).addEventListener('change', (event) => {
+  const checkbox = document.getElementById(checkboxId);
+  if (checkbox) {
+    checkbox.addEventListener('change', (event) => {
       if (event.target.checked) {
-          // Add the element (marker or overlay) to the map
-          element.addTo(map);
+        // Add the element (marker or overlay) to the map
+        element.addTo(map);
       } else {
-          // Remove the element (marker or overlay) from the map
-          map.removeLayer(element);
+        // Remove the element (marker or overlay) from the map
+        map.removeLayer(element);
       }
-  });
+    });
+  } else {
+    console.error(`Checkbox with ID "${checkboxId}" not found.`);
+  }
 };
+
 
 export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
