@@ -54,13 +54,42 @@ addCheckboxListenerSingle('menCheckbox', markers['bree'], map);
 addCheckboxListenerSingle('elvesCheckbox', markers['rivendell'], map);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
-const pathsraw = { 
+const pathdata = { 
   samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
   aragorn: { pathName: 'aragorn', color: 'blue', map: map }
 };
 
-const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
-addpolylineCheckboxListeners(polylines, map);
+// const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
+// addpolylineCheckboxListeners(polylines, map);
+
+
+
+createPolyline(pathdata).then((polylines) => {
+  console.log('Polygons created:', polylines);
+
+  // Example: Add checkbox listeners for polygons
+  Object.keys(polylines).forEach((key) => {
+    // Add event listeners for each checkbox to toggle visibility of polygons
+    const checkbox = document.getElementById(`${key}Checkbox`);
+    if (checkbox) {
+      checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+          // Add the polygon to the map when checkbox is checked
+          polylines[key].addTo(map);
+        } else {
+          // Remove the polygon from the map when checkbox is unchecked
+          map.removeLayer(polylines[key]);
+        }
+      });
+    }
+  });
+});
+
+
+
+
+
+
 
 const mountain_ranges = {
   misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },
