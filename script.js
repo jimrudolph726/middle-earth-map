@@ -47,13 +47,8 @@ addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 // Add paths
 const pathdata = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map },
                         aragorn: { pathName: 'aragorn', color: 'blue', map: map }};
-createPolyline(pathdata).then((polylines) => {
-  console.log('Polylines created:', polylines);
-  addCheckboxListeners(polylines, map);});
+createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
 
 // Add polygons
 const mountain_ranges = {misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },}
-createPolygon(mountain_ranges).then((polygons) => {
-  console.log('Polygons created:', polygons);
-  addCheckboxListeners(polygons, map);
-});
+createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners(polygons, map);});
