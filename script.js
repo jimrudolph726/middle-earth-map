@@ -71,7 +71,7 @@ const mountain_ranges = {
 }
 
 // Define the createPolygon function
-export const createPolygon = async (ranges) => {
+const createPolygon = async (ranges) => {
   const polygons = {};
   const promises = Object.keys(ranges).map(async (key) => {
     const { mountain_range_name, color, map } = ranges[key];
