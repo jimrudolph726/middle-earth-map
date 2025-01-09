@@ -62,46 +62,64 @@ const pathsraw = {
 const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
 addpolylineCheckboxListeners(polylines, map);
 
-const misty_mountains_url = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/misty_mountains.geojson';
+
+
+
+const mountain_ranges = {
+  misty_mountains: {misty_mountains:'misty_mountains', color: 'orange', map: map },
+  // white_mountains: {white_mountains:'white_mountains', color: 'orange', map: map },
+}
 
 // Define the createPolygon function
-const createPolygon = function (url, map) {
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
+export const createPolygon = async (ranges) => {
+  const polygons = {};
+  const promises = Object.keys(ranges).map(async (key) => {
+    const { mountain_range_name, color, map } = ranges[key];
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${mountain_range_name}.geojson`;
+
+    try {
+      const response = await fetch(geojsonPath);
+      console.log(`Response received for ${key}`);
+      const data = await response.json();
+
+      // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
-          color: 'orange',
+          color,
           weight: 2,
-          fillOpacity: 0.5
+          fillOpacity: 0.5,
         },
-        onEachFeature: function (feature, layer) {
+        onEachFeature: (feature, layer) => {
           // Add popups or interactivity
           layer.bindPopup(`Name: ${feature.properties.name}`);
-        }
+        },
       });
-      // polygon.addTo(map); // Add the polygon to the map
-      return polygon; // Return the L.geoJSON object
-    })
-    .catch(error => {
-      console.error('Error loading GeoJSON:', error);
-    });
+
+      // Store the polygon in the polygons object
+      polygons[key] = polygon;
+      console.log(`Polygon created for ${key}`);
+    } catch (error) {
+      console.error(`Error fetching data for ${key}:`, error);
+    }
+  });
+
+  await Promise.all(promises); // Wait for all fetches to complete
+  return polygons;
 };
 
 // Usage example
 
-createPolygon(misty_mountains_url, map).then(misty_mountains => {
-  if (misty_mountains) {
-    console.log('Polygon added to map:', misty_mountains);
+createPolygon(mountain_ranges).then(polygons => {
+  // Access the created polygons
+  console.log('Polygons created:', polygons);
 
-    // Add a checkbox listener for the polygon
-    addCheckboxListenerSingle('mistymountainsCheckbox', misty_mountains, map);
-  } else {
-    console.error('Failed to add polygon to map.');
+  // Example: Add the Misty Mountains polygon to the map
+  if (polygons.misty_mountains) {
+    polygons.misty_mountains.addTo(map);
   }
+
+  // Example: Add checkbox listeners for polygons
+  Object.keys(polygons).forEach(key => {
+    addCheckboxListenerSingle(`${key}Checkbox`, polygons[key], map);
+  });
 });
