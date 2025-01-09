@@ -89,7 +89,7 @@ October20throughDecember24: { coords: [44.94675556,-93.30550447], icon: icons.Te
 
 // Locations
 export const elveslocations = {
-  rivendell: { coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` }
+  elves: { coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` }
 };
 export const menlocations = {
   bree: { coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
