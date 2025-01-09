@@ -104,17 +104,19 @@ const createPolygon = async (ranges) => {
 
 // Usage example
 
-createPolygon(mountain_ranges).then(polygons => {
-  // Access the created polygons
+createPolygon(mountain_ranges).then((polygons) => {
+  // Log created polygons
   console.log('Polygons created:', polygons);
 
-  // Example: Add the Misty Mountains polygon to the map
-  if (polygons.misty_mountains) {
-    polygons.misty_mountains.addTo(map);
-  }
+  // Add polygons to the map dynamically
+  Object.keys(polygons).forEach((key) => {
+    if (polygons[key]) {
+      polygons[key].addTo(map);
+    }
+  });
 
-  // Example: Add checkbox listeners for polygons
-  Object.keys(polygons).forEach(key => {
+  // Add checkbox listeners for all polygons
+  Object.keys(polygons).forEach((key) => {
     addCheckboxListenerSingle(`${key}Checkbox`, polygons[key], map);
   });
 });
