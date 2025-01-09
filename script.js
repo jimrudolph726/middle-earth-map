@@ -63,7 +63,7 @@ const polylines = await createPolyline(pathsraw); // Wait for polylines to be re
 addpolylineCheckboxListeners(polylines, map);
 
 const mountain_ranges = {
-  misty_mountains: {misty_mountains:'misty_mountains', color: 'orange', map: map },
+  misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },
 }
 
 // Define the createPolygon function
