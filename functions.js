@@ -132,3 +132,39 @@ export const addCheckboxListeners = (items, map) => {
     }
   });
 };
+
+export const createPolygon = async (ranges) => {
+  const polygons = {};
+  const promises = Object.keys(ranges).map(async (key) => {
+    const { mountain_range_name, color, map } = ranges[key];
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${mountain_range_name}.geojson`;
+
+    try {
+      const response = await fetch(geojsonPath);
+      console.log(`Response received for ${key}`);
+      const data = await response.json();
+
+      // Create the polygon using the GeoJSON data
+      const polygon = L.geoJSON(data, {
+        style: {
+          color,
+          weight: 2,
+          fillOpacity: 0.5,
+        },
+        onEachFeature: (feature, layer) => {
+          // Add popups or interactivity
+          layer.bindPopup(`Name: ${feature.properties.name}`);
+        },
+      });
+
+      // Store the polygon in the polygons object
+      polygons[key] = polygon;
+      console.log(`Polygon created for ${key}`);
+    } catch (error) {
+      console.error(`Error fetching data for ${key}:`, error);
+    }
+  });
+
+  await Promise.all(promises); // Wait for all fetches to complete
+  return polygons;
+};

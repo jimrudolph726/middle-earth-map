@@ -8,6 +8,7 @@ import {
   createpathMarkers,
   createPolyline,
   addCheckboxListeners,
+  createPolygon
 } from './functions.js';
 
 import {
@@ -60,9 +61,6 @@ const pathdata = {
   aragorn: { pathName: 'aragorn', color: 'blue', map: map }
 };
 
-const mountain_ranges = {
-  misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },
-}
 
 createPolyline(pathdata).then((polylines) => {
   console.log('Polylines created:', polylines);
@@ -71,41 +69,10 @@ createPolyline(pathdata).then((polylines) => {
 });
 
 // Create Polygon function that only creates polygons, not adding them to the map
-const createPolygon = async (ranges) => {
-  const polygons = {};
-  const promises = Object.keys(ranges).map(async (key) => {
-    const { mountain_range_name, color, map } = ranges[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${mountain_range_name}.geojson`;
 
-    try {
-      const response = await fetch(geojsonPath);
-      console.log(`Response received for ${key}`);
-      const data = await response.json();
-
-      // Create the polygon using the GeoJSON data
-      const polygon = L.geoJSON(data, {
-        style: {
-          color,
-          weight: 2,
-          fillOpacity: 0.5,
-        },
-        onEachFeature: (feature, layer) => {
-          // Add popups or interactivity
-          layer.bindPopup(`Name: ${feature.properties.name}`);
-        },
-      });
-
-      // Store the polygon in the polygons object
-      polygons[key] = polygon;
-      console.log(`Polygon created for ${key}`);
-    } catch (error) {
-      console.error(`Error fetching data for ${key}:`, error);
-    }
-  });
-
-  await Promise.all(promises); // Wait for all fetches to complete
-  return polygons;
-};
+const mountain_ranges = {
+  misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },
+}
 
 createPolygon(mountain_ranges).then((polygons) => {
   console.log('Polygons created:', polygons);
