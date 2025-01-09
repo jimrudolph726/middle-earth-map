@@ -129,7 +129,6 @@ export const createpathMarkers = (locations) => {
   }, {});
 };
 
-
 // Location functions
 export const createlocationMarkers = (locations) => {
   return Object.keys(locations).reduce((acc, key) => {
