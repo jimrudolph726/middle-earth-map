@@ -67,6 +67,7 @@ const mountain_ranges = {
 }
 
 // Define the createPolygon function
+// Create Polygon function that only creates polygons, not adding them to the map
 const createPolygon = async (ranges) => {
   const polygons = {};
   const promises = Object.keys(ranges).map(async (key) => {
@@ -98,18 +99,30 @@ const createPolygon = async (ranges) => {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
+
   await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
 };
 
 // Usage example
-
 createPolygon(mountain_ranges).then((polygons) => {
-  // Log created polygons
   console.log('Polygons created:', polygons);
 
-  // Add checkbox listeners for all polygons
+  // Example: Add checkbox listeners for polygons
   Object.keys(polygons).forEach((key) => {
-    addCheckboxListenerSingle(`${key}Checkbox`, polygons[key], map);
+    // Add event listeners for each checkbox to toggle visibility of polygons
+    const checkbox = document.getElementById(`${key}Checkbox`);
+    if (checkbox) {
+      checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+          // Add the polygon to the map when checkbox is checked
+          polygons[key].addTo(map);
+        } else {
+          // Remove the polygon from the map when checkbox is unchecked
+          map.removeLayer(polygons[key]);
+        }
+      });
+    }
   });
 });
+
