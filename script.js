@@ -7,7 +7,7 @@ import {
   createlocationMarkers,
   createpathMarkers,
   createPolyline,
-  addpolylineCheckboxListeners,
+  addCheckboxListeners,
 } from './functions.js';
 
 import {
@@ -59,43 +59,16 @@ const pathdata = {
   aragorn: { pathName: 'aragorn', color: 'blue', map: map }
 };
 
-// const polylines = await createPolyline(pathsraw); // Wait for polylines to be ready
-// addpolylineCheckboxListeners(polylines, map);
-
-
-
-createPolyline(pathdata).then((polylines) => {
-  console.log('Polygons created:', polylines);
-
-  // Example: Add checkbox listeners for polygons
-  Object.keys(polylines).forEach((key) => {
-    // Add event listeners for each checkbox to toggle visibility of polygons
-    const checkbox = document.getElementById(`${key}Checkbox`);
-    if (checkbox) {
-      checkbox.addEventListener('change', (event) => {
-        if (event.target.checked) {
-          // Add the polygon to the map when checkbox is checked
-          polylines[key].addTo(map);
-        } else {
-          // Remove the polygon from the map when checkbox is unchecked
-          map.removeLayer(polylines[key]);
-        }
-      });
-    }
-  });
-});
-
-
-
-
-
-
-
 const mountain_ranges = {
   misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', map: map },
 }
 
-// Define the createPolygon function
+createPolyline(pathdata).then((polylines) => {
+  console.log('Polylines created:', polylines);
+  // Add checkbox listeners for polylines
+  addCheckboxListeners(polylines, map);
+});
+
 // Create Polygon function that only creates polygons, not adding them to the map
 const createPolygon = async (ranges) => {
   const polygons = {};
@@ -133,25 +106,8 @@ const createPolygon = async (ranges) => {
   return polygons;
 };
 
-// Usage example
 createPolygon(mountain_ranges).then((polygons) => {
   console.log('Polygons created:', polygons);
-
-  // Example: Add checkbox listeners for polygons
-  Object.keys(polygons).forEach((key) => {
-    // Add event listeners for each checkbox to toggle visibility of polygons
-    const checkbox = document.getElementById(`${key}Checkbox`);
-    if (checkbox) {
-      checkbox.addEventListener('change', (event) => {
-        if (event.target.checked) {
-          // Add the polygon to the map when checkbox is checked
-          polygons[key].addTo(map);
-        } else {
-          // Remove the polygon from the map when checkbox is unchecked
-          map.removeLayer(polygons[key]);
-        }
-      });
-    }
-  });
+  // Add checkbox listeners for polygons
+  addCheckboxListeners(polygons, map);
 });
-

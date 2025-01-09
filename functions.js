@@ -79,29 +79,6 @@ export const createPolyline = async (paths) => {
   return polylines;
 };
 
-export const addpolylineCheckboxListeners = (polylines, map) => {
-  // Loop through each key in the polylines object
-  Object.keys(polylines).forEach((key) => {
-    console.log(`Processing polyline: ${key}`); // Debug log
-    const checkboxId = `${key}Checkbox`;
-    const checkbox = document.getElementById(checkboxId);
-    if (checkbox) {
-      console.log(`Checkbox found: ${checkboxId}`); // Debug log
-      checkbox.addEventListener('change', (event) => {
-        if (event.target.checked) {
-          polylines[key].addTo(map);
-          console.log(`${key} polyline added to map.`);
-        } else {
-          map.removeLayer(polylines[key]);
-          console.log(`${key} polyline removed from map.`);
-        }
-      });
-    } else {
-      console.warn(`Checkbox with ID '${checkboxId}' not found for polyline '${key}'.`);
-    }
-  });
-};
-
 export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
     <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
@@ -137,4 +114,21 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
         </div>
     </div>
   `;
+};
+
+export const addCheckboxListeners = (items, map) => {
+  Object.keys(items).forEach((key) => {
+    const checkbox = document.getElementById(`${key}Checkbox`);
+    if (checkbox) {
+      checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+          // Add the item (polygon or polyline) to the map when checkbox is checked
+          items[key].addTo(map);
+        } else {
+          // Remove the item (polygon or polyline) from the map when checkbox is unchecked
+          map.removeLayer(items[key]);
+        }
+      });
+    }
+  });
 };
