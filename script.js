@@ -43,4 +43,4 @@ createlocationMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMul
 createlocationMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
 
 // Add Geographic Features
-createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners('mountain_ranges', polygons, map);});
+createPolygon(mountain_ranges).then((polygons) => {addCheckboxListenerMultiple('mountain_rangesCheckbox', polygons, map);});
