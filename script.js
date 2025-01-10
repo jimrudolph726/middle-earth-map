@@ -34,6 +34,9 @@ map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
+
+
+
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
@@ -76,4 +79,4 @@ createlocationMarkers(elveslocations).then((markers) => {
   });
 
 // Add Geographic Features
-createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners('mountain_ranges', polygons, map);});
+createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners('misty_mountains', polygons, map);});
