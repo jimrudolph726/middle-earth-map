@@ -33,10 +33,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
-const pathdata = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }, aragorn: { pathName: 'aragorn', color: 'blue', map:map }};
 createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
-
-
 
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
