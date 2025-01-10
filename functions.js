@@ -77,6 +77,7 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
 export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const CheckboxId = items[key].CheckboxId;
+    console.log(`Generated ID: ${CheckboxId}Checkbox`);
     const checkbox = document.getElementById(`${CheckboxId}Checkbox`);
     console.log(`Checkbox for ${key}:`, checkbox); // Debug checkbox
     if (checkbox) {
