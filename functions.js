@@ -59,9 +59,9 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-export const addCheckboxListeners = (items, map) => {
+export const addCheckboxListeners = (prefix, items, map) => {
   Object.keys(items).forEach((key) => {
-    const checkbox = document.getElementById(`${key}Checkbox`);
+    const checkbox = document.getElementById(`${prefix}Checkbox`);
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
@@ -137,12 +137,11 @@ export const createPolygon = async (ranges) => {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-      const darkenedColor = darkenColor(color, 0.3);
 
       // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
-          color: darkenedColor,
+          color,
           weight: 2,
           fillOpacity: 0.5,
         },
