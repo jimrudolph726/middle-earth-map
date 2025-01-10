@@ -48,35 +48,10 @@ addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 // addCheckboxListenerMultiple('menCheckbox', menMarkers, map);
 // addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 
+createlocationMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
+createlocationMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMultiple('hobbitsCheckbox', markers, map);})
+createlocationMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
 
-
-createlocationMarkers(menlocations).then((markers) => {
-  console.log('Markers created:', markers); // Check if markers are created
-  addCheckboxListeners(markers, map); // Add checkbox listeners
-})
-.catch((error) => {
-  console.error('Error:', error); // Catch any issues
-});
-
-
-
-createlocationMarkers(hobbitlocations).then((markers) => {
-  console.log('Markers created:', markers); // Check if markers are created
-  addCheckboxListeners(markers, map); // Add checkbox listeners
-})
-.catch((error) => {
-  console.error('Error:', error); // Catch any issues
-});
-
-
-
-createlocationMarkers(elveslocations).then((markers) => {
-    console.log('Markers created:', markers); // Check if markers are created
-    addCheckboxListeners(markers, map); // Add checkbox listeners
-  })
-  .catch((error) => {
-    console.error('Error:', error); // Catch any issues
-  });
 
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners(polygons, map);});
