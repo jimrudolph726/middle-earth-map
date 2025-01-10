@@ -79,4 +79,4 @@ createlocationMarkers(elveslocations).then((markers) => {
   });
 
 // Add Geographic Features
-createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners('misty_mountains', polygons, map);});
+createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners('mountain_ranges', polygons, map);});
