@@ -1,9 +1,9 @@
 // script.js
 
 import {
-  addCheckboxListenerMultiple,
+  PathListeners,
   createPolyline,
-  addCheckboxListeners,
+  MarkerListeners,
   createPolygon,
   createMarkers
 } from './functions.js';
@@ -32,8 +32,8 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
-createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
-createMarkers(samfrodocampsites).then((markers) => {addCheckboxListenerMultiple('datesCheckbox', markers, map);})
+createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
+createMarkers(samfrodocampsites).then((markers) => {MarkerListeners('datesCheckbox', markers, map);})
 
 // Add Locations
 createMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})

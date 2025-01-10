@@ -39,7 +39,7 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
 };
 
 // Checkbox listener functions
-export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
+export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
 
   // Ensure markers is an array (if it's not, make it an array of a single element)
@@ -59,7 +59,7 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-export const addCheckboxListeners = (items, map) => {
+export const PathListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
     if (checkbox) {
