@@ -39,22 +39,6 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
 };
 
 // Checkbox listener functions
-export const addCheckboxListenerSingle = (checkboxId, element, map) => {
-  const checkbox = document.getElementById(checkboxId);
-  if (checkbox) {
-    checkbox.addEventListener('change', (event) => {
-      if (event.target.checked) {
-        // Add the element (marker or overlay) to the map
-        element.addTo(map);
-      } else {
-        // Remove the element (marker or overlay) from the map
-        map.removeLayer(element);
-      }
-    });
-  } else {
-    console.error(`Checkbox with ID "${checkboxId}" not found.`);
-  }
-};
 export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
 
@@ -130,15 +114,6 @@ export const createpathMarkers = (locations) => {
 };
 
 // Location functions
-// export const createlocationMarkers = (locations) => {
-//   return Object.keys(locations).reduce((acc, key) => {
-//     const { coords, icon, popup } = locations[key];
-//     const marker = L.marker(coords, { icon }).bindPopup(popup);
-//     acc[key] = marker;
-//     return acc;
-//   }, {});
-// };
-
 export const createlocationMarkers = (locations) => {
   return new Promise((resolve) => {
     const markers = Object.keys(locations).reduce((acc, key) => {
@@ -150,7 +125,6 @@ export const createlocationMarkers = (locations) => {
     resolve(markers); // Resolve the promise with the created markers
   });
 };
-
 
 // Geographic Features functions
 export const createPolygon = async (ranges) => {
