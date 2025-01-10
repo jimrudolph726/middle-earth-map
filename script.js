@@ -33,7 +33,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
-createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
+createPolyline(pathdata).then((polylines) => {addCheckboxListeners('aragorn', polylines, map);});
 
 
 
