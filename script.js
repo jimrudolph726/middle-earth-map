@@ -7,6 +7,7 @@ import {
   createPolyline,
   addCheckboxListeners,
   createPolygon,
+  createMarkers
 } from './functions.js';
 
 import {
@@ -34,12 +35,11 @@ map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
-
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 // Add Locations
-createlocationMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
+createMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
 createlocationMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMultiple('hobbitsCheckbox', markers, map);})
 createlocationMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
 
