@@ -75,11 +75,11 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-export const addCheckboxListeners = (items, map) => {
+export const addCheckboxListeners = (prefix, items, map) => {
   Object.keys(items).forEach((key) => {
     console.log(`Generated ID: ${key}Checkbox`); // Debug generated ID
 
-    const checkbox = document.getElementById(`${CheckboxId}Checkbox`);
+    const checkbox = document.getElementById(`${prefix}Checkbox`);
     console.log(`Checkbox for ${key}:`, checkbox); // Debug checkbox
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {

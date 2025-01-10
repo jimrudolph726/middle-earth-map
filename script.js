@@ -54,4 +54,4 @@ createlocationMarkers(elveslocations).then((markers) => {addCheckboxListeners('e
 
 
 // Add Geographic Features
-createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners(polygons, map);});
+createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners('mountain_ranges', polygons, map);});
