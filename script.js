@@ -33,7 +33,11 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
+const pathdata = { samfrodopath: { pathName: 'samfrodopath', color: 'red', map: map }, aragorn: { pathName: 'aragorn', color: 'blue', map:map }};
 createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
+
+
+
 const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
 addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
@@ -41,6 +45,7 @@ addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 createlocationMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
 createlocationMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMultiple('hobbitsCheckbox', markers, map);})
 createlocationMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
+
 
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {addCheckboxListenerMultiple('mountain_rangesCheckbox', polygons, map);});
