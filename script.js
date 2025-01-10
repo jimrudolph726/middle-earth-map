@@ -33,7 +33,7 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
-createPolyline(pathdata).then((polylines) => {addCheckboxListeners('aragorn', polylines, map);});
+createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
 
 
 
@@ -52,7 +52,7 @@ addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 createlocationMarkers(menlocations).then((markers) => {
   console.log('Markers created:', markers); // Check if markers are created
-  addCheckboxListeners('men', markers, map); // Add checkbox listeners
+  addCheckboxListeners(markers, map); // Add checkbox listeners
 })
 .catch((error) => {
   console.error('Error:', error); // Catch any issues
@@ -62,7 +62,7 @@ createlocationMarkers(menlocations).then((markers) => {
 
 createlocationMarkers(hobbitlocations).then((markers) => {
   console.log('Markers created:', markers); // Check if markers are created
-  addCheckboxListeners('hobbits', markers, map); // Add checkbox listeners
+  addCheckboxListeners(markers, map); // Add checkbox listeners
 })
 .catch((error) => {
   console.error('Error:', error); // Catch any issues
@@ -72,11 +72,11 @@ createlocationMarkers(hobbitlocations).then((markers) => {
 
 createlocationMarkers(elveslocations).then((markers) => {
     console.log('Markers created:', markers); // Check if markers are created
-    addCheckboxListeners('elves', markers, map); // Add checkbox listeners
+    addCheckboxListeners(markers, map); // Add checkbox listeners
   })
   .catch((error) => {
     console.error('Error:', error); // Catch any issues
   });
 
 // Add Geographic Features
-createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners('mountain_ranges', polygons, map);});
+createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners(polygons, map);});

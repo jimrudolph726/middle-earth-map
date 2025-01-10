@@ -74,9 +74,10 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   // Trigger toggleMarkers on load based on the initial checkbox state
   toggleMarkers();
 };
-export const addCheckboxListeners = (prefix, items, map) => {
+export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
-    const checkbox = document.getElementById(`${prefix}Checkbox`);
+    const CheckboxId = items[key].CheckboxId;
+    const checkbox = document.getElementById(`${CheckboxId}Checkbox`);
     console.log(`Checkbox for ${key}:`, checkbox); // Debug checkbox
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
