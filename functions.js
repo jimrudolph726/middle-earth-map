@@ -76,7 +76,7 @@ export const addCheckboxListeners = (items, map) => {
   });
 };
 
-// Paths functions
+// Paths function
 export const createPolyline = async (paths) => {
   const polylines = {};
   const promises = Object.keys(paths).map(async (key) => {
