@@ -58,7 +58,6 @@ export const MarkerListeners = (checkboxId, markers, map) => {
   // Trigger toggleMarkers on load based on the initial checkbox state
   toggleMarkers();
 };
-
 export const PathListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
@@ -111,7 +110,7 @@ export const createMarkers = (locations, campsite = 'no') => {
       const marker = L.marker(coords, { icon }).bindPopup(popup);
 
       // Attach specific logic based on whether the campsite variable is 'yes'
-      if (campsite === 'yes') {
+      if (campsite === 'campsite') {
         marker.on('mouseover', () => marker.openPopup());
         marker.on('mouseout', () => marker.closePopup());
       }

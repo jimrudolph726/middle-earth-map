@@ -33,7 +33,7 @@ map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
-createMarkers(samfrodocampsites).then((markers) => {MarkerListeners('datesCheckbox', markers, map);})
+createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('datesCheckbox', markers, map);})
 
 // Add Locations
 createMarkers(menlocations).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
