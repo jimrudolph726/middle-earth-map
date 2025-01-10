@@ -101,6 +101,6 @@ export const hobbitlocations = {
 };
 
 // Geographic Features
-export const mountain_ranges = {mountain_ranges: {mountain_range_name:'misty_mountains', color: 'orange', name: 'Misty Mountains' },
-mountain_ranges: {mountain_range_name:'white_mountains', color: 'orange', name: 'White Mountains' }
+export const mountain_ranges = {misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', name: 'Misty Mountains' },
+mountain_ranges: {white_mountains:'white_mountains', color: 'orange', name: 'White Mountains' }
 };
