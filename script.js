@@ -35,8 +35,15 @@ map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
-const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
-addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
+
+
+
+// const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
+// addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
+
+createMarkers(samfrodocampsites).then((markers) => {addCheckboxListenerMultiple('datesCheckbox', markers, map);})
+
+
 
 // Add Locations
 createMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
