@@ -38,7 +38,7 @@ export const samfrodocampsites = {
   },
   September26: { coords: [44.94650900,-93.31026524], icon: icons.TentIcon, popup: generatePopupContent('September 26',10.5,25,2.4,'On ponies. Knoll, Old Man Willow.','The House of Tom Bombadil'),
   },
-  September27: { coords: [44.94651566,-93.31021725], icon: icons.TentIcon, popup: generatePopupContent('September 27', , , ,'Rain.','The House of Tom Bombadil'),
+  September27: { coords: [44.94651566,-93.31021725], icon: icons.TentIcon, popup: generatePopupContent('September 27'," "," "," ",'Rain.','The House of Tom Bombadil'),
   },
   September28: { coords: [44.94661806,-93.30984957], icon: icons.TentIcon, popup: generatePopupContent('September 28',5,17,3.4,'Ponies. Sleep afternoon, captured in evening.','Barrow'),
   },
