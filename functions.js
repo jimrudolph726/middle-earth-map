@@ -76,8 +76,12 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
 };
 export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
+    console.log('Key:', key); // Log the current key
+    console.log('Item:', items[key]); // Log the item at the key
+    
     const CheckboxId = items[key].CheckboxId;
-    console.log(`Generated ID: ${CheckboxId}Checkbox`);
+    console.log(`Generated ID: ${CheckboxId}Checkbox`); // Debug generated ID
+
     const checkbox = document.getElementById(`${CheckboxId}Checkbox`);
     console.log(`Checkbox for ${key}:`, checkbox); // Debug checkbox
     if (checkbox) {
@@ -95,6 +99,7 @@ export const addCheckboxListeners = (items, map) => {
     }
   });
 };
+
 
 // Paths functions
 export const createPolyline = async (paths) => {
