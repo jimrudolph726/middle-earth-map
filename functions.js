@@ -78,14 +78,19 @@ export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const CheckboxId = items[key].CheckboxId;
     const checkbox = document.getElementById(`${CheckboxId}Checkbox`);
+    console.log(`Checkbox for ${key}:`, checkbox); // Debug checkbox
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
+          console.log(`Adding marker for ${key} to map`); // Debug
           items[key].addTo(map);
         } else {
+          console.log(`Removing marker for ${key} from map`); // Debug
           map.removeLayer(items[key]);
         }
       });
+    } else {
+      console.warn(`Checkbox not found for ${CheckboxId}Checkbox`);
     }
   });
 };

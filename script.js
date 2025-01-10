@@ -49,7 +49,14 @@ addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 
 
 
-createlocationMarkers(elveslocations).then((markers) => {addCheckboxListeners(markers, map);});
+createlocationMarkers(elveslocations)
+  .then((markers) => {
+    console.log('Markers created:', markers); // Check if markers are created
+    addCheckboxListeners(markers, map); // Add checkbox listeners
+  })
+  .catch((error) => {
+    console.error('Error:', error); // Catch any issues
+  });
 
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {addCheckboxListeners(polygons, map);});
