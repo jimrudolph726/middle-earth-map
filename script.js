@@ -47,7 +47,7 @@ addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 
 
-menMarkers = createlocationMarkers(menlocations).then((markers) => {
+createlocationMarkers(menlocations).then((markers) => {
   console.log('Markers created:', markers); // Check if markers are created
   addCheckboxListeners(markers, map); // Add checkbox listeners
 })
@@ -57,7 +57,7 @@ menMarkers = createlocationMarkers(menlocations).then((markers) => {
 
 
 
-hobbitMarkers = createlocationMarkers(hobbitlocations).then((markers) => {
+createlocationMarkers(hobbitlocations).then((markers) => {
   console.log('Markers created:', markers); // Check if markers are created
   addCheckboxListeners(markers, map); // Add checkbox listeners
 })
@@ -67,8 +67,7 @@ hobbitMarkers = createlocationMarkers(hobbitlocations).then((markers) => {
 
 
 
-createlocationMarkers(elveslocations)
-  .then((markers) => {
+createlocationMarkers(elveslocations).then((markers) => {
     console.log('Markers created:', markers); // Check if markers are created
     addCheckboxListeners(markers, map); // Add checkbox listeners
   })
