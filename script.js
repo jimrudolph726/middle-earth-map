@@ -2,8 +2,6 @@
 
 import {
   addCheckboxListenerMultiple,
-  createlocationMarkers,
-  createpathMarkers,
   createPolyline,
   addCheckboxListeners,
   createPolygon,
@@ -35,21 +33,12 @@ map.fitBounds(imageBounds);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {addCheckboxListeners(polylines, map);});
-
-
-
-// const samfrodopathMarkers = createpathMarkers(samfrodocampsites);
-// addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
-
 createMarkers(samfrodocampsites).then((markers) => {addCheckboxListenerMultiple('datesCheckbox', markers, map);})
-
-
 
 // Add Locations
 createMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
 createMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMultiple('hobbitsCheckbox', markers, map);})
 createMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
-
 
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {addCheckboxListenerMultiple('mountain_rangesCheckbox', polygons, map);});
