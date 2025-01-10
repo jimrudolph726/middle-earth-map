@@ -36,9 +36,9 @@ createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
 createMarkers(samfrodocampsites).then((markers) => {MarkerListeners('datesCheckbox', markers, map);})
 
 // Add Locations
-createMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
-createMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMultiple('hobbitsCheckbox', markers, map);})
-createMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
+createMarkers(menlocations).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
+createMarkers(hobbitlocations).then((markers) => {MarkerListeners('hobbitsCheckbox', markers, map);})
+createMarkers(elveslocations).then((markers) => {MarkerListeners('elvesCheckbox', markers, map);})
 
 // Add Geographic Features
-createPolygon(mountain_ranges).then((polygons) => {addCheckboxListenerMultiple('mountain_rangesCheckbox', polygons, map);});
+createPolygon(mountain_ranges).then((polygons) => {MarkerListeners('mountain_rangesCheckbox', polygons, map);});
