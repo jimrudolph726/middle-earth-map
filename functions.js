@@ -59,7 +59,7 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-export const addCheckboxListeners = (prefix, items, map) => {
+export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${prefix}Checkbox`);
     if (checkbox) {
