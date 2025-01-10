@@ -75,28 +75,22 @@ export const addCheckboxListenerMultiple = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
-export const addCheckboxListeners = (prefix, items, map) => {
+export const addCheckboxListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
-    console.log(`Generated ID: ${key}Checkbox`); // Debug generated ID
-
-    const checkbox = document.getElementById(`${prefix}Checkbox`);
-    console.log(`Checkbox for ${key}:`, checkbox); // Debug checkbox
+    const checkbox = document.getElementById(`${key}Checkbox`);
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
-          console.log(`Adding marker for ${key} to map`); // Debug
+          // Add the item (polygon or polyline) to the map when checkbox is checked
           items[key].addTo(map);
         } else {
-          console.log(`Removing marker for ${key} from map`); // Debug
+          // Remove the item (polygon or polyline) from the map when checkbox is unchecked
           map.removeLayer(items[key]);
         }
       });
-    } else {
-      console.warn(`Checkbox not found for ${CheckboxId}Checkbox`);
     }
   });
 };
-
 
 // Paths functions
 export const createPolyline = async (paths) => {
