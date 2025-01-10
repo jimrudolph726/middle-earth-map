@@ -39,13 +39,31 @@ addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 // Add Locations
 // const elvesMarkers = createlocationMarkers(elveslocations);
-const menMarkers = createlocationMarkers(menlocations);
-const hobbitMarkers = createlocationMarkers(hobbitlocations);
+// const menMarkers = createlocationMarkers(menlocations);
+// const hobbitMarkers = createlocationMarkers(hobbitlocations);
 // addCheckboxListenerMultiple('elvesCheckbox', elvesMarkers, map);
-addCheckboxListenerMultiple('menCheckbox', menMarkers, map);
-addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
+// addCheckboxListenerMultiple('menCheckbox', menMarkers, map);
+// addCheckboxListenerMultiple('hobbitsCheckbox', hobbitMarkers, map);
 
 
+
+menMarkers = createlocationMarkers(menlocations).then((markers) => {
+  console.log('Markers created:', markers); // Check if markers are created
+  addCheckboxListeners(markers, map); // Add checkbox listeners
+})
+.catch((error) => {
+  console.error('Error:', error); // Catch any issues
+});
+
+
+
+hobbitMarkers = createlocationMarkers(hobbitlocations).then((markers) => {
+  console.log('Markers created:', markers); // Check if markers are created
+  addCheckboxListeners(markers, map); // Add checkbox listeners
+})
+.catch((error) => {
+  console.error('Error:', error); // Catch any issues
+});
 
 
 
