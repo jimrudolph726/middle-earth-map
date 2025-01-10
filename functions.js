@@ -137,11 +137,12 @@ export const createPolygon = async (ranges) => {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
+      const darkenedColor = darkenColor(color, 0.3);
 
       // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
-          color,
+          darkenedColor,
           weight: 2,
           fillOpacity: 0.5,
         },
