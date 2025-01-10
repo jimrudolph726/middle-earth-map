@@ -38,7 +38,7 @@ export const samfrodocampsites = {
   },
   September26: { coords: [44.94650900,-93.31026524], icon: icons.TentIcon, popup: generatePopupContent('September 26',10.5,25,2.4,'On ponies. Knoll, Old Man Willow.','The House of Tom Bombadil'),
   },
-  September27: { coords: [44.94651566,-93.31021725], icon: icons.TentIcon, popup: generatePopupContent('September 27'," "," "," ",'Rain.','The House of Tom Bombadil'),
+  September27: { coords: [44.94651566,-93.31021725], icon: icons.TentIcon, popup: generatePopupContent('September 27', , , ,'Rain.','The House of Tom Bombadil'),
   },
   September28: { coords: [44.94661806,-93.30984957], icon: icons.TentIcon, popup: generatePopupContent('September 28',5,17,3.4,'Ponies. Sleep afternoon, captured in evening.','Barrow'),
   },
@@ -85,12 +85,44 @@ export const samfrodocampsites = {
   October19: { coords: [44.9466948,-93.3059595], icon: icons.TentIcon, popup: generatePopupContent('October 19',9,20,2.2,'Frodo on horse.','Central Trollshaws'),
   },
   October20throughDecember24: { coords: [44.94675556,-93.30550447], icon: icons.TentIcon, popup: generatePopupContent('October 20 through December 24',9,18,2,'March to Ford. Attack by Black Riders.','Rivendell'),
-},
+  },
+  December25: { coords: [44.946634676422683, -93.305743445383897], icon: icons.TentIcon, popup: generatePopupContent('December 25',14,22,1.6,'Dusk to dawn march. Turn south at Ford',''),
+  },
+  December26: { coords: [44.946555782786213, -93.305736014143861], icon: icons.TentIcon, popup: generatePopupContent('December 26',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  December27: { coords: [44.946515459330129, -93.305835097344271], icon: icons.TentIcon, popup: generatePopupContent('December 27',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  December28: { coords: [44.946448837905862, -93.305825189024233], icon: icons.TentIcon, popup: generatePopupContent('December 28',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  December29: { coords: [44.946390982395748, -93.30590693266457], icon: icons.TentIcon, popup: generatePopupContent('December 29',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  December30: { coords: [44.946340139626592, -93.306015924185019], icon: icons.TentIcon, popup: generatePopupContent('December 30',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  December31: { coords: [44.946254232776397, -93.305988676304906], icon: icons.TentIcon, popup: generatePopupContent('December 31',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  January1: { coords: [44.946199883478243, -93.306105099065405], icon: icons.TentIcon, popup: generatePopupContent('January 1',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  January2: { coords: [44.946113976418147, -93.306147209425575], icon: icons.TentIcon, popup: generatePopupContent('January 2',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  January3: { coords: [44.946033328856963, -93.306228953065897], icon: icons.TentIcon, popup: generatePopupContent('January 3',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  January4: { coords: [44.945956187605482, -93.306318127946284], icon: icons.TentIcon, popup: generatePopupContent('January 4',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  January5: { coords: [44.945879046250319, -93.306283448826136], icon: icons.TentIcon, popup: generatePopupContent('January 5',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  January6: { coords: [44.945817683734688, -93.306352807066418], icon: icons.TentIcon, popup: generatePopupContent('January 6',14,15,1.1,'Rugged terrain.','West of mountains'),
+    },
+  January7: { coords: [44.945731776102619, -93.306377577866527], icon: icons.TentIcon, popup: generatePopupContent('January 7',14,15,1.1,'','Hollin Ridge'),
+    },
+  January8: { coords: [44.945651128004478, -93.306342898746365], icon: icons.TentIcon, popup: generatePopupContent('January 8',14,16,1.1,'Turn SE toward Pass, strike road.','NW of Redhorn'),
+    },
+  January9: { coords: [44.945545934662725, -93.306226475985909], icon: icons.TentIcon, popup: generatePopupContent('January 9',14,17,1.2,'','NW of Redhorn'),
+    },
 };
 
 // Locations
 export const elveslocations = {
-  elves: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` }
+  elves: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick=window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank') style=cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;>Learn more on Thain's Book</button></div>` }
 };
 export const menlocations = {
   bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
@@ -98,7 +130,7 @@ export const menlocations = {
 };
 export const hobbitlocations = {
   hobbiton: { CheckboxId: 'hobbits', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
-  micheldelving: { CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank')" style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">Learn more on Thain's Book</button></div>` },
+  micheldelving: { CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: `<div><h3>Michel Delving</h3><button onclick=window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank') style=cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;>Learn more on Thain's Book</button></div>` },
 };
 
 // Geographic Features
