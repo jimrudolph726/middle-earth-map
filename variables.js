@@ -103,26 +103,3 @@ export const hobbitlocations = {
 // Geographic Features
 export const mountain_ranges = {misty_mountains: {mountain_range_name:'misty_mountains', color: 'orange', name: 'Misty Mountains' },
 white_mountains: {mountain_range_name:'white_mountains', color: 'orange', name: 'White Mountains' }};
-
-
-
-
-export const createMarkers = (locations, campsite = 'no') => {
-  return new Promise((resolve) => {
-    const markers = Object.keys(locations).reduce((acc, key) => {
-      const { coords, icon, popup } = locations[key];
-      const marker = L.marker(coords, { icon }).bindPopup(popup);
-
-      // Attach specific logic based on whether the campsite variable is 'yes'
-      if (campsite === 'yes') {
-        marker.on('mouseover', () => marker.openPopup());
-        marker.on('mouseout', () => marker.closePopup());
-      }
-
-      acc[key] = marker;
-      return acc;
-    }, {});
-
-    resolve(markers); // Resolve the promise with the created markers
-  });
-};
