@@ -142,7 +142,7 @@ export const createPolygon = async (ranges) => {
       // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
-          darkenedColor,
+          color: darkenedColor,
           weight: 2,
           fillOpacity: 0.5,
         },
