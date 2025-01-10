@@ -40,8 +40,8 @@ addCheckboxListenerMultiple('datesCheckbox', samfrodopathMarkers, map);
 
 // Add Locations
 createMarkers(menlocations).then((markers) => {addCheckboxListenerMultiple('menCheckbox', markers, map);})
-createlocationMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMultiple('hobbitsCheckbox', markers, map);})
-createlocationMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
+createMarkers(hobbitlocations).then((markers) => {addCheckboxListenerMultiple('hobbitsCheckbox', markers, map);})
+createMarkers(elveslocations).then((markers) => {addCheckboxListenerMultiple('elvesCheckbox', markers, map);})
 
 
 // Add Geographic Features
