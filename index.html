@@ -29,21 +29,24 @@
 
 
         #settlementsSection, #pathsSection, #geographySection {
-        display: flex;
-        flex-direction: column; /* Stack the labels vertically */
-        gap: 8px; /* Optional: Add spacing between items */
-        padding-left: 16px; /* Optional: Add padding for indentation */
+            display: flex;
+            flex-direction: column; /* Stack the labels vertically */
+            gap: 8px; /* Optional: Add spacing between items */
+            padding-left: 16px; /* Optional: Add padding for indentation */
         }
 
-        #settlementsSection, #pathsSection, #geographySection label {
+        #settlementsSection label, #pathsSection label, #geographySection label {
             display: flex;
             align-items: center; /* Align the checkbox and label text */
             cursor: pointer; /* Change the cursor to indicate clickability */
         }
 
-        #settlementsSection, #pathsSection, #geographySection input[type="checkbox"] {
+        #settlementsSection input[type="checkbox"],
+        #pathsSection input[type="checkbox"],
+        #geographySection input[type="checkbox"] {
             margin-right: 8px; /* Add spacing between the checkbox and label text */
         }
+
 
     </style>
 </head>
