@@ -79,38 +79,18 @@ export const PathListeners = (items, map) => {
 export const createPolyline = async (paths) => {
   const polylines = {};
   const promises = Object.keys(paths).map(async (key) => {
-    const { pathName, color, map, name } = paths[key]; // Ensure `map` and `name` are properly provided
+    const { pathName, color, map } = paths[key];
     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
     try {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-
-      // Extract and transform coordinates
       const coordinates = data.features[0].geometry.coordinates;
-      const latLngs = coordinates.map(coord => [coord[1], coord[0]]);
-
-      // Create the polyline
+      const flatCoordinates = coordinates.flat();
+      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
-
-      // Add the polyline to the map
-      polyline.addTo(map);
-
-      // Add mouseover event listener to show popup
-      polyline.on('mouseover', (e) => {
-        const popup = L.popup()
-          .setLatLng(e.latlng)
-          .setContent(`Path Name: ${name}`) // Display the name of the path
-          .openOn(map);
-      });
-
-      // Add mouseout event listener to close the popup
-      polyline.on('mouseout', () => {
-        map.closePopup();
-      });
-
-      // Store the polyline in the polylines object
+      // polyline.addTo(map);
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
     } catch (error) {
@@ -121,7 +101,6 @@ export const createPolyline = async (paths) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
 };
-
 
 // Location function
 export const createMarkers = (locations, campsite = 'no') => {
