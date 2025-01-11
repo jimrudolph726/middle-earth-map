@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "aragorncampsites",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 2 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.30323493742091, 44.942590690006462 ] ] } },
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.302579362714354, 44.94223958777421 ] ] } },
+{ "type": "Feature", "properties": { "id": 3 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.303749783019342, 44.9426764927588 ] ] } },
+{ "type": "Feature", "properties": { "id": 4 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.303961573360311, 44.943161719707774 ] ] } },
+{ "type": "Feature", "properties": { "id": 5 }, "geometry": { "type": "MultiPoint", "coordinates": [ [ -93.304542603440282, 44.943331350921085 ] ] } }
+]
+}
