@@ -28,20 +28,20 @@
         }
 
 
-        #locationsSection {
+        #settlementsSection {
         display: flex;
         flex-direction: column; /* Stack the labels vertically */
         gap: 8px; /* Optional: Add spacing between items */
         padding-left: 16px; /* Optional: Add padding for indentation */
         }
 
-        #locationsSection label {
+        #settlementsSection label {
             display: flex;
             align-items: center; /* Align the checkbox and label text */
             cursor: pointer; /* Change the cursor to indicate clickability */
         }
 
-        #locationsSection input[type="checkbox"] {
+        #settlementsSection input[type="checkbox"] {
             margin-right: 8px; /* Add spacing between the checkbox and label text */
         }
 
@@ -54,7 +54,7 @@
             <ul role="tablist">
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
                 <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Paths</a></li>
-                <li><a href="#locations" role="tab"><i class="material-icons">fort</i> Locations</a></li>
+                <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Locations</a></li>
             </ul>
 
             <ul role="tablist">
@@ -94,9 +94,9 @@
                 </div>
             </div>
 
-            <div class="sidebar-pane" id="locations">
+            <div class="sidebar-pane" id="settlements">
                 <h1 class="sidebar-header">
-                    Locations
+                    Settlements
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
                 <div id="settlementsSection">
