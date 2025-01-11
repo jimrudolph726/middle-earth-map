@@ -178,7 +178,7 @@ export const samfrodocampsites = {
     },
   March7: { coords: [44.941581758364975, -93.300814675433259], icon: icons.TentIcon, popup: generatePopupContent('March 7',2.5,10,4,'Late afternoon to dusk.','Henneth Annun'),
     },
-  March7: { coords: [44.941456832432252, -93.300650259247547], icon: icons.TentIcon, popup: generatePopupContent('March 7',2.5,10,4,'Late afternoon to dusk.','Henneth Annun'),
+  March7part2: { coords: [44.941456832432252, -93.300650259247547], icon: icons.TentIcon, popup: generatePopupContent('March 7',2.5,10,4,'Late afternoon to dusk.','Henneth Annun'),
     },
   March8: { coords: [44.941383191733244, -93.300698562307716], icon: icons.TentIcon, popup: generatePopupContent('March 8',12,22,1.8,'Dawn to dusk.','Halfway to Morgul-road'),
     },
