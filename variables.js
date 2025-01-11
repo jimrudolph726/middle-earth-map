@@ -210,12 +210,12 @@ export const samfrodocampsites = {
     },
   March23: { coords: [44.941543623134812, -93.299013528630468], icon: icons.TentIcon, popup: generatePopupContent('March 23',12,10,0.8,'Frodo and Sam cast away their gear. They leave the road and travel south across Gorgoroth toward Mount Doom. They travel by day and rest at night.','Gorgoroth'),
     },
-  March24: { coords: [44.941417382069524, -93.298987519290364], icon: icons.TentIcon, popup: generatePopupContent('March 24',12,10,0.8,'Frodo and Sam reach the foot of Mount Doom near dusk and stop to rest',''),
+  March24: { coords: [44.9414759, -93.29900145], icon: icons.TentIcon, popup: generatePopupContent('March 24',12,10,0.8,'Frodo and Sam reach the foot of Mount Doom near dusk and stop to rest',''),
     },
-  March25: { coords: [44.9414759, -93.29900145], icon: icons.TentIcon, popup: generatePopupContent('March 25',2,4,2,"Sam starts to carry Frodo up the slopes of Mount Doom. Around noon, Frodo reaches the Chambers of Fire and claims the One Ring for himself. Sauron becomes aware of him. The Winged Nazgul head to Mount Doom. Gollum bites off Frodo's Ring-finger and falls into the Cracks of Doom and dies. The One Ring is destroyed.",""),
+  March25: { coords: [44.941417382069524, -93.298987519290364], icon: icons.TentIcon, popup: generatePopupContent('March 25',2,4,2,"Sam starts to carry Frodo up the slopes of Mount Doom. Around noon, Frodo reaches the Chambers of Fire and claims the One Ring for himself. Sauron becomes aware of him. The Winged Nazgul head to Mount Doom. Gollum bites off Frodo's Ring-finger and falls into the Cracks of Doom and dies. The One Ring is destroyed.",""),
     },
 
-
+    
 
 };
 
