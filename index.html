@@ -27,6 +27,24 @@
             color: #AAA;
         }
 
+
+        #settlementsSection {
+        display: flex;
+        flex-direction: column; /* Stack the labels vertically */
+        gap: 8px; /* Optional: Add spacing between items */
+        padding-left: 16px; /* Optional: Add padding for indentation */
+        }
+
+        #settlementsSection label {
+            display: flex;
+            align-items: center; /* Align the checkbox and label text */
+            cursor: pointer; /* Change the cursor to indicate clickability */
+        }
+
+        #settlementsSection input[type="checkbox"] {
+            margin-right: 8px; /* Add spacing between the checkbox and label text */
+        }
+
     </style>
 </head>
 <body>
