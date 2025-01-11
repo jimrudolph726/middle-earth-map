@@ -218,6 +218,18 @@ export const samfrodocampsites = {
     
 
 };
+export const aragorncampsites = {
+February26: { coords: [44.942426974072099, -93.303441154331793], icon: icons.TentIcon, popup: generatePopupContent('February 26',14,27,1.9,'Late afternoon to dusk of next day.','Halfway to Entwash'),
+  },
+February27: { coords: [44.94223958777421, -93.302579362714354], icon: icons.TentIcon, popup: generatePopupContent('February 27',12,36,3,'Hills, then plain.',' '),
+  },
+February28: { coords: [44.942648878107548, -93.303903052345049], icon: icons.TentIcon, popup: generatePopupContent('February 28',12,36,3," ",'South of Downs'),
+  },
+February29: { coords: [44.943149884953257, -93.303981080365389], icon: icons.TentIcon, popup: generatePopupContent('February 29',12,36,3,'Reach Downs about 11 A.M.','North end of Downs'),
+  },
+February30: { coords: [44.943323461108349, -93.30450498278762], icon: icons.TentIcon, popup: generatePopupContent('February 30',5.5,30,5.5,'Afternoon on horseback','Edge of Fangorn'),
+  },
+}
 
 // Locations
 export const elveslocations = {

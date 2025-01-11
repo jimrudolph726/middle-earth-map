@@ -13,6 +13,7 @@ import {
   menlocations,
   hobbitlocations,
   samfrodocampsites,
+  aragorncampsites,
   pathdata,
   mountain_ranges
 } from './variables.js';
@@ -36,6 +37,7 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
 createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('campsitesCheckbox', markers, map);})
+createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('campsitesCheckbox', markers, map);})
 
 // Add Locations
 createMarkers(menlocations).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
