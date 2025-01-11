@@ -25,6 +25,7 @@ const map = L.map('map', {
   zoom: 0,
   center: [0, 0],
 });
+var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/output_file.png';
 const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
