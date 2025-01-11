@@ -8,12 +8,12 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin="" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/leaflet-sidebar.css" />
-  
-  <!-- Leaflet Core -->
+
   <style>
     body {
       margin: 0;
@@ -52,33 +52,6 @@
     h2 {
       margin: 0 0 10px;
     }
-
-    /* Sidebar tab styles */
-    .sidebar-tabs {
-      display: flex;
-      flex-direction: column;
-      border-bottom: 1px solid #ccc;
-    }
-    .sidebar-tabs button {
-      background-color: #f1f1f1;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      text-align: left;
-      font-size: 16px;
-      width: 100%;
-    }
-    .sidebar-tabs button.active {
-      background-color: #ddd;
-      font-weight: bold;
-    }
-    .sidebar-tab-content {
-      display: none;
-      padding: 10px;
-    }
-    .sidebar-tab-content.active {
-      display: block;
-    }
   </style>
 </head>
 <body>
@@ -110,61 +83,28 @@
     </label>
   </div>
 
-  <div id="sidebar" class="sidebar collapsed">
-    <!-- Nav tabs -->
-    <div class="sidebar-tabs">
-        <ul role="tablist">
-            <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-            <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-            <li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-            <li><a href="https://github.com/Turbo87/sidebar-v2" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
-        </ul>
-
-        <ul role="tablist">
-            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-        </ul>
-    </div>
-
-    <!-- Tab panes -->
-    <div class="sidebar-content">
-        <div class="sidebar-pane" id="home">
-            <h1 class="sidebar-header">
-                sidebar-v2
-                <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-            </h1>
-
-            <p>A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.</p>
-
-            <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-            <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-            <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-            <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-        </div>
-
-        <div class="sidebar-pane" id="profile">
-            <h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-        </div>
-
-        <div class="sidebar-pane" id="messages">
-            <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-        </div>
-
-        <div class="sidebar-pane" id="settings">
-            <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-        </div>
-    </div>
-</div>
+  <!-- Geography Section -->
+  <div id="geographySection">
+    <h2>Geography</h2>
+    <label for="mountain_rangesCheckbox">
+      <input type="checkbox" id="mountain_rangesCheckbox" /> Mountain Ranges
+    </label>
+  </div>
 
   <div id="map"></div>
+
+  <!-- Sidebar HTML -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+      <h2>Sidebar Title</h2>
+      <p>Some content here...</p>
+    </div>
+  </div>
   
   <!-- Custom Script -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="leaflet-sidebar.js"></script>
   <script type="module" src="script.js"></script>
   <script type="module" src="functions.js"></script>
-
 </body>
 </html>
