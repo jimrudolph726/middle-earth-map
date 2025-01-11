@@ -8,12 +8,12 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-  crossorigin="" />
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/leaflet-sidebar.css" />
   
+  <!-- Leaflet Core -->
   <style>
     body {
       margin: 0;
@@ -52,6 +52,33 @@
     h2 {
       margin: 0 0 10px;
     }
+
+    /* Sidebar tab styles */
+    .sidebar-tabs {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #ccc;
+    }
+    .sidebar-tabs button {
+      background-color: #f1f1f1;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+      width: 100%;
+    }
+    .sidebar-tabs button.active {
+      background-color: #ddd;
+      font-weight: bold;
+    }
+    .sidebar-tab-content {
+      display: none;
+      padding: 10px;
+    }
+    .sidebar-tab-content.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -83,31 +110,49 @@
     </label>
   </div>
 
-  <!-- Geography Section -->
-  <div id="geographySection">
-    <h2>Geography</h2>
-    <label for="mountain_rangesCheckbox">
-      <input type="checkbox" id="mountain_rangesCheckbox" /> Mountain Ranges
-    </label>
-  </div>
-
-  <div id="map"></div>
-
-
   <!-- Sidebar HTML -->
   <div id="sidebar" class="sidebar">
     <div class="sidebar-content">
-      <h2>Geography</h2>
-      <label for="mountain_rangesCheckbox">
-        <input type="checkbox" id="mountain_rangesCheckbox" /> Mountain Ranges
-      </label>
+      <!-- Sidebar Tabs -->
+      <div class="sidebar-tabs">
+        <button class="active" id="geography-tab">Geography</button>
+      </div>
+
+      <!-- Sidebar Tab Content -->
+      <div id="geography-tab-content" class="sidebar-tab-content active">
+        <h2>Geography</h2>
+        <label for="mountain_rangesCheckbox">
+          <input type="checkbox" id="mountain_rangesCheckbox" /> Mountain Ranges
+        </label>
+      </div>
     </div>
   </div>
+
+  <div id="map"></div>
   
   <!-- Custom Script -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="leaflet-sidebar.js"></script>
   <script type="module" src="script.js"></script>
   <script type="module" src="functions.js"></script>
+
+  <script>
+    // Tab functionality
+    const tabs = document.querySelectorAll('.sidebar-tabs button');
+    const tabContents = document.querySelectorAll('.sidebar-tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        tabs.forEach(tab => tab.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add('active');
+        const tabContent = document.getElementById(tab.id + '-content');
+        tabContent.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
