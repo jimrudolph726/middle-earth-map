@@ -74,7 +74,7 @@ body {
 
 /* Add this section for styling the tooltip */
 .polygon-label {
-  background-color: rgba(255, 255, 255, 0.6); /* Light background */
+  background-color: rgba(255, 255, 255, 0.2); /* Light background */
   border: 2px solid black; /* Darker border */
   border-radius: 5px; /* Optional: Rounded corners */
   padding: 2px 6px; /* Optional: Add some padding */
