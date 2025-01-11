@@ -1,0 +1,45 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html, body, #map {
+  height: 100%;
+  font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.lorem {
+  font-style: italic;
+  color: #AAA;
+}
+
+#settlementsSection, #pathsSection, #geographySection {
+  display: flex;
+  flex-direction: column; /* Stack the labels vertically */
+  gap: 8px; /* Optional: Add spacing between items */
+  padding-left: 16px; /* Optional: Add padding for indentation */
+}
+
+#settlementsSection label, #pathsSection label, #geographySection label {
+  display: flex;
+  align-items: center; /* Align the checkbox and label text */
+  cursor: pointer; /* Change the cursor to indicate clickability */
+}
+
+#settlementsSection input[type="checkbox"],
+#pathsSection input[type="checkbox"],
+#geographySection input[type="checkbox"] {
+  margin-right: 8px; /* Add spacing between the checkbox and label text */
+}
+
+.polygon-label {
+  background-color: rgba(255, 255, 255, 3); /* Light background */
+  border: 2px solid black; /* Darker border */
+  border-radius: 5px; /* Optional: Rounded corners */
+  padding: 2px 6px; /* Optional: Add some padding */
+  font-size: 16px; /* Adjust text size as needed */
+  color: black; /* Text color */
+  font-weight: bold; /* Make the text bold */
+  text-align: center; /* Center the text */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Optional: Add a subtle shadow */
+  }
