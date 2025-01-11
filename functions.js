@@ -149,14 +149,11 @@ export const createPolygon = async (ranges) => {
             direction: "center", // Display the label at the center of the polygon
             className: "polygon-label", // Optional: Add a custom CSS class for styling
           });
-          layer.on('mouseover', (e) => {
+          layer.on('click', (e) => {
             const popup = L.popup()
               .setLatLng(e.latlng)
               .setContent(`Name: ${name}`)
               .openOn(layer._map); // Use the map instance to display the popup
-          });
-          layer.on('mouseout', () => {
-            layer._map.closePopup(); // Close the popup on mouseout
           });
         },
       });
