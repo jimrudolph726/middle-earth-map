@@ -31,7 +31,7 @@ const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505,
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
-var sidebar = L.control.sidebar('sidebar').addTo(map);
+// var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
