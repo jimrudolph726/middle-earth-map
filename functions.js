@@ -79,7 +79,7 @@ export const PathListeners = (items, map) => {
 export const createPolyline = async (paths) => {
   const polylines = {};
   const promises = Object.keys(paths).map(async (key) => {
-    const { pathName, color, map, name } = paths[key]; // Assuming `name` is the name of the path for the popup
+    const { pathName, color, map } = paths[key];
     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
     try {
@@ -87,27 +87,10 @@ export const createPolyline = async (paths) => {
       console.log(`Response received for ${key}`);
       const data = await response.json();
       const coordinates = data.features[0].geometry.coordinates;
-
-      // Transform coordinates to LatLng pairs
-      const latLngs = coordinates.map(coord => [coord[1], coord[0]]);
-
-      // Create the polyline
+      const flatCoordinates = coordinates.flat();
+      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
-
-      // Add mouseover event listener to show popup
-      polyline.on('mouseover', (e) => {
-        const popup = L.popup()
-          .setLatLng(e.latlng)
-          .setContent(`Path Name: ${name}`) // Display path name or other info
-          .openOn(map); // Use the map instance to display the popup
-      });
-
-      // Add mouseout event listener to close the popup
-      polyline.on('mouseout', () => {
-        map.closePopup(); // Close the popup when the mouse leaves the polyline
-      });
-
-      // Add the polyline to the polylines object
+      // polyline.addTo(map);
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
     } catch (error) {
@@ -118,7 +101,6 @@ export const createPolyline = async (paths) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
 };
-
 
 // Location function
 export const createMarkers = (locations, campsite = 'no') => {
