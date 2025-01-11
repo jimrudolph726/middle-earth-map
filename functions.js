@@ -143,17 +143,27 @@ export const createPolygon = async (ranges) => {
           fillOpacity: 0.5,
         },
         onEachFeature: (feature, layer) => {
-          // Add interactivity for mouseover and mouseout
+          // Mouseover popup
           layer.on('mouseover', (e) => {
-            const popup = L.popup()
-              .setLatLng(e.latlng)
-              .setContent(`Name: ${name}`)
-              .openOn(layer._map); // Use the map instance to display the popup
+            const mouseoverPopup = L.popup()
+              .setLatLng(e.latlng) // Set popup position to mouse location
+              .setContent(`Mouseover: ${feature.properties.name}`)
+              .openOn(layer._map); // Use the map instance to show the popup
           });
+        
+          // Mouseout to close the mouseover popup
           layer.on('mouseout', () => {
             layer._map.closePopup(); // Close the popup on mouseout
           });
-        },
+        
+          // Click popup
+          layer.on('click', () => {
+            const clickPopup = L.popup()
+              .setLatLng(layer.getBounds().getCenter()) // Position popup at the polygon's center
+              .setContent(`Clicked: ${feature.properties.name}`)
+              .openOn(layer._map);
+          });
+        }
       });
 
       // Store the polygon in the polygons object
