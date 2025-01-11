@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Leaflet Sidebar CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.3.1/css/leaflet-sidebar.min.css">
+
+  <!-- Leaflet Sidebar JS -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.3.1/js/leaflet-sidebar.min.js"></script>
+
   <link rel="icon" href="https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,46 +64,50 @@
   </style>
 </head>
 <body>
-  <!-- Paths Section -->
-  <div id="pathsSection">
-    <h2>Paths</h2>
-    <label for="datesCheckbox">
-      <input type="checkbox" id="datesCheckbox" /> Dates
-    </label>
-    <label for="samfrodopathCheckbox">
-      <input type="checkbox" id="samfrodopathCheckbox" /> Sam and Frodo
-    </label>
-    <label for="aragornCheckbox">
-      <input type="checkbox" id="aragornCheckbox" /> Aragorn, Gimli, Legolas
-    </label>
+  <div id="sidebar" class="leaflet-sidebar collapsed">
+    <!-- Tabs -->
+    <div class="leaflet-sidebar-tabs">
+      <ul role="tablist">
+        <li><a href="#paths" role="tab"><i class="fas fa-route"></i></a></li>
+        <li><a href="#settlements" role="tab"><i class="fas fa-home"></i></a></li>
+        <li><a href="#geography" role="tab"><i class="fas fa-mountain"></i></a></li>
+      </ul>
+    </div>
+  
+    <!-- Tab Content -->
+    <div class="leaflet-sidebar-content">
+      <div class="leaflet-sidebar-pane" id="paths">
+        <h1 class="leaflet-sidebar-header">Paths<span class="leaflet-sidebar-close"></span></h1>
+        <label for="datesCheckbox">
+          <input type="checkbox" id="datesCheckbox" /> Dates
+        </label>
+        <label for="samfrodopathCheckbox">
+          <input type="checkbox" id="samfrodopathCheckbox" /> Sam and Frodo
+        </label>
+        <label for="aragornCheckbox">
+          <input type="checkbox" id="aragornCheckbox" /> Aragorn, Gimli, Legolas
+        </label>
+      </div>
+      <div class="leaflet-sidebar-pane" id="settlements">
+        <h1 class="leaflet-sidebar-header">Settlements<span class="leaflet-sidebar-close"></span></h1>
+        <label for="hobbitsCheckbox">
+          <input type="checkbox" id="hobbitsCheckbox" /> Hobbits
+        </label>
+        <label for="menCheckbox">
+          <input type="checkbox" id="menCheckbox" /> Men
+        </label>
+        <label for="elvesCheckbox">
+          <input type="checkbox" id="elvesCheckbox" /> Elves
+        </label>
+      </div>
+      <div class="leaflet-sidebar-pane" id="geography">
+        <h1 class="leaflet-sidebar-header">Geography<span class="leaflet-sidebar-close"></span></h1>
+        <label for="mountain_rangesCheckbox">
+          <input type="checkbox" id="mountain_rangesCheckbox" /> Mountain Ranges
+        </label>
+      </div>
+    </div>
   </div>
   
-  <!-- Settlements Section -->
-  <div id="settlementsSection">
-    <h2>Settlements</h2>
-    <label for="hobbitsCheckbox">
-      <input type="checkbox" id="hobbitsCheckbox" /> Hobbits
-    </label>
-    <label for="menCheckbox">
-      <input type="checkbox" id="menCheckbox" /> Men
-    </label>
-    <label for="elvesCheckbox">
-      <input type="checkbox" id="elvesCheckbox" /> Elves
-    </label>
-  </div>
-
-  <!-- Geography Section -->
-  <div id="geographySection">
-    <h2>Geography</h2>
-    <label for="mountain_rangesCheckbox">
-      <input type="checkbox" id="mountain_rangesCheckbox" /> Mountain Ranges
-    </label>
-  </div>
-
-  <div id="map"></div>
-  
-  <!-- Custom Script -->
-  <script type="module" src="script.js"></script>
-  <script type="module" src="functions.js"></script>
 </body>
 </html>
