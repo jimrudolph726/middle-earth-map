@@ -1,4 +1,6 @@
 // script.js
+import L from 'leaflet';
+import 'leaflet-sidebar-v2';
 
 import {
   PathListeners,
