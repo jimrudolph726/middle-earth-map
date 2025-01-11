@@ -1,6 +1,4 @@
 // script.js
-import L from 'leaflet';
-import 'leaflet-sidebar-v2';
 
 import {
   PathListeners,
@@ -27,16 +25,11 @@ const map = L.map('map', {
   zoom: 0,
   center: [0, 0],
 });
+
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/output_file.png';
 const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
-
-// Add sidebar to map
-const sidebar = L.control.sidebar({
-  container: 'sidebar',
-  position: 'right' // Position can be 'left' or 'right'
-}).addTo(map);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
