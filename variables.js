@@ -221,7 +221,13 @@ export const samfrodocampsites = {
 
 // Locations
 export const elveslocations = {
-  elves: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div><h3>Rivendell</h3><button onclick=window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank') style=cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;>Learn more on Thain's Book</button></div>` }
+  elves: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>
+              <h3>Rivendell</h3>
+              <button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank');" 
+                      style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                Learn more on Thain's Book
+              </button>
+            </div>` }
 };
 export const menlocations = {
   bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
