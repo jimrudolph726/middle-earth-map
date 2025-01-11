@@ -28,6 +28,12 @@
         }
 
         #sidebar {
+        width: 0;
+        transition: width 0.3s ease;
+    }
+
+    /* Expanded width when a tab is active */
+    #sidebar.expanded {
         width: 300px; /* Adjust this value as needed */
     }
 
