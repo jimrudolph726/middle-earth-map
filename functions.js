@@ -143,8 +143,16 @@ export const createPolygon = async (ranges) => {
           fillOpacity: 0.5,
         },
         onEachFeature: (feature, layer) => {
-          // Add popups or interactivity
-          layer.bindPopup(`Name: ${name}`);
+          // Add interactivity for mouseover and mouseout
+          layer.on('mouseover', (e) => {
+            const popup = L.popup()
+              .setLatLng(e.latlng)
+              .setContent(`Name: ${name}`)
+              .openOn(layer._map); // Use the map instance to display the popup
+          });
+          layer.on('mouseout', () => {
+            layer._map.closePopup(); // Close the popup on mouseout
+          });
         },
       });
 
