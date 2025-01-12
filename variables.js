@@ -250,6 +250,22 @@ March23: { coords: [44.942164879645382, -93.3006425957809], icon: icons.TentIcon
 March24: { coords: [44.942231944372701, -93.300202294808997], icon: icons.TentIcon, popup: generatePopupContent('March 24',10,15,1.5,'Go slowly.','Northwest of Morannon'), },
 March25: { coords: [44.942205315740352, -93.300150740581273], icon: icons.TentIcon, popup: generatePopupContent('March 25'," "," "," ",'Battle of the Morannon.',''), },
 }
+export const pippincampsites = {
+  February26: { coords: [44.942185971374819, -93.30251495819013], icon: icons.TentIcon, popup: generatePopupContent('February 26',11,27,2.5,'Captured at noon. Skirmish in valley at dusk. No camp.','" "'), },
+  February27: { coords: [44.942761796736576, -93.30379927099294], icon: icons.TentIcon, popup: generatePopupContent('February 27',28,84,3,'Midnight to dusk.','South edge of Downs'), },
+  February28: { coords: [44.943305626497363, -93.30452993575463], icon: icons.TentIcon, popup: generatePopupContent('February 28',18,54,3,'Rohirrim surround.','Edge of Fangorn'), },
+  February29: { coords: [44.943364940951376, -93.305973375290364], icon: icons.TentIcon, popup: generatePopupContent('February 29',12,105,8.75,'Escape before dawn; meet Treebeard.','Wellinghall'), },
+  February30toMarch1: { coords: [44.94318099929886, -93.305640056571747], icon: icons.TentIcon, popup: generatePopupContent('February 30 to March 1',2.5,25,10,'Entmoot','Near Derndingle'), },
+  March2toMarch4: { coords: [44.942967066418227, -93.306478061259767], icon: icons.TentIcon, popup: generatePopupContent('March 2 to March 4',6,60,10,'Entmoot ends in late afternoon; reach gates at midnight.','Isengard'), },
+  March05: { coords: [44.942825110515365, -93.306624005896452], icon: icons.TentIcon, popup: generatePopupContent('March 05',7,140,20,'Late night to dawn, "terrible speed" on Shadowfax.','Edoras'), },
+  March06: { coords: [44.942046012949142, -93.304839715015703], icon: icons.TentIcon, popup: generatePopupContent('March 06',12,120,10,'Travel dusk to dawn on Shadowfax.','Firien Wood'), },
+  March07: { coords: [44.941592811896278, -93.303756899969343], icon: icons.TentIcon, popup: generatePopupContent('March 07',12,120,10,'Travel dusk to dawn on Shadowfax.','Erlas Beacon'), },
+  March08: { coords: [44.941267571288705, -93.302127969508291], icon: icons.TentIcon, popup: generatePopupContent('March 08',12,120,10,'Travel dusk to dawn on Shadowfax. Reach Rammas Echor at dawn of March 9','Minas Tirith'), },
+  March9toMarch17: { coords: [44.940899673954469, -93.301184508050511], icon: icons.TentIcon, popup: generatePopupContent('March 9 to March 17'," "," "," ",'Minas Tirith. Battle of Pelennor Fields on March 15','Minas Tirith'), },
+}
+
+
+
 
 // Settlements
 export const elvessettlements = {

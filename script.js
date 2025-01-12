@@ -14,6 +14,7 @@ import {
   hobbitsettlements,
   samfrodocampsites,
   aragorncampsites,
+  pippincampsites,
   pathdata,
   mountain_ranges
 } from './variables.js';
@@ -38,6 +39,7 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
 createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('samfrodocampsitesCheckbox', markers, map);})
 createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('aragorncampsitesCheckbox', markers, map);})
+createMarkers(pippincampsites, 'campsite').then((markers) => {MarkerListeners('pippincampsitesCheckbox', markers, map);})
 
 // Add Settlements
 createMarkers(elvessettlements).then((markers) => {MarkerListeners('elvesCheckbox', markers, map);})
