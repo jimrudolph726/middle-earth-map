@@ -24,6 +24,7 @@ html, body, #map {
   display: flex;
   align-items: center; /* Align the checkbox and label text */
   cursor: pointer; /* Change the cursor to indicate clickability */
+  font-size: 18px;
 }
 
 #settlementsSection input[type="checkbox"],
