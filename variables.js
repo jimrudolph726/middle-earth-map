@@ -24,12 +24,6 @@ const icons = {
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
-// Paths (polylines)
-export const pathdata = { 
-  samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
-  aragornpath: { pathName: 'aragornpath', color: 'blue' },
-  pippinpath: { pathName: 'pippinpath', color: 'green' },
-};
 
 // Campsites (markers)
 export const samfrodocampsites = {
@@ -305,6 +299,13 @@ export const markersData = [
   { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
   { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' }
 ];
+
+// Paths (polylines)
+export const pathdata = { 
+  samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
+  aragornpath: { pathName: 'aragornpath', color: 'blue' },
+  pippinpath: { pathName: 'pippinpath', color: 'green' },
+};
 
 // Geographic Features (polygons)
 export const mountain_ranges = {
