@@ -36,10 +36,18 @@ map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Paths and Campsites
+const campsites = [samfrodocampsites, aragorncampsites, pippincampsites];
+
+for(let i = 0; i < campsites.length; i++) {
+  createMarkers(campsites[i], 'campsite').then((markers) => {MarkerListeners(`${campsites[i]}Checkbox`, markers, map);})
+}
+
+
+
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
-createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('samfrodocampsitesCheckbox', markers, map);})
-createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('aragorncampsitesCheckbox', markers, map);})
-createMarkers(pippincampsites, 'campsite').then((markers) => {MarkerListeners('pippincampsitesCheckbox', markers, map);})
+// createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('samfrodocampsitesCheckbox', markers, map);})
+// createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('aragorncampsitesCheckbox', markers, map);})
+// createMarkers(pippincampsites, 'campsite').then((markers) => {MarkerListeners('pippincampsitesCheckbox', markers, map);})
 
 // Add Settlements
 createMarkers(elvessettlements).then((markers) => {MarkerListeners('elvesCheckbox', markers, map);})
