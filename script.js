@@ -37,29 +37,32 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Paths and Campsites
 
-document.addEventListener('DOMContentLoaded', () => {
-  // The checkboxes are now guaranteed to exist in the DOM
+const markersData = [
+  { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
+  { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
+  { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
+  { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
+  { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
+  { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' }
+];
 
-  // Create the markers and attach listeners for each checkbox
-  const campsites = ['samfrodocampsites', 'aragorncampsites', 'pippincampsites'];
-
-  campsites.forEach(campsite => {
-      createMarkers(campsite, 'campsite').then((markers) => {
-          MarkerListeners(`${campsite}Checkbox`, markers, map);
-      });
+// Create and add markers in a loop
+markersData.forEach(({ data, checkboxId, campsite }) => {
+  createMarkers(data, campsite).then((markers) => {
+    MarkerListeners(checkboxId, markers, map);
   });
 });
 
-
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
+
 // createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('samfrodocampsitesCheckbox', markers, map);})
 // createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('aragorncampsitesCheckbox', markers, map);})
 // createMarkers(pippincampsites, 'campsite').then((markers) => {MarkerListeners('pippincampsitesCheckbox', markers, map);})
 
 // Add Settlements
-createMarkers(elvessettlements).then((markers) => {MarkerListeners('elvesCheckbox', markers, map);})
-createMarkers(mensettlements).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
-createMarkers(hobbitsettlements).then((markers) => {MarkerListeners('hobbitsCheckbox', markers, map);})
+// createMarkers(elvessettlements).then((markers) => {MarkerListeners('elvesCheckbox', markers, map);})
+// createMarkers(mensettlements).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
+// createMarkers(hobbitsettlements).then((markers) => {MarkerListeners('hobbitsCheckbox', markers, map);})
 
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {MarkerListeners('mountain_rangesCheckbox', polygons, map);});
