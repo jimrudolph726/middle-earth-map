@@ -20,6 +20,17 @@ html, body, #map {
   padding-top: 16px; /* Optional: Add padding for indentation */
 }
 
+#settlementsSection h2, 
+#pathsSection h2, 
+#geographySection h2 {
+  font-size: 16px; /* Adjust the size as needed */
+  font-weight: bold; /* Bold text */
+  margin: 8px 0; /* Adjust top and bottom spacing */
+  padding-top: 8px; /* Optional: Add spacing above the header */
+  color: #444; /* Set a consistent text color */
+  text-align: left; /* Align text to the left */
+}
+
 #settlementsSection label, #pathsSection label, #geographySection label {
   display: flex;
   align-items: center; /* Align the checkbox and label text */
