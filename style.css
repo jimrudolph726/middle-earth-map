@@ -3,10 +3,20 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: "Ringbearer";
+  src: url("/ringbearer.ttf") format("truetype");
+}
+
 html, body, #map {
   height: 100%;
-  font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font: 10pt "Ringbearer", Arial, Helvetica, sans-serif; 
 }
+
+/* html, body, #map {
+  height: 100%;
+  font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+} */
 
 .lorem {
   font-style: italic;
