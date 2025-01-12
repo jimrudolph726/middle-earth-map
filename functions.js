@@ -102,7 +102,7 @@ export const createPolyline = async (paths) => {
   return polylines;
 };
 
-// Location function
+// Settlements function
 export const createMarkers = (locations, campsite = 'no') => {
   return new Promise((resolve) => {
     const markers = Object.keys(locations).reduce((acc, key) => {

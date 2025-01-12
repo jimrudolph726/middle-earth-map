@@ -39,7 +39,7 @@ createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
 createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('samfrodocampsitesCheckbox', markers, map);})
 createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('aragorncampsitesCheckbox', markers, map);})
 
-// Add settlements
+// Add Settlements
 createMarkers(elvessettlements).then((markers) => {MarkerListeners('elvesCheckbox', markers, map);})
 createMarkers(mensettlements).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
 createMarkers(hobbitsettlements).then((markers) => {MarkerListeners('hobbitsCheckbox', markers, map);})
