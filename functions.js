@@ -76,6 +76,28 @@ export const PathListeners = (items, map) => {
 };
 
 // Paths function
+// export const createPolyline = async (paths) => {
+//   const polylines = {};
+//   const promises = Object.keys(paths).map(async (key) => {
+//     const { pathName, color } = paths[key];
+//     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
+
+//     try {
+//       const response = await fetch(geojsonPath);
+//       console.log(`Response received for ${key}`);
+//       const data = await response.json();
+//       const coordinates = data.features[0].geometry.coordinates;
+//       const flatCoordinates = coordinates.flat();
+//       const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
+//       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
+//       polylines[key] = polyline;
+//       console.log(`Polyline created and added for ${key}`);
+//     } catch (error) {
+//       console.error(`Error fetching data for ${key}:`, error);
+//     }
+//   });
+
+
 export const createPolyline = async (paths) => {
   const polylines = {};
   const promises = Object.keys(paths).map(async (key) => {
@@ -86,9 +108,17 @@ export const createPolyline = async (paths) => {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-      const coordinates = data.features[0].geometry.coordinates;
-      const flatCoordinates = coordinates.flat();
-      const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
+
+      // Handle both LineString and MultiLineString
+      const geometry = data.features[0].geometry;
+      let latLngs = [];
+
+      if (geometry.type === 'LineString') {
+        latLngs = geometry.coordinates.map(coord => [coord[1], coord[0]]);
+      } else if (geometry.type === 'MultiLineString') {
+        latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
+      }
+
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
@@ -96,6 +126,26 @@ export const createPolyline = async (paths) => {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
+
+  await Promise.all(promises); // Wait for all fetches to complete
+  return polylines;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
