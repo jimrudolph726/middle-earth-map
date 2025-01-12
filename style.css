@@ -5,7 +5,7 @@ body {
 
 @font-face {
   font-family: "Ringbearer";
-  src: url("/ringbearer.ttf") format("truetype");
+  src: url("https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/ringbearer.ttf") format("truetype");
 }
 
 html, body, #map {
