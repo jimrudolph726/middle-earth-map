@@ -44,6 +44,10 @@ html, body, #map {
   margin-right: 8px; /* Add spacing between the checkbox and label text */
 }
 
+.sidebar-tabs {
+  margin-top: 10px; /* Shifts the tabs down */
+}
+
 .polygon-label {
   background-color: rgba(255, 255, 255, 3); /* Light background */
   border: 2px solid black; /* Darker border */
