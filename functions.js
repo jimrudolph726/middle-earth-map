@@ -96,6 +96,13 @@ export const PathListeners = (items, map) => {
 //       console.error(`Error fetching data for ${key}:`, error);
 //     }
 //   });
+//   await Promise.all(promises); // Wait for all fetches to complete
+//   return polylines;
+// };
+
+
+
+
 
 
 export const createPolyline = async (paths) => {
@@ -133,23 +140,6 @@ export const createPolyline = async (paths) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  await Promise.all(promises); // Wait for all fetches to complete
-  return polylines;
-};
 
 // Settlements function
 export const createMarkers = (locations, campsite = 'no') => {
