@@ -79,7 +79,7 @@ export const PathListeners = (items, map) => {
 export const createPolyline = async (paths) => {
   const polylines = {};
   const promises = Object.keys(paths).map(async (key) => {
-    const { pathName, color, map } = paths[key];
+    const { pathName, color } = paths[key];
     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/' + pathName + '.geojson';
 
     try {
@@ -90,7 +90,6 @@ export const createPolyline = async (paths) => {
       const flatCoordinates = coordinates.flat();
       const latLngs = flatCoordinates.map(coord => [coord[1], coord[0]]);
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
-      // polyline.addTo(map);
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
     } catch (error) {

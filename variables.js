@@ -26,8 +26,10 @@ const icons = {
 
 // Paths and Campsites
 export const pathdata = { 
-  samfrodopath: { CheckboxId: 'samfrodopath', pathName: 'samfrodopath', color: 'red', map: map }, 
-  aragornpath: { CheckboxId: 'aragorn', pathName: 'aragornpath', color: 'blue', map: map }
+  samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
+  aragornpath: { pathName: 'aragornpath', color: 'blue' },
+  pippinpath: { pathName: 'pippinpath', color: 'green' },
+
 };
 export const samfrodocampsites = {
   September23: { coords: [44.94642366,-93.31109147], icon: icons.TentIcon, popup: generatePopupContent('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
