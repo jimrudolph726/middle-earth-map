@@ -36,8 +36,8 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Paths and Campsites
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
-createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('campsitesCheckbox', markers, map);})
-createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('campsitesCheckbox', markers, map);})
+createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('samfrodocampsitesCheckbox', markers, map);})
+createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('aragorncampsitesCheckbox', markers, map);})
 
 // Add Locations
 createMarkers(menlocations).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
