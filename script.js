@@ -36,7 +36,6 @@ map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Paths and Campsites
-const campsites = [samfrodocampsites, aragorncampsites, pippincampsites];
 
 document.addEventListener('DOMContentLoaded', () => {
   // The checkboxes are now guaranteed to exist in the DOM
