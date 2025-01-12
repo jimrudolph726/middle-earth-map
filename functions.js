@@ -75,6 +75,27 @@ export const PathListeners = (items, map) => {
   });
 };
 
+// Campsites and Settlements function
+export const createMarkers = (locations, campsite = 'no') => {
+  return new Promise((resolve) => {
+    const markers = Object.keys(locations).reduce((acc, key) => {
+      const { coords, icon, popup } = locations[key];
+      const marker = L.marker(coords, { icon }).bindPopup(popup);
+
+      // Attach specific logic based on whether the campsite variable is 'yes'
+      if (campsite === 'campsite') {
+        marker.on('mouseover', () => marker.openPopup());
+        marker.on('mouseout', () => marker.closePopup());
+      }
+
+      acc[key] = marker;
+      return acc;
+    }, {});
+
+    resolve(markers); // Resolve the promise with the created markers
+  });
+};
+
 // Paths function
 export const createPolyline = async (paths) => {
   const polylines = {};
@@ -107,27 +128,6 @@ export const createPolyline = async (paths) => {
 
   await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
-};
-
-// Settlements function
-export const createMarkers = (locations, campsite = 'no') => {
-  return new Promise((resolve) => {
-    const markers = Object.keys(locations).reduce((acc, key) => {
-      const { coords, icon, popup } = locations[key];
-      const marker = L.marker(coords, { icon }).bindPopup(popup);
-
-      // Attach specific logic based on whether the campsite variable is 'yes'
-      if (campsite === 'campsite') {
-        marker.on('mouseover', () => marker.openPopup());
-        marker.on('mouseout', () => marker.closePopup());
-      }
-
-      acc[key] = marker;
-      return acc;
-    }, {});
-
-    resolve(markers); // Resolve the promise with the created markers
-  });
 };
 
 // Geographic Features functions

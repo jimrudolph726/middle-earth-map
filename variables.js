@@ -24,13 +24,14 @@ const icons = {
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
-// Paths and Campsites
+// Paths (polylines)
 export const pathdata = { 
   samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
   aragornpath: { pathName: 'aragornpath', color: 'blue' },
   pippinpath: { pathName: 'pippinpath', color: 'green' },
-
 };
+
+// Campsites (markers)
 export const samfrodocampsites = {
   September23: { coords: [44.94642366,-93.31109147], icon: icons.TentIcon, popup: generatePopupContent('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
   },
@@ -272,10 +273,7 @@ export const pippincampsites = {
   March25: { coords: [44.942205315740352, -93.300150740581273], icon: icons.TentIcon, popup: generatePopupContent('March 25'," "," "," ",'Battle of the Morannon.',''), },
 }
 
-
-
-
-// Settlements
+// Settlements (markers)
 export const elvessettlements = {
   elves: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>
               <h3>Rivendell</h3>
@@ -299,8 +297,16 @@ export const hobbitsettlements = {
             </button>
           </div>`},
 };
+export const markersData = [
+  { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
+  { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
+  { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
+  { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
+  { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
+  { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' }
+];
 
-// Geographic Features
+// Geographic Features (polygons)
 export const mountain_ranges = {
   misty_mountains: {pathName:'misty_mountains', color: 'orange', name: 'Misty Mountains' },
   white_mountains: {pathName:'white_mountains', color: 'orange', name: 'White Mountains' },

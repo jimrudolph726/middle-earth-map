@@ -9,12 +9,7 @@ import {
 } from './functions.js';
 
 import {
-  elvessettlements,
-  mensettlements,
-  hobbitsettlements,
-  samfrodocampsites,
-  aragorncampsites,
-  pippincampsites,
+  markersData,
   pathdata,
   mountain_ranges
 } from './variables.js';
@@ -35,34 +30,15 @@ map.fitBounds(imageBounds);
 
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
-// Add Paths and Campsites
-
-const markersData = [
-  { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
-  { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
-  { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
-  { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
-  { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
-  { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' }
-];
-
-// Create and add markers in a loop
+// Add Campsites and Settlements
 markersData.forEach(({ data, checkboxId, campsite }) => {
   createMarkers(data, campsite).then((markers) => {
-    MarkerListeners(checkboxId, markers, map);
+  MarkerListeners(checkboxId, markers, map);
   });
 });
 
+// Add Paths
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
-
-// createMarkers(samfrodocampsites, 'campsite').then((markers) => {MarkerListeners('samfrodocampsitesCheckbox', markers, map);})
-// createMarkers(aragorncampsites, 'campsite').then((markers) => {MarkerListeners('aragorncampsitesCheckbox', markers, map);})
-// createMarkers(pippincampsites, 'campsite').then((markers) => {MarkerListeners('pippincampsitesCheckbox', markers, map);})
-
-// Add Settlements
-// createMarkers(elvessettlements).then((markers) => {MarkerListeners('elvesCheckbox', markers, map);})
-// createMarkers(mensettlements).then((markers) => {MarkerListeners('menCheckbox', markers, map);})
-// createMarkers(hobbitsettlements).then((markers) => {MarkerListeners('hobbitsCheckbox', markers, map);})
 
 // Add Geographic Features
 createPolygon(mountain_ranges).then((polygons) => {MarkerListeners('mountain_rangesCheckbox', polygons, map);});
