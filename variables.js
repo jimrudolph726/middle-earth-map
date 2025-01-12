@@ -220,9 +220,9 @@ export const samfrodocampsites = {
 };
 export const aragorncampsites = {
   February26: { coords: [44.942590690006462, -93.30323493742091], icon: icons.TentIcon, popup: generatePopupContent('February 26',14,27,1.9,'Late afternoon to dusk of next day.','Halfway to Entwash'), },
-  February27: { coords: [44.94223958777421, -93.302579362714354], icon: icons.TentIcon, popup: generatePopupContent('February 27',12,36,3,'Hills, then plain.','" "'), },
-  February28: { coords: [44.9426764927588, -93.303749783019342], icon: icons.TentIcon, popup: generatePopupContent('February 28',12,36,3,'" "','South of Downs'), },
-  February29: { coords: [44.943161719707774, -93.303961573360311], icon: icons.TentIcon, popup: generatePopupContent('February 29',12,36,3,'Reach Downs about 11 A.M.','North end of Downs'), },
+  February27: { coords: [44.94223958777421, -93.302579362714354], icon: icons.TentIcon, popup: generatePopupContent('February 27',12,36,3,'Hills, then plain.'," "), },
+  February28: { coords: [44.9426764927588, -93.303749783019342], icon: icons.TentIcon, popup: generatePopupContent('February 28',12,36,3," ",'South of Downs'), },
+  February29: { coords: [44.943161719707774, -93.303961573360311], icon: icons.TentIcon, popup: generatePopupContent('February 29',12,36,3,'Reach Downs about 11 A.M.','North end of Downs, meeting with Eomer'), },
   February30: { coords: [44.943331350921085, -93.304542603440282], icon: icons.TentIcon, popup: generatePopupContent('February 30',5.5,30,5.5,'Afternoon on horseback','Edge of Fangorn'), },
   March01: { coords: [44.942361142376576, -93.305027491852343], icon: icons.TentIcon, popup: generatePopupContent('March 01',15,105,7,'Meet Gandalf. Ride afternoon and most of night.','Part way to Edoras'), },
   March02: { coords: [44.942112608553622, -93.305256002483333], icon: icons.TentIcon, popup: generatePopupContent('March 02',8.3,62,7.5,'Reach Edoras at dawn; leave at 1 P.M.',"Part way to Helm's Deep"), },
