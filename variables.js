@@ -262,6 +262,14 @@ export const pippincampsites = {
   March07: { coords: [44.941592811896278, -93.303756899969343], icon: icons.TentIcon, popup: generatePopupContent('March 07',12,120,10,'Travel dusk to dawn on Shadowfax.','Erlas Beacon'), },
   March08: { coords: [44.941267571288705, -93.302127969508291], icon: icons.TentIcon, popup: generatePopupContent('March 08',12,120,10,'Travel dusk to dawn on Shadowfax. Reach Rammas Echor at dawn of March 9','Minas Tirith'), },
   March9toMarch17: { coords: [44.940899673954469, -93.301184508050511], icon: icons.TentIcon, popup: generatePopupContent('March 9 to March 17'," "," "," ",'Minas Tirith. Battle of Pelennor Fields on March 15','Minas Tirith'), },
+  March18: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: generatePopupContent('March 18',8,33,4,'Infantry.','Cross-roads'), },
+  March19: { coords: [44.940906415234707, -93.300486539740248], icon: icons.TentIcon, popup: generatePopupContent('March 19',6,15,2.5,'Infantry joins cavalry.','Cross-roads'), },
+  March20: { coords: [44.941231882813007, -93.300533913895421], icon: icons.TentIcon, popup: generatePopupContent('March 20',10,25,2.5," ",'Ithilien'), },
+  March21: { coords: [44.941464640313235, -93.300567354475561], icon: icons.TentIcon, popup: generatePopupContent('March 21',8,20,2.5,'Battle in afternoon.','East of Henneth Annun'), },
+  March22: { coords: [44.941811802289074, -93.300689969936101], icon: icons.TentIcon, popup: generatePopupContent('March 22',10,22,2.2," ",'Northern Ithilien'), },
+  March23: { coords: [44.942164879645382, -93.3006425957809], icon: icons.TentIcon, popup: generatePopupContent('March 23',10,18,1.8,'Faint-hearted dismissed. Army leaves road.','South edge of Desolation'), },
+  March24: { coords: [44.942231944372701, -93.300202294808997], icon: icons.TentIcon, popup: generatePopupContent('March 24',10,15,1.5,'Go slowly.','Northwest of Morannon'), },
+  March25: { coords: [44.942205315740352, -93.300150740581273], icon: icons.TentIcon, popup: generatePopupContent('March 25'," "," "," ",'Battle of the Morannon.',''), },
 }
 
 
