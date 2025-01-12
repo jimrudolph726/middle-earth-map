@@ -28,7 +28,7 @@ const icons = {
 export const pathdata = { 
   samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
   aragornpath: { pathName: 'aragornpath', color: 'blue' },
-  pippinpath: { pathName: 'pippinpathtest2', color: 'green' },
+  pippinpath: { pathName: 'pippinpathtest', color: 'green' },
 
 };
 export const samfrodocampsites = {
