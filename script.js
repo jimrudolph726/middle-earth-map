@@ -38,8 +38,8 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 // Add Paths and Campsites
 const campsites = [samfrodocampsites, aragorncampsites, pippincampsites];
 
-for(let i = 0; i < campsites.length; i++) {
-  createMarkers(campsites[i], 'campsite').then((markers) => {MarkerListeners(`${campsites[i]}Checkbox`, markers, map);})
+for(const campsite of campsites) {
+  createMarkers(campsite, 'campsite').then((markers) => {MarkerListeners(`${campsite}Checkbox`, markers, map);})
 }
 
 
