@@ -26,7 +26,7 @@ html, body, #map {
   font-size: 18px; /* Adjust the size as needed */
   font-weight: bold; /* Bold text */
   margin: 8px 0; /* Adjust top and bottom spacing */
-  padding-top: 8px; /* Optional: Add spacing above the header */
+  padding-top: 6px; /* Optional: Add spacing above the header */
   color: #444; /* Set a consistent text color */
   text-align: left; /* Align text to the left */
 }
