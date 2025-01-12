@@ -166,8 +166,8 @@ export const createMarkers = (locations, campsite = 'no') => {
 export const createPolygon = async (ranges) => {
   const polygons = {};
   const promises = Object.keys(ranges).map(async (key) => {
-    const { mountain_range_name, color, name } = ranges[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${mountain_range_name}.geojson`;
+    const { pathName, color, name } = ranges[key];
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${pathName}.geojson`;
 
     try {
       const response = await fetch(geojsonPath);
