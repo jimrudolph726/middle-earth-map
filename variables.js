@@ -232,7 +232,7 @@ export const aragorncampsites = {
   March06: { coords: [44.942261531727517, -93.305416238596536], icon: icons.TentIcon, popup: generatePopupContent('March 06',10,75,7.5,'2 P.M. to midnight. Main road.','Halfway to Edoras'), },
   March07: { coords: [44.941866046158196, -93.30495364390454], icon: icons.TentIcon, popup: generatePopupContent('March 07',12,85,7.1,'Dawn to dusk ride.','Dunharrow'), },
   March08: { coords: [44.941263443207347, -93.304897909604293], icon: icons.TentIcon, popup: generatePopupContent('March 08',18,60,3.3,'Dawn to 4:30 P.M., Paths of the Dead; reach Erech at midnight.','Erech'), },
-  March09: { coords: [44.940712120073641, -93.304174757058689], icon: icons.TentIcon, popup: generatePopupContent('March 09',16,110,7,'" "','Calembal'), },
+  March09: { coords: [44.940712120073641, -93.304174757058689], icon: icons.TentIcon, popup: generatePopupContent('March 09',16,110,7," ",'Calembal'), },
   March10: { coords: [44.940289994310469, -93.303455784585594], icon: icons.TentIcon, popup: generatePopupContent('March 10',13,90,7,'The Dawnless Day.','Ringlo'), },
   March11: { coords: [44.939765291605568, -93.303310875404961], icon: icons.TentIcon, popup: generatePopupContent('March 11',10,70,7,'Battle at Linhir.','Lebennin'), },
   March12: { coords: [44.939763319029964, -93.302368965730906], icon: icons.TentIcon, popup: generatePopupContent('March 12',10,70,7,'Drove enemy.','SW of Pelargir'), },
