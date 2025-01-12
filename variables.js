@@ -237,6 +237,16 @@ export const aragorncampsites = {
   March11: { coords: [44.939765291605568, -93.303310875404961], icon: icons.TentIcon, popup: generatePopupContent('March 11',10,70,7,'Battle at Linhir.','Lebennin'), },
   March12: { coords: [44.939763319029964, -93.302368965730906], icon: icons.TentIcon, popup: generatePopupContent('March 12',10,70,7,'Drove enemy.','SW of Pelargir'), },
   March13: { coords: [44.939700196574755, -93.301764248573292], icon: icons.TentIcon, popup: generatePopupContent('March 13',5,35,7,'Battle. Readied ships.','Pelargir'), },
+  March14: { coords: [44.940352129839553, -93.301007655447478], icon: icons.TentIcon, popup: generatePopupContent('March 14',18,85,4.7,'Rowed.','On Anduin'), },
+March15to17: { coords: [44.940872882106646, -93.301046669457662], icon: icons.TentIcon, popup: generatePopupContent('March 15-17',9,65,7.2,'Sailed Midnight to 9 A.M. Battle of the Pelennor Fields. Host musters.','Minas Tirith'), },
+March18: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: generatePopupContent('March 18',8,33,4,'Cavalry.','Cross-roads'), },
+March19: { coords: [44.940906415234707, -93.300486539740248], icon: icons.TentIcon, popup: generatePopupContent('March 19',6,156,2.5,'Infantry joins cavalry.','Cross-roads'), },
+March20: { coords: [44.941231882813007, -93.300533913895421], icon: icons.TentIcon, popup: generatePopupContent('March 20',10,25,2.5,'" "','Ithilien'), },
+March21: { coords: [44.941464640313235, -93.300567354475561], icon: icons.TentIcon, popup: generatePopupContent('March 21',8,20,2.5,'Battle in afternoon.','East of Henneth Annun'), },
+March22: { coords: [44.941811802289074, -93.300689969936101], icon: icons.TentIcon, popup: generatePopupContent('March 22',10,22,2.2,'" "','Northern Ithilien'), },
+March23: { coords: [44.942164879645382, -93.3006425957809], icon: icons.TentIcon, popup: generatePopupContent('March 23',10,18,1.8,'Faint-hearted dismissed. Army leaves road.','South edge of Desolation'), },
+March24: { coords: [44.942231944372701, -93.300202294808997], icon: icons.TentIcon, popup: generatePopupContent('March 24',10,15,1.5,'Go slowly.','Northwest of Morannon'), },
+March25: { coords: [44.942205315740352, -93.300150740581273], icon: icons.TentIcon, popup: generatePopupContent('March 25'," "," "," ",'Battle of the Morannon.',''), },
 }
 
 // Locations
