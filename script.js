@@ -38,10 +38,18 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 // Add Paths and Campsites
 const campsites = [samfrodocampsites, aragorncampsites, pippincampsites];
 
-for(const campsite of campsites) {
-  createMarkers(campsite, 'campsite').then((markers) => {MarkerListeners(`${campsite}Checkbox`, markers, map);})
-}
+document.addEventListener('DOMContentLoaded', () => {
+  // The checkboxes are now guaranteed to exist in the DOM
 
+  // Create the markers and attach listeners for each checkbox
+  const campsites = ['samfrodocampsites', 'aragorncampsites', 'pippincampsites'];
+
+  campsites.forEach(campsite => {
+      createMarkers(campsite, 'campsite').then((markers) => {
+          MarkerListeners(`${campsite}Checkbox`, markers, map);
+      });
+  });
+});
 
 
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
