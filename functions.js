@@ -1,7 +1,7 @@
 // functions.js
 
 // Helper functions
-export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
+export const campsitePopupContent = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
     <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
@@ -37,6 +37,20 @@ export const generatePopupContent = (date, hoursTravelled, mileage, milesPerHour
     </div>
   `;
 };
+
+export const geographicPopupContent = (name, content, url) => {
+  return `
+    <div>
+    <h3 style="font-size: 24px;">${name}</h3>
+  <p style="font-size: 18px;">${content}</p>
+    <button onclick="window.open('${url}, '_blank');" 
+            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+      Learn more on Thain's Book
+    </button>
+  </div>
+  `;
+};
+
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
