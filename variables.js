@@ -326,8 +326,13 @@ export const mountain_ranges = {
   ash_mountains: {pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' },
 };
 
+
+const geographicpopups = {mirkwood: 'Mirkwood is a forest east of the Misty Mountains'}
+
+
+
 export const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: 'test'},
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: geographicpopups['mirkwood']},
 };
 
 export const geographicData = [
