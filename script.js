@@ -40,7 +40,7 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
 // Add Paths
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
 
-// Add Geographic Features
+// Add Geographic Featuresd
 geographicData.forEach(({ data, checkboxId }) => {
   createPolygon(data).then((polygons) => {
   MarkerListeners(checkboxId, polygons, map);

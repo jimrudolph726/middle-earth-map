@@ -5,6 +5,11 @@ import {
   geographicPopupContent
  } from './functions.js';
 
+import {
+  forest_data
+} from './forest_data.js'
+ 
+
 // Icons
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
@@ -330,8 +335,7 @@ export const mountain_ranges = {
 };
 
 export const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: geographicPopupContent('Mirkwood', "Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.", 'https://thainsbook.minastirith.cz/mirkwood.html' )},
-
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: geographicPopupContent(forest_data.mirkwood.name, forest_data.mirkwood.description, forest_data.mirkwood.url )},
 };
 
 export const geographicData = [
