@@ -134,7 +134,7 @@ export const createPolyline = async (paths) => {
 export const createPolygon = async (geographic_features) => {
   const polygons = {};
   const promises = Object.keys(geographic_features).map(async (key) => {
-    const { pathName, color, name, popup } = geographic_features[key];
+    const { pathName, color, name, PopupContent } = geographic_features[key];
     const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${pathName}.geojson`;
 
     try {
@@ -159,7 +159,7 @@ export const createPolygon = async (geographic_features) => {
           layer.on('click', (e) => {
             const popup = L.popup()
               .setLatLng(e.latlng)
-              .setContent(popup || `Name: ${name}`)
+              .setContent(PopupContent || `Name: ${name}`)
               .openOn(layer._map); // Use the map instance to display the popup
           });
         },
