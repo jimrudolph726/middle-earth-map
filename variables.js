@@ -6,7 +6,7 @@ import {
  } from './functions.js';
 
 import {
-  forest_data
+  forest
 } from './forest_data.js'
  
 
@@ -335,7 +335,7 @@ export const mountain_ranges = {
 };
 
 export const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: geographicPopupContent(forest_data.mirkwood.name, forest_data.mirkwood.description, forest_data.mirkwood.url )},
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: geographicPopupContent(forest.mirkwood.name, forest.mirkwood.description, forest.mirkwood.url )},
 };
 
 export const geographicData = [
