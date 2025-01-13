@@ -332,6 +332,6 @@ export const forests = {
 
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
-  {data: forests, checkboxId: 'forestsCheckbox', popup: generategeographicPopup},
+  {data: forests, checkboxId: 'forestsCheckbox'},
 ]
 
