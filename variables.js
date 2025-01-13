@@ -283,15 +283,19 @@ export const mensettlements = {
 };
 export const hobbitsettlements = {
   hobbiton: { CheckboxId: 'hobbits', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
-  micheldelving: { CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: `<div>
-            <h3>Michel Delving</h3>
-            <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank');" 
-                    style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-              Learn more on Thain's Book
-            </button>
-          </div>`},
-  crickhollow: { CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: `<div>
+  micheldelving: { CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: 
+  `<div>
+    <h3>Michel Delving</h3>
+    <p>Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. The Mayor of Michel Delving was the Shire's only real government official. His office was in the Town Hole in Michel Delving. The museum known as the Mathom-house was also located in Michel Delving.</p>
+    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank');" 
+            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+      Learn more on Thain's Book
+    </button>
+  </div>`},
+  crickhollow: { CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: 
+  `<div>
     <h3>Crickhollow</h3>
+    <p>Village in Buckland. Crickhollow was a few miles northeast of Bucklebury. It was a quiet, secluded village.</p>
     <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Crickhollow', '_blank');" 
             style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
       Learn more on Thain's Book
