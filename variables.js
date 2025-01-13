@@ -7,7 +7,7 @@ import {
 
 import {
   forest
-} from './forest_data.js'
+} from './forest.js'
  
 
 // Icons
