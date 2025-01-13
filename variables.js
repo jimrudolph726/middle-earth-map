@@ -327,10 +327,11 @@ export const mountain_ranges = {
 };
 
 export const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood' },
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', popup: 'test'},
 };
 
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
-  {data: forests, checkboxId: 'forestsCheckbox'},
+  {data: forests, checkboxId: 'forestsCheckbox', popup: generategeographicPopup},
 ]
+
