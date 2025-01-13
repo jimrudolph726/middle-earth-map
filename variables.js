@@ -327,7 +327,7 @@ export const mountain_ranges = {
 };
 
 
-const geographicpopups = {
+const forestpopups = {
   mirkwood: 
   `<div>
     <h3 style="font-size: 24px;">Mirkwood</h3>
@@ -342,7 +342,7 @@ const geographicpopups = {
 
 
 export const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: geographicpopups['mirkwood']},
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: forestpopups['mirkwood']},
 };
 
 export const geographicData = [
