@@ -269,7 +269,7 @@ export const pippincampsites = {
 
 // Settlements (markers)
 export const elvessettlements = {
-  elves: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>
+  rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>
               <h3>Rivendell</h3>
               <button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank');" 
                       style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
