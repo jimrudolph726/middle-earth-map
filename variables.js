@@ -327,7 +327,7 @@ export const mountain_ranges = {
 };
 
 export const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood'},
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', popup: 'test'},
 };
 
 export const geographicData = [
