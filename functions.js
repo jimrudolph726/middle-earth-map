@@ -37,7 +37,6 @@ export const campsitePopupContent = (date, hoursTravelled, mileage, milesPerHour
     </div>
   `;
 };
-
 export const geographicPopupContent = (name, content, url) => {
   return `
     <div>
