@@ -11,7 +11,7 @@ import {
 import {
   markersData,
   pathdata,
-  mountain_ranges
+  geographicData
 } from './variables.js';
 
 // Add Map
@@ -41,4 +41,10 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
 
 // Add Geographic Features
-createPolygon(mountain_ranges).then((polygons) => {MarkerListeners('mountain_rangesCheckbox', polygons, map);});
+// createPolygon(mountain_ranges).then((polygons) => {MarkerListeners('mountain_rangesCheckbox', polygons, map);});
+
+geographicData.forEach(({ data, checkboxId }) => {
+  createPolygon(data).then((polygons) => {
+  MarkerListeners(checkboxId, polygons, map);
+  });
+});
