@@ -290,6 +290,14 @@ export const hobbitsettlements = {
               Learn more on Thain's Book
             </button>
           </div>`},
+  crickhollow: { CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: `<div>
+    <h3>Crickhollow</h3>
+    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Crickhollow', '_blank');" 
+            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+      Learn more on Thain's Book
+    </button>
+  </div>`},
+
 };
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
