@@ -131,10 +131,10 @@ export const createPolyline = async (paths) => {
 };
 
 // Geographic Features functions
-export const createPolygon = async (geographic_features) => {
+export const createPolygon = async (geographic_data) => {
   const polygons = {};
-  const promises = Object.keys(geographic_features).map(async (key) => {
-    const { pathName, color, name, PopupContent } = geographic_features[key];
+  const promises = Object.keys(geographic_data).map(async (key) => {
+    const { pathName, color, name, PopupContent } = geographic_data[key];
     const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/${pathName}.geojson`;
 
     try {
