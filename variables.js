@@ -327,7 +327,17 @@ export const mountain_ranges = {
 };
 
 
-const geographicpopups = {mirkwood: 'Mirkwood is a forest east of the Misty Mountains'}
+const geographicpopups = {
+  mirkwood: 
+  `<div>
+    <h3 style="font-size: 24px;">Mirkwood</h3>
+  <p style="font-size: 18px;">Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.</p>
+    <button onclick="window.open('https://thainsbook.minastirith.cz/mirkwood.html', '_blank');" 
+            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+      Learn more on Thain's Book
+    </button>
+  </div>`
+}
 
 
 
