@@ -159,7 +159,7 @@ export const createPolygon = async (ranges) => {
           layer.on('click', (e) => {
             const popup = L.popup()
               .setLatLng(e.latlng)
-              .setContent(popupContent || `Name: ${name}`)
+              .setContent(PopupContent || `Name: ${name}`)
               .openOn(layer._map); // Use the map instance to display the popup
           });
         },
