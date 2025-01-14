@@ -1,7 +1,7 @@
 // functions.js
 
 // Helper functions
-export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
+export const createampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
     <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
@@ -38,42 +38,40 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
   `;
 };
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
-  return (
-    <div> onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
-         onmouseout="this.querySelector('.popup-content').style.display = 'none';">
-        <h3>{name}</h3>
+  return `
+    <div onclick="const content = this.querySelector('.popup-content'); 
+                   content.style.display = content.style.display === 'block' ? 'none' : 'block';">
+        <h3>${name}</h3>
         <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">{name}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">${name}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Elvish Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">{elvish_name}</td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Name</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${elvish_name}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Elvish Meaning</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">{elvish_meaning}</td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Meaning</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">${elvish_meaning}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">{description}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">${description}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">More Info</th>
-                <td style="border: 1px solid #ddd; padding: 8px;"><a href={url} target="_blank" rel="noopener noreferrer">Learn More</a></td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more on Thain's Book</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">
+                    <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
+                </td>
             </tr>
         </table>
         <div class="popup-content" style="display: none; margin-top: 10px;">
+            Additional content goes here.
         </div>
     </div>
-  );
+  `;
 };
-
-
-
-
-
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
