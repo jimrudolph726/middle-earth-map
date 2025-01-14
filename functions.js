@@ -41,10 +41,11 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
                    content.style.display = content.style.display === 'block' ? 'none' : 'block';"
-         style="width: 400px; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-                overflow: hidden; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+         style="width: 400px; height: 400px; position: relative; display: flex; flex-direction: column; 
+                justify-content: center; align-items: center; border: 1px solid #ddd; 
+                border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: #fff; overflow: hidden;">
         <h3 style="text-align: center; margin: 0 0 10px 0;">${name}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px; text-align: left;">
+        <table style="border-collapse: collapse; width: 90%; font-size: 14px; text-align: left;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Name</th>
                 <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${name}</td>
@@ -68,12 +69,13 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
                 </td>
             </tr>
         </table>
-        <div class="popup-content" style="display: none; margin-top: 10px;">
+        <div class="popup-content" style="display: none; margin-top: 10px; width: 100%; height: 100%;">
             Additional content goes here.
         </div>
     </div>
   `;
 };
+
 
 
 
