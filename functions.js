@@ -1,7 +1,7 @@
 // functions.js
 
 // Helper functions
-export const createampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
+export const createcampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
     <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
