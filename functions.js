@@ -40,9 +40,10 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
-                   content.style.display = content.style.display === 'block' ? 'none' : 'block';">
+                   content.style.display = content.style.display === 'block' ? 'none' : 'block';"
+         style="width: 800px; max-width: 100%; margin: 0 auto;"> <!-- Adjusted popup width -->
         <h3>${name}</h3>
-        <table style="border-collapse: collapse; width: 200%; font-size: 14px;"> <!-- Doubled width -->
+        <table style="border-collapse: collapse; width: 100%; font-size: 14px;"> <!-- Table fills the container -->
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 50%;">Name</th>
                 <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${name}</td>
@@ -72,6 +73,7 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
     </div>
   `;
 };
+
 
 
 // Checkbox listener functions
