@@ -38,43 +38,38 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
   `;
 };
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
-  return `
-    <div onclick="const content = this.querySelector('.popup-content'); 
-                   content.style.display = content.style.display === 'block' ? 'none' : 'block';"
-         style="width: 400px; height: 400px; position: relative; display: flex; flex-direction: column; 
-                justify-content: center; align-items: center; border: 1px solid #ddd; 
-                border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: #fff; overflow: hidden;">
-        <h3 style="text-align: center; margin: 0 0 10px 0;">${name}</h3>
-        <table style="border-collapse: collapse; width: 90%; font-size: 14px; text-align: left;">
+  return (
+    <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
+         onmouseout="this.querySelector('.popup-content').style.display = 'none';">
+        <h3>{name}</h3>
+        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${name}</td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">{name}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Sindarin Elvish Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${elvish_name}</td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Elvish Name</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">{elvish_name}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Sindarin Elvish Meaning</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${elvish_meaning}</td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Elvish Meaning</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">{elvish_meaning}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Description</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${description}</td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
+                <td style="border: 1px solid #ddd; padding: 8px;">{description}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Learn more on Thain's Book</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">
-                    <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
-                </td>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">More Info</th>
+                <td style="border: 1px solid #ddd; padding: 8px;"><a href={url} target="_blank" rel="noopener noreferrer">Learn More</a></td>
             </tr>
         </table>
-        <div class="popup-content" style="display: none; margin-top: 10px; width: 100%; height: 100%;">
-            Additional content goes here.
+        <div class="popup-content" style="display: none; margin-top: 10px;">
         </div>
     </div>
-  `;
+  );
 };
+
 
 
 
