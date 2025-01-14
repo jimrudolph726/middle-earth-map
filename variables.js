@@ -333,11 +333,9 @@ export const mountain_ranges = {
   white_mountains: {pathName:'white_mountains', color: 'orange', name: 'White Mountains' },
   ash_mountains: {pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' },
 };
-
 export const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: geographicPopupContent(forest.mirkwood.name, forest.mirkwood.description, forest.mirkwood.url )},
 };
-
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
