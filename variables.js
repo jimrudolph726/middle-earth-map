@@ -7,7 +7,7 @@ import {
 
 import {
   forest
-} from './forest.js'
+} from './geographic_popups.js'
  
 
 // Icons
