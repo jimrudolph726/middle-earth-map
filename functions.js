@@ -41,27 +41,28 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
                    content.style.display = content.style.display === 'block' ? 'none' : 'block';"
-         style="width: 800px; max-width: 100%; margin: 0 auto;"> <!-- Adjusted popup width -->
-        <h3>${name}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px;"> <!-- Table fills the container -->
+         style="width: 400px; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+                overflow: hidden; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <h3 style="text-align: center; margin: 0 0 10px 0;">${name}</h3>
+        <table style="border-collapse: collapse; width: 100%; font-size: 14px; text-align: left;">
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 50%;">Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Name</th>
                 <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${name}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 50%;">Sindarin Elvish Name</th>
+                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Sindarin Elvish Name</th>
                 <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${elvish_name}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 50%;">Sindarin Elvish Meaning</th>
+                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Sindarin Elvish Meaning</th>
                 <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${elvish_meaning}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 50%;">Description</th>
+                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Description</th>
                 <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${description}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 50%;">Learn more on Thain's Book</th>
+                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Learn more on Thain's Book</th>
                 <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">
                     <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
                 </td>
@@ -73,6 +74,7 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
     </div>
   `;
 };
+
 
 
 
