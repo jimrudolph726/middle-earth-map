@@ -37,44 +37,51 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
     </div>
   `;
 };
-export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
+export const createGeographicPopup = (data) => {
+  // Create the table rows dynamically based on the properties of the data object
+  const createTableRows = (data) => {
+    let rows = '';
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        const value = data[key];
+        // If the value is a string, create a simple table row
+        // If the value is a URL, wrap it with a link
+        rows += `
+          <tr>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">${capitalizeFirstLetter(key.replace(/_/g, ' '))}</th>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              ${typeof value === 'string' && value.includes('http') ? 
+                `<a href="${value}" target="_blank" rel="noopener noreferrer">${value}</a>` : 
+                value}
+            </td>
+          </tr>
+        `;
+      }
+    }
+    return rows;
+  };
+
+  // Helper function to capitalize the first letter of each word in the string
+  const capitalizeFirstLetter = (string) => {
+    return string.replace(/\b\w/g, char => char.toUpperCase());
+  };
+
+  // Generate popup content with table
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
-                   content.style.display = content.style.display === 'block' ? 'none' : 'block';"
-         style="width: 400px; height: 400px; position: relative; display: flex; flex-direction: column; 
-                justify-content: center; align-items: center; border: 1px solid #ddd; 
-                border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background: #fff; overflow: hidden;">
-        <h3 style="text-align: center; margin: 0 0 10px 0;">${name}</h3>
-        <table style="border-collapse: collapse; width: 90%; font-size: 14px; text-align: left;">
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${name}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Sindarin Elvish Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${elvish_name}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Sindarin Elvish Meaning</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${elvish_meaning}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Description</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">${description}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; width: 50%;">Learn more on Thain's Book</th>
-                <td style="border: 1px solid #ddd; padding: 8px; width: 50%;">
-                    <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
-                </td>
-            </tr>
-        </table>
-        <div class="popup-content" style="display: none; margin-top: 10px; width: 100%; height: 100%;">
-            Additional content goes here.
-        </div>
+                   content.style.display = content.style.display === 'block' ? 'none' : 'block';" 
+         style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); padding: 20px; background: #fff;">
+      <h3 style="text-align: center; margin-bottom: 10px;">${data.name}</h3>
+      <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
+        ${createTableRows(data)}
+      </table>
+      <div class="popup-content" style="display: none; margin-top: 10px;">
+        Additional content goes here.
+      </div>
     </div>
   `;
 };
+
 
 
 
