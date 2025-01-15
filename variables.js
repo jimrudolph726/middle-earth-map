@@ -343,9 +343,9 @@ const mountain_ranges = {
 const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
   },
-  blackwood: {pathName:'blackwood_test', color: 'green', name: 'Blackwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
+  blackwood: {pathName:'blackwood_test', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
   },
-  old_forest: {pathName:'old_forest_test', color: 'green', name: 'Old Forest', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
+  old_forest: {pathName:'old_forest_test', color: 'green', name: 'The Old Forest', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
   },
 
 
