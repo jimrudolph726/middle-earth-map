@@ -188,7 +188,7 @@ export const createPolygon = async (geographic_data) => {
           // Add interactivity for mouseover and mouseout
           layer.bindTooltip(name, {
             permanent: false, // Set to true to make the label always visible
-            direction: "top", // Display the label at the center of the polygon
+            direction: "center", // Display the label at the center of the polygon
             className: "polygon-label", // Optional: Add a custom CSS class for styling
           });
           layer.on('click', (e) => {
