@@ -9,6 +9,22 @@ export const forest = {
     description: "Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.",
     url: "https://thainsbook.minastirith.cz/mirkwood.html",
   },
+  blackwood: {
+    name: "The Blackwood",
+    elvish_name: "Eryn Vorn",
+    elvish_meaning: `
+      The name Eryn Vorn means "Dark Wood" from the word eryn meaning "wood" and vorn from morn meaning "dark."
+    `,
+    description: "The Blackwood was a vast ancient treescape that covered most of north-western Middle-earth. It was named 'The Black Wood' by the Númenóreans during the Second Age.",
+    url: "https://thainsbook.minastirith.cz/forests.html#Eryn-Vorn",
+  },
+
+
+
+
+
+
+
 };
 
 export const mountain = {
