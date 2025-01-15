@@ -13,11 +13,6 @@ html, body, #map {
   font: 10pt "Ringbearer", Arial, Helvetica, sans-serif; 
 }
 
-/* html, body, #map {
-  height: 100%;
-  font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
-} */
-
 .lorem {
   font-style: italic;
   color: #AAA;
@@ -60,13 +55,14 @@ html, body, #map {
 }
 
 .polygon-label {
-  background-color: rgba(255, 255, 255, 3); /* Light background */
-  border: 2px solid black; /* Darker border */
-  border-radius: 5px; /* Optional: Rounded corners */
-  padding: 2px 6px; /* Optional: Add some padding */
-  font-size: 16px; /* Adjust text size as needed */
-  color: black; /* Text color */
-  font-weight: bold; /* Make the text bold */
-  text-align: center; /* Center the text */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Optional: Add a subtle shadow */
-  }
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for tooltip */
+  pointer-events: none; /* Prevent the label from being interactive */
+}

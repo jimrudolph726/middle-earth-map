@@ -190,6 +190,7 @@ export const createPolygon = async (geographic_data) => {
             permanent: false, // Set to true to make the label always visible
             direction: "center", // Display the label at the center of the polygon
             className: "polygon-label", // Optional: Add a custom CSS class for styling
+            interactive: false,
           });
           layer.on('click', (e) => {
             const popup = L.popup()
