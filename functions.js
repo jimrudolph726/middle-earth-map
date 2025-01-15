@@ -185,26 +185,37 @@ export const createPolygon = async (geographic_data) => {
           fillOpacity: 0.5,
         },
         onEachFeature: (feature, layer) => {
-          // Remove or prevent hover-based style changes
+          // Disable hover-based style changes
           layer.on('mouseover', () => {
-            // No hover-specific styling here
+            layer.setStyle({
+              weight: 2, // Keep original styles
+              color: layer.options.color,
+              fillOpacity: 0.5,
+            });
           });
           layer.on('mouseout', () => {
-            // No reset of hover-specific styling here
+            layer.setStyle({
+              weight: 2, // Reset styles to original
+              color: layer.options.color,
+              fillOpacity: 0.5,
+            });
           });
-      
+        
+          // Add tooltip
           layer.bindTooltip(name, {
             direction: "top",
             className: "polygon-label",
           });
-      
+        
+          // Add click event
           layer.on('click', (e) => {
             const popup = L.popup()
               .setLatLng(e.latlng)
               .setContent(PopupContent || `Name: ${name}`)
               .openOn(layer._map);
           });
-        },
+        }
+        
       });
       
 
