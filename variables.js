@@ -345,7 +345,7 @@ const forests = {
   },
   blackwood: {pathName:'blackwood_test', color: 'green', name: 'Blackwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
   },
-  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
+  old_forest: {pathName:'old_forest_test', color: 'green', name: 'Old Forest', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
   },
 
 
