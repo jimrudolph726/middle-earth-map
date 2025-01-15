@@ -9,6 +9,18 @@ export const forest = {
     description: "Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.",
     url: "https://thainsbook.minastirith.cz/mirkwood.html",
   },
+  old_forest: {
+    name: "The Old Forest",
+    elvish_name: "(speculative) Iaur Taur",
+    elvish_meaning: `
+      The name Iaur Taur means "old forest" or "ancient forest" from the word iaur meaning old or ancient, and taur meaning forest.  This is purely speculative and noncanonical.
+    `,
+    description: "Forest on the east side of the Brandywine River bordering Buckland.",
+    url: "https://thainsbook.minastirith.cz/forests.html#Old%20Forest",
+  },
+
+
+
   blackwood: {
     name: "The Blackwood",
     elvish_name: "Eryn Vorn",
