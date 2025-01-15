@@ -185,21 +185,28 @@ export const createPolygon = async (geographic_data) => {
           fillOpacity: 0.5,
         },
         onEachFeature: (feature, layer) => {
-          // Add interactivity for mouseover and mouseout
-          layer.bindTooltip(name, {
-            permanent: false, // Set to true to make the label always visible
-            direction: "center", // Display the label at the center of the polygon
-            className: "polygon-label", // Optional: Add a custom CSS class for styling
-            interactive: false,
+          // Remove or prevent hover-based style changes
+          layer.on('mouseover', () => {
+            // No hover-specific styling here
           });
+          layer.on('mouseout', () => {
+            // No reset of hover-specific styling here
+          });
+      
+          layer.bindTooltip(name, {
+            direction: "top",
+            className: "polygon-label",
+          });
+      
           layer.on('click', (e) => {
             const popup = L.popup()
               .setLatLng(e.latlng)
               .setContent(PopupContent || `Name: ${name}`)
-              .openOn(layer._map); // Use the map instance to display the popup
+              .openOn(layer._map);
           });
         },
       });
+      
 
       // Store the polygon in the polygons object
       polygons[key] = polygon;
