@@ -1,7 +1,7 @@
 export const forest = {
   mirkwood: {
     name: "Mirkwood",
-    elvish_name: "Taur-nu-Fuin, Taur-e-Ndaedelos, Eryn Galen, Eryn Lasgalen",
+    elvish_name: "Taur-nu-Fuin",
     elvish_meaning: `
       Taur-nu-Fuin means "forest under night." 
       The word taur means "wood, forest"; nu means "down below, underneath"; and fuin means "gloom, darkness."
