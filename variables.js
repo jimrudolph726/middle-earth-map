@@ -329,7 +329,7 @@ export const pathdata = {
 };
 
 // Geographic Features (polygons)
-export const mountain_ranges = {
+const mountain_ranges = {
   misty_mountains: {
     pathName:'misty_mountains', color: 'orange', name: 'Misty Mountains', PopupContent: createGeographicPopup(mountain.misty_mountains.name, mountain.misty_mountains.elvish_name, mountain.misty_mountains.elvish_meaning, mountain.misty_mountains.description, mountain.misty_mountains.url ) 
   },
@@ -340,7 +340,7 @@ export const mountain_ranges = {
     pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain.ash_mountains.name, mountain.ash_mountains.elvish_name, mountain.ash_mountains.elvish_meaning, mountain.ash_mountains.description, mountain.ash_mountains.url ) 
   },
 };
-export const forests = {
+const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )},
 };
 export const geographicData = [
