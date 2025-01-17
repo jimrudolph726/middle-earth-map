@@ -348,9 +348,6 @@ const forests = {
   old_forest: {pathName:'old_forest_test', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url )
   },
 
-
-
-
 };
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
