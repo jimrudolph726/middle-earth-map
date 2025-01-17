@@ -19,7 +19,7 @@ const map = L.map('map', {
   crs: L.CRS.EPSG3857,
   minZoom: 15,
   maxZoom: 20,
-  zoom: 0,
+  zoom: 1,
   center: [0, 0],
 });
 
