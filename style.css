@@ -54,15 +54,3 @@ html, body, #map {
   top: 10px; /* Shifts the icons down */
 }
 
-.polygon-label {
-  background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 2px 6px;
-  font-size: 16px;
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for tooltip */
-  pointer-events: none; /* Prevent the label from being interactive */
-}
