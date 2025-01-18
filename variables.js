@@ -295,7 +295,6 @@ export const merrycampsites = {
   March15: { coords: [44.941592811896278, -93.303756899969343], icon: icons.TentIcon, popup: createCampsitePopup('March 15',3.5,24.5,7,'Reach Rammas at dawn.  Battle of the Pelennor Fields','Minas Tirith'), },
 }
 
-
 // Settlements (markers)
 export const elvessettlements = {
   rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>
