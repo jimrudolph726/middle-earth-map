@@ -335,6 +335,7 @@ export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
   { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
   { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
+  { data: pippincampsites, checkboxId: 'merrycampsitesCheckbox', campsite: 'campsite' },
   { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
   { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' }
