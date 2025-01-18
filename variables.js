@@ -326,7 +326,7 @@ export const pathdata = {
   samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
   aragornpath: { pathName: 'aragornpath', color: 'blue' },
   pippinpath: { pathName: 'pippinpath', color: 'green' },
-  merrypath: { pathName: 'merrypath', color: 'green' },
+  merrypath: { pathName: 'merrypath', color: 'orange' },
 };
 
 // Geographic Features (polygons)
