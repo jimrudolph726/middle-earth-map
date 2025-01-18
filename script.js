@@ -14,7 +14,7 @@ import {
   geographicData
 } from './variables.js';
 
-// Add Map
+// Add Mapd
 const map = L.map('map', {
   crs: L.CRS.EPSG3857,
   minZoom: 15,
