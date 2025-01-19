@@ -10,7 +10,6 @@ import {
   mountain,
 } from './geographic_popup_content.js'
  
-
 // Icons
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
@@ -32,7 +31,6 @@ const icons = {
   RivendellIcon: createIcon(iconUrls.rivendell),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
-
 
 // Campsites (markers)
 export const samfrodocampsites = {
@@ -374,4 +372,3 @@ export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
 ]
-
