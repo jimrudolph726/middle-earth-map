@@ -157,8 +157,8 @@ export const createPolyline = async (paths) => {
         size: '20px',       // Size of the arrows
         frequency: 20,   // Frequency of arrows along the path
         angle: 30,           // Angle of the arrows
-        interpolateOnLine: true
       });
+      
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
     } catch (error) {
