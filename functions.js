@@ -153,12 +153,6 @@ export const createPolyline = async (paths) => {
         latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
       }
 
-      polyline.arrowheads({
-        size: '20px',       // Size of the arrows
-        frequency: '50%',   // Frequency of arrows along the path
-        angle: 30,          // Angle of the arrows
-      });
-
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
