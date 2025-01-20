@@ -55,7 +55,7 @@ html, body, #map {
 }
 
 .polygon-label {
-  background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
+  /*background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
   border: 2px solid black;
   border-radius: 5px;
   padding: 2px 6px;
