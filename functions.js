@@ -158,7 +158,7 @@ export const createPolyline = async (paths) => {
         frequency: '20px',   // Frequency of arrows along the path
         yawn: 30,           // Width of the opening of the arrowhead
         fill: true,
-        color: black,
+        color: 'black',
         fillColor: color,
       });
 
