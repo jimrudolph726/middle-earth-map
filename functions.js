@@ -153,9 +153,19 @@ export const createPolyline = async (paths) => {
         latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
       }
 
+      // Create the polyline
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
+
+      // Add arrowheads to the polyline
+      polyline.arrowheads({
+        size: '20px',       // Size of the arrows
+        frequency: '50%',   // Frequency of arrows along the path (can be in percentage)
+        angle: 30,          // Angle of the arrows
+      });
+
       polylines[key] = polyline;
-      console.log(`Polyline created and added for ${key}`);
+      polyline.addTo(map);  // Add polyline to the map
+      console.log(`Polyline with arrows created and added for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
