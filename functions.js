@@ -205,7 +205,7 @@ export const createPolygon = async (geographic_data) => {
           layer.bindTooltip(name, {
             direction: "top",
             className: "polygon-label",
-            permanent: true,
+            permanent: false,
           });
         
           // Add click event
