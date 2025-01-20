@@ -23,7 +23,7 @@ const map = L.map('map', {
   center: [0, 0],
 });
 
-const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/middle-earth.png';
+const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/middle-earth.png';
 const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
