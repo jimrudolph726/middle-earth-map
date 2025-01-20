@@ -155,7 +155,7 @@ export const createPolyline = async (paths) => {
 
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 }).arrowheads({
         size: '20px',       // Size of the arrows
-        frequency: '500px',   // Frequency of arrows along the path
+        frequency: '20px',   // Frequency of arrows along the path
         angle: 30,           // Angle of the arrows
       });
 
