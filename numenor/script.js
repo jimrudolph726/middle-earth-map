@@ -23,7 +23,7 @@ const map = L.map('map', {
   center: [0, 0],
 });
 
-const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/numenor.png';
+const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/numenor/assets/numenor.png';
 const imageBounds = [[44.9509454,-93.3340925],[44.929893420,-93.295343975],];
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
