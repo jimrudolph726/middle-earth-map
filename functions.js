@@ -168,11 +168,11 @@ export const createPolyline = async (paths) => {
       }
 
       // Add arrowheads to the polyline
-      polyline.arrowheads({
-        size: '20px',       // Size of the arrows
-        frequency: '50%',   // Frequency of arrows along the path
-        angle: 30,          // Angle of the arrows
-      });
+      // polyline.arrowheads({
+      //   size: '20px',       // Size of the arrows
+      //   frequency: '50%',   // Frequency of arrows along the path
+      //   angle: 30,          // Angle of the arrows
+      // });
 
       // Add the polyline to the map
       polyline.addTo(map);
