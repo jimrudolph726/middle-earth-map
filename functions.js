@@ -144,43 +144,26 @@ export const createPolyline = async (paths) => {
       const data = await response.json();
 
       // Handle both LineString and MultiLineString
-      const geometry = data.features[0]?.geometry;
+      const geometry = data.features[0].geometry;
       let latLngs = [];
-
-      if (!geometry) {
-        throw new Error(`No geometry found in GeoJSON for ${key}`);
-      }
 
       if (geometry.type === 'LineString') {
         latLngs = geometry.coordinates.map(coord => [coord[1], coord[0]]);
       } else if (geometry.type === 'MultiLineString') {
         latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
-      } else {
-        throw new Error(`Unsupported geometry type: ${geometry.type}`);
       }
 
-      // Create the polyline
+      polyline.arrowheads({
+        size: '20px',       // Size of the arrows
+        frequency: '50%',   // Frequency of arrows along the path
+        angle: 30,          // Angle of the arrows
+      });
+
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
-
-      // Check if polyline is created
-      if (!polyline) {
-        throw new Error(`Failed to create polyline for ${key}`);
-      }
-
-      // Add arrowheads to the polyline
-      // polyline.arrowheads({
-      //   size: '20px',       // Size of the arrows
-      //   frequency: '50%',   // Frequency of arrows along the path
-      //   angle: 30,          // Angle of the arrows
-      // });
-
-      // Add the polyline to the map
-      polyline.addTo(map);
-
       polylines[key] = polyline;
-      console.log(`Polyline with arrows created and added for ${key}`);
+      console.log(`Polyline created and added for ${key}`);
     } catch (error) {
-      console.error(`Error fetching or processing data for ${key}:`, error);
+      console.error(`Error fetching data for ${key}:`, error);
     }
   });
 
