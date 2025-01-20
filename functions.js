@@ -181,7 +181,6 @@ export const createPolyline = async (paths) => {
   return polylines;
 };
 
-
 // Geographic Features functions
 export const createPolygon = async (geographic_data) => {
   const polygons = {};
