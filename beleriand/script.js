@@ -17,9 +17,9 @@ import {
 // Add Mapd
 const map = L.map('map', {
   crs: L.CRS.EPSG3857,
-  minZoom: 15,
-  maxZoom: 20,
-  zoom: 15,
+  minZoom: 13,
+  maxZoom: 19,
+  zoom: 13,
   center: [0, 0],
 });
 
