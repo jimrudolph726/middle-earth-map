@@ -17,12 +17,12 @@ import {
 // Add Mapd
 const map = L.map('map', {
   crs: L.CRS.EPSG3857,
-  minZoom: 15,
+  minZoom: 15.5,
   maxZoom: 20,
   zoom: 15.5, // Fractional zoom level
   center: [0, 0],
   zoomSnap: 0.1, // Allows fractional zoom levels
-  zoomDelta: 0.1, // Controls the increment of zoom changes
+  zoomDelta: 0.2, // Controls the increment of zoom changes
 });
 
 
