@@ -154,22 +154,6 @@ export const createPolyline = async (paths) => {
       }
 
       const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
-
-      // Add arrows manually along the polyline
-      const arrowIcon = L.divIcon({
-        className: 'leaflet-div-icon',
-        html: '<div style="transform: rotate(90deg);">&#8594;</div>', // Unicode arrow symbol
-        iconSize: [20, 20]
-      });
-
-      const arrowSpacing = 0.1;  // Adjust arrow placement along the polyline
-      const polylineLength = polyline.getLatLngs().length;
-
-      for (let i = 0; i < polylineLength; i += Math.floor(polylineLength * arrowSpacing)) {
-        const latLng = polyline.getLatLngs()[i];
-        L.marker(latLng, { icon: arrowIcon }).addTo(polyline);
-      }
-
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
     } catch (error) {
