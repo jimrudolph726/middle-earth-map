@@ -24,7 +24,7 @@ const map = L.map('map', {
 });
 
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/beleriand.png';
-const imageBounds = [[44.951264907,-93.333913847],[44.928912674,-93.277841351],];
+const imageBounds = [[44.953738818,-93.332723306],[44.938367334,-93.303071917],];
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 
