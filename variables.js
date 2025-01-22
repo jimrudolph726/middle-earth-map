@@ -33,7 +33,7 @@ const icons = {
 };
 
 // Campsites (markers)
-export const samfrodocampsites = {
+const samfrodocampsites = {
   September23: { coords: [44.94642366,-93.31109147], icon: icons.TentIcon, popup: createCampsitePopup('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
   },
   September24: { coords: [44.94646111,-93.31071990], icon: icons.TentIcon, popup: createCampsitePopup('September 24',8,28,3.5,'Black Riders, Elves.','West of Woodhall'),
@@ -222,7 +222,7 @@ export const samfrodocampsites = {
     
 
 };
-export const aragorncampsites = {
+const aragorncampsites = {
   February26: { coords: [44.942590690006462, -93.30323493742091], icon: icons.TentIcon, popup: createCampsitePopup('February 26',14,27,1.9,'Late afternoon to dusk of next day.','Halfway to Entwash'), },
   February27: { coords: [44.94223958777421, -93.302579362714354], icon: icons.TentIcon, popup: createCampsitePopup('February 27',12,36,3,'Hills, then plain.'," "), },
   February28: { coords: [44.9426764927588, -93.303749783019342], icon: icons.TentIcon, popup: createCampsitePopup('February 28',12,36,3," ",'South of Downs'), },
@@ -252,7 +252,7 @@ March23: { coords: [44.942164879645382, -93.3006425957809], icon: icons.TentIcon
 March24: { coords: [44.942231944372701, -93.300202294808997], icon: icons.TentIcon, popup: createCampsitePopup('March 24',10,15,1.5,'Go slowly.','Northwest of Morannon'), },
 March25: { coords: [44.942205315740352, -93.300150740581273], icon: icons.TentIcon, popup: createCampsitePopup('March 25'," "," "," ",'Battle of the Morannon.',''), },
 };
-export const pippincampsites = {
+const pippincampsites = {
   February26: { coords: [44.942185971374819, -93.30251495819013], icon: icons.TentIcon, popup: createCampsitePopup('February 26',11,27,2.5,'Captured at noon. Skirmish in valley at dusk. No camp.','" "'), },
   February27: { coords: [44.942761796736576, -93.30379927099294], icon: icons.TentIcon, popup: createCampsitePopup('February 27',28,84,3,'Midnight to dusk.','South edge of Downs'), },
   February28: { coords: [44.943305626497363, -93.30452993575463], icon: icons.TentIcon, popup: createCampsitePopup('February 28',18,54,3,'Rohirrim surround.','Edge of Fangorn'), },
@@ -273,7 +273,7 @@ export const pippincampsites = {
   March24: { coords: [44.942231944372701, -93.300202294808997], icon: icons.TentIcon, popup: createCampsitePopup('March 24',10,15,1.5,'Go slowly.','Northwest of Morannon'), },
   March25: { coords: [44.942205315740352, -93.300150740581273], icon: icons.TentIcon, popup: createCampsitePopup('March 25'," "," "," ",'Battle of the Morannon.',''), },
 };
-export const merrycampsites = {
+const merrycampsites = {
   February26: { coords: [44.942185971374819, -93.30251495819013], icon: icons.TentIcon, popup: createCampsitePopup('February 26',11,27,2.5,'Captured at noon. Skirmish in valley at dusk. No camp.','" "'), },
   February27: { coords: [44.942761796736576, -93.30379927099294], icon: icons.TentIcon, popup: createCampsitePopup('February 27',28,84,3,'Midnight to dusk.','South edge of Downs'), },
   February28: { coords: [44.943305626497363, -93.30452993575463], icon: icons.TentIcon, popup: createCampsitePopup('February 28',18,54,3,'Rohirrim surround.','Edge of Fangorn'), },
@@ -292,6 +292,13 @@ export const merrycampsites = {
   March14: { coords: [44.940908162080305, -93.301197423802904], icon: icons.TentIcon, popup: createCampsitePopup('March 14',10,50,5,'Stonewain Valley.','Grey Wood'), },
   March15: { coords: [44.941592811896278, -93.303756899969343], icon: icons.TentIcon, popup: createCampsitePopup('March 15',3.5,24.5,7,'Reach Rammas at dawn.  Battle of the Pelennor Fields','Minas Tirith'), },
 }
+const gandalfthegreycampsites = {
+  Years2956to3009: { coords: [44.946589266766118, -93.311289597977662], icon: icons.TentIcon, popup: generatePopupContent('2956 to 3009',"?","?","?","2956: Aragorn meets Gandalf and their freindship begins.  3001: Bilbo's farewell feast. Gandalf suspects his ring to be the One Ring. The guard on the Shire is doubled. Gandalf seeks for news of Gollum and calls on the help of Aragorn. 3004: Gandalf visits Frodo in the Shire, and does so at intervals during the next four years. 3008: In the autumn Gandalf pays his last visit to Frodo. 3009: Gandalf and Aragorn renew their hunt for Gollum at intervals during teh next eight years, searching in the vales of teh Anduin, Mirkwood, and Rhovanion to the confines of Mordor. At some time during these years Gollum himself ventured into Mordor, and was captured by Sauron.",'" "'), },
+Year3017: { coords: [44.940896226244242, -93.301202096752178], icon: icons.TentIcon, popup: generatePopupContent('3017',"?","?","?",'Gollum is released from Mordor. He is taken by Aragorn in the Dead Marshes, and brought to Thranduil in Mirkwood. Gandalf visits Minas Tirith and reads the scroll of Isildur.',''), },
+Year3018March23: { coords: [44.947773691215993, -93.301321792739841], icon: icons.TentIcon, popup: generatePopupContent('March 23 3018',"?","?","?",'Gandalf arrives in Mirkwood and begins to question Gollum.',''), },
+Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icons.TentIcon, popup: generatePopupContent('March 29 3018',"?","?","?",'Gandalf leaves Mirkwood and sets out for the Shire',''), },
+}
+
 
 // Settlements (markers)
 export const elvessettlements = {
@@ -334,9 +341,10 @@ export const markersData = [
   { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
   { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
   { data: merrycampsites, checkboxId: 'merrycampsitesCheckbox', campsite: 'campsite' },
+  { data: gandalfthegreycampsites, checkboxId: 'gandalfthegreycampsitesCheckbox', campsite: 'campsite' },
   { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
-  { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' }
+  { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' },
 ];
 
 // Paths (polylines)
