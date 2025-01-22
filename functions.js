@@ -44,7 +44,7 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
     <div onclick="const content = this.querySelector('.popup-content'); 
                    content.style.display = content.style.display === 'block' ? 'none' : 'block';">
         <h3>${name}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
+        <table style="border-collapse: collapse; width: 200%; font-size: 14px;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">${name}</td>
