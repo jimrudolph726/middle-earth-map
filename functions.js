@@ -3,10 +3,10 @@
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
-    <div style="width: 400px;" onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
+    <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
         <h3>${date}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px; width: 400px;">
+        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">${date}</td>
@@ -32,12 +32,11 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
                 <td style="border: 1px solid #ddd; padding: 8px;">${campsite}</td>
             </tr>
         </table>
-        <div class="popup-content" style="display: none; margin-top: 10px; width: 400px;">
+        <div class="popup-content" style="display: none; margin-top: 10px;">
         </div>
     </div>
   `;
 };
-
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
