@@ -3,7 +3,7 @@
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
-    <div style="max-width: 90%; background-color: white; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; margin: auto;" 
+    <div style="width: 250%; background-color: white; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; margin: auto;" 
          onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
         <h3>${date}</h3>
@@ -26,7 +26,7 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Comments</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; white-space: pre-wrap; max-width: 100%;">${comments}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">${comments}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Campsite</th>
@@ -38,7 +38,6 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
     </div>
   `;
 };
-
 
 
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
