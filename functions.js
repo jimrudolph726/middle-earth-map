@@ -3,7 +3,7 @@
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
-    <div style="max-width: 90%; margin: auto;" 
+    <div style="max-width: 250%; margin: auto;" 
          onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
         <h3>${date}</h3>
