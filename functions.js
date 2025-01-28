@@ -39,7 +39,6 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
   `;
 };
 
-
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
@@ -63,7 +62,7 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
                 <td style="border: 1px solid #ddd; padding: 8px;">${description}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more on Thain's Book</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more on Tolkien Gateway</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">
                     <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
                 </td>
