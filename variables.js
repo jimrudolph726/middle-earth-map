@@ -304,9 +304,9 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 export const elvessettlements = {
   rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>
               <h3>Rivendell</h3>
-              <button onclick="window.open('https://thainsbook.minastirith.cz/rivendell.html', '_blank');" 
+              <button onclick="window.open('https://tolkiengateway.net/wiki/Rivendell', '_blank');" 
                       style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                Learn more on Thain's Book
+                Learn more on Tolkien Gateway
               </button>
             </div>` }
 };
@@ -320,7 +320,7 @@ export const hobbitsettlements = {
   `<div>
     <h3 style="font-size: 24px;">Michel Delving</h3>
   <p style="font-size: 18px;">Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. The Mayor of Michel Delving was the Shire's only real government official. His office was in the Town Hole in Michel Delving. The museum known as the Mathom-house was also located in Michel Delving.</p>
-    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank');" 
+    <button onclick="window.open('https://tolkiengateway.net/wiki/Michel_Delving', '_blank');" 
             style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
       Learn more on Thain's Book
     </button>
@@ -329,7 +329,7 @@ export const hobbitsettlements = {
   `<div>
     <h3 style="font-size: 24px;">Crickhollow</h3>
     <p style="font-size: 18px;">Village in Buckland. Crickhollow was a few miles northeast of Bucklebury. It was a quiet, secluded village. </p>
-    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Crickhollow', '_blank');" 
+    <button onclick="window.open('https://tolkiengateway.net/wiki/Crickhollow', '_blank');" 
             style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
       Learn more on Thain's Book
     </button>
