@@ -368,7 +368,7 @@ const mountain_ranges = {
     pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain.ash_mountains.name, mountain.ash_mountains.elvish_name, mountain.ash_mountains.elvish_meaning, mountain.ash_mountains.description, mountain.ash_mountains.url ) 
   },
   iron_hills:{
-    pathName:'iron_hills', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain.iron_hills.name, mountain.iron_hills.elvish_name, mountain.iron_hills.elvish_meaning, mountain.iron_hills.description, mountain.iron_hills.url ) 
+    pathName:'iron_hills', color: 'orange', name: 'Iron Hills' , PopupContent: createGeographicPopup(mountain.iron_hills.name, mountain.iron_hills.elvish_name, mountain.iron_hills.elvish_meaning, mountain.iron_hills.description, mountain.iron_hills.url ) 
   },
 };
 const forests = {
