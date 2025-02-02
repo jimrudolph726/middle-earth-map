@@ -299,7 +299,6 @@ Year3018March23: { coords: [44.947773691215993, -93.301321792739841], icon: icon
 Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icons.TentIcon, popup: createCampsitePopup('March 29 3018',"?","?","?",'Gandalf leaves Mirkwood and sets out for the Shire',''), },
 }
 
-
 // Settlements (markers)
 export const elvessettlements = {
   rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>

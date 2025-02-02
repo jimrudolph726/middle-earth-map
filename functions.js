@@ -4,7 +4,8 @@
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
-                   content.style.display = content.style.display === 'block' ? 'none' : 'block';">
+                   content.style.display = content.style.display === 'block' ? 'none' : 'block';"
+         style="max-width: 400px;">  <!-- Set a max width -->
         <h3>${date}</h3>
         <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
             <tr>
@@ -25,7 +26,11 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Comments</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${comments}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">
+                    <div style="max-height: 150px; overflow-y: auto; white-space: pre-line; padding: 4px; border: 1px solid #ccc; background-color: #f9f9f9;">
+                        ${comments}
+                    </div>
+                </td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Campsite</th>
@@ -37,6 +42,7 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
     </div>
   `;
 };
+
 
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
   return `
