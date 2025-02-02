@@ -38,7 +38,6 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
     </div>
   `;
 };
-
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
   return `
     <div onclick="const content = this.querySelector('.popup-content'); 
