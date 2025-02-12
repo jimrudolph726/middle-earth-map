@@ -308,8 +308,7 @@ export const mensettlements = {
   minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 export const dwarvessettlements = {
-  hobbiton: { CheckboxId: 'dwarves', coords: [44.9411277,-93.2907660], icon: icons.HobbitsIcon, popup: 'Belegost' },
-  micheldelving: { CheckboxId: 'dwarves', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: 
+  belegost: { CheckboxId: 'dwarves', coords: [44.9411277,-93.2907660], icon: icons.HobbitsIcon, popup: 
   `<div>
     <h3 style="font-size: 24px;">Belegost</h3>
   <p style="font-size: 18px;">City of the Dwarves in the Blue Mountains in ancient times and the First Age. Belegost was located near Mount Dolmed which was around the midpoint of the mountain range. Belegost was north of Mount Dolmed.</p>
