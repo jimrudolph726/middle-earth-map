@@ -336,7 +336,7 @@ export const markersData = [
   { data: merrycampsites, checkboxId: 'merrycampsitesCheckbox', campsite: 'campsite' },
   { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
-  { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' }
+  { data: dwarvessettlements, checkboxId: 'dwarvesCheckbox', campsite: 'no' }
 ];
 
 // Paths (polylines)
@@ -363,9 +363,9 @@ const mountain_ranges = {
 const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
   },
-  blackwood: {pathName:'blackwood_test', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url )
+  blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url )
   },
-  old_forest: {pathName:'old_forest_test', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url )
+  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url )
   },
 
 };
