@@ -308,12 +308,12 @@ export const mensettlements = {
   minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 export const dwarvessettlements = {
-  hobbiton: { CheckboxId: 'dwarves', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
+  hobbiton: { CheckboxId: 'dwarves', coords: [44.9411277,-93.2907660], icon: icons.HobbitsIcon, popup: 'Belegost' },
   micheldelving: { CheckboxId: 'dwarves', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: 
   `<div>
-    <h3 style="font-size: 24px;">Michel Delving</h3>
-  <p style="font-size: 18px;">Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. The Mayor of Michel Delving was the Shire's only real government official. His office was in the Town Hole in Michel Delving. The museum known as the Mathom-house was also located in Michel Delving.</p>
-    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Michel%20Delving', '_blank');" 
+    <h3 style="font-size: 24px;">Belegost</h3>
+  <p style="font-size: 18px;">City of the Dwarves in the Blue Mountains in ancient times and the First Age. Belegost was located near Mount Dolmed which was around the midpoint of the mountain range. Belegost was north of Mount Dolmed.</p>
+    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Belegost-Nogrod', '_blank');" 
             style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
       Learn more on Thain's Book
     </button>
