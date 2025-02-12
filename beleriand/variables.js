@@ -28,7 +28,7 @@ function createIcon(url, size = [48, 48]) {
 const icons = {
   DwarvesIcon: createIcon(iconUrls.dwarves),
   MenIcon: createIcon(iconUrls.men),
-  NargothrondIcon: createIcon(iconUrls.rivendell),
+  NargothrondIcon: createIcon(iconUrls.nargothrond),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
