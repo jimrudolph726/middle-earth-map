@@ -3,6 +3,7 @@
 import { 
   createCampsitePopup,
   createGeographicPopup,
+  createSettlementPopup,
  } from './functions.js';
 
 import {
@@ -10,6 +11,11 @@ import {
   mountain,
 } from './geographic_popup_content.js'
  
+import {
+  elves,
+  men,
+  hobbits,
+} from './settlement_popup_content.js'
 // Icons
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
@@ -301,13 +307,7 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 
 // Settlements (markers)
 export const elvessettlements = {
-  rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: `<div>
-              <h3>Rivendell</h3>
-              <button onclick="window.open('https://tolkiengateway.net/wiki/Rivendell', '_blank');" 
-                      style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                Learn more on Tolkien Gateway
-              </button>
-            </div>` }
+  rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: createSettlementPopup(elves.rivendell.name, elves.rivendell.description, elves.rivendell.url,)}
 };
 export const mensettlements = {
   bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
