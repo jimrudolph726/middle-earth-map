@@ -73,4 +73,11 @@ export const mountain = {
     description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland. It stood near the edge of Mirkwood, about 50 miles south of the Grey Mountains and about 125 miles west of the Iron Hills.",
     url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
   },
+  mountains_of_angmar: {
+    name: "Mountains of Angmar",
+    elvish_name: "Emyn Angmar",
+    elvish_meaning: 'Emyn means "hills", and Angmar is composed of ang meaning "iron" and mar, a lenited form of bar meaning "dwelling."',
+    description: "The Mountains of Angmar were an extension of the Misty Mountains that lay to the west of Mount Gundabad, home to the Witch-king of Angmar who ruled from his capital Carn Dûm on the western tip of the mountain range.",
+    url: "https://tolkiengateway.net/wiki/Mountains_of_Angmar",
+  },
 };
