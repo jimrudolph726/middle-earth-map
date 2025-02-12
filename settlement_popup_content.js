@@ -4,6 +4,12 @@ export const elves = {
     description: "Rivendell was the realm of Elrond. During the Third Age it was one of the few remaining realms of the Elves in Middle-earth. Much of the history and lore of the Elves was preserved in Rivendell and it was a place of peace and beauty.",
     url: "https://thainsbook.minastirith.cz/rivendell.html",
   },
+  lothlorien: {
+    name: "Lothlorien",
+    description: "Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood.",
+    url: "https://thainsbook.minastirith.cz/lothlorien.html",
+  },
+
 };
 
 export const men = {

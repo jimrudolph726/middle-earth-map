@@ -21,6 +21,7 @@ const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
     men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
+    lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
 };
 function createIcon(url, size = [48, 48]) {
@@ -35,6 +36,7 @@ const icons = {
   HobbitsIcon: createIcon(iconUrls.hobbits),
   MenIcon: createIcon(iconUrls.men),
   RivendellIcon: createIcon(iconUrls.rivendell),
+  LothlorienIcon: createIcon(iconUrls.lothlorien),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -309,6 +311,9 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 export const elvessettlements = {
   rivendell: { 
     CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: createSettlementPopup(elves.rivendell.name, elves.rivendell.description, elves.rivendell.url)
+  },
+  lothlorien: { 
+    CheckboxId: 'elves', coords: [44.9448403,-93.3045497], icon: icons.LothlorienIcon, popup: createSettlementPopup(elves.lothlorien.name, elves.lothlorien.description, elves.lothlorien.url)
   }
 };
 export const mensettlements = {
