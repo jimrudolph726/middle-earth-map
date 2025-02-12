@@ -372,6 +372,9 @@ const mountain_ranges = {
   lonely_mountain:{
     pathName:'lonely_mountain', color: 'orange', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ) 
   },
+  mountains_of_angmar:{
+    pathName:'mountains_of_angmar', color: 'orange', name: 'Mountains of Angmar' , PopupContent: createGeographicPopup(mountain.mountains_of_angmar.name, mountain.mountains_of_angmar.elvish_name, mountain.mountains_of_angmar.elvish_meaning, mountain.mountains_of_angmar.description, mountain.mountains_of_angmar.url ) 
+  },
 };
 const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
