@@ -12,7 +12,7 @@ import {
  
 // Icons
 const iconUrls = {
-    hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
+    dwarves: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/dwarves.png',
     men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
@@ -26,7 +26,7 @@ function createIcon(url, size = [48, 48]) {
   });
 }
 const icons = {
-  HobbitsIcon: createIcon(iconUrls.hobbits),
+  DwarvesIcon: createIcon(iconUrls.dwarves),
   MenIcon: createIcon(iconUrls.men),
   RivendellIcon: createIcon(iconUrls.rivendell),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
@@ -308,7 +308,7 @@ export const mensettlements = {
   minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
 export const dwarvessettlements = {
-  belegost: { CheckboxId: 'dwarves', coords: [44.9411277,-93.2907660], icon: icons.HobbitsIcon, popup: 
+  belegost: { CheckboxId: 'dwarves', coords: [44.9411277,-93.2907660], icon: icons.DwarvesIcon, popup: 
   `<div>
     <h3 style="font-size: 24px;">Belegost</h3>
   <p style="font-size: 18px;">City of the Dwarves in the Blue Mountains in ancient times and the First Age. Belegost was located near Mount Dolmed which was around the midpoint of the mountain range. Belegost was north of Mount Dolmed.</p>
@@ -317,16 +317,6 @@ export const dwarvessettlements = {
       Learn more on Thain's Book
     </button>
   </div>`},
-  crickhollow: { CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: 
-  `<div>
-    <h3 style="font-size: 24px;">Crickhollow</h3>
-    <p style="font-size: 18px;">Village in Buckland. Crickhollow was a few miles northeast of Bucklebury. It was a quiet, secluded village. </p>
-    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Crickhollow', '_blank');" 
-            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more on Thain's Book
-    </button>
-  </div>`},
-
 };
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
