@@ -314,26 +314,15 @@ export const mensettlements = {
   minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: createSettlementPopup(men.minastirith.name, men.minastirith.description, men.minastirith.url)}
 };
 export const hobbitsettlements = {
-  hobbiton: { CheckboxId: 'hobbits', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
-  micheldelving: { CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: 
-  `<div>
-    <h3 style="font-size: 24px;">Michel Delving</h3>
-  <p style="font-size: 18px;">Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. The Mayor of Michel Delving was the Shire's only real government official. His office was in the Town Hole in Michel Delving. The museum known as the Mathom-house was also located in Michel Delving.</p>
-    <button onclick="window.open('https://tolkiengateway.net/wiki/Michel_Delving', '_blank');" 
-            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more on Tolkien Gateway
-    </button>
-  </div>`},
-  crickhollow: { CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: 
-  `<div>
-    <h3 style="font-size: 24px;">Crickhollow</h3>
-    <p style="font-size: 18px;">Village in Buckland. Crickhollow was a few miles northeast of Bucklebury. It was a quiet, secluded village. </p>
-    <button onclick="window.open('https://tolkiengateway.net/wiki/Crickhollow', '_blank');" 
-            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more on Tolkien Gateway
-    </button>
-  </div>`},
-
+  hobbiton: { 
+    CheckboxId: 'hobbits', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.hobbiton.name, hobbits.hobbiton.description, hobbits.hobbiton.url)
+  },
+  micheldelving: { 
+    CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.micheldelving.name, hobbits.micheldelving.description, hobbits.micheldelving.url)
+  },
+  crickhollow: { 
+    CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.crickhollow.name, hobbits.crickhollow.name, hobbits.crickhollow.name)
+  },
 };
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
