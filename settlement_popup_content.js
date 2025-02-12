@@ -7,10 +7,15 @@ export const elves = {
 };
 
 export const men = {
-  ladros: {
-    name: "Ladros",
-    description: `Ladros was a highland region to the northeast of Dorthonion. It was held briefly as a fief by the House of Bëor, but lost to Morgoth in the Dagor Bragollach ("Battle of Sudden Flame").`,
-    url: "https://tolkiengateway.net/wiki/Ladros",
+  bree: {
+    name: "Bree",
+    description: `Village at the crossroads of the Great East Road and the Greenway in Eriador. Bree was unique in that the Big Folk (Men) and Little Folk (Hobbits) both dwelled there on friendly terms`,
+    url: "https://thainsbook.minastirith.cz/towns.html#Bree",
+  },
+  minastirith: {
+    name: "Minas Tirith",
+    description: `Minas Anor - the Tower of the Sun - was established as a stronghold by Anarion, son of Elendil, and over time it became the greatest city in Gondor. As the threat from Mordor increased, the City was renamed Minas Tirith - the Tower of Guard.`,
+    url: "https://thainsbook.minastirith.cz/minastirith.html",
   },
 };
 

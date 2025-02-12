@@ -310,8 +310,8 @@ export const elvessettlements = {
   rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: createSettlementPopup(elves.rivendell.name, elves.rivendell.description, elves.rivendell.url)}
 };
 export const mensettlements = {
-  bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
-  minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: 'Minas Tirith' }
+  bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: createSettlementPopup(men.bree.name, men.bree.description, men.bree.url)},
+  minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: createSettlementPopup(men.minastirith.name, men.minastirith.description, men.minastirith.url)}
 };
 export const hobbitsettlements = {
   hobbiton: { CheckboxId: 'hobbits', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
