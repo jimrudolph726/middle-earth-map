@@ -14,6 +14,7 @@ import {
 
 import {
   elves,
+  men,
 } from './settlement_popup_content.js'
 // Icons
 const iconUrls = {
@@ -304,28 +305,13 @@ export const elvessettlements = {
   }
 };
 export const mensettlements = {
-  bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
-  minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: 'Minas Tirith' }
+  ladros: { CheckboxId: 'men', coords: [44.9430762,-93.2946712], icon: icons.MenIcon, popup: createSettlementPopup(men.ladros.name, men.ladros.description, men.ladros.url)},
+
 };
 export const dwarvessettlements = {
-  belegost: { CheckboxId: 'dwarves', coords: [44.9411277,-93.2907660], icon: icons.DwarvesIcon, popup: 
-  `<div>
-    <h3 style="font-size: 24px;">Belegost</h3>
-  <p style="font-size: 18px;">City of the Dwarves in the Blue Mountains in ancient times and the First Age. Belegost was located near Mount Dolmed which was around the midpoint of the mountain range. Belegost was north of Mount Dolmed.</p>
-    <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Belegost-Nogrod', '_blank');" 
-            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more on Thain's Book
-    </button>
-  </div>`},
-  nogrod: { CheckboxId: 'dwarves', coords: [44.9409122,-93.2906264], icon: icons.DwarvesIcon, popup: 
-    `<div>
-      <h3 style="font-size: 24px;">Nogrod</h3>
-    <p style="font-size: 18px;">City of the Dwarves in the Blue Mountains in ancient times and the First Age. Nogrod was located near Mount Dolmed which was around the midpoint of the mountain range. Nogrod was to the south of Mount Dolmed.</p>
-      <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Belegost-Nogrod', '_blank');" 
-              style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-        Learn more on Thain's Book
-      </button>
-    </div>`},
+  belegost: { CheckboxId: 'dwarves', coords: [44.9411277,-93.2907660], icon: icons.DwarvesIcon, popup: createSettlementPopup(dwarves.belegost.name, dwarves.belegost.description, dwarves.belegost.url)},
+
+  nogrod: { CheckboxId: 'dwarves', coords: [44.9409122,-93.2906264], icon: icons.DwarvesIcon, popup: createSettlementPopup(dwarves.nogrod.name, dwarves.nogrod.description, dwarves.nogrod.url)},
 };
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
