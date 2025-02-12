@@ -1,8 +1,8 @@
 export const elves = {
   nargothrond: {
-    name: "Mirkwood",
-    description: "Taur-nu-Fuin",
-    url: "https://tolkiengateway.net/wiki/Mirkwood",
+    name: "Nargothrond",
+    description: "Nargothrond was the underground fortress of Finrod Felagund and the surrounding realm in West Beleriand. It was one of the great strongholds of the Elves in Middle-earth during the First Age. Nargothrond was conquered by Glaurung in 495 and its inhabitants were all slain or driven away.",
+    url: "https://thainsbook.minastirith.cz/nargothrond.html",
   },
 };
 
