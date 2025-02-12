@@ -321,7 +321,7 @@ export const hobbitsettlements = {
     CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.michel_delving.name, hobbits.michel_delving.description, hobbits.michel_delving.url)
   },
   crickhollow: { 
-    CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.crick_hollow.name, hobbits.crick_hollow.name, hobbits.crick_hollow.name)
+    CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.crick_hollow.name, hobbits.crick_hollow.description, hobbits.crick_hollow.url)
   },
 };
 export const markersData = [
