@@ -307,9 +307,9 @@ export const mensettlements = {
   bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
   minastirith: { CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: 'Minas Tirith' }
 };
-export const hobbitsettlements = {
-  hobbiton: { CheckboxId: 'hobbits', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
-  micheldelving: { CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: 
+export const dwarvessettlements = {
+  hobbiton: { CheckboxId: 'dwarves', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: 'Hobbiton' },
+  micheldelving: { CheckboxId: 'dwarves', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: 
   `<div>
     <h3 style="font-size: 24px;">Michel Delving</h3>
   <p style="font-size: 18px;">Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. The Mayor of Michel Delving was the Shire's only real government official. His office was in the Town Hole in Michel Delving. The museum known as the Mathom-house was also located in Michel Delving.</p>
