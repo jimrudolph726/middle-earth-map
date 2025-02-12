@@ -307,7 +307,7 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 
 // Settlements (markers)
 export const elvessettlements = {
-  rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: createSettlementPopup(elves.rivendell.name, elves.rivendell.description, elves.rivendell.url,)}
+  rivendell: { CheckboxId: 'elves', coords: [44.94677219,-93.30552175], icon: icons.RivendellIcon, popup: createSettlementPopup(elves.rivendell.name, elves.rivendell.description, elves.rivendell.url)}
 };
 export const mensettlements = {
   bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
