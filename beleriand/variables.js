@@ -317,6 +317,15 @@ export const dwarvessettlements = {
       Learn more on Thain's Book
     </button>
   </div>`},
+  nogrod: { CheckboxId: 'dwarves', coords: [44.9409122,-93.2906264], icon: icons.DwarvesIcon, popup: 
+    `<div>
+      <h3 style="font-size: 24px;">Nogrod</h3>
+    <p style="font-size: 18px;">City of the Dwarves in the Blue Mountains in ancient times and the First Age. Nogrod was located near Mount Dolmed which was around the midpoint of the mountain range. Nogrod was to the south of Mount Dolmed.</p>
+      <button onclick="window.open('https://thainsbook.minastirith.cz/towns.html#Belegost-Nogrod', '_blank');" 
+              style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+        Learn more on Thain's Book
+      </button>
+    </div>`},
 };
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
