@@ -73,6 +73,18 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
   `;
 };
 
+export const createSettlementPopup = (name, description, url) => {
+  return`<div>
+    <h3 style="font-size: 24px;">${name}</h3>
+  <p style="font-size: 18px;">${description}</p>
+    <button onclick="window.open('${url}', '_blank');" 
+            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+      Learn more on Thain's Book
+    </button>
+  </div>`;
+};
+
+
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);

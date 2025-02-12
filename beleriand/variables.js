@@ -3,6 +3,7 @@
 import { 
   createCampsitePopup,
   createGeographicPopup,
+  createSettlementPopup,
  } from './functions.js';
 
 import {
@@ -10,6 +11,10 @@ import {
   mountain,
 } from './geographic_popup_content.js'
  
+
+import {
+  elves,
+} from './settlement_popup_content.js'
 // Icons
 const iconUrls = {
     dwarves: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/dwarves.png',
@@ -295,14 +300,8 @@ export const merrycampsites = {
 
 // Settlements (markers)
 export const elvessettlements = {
-  nargothrond: { CheckboxId: 'elves', coords: [44.9407283,-93.2984007], icon: icons.NargothrondIcon, popup:   `<div>
-    <h3 style="font-size: 24px;">Nargothrond</h3>
-  <p style="font-size: 18px;">Nargothrond was a network of caverns in the steep western bank of the Narog where the river passed through a deep gorge in the western end Andram, the Long Wall. The Realm of Nargothrond stretched east to the Rivers Teiglin and Sirion and west to the River Nenning. </p>
-    <button onclick="window.open('https://thainsbook.minastirith.cz/nargothrond.html', '_blank');" 
-            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more on Thain's Book
-    </button>
-  </div>`}
+  nargothrond: { CheckboxId: 'elves', coords: [44.9407283,-93.2984007], icon: icons.NargothrondIcon, popup: createSettlementPopup(elves.nargothrond.name, elves.nargothrond.description, elves.nargothrond.url)
+  }
 };
 export const mensettlements = {
   bree: { CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: 'Bree' },
