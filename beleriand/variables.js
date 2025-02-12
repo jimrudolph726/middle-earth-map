@@ -15,6 +15,7 @@ import {
 import {
   elves,
   men,
+  dwarves,
 } from './settlement_popup_content.js'
 // Icons
 const iconUrls = {
