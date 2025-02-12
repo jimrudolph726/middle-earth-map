@@ -66,12 +66,11 @@ export const mountain = {
     description: "Range of hills in northeastern Middle-earth. The Iron Hills were isolated in the middle of an empty region about 125 miles east of the Lonely Mountain and Mirkwood. The range stretched about 200 miles from west to east. Near the western end, the Redwater flowed southward from the hills to join the River Running. On the eastern end, a spur of hills curved north and then back westward forming a hook at the end of the range.",
     url: "https://tolkiengateway.net/wiki/Iron_Hills",
   },
-
-
-
-
-
-
-
-
+  lonely_mountain: {
+    name: "Lonely Mountain",
+    elvish_name: "Erebor",
+    elvish_meaning: 'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated." The element oro means "up, rise, high." The Dwarf realm in the Lonely Mountain was called the Kingdom under the Mountain.',
+    description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland. It stood near the edge of Mirkwood, about 50 miles south of the Grey Mountains and about 125 miles west of the Iron Hills.",
+    url: "https://thainsbook.minastirith.cz/mountains.html#Ash",
+  },
 };

@@ -369,13 +369,16 @@ const mountain_ranges = {
   iron_hills:{
     pathName:'iron_hills', color: 'orange', name: 'Iron Hills' , PopupContent: createGeographicPopup(mountain.iron_hills.name, mountain.iron_hills.elvish_name, mountain.iron_hills.elvish_meaning, mountain.iron_hills.description, mountain.iron_hills.url ) 
   },
+  lonely_mountain:{
+    pathName:'lonely_mountain', color: 'orange', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ) 
+  },
 };
 const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
   },
-  blackwood: {pathName:'blackwood_test', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url )
+  blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url )
   },
-  old_forest: {pathName:'old_forest_test', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url )
+  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url )
   },
 
 };
