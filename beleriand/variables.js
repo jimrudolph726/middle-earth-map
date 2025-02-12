@@ -20,8 +20,8 @@ import {
 // Icons
 const iconUrls = {
     dwarves: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/dwarves.png',
-    men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
-    nargothrond: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod.png',
+    beor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/beor.png',
+    finrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
 };
 function createIcon(url, size = [48, 48]) {
@@ -34,8 +34,8 @@ function createIcon(url, size = [48, 48]) {
 }
 const icons = {
   DwarvesIcon: createIcon(iconUrls.dwarves),
-  MenIcon: createIcon(iconUrls.men),
-  NargothrondIcon: createIcon(iconUrls.nargothrond),
+  LadrosIcon: createIcon(iconUrls.beor),
+  NargothrondIcon: createIcon(iconUrls.finrod),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -306,7 +306,7 @@ export const elvessettlements = {
   }
 };
 export const mensettlements = {
-  ladros: { CheckboxId: 'men', coords: [44.9430762,-93.2946712], icon: icons.MenIcon, popup: createSettlementPopup(men.ladros.name, men.ladros.description, men.ladros.url)},
+  ladros: { CheckboxId: 'men', coords: [44.9430762,-93.2946712], icon: icons.LadrosIcon, popup: createSettlementPopup(men.ladros.name, men.ladros.description, men.ladros.url)},
 
 };
 export const dwarvessettlements = {
