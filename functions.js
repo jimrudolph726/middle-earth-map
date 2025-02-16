@@ -165,7 +165,7 @@ export const createPolyline = async (paths) => {
       }
 
       // Create polyline
-      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
+      const polyline = L.polyline(latLngs, { clickTolerance: 10, color, weight: 5, opacity: 0.8 });
 
       // Add tooltip (mouseover)
       polyline.bindTooltip(name, {
@@ -177,7 +177,7 @@ export const createPolyline = async (paths) => {
       // Mouseover effect
       polyline.on('mouseover', () => {
         polyline.setStyle({
-          weight: 10, // Keep original styles
+          weight: 2, // Keep original styles
           color: layer.options.color,
           fillOpacity: 0.5,
         });
