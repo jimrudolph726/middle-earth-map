@@ -374,7 +374,6 @@ export const rivers = {
 }
 export const riverData = [
   {data: rivers, checkboxId: 'riversCheckbox'},
-  {data: rivers, checkboxId: 'riversCheckbox'},
 ]
 
 // Geographic Features (polygons)
