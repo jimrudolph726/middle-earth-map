@@ -154,6 +154,7 @@ export const createPolyline = async (paths) => {
       console.log(`Response received for ${key}`);
       const data = await response.json();
 
+      // Handle both LineString and MultiLineString
       const geometry = data.features[0].geometry;
       let latLngs = [];
 
@@ -163,50 +164,49 @@ export const createPolyline = async (paths) => {
         latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
       }
 
-      // Create the original polyline (for visual display)
-      const polyline = L.polyline(latLngs, { color, weight: 2, opacity: 0.8 }); // Reduced weight for the visual line
+      // Create polyline
+      const polyline = L.polyline(latLngs, { clickTolerance: 10, color, weight: 5, opacity: 0.8 });
 
-       // Create the buffered polyline (for click events)
-      const bufferedPolyline = LBuffer.buffer(polyline, 10); // 10 meters buffer (adjust as needed)
-
-      // Make the buffer invisible
-      bufferedPolyline.setStyle({ fillOpacity: 0, weight: 0 });
-
-      // Add tooltip to the original polyline (mouseover)
+      // Add tooltip (mouseover)
       polyline.bindTooltip(name, {
         direction: "top",
         className: "polyline-label",
         permanent: false,
       });
 
-      // Mouseover effect on the VISIBLE polyline
+      // Mouseover effect
       polyline.on('mouseover', () => {
-        polyline.setStyle({ weight: 4 }); // Thicker on hover
+        polyline.setStyle({
+          weight: 2, // Keep original styles
+          color: layer.options.color,
+          fillOpacity: 0.5,
+        });
       });
 
       polyline.on('mouseout', () => {
-        polyline.setStyle({ weight: 2 }); // Back to original weight
+        polyline.setStyle({
+          weight: 2, // Keep original styles
+          color: layer.options.color,
+          fillOpacity: 0.5,
+        });
       });
 
-      // Click event on the BUFFERED polyline
-      bufferedPolyline.on('click', (e) => {  // Use bufferedPolyline here
+      // Click event for popup
+      polyline.on('click', (e) => {
         L.popup()
           .setLatLng(e.latlng)
           .setContent(PopupContent || `Name: ${name}`)
-          .openOn(polyline._map); // Open on the map associated with the original polyline
+          .openOn(polyline._map);
       });
 
-      polylines[key] = { polyline, bufferedPolyline }; // Store both
-      polyline.addTo(polyline._map); // Add the visible polyline to the map
-      bufferedPolyline.addTo(polyline._map); // Add the (invisible) buffered polyline
-
+      polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
 
-  await Promise.all(promises);
+  await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
 };
 
