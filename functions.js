@@ -177,7 +177,7 @@ export const createPolyline = async (paths) => {
       // Mouseover effect
       polyline.on('mouseover', () => {
         polyline.setStyle({
-          weight: 2, // Keep original styles
+          weight: 10, // Keep original styles
           color: layer.options.color,
           fillOpacity: 0.5,
         });
