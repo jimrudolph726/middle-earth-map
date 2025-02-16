@@ -41,15 +41,10 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
   });
 });
 
-// Add Paths and Rivers
+// Add Paths
   createPolyline(pathdata).then((polylines) => {
   PathListeners(polylines, map);
   });
-// riverData.forEach(({ data, checkboxId }) => {
-//   createPolyline(data).then((polylines) => {
-//   MarkerListeners(checkboxId, polylines, map);
-//   });
-// });
 
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
