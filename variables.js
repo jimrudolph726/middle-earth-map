@@ -371,6 +371,9 @@ export const rivers = {
     langwell: { 
       pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createSettlementPopup('Langwell', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Langwell') 
     },
+    anduin: { 
+      pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createSettlementPopup('Anduin', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Anduin') 
+    },
 }
 export const riverData = [
   {data: rivers, checkboxId: 'riversCheckbox'},
