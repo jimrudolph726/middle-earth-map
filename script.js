@@ -1,5 +1,4 @@
 // script.js
-import L from 'leaflet'; // Import Leaflet first
 import 'leaflet.almostover'; // Then import the plugin (no need to assign)
 
 // ... rest of your script.js ...
