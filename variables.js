@@ -376,9 +376,9 @@ export const rivers = {
       pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ) 
     },
 }
-export const riverData = [
-  {data: rivers, checkboxId: 'riversCheckbox'},
-]
+// export const riverData = [
+//   {data: rivers, checkboxId: 'riversCheckbox'},
+// ]
 
 // Geographic Features (polygons)
 const mountain_ranges = {
@@ -413,4 +413,5 @@ const forests = {
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
+  {data: rivers, checkboxId: 'riversCheckbox', tolerance: 10},
 ]

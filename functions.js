@@ -212,7 +212,7 @@ export const createPolyline = async (geographic_data) => {
 export const createPolygon = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
-    const { pathName, color, name, PopupContent } = geographic_data[key];
+    const { pathName, color, name, PopupContent, tolerance = 0 } = geographic_data[key];
     const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
 
     try {
@@ -227,6 +227,7 @@ export const createPolygon = async (geographic_data) => {
           weight: 2,
           fillOpacity: 0.5,
         },
+        clickTolerance: tolerance,
         onEachFeature: (feature, layer) => {
           // Disable hover-based style changes
           layer.on('mouseover', () => {
