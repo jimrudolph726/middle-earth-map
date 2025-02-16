@@ -142,73 +142,7 @@ export const createMarkers = (locations, campsite = 'no') => {
   });
 };
 
-// Paths and Rivers function
-export const createPolyline = async (geographic_data) => {
-  const polylines = {};
-  const promises = Object.keys(geographic_data).map(async (key) => {
-    const { pathName, color, name, PopupContent } = geographic_data[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
-
-    try {
-      const response = await fetch(geojsonPath);
-      console.log(`Response received for ${key}`);
-      const data = await response.json();
-      
-      // Create the polygon using the GeoJSON data
-      const polyline = L.geoJSON(data, {
-        style: {
-          color,
-          weight: 5,
-          fillOpacity: 0.5,
-        },
-        clickTolerance: 10,
-        onEachFeature: (feature, layer) => {
-          // Disable hover-based style changes
-          layer.on('mouseover', () => {
-            layer.setStyle({
-              weight: 5, // Keep original styles
-              color: layer.options.color,
-              fillOpacity: 0.5,
-            });
-          });
-          layer.on('mouseout', () => {
-            layer.setStyle({
-              weight: 5, // Reset styles to original
-              color: layer.options.color,
-              fillOpacity: 0.5,
-            });
-          });
-        
-          // Add tooltip
-          layer.bindTooltip(name, {
-            direction: "top",
-            className: "polygon-label",
-            permanent: false,
-          });
-        
-          // Add click event
-          layer.on('click', (e) => {
-            const popup = L.popup()
-              .setLatLng(e.latlng)
-              .setContent(PopupContent || `Name: ${name}`)
-              .openOn(layer._map);
-          });
-        }
-      });
-    
-      // Store the polygon in the polygons object
-      polylines[key] = polyline;
-      console.log(`Polyline created for ${key}`);
-    } catch (error) {
-      console.error(`Error fetching data for ${key}:`, error);
-    }
-  });
-
-  await Promise.all(promises); // Wait for all fetches to complete
-  return polylines;
-};
-
-// Geographic Features functions
+// Paths and Geographic Features function
 export const createGeographicFeature = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
