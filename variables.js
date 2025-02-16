@@ -363,12 +363,12 @@ export const pathdata = {
   gandalfthegrey_merged: { 
     pathName: 'gandalfthegrey_merged', color: 'grey', name: 'Gandalf the Grey', PopupContent: createSettlementPopup('Gandalf the Grey', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring') 
   },
-  greylin: { 
-    pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createSettlementPopup('Greylin', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Greylin') 
-  },
-
-
-};
+}
+export const rivers = {
+    greylin: { 
+      pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createSettlementPopup('Greylin', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Greylin') 
+    },
+}
 
 // Geographic Features (polygons)
 const mountain_ranges = {

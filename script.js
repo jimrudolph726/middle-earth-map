@@ -11,6 +11,7 @@ import {
 import {
   markersData,
   pathdata,
+  rivers,
   geographicData
 } from './variables.js';
 
@@ -40,8 +41,9 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
   });
 });
 
-// Add Paths
+// Add Paths and Rivers
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
+createPolyline(rivers).then((polylines) => {PathListeners(polylines, map);});
 
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
