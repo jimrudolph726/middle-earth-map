@@ -1,6 +1,5 @@
 // functions.js
 
-import 'leaflet-clicktolerance';
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
