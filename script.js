@@ -55,8 +55,3 @@ geographicData.forEach(({ data, checkboxId }) => {
   MarkerListeners(checkboxId, polygons, map);
   });
 });
-riverData.forEach(({ data, checkboxId }) => {
-  createPolyline(data).then((polylines) => {
-    MarkerListeners(checkboxId, polylines, map);
-  });
-});
