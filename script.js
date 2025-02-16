@@ -55,7 +55,6 @@ createPolyline(pathdata).then((polylines) => {
 geographicData.forEach(({ data, checkboxId }) => {
   createPolygon(data).then((polygons) => {
     MarkerListeners(checkboxId, polygons, map);
-
     for (const key in polygons) {
       map.almostOver.addLayer(polygons[key]);  // If you want almostOver for polygons
     }
@@ -72,7 +71,6 @@ riverData.forEach(({ data, checkboxId }) => {
     }
   });
 });
-
 
 // almost:over event listener (for polylines only)
 map.on('almost:over', function (e) {
