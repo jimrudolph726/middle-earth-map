@@ -42,13 +42,13 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
 });
 
 // Add Paths
-  createPolyline(pathdata).then((polylines) => {
-  PathListeners(polylines, map);
+createGeographicFeature(pathdata).then((polygons) => {
+  PathListeners(polygons, map);
   });
 
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
-  createPolygon(data).then((polygons) => {
+  createGeographicFeature(data).then((polygons) => {
   MarkerListeners(checkboxId, polygons, map);
   });
 });

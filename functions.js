@@ -209,7 +209,7 @@ export const createPolyline = async (geographic_data) => {
 };
 
 // Geographic Features functions
-export const createPolygon = async (geographic_data) => {
+export const createGeographicFeature = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance = 1, weight } = geographic_data[key];
