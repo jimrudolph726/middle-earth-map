@@ -11,7 +11,6 @@ import {
 import {
   markersData,
   pathdata,
-  riverData,
   geographicData
 } from './variables.js';
 
