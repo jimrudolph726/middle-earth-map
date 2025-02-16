@@ -2,9 +2,8 @@
 
 import {
   PathListeners,
-  createPolyline,
   MarkerListeners,
-  createPolygon,
+  createGeographicFeature,
   createMarkers
 } from './functions.js';
 
