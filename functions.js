@@ -174,29 +174,29 @@ export const createPolyline = async (paths) => {
         permanent: false,
       });
 
-      // Mouseover effect
-      polyline.on('mouseover', () => {
-        polyline.setStyle({
-          weight: 2, // Keep original styles
-          color: layer.options.color,
-          fillOpacity: 0.5,
-        });
+      const mouseoverPopup = L.popup(); // Create a popup for mouseover
+
+      polyline.on('mouseover', (e) => {
+          polyline.setStyle({
+              weight: 7,
+              opacity: 1,
+          });
+          mouseoverPopup.setContent(PopupContent || `Name: ${name}`);
+          mouseoverPopup.setLatLng(e.latlng);
+          mouseoverPopup.openOn(polyline._map);
       });
 
       polyline.on('mouseout', () => {
-        polyline.setStyle({
-          weight: 2, // Keep original styles
-          color: layer.options.color,
-          fillOpacity: 0.5,
-        });
+          polyline.setStyle(originalPolylineOptions);
+          polyline._map.closePopup(mouseoverPopup); // Close the mouseover popup
       });
 
-      // Click event for popup
+      // Click Popup (separate popup)
       polyline.on('click', (e) => {
-        L.popup()
-          .setLatLng(e.latlng)
-          .setContent(PopupContent || `Name: ${name}`)
-          .openOn(polyline._map);
+          const clickPopup = L.popup(); // Create a *new* popup for click
+          clickPopup.setContent(PopupContent || `Name: ${name}`);
+          clickPopup.setLatLng(e.latlng);
+          clickPopup.openOn(polyline._map);
       });
 
       polylines[key] = polyline;
