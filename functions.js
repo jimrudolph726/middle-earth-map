@@ -146,7 +146,7 @@ export const createMarkers = (locations, campsite = 'no') => {
 export const createPolyline = async (paths) => {
   const polylines = {};
   const promises = Object.keys(paths).map(async (key) => {
-    const { pathName, color } = paths[key];
+    const { pathName, color, name, PopupContent } = paths[key];
     const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/' + pathName + '.geojson';
 
     try {
@@ -164,15 +164,32 @@ export const createPolyline = async (paths) => {
         latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
       }
 
-      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 })
-      
-      
-      // .arrowheads({
-      //   size: '20px',       // Size of the arrows
-      //   frequency: '75px',   // Frequency of arrows along the path
-      //   yawn: 30,           // Width of the opening of the arrowhead
-      //   fill: true,
-      // });
+      // Create polyline
+      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 });
+
+      // Add tooltip (mouseover)
+      polyline.bindTooltip(name, {
+        direction: "top",
+        className: "polyline-label",
+        permanent: false,
+      });
+
+      // Mouseover effect
+      polyline.on('mouseover', () => {
+        polyline.setStyle({ weight: 7, opacity: 1 });
+      });
+
+      polyline.on('mouseout', () => {
+        polyline.setStyle({ weight: 5, opacity: 0.8 });
+      });
+
+      // Click event for popup
+      polyline.on('click', (e) => {
+        L.popup()
+          .setLatLng(e.latlng)
+          .setContent(PopupContent || `Name: ${name}`)
+          .openOn(polyline._map);
+      });
 
       polylines[key] = polyline;
       console.log(`Polyline created and added for ${key}`);
@@ -184,6 +201,7 @@ export const createPolyline = async (paths) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polylines;
 };
+
 
 // Geographic Features functions
 export const createPolygon = async (geographic_data) => {

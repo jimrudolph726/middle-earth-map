@@ -346,13 +346,13 @@ export const markersData = [
   { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' },
 ];
 
-// Paths (polylines)
+// Paths and Rivers (polylines)
 export const pathdata = { 
-  samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
-  aragornpath: { pathName: 'aragornpath', color: 'blue' },
-  pippinpath: { pathName: 'pippinpath', color: 'green' },
-  merrypath: { pathName: 'merrypath', color: 'orange' },
-  gandalfthegrey_merged: { pathName: 'gandalfthegrey_merged', color: 'grey' },
+  samfrodopath: { pathName: 'samfrodopath', color: 'red', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://thainsbook.minastirith.cz/frodo.html')}, 
+  aragornpath: { pathName: 'aragornpath', color: 'blue', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://thainsbook.minastirith.cz/frodo.html') },
+  pippinpath: { pathName: 'pippinpath', color: 'green', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://thainsbook.minastirith.cz/frodo.html') },
+  merrypath: { pathName: 'merrypath', color: 'orange', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://thainsbook.minastirith.cz/frodo.html') },
+  gandalfthegrey_merged: { pathName: 'gandalfthegrey_merged', color: 'grey', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://thainsbook.minastirith.cz/frodo.html') },
 };
 
 // Geographic Features (polygons)
