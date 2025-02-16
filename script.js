@@ -1,7 +1,4 @@
 // script.js
-import 'leaflet.almostover'; // Then import the plugin (no need to assign)
-
-// ... rest of your script.js ...
 import {
   PathListeners,
   createPolyline,
