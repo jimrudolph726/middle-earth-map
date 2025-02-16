@@ -232,14 +232,14 @@ export const createPolygon = async (geographic_data) => {
           // Disable hover-based style changes
           layer.on('mouseover', () => {
             layer.setStyle({
-              weight: 5, // Keep original styles
+              weight: weight, // Keep original styles
               color: layer.options.color,
               fillOpacity: 0.5,
             });
           });
           layer.on('mouseout', () => {
             layer.setStyle({
-              weight: 5, // Reset styles to original
+              weight: weight, // Reset styles to original
               color: layer.options.color,
               fillOpacity: 0.5,
             });
