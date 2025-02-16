@@ -158,7 +158,7 @@ export const createPolyline = async (geographic_data) => {
       const polyline = L.geoJSON(data, {
         style: {
           color,
-          weight: 2,
+          weight: 5,
           fillOpacity: 0.5,
         },
         clickTolerance: 10,
