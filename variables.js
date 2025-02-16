@@ -347,7 +347,7 @@ export const markersData = [
   { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' },
 ];
 
-// Paths and Rivers (polylines)
+// Paths
 export const pathdata = { 
   samfrodopath: { 
     pathName: 'samfrodopath', color: 'red', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring')
@@ -365,53 +365,50 @@ export const pathdata = {
     pathName: 'gandalfthegrey_merged', color: 'grey', name: 'Gandalf the Grey', PopupContent: createSettlementPopup('Gandalf the Grey', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring') 
   },
 }
-export const rivers = {
-    greylin: { 
-      pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ) 
-    },
-    langwell: { 
-      pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createGeographicPopup(river.langwell.name, river.langwell.elvish_name, river.langwell.elvish_meaning, river.langwell.description, river.langwell.url )
-    },
-    anduin: { 
-      pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ) 
-    },
-}
-// export const riverData = [
-//   {data: rivers, checkboxId: 'riversCheckbox'},
-// ]
 
-// Geographic Features (polygons)
+// Geographic Features
 const mountain_ranges = {
   misty_mountains: {
-    pathName:'misty_mountains', color: 'orange', name: 'Misty Mountains', PopupContent: createGeographicPopup(mountain.misty_mountains.name, mountain.misty_mountains.elvish_name, mountain.misty_mountains.elvish_meaning, mountain.misty_mountains.description, mountain.misty_mountains.url ) 
+    pathName:'misty_mountains', color: 'orange', name: 'Misty Mountains', PopupContent: createGeographicPopup(mountain.misty_mountains.name, mountain.misty_mountains.elvish_name, mountain.misty_mountains.elvish_meaning, mountain.misty_mountains.description, mountain.misty_mountains.url ), tolerance: 1, weight: 2 
   },
   white_mountains: {
-    pathName:'white_mountains', color: 'orange', name: 'White Mountains' , PopupContent: createGeographicPopup(mountain.white_mountains.name, mountain.white_mountains.elvish_name, mountain.white_mountains.elvish_meaning, mountain.white_mountains.description, mountain.white_mountains.url ) 
+    pathName:'white_mountains', color: 'orange', name: 'White Mountains' , PopupContent: createGeographicPopup(mountain.white_mountains.name, mountain.white_mountains.elvish_name, mountain.white_mountains.elvish_meaning, mountain.white_mountains.description, mountain.white_mountains.url ), tolerance: 1, weight: 2 
   },
   ash_mountains:{
-    pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain.ash_mountains.name, mountain.ash_mountains.elvish_name, mountain.ash_mountains.elvish_meaning, mountain.ash_mountains.description, mountain.ash_mountains.url ) 
+    pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain.ash_mountains.name, mountain.ash_mountains.elvish_name, mountain.ash_mountains.elvish_meaning, mountain.ash_mountains.description, mountain.ash_mountains.url ), tolerance: 1, weight: 2 
   },
   iron_hills:{
-    pathName:'iron_hills', color: 'orange', name: 'Iron Hills' , PopupContent: createGeographicPopup(mountain.iron_hills.name, mountain.iron_hills.elvish_name, mountain.iron_hills.elvish_meaning, mountain.iron_hills.description, mountain.iron_hills.url ) 
+    pathName:'iron_hills', color: 'orange', name: 'Iron Hills' , PopupContent: createGeographicPopup(mountain.iron_hills.name, mountain.iron_hills.elvish_name, mountain.iron_hills.elvish_meaning, mountain.iron_hills.description, mountain.iron_hills.url ), tolerance: 1, weight: 2 
   },
   lonely_mountain:{
-    pathName:'lonely_mountain', color: 'orange', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ) 
+    pathName:'lonely_mountain', color: 'orange', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ), tolerance: 1, weight: 2 
   },
   mountains_of_angmar:{
-    pathName:'mountains_of_angmar', color: 'orange', name: 'Mountains of Angmar' , PopupContent: createGeographicPopup(mountain.mountains_of_angmar.name, mountain.mountains_of_angmar.elvish_name, mountain.mountains_of_angmar.elvish_meaning, mountain.mountains_of_angmar.description, mountain.mountains_of_angmar.url ) 
+    pathName:'mountains_of_angmar', color: 'orange', name: 'Mountains of Angmar' , PopupContent: createGeographicPopup(mountain.mountains_of_angmar.name, mountain.mountains_of_angmar.elvish_name, mountain.mountains_of_angmar.elvish_meaning, mountain.mountains_of_angmar.description, mountain.mountains_of_angmar.url ), tolerance: 1, weight: 2
   },
 };
 const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url ), tolerance: 1, weight: 2
   },
-  blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url )
+  blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url ), tolerance: 1, weight: 2
   },
-  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url )
+  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url ), tolerance: 1, weight: 2
   },
 
 };
+const rivers = {
+  greylin: { 
+    pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ), tolerance: 1, weight: 5 
+  },
+  langwell: { 
+    pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createGeographicPopup(river.langwell.name, river.langwell.elvish_name, river.langwell.elvish_meaning, river.langwell.description, river.langwell.url ), tolerance: 1, weight: 5 
+  },
+  anduin: { 
+    pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ), tolerance: 1, weight: 5  
+  },
+}
 export const geographicData = [
-  {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox', tolerance: 1, weight: 2},
-  {data: forests, checkboxId: 'forestsCheckbox', tolerance: 1, weight: 2},
-  {data: rivers, checkboxId: 'riversCheckbox', tolerance: 1, weight: 5},
+  {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
+  {data: forests, checkboxId: 'forestsCheckbox'},
+  {data: rivers, checkboxId: 'riversCheckbox'},
 ]
