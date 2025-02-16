@@ -163,29 +163,27 @@ export const createGeographicFeature = async (geographic_data) => {
         },
         clickTolerance: tolerance,
         onEachFeature: (feature, layer) => {
-          // Disable hover-based style changes
-          layer.on('mouseover', () => {
-            layer.setStyle({
-              weight: weight, // Keep original styles
-              color: layer.options.color,
-              fillOpacity: 0.5,
-            });
-          });
-          layer.on('mouseout', () => {
-            layer.setStyle({
-              weight: weight, // Reset styles to original
-              color: layer.options.color,
-              fillOpacity: 0.5,
-            });
-          });
-        
-          // Add tooltip
-          layer.bindTooltip(name, {
-            direction: "top",
-            className: "polygon-label",
+          // Create a tooltip but do not bind it statically
+          const tooltip = L.tooltip({
             permanent: false,
+            className: "polygon-label",
+            direction: "center",
+            offset: L.point(0, 0) // Prevent offset issues
           });
-        
+
+          layer.on('mousemove', (e) => {
+            tooltip.setLatLng(e.latlng).setContent(name);
+            if (!layer._map.hasLayer(tooltip)) {
+              tooltip.addTo(layer._map);
+            }
+          });
+
+          layer.on('mouseout', () => {
+            if (layer._map.hasLayer(tooltip)) {
+              layer._map.removeLayer(tooltip);
+            }
+          });
+
           // Add click event
           layer.on('click', (e) => {
             const popup = L.popup()
@@ -207,3 +205,4 @@ export const createGeographicFeature = async (geographic_data) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
 };
+

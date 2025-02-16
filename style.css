@@ -65,15 +65,3 @@ html, body, #map {
   text-align: center;
   pointer-events: none; /* Prevent the label from being interactive */
 }
-
-.polyline-label {
-  /*background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 2px 6px;
-  font-size: 16px;
-  color: black;
-  font-weight: bold;
-  text-align: center;
-  pointer-events: none; /* Prevent the label from being interactive */
-}
