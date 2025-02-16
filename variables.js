@@ -348,7 +348,7 @@ export const markersData = [
 
 // Paths and Rivers (polylines)
 export const pathdata = { 
-  samfrodopath: { pathName: 'samfrodopath', color: 'red', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring')}, 
+  samfrodopath: { pathName: 'samfrodopath', color: 'red', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring')}, 
   aragornpath: { pathName: 'aragornpath', color: 'blue', name: 'Aragorn, Gimli and Legolas', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring') },
   pippinpath: { pathName: 'pippinpath', color: 'green', name: 'Pippin', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring') },
   merrypath: { pathName: 'merrypath', color: 'orange', name: 'Merry', PopupContent: createSettlementPopup('Sam and Frodo', '400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring') },
