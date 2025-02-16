@@ -155,7 +155,7 @@ export const createPolyline = async (geographic_data) => {
       const data = await response.json();
       
       // Create the polygon using the GeoJSON data
-      const polygon = L.geoJSON(data, {
+      const polyline = L.geoJSON(data, {
         style: {
           color,
           weight: 2,
