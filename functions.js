@@ -1,5 +1,6 @@
 // functions.js
 
+import 'leaflet-clicktolerance';
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
@@ -165,7 +166,7 @@ export const createPolyline = async (paths) => {
       }
 
       // Create polyline
-      const polyline = L.polyline(latLngs, { clickTolerance: 1000, color, weight: 5, opacity: 0.8 });
+      const polyline = L.polyline(latLngs, { clickTolerance: 20, color, weight: 5, opacity: 0.8 });
 
       // Add tooltip (mouseover)
       polyline.bindTooltip(name, {
