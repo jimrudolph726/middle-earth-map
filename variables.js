@@ -370,10 +370,10 @@ export const rivers = {
       pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ) 
     },
     langwell: { 
-      pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createSettlementPopup('Langwell', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Langwell') 
+      pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createGeographicPopup(river.langwell.name, river.langwell.elvish_name, river.langwell.elvish_meaning, river.langwell.description, river.langwell.url )
     },
     anduin: { 
-      pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createSettlementPopup('Anduin', 'Longest river in Middle-earth', 'https://tolkiengateway.net/wiki/Anduin') 
+      pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ) 
     },
 }
 export const riverData = [
