@@ -166,7 +166,6 @@ export const createPolyline = async (paths) => {
       // Create the original polyline (for visual display)
       const polyline = L.polyline(latLngs, { color, weight: 2, opacity: 0.8 }); // Reduced weight for the visual line
 
-
        // Create the buffered polyline (for click events)
       const bufferedPolyline = LBuffer.buffer(polyline, 10); // 10 meters buffer (adjust as needed)
 
