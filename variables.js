@@ -411,7 +411,7 @@ const forests = {
 
 };
 export const geographicData = [
-  {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
-  {data: forests, checkboxId: 'forestsCheckbox'},
-  {data: rivers, checkboxId: 'riversCheckbox'},
+  {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox', weight: 2},
+  {data: forests, checkboxId: 'forestsCheckbox', weight: 2},
+  {data: rivers, checkboxId: 'riversCheckbox', weight: 5},
 ]
