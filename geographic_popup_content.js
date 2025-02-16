@@ -81,3 +81,27 @@ export const mountain = {
     url: "https://tolkiengateway.net/wiki/Mountains_of_Angmar",
   },
 };
+
+export const river = {
+  greylin: {
+    name: "Greylin",
+    elvish_name: "None",
+    elvish_meaning: `The Greylin had no elvish meaning and was named by the Eotheod. The first element is a reference to the river's source in the Grey Mountains, while the second element is derived from the Anglo-Saxon hylnnmeaning "torrent" or "the noisy one."`,
+    description: `River at the source of the Anduin. The Greylin began in the Grey Mountains. It was joined by another stream from the Grey Mountains and flowed south to merge with the Langwell - a river from the Misty Mountains which was the source of the Anduin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Greylin",
+  },
+  langwell: {
+    name: "Langwell",
+    elvish_name: "None",
+    elvish_meaning: `The word lang is a variant of "long" and the word well is used to mean "spring, source." The Langwell was so called by the Eotheod because it was the source of the Anduin, which they named the Langflood, or "Long River."`,
+    description: `The Langwell was one of the two rivers, along with Greylin, that met in the northern Vale of Anduin to form the beginnings of the Anduin River. The Langwell flowed east from the Misty Mountains.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Langwell",
+  },
+  anduin: {
+    name: "Anduin",
+    elvish_name: "Anduin",
+    elvish_meaning: `The name Anduin means "long river" from an or and meaning "long" and duin meaning "river." The Anduin was called the Great River in the Common Speech, or sometimes simply the River. `,
+    description: `Longest river in Middle-earth. The Anduin flowed from north to south for over 1,100 miles.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Anduin",
+  },
+}

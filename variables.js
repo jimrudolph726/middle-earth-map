@@ -9,6 +9,7 @@ import {
 import {
   forest,
   mountain,
+  river,
 } from './geographic_popup_content.js'
  
 import {
@@ -366,7 +367,7 @@ export const pathdata = {
 }
 export const rivers = {
     greylin: { 
-      pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createSettlementPopup('Greylin', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Greylin') 
+      pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ) 
     },
     langwell: { 
       pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createSettlementPopup('Langwell', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Langwell') 
