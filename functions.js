@@ -176,11 +176,19 @@ export const createPolyline = async (paths) => {
 
       // Mouseover effect
       polyline.on('mouseover', () => {
-        polyline.setStyle({ weight: 7, opacity: 1 });
+        polyline.setStyle({
+          weight: 2, // Keep original styles
+          color: layer.options.color,
+          fillOpacity: 0.5,
+        });
       });
 
       polyline.on('mouseout', () => {
-        polyline.setStyle({ weight: 5, opacity: 0.8 });
+        polyline.setStyle({
+          weight: 2, // Keep original styles
+          color: layer.options.color,
+          fillOpacity: 0.5,
+        });
       });
 
       // Click event for popup
