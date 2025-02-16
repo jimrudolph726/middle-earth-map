@@ -45,7 +45,7 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
 createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
 riverData.forEach(({ data, checkboxId }) => {
   createPolyline(data).then((polylines) => {
-  PathListeners(checkboxId, polylines, map);
+    MarkerListeners(checkboxId, polylines, map);
   });
 });
 
