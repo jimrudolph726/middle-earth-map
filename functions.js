@@ -61,7 +61,7 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
                 <td style="border: 1px solid #ddd; padding: 8px;">${description}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more on Tolkien Gateway</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more here</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">
                     <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
                 </td>
@@ -79,7 +79,7 @@ export const createSettlementPopup = (name, description, url) => {
   <p style="font-size: 18px;">${description}</p>
     <button onclick="window.open('${url}', '_blank');" 
             style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more on Thain's Book
+      Learn more here
     </button>
   </div>`;
 };
