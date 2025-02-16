@@ -142,7 +142,7 @@ export const createMarkers = (locations, campsite = 'no') => {
   });
 };
 
-// Paths function
+// Paths and Rivers function
 export const createPolyline = async (paths) => {
   const polylines = {};
   const promises = Object.keys(paths).map(async (key) => {
