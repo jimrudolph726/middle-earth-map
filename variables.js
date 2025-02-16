@@ -372,7 +372,7 @@ export const rivers = {
       pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createSettlementPopup('Langwell', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Langwell') 
     },
     anduin: { 
-      pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createSettlementPopup('Anduin', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Anduin') 
+      pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createSettlementPopup('Anduin', 'Longest river in Middle-earth', 'https://tolkiengateway.net/wiki/Anduin') 
     },
 }
 export const riverData = [
