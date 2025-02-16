@@ -143,64 +143,62 @@ export const createMarkers = (locations, campsite = 'no') => {
 };
 
 // Paths and Rivers function
-export const createPolyline = async (paths) => {
+export const createPolyline = async (geographic_data) => {
   const polylines = {};
-  const promises = Object.keys(paths).map(async (key) => {
-    const { pathName, color, name, PopupContent } = paths[key];
-    const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/' + pathName + '.geojson';
+  const promises = Object.keys(geographic_data).map(async (key) => {
+    const { pathName, color, name, PopupContent } = geographic_data[key];
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
 
     try {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-
-      // Handle both LineString and MultiLineString
-      const geometry = data.features[0].geometry;
-      let latLngs = [];
-
-      if (geometry.type === 'LineString') {
-        latLngs = geometry.coordinates.map(coord => [coord[1], coord[0]]);
-      } else if (geometry.type === 'MultiLineString') {
-        latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
-      }
-
-      // Create polyline
-      const polyline = L.polyline(latLngs, { clickTolerance: 10, color, weight: 5, opacity: 0.8 });
-
-      // Add tooltip (mouseover)
-      polyline.bindTooltip(name, {
-        direction: "top",
-        className: "polyline-label",
-        permanent: false,
-      });
-
-      // Mouseover effect
-      polyline.on('mouseover', () => {
-        polyline.setStyle({
-          weight: 2, // Keep original styles
-          color: layer.options.color,
+      
+      // Create the polygon using the GeoJSON data
+      const polygon = L.geoJSON(data, {
+        style: {
+          color,
+          weight: 2,
           fillOpacity: 0.5,
-        });
+        },
+        clickTolerance: 10,
+        onEachFeature: (feature, layer) => {
+          // Disable hover-based style changes
+          layer.on('mouseover', () => {
+            layer.setStyle({
+              weight: 2, // Keep original styles
+              color: layer.options.color,
+              fillOpacity: 0.5,
+            });
+          });
+          layer.on('mouseout', () => {
+            layer.setStyle({
+              weight: 2, // Reset styles to original
+              color: layer.options.color,
+              fillOpacity: 0.5,
+            });
+          });
+        
+          // Add tooltip
+          layer.bindTooltip(name, {
+            direction: "top",
+            className: "polygon-label",
+            permanent: false,
+          });
+        
+          // Add click event
+          layer.on('click', (e) => {
+            const popup = L.popup()
+              .setLatLng(e.latlng)
+              .setContent(PopupContent || `Name: ${name}`)
+              .openOn(layer._map);
+          });
+        }
       });
-
-      polyline.on('mouseout', () => {
-        polyline.setStyle({
-          weight: 2, // Keep original styles
-          color: layer.options.color,
-          fillOpacity: 0.5,
-        });
-      });
-
-      // Click event for popup
-      polyline.on('click', (e) => {
-        L.popup()
-          .setLatLng(e.latlng)
-          .setContent(PopupContent || `Name: ${name}`)
-          .openOn(polyline._map);
-      });
-
+    
+      // Store the polygon in the polygons object
       polylines[key] = polyline;
-      console.log(`Polyline created and added for ${key}`);
+      console.log(`Polyline created for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
@@ -221,7 +219,7 @@ export const createPolygon = async (geographic_data) => {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-
+      
       // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
@@ -261,7 +259,6 @@ export const createPolygon = async (geographic_data) => {
               .openOn(layer._map);
           });
         }
-        
       });
     
       // Store the polygon in the polygons object
