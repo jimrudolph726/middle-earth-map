@@ -369,6 +369,10 @@ export const rivers = {
       pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createSettlementPopup('Greylin', 'Source of Anduin River', 'https://tolkiengateway.net/wiki/Greylin') 
     },
 }
+export const riverData = [
+  {data: rivers, checkboxId: 'riversCheckbox'},
+]
+
 
 // Geographic Features (polygons)
 const mountain_ranges = {
