@@ -373,7 +373,6 @@ export const riverData = [
   {data: rivers, checkboxId: 'riversCheckbox'},
 ]
 
-
 // Geographic Features (polygons)
 const mountain_ranges = {
   misty_mountains: {
