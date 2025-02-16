@@ -68,7 +68,7 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
             </tr>
         </table>
         <div class="popup-content" style="display: none; margin-top: 10px;">
-            Additional content goes here.
+
         </div>
     </div>
   `;
