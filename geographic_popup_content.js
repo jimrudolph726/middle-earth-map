@@ -80,6 +80,13 @@ export const mountain = {
     description: "The Mountains of Angmar were an extension of the Misty Mountains that lay to the west of Mount Gundabad, home to the Witch-king of Angmar who ruled from his capital Carn Dûm on the western tip of the mountain range.",
     url: "https://tolkiengateway.net/wiki/Mountains_of_Angmar",
   },
+  grey_mountains: {
+    name: "Grey Mountains",
+    elvish_name: "Ered Mithrin",
+    elvish_meaning: `Also called Ered Mithrin in Sindarin from ered, the plural of orod meaning "mountain," and mithrin from mith meaning "grey."`,
+    description: `Mountain range on the northern boundary of Wilderland. At their western end, the Grey Mountains drew near to Mount Gundabad in the Misty Mountains. At their eastern end, the Grey Mountains branched into two forks, between which lay the Withered Heath.`,
+    url: "https://thainsbook.minastirith.cz/mountains.html#Grey%20Mountains",
+  },
 };
 
 export const river = {
