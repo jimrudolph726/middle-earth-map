@@ -107,6 +107,22 @@ export const MarkerListeners = (checkboxId, markers, map) => {
   toggleMarkers();
 };
 
+export const PathListeners = (items, map) => {
+  Object.keys(items).forEach((key) => {
+    const checkbox = document.getElementById(`${key}Checkbox`);
+    if (checkbox) {
+      checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+          // Add the item (polygon or polyline) to the map when checkbox is checked
+          items[key].addTo(map);
+        } else {
+          // Remove the item (polygon or polyline) from the map when checkbox is unchecked
+          map.removeLayer(items[key]);
+        }
+      });
+    }
+  });
+};
 
 // Campsites and Settlements function
 export const createMarkers = (locations, campsite = 'no') => {
@@ -134,7 +150,7 @@ export const createGeographicFeature = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/geojson_files/${pathName}.geojson`;
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
 
     try {
       const response = await fetch(geojsonPath);
