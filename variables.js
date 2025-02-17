@@ -405,6 +405,10 @@ const forests = {
   },
   druadan_forest: {pathName:'druadan_forest', color: 'green', name: 'Druadan Forest', PopupContent: createGeographicPopup(forest.druadan_forest.name, forest.druadan_forest.elvish_name, forest.druadan_forest.elvish_meaning, forest.druadan_forest.description, forest.druadan_forest.url ), tolerance: 1, weight: 2
   },
+  bindbole_wood: {pathName:'bindbole_wood', color: 'green', name: 'Bindbole Wood', PopupContent: createGeographicPopup(forest.bindbole_wood.name, forest.bindbole_wood.elvish_name, forest.bindbole_wood.elvish_meaning, forest.bindbole_wood.description, forest.bindbole_wood.url ), tolerance: 1, weight: 2
+  },
+  chetwood: {pathName:'chetwood', color: 'green', name: 'Chetwood', PopupContent: createGeographicPopup(forest.chetwood.name, forest.chetwood.elvish_name, forest.chetwood.elvish_meaning, forest.chetwood.description, forest.chetwood.url ), tolerance: 1, weight: 2
+  },
 };
 const rivers = {
   greylin: { 
