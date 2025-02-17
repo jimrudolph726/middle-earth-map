@@ -55,6 +55,20 @@ export const forest = {
     description: `Forest in Gondor. The Druadan Forest was located in Anorien at the northeastern end of the White Mountains near Minas Tirith.`,
     url: "https://thainsbook.minastirith.cz/forests.html#Dr%C3%BAadan",
   },
+  bindbole_wood: {
+    name: "Bindbole Wood",
+    elvish_name: "None",
+    elvish_meaning: `None. The name Bindbole Wood has been mistakenly interpreted as Bindbale Wood because of unclear type on some maps of the Shire. The word bole means "tree trunk."`,
+    description: `Woods in the Northfarthing of the Shire, about 15 miles north of Hobbiton.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Bindbole%20Wood",
+  },
+  chetwood: {
+    name: "Chetwood",
+    elvish_name: "None",
+    elvish_meaning: `None. The word Chetwood is a a compound of Celtic and English, both words meaning "wood."`,
+    description: `Woods in Eriador outside Bree. The Great East Road ran through the southern edge of the Chetwood, while the Greenway ran along the western edge.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Chetwood",
+  },
 };
 
 export const mountain = {
