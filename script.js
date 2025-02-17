@@ -20,11 +20,11 @@ const map = L.map('map', {
   maxZoom: 20,
   zoom: 15.5, // Fractional zoom level
   center: [0, 0],
-  zoomSnap: 0.1, // Allows fractional zoom levels
+  zoomSnap: 1, // Allows fractional zoom levels
   zoomDelta: 5, // Controls the increment of zoom changes
   preferCanvas: true
 });
-
+map.options.wheelPxPerZoomLevel = 40; 
 
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/middle-earth.png';
 const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
