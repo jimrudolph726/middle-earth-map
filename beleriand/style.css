@@ -48,6 +48,11 @@ html, body, #map {
 #geographySection input[type="checkbox"] {
   margin-right: 8px; /* Add spacing between the checkbox and label text */
 }
+#mapSection button {
+  display: block;
+  width: 100%; /* Optional: Makes buttons stretch to full width */
+  margin-bottom: 10px; /* Adds spacing between buttons */
+}
 
 .sidebar-tabs .material-icons {
   position: relative;
