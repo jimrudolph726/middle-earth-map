@@ -410,7 +410,7 @@ const rivers = {
 }
 const lakes_seas = {
   lake_mithrim: { 
-    pathName: 'lake_mithrim', color: 'blue', name: 'Lake Mithrim', PopupContent: createGeographicPopup(lake_sea.lake_mithrim.name, lake_sea.lake_mithrim.elvish_name, lake_sea.lake_mithrim.elvish_meaning, lake_sea.lake_mithrim.description, lake_sea.lake_mithrim.url ), tolerance: 1, weight: 2 
+    pathName: 'lake_mithrim', color: 'blue', name: 'Lake Mithrim', PopupContent: createGeographicPopup(lake_sea.lake_mithrim.name, lake_sea.lake_mithrim.elvish_name, lake_sea.lake_mithrim.elvish_meaning, lake_sea.lake_mithrim.description, lake_sea.lake_mithrim.url ), tolerance: 10, weight: 2 
   },
 }
 
