@@ -18,7 +18,6 @@ export const forest = {
     description: "Forest on the east side of the Brandywine River bordering Buckland.",
     url: "https://tolkiengateway.net/wiki/Old_Forest",
   },
-
   blackwood: {
     name: "The Blackwood",
     elvish_name: "Eryn Vorn",
@@ -28,16 +27,51 @@ export const forest = {
     description: "The Blackwood was a vast ancient treescape that covered most of north-western Middle-earth. It was named 'The Black Wood' by the Númenóreans during the Second Age.",
     url: "https://tolkiengateway.net/wiki/Eryn_Vorn",
   },
-
-
-
-
-
-
-
+  fangorn_forest: {
+    name: "Fangorn Forest",
+    elvish_name: "Fangorn",
+    elvish_meaning: `Fangorn Forest was named for Treebeard, the eldest of the Ents, whose name translates as Fangorn in Sindarin from fanga meaning "beard" and orne meaning "tree."  Fangorn Forest was called the Entwood by the Rohirrim.`,
+    description: `Home of the Ents. Fangorn Forest was located at the southeastern end of the Misty Mountains near the Gap of Rohan. The mountains formed the western border of Fangorn. At the end of the mountain range stood the stronghold of Isengard near the southwestern corner of the forest.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Fangorn",
+  },
+  lothlorien: {
+    name: "Lothlorien",
+    elvish_name: "Lothlorien",
+    elvish_meaning: `Lothlórien is the name that was used in the later part of the Third Age. It means "dreamflower." The word loth means "blossom, flower." The element lor means "dream."`,
+    description: `Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood. Lothlorien was a place where time seemed to stand still, a waking dream of the ancient days of the Elves that would soon fade forever from Middle-earth.`,
+    url: "https://thainsbook.minastirith.cz/lothlorien.html",
+  },
+  firien_wood: {
+    name: "Firien Wood",
+    elvish_name: "Eryn Fuir",
+    elvish_meaning: `The older Sindarin name was Eryn Fuir, meaning "North Wood." The word eryn means "wood" and fuir is derived from forn meaning "north." The name Firien Wood comes from the Anglo-Saxon firgen-wudu, meaning "mountain wood."`,
+    description: `Woods on the border between Rohan and Gondor. The Firien Wood was located at the foot of the White Mountains about 100 miles southeast of Edoras.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Firien",
+  },
+  druadan_forest: {
+    name: "Druadan Forest",
+    elvish_name: "Tawar-in-Druedain",
+    elvish_meaning: `The element Drû in Sindarin was derived from Drughu, the Drúedain's own name for themselves. The word adan means Man; the plural is edain. The word tawar means "wood, forest."`,
+    description: `Forest in Gondor. The Druadan Forest was located in Anorien at the northeastern end of the White Mountains near Minas Tirith.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Dr%C3%BAadan",
+  },
+  bindbole_wood: {
+    name: "Bindbole Wood",
+    elvish_name: "None",
+    elvish_meaning: `None. The name Bindbole Wood has been mistakenly interpreted as Bindbale Wood because of unclear type on some maps of the Shire. The word bole means "tree trunk."`,
+    description: `Woods in the Northfarthing of the Shire, about 15 miles north of Hobbiton.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Bindbole%20Wood",
+  },
+  chetwood: {
+    name: "Chetwood",
+    elvish_name: "None",
+    elvish_meaning: `None. The word Chetwood is a a compound of Celtic and English, both words meaning "wood."`,
+    description: `Woods in Eriador outside Bree. The Great East Road ran through the southern edge of the Chetwood, while the Greenway ran along the western edge.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Chetwood",
+  },
 };
 
-export const mountain = {
+export const mountain_range = {
   misty_mountains: {
     name: "Misty Mountains",
     elvish_name: "Hithaeglir",
@@ -66,13 +100,6 @@ export const mountain = {
     description: "Range of hills in northeastern Middle-earth. The Iron Hills were isolated in the middle of an empty region about 125 miles east of the Lonely Mountain and Mirkwood. The range stretched about 200 miles from west to east. Near the western end, the Redwater flowed southward from the hills to join the River Running. On the eastern end, a spur of hills curved north and then back westward forming a hook at the end of the range.",
     url: "https://tolkiengateway.net/wiki/Iron_Hills",
   },
-  lonely_mountain: {
-    name: "Lonely Mountain",
-    elvish_name: "Erebor",
-    elvish_meaning: 'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated." The element oro means "up, rise, high." The Dwarf realm in the Lonely Mountain was called the Kingdom under the Mountain.',
-    description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland. It stood near the edge of Mirkwood, about 50 miles south of the Grey Mountains and about 125 miles west of the Iron Hills.",
-    url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
-  },
   mountains_of_angmar: {
     name: "Mountains of Angmar",
     elvish_name: "Emyn Angmar",
@@ -80,4 +107,90 @@ export const mountain = {
     description: "The Mountains of Angmar were an extension of the Misty Mountains that lay to the west of Mount Gundabad, home to the Witch-king of Angmar who ruled from his capital Carn Dûm on the western tip of the mountain range.",
     url: "https://tolkiengateway.net/wiki/Mountains_of_Angmar",
   },
+  grey_mountains: {
+    name: "Grey Mountains",
+    elvish_name: "Ered Mithrin",
+    elvish_meaning: `Also called Ered Mithrin in Sindarin from ered, the plural of orod meaning "mountain," and mithrin from mith meaning "grey."`,
+    description: `Mountain range on the northern boundary of Wilderland. At their western end, the Grey Mountains drew near to Mount Gundabad in the Misty Mountains. At their eastern end, the Grey Mountains branched into two forks, between which lay the Withered Heath.`,
+    url: "https://thainsbook.minastirith.cz/mountains.html#Grey%20Mountains",
+  },
+  blue_mountains: {
+    name: "Blue Mountains",
+    elvish_name: "Ered Luin",
+    elvish_meaning: `The Blue Mountains were so named because they appeared blue from a distance. The Sindarin name for the Blue Mountains was Ered Luin from ered meaning "mountains" and luin meaning "blue."`,
+    description: `Mountain range in northwestern Middle-earth. The Blue Mountains were on the western border of Eriador.`,
+    url: "https://thainsbook.minastirith.cz/mountains.html#Blue",
+  },
+  mountains_of_shadow: {
+    name: "Mountains of Shadow",
+    elvish_name: "Ephel Duath",
+    elvish_meaning: `The Mountains of Shadow were so called because of the gloom that hung over them. Also called the Shadowy Mountains. The Sindarin name was Ephel Dúath. The word ephel means "outer fence" and the word dúath means "dark shadow" from dú meaning "night, dimness" and gwath meaning "shadow."`,
+    description: `Great range forming the western and southern borders of Mordor. The Mountains of Shadow were dark and gloomy.`,
+    url: "https://thainsbook.minastirith.cz/mountains.html#Mts-Shadow",
+  },
 };
+
+export const mountain = {
+  lonely_mountain: {
+    name: "Lonely Mountain",
+    elvish_name: "Erebor",
+    elvish_meaning: 'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated."',
+    description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland.",
+    url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
+  },
+}
+
+export const river = {
+  greylin: {
+    name: "Greylin",
+    elvish_name: "None",
+    elvish_meaning: `The Greylin had no elvish meaning and was named by the Eotheod. The first element is a reference to the river's source in the Grey Mountains, while the second element is derived from the Anglo-Saxon hylnnmeaning "torrent" or "the noisy one."`,
+    description: `River at the source of the Anduin. The Greylin began in the Grey Mountains. It was joined by another stream from the Grey Mountains and flowed south to merge with the Langwell - a river from the Misty Mountains which was the source of the Anduin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Greylin",
+  },
+  langwell: {
+    name: "Langwell",
+    elvish_name: "None",
+    elvish_meaning: `The word lang is a variant of "long" and the word well is used to mean "spring, source." The Langwell was so called by the Eotheod because it was the source of the Anduin, which they named the Langflood, or "Long River."`,
+    description: `The Langwell was one of the two rivers, along with Greylin, that met in the northern Vale of Anduin to form the beginnings of the Anduin River. The Langwell flowed east from the Misty Mountains.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Langwell",
+  },
+  anduin: {
+    name: "Anduin",
+    elvish_name: "Anduin",
+    elvish_meaning: `The name Anduin means "long river" from an or and meaning "long" and duin meaning "river." The Anduin was called the Great River in the Common Speech, or sometimes simply the River. `,
+    description: `Longest river in Middle-earth. The Anduin flowed from north to south for over 1,100 miles.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Anduin",
+  },
+}
+
+export const lake_sea = {
+  lake_evendim: {
+    name: "Lake Evendim",
+    elvish_name: "Nenuial",
+    elvish_meaning: `Evendim means "evening twilight." The Sindarin name was Nenuial meaning "lake of twilight" from nen meaning "lake" and uial meaning "twilight."`,
+    description: `Lake in Eriador. Lake Evendim was in the Hills of Evendim north of the Shire. The lake was the source of the Brandywine River.`,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Evendim",
+  },
+  nen_hithoel: {
+    name: "Nen Hithoel",
+    elvish_name: "Nen Hithoel",
+    elvish_meaning: `Nen Hithoel means "mist-cool water" in Sindarin. The word nen means "water" and hîth means "mist." The final element oel apparently means "cool" although this usage is not found elsewhere.`,
+    description: `Lake formed by the Anduin. Nen Hithoel was a long, oval-shaped lake. The rugged land called the Emyn Muil spread out from both shores of Nen Hithoel. `,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Hithoel",
+  },
+  sea_of_nurnen: {
+    name: "Sea of Nurnen",
+    elvish_name: "Nurnen",
+    elvish_meaning: `On Tolkien's map of Middle-earth, this body of water is called the Sea of Nurnen. In the text, it is referred to as an inland sea but it is called Lake Nurnen. Nurnen means "sad water" in Sindarin. The word nurn means "lament" and the word nen means "water."`,
+    description: `Body of water in Mordor. Nurnen was a large, dark lake or inland sea in the southeastern part of Mordor.`,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Lake%20Nurnen",
+  },
+  sea_of_rhun: {
+    name: "Sea of Rhun",
+    elvish_name: "Rhun",
+    elvish_meaning: `Also called the Inland Sea. Rhûn means "east" in Sindarin.`,
+    description: `Sea in eastern Middle-earth. The Sea of Rhun was a large inland sea located in Rhun, a land in far eastern Middle-earth.`,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Rhun",
+  },
+}

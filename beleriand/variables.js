@@ -326,35 +326,105 @@ export const markersData = [
 
 // Paths (polylines)
 export const pathdata = { 
-  samfrodopath: { pathName: 'samfrodopath', color: 'red' }, 
-  aragornpath: { pathName: 'aragornpath', color: 'blue' },
-  pippinpath: { pathName: 'pippinpath', color: 'green' },
-  merrypath: { pathName: 'merrypath', color: 'orange' },
-  gandalfthegrey_merged: { pathName: 'gandalfthegrey_merged', color: 'grey' },
-};
+  samfrodopath: { 
+    pathName: 'samfrodopath', color: 'red', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
+  }, 
+  aragornpath: { 
+    pathName: 'aragornpath', color: 'blue', name: 'Aragorn, Gimli and Legolas', PopupContent: createSettlementPopup('Aragorn, Gimli, and Legolas', '1575 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+  },
+  pippinpath: { 
+    pathName: 'pippinpath', color: 'green', name: 'Pippin', PopupContent: createSettlementPopup('Pippin', '855 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+  },
+  merrypath: { 
+    pathName: 'merrypath', color: 'orange', name: 'Merry', PopupContent: createSettlementPopup('Merry', '907 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+  },
+  gandalfthegrey_merged: { 
+    pathName: 'gandalfthegrey_merged', color: 'grey', name: 'Gandalf the Grey', PopupContent: createSettlementPopup('Gandalf the Grey', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+  },
+}
 
-// Geographic Features (polygons)
+// Geographic Features
 const mountain_ranges = {
   misty_mountains: {
-    pathName:'misty_mountains', color: 'orange', name: 'Misty Mountains', PopupContent: createGeographicPopup(mountain.misty_mountains.name, mountain.misty_mountains.elvish_name, mountain.misty_mountains.elvish_meaning, mountain.misty_mountains.description, mountain.misty_mountains.url ) 
+    pathName:'misty_mountains', color: 'orange', name: 'Misty Mountains', PopupContent: createGeographicPopup(mountain_range.misty_mountains.name, mountain_range.misty_mountains.elvish_name, mountain_range.misty_mountains.elvish_meaning, mountain_range.misty_mountains.description, mountain_range.misty_mountains.url ), tolerance: 1, weight: 2 
   },
   white_mountains: {
-    pathName:'white_mountains', color: 'orange', name: 'White Mountains' , PopupContent: createGeographicPopup(mountain.white_mountains.name, mountain.white_mountains.elvish_name, mountain.white_mountains.elvish_meaning, mountain.white_mountains.description, mountain.white_mountains.url ) 
+    pathName:'white_mountains', color: 'orange', name: 'White Mountains' , PopupContent: createGeographicPopup(mountain_range.white_mountains.name, mountain_range.white_mountains.elvish_name, mountain_range.white_mountains.elvish_meaning, mountain_range.white_mountains.description, mountain_range.white_mountains.url ), tolerance: 1, weight: 2 
   },
   ash_mountains:{
-    pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain.ash_mountains.name, mountain.ash_mountains.elvish_name, mountain.ash_mountains.elvish_meaning, mountain.ash_mountains.description, mountain.ash_mountains.url ) 
+    pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain_range.ash_mountains.name, mountain_range.ash_mountains.elvish_name, mountain_range.ash_mountains.elvish_meaning, mountain_range.ash_mountains.description, mountain_range.ash_mountains.url ), tolerance: 1, weight: 2 
+  },
+  iron_hills:{
+    pathName:'iron_hills', color: 'orange', name: 'Iron Hills' , PopupContent: createGeographicPopup(mountain_range.iron_hills.name, mountain_range.iron_hills.elvish_name, mountain_range.iron_hills.elvish_meaning, mountain_range.iron_hills.description, mountain_range.iron_hills.url ), tolerance: 1, weight: 2 
+  },
+  mountains_of_angmar:{
+    pathName:'mountains_of_angmar', color: 'orange', name: 'Mountains of Angmar' , PopupContent: createGeographicPopup(mountain_range.mountains_of_angmar.name, mountain_range.mountains_of_angmar.elvish_name, mountain_range.mountains_of_angmar.elvish_meaning, mountain_range.mountains_of_angmar.description, mountain_range.mountains_of_angmar.url ), tolerance: 1, weight: 2
+  },
+  grey_mountains:{
+    pathName:'grey_mountains', color: 'orange', name: 'Grey Mountains' , PopupContent: createGeographicPopup(mountain_range.grey_mountains.name, mountain_range.grey_mountains.elvish_name, mountain_range.grey_mountains.elvish_meaning, mountain_range.grey_mountains.description, mountain_range.grey_mountains.url ), tolerance: 1, weight: 2
+  },
+  blue_mountains:{
+    pathName:'blue_mountains', color: 'orange', name: 'Blue Mountains' , PopupContent: createGeographicPopup(mountain_range.blue_mountains.name, mountain_range.blue_mountains.elvish_name, mountain_range.blue_mountains.elvish_meaning, mountain_range.blue_mountains.description, mountain_range.blue_mountains.url ), tolerance: 1, weight: 2
+  },
+  mountains_of_shadow:{
+    pathName:'mountains_of_shadow', color: 'orange', name: 'Mountains of Shadow' , PopupContent: createGeographicPopup(mountain_range.mountains_of_shadow.name, mountain_range.mountains_of_shadow.elvish_name, mountain_range.mountains_of_shadow.elvish_meaning, mountain_range.mountains_of_shadow.description, mountain_range.mountains_of_shadow.url ), tolerance: 1, weight: 2
+  },
+};
+const mountains = {
+  lonely_mountain:{
+    pathName:'lonely_mountain', color: 'orange', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ), tolerance: 1, weight: 2 
   },
 };
 const forests = {
-  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url )
+  mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url ), tolerance: 1, weight: 2
   },
-  blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url )
+  blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url ), tolerance: 1, weight: 2
   },
-  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url )
+  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url ), tolerance: 1, weight: 2
   },
-
+  fangorn_forest: {pathName:'fangorn_forest', color: 'green', name: 'Fangorn Forest', PopupContent: createGeographicPopup(forest.fangorn_forest.name, forest.fangorn_forest.elvish_name, forest.fangorn_forest.elvish_meaning, forest.fangorn_forest.description, forest.fangorn_forest.url ), tolerance: 1, weight: 2
+  },
+  lothlorien: {pathName:'lothlorien', color: 'green', name: 'Lothlorien', PopupContent: createGeographicPopup(forest.lothlorien.name, forest.lothlorien.elvish_name, forest.lothlorien.elvish_meaning, forest.lothlorien.description, forest.lothlorien.url ), tolerance: 1, weight: 2
+  },
+  firien_wood: {pathName:'firien_wood', color: 'green', name: 'Firien Wood', PopupContent: createGeographicPopup(forest.firien_wood.name, forest.firien_wood.elvish_name, forest.firien_wood.elvish_meaning, forest.firien_wood.description, forest.firien_wood.url ), tolerance: 1, weight: 2
+  },
+  druadan_forest: {pathName:'druadan_forest', color: 'green', name: 'Druadan Forest', PopupContent: createGeographicPopup(forest.druadan_forest.name, forest.druadan_forest.elvish_name, forest.druadan_forest.elvish_meaning, forest.druadan_forest.description, forest.druadan_forest.url ), tolerance: 1, weight: 2
+  },
+  bindbole_wood: {pathName:'bindbole_wood', color: 'green', name: 'Bindbole Wood', PopupContent: createGeographicPopup(forest.bindbole_wood.name, forest.bindbole_wood.elvish_name, forest.bindbole_wood.elvish_meaning, forest.bindbole_wood.description, forest.bindbole_wood.url ), tolerance: 1, weight: 2
+  },
+  chetwood: {pathName:'chetwood', color: 'green', name: 'Chetwood', PopupContent: createGeographicPopup(forest.chetwood.name, forest.chetwood.elvish_name, forest.chetwood.elvish_meaning, forest.chetwood.description, forest.chetwood.url ), tolerance: 1, weight: 2
+  },
 };
+const rivers = {
+  greylin: { 
+    pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ), tolerance: 10, weight: 5 
+  },
+  langwell: { 
+    pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createGeographicPopup(river.langwell.name, river.langwell.elvish_name, river.langwell.elvish_meaning, river.langwell.description, river.langwell.url ), tolerance: 10, weight: 5 
+  },
+  anduin: { 
+    pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ), tolerance: 10, weight: 5  
+  },
+}
+const lakes_seas = {
+  lake_evendim: { 
+    pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 1, weight: 2 
+  },
+  nen_hithoel: { 
+    pathName: 'nen_hithoel', color: 'blue', name: 'Nen Hithoel', PopupContent: createGeographicPopup(lake_sea.nen_hithoel.name, lake_sea.nen_hithoel.elvish_name, lake_sea.nen_hithoel.elvish_meaning, lake_sea.nen_hithoel.description, lake_sea.nen_hithoel.url ), tolerance: 1, weight: 2
+  },
+  sea_of_nurnen: { 
+    pathName: 'sea_of_nurnen', color: 'blue', name: 'Sea of Nurnen', PopupContent: createGeographicPopup(lake_sea.sea_of_nurnen.name, lake_sea.sea_of_nurnen.elvish_name, lake_sea.sea_of_nurnen.elvish_meaning, lake_sea.sea_of_nurnen.description, lake_sea.sea_of_nurnen.url ), tolerance: 1, weight: 2 
+  },
+  sea_of_rhun: { 
+    pathName: 'sea_of_rhun', color: 'blue', name: 'Sea of Rhun', PopupContent: createGeographicPopup(lake_sea.sea_of_rhun.name, lake_sea.sea_of_rhun.elvish_name, lake_sea.sea_of_rhun.elvish_meaning, lake_sea.sea_of_rhun.description, lake_sea.sea_of_rhun.url ), tolerance: 1, weight: 2 
+  },
+}
+
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
+  {data: mountains, checkboxId: 'mountainsCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
+  {data: rivers, checkboxId: 'riversCheckbox'},
+  {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
 ]
