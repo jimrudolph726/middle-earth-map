@@ -172,4 +172,11 @@ export const lake_sea = {
     description: `Lake in the region of Mithrim in southeastern Hithlum. Lake Mithrim was a long lake fed by four streams that came down from the mountains bordering Mithrim - three from the Ered Wethrin and one from the Mountains of Mithrim.`,
     url: "https://thainsbook.minastirith.cz/lakes.html#Lake-Mithrim",
   },
+  lake_helevorn: {
+    name: "Lake Helevorn",
+    elvish_name: "Helevorn",
+    elvish_meaning: `The name Helevorn means "black glass" in Sindarin. The Sindarin word hele or heledh meaning "glass" is derived from the Dwarvish word kheled. The element vorn is from morn meaning "black."`,
+    description: `Lake in Beleriand. Lake Helevorn was located in the region of Thargelion on the western side of the Blue Mountains.`,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Lake-Helevorn",
+  },
 }
