@@ -18,7 +18,6 @@ export const forest = {
     description: "Forest on the east side of the Brandywine River bordering Buckland.",
     url: "https://tolkiengateway.net/wiki/Old_Forest",
   },
-
   blackwood: {
     name: "The Blackwood",
     elvish_name: "Eryn Vorn",
@@ -28,13 +27,13 @@ export const forest = {
     description: "The Blackwood was a vast ancient treescape that covered most of north-western Middle-earth. It was named 'The Black Wood' by the Númenóreans during the Second Age.",
     url: "https://tolkiengateway.net/wiki/Eryn_Vorn",
   },
-
-
-
-
-
-
-
+  fangorn_forest: {
+    name: "Fangorn Forest",
+    elvish_name: "Fangorn",
+    elvish_meaning: `Fangorn Forest was named for Treebeard, the eldest of the Ents, whose name translates as Fangorn in Sindarin from fanga meaning "beard" and orne meaning "tree."  Fangorn Forest was called the Entwood by the Rohirrim.`,
+    description: `Home of the Ents. Fangorn Forest was located at the southeastern end of the Misty Mountains near the Gap of Rohan. The mountains formed the western border of Fangorn. At the end of the mountain range stood the stronghold of Isengard near the southwestern corner of the forest.`,
+    url: "https://tolkiengateway.net/wiki/Eryn_Vorn",
+  },
 };
 
 export const mountain = {
