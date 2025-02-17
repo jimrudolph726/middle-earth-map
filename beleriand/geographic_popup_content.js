@@ -1,73 +1,10 @@
 export const forest = {
-  mirkwood: {
-    name: "Mirkwood",
-    elvish_name: "Taur-nu-Fuin",
-    elvish_meaning: `
-      Taur-nu-Fuin means "forest under night." 
-      The word taur means "wood, forest"; nu means "down below, underneath"; and fuin means "gloom, darkness."
-    `,
-    description: "Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.",
+  nan_elmoth: {
+    name: "Nan Elmoth",
+    elvish_name: "Nan Elmoth",
+    elvish_meaning: `The name Nan Elmoth is composed of the Sindarin words nan meaning "valley" and elmoth comprised of el meaning "star" and moth meaning "dusk."`,
+    description: `Dark woods where Eol dwelled. Nan Elmoth was located in East Beleriand. The woods were bordered on the northwest by the Celon.`,
     url: "https://tolkiengateway.net/wiki/Mirkwood",
-  },
-  old_forest: {
-    name: "The Old Forest",
-    elvish_name: "(speculative) Iaur Taur",
-    elvish_meaning: `
-      The name Iaur Taur means "old forest" or "ancient forest" from the word iaur meaning old or ancient, and taur meaning forest.  This is purely speculative and noncanonical.
-    `,
-    description: "Forest on the east side of the Brandywine River bordering Buckland.",
-    url: "https://tolkiengateway.net/wiki/Old_Forest",
-  },
-  blackwood: {
-    name: "The Blackwood",
-    elvish_name: "Eryn Vorn",
-    elvish_meaning: `
-      The name Eryn Vorn means "Dark Wood" from the word eryn meaning "wood" and vorn from morn meaning "dark."
-    `,
-    description: "The Blackwood was a vast ancient treescape that covered most of north-western Middle-earth. It was named 'The Black Wood' by the Númenóreans during the Second Age.",
-    url: "https://tolkiengateway.net/wiki/Eryn_Vorn",
-  },
-  fangorn_forest: {
-    name: "Fangorn Forest",
-    elvish_name: "Fangorn",
-    elvish_meaning: `Fangorn Forest was named for Treebeard, the eldest of the Ents, whose name translates as Fangorn in Sindarin from fanga meaning "beard" and orne meaning "tree."  Fangorn Forest was called the Entwood by the Rohirrim.`,
-    description: `Home of the Ents. Fangorn Forest was located at the southeastern end of the Misty Mountains near the Gap of Rohan. The mountains formed the western border of Fangorn. At the end of the mountain range stood the stronghold of Isengard near the southwestern corner of the forest.`,
-    url: "https://thainsbook.minastirith.cz/forests.html#Fangorn",
-  },
-  lothlorien: {
-    name: "Lothlorien",
-    elvish_name: "Lothlorien",
-    elvish_meaning: `Lothlórien is the name that was used in the later part of the Third Age. It means "dreamflower." The word loth means "blossom, flower." The element lor means "dream."`,
-    description: `Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood. Lothlorien was a place where time seemed to stand still, a waking dream of the ancient days of the Elves that would soon fade forever from Middle-earth.`,
-    url: "https://thainsbook.minastirith.cz/lothlorien.html",
-  },
-  firien_wood: {
-    name: "Firien Wood",
-    elvish_name: "Eryn Fuir",
-    elvish_meaning: `The older Sindarin name was Eryn Fuir, meaning "North Wood." The word eryn means "wood" and fuir is derived from forn meaning "north." The name Firien Wood comes from the Anglo-Saxon firgen-wudu, meaning "mountain wood."`,
-    description: `Woods on the border between Rohan and Gondor. The Firien Wood was located at the foot of the White Mountains about 100 miles southeast of Edoras.`,
-    url: "https://thainsbook.minastirith.cz/forests.html#Firien",
-  },
-  druadan_forest: {
-    name: "Druadan Forest",
-    elvish_name: "Tawar-in-Druedain",
-    elvish_meaning: `The element Drû in Sindarin was derived from Drughu, the Drúedain's own name for themselves. The word adan means Man; the plural is edain. The word tawar means "wood, forest."`,
-    description: `Forest in Gondor. The Druadan Forest was located in Anorien at the northeastern end of the White Mountains near Minas Tirith.`,
-    url: "https://thainsbook.minastirith.cz/forests.html#Dr%C3%BAadan",
-  },
-  bindbole_wood: {
-    name: "Bindbole Wood",
-    elvish_name: "None",
-    elvish_meaning: `None. The name Bindbole Wood has been mistakenly interpreted as Bindbale Wood because of unclear type on some maps of the Shire. The word bole means "tree trunk."`,
-    description: `Woods in the Northfarthing of the Shire, about 15 miles north of Hobbiton.`,
-    url: "https://thainsbook.minastirith.cz/forests.html#Bindbole%20Wood",
-  },
-  chetwood: {
-    name: "Chetwood",
-    elvish_name: "None",
-    elvish_meaning: `None. The word Chetwood is a a compound of Celtic and English, both words meaning "wood."`,
-    description: `Woods in Eriador outside Bree. The Great East Road ran through the southern edge of the Chetwood, while the Greenway ran along the western edge.`,
-    url: "https://thainsbook.minastirith.cz/forests.html#Chetwood",
   },
 };
 
