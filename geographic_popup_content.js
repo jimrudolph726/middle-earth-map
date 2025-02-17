@@ -32,7 +32,14 @@ export const forest = {
     elvish_name: "Fangorn",
     elvish_meaning: `Fangorn Forest was named for Treebeard, the eldest of the Ents, whose name translates as Fangorn in Sindarin from fanga meaning "beard" and orne meaning "tree."  Fangorn Forest was called the Entwood by the Rohirrim.`,
     description: `Home of the Ents. Fangorn Forest was located at the southeastern end of the Misty Mountains near the Gap of Rohan. The mountains formed the western border of Fangorn. At the end of the mountain range stood the stronghold of Isengard near the southwestern corner of the forest.`,
-    url: "https://tolkiengateway.net/wiki/Eryn_Vorn",
+    url: "https://thainsbook.minastirith.cz/forests.html#Fangorn",
+  },
+  lothlorien: {
+    name: "Lothlorien",
+    elvish_name: "Lothlorien",
+    elvish_meaning: `Lothlórien is the name that was used in the later part of the Third Age. It means "dreamflower." The word loth means "blossom, flower." The element lor means "dream."`,
+    description: `Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood. Lothlorien was a place where time seemed to stand still, a waking dream of the ancient days of the Elves that would soon fade forever from Middle-earth.`,
+    url: "https://thainsbook.minastirith.cz/lothlorien.html",
   },
 };
 

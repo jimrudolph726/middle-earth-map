@@ -399,6 +399,8 @@ const forests = {
   },
   fangorn_forest: {pathName:'fangorn_forest', color: 'green', name: 'Fangorn Forest', PopupContent: createGeographicPopup(forest.fangorn_forest.name, forest.fangorn_forest.elvish_name, forest.fangorn_forest.elvish_meaning, forest.fangorn_forest.description, forest.fangorn_forest.url ), tolerance: 1, weight: 2
   },
+  lothlorien: {pathName:'lothlorien', color: 'green', name: 'Lothlorien', PopupContent: createGeographicPopup(forest.lothlorien.name, forest.lothlorien.elvish_name, forest.lothlorien.elvish_meaning, forest.lothlorien.description, forest.lothlorien.url ), tolerance: 1, weight: 2
+  },
 };
 const rivers = {
   greylin: { 
