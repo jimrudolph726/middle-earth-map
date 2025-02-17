@@ -3,7 +3,8 @@
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
-    <div onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
+    <div style="width: 250%; background-color: white; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; margin: auto;" 
+         onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
         <h3>${date}</h3>
         <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
@@ -60,26 +61,25 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
                 <td style="border: 1px solid #ddd; padding: 8px;">${description}</td>
             </tr>
             <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more on Thain's Book</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more here</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">
                     <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
                 </td>
             </tr>
         </table>
         <div class="popup-content" style="display: none; margin-top: 10px;">
-            Additional content goes here.
+
         </div>
     </div>
   `;
 };
-
 export const createSettlementPopup = (name, description, url) => {
   return`<div>
     <h3 style="font-size: 24px;">${name}</h3>
   <p style="font-size: 18px;">${description}</p>
     <button onclick="window.open('${url}', '_blank');" 
             style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more on Thain's Book
+      Learn more here
     </button>
   </div>`;
 };
@@ -143,89 +143,48 @@ export const createMarkers = (locations, campsite = 'no') => {
   });
 };
 
-// Paths function
-export const createPolyline = async (paths) => {
-  const polylines = {};
-  const promises = Object.keys(paths).map(async (key) => {
-    const { pathName, color } = paths[key];
-    const geojsonPath = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/geojson_files/' + pathName + '.geojson';
-
-    try {
-      const response = await fetch(geojsonPath);
-      console.log(`Response received for ${key}`);
-      const data = await response.json();
-
-      // Handle both LineString and MultiLineString
-      const geometry = data.features[0].geometry;
-      let latLngs = [];
-
-      if (geometry.type === 'LineString') {
-        latLngs = geometry.coordinates.map(coord => [coord[1], coord[0]]);
-      } else if (geometry.type === 'MultiLineString') {
-        latLngs = geometry.coordinates.flat().map(coord => [coord[1], coord[0]]);
-      }
-
-      const polyline = L.polyline(latLngs, { color, weight: 5, opacity: 0.8 }).arrowheads({
-        size: '20px',       // Size of the arrows
-        frequency: '75px',   // Frequency of arrows along the path
-        yawn: 30,           // Width of the opening of the arrowhead
-        fill: true,
-      });
-
-      polylines[key] = polyline;
-      console.log(`Polyline created and added for ${key}`);
-    } catch (error) {
-      console.error(`Error fetching data for ${key}:`, error);
-    }
-  });
-
-  await Promise.all(promises); // Wait for all fetches to complete
-  return polylines;
-};
-
-// Geographic Features functions
-export const createPolygon = async (geographic_data) => {
+// Paths and Geographic Features function
+export const createGeographicFeature = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
-    const { pathName, color, name, PopupContent } = geographic_data[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/geojson_files/${pathName}.geojson`;
+    const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
 
     try {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-
+      
       // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
           color,
-          weight: 2,
+          weight: weight,
           fillOpacity: 0.5,
         },
+        clickTolerance: tolerance,
         onEachFeature: (feature, layer) => {
-          // Disable hover-based style changes
-          layer.on('mouseover', () => {
-            layer.setStyle({
-              weight: 2, // Keep original styles
-              color: layer.options.color,
-              fillOpacity: 0.5,
-            });
-          });
-          layer.on('mouseout', () => {
-            layer.setStyle({
-              weight: 2, // Reset styles to original
-              color: layer.options.color,
-              fillOpacity: 0.5,
-            });
-          });
-        
-          // Add tooltip
-          layer.bindTooltip(name, {
-            direction: "top",
-            className: "polygon-label",
+          // Create a tooltip but do not bind it statically
+          const tooltip = L.tooltip({
             permanent: false,
+            className: "polygon-label",
+            direction: "center",
+            offset: L.point(0, 0) // Prevent offset issues
           });
-        
+
+          layer.on('mousemove', (e) => {
+            tooltip.setLatLng(e.latlng).setContent(name);
+            if (!layer._map.hasLayer(tooltip)) {
+              tooltip.addTo(layer._map);
+            }
+          });
+
+          layer.on('mouseout', () => {
+            if (layer._map.hasLayer(tooltip)) {
+              layer._map.removeLayer(tooltip);
+            }
+          });
+
           // Add click event
           layer.on('click', (e) => {
             const popup = L.popup()
@@ -234,7 +193,6 @@ export const createPolygon = async (geographic_data) => {
               .openOn(layer._map);
           });
         }
-        
       });
     
       // Store the polygon in the polygons object
@@ -248,3 +206,4 @@ export const createPolygon = async (geographic_data) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
 };
+

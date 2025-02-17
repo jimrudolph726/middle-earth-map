@@ -2,9 +2,8 @@
 
 import {
   PathListeners,
-  createPolyline,
   MarkerListeners,
-  createPolygon,
+  createGeographicFeature,
   createMarkers
 } from './functions.js';
 
@@ -14,14 +13,18 @@ import {
   geographicData
 } from './variables.js';
 
-// Add Mapd
+// Add Map
 const map = L.map('map', {
   crs: L.CRS.EPSG3857,
   minZoom: 15,
   maxZoom: 20,
-  zoom: 15,
+  zoom: 15, // Fractional zoom level
   center: [0, 0],
+  zoomSnap: 1, // Allows fractional zoom levels
+  zoomDelta: 5, // Controls the increment of zoom changes
+  preferCanvas: true
 });
+map.options.wheelPxPerZoomLevel = 40; 
 
 const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/beleriand.png';
 const imageBounds = [[44.94393060,-93.30248833],[44.937485956,-93.290119813],];
@@ -38,11 +41,13 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
 });
 
 // Add Paths
-createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
+createGeographicFeature(pathdata).then((polygons) => {
+  PathListeners(polygons, map);
+  });
 
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
-  createPolygon(data).then((polygons) => {
+  createGeographicFeature(data).then((polygons) => {
   MarkerListeners(checkboxId, polygons, map);
   });
 });
