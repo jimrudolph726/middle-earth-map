@@ -6,11 +6,13 @@ import {
   createSettlementPopup,
  } from './functions.js';
 
-import {
+ import {
   forest,
+  mountain_range,
   mountain,
+  river,
+  lake_sea,
 } from './geographic_popup_content.js'
- 
 
 import {
   elves,
