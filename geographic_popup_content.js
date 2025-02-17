@@ -156,3 +156,20 @@ export const river = {
     url: "https://thainsbook.minastirith.cz/rivers.html#Anduin",
   },
 }
+
+export const lake_sea = {
+  lake_evendim: {
+    name: "Lake Evendim",
+    elvish_name: "Nenuial",
+    elvish_meaning: `Evendim means "evening twilight." The Sindarin name was Nenuial meaning "lake of twilight" from nen meaning "lake" and uial meaning "twilight."`,
+    description: `Lake in Eriador. Lake Evendim was in the Hills of Evendim north of the Shire. The lake was the source of the Brandywine River.`,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Evendim",
+  },
+  nen_hithoel: {
+    name: "Nen Hithoel",
+    elvish_name: "Nen Hithoel",
+    elvish_meaning: `Nen Hithoel means "mist-cool water" in Sindarin. The word nen means "water" and hîth means "mist." The final element oel apparently means "cool" although this usage is not found elsewhere.`,
+    description: `Lake formed by the Anduin. Nen Hithoel was a long, oval-shaped lake. The rugged land called the Emyn Muil spread out from both shores of Nen Hithoel. `,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Hithoel",
+  },
+}

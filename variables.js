@@ -11,6 +11,7 @@ import {
   mountain_range,
   mountain,
   river,
+  lake_sea,
 } from './geographic_popup_content.js'
  
 import {
@@ -396,7 +397,6 @@ const mountains = {
     pathName:'lonely_mountain', color: 'orange', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ), tolerance: 1, weight: 2 
   },
 };
-
 const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url ), tolerance: 1, weight: 2
   },
@@ -428,9 +428,19 @@ const rivers = {
     pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ), tolerance: 10, weight: 5  
   },
 }
+const lakes_seas = {
+  lake_evendim: { 
+    pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 10, weight: 5 
+  },
+  nen_hithoel: { 
+    pathName: 'nen_hithoel', color: 'blue', name: 'Nen Hithoel', PopupContent: createGeographicPopup(lake_sea.nen_hithoel.name, lake_sea.nen_hithoel.elvish_name, lake_sea.nen_hithoel.elvish_meaning, lake_sea.nen_hithoel.description, lake_sea.nen_hithoel.url ), tolerance: 10, weight: 5 
+  },
+}
+
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: mountains, checkboxId: 'mountainsCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
   {data: rivers, checkboxId: 'riversCheckbox'},
+  {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
 ]
