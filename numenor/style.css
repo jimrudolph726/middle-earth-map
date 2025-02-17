@@ -49,6 +49,12 @@ html, body, #map {
   margin-right: 8px; /* Add spacing between the checkbox and label text */
 }
 
+#mapSection button {
+  display: block;
+  width: 50%; /* Optional: Makes buttons stretch to full width */
+  margin-bottom: 10px; /* Adds spacing between buttons */
+}
+
 .sidebar-tabs .material-icons {
   position: relative;
   top: 10px; /* Shifts the icons down */
