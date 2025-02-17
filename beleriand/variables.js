@@ -398,14 +398,8 @@ const forests = {
   },
 };
 const rivers = {
-  greylin: { 
-    pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ), tolerance: 10, weight: 5 
-  },
-  langwell: { 
-    pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createGeographicPopup(river.langwell.name, river.langwell.elvish_name, river.langwell.elvish_meaning, river.langwell.description, river.langwell.url ), tolerance: 10, weight: 5 
-  },
-  anduin: { 
-    pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ), tolerance: 10, weight: 5  
+  greater_gelion: { 
+    pathName: 'greater_gelion', color: 'blue', name: 'Greater Gelion', PopupContent: createGeographicPopup(river.greater_gelion.name, river.greater_gelion.elvish_name, river.greater_gelion.elvish_meaning, river.greater_gelion.description, river.greater_gelion.url ), tolerance: 10, weight: 5 
   },
 }
 const lakes_seas = {
