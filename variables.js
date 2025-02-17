@@ -391,6 +391,9 @@ const mountain_ranges = {
   blue_mountains:{
     pathName:'blue_mountains', color: 'orange', name: 'Blue Mountains' , PopupContent: createGeographicPopup(mountain_range.blue_mountains.name, mountain_range.blue_mountains.elvish_name, mountain_range.blue_mountains.elvish_meaning, mountain_range.blue_mountains.description, mountain_range.blue_mountains.url ), tolerance: 1, weight: 2
   },
+  mountains_of_shadow:{
+    pathName:'mountains_of_shadow', color: 'orange', name: 'Mountains of Shadow' , PopupContent: createGeographicPopup(mountain_range.mountains_of_shadow.name, mountain_range.mountains_of_shadow.elvish_name, mountain_range.mountains_of_shadow.elvish_meaning, mountain_range.mountains_of_shadow.description, mountain_range.mountains_of_shadow.url ), tolerance: 1, weight: 2
+  },
 };
 const mountains = {
   lonely_mountain:{

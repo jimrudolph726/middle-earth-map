@@ -121,6 +121,13 @@ export const mountain_range = {
     description: `Mountain range in northwestern Middle-earth. The Blue Mountains were on the western border of Eriador.`,
     url: "https://thainsbook.minastirith.cz/mountains.html#Blue",
   },
+  mountains_of_shadow: {
+    name: "Mountains of Shadow",
+    elvish_name: "Ephel Duath",
+    elvish_meaning: `The Mountains of Shadow were so called because of the gloom that hung over them. Also called the Shadowy Mountains. The Sindarin name was Ephel Dúath. The word ephel means "outer fence" and the word dúath means "dark shadow" from dú meaning "night, dimness" and gwath meaning "shadow."`,
+    description: `Great range forming the western and southern borders of Mordor. The Mountains of Shadow were dark and gloomy.`,
+    url: "https://thainsbook.minastirith.cz/mountains.html#Mts-Shadow",
+  },
 };
 
 export const mountain = {
