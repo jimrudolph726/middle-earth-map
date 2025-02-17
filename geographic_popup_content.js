@@ -172,4 +172,18 @@ export const lake_sea = {
     description: `Lake formed by the Anduin. Nen Hithoel was a long, oval-shaped lake. The rugged land called the Emyn Muil spread out from both shores of Nen Hithoel. `,
     url: "https://thainsbook.minastirith.cz/lakes.html#Hithoel",
   },
+  sea_of_nurnen: {
+    name: "Sea of Nurnen",
+    elvish_name: "Nurnen",
+    elvish_meaning: `On Tolkien's map of Middle-earth, this body of water is called the Sea of Nurnen. In the text, it is referred to as an inland sea but it is called Lake Nurnen. Nurnen means "sad water" in Sindarin. The word nurn means "lament" and the word nen means "water."`,
+    description: `Body of water in Mordor. Nurnen was a large, dark lake or inland sea in the southeastern part of Mordor.`,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Lake%20Nurnen",
+  },
+  sea_of_rhun: {
+    name: "Sea of Rhun",
+    elvish_name: "Rhun",
+    elvish_meaning: `Also called the Inland Sea. Rhûn means "east" in Sindarin.`,
+    description: `Sea in eastern Middle-earth. The Sea of Rhun was a large inland sea located in Rhun, a land in far eastern Middle-earth.`,
+    url: "https://thainsbook.minastirith.cz/lakes.html#Rhun",
+  },
 }
