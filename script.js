@@ -21,7 +21,7 @@ const map = L.map('map', {
   zoom: 15.5, // Fractional zoom level
   center: [0, 0],
   zoomSnap: 0.1, // Allows fractional zoom levels
-  zoomDelta: 2, // Controls the increment of zoom changes
+  zoomDelta: 5, // Controls the increment of zoom changes
   preferCanvas: true
 });
 
