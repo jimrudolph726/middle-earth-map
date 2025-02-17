@@ -50,7 +50,7 @@ html, body, #map {
 }
 #mapSection button {
   display: block;
-  width: 100%; /* Optional: Makes buttons stretch to full width */
+  width: 50%; /* Optional: Makes buttons stretch to full width */
   margin-bottom: 10px; /* Adds spacing between buttons */
 }
 
