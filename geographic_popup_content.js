@@ -127,8 +127,8 @@ export const mountain = {
   lonely_mountain: {
     name: "Lonely Mountain",
     elvish_name: "Erebor",
-    elvish_meaning: 'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated." The element oro means "up, rise, high." The Dwarf realm in the Lonely Mountain was called the Kingdom under the Mountain.',
-    description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland. It stood near the edge of Mirkwood, about 50 miles south of the Grey Mountains and about 125 miles west of the Iron Hills.",
+    elvish_meaning: 'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated."',
+    description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland.",
     url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
   },
 }
