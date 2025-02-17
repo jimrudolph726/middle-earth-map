@@ -41,6 +41,20 @@ export const forest = {
     description: `Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood. Lothlorien was a place where time seemed to stand still, a waking dream of the ancient days of the Elves that would soon fade forever from Middle-earth.`,
     url: "https://thainsbook.minastirith.cz/lothlorien.html",
   },
+  firien_wood: {
+    name: "Firien Wood",
+    elvish_name: "Eryn Fuir",
+    elvish_meaning: `The older Sindarin name was Eryn Fuir, meaning "North Wood." The word eryn means "wood" and fuir is derived from forn meaning "north." The name Firien Wood comes from the Anglo-Saxon firgen-wudu, meaning "mountain wood."`,
+    description: `Woods on the border between Rohan and Gondor. The Firien Wood was located at the foot of the White Mountains about 100 miles southeast of Edoras.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Firien",
+  },
+  druadan_forest: {
+    name: "Druadan Forest",
+    elvish_name: "Tawar-in-Druedain",
+    elvish_meaning: `The element Drû in Sindarin was derived from Drughu, the Drúedain's own name for themselves. The word adan means Man; the plural is edain. The word tawar means "wood, forest."`,
+    description: `Forest in Gondor. The Druadan Forest was located in Anorien at the northeastern end of the White Mountains near Minas Tirith.`,
+    url: "https://thainsbook.minastirith.cz/forests.html#Dr%C3%BAadan",
+  },
 };
 
 export const mountain = {

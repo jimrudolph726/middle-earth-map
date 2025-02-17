@@ -401,6 +401,10 @@ const forests = {
   },
   lothlorien: {pathName:'lothlorien', color: 'green', name: 'Lothlorien', PopupContent: createGeographicPopup(forest.lothlorien.name, forest.lothlorien.elvish_name, forest.lothlorien.elvish_meaning, forest.lothlorien.description, forest.lothlorien.url ), tolerance: 1, weight: 2
   },
+  firien_wood: {pathName:'firien_wood', color: 'green', name: 'Firien Wood', PopupContent: createGeographicPopup(forest.firien_wood.name, forest.firien_wood.elvish_name, forest.firien_wood.elvish_meaning, forest.firien_wood.description, forest.firien_wood.url ), tolerance: 1, weight: 2
+  },
+  druadan_forest: {pathName:'druadan_forest', color: 'green', name: 'Druadan Forest', PopupContent: createGeographicPopup(forest.druadan_forest.name, forest.druadan_forest.elvish_name, forest.druadan_forest.elvish_meaning, forest.druadan_forest.description, forest.druadan_forest.url ), tolerance: 1, weight: 2
+  },
 };
 const rivers = {
   greylin: { 
