@@ -71,7 +71,7 @@ export const forest = {
   },
 };
 
-export const mountain = {
+export const mountain_range = {
   misty_mountains: {
     name: "Misty Mountains",
     elvish_name: "Hithaeglir",
@@ -120,6 +120,13 @@ export const mountain = {
     elvish_meaning: `Also called Ered Mithrin in Sindarin from ered, the plural of orod meaning "mountain," and mithrin from mith meaning "grey."`,
     description: `Mountain range on the northern boundary of Wilderland. At their western end, the Grey Mountains drew near to Mount Gundabad in the Misty Mountains. At their eastern end, the Grey Mountains branched into two forks, between which lay the Withered Heath.`,
     url: "https://thainsbook.minastirith.cz/mountains.html#Grey%20Mountains",
+  },
+  blue_mountains: {
+    name: "Blue Mountains",
+    elvish_name: "Ered Luin",
+    elvish_meaning: `The Blue Mountains were so named because they appeared blue from a distance. The Sindarin name for the Blue Mountains was Ered Luin from ered meaning "mountains" and luin meaning "blue."`,
+    description: `Mountain range in northwestern Middle-earth. The Blue Mountains were on the western border of Eriador.`,
+    url: "https://thainsbook.minastirith.cz/mountains.html#Blue",
   },
 };
 
