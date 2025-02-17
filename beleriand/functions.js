@@ -89,38 +89,24 @@ export const createSettlementPopup = (name, description, url) => {
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
 
-  // Ensure markers is an array (if it's not, make it an array of a single element)
+  if (!checkbox) {
+    console.error(`Checkbox with ID "${checkboxId}" not found.`);
+    return;
+  }
+
   const markersArray = Array.isArray(markers) ? markers : Object.values(markers);
 
-  // Function to add/remove markers based on checkbox state
   const toggleMarkers = () => {
     markersArray.forEach(marker => 
       checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
     );
   };
 
-  // Attach the change event listener
   checkbox.addEventListener('change', toggleMarkers);
 
-  // Trigger toggleMarkers on load based on the initial checkbox state
   toggleMarkers();
 };
-export const PathListeners = (items, map) => {
-  Object.keys(items).forEach((key) => {
-    const checkbox = document.getElementById(`${key}Checkbox`);
-    if (checkbox) {
-      checkbox.addEventListener('change', (event) => {
-        if (event.target.checked) {
-          // Add the item (polygon or polyline) to the map when checkbox is checked
-          items[key].addTo(map);
-        } else {
-          // Remove the item (polygon or polyline) from the map when checkbox is unchecked
-          map.removeLayer(items[key]);
-        }
-      });
-    }
-  });
-};
+
 
 // Campsites and Settlements function
 export const createMarkers = (locations, campsite = 'no') => {
