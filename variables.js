@@ -433,16 +433,16 @@ const rivers = {
 }
 const lakes_seas = {
   lake_evendim: { 
-    pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 10, weight: 5 
+    pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 1, weight: 2 
   },
   nen_hithoel: { 
-    pathName: 'nen_hithoel', color: 'blue', name: 'Nen Hithoel', PopupContent: createGeographicPopup(lake_sea.nen_hithoel.name, lake_sea.nen_hithoel.elvish_name, lake_sea.nen_hithoel.elvish_meaning, lake_sea.nen_hithoel.description, lake_sea.nen_hithoel.url ), tolerance: 10, weight: 5 
+    pathName: 'nen_hithoel', color: 'blue', name: 'Nen Hithoel', PopupContent: createGeographicPopup(lake_sea.nen_hithoel.name, lake_sea.nen_hithoel.elvish_name, lake_sea.nen_hithoel.elvish_meaning, lake_sea.nen_hithoel.description, lake_sea.nen_hithoel.url ), tolerance: 1, weight: 2
   },
   sea_of_nurnen: { 
-    pathName: 'sea_of_nurnen', color: 'blue', name: 'Sea of Nurnen', PopupContent: createGeographicPopup(lake_sea.sea_of_nurnen.name, lake_sea.sea_of_nurnen.elvish_name, lake_sea.sea_of_nurnen.elvish_meaning, lake_sea.sea_of_nurnen.description, lake_sea.sea_of_nurnen.url ), tolerance: 10, weight: 5 
+    pathName: 'sea_of_nurnen', color: 'blue', name: 'Sea of Nurnen', PopupContent: createGeographicPopup(lake_sea.sea_of_nurnen.name, lake_sea.sea_of_nurnen.elvish_name, lake_sea.sea_of_nurnen.elvish_meaning, lake_sea.sea_of_nurnen.description, lake_sea.sea_of_nurnen.url ), tolerance: 1, weight: 2 
   },
   sea_of_rhun: { 
-    pathName: 'sea_of_rhun', color: 'blue', name: 'Sea of Rhun', PopupContent: createGeographicPopup(lake_sea.sea_of_rhun.name, lake_sea.sea_of_rhun.elvish_name, lake_sea.sea_of_rhun.elvish_meaning, lake_sea.sea_of_rhun.description, lake_sea.sea_of_rhun.url ), tolerance: 10, weight: 5 
+    pathName: 'sea_of_rhun', color: 'blue', name: 'Sea of Rhun', PopupContent: createGeographicPopup(lake_sea.sea_of_rhun.name, lake_sea.sea_of_rhun.elvish_name, lake_sea.sea_of_rhun.elvish_meaning, lake_sea.sea_of_rhun.description, lake_sea.sea_of_rhun.url ), tolerance: 1, weight: 2 
   },
 }
 
