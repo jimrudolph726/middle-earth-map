@@ -23,6 +23,16 @@ export const men = {
     description: `Minas Anor - the Tower of the Sun - was established as a stronghold by Anarion, son of Elendil, and over time it became the greatest city in Gondor. As the threat from Mordor increased, the City was renamed Minas Tirith - the Tower of Guard.`,
     url: "https://thainsbook.minastirith.cz/minastirith.html",
   },
+  rohan: {
+    name: "Rohan",
+    description: `Rohan was the home of the Rohirrim - a hardy race of Men known for their love of horses. The land was once part of Gondor, but it was given to the Rohirrim when Eorl the Young led them from the North to help Gondor fight an enemy invasion. Rohan remained Gondor's staunchest ally, and during the War of the Ring the Rohirrim rode to the aid of Gondor once more at the Battle of the Pelennor Fields.`,
+    url: "https://thainsbook.minastirith.cz/rohan.html",
+  },
+  edoras: {
+    name: "edoras",
+    description: `Main town in Rohan and site of the royal court. Edoras was located at the foot of the White Mountains, which formed the southern border of Rohan. The town stood on a green hill at the mouth of the valley of Harrowdale.`,
+    url: "https://thainsbook.minastirith.cz/towns.html#Edoras",
+  },
 };
 
 export const hobbits = {

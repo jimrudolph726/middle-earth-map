@@ -19,10 +19,12 @@ import {
   men,
   hobbits,
 } from './settlement_popup_content.js'
+
 // Icons
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
-    men: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men.png',
+    men_gondor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tree_of_gondor.png',
+    men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men_rohan.png',
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
     lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
@@ -37,7 +39,8 @@ function createIcon(url, size = [48, 48]) {
 }
 const icons = {
   HobbitsIcon: createIcon(iconUrls.hobbits),
-  MenIcon: createIcon(iconUrls.men),
+  MenGondorIcon: createIcon(iconUrls.men_gondor),
+  MenRohanIcon: createIcon(iconUrls.men_rohan),
   RivendellIcon: createIcon(iconUrls.rivendell),
   LothlorienIcon: createIcon(iconUrls.lothlorien),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
@@ -321,11 +324,17 @@ export const elvessettlements = {
 };
 export const mensettlements = {
   bree: { 
-    CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenIcon, popup: createSettlementPopup(men.bree.name, men.bree.description, men.bree.url)
+    CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenGondorIcon, popup: createSettlementPopup(men.bree.name, men.bree.description, men.bree.url)
   },
   minastirith: { 
-    CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenIcon, popup: createSettlementPopup(men.minastirith.name, men.minastirith.description, men.minastirith.url)
-  }
+    CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenGondorIcon, popup: createSettlementPopup(men.minastirith.name, men.minastirith.description, men.minastirith.url)
+  },
+  rohan: { 
+    CheckboxId: 'men', coords: [44.9426410,-93.3043699], icon: icons.MenRohanIcon, popup: createSettlementPopup(men.rohan.name, men.rohan.description, men.rohan.url)
+  },
+  edoras: { 
+    CheckboxId: 'men', coords: [44.94202323,-93.30482241], icon: icons.MenRohanIcon, popup: createSettlementPopup(men.edoras.name, men.edoras.description, men.edoras.url)
+  },
 };
 export const hobbitsettlements = {
   hobbiton: { 
