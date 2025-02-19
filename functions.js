@@ -157,10 +157,12 @@ export const createGeographicFeature = async (geographic_data) => {
       // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
-          color,
-          weight: weight,
-          fillOpacity: 0.5,
-        },
+          stroke: true,   // Ensures the border is applied
+          color: 'black', // Border (outline) color
+          weight: 2,      // Border thickness
+          fillColor: color, // Fill color (uses the polygon's defined color)
+          fillOpacity: 0.5 // Adjust transparency
+        }
         clickTolerance: tolerance,
         onEachFeature: (feature, layer) => {
           // Create a tooltip but do not bind it statically
