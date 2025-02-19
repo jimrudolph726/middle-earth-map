@@ -440,19 +440,19 @@ const forests = {
 };
 const rivers = {
   greylin: { 
-    pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ), tolerance: 10, weight: 5 
+    pathName: 'greylin', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(river.greylin.name, river.greylin.elvish_name, river.greylin.elvish_meaning, river.greylin.description, river.greylin.url ), tolerance: 10, weight: 7 
   },
   langwell: { 
-    pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createGeographicPopup(river.langwell.name, river.langwell.elvish_name, river.langwell.elvish_meaning, river.langwell.description, river.langwell.url ), tolerance: 10, weight: 5 
+    pathName: 'langwell', color: 'blue', name: 'Langwell', PopupContent: createGeographicPopup(river.langwell.name, river.langwell.elvish_name, river.langwell.elvish_meaning, river.langwell.description, river.langwell.url ), tolerance: 10, weight: 7 
   },
   anduin: { 
-    pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ), tolerance: 10, weight: 5  
+    pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ), tolerance: 10, weight: 7  
   },
   silverlode: { 
-    pathName: 'silverlode', color: 'blue', name: 'Silverlode', PopupContent: createGeographicPopup(river.silverlode.name, river.silverlode.elvish_name, river.silverlode.elvish_meaning, river.silverlode.description, river.silverlode.url ), tolerance: 10, weight: 5  
+    pathName: 'silverlode', color: 'blue', name: 'Silverlode', PopupContent: createGeographicPopup(river.silverlode.name, river.silverlode.elvish_name, river.silverlode.elvish_meaning, river.silverlode.description, river.silverlode.url ), tolerance: 10, weight: 7  
   },
   nimrodel: { 
-    pathName: 'nimrodel', color: 'blue', name: 'Nimrodel', PopupContent: createGeographicPopup(river.nimrodel.name, river.nimrodel.elvish_name, river.nimrodel.elvish_meaning, river.nimrodel.description, river.nimrodel.url ), tolerance: 10, weight: 5  
+    pathName: 'nimrodel', color: 'blue', name: 'Nimrodel', PopupContent: createGeographicPopup(river.nimrodel.name, river.nimrodel.elvish_name, river.nimrodel.elvish_meaning, river.nimrodel.description, river.nimrodel.url ), tolerance: 10, weight: 7  
   },
 }
 const lakes_seas = {
