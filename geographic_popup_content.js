@@ -171,6 +171,20 @@ export const river = {
     description: `Longest river in Middle-earth. The Anduin flowed from north to south for over 1,100 miles.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Anduin",
   },
+  silverlode: {
+    name: "Silverlode",
+    elvish_name: "Celebrant",
+    elvish_meaning: `The Sindarin name of the Silverlode was the Celebrant. The word celeb means "silver" and the word rant means "lode, vein; flow, course of river."`,
+    description: `River of Lothlorien, called the Celebrant by the Elves. The Silverlode began in the Dimrill Dale just south of Mirrormere. The river emerged from a spring fed by the lake's waters.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Silverlode",
+  },
+  nimrodel: {
+    name: "Nimrodel",
+    elvish_name: "Nimrodel",
+    elvish_meaning: `The Nimrodel was named for the Elf maiden whose name meant "Lady of the White Grotto," probably in reference to her dwelling place near the waterfall. The element nim means "white" and rod means "cave, grotto."`,
+    description: `River of Lothlorien. The source of the Nimrodel was in the eastern Misty Mountains. The Nimrodel flowed down the wooded mountain slopes and over a waterfall and then joined the Silverlode, a river that ran through Lothlorien to the Anduin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Nimrodel",
+  },
 }
 
 export const lake_sea = {

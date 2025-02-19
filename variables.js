@@ -448,6 +448,12 @@ const rivers = {
   anduin: { 
     pathName: 'anduin', color: 'blue', name: 'Anduin', PopupContent: createGeographicPopup(river.anduin.name, river.anduin.elvish_name, river.anduin.elvish_meaning, river.anduin.description, river.anduin.url ), tolerance: 10, weight: 5  
   },
+  silverlode: { 
+    pathName: 'silverlode', color: 'blue', name: 'Silverlode', PopupContent: createGeographicPopup(river.silverlode.name, river.silverlode.elvish_name, river.silverlode.elvish_meaning, river.silverlode.description, river.silverlode.url ), tolerance: 10, weight: 5  
+  },
+  nimrodel: { 
+    pathName: 'nimrodel', color: 'blue', name: 'Nimrodel', PopupContent: createGeographicPopup(river.nimrodel.name, river.nimrodel.elvish_name, river.nimrodel.elvish_meaning, river.nimrodel.description, river.nimrodel.url ), tolerance: 10, weight: 5  
+  },
 }
 const lakes_seas = {
   lake_evendim: { 
