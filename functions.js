@@ -144,9 +144,9 @@ export const createMarkers = (locations, campsite = 'no') => {
 
 // Paths and Geographic Features function
 export const createGeographicFeature = async (geographic_data) => {
-  const features = {};
+  const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
-    const { pathName, color, name, PopupContent, tolerance, weight, type } = geographic_data[key];
+    const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
     const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
 
     try {
@@ -154,82 +154,57 @@ export const createGeographicFeature = async (geographic_data) => {
       console.log(`Response received for ${key}`);
       const data = await response.json();
       
-      let featureLayer;
+      // Create the polygon using the GeoJSON data
+      const polygon = L.geoJSON(data, {
+        style: {
+          stroke: true,   // Ensures the border is applied
+          color: 'black', // Border (outline) color
+          weight: 2,      // Border thickness
+          fillColor: color, // Fill color (uses the polygon's defined color)
+          fillOpacity: 0.5 // Adjust transparency
+        },
+        clickTolerance: tolerance,
+        onEachFeature: (feature, layer) => {
+          // Create a tooltip but do not bind it statically
+          const tooltip = L.tooltip({
+            permanent: false,
+            className: "polygon-label",
+            direction: "center",
+            offset: L.point(0, 0) // Prevent offset issues
+          });
 
-      if (type === "polyline") {
-        // Create a thicker black outline for the polyline
-        const outlineLayer = L.geoJSON(data, {
-          style: {
-            color: "black",
-            weight: weight + 2, // Make it slightly thicker than the main line
-            opacity: 1,
-            lineCap: "round",
-          }
-        });
+          layer.on('mousemove', (e) => {
+            tooltip.setLatLng(e.latlng).setContent(name);
+            if (!layer._map.hasLayer(tooltip)) {
+              tooltip.addTo(layer._map);
+            }
+          });
 
-        // Create the actual polyline with the given color
-        const mainLayer = L.geoJSON(data, {
-          style: {
-            color,
-            weight,
-            opacity: 1,
-            lineCap: "round",
-          }
-        });
+          layer.on('mouseout', () => {
+            if (layer._map.hasLayer(tooltip)) {
+              layer._map.removeLayer(tooltip);
+            }
+          });
 
-        // Group both layers together
-        featureLayer = L.layerGroup([outlineLayer, mainLayer]);
-      } else {
-        // Create a polygon with a black border
-        featureLayer = L.geoJSON(data, {
-          style: {
-            color,
-            weight: weight,
-            fillOpacity: 0.5,
-            stroke: true, // Ensures a border is drawn
-          },
-          clickTolerance: tolerance,
-          onEachFeature: (feature, layer) => {
-            // Create a tooltip but do not bind it statically
-            const tooltip = L.tooltip({
-              permanent: false,
-              className: "polygon-label",
-              direction: "center",
-              offset: L.point(0, 0) // Prevent offset issues
-            });
-
-            layer.on('mousemove', (e) => {
-              tooltip.setLatLng(e.latlng).setContent(name);
-              if (!layer._map.hasLayer(tooltip)) {
-                tooltip.addTo(layer._map);
-              }
-            });
-
-            layer.on('mouseout', () => {
-              if (layer._map.hasLayer(tooltip)) {
-                layer._map.removeLayer(tooltip);
-              }
-            });
-
-            // Add click event
-            layer.on('click', (e) => {
-              const popup = L.popup()
-                .setLatLng(e.latlng)
-                .setContent(PopupContent || `Name: ${name}`)
-                .openOn(layer._map);
-            });
-          }
-        });
-      }
+          // Add click event
+          layer.on('click', (e) => {
+            const popup = L.popup()
+              .setLatLng(e.latlng)
+              .setContent(PopupContent || `Name: ${name}`)
+              .openOn(layer._map);
+          });
+        }
+      });
     
-      // Store the feature (either a polygon or polyline group)
-      features[key] = featureLayer;
-      console.log(`Feature created for ${key}`);
+      // Store the polygon in the polygons object
+      polygons[key] = polygon;
+      console.log(`Polygon created for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
 
   await Promise.all(promises); // Wait for all fetches to complete
-  return features;
+  return polygons;
 };
+
