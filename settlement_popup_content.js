@@ -23,6 +23,11 @@ export const men = {
     description: `Minas Anor - the Tower of the Sun - was established as a stronghold by Anarion, son of Elendil, and over time it became the greatest city in Gondor. As the threat from Mordor increased, the City was renamed Minas Tirith - the Tower of Guard.`,
     url: "https://thainsbook.minastirith.cz/minastirith.html",
   },
+  tower_of_amon_sul: {
+    name: "Tower of Amon Sul",
+    description: `Watch-tower on Weathertop. Weathertop - which was also called Amon Sul - was the southernmost of the Weather Hills. It was located north of the Great East Road in Eriador. The Tower of Amon Sul was once tall and fair, but by the end of the Third Age only ruins remained.`,
+    url: "https://thainsbook.minastirith.cz/fortress.html#Amon%20Sul",
+  },
   rohan: {
     name: "Rohan",
     description: `Rohan was the home of the Rohirrim - a hardy race of Men known for their love of horses. The land was once part of Gondor, but it was given to the Rohirrim when Eorl the Young led them from the North to help Gondor fight an enemy invasion. Rohan remained Gondor's staunchest ally, and during the War of the Ring the Rohirrim rode to the aid of Gondor once more at the Battle of the Pelennor Fields.`,

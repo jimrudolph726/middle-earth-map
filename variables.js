@@ -329,6 +329,9 @@ export const mensettlements = {
   minastirith: { 
     CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenGondorIcon, popup: createSettlementPopup(men.minastirith.name, men.minastirith.description, men.minastirith.url)
   },
+  tower_of_amon_sul: { 
+    CheckboxId: 'men', coords: [44.9466629,-93.3083686], icon: icons.MenGondorIcon, popup: createSettlementPopup(men.tower_of_amon_sul.name, men.tower_of_amon_sul.description, men.tower_of_amon_sul.url)
+  },
   rohan: { 
     CheckboxId: 'men', coords: [44.9426410,-93.3043699], icon: icons.MenRohanIcon, popup: createSettlementPopup(men.rohan.name, men.rohan.description, men.rohan.url)
   },
