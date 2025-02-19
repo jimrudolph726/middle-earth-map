@@ -415,11 +415,9 @@ const mountains = {
 };
 const hills = {
   weather_top:{
-    pathName:'weather_top', color: 'orange', name: 'Weather Top' , PopupContent: createGeographicPopup(hill.weather_top.name, hill.weather_top.elvish_name, hill.weather_top.elvish_meaning, hill.weather_top.description, hill.weather_top.url ), tolerance: 1, weight: 2 
+    pathName:'weather_top', color: 'brown', name: 'Weather Top' , PopupContent: createGeographicPopup(hill.weather_top.name, hill.weather_top.elvish_name, hill.weather_top.elvish_meaning, hill.weather_top.description, hill.weather_top.url ), tolerance: 1, weight: 2 
   },
 };
-
-
 const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url ), tolerance: 1, weight: 2
   },
