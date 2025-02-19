@@ -144,6 +144,7 @@ export const hill = {
     name: "Weather Top",
     elvish_name: "Amon Sul",
     elvish_meaning: `Weathertop was called Amon Sûl in Sindarin. Amon Sûl means "Hill of the Wind" from amon meaning "hill" and sûl meaning "wind." It was also called Weathertop Hill.`,
+    description: `Hills in Eriador. The Weather Hills were located just north of the Great East Road about midway between Bree and the Last Bridge. The Midgewater Marshes were west of the Weather Hills.`,
     url: "https://thainsbook.minastirith.cz/hills.html#Weathertop",
   },
 }
