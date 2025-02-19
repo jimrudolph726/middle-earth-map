@@ -158,7 +158,7 @@ export const createGeographicFeature = async (geographic_data) => {
       const polygon = L.geoJSON(data, {
         style: {
           stroke: true,   // Ensures the border is applied
-          color: 'black', // Border (outline) color
+          color: color, // Border (outline) color
           weight: 2,      // Border thickness
           fillColor: color, // Fill color (uses the polygon's defined color)
           fillOpacity: 0.5 // Adjust transparency
