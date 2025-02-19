@@ -139,6 +139,14 @@ export const mountain = {
     url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
   },
 }
+export const hill = {
+  weather_top: {
+    name: "Weather Top",
+    elvish_name: "Amon Sul",
+    elvish_meaning: `Weathertop was called Amon Sûl in Sindarin. Amon Sûl means "Hill of the Wind" from amon meaning "hill" and sûl meaning "wind." It was also called Weathertop Hill.`,
+    url: "https://thainsbook.minastirith.cz/hills.html#Weathertop",
+  },
+}
 
 export const river = {
   greylin: {

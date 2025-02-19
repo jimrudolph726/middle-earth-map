@@ -10,6 +10,7 @@ import {
   forest,
   mountain_range,
   mountain,
+  hill,
   river,
   lake_sea,
 } from './geographic_popup_content.js'
@@ -412,6 +413,13 @@ const mountains = {
     pathName:'lonely_mountain', color: 'orange', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ), tolerance: 1, weight: 2 
   },
 };
+const hills = {
+  weather_top:{
+    pathName:'weather_top', color: 'orange', name: 'Weather Top' , PopupContent: createGeographicPopup(hill.weather_top.name, hill.weather_top.elvish_name, hill.weather_top.elvish_meaning, hill.weather_top.description, hill.weather_top.url ), tolerance: 1, weight: 2 
+  },
+};
+
+
 const forests = {
   mirkwood: {pathName:'mirkwood', color: 'green', name: 'Mirkwood', PopupContent: createGeographicPopup(forest.mirkwood.name, forest.mirkwood.elvish_name, forest.mirkwood.elvish_meaning, forest.mirkwood.description, forest.mirkwood.url ), tolerance: 1, weight: 2
   },
@@ -461,6 +469,7 @@ const lakes_seas = {
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: mountains, checkboxId: 'mountainsCheckbox'},
+  {data: hills, checkboxId: 'hillsCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
   {data: rivers, checkboxId: 'riversCheckbox'},
   {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
