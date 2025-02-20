@@ -454,6 +454,12 @@ const rivers = {
   nimrodel: { 
     pathName: 'nimrodel', color: 'blue', name: 'Nimrodel', PopupContent: createGeographicPopup(river.nimrodel.name, river.nimrodel.elvish_name, river.nimrodel.elvish_meaning, river.nimrodel.description, river.nimrodel.url ), tolerance: 10, weight: 7  
   },
+  hoarwell: { 
+    pathName: 'hoarwell', color: 'blue', name: 'Hoarwell', PopupContent: createGeographicPopup(river.hoarwell.name, river.hoarwell.elvish_name, river.hoarwell.elvish_meaning, river.hoarwell.description, river.hoarwell.url ), tolerance: 10, weight: 7  
+  },
+  greyflood: { 
+    pathName: 'greyflood', color: 'blue', name: 'Greyflood', PopupContent: createGeographicPopup(river.greyflood.name, river.greyflood.elvish_name, river.greyflood.elvish_meaning, river.greyflood.description, river.greyflood.url ), tolerance: 10, weight: 7  
+  },
 }
 const lakes_seas = {
   lake_evendim: { 

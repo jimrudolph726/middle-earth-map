@@ -138,7 +138,8 @@ export const mountain = {
     description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland.",
     url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
   },
-}
+};
+
 export const hill = {
   weather_top: {
     name: "Weather Top",
@@ -147,7 +148,7 @@ export const hill = {
     description: `Hills in Eriador. The Weather Hills were located just north of the Great East Road about midway between Bree and the Last Bridge. The Midgewater Marshes were west of the Weather Hills.`,
     url: "https://thainsbook.minastirith.cz/hills.html#Weathertop",
   },
-}
+};
 
 export const river = {
   greylin: {
@@ -185,7 +186,21 @@ export const river = {
     description: `River of Lothlorien. The source of the Nimrodel was in the eastern Misty Mountains. The Nimrodel flowed down the wooded mountain slopes and over a waterfall and then joined the Silverlode, a river that ran through Lothlorien to the Anduin.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Nimrodel",
   },
-}
+  hoarwell: {
+    name: "Hoarwell",
+    elvish_name: "Mitheithel",
+    elvish_meaning: `The word Mitheithel comes from the words mith meaning "grey" and eithel meaning "spring, well." The word hoar means "grey."`,
+    description: `River in Eriador. The source of the Hoarwell was in the Ettenmoors on the west side of the northern Misty Mountains. The place where the Hoarwell rose may have been called Hoardale.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Hoarwell",
+  },
+  greyflood: {
+    name: "Greyflood",
+    elvish_name: "Gwaithir/Gwathlo",
+    elvish_meaning: `The original Sindarin name given to the river was Gwaithir meaning "River of Shadow" from gwath meaning "shadow" and hir from sir meaning "river." The name referred to the shadows cast on the river by the dense forest on its banks. Later when the Numenoreans discovered the marshy Swanfleet at the source of the river they changed the name to Gwathló - "the shadowy river from the fens." The element lô is from loga meaning "wet, soaked, swampy."`,
+    description: `River on the southern border of Eriador. North of the Greyflood was the region of Eriador called Minhiriath and south of the Greyflood was an area called Enedwaith.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Hoarwell",
+  },
+};
 
 export const lake_sea = {
   lake_evendim: {
@@ -216,4 +231,4 @@ export const lake_sea = {
     description: `Sea in eastern Middle-earth. The Sea of Rhun was a large inland sea located in Rhun, a land in far eastern Middle-earth.`,
     url: "https://thainsbook.minastirith.cz/lakes.html#Rhun",
   },
-}
+};
