@@ -12,6 +12,7 @@ import {
   forest,
   mountain_range,
   mountain,
+  river,
   hill,
   lake_sea,
 } from './geographic_popup_content.js'
@@ -447,7 +448,7 @@ const riverNames = [
   "glanduin"
 ];
 const rivers = Object.fromEntries(
-  riverNames.map(name => [name, otherGeographicObjects(name)])
+  riverNames.map(name => [name, otherGeographicObjects(river, name)])
 );
 const lakes_seas = {
   lake_evendim: { 
