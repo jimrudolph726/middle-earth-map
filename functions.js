@@ -96,7 +96,7 @@ export const riverObjects = (river_name) => {
   const riverData = river[river_name];
     return  {pathName: river_name, color: 'blue', name: river_name.charAt(0).toUpperCase() + river_name.slice(1), PopupContent: createGeographicPopup(riverData.name, riverData.elvish_name, riverData.elvish_meaning, riverData.description, riverData.url ), tolerance: 10, weight: 7}
 };
-export const otherGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
+export const createGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
   const otherGeographicData = object_group[object_name];
 
   return {
@@ -174,7 +174,7 @@ export const createMarkers = (locations, campsite = 'no') => {
 };
 
 // Paths and Geographic Features function
-export const createGeographicFeature = async (geographic_data) => {
+export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
