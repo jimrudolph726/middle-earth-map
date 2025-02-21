@@ -92,10 +92,6 @@ export const createSettlementPopup = (name, description, url) => {
     </button>
   </div>`;
 };
-export const riverObjects = (river_name) => {
-  const riverData = river[river_name];
-    return  {pathName: river_name, color: 'blue', name: river_name.charAt(0).toUpperCase() + river_name.slice(1), PopupContent: createGeographicPopup(riverData.name, riverData.elvish_name, riverData.elvish_meaning, riverData.description, riverData.url ), tolerance: 10, weight: 7}
-};
 export const createGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
   const otherGeographicData = object_group[object_name];
 

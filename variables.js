@@ -430,12 +430,10 @@ const forestNames = [
   "druadan_forest",
   "bindbole_wood",
   "chetwood",
-]; // List of forest names
-
+];
 const forests = Object.fromEntries(
   forestNames.map(name => [name, createGeographicObjects(forest, name, "green", 1, 2)])
 );
-
 const riverNames = [
   "greylin",
   "langwell",
