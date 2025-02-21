@@ -103,28 +103,18 @@ export const otherGeographicObjects = (object_group, object_name) => {
   let tolerance = 1;  // Default value for tolerance
   let weight = 2;     // Default value for weight
 
-  // Debugging to check the value of object_group
-  console.log('object_group:', object_group);  // Check the value being passed
-
-  switch (object_group) {
-    case "forest":
-      color = "green"; // Set color for forests
-      break;
-    case "mountain":
-      color = "yellow"; // Set color for mountains
-      break;
-    case "river":
-      color = "blue"; // Set color for rivers
-      tolerance = 10; // Overrides default tolerance for "river"
-      weight = 7;     // Overrides default weight for "river"
-      break;
-    default:
-      color = "blue";  // Default color for other object_groups
-      break;
+  // Set the color, tolerance, and weight based on the object_group
+  if (object_group === "forest") {
+    color = "green";  // Set color for forests
+  } else if (object_group === "mountain") {
+    color = "yellow"; // Set color for mountains
+  } else if (object_group === "river") {
+    color = "blue";   // Set color for rivers
+    tolerance = 10;   // Overrides default tolerance for "river"
+    weight = 7;       // Overrides default weight for "river"
+  } else {
+    color = "blue";   // Default color for other object_groups
   }
-
-  // Debugging to ensure correct color assignment
-  console.log('Assigned color:', color);  // Check the color after switch
 
   return {
     pathName: object_name,
@@ -141,6 +131,7 @@ export const otherGeographicObjects = (object_group, object_name) => {
     weight: weight
   };
 };
+
 
 
 
