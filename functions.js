@@ -96,25 +96,8 @@ export const riverObjects = (river_name) => {
   const riverData = river[river_name];
     return  {pathName: river_name, color: 'blue', name: river_name.charAt(0).toUpperCase() + river_name.slice(1), PopupContent: createGeographicPopup(riverData.name, riverData.elvish_name, riverData.elvish_meaning, riverData.description, riverData.url ), tolerance: 10, weight: 7}
 };
-export const otherGeographicObjects = (object_group, object_name) => {
+export const otherGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
   const otherGeographicData = object_group[object_name];
-  
-  let color;
-  let tolerance = 1;  // Default value for tolerance
-  let weight = 2;     // Default value for weight
-
-  // Set the color, tolerance, and weight based on the object_group
-  if (object_group === "forest") {
-    color = "green";  // Set color for forests
-  } else if (object_group === "mountain") {
-    color = "yellow"; // Set color for mountains
-  } else if (object_group === "river") {
-    color = "blue";   // Set color for rivers
-    tolerance = 10;   // Overrides default tolerance for "river"
-    weight = 7;       // Overrides default weight for "river"
-  } else {
-    color = "blue";   // Default color for other object_groups
-  }
 
   return {
     pathName: object_name,
@@ -131,9 +114,6 @@ export const otherGeographicObjects = (object_group, object_name) => {
     weight: weight
   };
 };
-
-
-
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {

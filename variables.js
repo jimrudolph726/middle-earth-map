@@ -433,7 +433,7 @@ const forestNames = [
 ]; // List of forest names
 
 const forests = Object.fromEntries(
-  forestNames.map(name => [name, otherGeographicObjects(forest, name)])
+  forestNames.map(name => [name, otherGeographicObjects(forest, name, "green", 1, 2)])
 );
 
 const riverNames = [
@@ -448,7 +448,7 @@ const riverNames = [
   "glanduin"
 ];
 const rivers = Object.fromEntries(
-  riverNames.map(name => [name, otherGeographicObjects(river, name)])
+  riverNames.map(name => [name, otherGeographicObjects(river, name, "blue", 10, 7)])
 );
 const lakes_seas = {
   lake_evendim: { 
