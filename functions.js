@@ -98,26 +98,48 @@ export const riverObjects = (river_name) => {
 };
 export const otherGeographicObjects = (object_group, object_name) => {
   const otherGeographicData = object_group[object_name];
+  
   let color;
-  let tolerance = 1;
-  let weight = 2;
+  let tolerance = 1;  // Default value for tolerance
+  let weight = 2;     // Default value for weight
+
+  // Debugging to check the value of object_group
+  console.log('object_group:', object_group);  // Check the value being passed
+
   switch (object_group) {
     case "forest":
-      color = "green";
+      color = "green"; // Set color for forests
       break;
     case "mountain":
-      color = "yellow";
+      color = "yellow"; // Set color for mountains
       break;
     case "river":
-      color = "blue";
-      tolerance = 10;
-      weight = 7;
+      color = "blue"; // Set color for rivers
+      tolerance = 10; // Overrides default tolerance for "river"
+      weight = 7;     // Overrides default weight for "river"
       break;
     default:
       color = "blue";  // Default color for other object_groups
       break;
   }
-    return  {pathName: object_name, color: color, name: object_name.charAt(0).toUpperCase() + object_name.slice(1), PopupContent: createGeographicPopup(otherGeographicData.name, otherGeographicData.elvish_name, otherGeographicData.elvish_meaning, otherGeographicData.description, otherGeographicData.url ), tolerance: tolerance, weight: weight}
+
+  // Debugging to ensure correct color assignment
+  console.log('Assigned color:', color);  // Check the color after switch
+
+  return {
+    pathName: object_name,
+    color: color,
+    name: object_name.charAt(0).toUpperCase() + object_name.slice(1),
+    PopupContent: createGeographicPopup(
+      otherGeographicData.name,
+      otherGeographicData.elvish_name,
+      otherGeographicData.elvish_meaning,
+      otherGeographicData.description,
+      otherGeographicData.url
+    ),
+    tolerance: tolerance,
+    weight: weight
+  };
 };
 
 
