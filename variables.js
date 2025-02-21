@@ -12,7 +12,6 @@ import {
   mountain_range,
   mountain,
   hill,
-  river,
   lake_sea,
 } from './geographic_popup_content.js'
  
