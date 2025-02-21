@@ -99,8 +99,8 @@ export const riverObjects = (river_name) => {
 export const otherGeographicObjects = (object_group, object_name) => {
   const otherGeographicData = object_group[object_name];
   let color;
-  let tolerance;
-  let weight;
+  let tolerance = 1;
+  let weight = 2;
   switch (object_group) {
     case "forest":
       color = "green";
