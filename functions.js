@@ -94,7 +94,7 @@ export const createSettlementPopup = (name, description, url) => {
 };
 export const riverObjects = (river_name) => {
   const riverData = river[river_name];
-    return  {pathName: '${name}', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(riverData.name, riverData.elvish_name, riverData.elvish_meaning, riverData.description, riverData.url ), tolerance: 10, weight: 7}
+    return  {pathName: river_name, color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(riverData.name, riverData.elvish_name, riverData.elvish_meaning, riverData.description, riverData.url ), tolerance: 10, weight: 7}
 };
 
 // Checkbox listener functions

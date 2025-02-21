@@ -464,7 +464,7 @@ const rivers = {
   sirannon: { 
     pathName: 'sirannon', color: 'blue', name: 'Sirannon', PopupContent: createGeographicPopup(river.sirannon.name, river.sirannon.elvish_name, river.sirannon.elvish_meaning, river.sirannon.description, river.sirannon.url ), tolerance: 10, weight: 7  
   },
-  glanduin: riverObjects(glanduin),
+  glanduin: riverObjects("glanduin"),
 }
 const lakes_seas = {
   lake_evendim: { 
