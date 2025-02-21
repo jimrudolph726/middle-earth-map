@@ -98,7 +98,19 @@ export const riverObjects = (river_name) => {
 };
 export const otherGeographicObjects = (object_group, object_name) => {
   const otherGeographicData = object_group[object_name];
-    return  {pathName: object_name, color: 'blue', name: object_name.charAt(0).toUpperCase() + object_name.slice(1), PopupContent: createGeographicPopup(otherGeographicData.name, otherGeographicData.elvish_name, otherGeographicData.elvish_meaning, otherGeographicData.description, otherGeographicData.url ), tolerance: 1, weight: 2}
+  let color;
+  switch (object_group) {
+    case "forest":
+      color = "green";
+      break;
+    case "mountain":
+      color = "yellow";
+      break;
+    default:
+      color = "blue";  // Default color for other object_groups
+      break;
+  }
+    return  {pathName: object_name, color: color, name: object_name.charAt(0).toUpperCase() + object_name.slice(1), PopupContent: createGeographicPopup(otherGeographicData.name, otherGeographicData.elvish_name, otherGeographicData.elvish_meaning, otherGeographicData.description, otherGeographicData.url ), tolerance: 1, weight: 2}
 };
 
 

@@ -419,26 +419,22 @@ const hills = {
     pathName:'weather_top', color: 'brown', name: 'Weather Top' , PopupContent: createGeographicPopup(hill.weather_top.name, hill.weather_top.elvish_name, hill.weather_top.elvish_meaning, hill.weather_top.description, hill.weather_top.url ), tolerance: 1, weight: 2 
   },
 };
-const forests = {
-  mirkwood: otherGeographicObjects(forest, "mirkwood"),
+const forestNames = [
+  "mirkwood", 
+  "blackwood",
+  "old_forest",
+  "fangorn_forest",
+  "lothlorien",
+  "firien_wood",
+  "druadan_forest",
+  "bindbole_wood",
+  "chetwood",
+]; // List of forest names
 
-  blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url ), tolerance: 1, weight: 2
-  },
-  old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url ), tolerance: 1, weight: 2
-  },
-  fangorn_forest: {pathName:'fangorn_forest', color: 'green', name: 'Fangorn Forest', PopupContent: createGeographicPopup(forest.fangorn_forest.name, forest.fangorn_forest.elvish_name, forest.fangorn_forest.elvish_meaning, forest.fangorn_forest.description, forest.fangorn_forest.url ), tolerance: 1, weight: 2
-  },
-  lothlorien: {pathName:'lothlorien', color: 'green', name: 'Lothlorien', PopupContent: createGeographicPopup(forest.lothlorien.name, forest.lothlorien.elvish_name, forest.lothlorien.elvish_meaning, forest.lothlorien.description, forest.lothlorien.url ), tolerance: 1, weight: 2
-  },
-  firien_wood: {pathName:'firien_wood', color: 'green', name: 'Firien Wood', PopupContent: createGeographicPopup(forest.firien_wood.name, forest.firien_wood.elvish_name, forest.firien_wood.elvish_meaning, forest.firien_wood.description, forest.firien_wood.url ), tolerance: 1, weight: 2
-  },
-  druadan_forest: {pathName:'druadan_forest', color: 'green', name: 'Druadan Forest', PopupContent: createGeographicPopup(forest.druadan_forest.name, forest.druadan_forest.elvish_name, forest.druadan_forest.elvish_meaning, forest.druadan_forest.description, forest.druadan_forest.url ), tolerance: 1, weight: 2
-  },
-  bindbole_wood: {pathName:'bindbole_wood', color: 'green', name: 'Bindbole Wood', PopupContent: createGeographicPopup(forest.bindbole_wood.name, forest.bindbole_wood.elvish_name, forest.bindbole_wood.elvish_meaning, forest.bindbole_wood.description, forest.bindbole_wood.url ), tolerance: 1, weight: 2
-  },
-  chetwood: {pathName:'chetwood', color: 'green', name: 'Chetwood', PopupContent: createGeographicPopup(forest.chetwood.name, forest.chetwood.elvish_name, forest.chetwood.elvish_meaning, forest.chetwood.description, forest.chetwood.url ), tolerance: 1, weight: 2
-  },
-};
+const forests = Object.fromEntries(
+  forestNames.map(name => [name, otherGeographicObjects(forest, name)])
+);
+
 const riverNames = [
   "greylin",
   "langwell",
