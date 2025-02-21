@@ -200,6 +200,20 @@ export const river = {
     description: `River on the southern border of Eriador. North of the Greyflood was the region of Eriador called Minhiriath and south of the Greyflood was an area called Enedwaith.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Hoarwell",
   },
+  sirannon: {
+    name: "Sirannon",
+    elvish_name: "Sirannon",
+    elvish_meaning: `The name Sirannon means "Gate-stream" from sîr meaning "river" and annon meaning "great door or gate." It was called the Gate-stream in the Common Speech.`,
+    description: `The Gate-stream of Moria, or Khazad-dum. The Sirannon began under the Mountains of Moria and emerged from the base of the Walls of Moria near the West-gate. It flowed through the valley in front of the gate and then cascaded over the Stair Falls.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Sirannon",
+  },
+  glanduin: {
+    name: "Glanduin",
+    elvish_name: "Glanduin",
+    elvish_meaning: `The name Glanduin means "border river" from glan meaning "border" and duin meaning "river." The name was usually applied only to the swift upper course of the river, while the marshy lower course was called Swanfleet. It was also called the Swanfleet river because it was the river that fed the marshlands of Swanfleet.`,
+    description: `River on the southern border of Eriador. The Glanduin began in the Misty Mountains south of Moria and flowed westward.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Glanduin",
+  },
 };
 
 export const lake_sea = {

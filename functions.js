@@ -1,5 +1,14 @@
 // functions.js
 
+import {
+  forest,
+  mountain_range,
+  mountain,
+  hill,
+  river,
+  lake_sea,
+} from './geographic_popup_content.js'
+
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
@@ -82,6 +91,10 @@ export const createSettlementPopup = (name, description, url) => {
       Learn more here
     </button>
   </div>`;
+};
+export const riverObjects = (river_name) => {
+  const riverData = river[river_name];
+    return  {pathName: '${name}', color: 'blue', name: 'Greylin', PopupContent: createGeographicPopup(riverData.name, riverData.elvish_name, riverData.elvish_meaning, riverData.description, riverData.url ), tolerance: 10, weight: 7}
 };
 
 // Checkbox listener functions

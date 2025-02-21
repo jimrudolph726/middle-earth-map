@@ -4,6 +4,7 @@ import {
   createCampsitePopup,
   createGeographicPopup,
   createSettlementPopup,
+  riverObjects,
  } from './functions.js';
 
 import {
@@ -460,6 +461,10 @@ const rivers = {
   greyflood: { 
     pathName: 'greyflood', color: 'blue', name: 'Greyflood', PopupContent: createGeographicPopup(river.greyflood.name, river.greyflood.elvish_name, river.greyflood.elvish_meaning, river.greyflood.description, river.greyflood.url ), tolerance: 10, weight: 7  
   },
+  sirannon: { 
+    pathName: 'sirannon', color: 'blue', name: 'Sirannon', PopupContent: createGeographicPopup(river.sirannon.name, river.sirannon.elvish_name, river.sirannon.elvish_meaning, river.sirannon.description, river.sirannon.url ), tolerance: 10, weight: 7  
+  },
+  glanduin: riverObjects(glanduin),
 }
 const lakes_seas = {
   lake_evendim: { 
