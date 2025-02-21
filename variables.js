@@ -5,6 +5,7 @@ import {
   createGeographicPopup,
   createSettlementPopup,
   riverObjects,
+  otherGeographicObjects,
  } from './functions.js';
 
 import {
