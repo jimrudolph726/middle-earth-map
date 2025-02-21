@@ -99,6 +99,8 @@ export const riverObjects = (river_name) => {
 export const otherGeographicObjects = (object_group, object_name) => {
   const otherGeographicData = object_group[object_name];
   let color;
+  let tolerance;
+  let weight;
   switch (object_group) {
     case "forest":
       color = "green";
@@ -106,11 +108,16 @@ export const otherGeographicObjects = (object_group, object_name) => {
     case "mountain":
       color = "yellow";
       break;
+    case "river":
+      color = "blue";
+      tolerance = 10;
+      weight = 7;
+      break;
     default:
       color = "blue";  // Default color for other object_groups
       break;
   }
-    return  {pathName: object_name, color: color, name: object_name.charAt(0).toUpperCase() + object_name.slice(1), PopupContent: createGeographicPopup(otherGeographicData.name, otherGeographicData.elvish_name, otherGeographicData.elvish_meaning, otherGeographicData.description, otherGeographicData.url ), tolerance: 1, weight: 2}
+    return  {pathName: object_name, color: color, name: object_name.charAt(0).toUpperCase() + object_name.slice(1), PopupContent: createGeographicPopup(otherGeographicData.name, otherGeographicData.elvish_name, otherGeographicData.elvish_meaning, otherGeographicData.description, otherGeographicData.url ), tolerance: tolerance, weight: weight}
 };
 
 

@@ -447,7 +447,7 @@ const riverNames = [
   "glanduin"
 ];
 const rivers = Object.fromEntries(
-  riverNames.map(name => [name, riverObjects(name)])
+  riverNames.map(name => [name, otherGeographicObjects(name)])
 );
 const lakes_seas = {
   lake_evendim: { 
