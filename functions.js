@@ -96,8 +96,8 @@ export const riverObjects = (river_name) => {
   const riverData = river[river_name];
     return  {pathName: river_name, color: 'blue', name: river_name.charAt(0).toUpperCase() + river_name.slice(1), PopupContent: createGeographicPopup(riverData.name, riverData.elvish_name, riverData.elvish_meaning, riverData.description, riverData.url ), tolerance: 10, weight: 7}
 };
-export const otherGeographicObjects = (object_name) => {
-  const otherGeographicData = object[object_name];
+export const otherGeographicObjects = (object_group, object_name) => {
+  const otherGeographicData = object_group[object_name];
     return  {pathName: object_name, color: 'blue', name: object_name.charAt(0).toUpperCase() + object_name.slice(1), PopupContent: createGeographicPopup(otherGeographicData.name, otherGeographicData.elvish_name, otherGeographicData.elvish_meaning, otherGeographicData.description, otherGeographicData.url ), tolerance: 1, weight: 2}
 };
 

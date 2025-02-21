@@ -420,7 +420,7 @@ const hills = {
   },
 };
 const forests = {
-  mirkwood: otherGeographicObjects("mirkwood"),
+  mirkwood: otherGeographicObjects("forest", "mirkwood"),
 
   blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url ), tolerance: 1, weight: 2
   },
