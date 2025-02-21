@@ -420,7 +420,7 @@ const hills = {
 };
 const forests = {
   mirkwood: otherGeographicObjects("mirkwood"),
-  
+
   blackwood: {pathName:'blackwood', color: 'green', name: 'Remnants of the Blackwood', PopupContent: createGeographicPopup(forest.blackwood.name, forest.blackwood.elvish_name, forest.blackwood.elvish_meaning, forest.blackwood.description, forest.blackwood.url ), tolerance: 1, weight: 2
   },
   old_forest: {pathName:'old_forest', color: 'green', name: 'Old Forest (a remnant of the Blackwood', PopupContent: createGeographicPopup(forest.old_forest.name, forest.old_forest.elvish_name, forest.old_forest.elvish_meaning, forest.old_forest.description, forest.old_forest.url ), tolerance: 1, weight: 2
@@ -438,17 +438,20 @@ const forests = {
   chetwood: {pathName:'chetwood', color: 'green', name: 'Chetwood', PopupContent: createGeographicPopup(forest.chetwood.name, forest.chetwood.elvish_name, forest.chetwood.elvish_meaning, forest.chetwood.description, forest.chetwood.url ), tolerance: 1, weight: 2
   },
 };
-const rivers = {
-  greylin: riverObjects("greylin"),
-  langwell: riverObjects("langwell"),
-  anduin: riverObjects("anduin"),
-  silverlode: riverObjects("silverlode"),
-  nimrodel: riverObjects("nimrodel"),
-  hoarwell: riverObjects("hoarwell"),
-  greyflood: riverObjects("greyflood"),
-  sirannon: riverObjects("sirannon"),
-  glanduin: riverObjects("glanduin"),
-}
+const riverNames = [
+  "greylin",
+  "langwell",
+  "anduin",
+  "silverlode",
+  "nimrodel",
+  "hoarwell",
+  "greyflood",
+  "sirannon",
+  "glanduin"
+];
+const rivers = Object.fromEntries(
+  riverNames.map(name => [name, riverObjects(name)])
+);
 const lakes_seas = {
   lake_evendim: { 
     pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 1, weight: 2 
