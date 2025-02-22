@@ -322,7 +322,7 @@ export const markersData = [
   { data: gandalfthegreycampsites, checkboxId: 'gandalfthegreycampsitesCheckbox', campsite: 'campsite' },
   { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
-    MensettlmentsNames.map(name => [name, createSettlementObjects(men, name)])), 
+    mensettlementsNames.map(name => [name, createSettlementObjects(men, name)])), 
     checkboxId: 'menCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
     hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name)])), 
