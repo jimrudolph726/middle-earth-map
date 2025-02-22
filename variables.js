@@ -1,12 +1,3 @@
-// variables.js
-
-import {
-  createCampsitePopup,
-  createSettlementPopup,
-  createGeographicObjects,
-  createSettlementObjects,
- } from './functions.js'
-
 import {
   forest,
   mountain_range,
@@ -14,16 +5,21 @@ import {
   river,
   hill,
   lake_sea,
-} from './geographic_popup_content.js'
- 
+} from './geographic_popup_content.js';
+
 import {
   elves,
   men,
   hobbits,
   icons,
-} from './settlement_popup_content.js'
+} from './settlement_popup_content.js';
 
-
+import {
+  createCampsitePopup,
+  createSettlementPopup,
+  createGeographicObjects,
+  createSettlementObjects,
+ } from './functions.js';
 
 // Campsites (markers)
 const samfrodocampsites = {
