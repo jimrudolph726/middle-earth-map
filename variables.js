@@ -409,25 +409,18 @@ const mountain_ranges = {
     pathName:'mountains_of_shadow', color: 'orange', name: 'Mountains of Shadow' , PopupContent: createGeographicPopup(mountain_range.mountains_of_shadow.name, mountain_range.mountains_of_shadow.elvish_name, mountain_range.mountains_of_shadow.elvish_meaning, mountain_range.mountains_of_shadow.description, mountain_range.mountains_of_shadow.url ), tolerance: 1, weight: 2
   },
 };
-const mountains = {
-  lonely_mountain:{
-    pathName:'lonely_mountain', color: 'brown', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ), tolerance: 1, weight: 2 
-  },
-};
-const lakes_seas = {
-  lake_evendim: { 
-    pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 1, weight: 2 
-  },
-  nen_hithoel: { 
-    pathName: 'nen_hithoel', color: 'blue', name: 'Nen Hithoel', PopupContent: createGeographicPopup(lake_sea.nen_hithoel.name, lake_sea.nen_hithoel.elvish_name, lake_sea.nen_hithoel.elvish_meaning, lake_sea.nen_hithoel.description, lake_sea.nen_hithoel.url ), tolerance: 1, weight: 2
-  },
-  sea_of_nurnen: { 
-    pathName: 'sea_of_nurnen', color: 'blue', name: 'Sea of Nurnen', PopupContent: createGeographicPopup(lake_sea.sea_of_nurnen.name, lake_sea.sea_of_nurnen.elvish_name, lake_sea.sea_of_nurnen.elvish_meaning, lake_sea.sea_of_nurnen.description, lake_sea.sea_of_nurnen.url ), tolerance: 1, weight: 2 
-  },
-  sea_of_rhun: { 
-    pathName: 'sea_of_rhun', color: 'blue', name: 'Sea of Rhun', PopupContent: createGeographicPopup(lake_sea.sea_of_rhun.name, lake_sea.sea_of_rhun.elvish_name, lake_sea.sea_of_rhun.elvish_meaning, lake_sea.sea_of_rhun.description, lake_sea.sea_of_rhun.url ), tolerance: 1, weight: 2 
-  },
-}
+const mountain_rangeNames = [
+  "misty_mountains",
+  "white_mountains",
+  "ash_mountains",
+  "mountains_of_angmar",
+  "grey_mountains",
+  "blue_mountains",
+  "mountains_of_shadow",
+]
+const mountainNames = [
+  "lonely_mountain",
+]
 const lake_seaNames = [
   "lake_evendim",
   "nen_hithoel",
@@ -458,11 +451,16 @@ const riverNames = [
 ];
 const hillNames = [
   "weather_top",
+  "iron_hills",
 ]
 
 export const geographicData = [
-  {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
-  {data: mountains, checkboxId: 'mountainsCheckbox'},
+  {data: Object.fromEntries(
+    mountain_rangeNames.map(name => [name, createGeographicObjects(mountain_range, name, "brown", 1, 2)])),  
+    checkboxId: 'mountain_rangesCheckbox'},
+  {data: Object.fromEntries(
+    mountainNames.map(name => [name, createGeographicObjects(mountain, name, "brown", 1, 2)])), 
+    checkboxId: 'mountainsCheckbox'},
   {data: Object.fromEntries(
     hillNames.map(name => [name, createGeographicObjects(hill, name, "brown", 1, 2)])),  
     checkboxId: 'hillsCheckbox'},
