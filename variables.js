@@ -1,11 +1,11 @@
 // variables.js
 
-import { 
+import {
   createCampsitePopup,
   createSettlementPopup,
   createGeographicObjects,
   createSettlementObjects,
- } from './functions.js';
+ } from './functions.js'
 
 import {
   forest,
