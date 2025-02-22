@@ -7,7 +7,7 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
          onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
         <h3>${date}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px; font-size: 14px;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">${date}</td>
