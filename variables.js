@@ -367,7 +367,7 @@ export const markersData = [
   { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
-    hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name, CheckboxID, icons.HobbitsIcon)])), checkboxId: 'hobbitsCheckbox', campsite: 'no' },
+    hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name, icons.HobbitsIcon)])), checkboxId: 'hobbitsCheckbox', campsite: 'no' },
 ];
 
 // Paths
