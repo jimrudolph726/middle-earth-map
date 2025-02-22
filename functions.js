@@ -117,7 +117,7 @@ export const createSettlementObjects = (object_group, object_name, icon) => {
   return {
     coords: SettlementData.coords,
     icon: icon,
-    popup: createGeographicPopup(
+    popup: createSettlementPopup(
       SettlementData.name,
       SettlementData.description,
       SettlementData.url,
