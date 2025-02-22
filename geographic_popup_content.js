@@ -235,7 +235,13 @@ export const river = {
     description: `Stream in Mirkwood. The Enchanted Stream was a tributary of the Forest River. Its source was in the Mountains of Mirkwood, and it flowed north and crossed the path that led from the Forest Gate to the Elven-king's Halls.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Enchanted%20Stream",
   },
-
+  redwater: {
+    name: "Redwater",
+    elvish_name: "Carnen",
+    elvish_meaning: `A possible explanation for the name Redwater is that iron deposits from the Iron Hills may have turned sediment in the riverbed a rusty red color. The Redwater was called the Carnen in Sindarin which means "red water" from caran meaning "red" and nen meaning "water."`,
+    description: `River in northeastern Middle-earth. The Redwater began in the Iron Hills. It flowed south to join the River Running, which in turn flowed into the Sea of Rhun.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Redwater",
+  },
 };
 
 export const lake_sea = {

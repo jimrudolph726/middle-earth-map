@@ -392,6 +392,7 @@ const riverNames = [
   "forest_river",
   "river_running",
   "enchanted_stream",
+  "redwater",
 ];
 const hillNames = [
   "weather_top",
