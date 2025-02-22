@@ -126,8 +126,6 @@ export const createSettlementObjects = (object_group, object_name, CheckboxID, i
   };
 };
 
-
-
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);

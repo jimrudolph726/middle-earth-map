@@ -45,16 +45,18 @@ export const hobbits = {
     name: "Hobbiton",
     description: `Village in the Westfarthing of the Shire; home of Bilbo and Frodo Baggins. Hobbiton was located on the Water, about a mile northwest of its neighboring village Bywater. The Bywater Road passed through both villages and connected with the Great East Road to the south.`,
     url: "https://thainsbook.minastirith.cz/towns.html#Hobbiton",
-    coords: 
+    coords: [44.9466054,-93.3112966],
   },
   michel_delving: {
     name: "Michel Delving",
     description: `Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. The Mayor of Michel Delving was the Shire's only real government official. His office was in the Town Hole in Michel Delving. The museum known as the Mathom-house was also located in Michel Delving.`,
     url: "https://thainsbook.minastirith.cz/towns.html#Michel%20Delving",
+    coords: [44.9464735,-93.3116819],
   },
   crick_hollow: {
     name: "Crick Hollow",
     description: `Village in Buckland. Crickhollow was a few miles northeast of Bucklebury. It was a quiet, secluded village. `,
     url: "https://tolkiengateway.net/wiki/Crickhollow",
+    coords: [44.94648941,-93.31055274],
   },
 };

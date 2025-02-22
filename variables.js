@@ -358,13 +358,6 @@ hobbitsettlmentsNames = [
   "crickhollow",
 ]
 
-
-(object_group, CheckboxID, coords, icon, popup)
-
-
-Object.fromEntries(
-  hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name, CheckboxID, icons.HobbitsIcon)]))
-
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
   { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
@@ -373,7 +366,8 @@ export const markersData = [
   { data: gandalfthegreycampsites, checkboxId: 'gandalfthegreycampsitesCheckbox', campsite: 'campsite' },
   { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
-  { data: hobbitsettlements, checkboxId: 'hobbitsCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name, CheckboxID, icons.HobbitsIcon)])), checkboxId: 'hobbitsCheckbox', campsite: 'no' },
 ];
 
 // Paths
