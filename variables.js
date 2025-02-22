@@ -354,8 +354,8 @@ export const hobbitsettlements = {
 };
 const hobbitsettlmentsNames = [
   "hobbiton",
-  "micheldelving",
-  "crickhollow",
+  "michel_delving",
+  "crick_hollow",
 ]
 
 export const markersData = [
