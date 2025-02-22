@@ -1,3 +1,7 @@
+import {
+  icons,
+} from './variables.js'
+
 export const elves = {
   rivendell: {
     name: "Rivendell",
@@ -46,6 +50,7 @@ export const hobbits = {
     description: `Village in the Westfarthing of the Shire; home of Bilbo and Frodo Baggins. Hobbiton was located on the Water, about a mile northwest of its neighboring village Bywater. The Bywater Road passed through both villages and connected with the Great East Road to the south.`,
     url: "https://thainsbook.minastirith.cz/towns.html#Hobbiton",
     coords: [44.9466054,-93.3112966],
+    icon: icons.HobbitsIcon,
   },
   michel_delving: {
     name: "Michel Delving",

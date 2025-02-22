@@ -110,7 +110,6 @@ export const createGeographicObjects = (object_group, object_name, color, tolera
     weight: weight
   };
 };
-
 export const createSettlementObjects = (object_group, object_name, icon) => {
   const SettlementData = object_group[object_name];
 

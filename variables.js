@@ -39,7 +39,7 @@ function createIcon(url, size = [48, 48]) {
     popupAnchor: [0, -size[1] / 2],
   });
 }
-const icons = {
+export const icons = {
   HobbitsIcon: createIcon(iconUrls.hobbits),
   MenGondorIcon: createIcon(iconUrls.men_gondor),
   MenRohanIcon: createIcon(iconUrls.men_rohan),
@@ -341,17 +341,13 @@ export const mensettlements = {
     CheckboxId: 'men', coords: [44.94202323,-93.30482241], icon: icons.MenRohanIcon, popup: createSettlementPopup(men.edoras.name, men.edoras.description, men.edoras.url)
   },
 };
-export const hobbitsettlements = {
-  hobbiton: { 
-    CheckboxId: 'hobbits', coords: [44.9466054,-93.3112966], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.hobbiton.name, hobbits.hobbiton.description, hobbits.hobbiton.url)
-  },
-  micheldelving: { 
-    CheckboxId: 'hobbits', coords: [44.9464735,-93.3116819], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.michel_delving.name, hobbits.michel_delving.description, hobbits.michel_delving.url)
-  },
-  crickhollow: { 
-    CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.crick_hollow.name, hobbits.crick_hollow.description, hobbits.crick_hollow.url)
-  },
-};
+const mensettlementsNames = [
+  "bree",
+  "minastirith",
+  "tower_of_amon_sul",
+  "rohan",
+  "edoras",
+]
 const hobbitsettlmentsNames = [
   "hobbiton",
   "michel_delving",
