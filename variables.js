@@ -301,6 +301,11 @@ export const elvessettlements = {
     CheckboxId: 'elves', coords: [44.9448403,-93.3045497], icon: icons.LothlorienIcon, popup: createSettlementPopup(elves.lothlorien.name, elves.lothlorien.description, elves.lothlorien.url)
   }
 };
+
+const elvessettlmentsNames = [
+  "rivendell",
+  "lothlorien",
+]
 const mensettlementsNames = [
   "bree",
   "minastirith",
@@ -320,7 +325,9 @@ export const markersData = [
   { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
   { data: merrycampsites, checkboxId: 'merrycampsitesCheckbox', campsite: 'campsite' },
   { data: gandalfthegreycampsites, checkboxId: 'gandalfthegreycampsitesCheckbox', campsite: 'campsite' },
-  { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    elvessettlmentsNames.map(name => [name, createSettlementObjects(elves, name)])), 
+    checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
     mensettlementsNames.map(name => [name, createSettlementObjects(men, name)])), 
     checkboxId: 'menCheckbox', campsite: 'no' },
