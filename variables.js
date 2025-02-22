@@ -428,6 +428,12 @@ const lakes_seas = {
     pathName: 'sea_of_rhun', color: 'blue', name: 'Sea of Rhun', PopupContent: createGeographicPopup(lake_sea.sea_of_rhun.name, lake_sea.sea_of_rhun.elvish_name, lake_sea.sea_of_rhun.elvish_meaning, lake_sea.sea_of_rhun.description, lake_sea.sea_of_rhun.url ), tolerance: 1, weight: 2 
   },
 }
+const lake_seaNames = [
+  "lake_evendim",
+  "nen_hithoel",
+  "sea_of_nurnen",
+  "sea_of_rhun",
+];
 const forestNames = [
   "mirkwood", 
   "blackwood",
@@ -466,5 +472,7 @@ export const geographicData = [
   {data: Object.fromEntries(
     riverNames.map(name => [name, createGeographicObjects(river, name, "blue", 10, 7)])), 
     checkboxId: 'riversCheckbox'},
-  {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
+  {data: Object.fromEntries(
+    lake_seaNames.map(name => [name, createGeographicObjects(lake_sea, name, "blue", 10, 7)])), 
+    checkboxId: 'lakes_seasCheckbox'},
 ]
