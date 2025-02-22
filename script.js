@@ -8,7 +8,7 @@ import {
 } from './functions.js';
 
 import {
-  markersData,
+  settlementsData,
   pathdata,
   geographicData
 } from './variables.js';
@@ -34,7 +34,7 @@ map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Campsites and Settlements
-markersData.forEach(({ data, checkboxId, campsite }) => {
+settlementsData.forEach(({ data, checkboxId, campsite }) => {
   createMarkers(data, campsite).then((markers) => {
   MarkerListeners(checkboxId, markers, map);
   });

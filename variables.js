@@ -314,7 +314,7 @@ const hobbitsettlmentsNames = [
   "michel_delving",
   "crick_hollow",
 ]
-export const markersData = [
+export const settlementsData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
   { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
   { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
