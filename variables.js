@@ -2,9 +2,9 @@
 
 import { 
   createCampsitePopup,
-  createGeographicPopup,
   createSettlementPopup,
   createGeographicObjects,
+  createSettlementObjects,
  } from './functions.js';
 
 import {
@@ -352,6 +352,19 @@ export const hobbitsettlements = {
     CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.crick_hollow.name, hobbits.crick_hollow.description, hobbits.crick_hollow.url)
   },
 };
+hobbitsettlmentsNames = [
+  "hobbiton",
+  "micheldelving",
+  "crickhollow",
+]
+
+
+(object_group, CheckboxID, coords, icon, popup)
+
+
+Object.fromEntries(
+  hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name, CheckboxID, icons.HobbitsIcon)]))
+
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
   { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
@@ -383,32 +396,6 @@ export const pathdata = {
 }
 
 // Geographic Features
-const mountain_ranges = {
-  misty_mountains: {
-    pathName:'misty_mountains', color: 'orange', name: 'Misty Mountains', PopupContent: createGeographicPopup(mountain_range.misty_mountains.name, mountain_range.misty_mountains.elvish_name, mountain_range.misty_mountains.elvish_meaning, mountain_range.misty_mountains.description, mountain_range.misty_mountains.url ), tolerance: 1, weight: 2 
-  },
-  white_mountains: {
-    pathName:'white_mountains', color: 'orange', name: 'White Mountains' , PopupContent: createGeographicPopup(mountain_range.white_mountains.name, mountain_range.white_mountains.elvish_name, mountain_range.white_mountains.elvish_meaning, mountain_range.white_mountains.description, mountain_range.white_mountains.url ), tolerance: 1, weight: 2 
-  },
-  ash_mountains:{
-    pathName:'ash_mountains', color: 'orange', name: 'Ash Mountains' , PopupContent: createGeographicPopup(mountain_range.ash_mountains.name, mountain_range.ash_mountains.elvish_name, mountain_range.ash_mountains.elvish_meaning, mountain_range.ash_mountains.description, mountain_range.ash_mountains.url ), tolerance: 1, weight: 2 
-  },
-  iron_hills:{
-    pathName:'iron_hills', color: 'orange', name: 'Iron Hills' , PopupContent: createGeographicPopup(mountain_range.iron_hills.name, mountain_range.iron_hills.elvish_name, mountain_range.iron_hills.elvish_meaning, mountain_range.iron_hills.description, mountain_range.iron_hills.url ), tolerance: 1, weight: 2 
-  },
-  mountains_of_angmar:{
-    pathName:'mountains_of_angmar', color: 'orange', name: 'Mountains of Angmar' , PopupContent: createGeographicPopup(mountain_range.mountains_of_angmar.name, mountain_range.mountains_of_angmar.elvish_name, mountain_range.mountains_of_angmar.elvish_meaning, mountain_range.mountains_of_angmar.description, mountain_range.mountains_of_angmar.url ), tolerance: 1, weight: 2
-  },
-  grey_mountains:{
-    pathName:'grey_mountains', color: 'orange', name: 'Grey Mountains' , PopupContent: createGeographicPopup(mountain_range.grey_mountains.name, mountain_range.grey_mountains.elvish_name, mountain_range.grey_mountains.elvish_meaning, mountain_range.grey_mountains.description, mountain_range.grey_mountains.url ), tolerance: 1, weight: 2
-  },
-  blue_mountains:{
-    pathName:'blue_mountains', color: 'orange', name: 'Blue Mountains' , PopupContent: createGeographicPopup(mountain_range.blue_mountains.name, mountain_range.blue_mountains.elvish_name, mountain_range.blue_mountains.elvish_meaning, mountain_range.blue_mountains.description, mountain_range.blue_mountains.url ), tolerance: 1, weight: 2
-  },
-  mountains_of_shadow:{
-    pathName:'mountains_of_shadow', color: 'orange', name: 'Mountains of Shadow' , PopupContent: createGeographicPopup(mountain_range.mountains_of_shadow.name, mountain_range.mountains_of_shadow.elvish_name, mountain_range.mountains_of_shadow.elvish_meaning, mountain_range.mountains_of_shadow.description, mountain_range.mountains_of_shadow.url ), tolerance: 1, weight: 2
-  },
-};
 const mountain_rangeNames = [
   "misty_mountains",
   "white_mountains",

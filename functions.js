@@ -93,23 +93,40 @@ export const createSettlementPopup = (name, description, url) => {
   </div>`;
 };
 export const createGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
-  const otherGeographicData = object_group[object_name];
+  const GeographicData = object_group[object_name];
 
   return {
     pathName: object_name,
     color: color,
     name: object_name.charAt(0).toUpperCase() + object_name.slice(1),
     PopupContent: createGeographicPopup(
-      otherGeographicData.name,
-      otherGeographicData.elvish_name,
-      otherGeographicData.elvish_meaning,
-      otherGeographicData.description,
-      otherGeographicData.url
+      GeographicData.name,
+      GeographicData.elvish_name,
+      GeographicData.elvish_meaning,
+      GeographicData.description,
+      GeographicData.url
     ),
     tolerance: tolerance,
     weight: weight
   };
 };
+
+export const createSettlementObjects = (object_group, object_name, CheckboxID, icon) => {
+  const SettlementData = object_group[object_name];
+
+  return {
+    CheckboxID: CheckboxID,
+    coords: SettlementData.coords,
+    icon: icon,
+    popup: createGeographicPopup(
+      SettlementData.name,
+      SettlementData.description,
+      SettlementData.url,
+    ),
+  };
+};
+
+
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {

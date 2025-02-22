@@ -45,6 +45,7 @@ export const hobbits = {
     name: "Hobbiton",
     description: `Village in the Westfarthing of the Shire; home of Bilbo and Frodo Baggins. Hobbiton was located on the Water, about a mile northwest of its neighboring village Bywater. The Bywater Road passed through both villages and connected with the Great East Road to the south.`,
     url: "https://thainsbook.minastirith.cz/towns.html#Hobbiton",
+    coords: 
   },
   michel_delving: {
     name: "Michel Delving",
