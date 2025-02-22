@@ -352,7 +352,7 @@ export const hobbitsettlements = {
     CheckboxId: 'hobbits', coords: [44.94648941,-93.31055274], icon: icons.HobbitsIcon, popup: createSettlementPopup(hobbits.crick_hollow.name, hobbits.crick_hollow.description, hobbits.crick_hollow.url)
   },
 };
-hobbitsettlmentsNames = [
+const hobbitsettlmentsNames = [
   "hobbiton",
   "micheldelving",
   "crickhollow",
