@@ -307,6 +307,7 @@ const mensettlementsNames = [
   "tower_of_amon_sul",
   "rohan",
   "edoras",
+  "lake_town",
 ]
 const hobbitsettlmentsNames = [
   "hobbiton",
