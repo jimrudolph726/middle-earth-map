@@ -242,6 +242,13 @@ export const river = {
     description: `River in northeastern Middle-earth. The Redwater began in the Iron Hills. It flowed south to join the River Running, which in turn flowed into the Sea of Rhun.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Redwater",
   },
+  entwash: {
+    name: "Entwash",
+    elvish_name: "Onodlo",
+    elvish_meaning: `The Entwash got its name from the Ents who dwelled in Fangorn. The word wash is from the Old English waesc meaning "flood water." The Sindarin name Onodló translates as "Entwash," from the word Onod meaning "Ent" and ló meaning "soaking wet, swampy, flood."`,
+    description: `River in Fangorn and Rohan. The source of the Entwash was high on the slopes of Methedras, the southernmost of the Misty Mountains. The river flowed southeastward through Fangorn Forest.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Entwash",
+  },
 };
 
 export const lake_sea = {
