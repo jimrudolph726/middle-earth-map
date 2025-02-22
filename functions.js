@@ -1,14 +1,5 @@
 // functions.js
 
-import {
-  forest,
-  mountain_range,
-  mountain,
-  hill,
-  river,
-  lake_sea,
-} from './geographic_popup_content.js'
-
 // Helper functions
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
