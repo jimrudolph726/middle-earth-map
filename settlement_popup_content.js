@@ -43,26 +43,36 @@ export const men = {
     name: "Bree",
     description: `Village at the crossroads of the Great East Road and the Greenway in Eriador. Bree was unique in that the Big Folk (Men) and Little Folk (Hobbits) both dwelled there on friendly terms`,
     url: "https://thainsbook.minastirith.cz/towns.html#Bree",
+    coords: [44.94678231,-93.30970574],
+    icon: icons.MenGondorIcon,
   },
   minastirith: {
     name: "Minas Tirith",
     description: `Minas Anor - the Tower of the Sun - was established as a stronghold by Anarion, son of Elendil, and over time it became the greatest city in Gondor. As the threat from Mordor increased, the City was renamed Minas Tirith - the Tower of Guard.`,
     url: "https://thainsbook.minastirith.cz/minastirith.html",
+    coords: [44.94097061,-93.30122983],
+    icon: icons.MenGondorIcon,
   },
   tower_of_amon_sul: {
     name: "Tower of Amon Sul",
     description: `Watch-tower on Weathertop. Weathertop - which was also called Amon Sul - was the southernmost of the Weather Hills. It was located north of the Great East Road in Eriador. The Tower of Amon Sul was once tall and fair, but by the end of the Third Age only ruins remained.`,
     url: "https://thainsbook.minastirith.cz/fortress.html#Amon%20Sul",
+    coords: [44.9466629,-93.3083686],
+    icon: icons.MenGondorIcon,
   },
   rohan: {
     name: "Rohan",
     description: `Rohan was the home of the Rohirrim - a hardy race of Men known for their love of horses. The land was once part of Gondor, but it was given to the Rohirrim when Eorl the Young led them from the North to help Gondor fight an enemy invasion. Rohan remained Gondor's staunchest ally, and during the War of the Ring the Rohirrim rode to the aid of Gondor once more at the Battle of the Pelennor Fields.`,
     url: "https://thainsbook.minastirith.cz/rohan.html",
+    coords: [44.9426410,-93.3043699],
+    icon: icons.MenRohanIcon,
   },
   edoras: {
     name: "edoras",
     description: `Main town in Rohan and site of the royal court. Edoras was located at the foot of the White Mountains, which formed the southern border of Rohan. The town stood on a green hill at the mouth of the valley of Harrowdale.`,
     url: "https://thainsbook.minastirith.cz/towns.html#Edoras",
+    coords: [44.94202323,-93.30482241],
+    icon: icons.MenRohanIcon,
   },
 };
 

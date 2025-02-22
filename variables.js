@@ -301,23 +301,6 @@ export const elvessettlements = {
     CheckboxId: 'elves', coords: [44.9448403,-93.3045497], icon: icons.LothlorienIcon, popup: createSettlementPopup(elves.lothlorien.name, elves.lothlorien.description, elves.lothlorien.url)
   }
 };
-export const mensettlements = {
-  bree: { 
-    CheckboxId: 'men', coords: [44.94678231,-93.30970574], icon: icons.MenGondorIcon, popup: createSettlementPopup(men.bree.name, men.bree.description, men.bree.url)
-  },
-  minastirith: { 
-    CheckboxId: 'men', coords: [44.94097061,-93.30122983], icon: icons.MenGondorIcon, popup: createSettlementPopup(men.minastirith.name, men.minastirith.description, men.minastirith.url)
-  },
-  tower_of_amon_sul: { 
-    CheckboxId: 'men', coords: [44.9466629,-93.3083686], icon: icons.MenGondorIcon, popup: createSettlementPopup(men.tower_of_amon_sul.name, men.tower_of_amon_sul.description, men.tower_of_amon_sul.url)
-  },
-  rohan: { 
-    CheckboxId: 'men', coords: [44.9426410,-93.3043699], icon: icons.MenRohanIcon, popup: createSettlementPopup(men.rohan.name, men.rohan.description, men.rohan.url)
-  },
-  edoras: { 
-    CheckboxId: 'men', coords: [44.94202323,-93.30482241], icon: icons.MenRohanIcon, popup: createSettlementPopup(men.edoras.name, men.edoras.description, men.edoras.url)
-  },
-};
 const mensettlementsNames = [
   "bree",
   "minastirith",
@@ -338,9 +321,12 @@ export const markersData = [
   { data: merrycampsites, checkboxId: 'merrycampsitesCheckbox', campsite: 'campsite' },
   { data: gandalfthegreycampsites, checkboxId: 'gandalfthegreycampsitesCheckbox', campsite: 'campsite' },
   { data: elvessettlements, checkboxId: 'elvesCheckbox', campsite: 'no' },
-  { data: mensettlements, checkboxId: 'menCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
-    hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name)])), checkboxId: 'hobbitsCheckbox', campsite: 'no' },
+    MensettlmentsNames.map(name => [name, createSettlementObjects(men, name)])), 
+    checkboxId: 'menCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    hobbitsettlmentsNames.map(name => [name, createSettlementObjects(hobbits, name)])), 
+    checkboxId: 'hobbitsCheckbox', campsite: 'no' },
 ];
 
 // Paths
