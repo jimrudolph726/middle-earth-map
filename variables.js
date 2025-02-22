@@ -397,7 +397,7 @@ const hillNames = [
 
 export const geographicData = [
   {data: Object.fromEntries(
-    mountain_rangeNames.map(name => [name, createGeographicObjects(mountain_range, name, "yellow", 1, 2)])),  
+    mountain_rangeNames.map(name => [name, createGeographicObjects(mountain_range, name, "orange", 1, 2)])),  
     checkboxId: 'mountain_rangesCheckbox'},
   {data: Object.fromEntries(
     mountainNames.map(name => [name, createGeographicObjects(mountain, name, "brown", 1, 2)])), 
