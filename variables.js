@@ -430,9 +430,7 @@ const forestNames = [
   "bindbole_wood",
   "chetwood",
 ];
-const forests = Object.fromEntries(
-  forestNames.map(name => [name, createGeographicObjects(forest, name, "green", 1, 2)])
-);
+
 const riverNames = [
   "greylin",
   "langwell",
@@ -444,9 +442,7 @@ const riverNames = [
   "sirannon",
   "glanduin"
 ];
-const rivers = Object.fromEntries(
-  riverNames.map(name => [name, createGeographicObjects(river, name, "blue", 10, 7)])
-);
+
 const lakes_seas = {
   lake_evendim: { 
     pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 1, weight: 2 
@@ -466,7 +462,11 @@ export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: mountains, checkboxId: 'mountainsCheckbox'},
   {data: hills, checkboxId: 'hillsCheckbox'},
-  {data: forests, checkboxId: 'forestsCheckbox'},
-  {data: rivers, checkboxId: 'riversCheckbox'},
+  {data: Object.fromEntries(
+    forestNames.map(name => [name, createGeographicObjects(forest, name, "green", 1, 2)])
+  ), checkboxId: 'forestsCheckbox'},
+  {data: Object.fromEntries(
+    riverNames.map(name => [name, createGeographicObjects(river, name, "blue", 10, 7)])
+  ), checkboxId: 'riversCheckbox'},
   {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
 ]
