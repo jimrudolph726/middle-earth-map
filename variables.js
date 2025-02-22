@@ -388,7 +388,9 @@ const riverNames = [
   "hoarwell",
   "greyflood",
   "sirannon",
-  "glanduin"
+  "glanduin",
+  "forest_river",
+  "river_running",
 ];
 const hillNames = [
   "weather_top",

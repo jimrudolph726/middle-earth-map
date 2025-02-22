@@ -214,6 +214,21 @@ export const river = {
     description: `River on the southern border of Eriador. The Glanduin began in the Misty Mountains south of Moria and flowed westward.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Glanduin",
   },
+  forest_river: {
+    name: "Forest River",
+    elvish_name: "None",
+    elvish_meaning: `None`,
+    description: `River in Mirkwood. The Forest River began in the Grey Mountains and flowed southeast through Mirkwood to Long Lake. The Enchanted Stream was a tributary of the Forest River in the heart of Mirkwood.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Forest%20River",
+  },
+  river_running: {
+    name: "River Running",
+    elvish_name: "None",
+    elvish_meaning: `None`,
+    description: `Also called the Running River. The Sindarin name is Celduin. The name Celduin is formed from the elements cel or kel meaning "run (especially of water)" and duin meaning "river."`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#River%20Running",
+  },
+
 };
 
 export const lake_sea = {
