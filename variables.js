@@ -414,35 +414,6 @@ const mountains = {
     pathName:'lonely_mountain', color: 'brown', name: 'Lonely Mountain' , PopupContent: createGeographicPopup(mountain.lonely_mountain.name, mountain.lonely_mountain.elvish_name, mountain.lonely_mountain.elvish_meaning, mountain.lonely_mountain.description, mountain.lonely_mountain.url ), tolerance: 1, weight: 2 
   },
 };
-const hills = {
-  weather_top:{
-    pathName:'weather_top', color: 'brown', name: 'Weather Top' , PopupContent: createGeographicPopup(hill.weather_top.name, hill.weather_top.elvish_name, hill.weather_top.elvish_meaning, hill.weather_top.description, hill.weather_top.url ), tolerance: 1, weight: 2 
-  },
-};
-const forestNames = [
-  "mirkwood", 
-  "blackwood",
-  "old_forest",
-  "fangorn_forest",
-  "lothlorien",
-  "firien_wood",
-  "druadan_forest",
-  "bindbole_wood",
-  "chetwood",
-];
-
-const riverNames = [
-  "greylin",
-  "langwell",
-  "anduin",
-  "silverlode",
-  "nimrodel",
-  "hoarwell",
-  "greyflood",
-  "sirannon",
-  "glanduin"
-];
-
 const lakes_seas = {
   lake_evendim: { 
     pathName: 'lake_evendim', color: 'blue', name: 'Lake Evendim', PopupContent: createGeographicPopup(lake_sea.lake_evendim.name, lake_sea.lake_evendim.elvish_name, lake_sea.lake_evendim.elvish_meaning, lake_sea.lake_evendim.description, lake_sea.lake_evendim.url ), tolerance: 1, weight: 2 
@@ -457,16 +428,42 @@ const lakes_seas = {
     pathName: 'sea_of_rhun', color: 'blue', name: 'Sea of Rhun', PopupContent: createGeographicPopup(lake_sea.sea_of_rhun.name, lake_sea.sea_of_rhun.elvish_name, lake_sea.sea_of_rhun.elvish_meaning, lake_sea.sea_of_rhun.description, lake_sea.sea_of_rhun.url ), tolerance: 1, weight: 2 
   },
 }
+const forestNames = [
+  "mirkwood", 
+  "blackwood",
+  "old_forest",
+  "fangorn_forest",
+  "lothlorien",
+  "firien_wood",
+  "druadan_forest",
+  "bindbole_wood",
+  "chetwood",
+];
+const riverNames = [
+  "greylin",
+  "langwell",
+  "anduin",
+  "silverlode",
+  "nimrodel",
+  "hoarwell",
+  "greyflood",
+  "sirannon",
+  "glanduin"
+];
+const hillNames = [
+  "weather_top",
+]
 
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: mountains, checkboxId: 'mountainsCheckbox'},
-  {data: hills, checkboxId: 'hillsCheckbox'},
   {data: Object.fromEntries(
-    forestNames.map(name => [name, createGeographicObjects(forest, name, "green", 1, 2)])
-  ), checkboxId: 'forestsCheckbox'},
+    hillNames.map(name => [name, createGeographicObjects(hill, name, "brown", 1, 2)])),  checkboxId: 'hillsCheckbox'},
   {data: Object.fromEntries(
-    riverNames.map(name => [name, createGeographicObjects(river, name, "blue", 10, 7)])
-  ), checkboxId: 'riversCheckbox'},
+    forestNames.map(name => [name, createGeographicObjects(forest, name, "green", 1, 2)])), 
+    checkboxId: 'forestsCheckbox'},
+  {data: Object.fromEntries(
+    riverNames.map(name => [name, createGeographicObjects(river, name, "blue", 10, 7)])), 
+    checkboxId: 'riversCheckbox'},
   {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
 ]
