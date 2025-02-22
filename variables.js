@@ -297,7 +297,6 @@ export const elvessettlements = {
     CheckboxId: 'elves', coords: [44.9448403,-93.3045497], icon: icons.LothlorienIcon, popup: createSettlementPopup(elves.lothlorien.name, elves.lothlorien.description, elves.lothlorien.url)
   }
 };
-
 const elvessettlmentsNames = [
   "rivendell",
   "lothlorien",
@@ -314,7 +313,6 @@ const hobbitsettlmentsNames = [
   "michel_delving",
   "crick_hollow",
 ]
-
 export const markersData = [
   { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
   { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
