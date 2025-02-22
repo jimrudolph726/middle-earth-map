@@ -111,11 +111,10 @@ export const createGeographicObjects = (object_group, object_name, color, tolera
   };
 };
 
-export const createSettlementObjects = (object_group, object_name, CheckboxID, icon) => {
+export const createSettlementObjects = (object_group, object_name, icon) => {
   const SettlementData = object_group[object_name];
 
   return {
-    CheckboxID: CheckboxID,
     coords: SettlementData.coords,
     icon: icon,
     popup: createGeographicPopup(
