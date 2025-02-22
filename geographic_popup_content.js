@@ -93,13 +93,6 @@ export const mountain_range = {
     description: "Mountain range on the northern border of Mordor. The Ash Mountains stretched 500 miles from east to west. ",
     url: "https://tolkiengateway.net/wiki/Ered_Lithui",
   },
-  iron_hills: {
-    name: "Iron Hills",
-    elvish_name: "Emyn Angren",
-    elvish_meaning: 'The Iron Hills were so called because they were rich in iron ore. The Sindarin name was probably Emyn Engrin from emyn meaning "hills" and engrin the plural of angren meaning "iron".',
-    description: "Range of hills in northeastern Middle-earth. The Iron Hills were isolated in the middle of an empty region about 125 miles east of the Lonely Mountain and Mirkwood. The range stretched about 200 miles from west to east. Near the western end, the Redwater flowed southward from the hills to join the River Running. On the eastern end, a spur of hills curved north and then back westward forming a hook at the end of the range.",
-    url: "https://tolkiengateway.net/wiki/Iron_Hills",
-  },
   mountains_of_angmar: {
     name: "Mountains of Angmar",
     elvish_name: "Emyn Angmar",
@@ -147,6 +140,13 @@ export const hill = {
     elvish_meaning: `Weathertop was called Amon Sûl in Sindarin. Amon Sûl means "Hill of the Wind" from amon meaning "hill" and sûl meaning "wind." It was also called Weathertop Hill.`,
     description: `Hills in Eriador. The Weather Hills were located just north of the Great East Road about midway between Bree and the Last Bridge. The Midgewater Marshes were west of the Weather Hills.`,
     url: "https://thainsbook.minastirith.cz/hills.html#Weathertop",
+  },
+  iron_hills: {
+    name: "Iron Hills",
+    elvish_name: "Emyn Angren",
+    elvish_meaning: 'The Iron Hills were so called because they were rich in iron ore. The Sindarin name was probably Emyn Engrin from emyn meaning "hills" and engrin the plural of angren meaning "iron".',
+    description: "Range of hills in northeastern Middle-earth. The Iron Hills were isolated in the middle of an empty region about 125 miles east of the Lonely Mountain and Mirkwood. The range stretched about 200 miles from west to east. Near the western end, the Redwater flowed southward from the hills to join the River Running. On the eastern end, a spur of hills curved north and then back westward forming a hook at the end of the range.",
+    url: "https://tolkiengateway.net/wiki/Iron_Hills",
   },
 };
 
