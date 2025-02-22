@@ -64,6 +64,13 @@ export const men = {
     coords: [44.9466629,-93.3083686],
     icon: icons.MenGondorIcon,
   },
+  lake_town: {
+    name: "Lake-town",
+    description: `Town of Men on Long Lake in Wilderland. Lake-town was built on the surface of the lake supported by great wooden piles in the water. It was located on the west side of the lake near the mouth of the Forest River in a calm bay that was formed by the shelter of a rock promontory. The town was connected to the land by a long bridge.`,
+    url: "https://thainsbook.minastirith.cz/towns.html#Lake-town",
+    coords: [44.9476928,-93.3007613],
+    icon: icons.MenGondorIcon,
+  },
   rohan: {
     name: "Rohan",
     description: `Rohan was the home of the Rohirrim - a hardy race of Men known for their love of horses. The land was once part of Gondor, but it was given to the Rohirrim when Eorl the Young led them from the North to help Gondor fight an enemy invasion. Rohan remained Gondor's staunchest ally, and during the War of the Ring the Rohirrim rode to the aid of Gondor once more at the Battle of the Pelennor Fields.`,
