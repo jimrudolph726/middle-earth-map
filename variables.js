@@ -458,7 +458,8 @@ export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: mountains, checkboxId: 'mountainsCheckbox'},
   {data: Object.fromEntries(
-    hillNames.map(name => [name, createGeographicObjects(hill, name, "brown", 1, 2)])),  checkboxId: 'hillsCheckbox'},
+    hillNames.map(name => [name, createGeographicObjects(hill, name, "brown", 1, 2)])),  
+    checkboxId: 'hillsCheckbox'},
   {data: Object.fromEntries(
     forestNames.map(name => [name, createGeographicObjects(forest, name, "green", 1, 2)])), 
     checkboxId: 'forestsCheckbox'},
