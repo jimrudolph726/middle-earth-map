@@ -228,6 +228,13 @@ export const river = {
     description: `Also called the Running River. The Sindarin name is Celduin. The name Celduin is formed from the elements cel or kel meaning "run (especially of water)" and duin meaning "river."`,
     url: "https://thainsbook.minastirith.cz/rivers.html#River%20Running",
   },
+  enchanted_stream: {
+    name: "Enchanted Stream",
+    elvish_name: "None",
+    elvish_meaning: `None`,
+    description: `Stream in Mirkwood. The Enchanted Stream was a tributary of the Forest River. Its source was in the Mountains of Mirkwood, and it flowed north and crossed the path that led from the Forest Gate to the Elven-king's Halls.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Enchanted%20Stream",
+  },
 
 };
 
