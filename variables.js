@@ -311,7 +311,7 @@ export const settlementsData = [
     Object.keys(battles).map(key => [key, createSettlementObjects(battles, key)])), 
   checkboxId: 'battlesCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
-    Object.keys(one_on_one).map(key => [key, createSettlementObjects(battles, key)])), 
+    Object.keys(one_on_one).map(key => [key, createSettlementObjects(one_on_one, key)])), 
   checkboxId: 'oneononeCheckbox', campsite: 'no' },
 ];
 
