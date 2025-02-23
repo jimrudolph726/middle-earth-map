@@ -171,6 +171,13 @@ export const battles = {
     coords: [44.9422380,-93.3001737],
     icon: icons.BattleIcon,
   },
+  battle_of_the_camp: {
+    name: "Battle of the Camp (TA July 13th 1944)",
+    description: `Battle resulting in the final defeat of the Wainriders. The Battle of the Camp was fought in Ithilien on the night of July 13, 1944 of the Third Age, between the Wainriders and the Southern Army of Gondor led by Earnil.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Battle-Camp",
+    coords: [44.9411760,-93.3006287],
+    icon: icons.BattleIcon,
+  },
 };
 
 
