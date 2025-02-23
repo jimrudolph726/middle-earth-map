@@ -15,6 +15,7 @@ import {
   icons,
   battles,
   one_on_one,
+  swords,
 } from './settlement_popup_content.js';
 
 import {
@@ -313,6 +314,10 @@ export const settlementsData = [
   { data: Object.fromEntries(
     Object.keys(one_on_one).map(key => [key, createSettlementObjects(one_on_one, key)])), 
   checkboxId: 'oneononeCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(swords).map(key => [key, createSettlementObjects(swords, key)])), 
+  checkboxId: 'swordsCheckbox', campsite: 'no' },
+  
 ];
 
 // Paths
