@@ -1,0 +1,72 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Ringbearer";
+  src: url("https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ringbearer.TTF") format("truetype");
+}
+
+html, body, #map {
+  height: 100%;
+  font: 10pt "Ringbearer", Arial, Helvetica, sans-serif; 
+}
+
+.lorem {
+  font-style: italic;
+  color: #AAA;
+}
+
+#settlementsSection, #pathsSection, #geographySection {
+  display: flex;
+  flex-direction: column; /* Stack the labels vertically */
+  gap: 8px; /* Optional: Add spacing between items */
+  padding-top: 16px; /* Optional: Add padding for indentation */
+}
+
+#settlementsSection h2, 
+#pathsSection h2, 
+#geographySection h2 {
+  font-size: 18px; /* Adjust the size as needed */
+  font-weight: bold; /* Bold text */
+  margin: 2px 0; /* Adjust top and bottom spacing */
+  padding-top: 2px; /* Optional: Add spacing above the header */
+  color: #444; /* Set a consistent text color */
+  text-align: left; /* Align text to the left */
+}
+
+#settlementsSection label, #pathsSection label, #geographySection label {
+  display: flex;
+  align-items: center; /* Align the checkbox and label text */
+  cursor: pointer; /* Change the cursor to indicate clickability */
+  font-size: 16px;
+}
+
+#settlementsSection input[type="checkbox"],
+#pathsSection input[type="checkbox"],
+#geographySection input[type="checkbox"] {
+  margin-right: 8px; /* Add spacing between the checkbox and label text */
+}
+#mapSection button {
+  display: block;
+  width: 50%; /* Optional: Makes buttons stretch to full width */
+  margin-bottom: 10px; /* Adds spacing between buttons */
+}
+
+.sidebar-tabs .material-icons {
+  position: relative;
+  top: 10px; /* Shifts the icons down */
+}
+
+.polygon-label {
+  /*background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none; /* Prevent the label from being interactive */
+}
