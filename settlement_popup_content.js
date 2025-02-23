@@ -160,4 +160,11 @@ export const one_on_one = {
     coords: [44.94491777,-93.30559552],
     icon: icons.BattleIcon,
   },
+  eowyn_witch_king: {
+    name: "Eowyn vs the With King of Angmar (TA March 15th 3019)",
+    description: `Battle between Éowyn and the Witch-king of Angmar during the Battle of the Pelennor Fields. On March 15, 3019 of the Third Age, Éowyn, disguised as a soldier, defended Théoden against the Witch-king. After slaying his fell beast, she faced him in combat. With Merry’s aid, she defied prophecy and struck the final blow, destroying him.`,
+    url: "https://thainsbook.minastirith.cz/eowyn.html",
+    coords: [44.94095898,-93.30106586],
+    icon: icons.BattleIcon,
+  },
 }
