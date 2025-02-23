@@ -14,6 +14,7 @@ import {
   hobbits,
   icons,
   battles,
+  one_on_one,
 } from './settlement_popup_content.js';
 
 import {
@@ -309,6 +310,9 @@ export const settlementsData = [
   { data: Object.fromEntries(
     Object.keys(battles).map(key => [key, createSettlementObjects(battles, key)])), 
   checkboxId: 'battlesCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(one_on_one).map(key => [key, createSettlementObjects(battles, key)])), 
+  checkboxId: 'oneononeCheckbox', campsite: 'no' },
 ];
 
 // Paths

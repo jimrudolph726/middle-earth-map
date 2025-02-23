@@ -150,3 +150,13 @@ export const battles = {
     icon: icons.BattleIcon,
   },
 };
+
+export const one_on_one = {
+  battle_of_the_peak: {
+    name: "Battle of the Peak (TA January 23rd to January 25th 3019)",
+    description: `Battle between Gandalf and the Balrog on the Silvertine during the War of the Ring. After Gandalf and the Balrog fell into the abyss in Moria on January 15, 3019 of the Third Age, they fought long underground and then climbed the Endless Stair to the peak of the Silvertine where Durin's Tower stood.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Peak",
+    coords: [44.94491777,-93.30559552],
+    icon: icons.BattleIcon,
+  },
+}
