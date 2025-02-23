@@ -157,6 +157,13 @@ export const battles = {
     coords: [44.9470883,-93.3108774],
     icon: icons.BattleIcon,
   },
+  battle_of_helms_deep: {
+    name: "Battle of Helm's Deep (TA March 3rd and 4th 3019)",
+    description: `Battle between the Men of Rohan and the forces of Saruman during the War of the Ring. The Battle of Helm's Deep was fought during the rainy night of March 3-4, 3019 of the Third Age.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Helm's",
+    coords: [44.9422362,-93.3058114],
+    icon: icons.BattleIcon,
+  },
 };
 
 
