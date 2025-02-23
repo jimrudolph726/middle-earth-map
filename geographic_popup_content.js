@@ -272,6 +272,27 @@ export const river = {
     description: `River in Eriador. The Brandywine originated in Lake Evendim in the north and flowed south-southwest to the Sea. The Brandywine was the eastern border of the Shire. `,
     url: "https://thainsbook.minastirith.cz/rivers.html#Brandywine",
   },
+  erui: {
+    name: "Erui",
+    elvish_name: "Erui",
+    elvish_meaning: `The name Erui is composed of er meaning "one, single, alone" and ui which is a common adjectival ending in Sindarin. It was apparently so named because it had no tributaries.`,
+    description: `River in Gondor. The Erui began in the White Mountains. It flowed southeastward through Lossarnach and Lebennin to the Anduin. The road from Minas Tirith to Pelargir passed over the river at the Crossings of Erui. The Erui was a short but swift river.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Erui",
+  },
+  celos: {
+    name: "Brandywine",
+    elvish_name: "Baranduin",
+    elvish_meaning: `Also spelled (and pronounced) Kelos. The Sindarin name Celos is dervied from the Quenya Kelussë meaning "freshet, water falling out swiftly from a rocky spring."`,
+    description: `River in Lebennin in Gondor. The Celos was a tributary of the Sirith. The river began in the White Mountains and flowed southward, joining the Sirith from the west. The Sirith in turn flowed into the Anduin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Celos",
+  },
+  sirith: {
+    name: "Sirith",
+    elvish_name: "Sirith",
+    elvish_meaning: `The name Sirith means "a flowing" from sîr meaning "river."`,
+    description: `River in Lebennin in Gondor. The Sirith began in the White Mountains. It was joined from the west by a tributary called the Celos. The Sirith flowed southward to the Anduin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Sirith",
+  },
 };
 
 export const lake_sea = {
