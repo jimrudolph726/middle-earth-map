@@ -6,7 +6,7 @@ const iconUrls = {
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
     lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
-    battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battle.png',
+    battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({

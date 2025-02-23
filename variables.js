@@ -13,6 +13,7 @@ import {
   men,
   hobbits,
   icons,
+  battles,
 } from './settlement_popup_content.js';
 
 import {
@@ -305,6 +306,9 @@ export const settlementsData = [
   { data: Object.fromEntries(
     Object.keys(hobbits).map(key => [key, createSettlementObjects(hobbits, key)])), 
   checkboxId: 'hobbitsCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(battles).map(key => [key, createSettlementObjects(battles, key)])), 
+  checkboxId: 'battlesCheckbox', campsite: 'no' },
 ];
 
 // Paths
