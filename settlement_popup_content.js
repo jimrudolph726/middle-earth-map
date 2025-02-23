@@ -206,6 +206,13 @@ export const battles = {
     coords: [44.9425148,-93.3064139],
     icon: icons.BattleIcon,
   },
+  elves_sauron: {
+    name: "War of the Elves and Sauron (SA 1693 to 1701)",
+    description: `Battle over the Rings of Power in the Second Age. The War of the Elves and Sauron was fought in Eriador. It lasted from 1693 to 1701 of the Second Age. Sauron suffered a temporary defeat but gained possession of the Nine Rings and six of the Seven Rings.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Elves-Sauron",
+    coords: [44.9452681,-93.3069094],
+    icon: icons.BattleIcon,
+  },
 };
 
 
