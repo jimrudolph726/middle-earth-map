@@ -7,6 +7,7 @@ const iconUrls = {
     lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
     battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
+    glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -23,6 +24,7 @@ export const icons = {
   RivendellIcon: createIcon(iconUrls.rivendell),
   LothlorienIcon: createIcon(iconUrls.lothlorien),
   BattleIcon: createIcon(iconUrls.battle),
+  GlamdringIcon: createIcon(iconUrls.glamdring),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -215,9 +217,6 @@ export const battles = {
   },
 };
 
-
-
-
 export const one_on_one = {
   battle_of_the_peak: {
     name: "Battle of the Peak (TA January 23rd to January 25th 3019)",
@@ -232,5 +231,15 @@ export const one_on_one = {
     url: "https://thainsbook.minastirith.cz/eowyn.html",
     coords: [44.94095898,-93.30106586],
     icon: icons.BattleIcon,
+  },
+}
+
+export const swords = {
+  glamdring: {
+    name: "Glamdring",
+    description: `Sword of Gandalf. Glamdring was forged in Gondolin, a great realm of the Elves in the First Age. It once belonged to Turgon, the King of Gondolin. It is not known how Glamdring survived the Fall of Gondolin.`,
+    url: "https://thainsbook.minastirith.cz/swords.html#Glamdring",
+    coords: [44.9468787,-93.3063229],
+    icon: icons.GlamdringIcon,
   },
 }
