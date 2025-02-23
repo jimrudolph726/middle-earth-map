@@ -252,6 +252,6 @@ export const rings = {
     description: `The One Ring was the greatest of the Rings of Power. Sauron created it to rule the others, and in order to do so he invested the One Ring with much of his strength and will. `,
     url: "https://thainsbook.minastirith.cz/onering.html",
     coords: [44.9414214,-93.2990178],
-    icon: icons.SwordIcon,
+    icon: icons.RingIcon,
   },
 }
