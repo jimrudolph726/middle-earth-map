@@ -10,6 +10,7 @@ const iconUrls = {
     glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
     ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
     narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
+    nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -29,6 +30,7 @@ export const icons = {
   GlamdringIcon: createIcon(iconUrls.glamdring),
   RingIcon: createIcon(iconUrls.ring),
   NaryaIcon: createIcon(iconUrls.narya),
+  NenyaIcon: createIcon(iconUrls.nenya),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -257,10 +259,17 @@ export const rings = {
     icon: icons.RingIcon,
   },
   narya: {
-    name: "Narya (SA 1593)",
+    name: "Narya (around SA 1590)",
     description: `The Ring of Fire. Narya was set with a red stone. At the time of the War of the Ring, Gandalf was the bearer of Narya.`,
     url: "https://thainsbook.minastirith.cz/objects.html#Narya",
     coords: [44.9455179,-93.3068293],
     icon: icons.NaryaIcon,
+  },
+  nenya: {
+    name: "Nenya (around SA 1590)",
+    description: `The Ring of Water. Nenya was set with a white diamond and its band was made of mithril. Galadriel was the bearer of Nenya.`,
+    url: "https://thainsbook.minastirith.cz/objects.html#Nenya",
+    coords: [44.9451063,-93.3071364],
+    icon: icons.NenyaIcon,
   },
 }
