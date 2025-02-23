@@ -59,6 +59,10 @@ html, body, #map {
   position: relative;
   top: 10px; /* Shifts the icons down */
 }
+.sidebar-tabs .material-symbols-outlined {
+  position: relative;
+  top: 10px; /* Shifts the icons down */
+}
 
 .polygon-label {
   /*background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
