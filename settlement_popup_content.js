@@ -126,7 +126,7 @@ export const battles = {
     name: "The Battle of Dagorlad (SA 3434 - 3441)",
     description: `In 3434, the armies of the Last Alliance and Sauron met in battle outside the Black Gate of Mordor on the great plain that became known as Dagorlad, the Battle Plain. The army of the Last Alliance consisted of the forces that had marched from the north and the Men of Gondor who had been defending their borders.`,
     url: "https://thainsbook.minastirith.cz/battles.html#Last-Alliance",
-    coords: [44.94223205,-93.30016862],
+    coords: [44.9424929,-93.3001234],
     icon: icons.BattleIcon,
   },
   battle_of_bywater: {
@@ -162,6 +162,13 @@ export const battles = {
     description: `Battle between the Men of Rohan and the forces of Saruman during the War of the Ring. The Battle of Helm's Deep was fought during the rainy night of March 3-4, 3019 of the Third Age.`,
     url: "https://thainsbook.minastirith.cz/battles.html#Helm's",
     coords: [44.9422362,-93.3058114],
+    icon: icons.BattleIcon,
+  },
+  battle_of_the_morannon: {
+    name: "Battle of the Morannon (TA March 25th 3019)",
+    description: `Battle between the Host of the West and the forces of Sauron during the War of the Ring. The Battle of the Morannon took place on March 25, 3019 of the Third Age, in front of the Black Gate of Mordor.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Morannon",
+    coords: [44.9422380,-93.3001737],
     icon: icons.BattleIcon,
   },
 };
