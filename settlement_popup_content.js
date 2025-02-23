@@ -9,6 +9,7 @@ const iconUrls = {
     battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
     glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
     ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
+    narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -252,6 +253,13 @@ export const rings = {
     description: `The One Ring was the greatest of the Rings of Power. Sauron created it to rule the others, and in order to do so he invested the One Ring with much of his strength and will. `,
     url: "https://thainsbook.minastirith.cz/onering.html",
     coords: [44.9414214,-93.2990178],
+    icon: icons.RingIcon,
+  },
+  narya: {
+    name: "Narya (SA 1593)",
+    description: `The Ring of Fire. Narya was set with a red stone. At the time of the War of the Ring, Gandalf was the bearer of Narya.`,
+    url: "https://thainsbook.minastirith.cz/objects.html#Narya",
+    coords: [44.9455179,-93.3068293],
     icon: icons.RingIcon,
   },
 }
