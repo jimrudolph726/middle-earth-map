@@ -136,4 +136,11 @@ export const battles = {
     coords: [44.9479213,-93.3005827],
     icon: icons.BattleIcon,
   },
+  battle_of_fornost: {
+    name: "The Battle of Fornost (TA 1975)",
+    description: `Battle between the forces of the Witch-king of Angmar and the combined forces of the Dunedain of the North, Elves of Lindon and Rivendell, and Men of Gondor.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Fornost",
+    coords: [44.9475027,-93.3100271],
+    icon: icons.BattleIcon,
+  },
 };
