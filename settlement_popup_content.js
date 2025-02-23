@@ -66,6 +66,12 @@ export const men = {
     coords: [44.9466629,-93.3083686],
     icon: icons.MenGondorIcon,
   },
+  fornost: {
+    name: "FornostCapital of Arthedain in the North-kingdom. Fornost was located in the North Downs of Eriador, about 100 miles north of Bree and about 100 miles east of Annuminas. `,
+    url: "https://thainsbook.minastirith.cz/towns.html#Fornost",
+    coords: [44.94748318,-93.30969438],
+    icon: icons.MenGondorIcon,
+  },
   lake_town: {
     name: "Lake-town",
     description: `Town of Men on Long Lake in Wilderland. Lake-town was built on the surface of the lake supported by great wooden piles in the water. It was located on the west side of the lake near the mouth of the Forest River in a calm bay that was formed by the shelter of a rock promontory. The town was connected to the land by a long bridge.`,
