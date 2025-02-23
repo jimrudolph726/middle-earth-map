@@ -185,6 +185,13 @@ export const battles = {
     coords: [44.94087139,-93.30086638],
     icon: icons.BattleIcon,
   },
+  celebrant: {
+    name: "Battle of the Field of Celebrant (TA April 15th 2510)",
+    description: `Battle where the ancestors of the Rohirrim first came to the aid of Gondor. The Battle of the Field of Celebrant was fought on April 15, 2510 of the Third Age, against the Balchoth - a group of Men from Rhun who were under the influence of Sauron.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Celebrant",
+    coords: [44.9439771,-93.3035051],
+    icon: icons.BattleIcon,
+  },
 };
 
 
