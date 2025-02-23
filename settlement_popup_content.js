@@ -28,6 +28,7 @@ export const icons = {
   BattleIcon: createIcon(iconUrls.battle),
   GlamdringIcon: createIcon(iconUrls.glamdring),
   RingIcon: createIcon(iconUrls.ring),
+  NaryaIcon: createIcon(iconUrls.narya),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -260,6 +261,6 @@ export const rings = {
     description: `The Ring of Fire. Narya was set with a red stone. At the time of the War of the Ring, Gandalf was the bearer of Narya.`,
     url: "https://thainsbook.minastirith.cz/objects.html#Narya",
     coords: [44.9455179,-93.3068293],
-    icon: icons.RingIcon,
+    icon: icons.NaryaIcon,
   },
 }
