@@ -277,7 +277,7 @@ export const rings = {
     name: "Vilya (around SA 1590)",
     description: `The Ring of Air. Vilya was said to be the mightiest of the Three. It had a gold band set with a blue stone. At the time of the War of the Ring, Vilya was borne by Elrond.`,
     url: "https://thainsbook.minastirith.cz/objects.html#Vilya",
-    coords: [44.9451063,-93.3071364],
-    icon: icons.NenyaIcon,
+    coords: [44.9450832,-93.3065091],
+    icon: icons.VilyaIcon,
   },
 }
