@@ -328,6 +328,13 @@ export const river = {
     description: `River in Gondor. The Blackroot was a long, cold river that began beneath the White Mountains. The river emerged from the southern entrance of the Paths of the Dead and cascaded in a series of waterfalls into the Blackroot Vale.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Blackroot",
   },
+  lefnui: {
+    name: "Lefnui",
+    elvish_name: "Lefnui",
+    elvish_meaning: `The name Lefnui means "fifth." The river was so named because it was the fifth river or river system in southern Gondor after the Erui, the Sirith-Celos, the Serni-Gilrain, and the Morthond-Ciril-Ringlo.`,
+    description: `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Lefnui",
+  },
 };
 
 export const lake_sea = {
