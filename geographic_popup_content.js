@@ -316,8 +316,15 @@ export const river = {
   },
   ciril: {
     name: "Ciril",
-    elvish_name: "ciril",
+    elvish_name: "Ciril",
     elvish_meaning: `Also spelled (and pronounced) Kiril. The name Ciril is derived from kir meaning "cut."`,
+    description: `River in Lamedon in Gondor. The Ciril was a tributary of the Ringlo. It began in the White Mountains near Tarlang's Neck and flowed at first through a deep rocky channel.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+  },
+  blackroot: {
+    name: "Blackroot",
+    elvish_name: "Morthond",
+    elvish_meaning: `The Blackroot was so named because its source was in the dark caverns of the Dead. The river was called Morthond in Sindarin, meaning "Blackroot" from mor meaning "black" and thond meaning "root."`,
     description: `River in Lamedon in Gondor. The Ciril was a tributary of the Ringlo. It began in the White Mountains near Tarlang's Neck and flowed at first through a deep rocky channel.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
   },
