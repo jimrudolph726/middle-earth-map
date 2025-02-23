@@ -178,6 +178,13 @@ export const battles = {
     coords: [44.9411760,-93.3006287],
     icon: icons.BattleIcon,
   },
+  kin_strife: {
+    name: "Kin-strife - Civil war in Gondor (TA 1432 to 1448)",
+    description: `Civil war in Gondor. The Kin-strife began in 1432 of the Third Age and lasted until 1448. On one side were the loyal supporters of King Eldacar, and on the other side were the rebels led by Castamir. The rebels opposed King Eldacar because he was not of pure Numenorean descent.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Kin-strife",
+    coords: [44.94087139,-93.30086638],
+    icon: icons.BattleIcon,
+  },
 };
 
 
