@@ -8,6 +8,7 @@ const iconUrls = {
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
     battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
     glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
+    sting: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/sting.png',
     ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
     narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
     nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
@@ -30,6 +31,7 @@ export const icons = {
   LothlorienIcon: createIcon(iconUrls.lothlorien),
   BattleIcon: createIcon(iconUrls.battle),
   GlamdringIcon: createIcon(iconUrls.glamdring),
+  StingIcon: createIcon(iconUrls.sting),
   RingIcon: createIcon(iconUrls.ring),
   NaryaIcon: createIcon(iconUrls.narya),
   NenyaIcon: createIcon(iconUrls.nenya),
@@ -251,6 +253,13 @@ export const swords = {
     url: "https://thainsbook.minastirith.cz/swords.html#Glamdring",
     coords: [44.9468787,-93.3063229],
     icon: icons.GlamdringIcon,
+  },
+  sting: {
+    name: "Sting",
+    description: `Sword of Bilbo Baggins. Sting was actually a long knife that made the perfect Hobbit-sized sword. Bilbo found it in 2941 of the Third Age in the Troll-hoard of Bert, Tom and William, where the swords Glamdring and Orcrist were also found. `,
+    url: "https://thainsbook.minastirith.cz/swords.html#Sting",
+    coords: [44.9467978,-93.3058998],
+    icon: icons.StingIcon,
   },
 }
 
