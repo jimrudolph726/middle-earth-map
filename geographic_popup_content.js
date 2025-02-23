@@ -314,6 +314,13 @@ export const river = {
     description: `River in southern Gondor. The source of the Ringlo was in the White Mountains. The waters of the river came from a snowfield high in the mountains that formed a glacial lake. `,
     url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
   },
+  ciril: {
+    name: "Ciril",
+    elvish_name: "ciril",
+    elvish_meaning: `Also spelled (and pronounced) Kiril. The name Ciril is derived from kir meaning "cut."`,
+    description: `River in Lamedon in Gondor. The Ciril was a tributary of the Ringlo. It began in the White Mountains near Tarlang's Neck and flowed at first through a deep rocky channel.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+  },
 };
 
 export const lake_sea = {
