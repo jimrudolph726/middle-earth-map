@@ -9,6 +9,7 @@ const iconUrls = {
     battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
     glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
     sting: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/sting.png',
+    narsil: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narsil.png',
     ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
     narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
     nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
@@ -32,6 +33,7 @@ export const icons = {
   BattleIcon: createIcon(iconUrls.battle),
   GlamdringIcon: createIcon(iconUrls.glamdring),
   StingIcon: createIcon(iconUrls.sting),
+  NarsilIcon: createIcon(iconUrls.narsil),
   RingIcon: createIcon(iconUrls.ring),
   NaryaIcon: createIcon(iconUrls.narya),
   NenyaIcon: createIcon(iconUrls.nenya),
@@ -260,6 +262,13 @@ export const swords = {
     url: "https://thainsbook.minastirith.cz/swords.html#Sting",
     coords: [44.9467978,-93.3058998],
     icon: icons.StingIcon,
+  },
+  anduril_narsil: {
+    name: "Andúril / Narsil",
+    description: `Anduril was the sword of Aragorn. It was forged from the shards of Elendil's sword, Narsil.`,
+    url: "https://thainsbook.minastirith.cz/swords.html#Anduril",
+    coords: [44.94091256,-93.30126127],
+    icon: icons.NarsilIcon,
   },
 }
 
