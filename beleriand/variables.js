@@ -4,6 +4,7 @@ import {
   createCampsitePopup,
   createGeographicPopup,
   createSettlementPopup,
+  createGeographicObjects,
  } from './functions.js';
 
  import {
