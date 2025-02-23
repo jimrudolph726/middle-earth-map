@@ -12,6 +12,7 @@ const iconUrls = {
     narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
     nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
     vilya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/vilya.png',
+    barahir: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/barahir.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -33,6 +34,7 @@ export const icons = {
   NaryaIcon: createIcon(iconUrls.narya),
   NenyaIcon: createIcon(iconUrls.nenya),
   VilyaIcon: createIcon(iconUrls.vilya),
+  BarahirIcon: createIcon(iconUrls.barahir),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -254,31 +256,38 @@ export const swords = {
 
 export const rings = {
   the_one_ring: {
-    name: "The One Ring (SA 1600)",
+    name: "The One Ring (forged around SA 1600)",
     description: `The One Ring was the greatest of the Rings of Power. Sauron created it to rule the others, and in order to do so he invested the One Ring with much of his strength and will. `,
     url: "https://thainsbook.minastirith.cz/onering.html",
     coords: [44.9414214,-93.2990178],
     icon: icons.RingIcon,
   },
   narya: {
-    name: "Narya (around SA 1590)",
+    name: "Narya (forged around SA 1590)",
     description: `The Ring of Fire. Narya was set with a red stone. At the time of the War of the Ring, Gandalf was the bearer of Narya.`,
     url: "https://thainsbook.minastirith.cz/objects.html#Narya",
     coords: [44.9455179,-93.3068293],
     icon: icons.NaryaIcon,
   },
   nenya: {
-    name: "Nenya (around SA 1590)",
+    name: "Nenya (forged around SA 1590)",
     description: `The Ring of Water. Nenya was set with a white diamond and its band was made of mithril. Galadriel was the bearer of Nenya.`,
     url: "https://thainsbook.minastirith.cz/objects.html#Nenya",
     coords: [44.9451063,-93.3071364],
     icon: icons.NenyaIcon,
   },
   vilya: {
-    name: "Vilya (around SA 1590)",
+    name: "Vilya (forged around SA 1590)",
     description: `The Ring of Air. Vilya was said to be the mightiest of the Three. It had a gold band set with a blue stone. At the time of the War of the Ring, Vilya was borne by Elrond.`,
     url: "https://thainsbook.minastirith.cz/objects.html#Vilya",
     coords: [44.9450277,-93.3063262],
     icon: icons.VilyaIcon,
+  },
+  barahir: {
+    name: "Ring of Barahir (forged around FA 400)",
+    description: `Heirloom of the House of Isildur and a symbol of friendship between Elves and Men. The Ring of Barahir had no special powers but it was valued for its heritage. It was made by the Noldor in the Undying Lands.`,
+    url: "https://thainsbook.minastirith.cz/objects.html#Ring%20of%20Barahir",
+    coords: [44.9408248,-93.3012181],
+    icon: icons.BarahirIcon,
   },
 }
