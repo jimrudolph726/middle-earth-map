@@ -300,11 +300,18 @@ export const river = {
     description: `River in southern Gondor. The Gilrain began in the White Mountains and flowed south through Lebennin.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Gilrain",
   },
-  sirith: {
+  serni: {
     name: "Serni",
     elvish_name: "Serni",
     elvish_meaning: `The name Serni is derived from the Sindarin sarn meaning "pebble." Serni is an adjectival form or a collective, like the Quenya sarnie meaning "shingle, pebble bank."`,
     description: `River of Gondor. The Serni began south of the White Mountains and flowed southwestward through Lebennin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+  },
+  ringlo: {
+    name: "Ringlo",
+    elvish_name: "Ringlo",
+    elvish_meaning: `The name Ringló means "chill flood" from ring meaning "cold" and lô meaning "soaking wet, swampy, flood." The latter element most likely referred to the spreading floodwaters during the spring thaw in the snowfield at the river's source.`,
+    description: `River in southern Gondor. The source of the Ringlo was in the White Mountains. The waters of the river came from a snowfield high in the mountains that formed a glacial lake. `,
     url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
   },
 };
