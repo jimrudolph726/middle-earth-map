@@ -67,8 +67,9 @@ export const men = {
     icon: icons.MenGondorIcon,
   },
   fornost: {
-    name: "FornostCapital of Arthedain in the North-kingdom. Fornost was located in the North Downs of Eriador, about 100 miles north of Bree and about 100 miles east of Annuminas. `,
-    url: "https://thainsbook.minastirith.cz/towns.html#Fornost",
+    name: `Fornost`,
+    description: `Capital of Arthedain in the North-kingdom. Fornost was located in the North Downs of Eriador, about 100 miles north of Bree and about 100 miles east of Annuminas.`,
+    url: `https://thainsbook.minastirith.cz/towns.html#Fornost`,
     coords: [44.94748318,-93.30969438],
     icon: icons.MenGondorIcon,
   },
