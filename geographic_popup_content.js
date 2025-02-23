@@ -325,8 +325,8 @@ export const river = {
     name: "Blackroot",
     elvish_name: "Morthond",
     elvish_meaning: `The Blackroot was so named because its source was in the dark caverns of the Dead. The river was called Morthond in Sindarin, meaning "Blackroot" from mor meaning "black" and thond meaning "root."`,
-    description: `River in Lamedon in Gondor. The Ciril was a tributary of the Ringlo. It began in the White Mountains near Tarlang's Neck and flowed at first through a deep rocky channel.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+    description: `River in Gondor. The Blackroot was a long, cold river that began beneath the White Mountains. The river emerged from the southern entrance of the Paths of the Dead and cascaded in a series of waterfalls into the Blackroot Vale.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Blackroot",
   },
 };
 
