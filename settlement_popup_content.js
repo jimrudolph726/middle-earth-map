@@ -150,7 +150,17 @@ export const battles = {
     coords: [44.9475027,-93.3100271],
     icon: icons.BattleIcon,
   },
+  battle_of_greenfields: {
+    name: "Battle of Greenfields (TA 2747)",
+    description: `Battle between Orcs and Hobbits in the Shire. In the year 2747 of the Third Age, an army of Orcs from Mount Gram led by Golfimbul invaded Greenfields in the Northfarthing.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Greenfields",
+    coords: [44.9470883,-93.3108774],
+    icon: icons.BattleIcon,
+  },
 };
+
+
+
 
 export const one_on_one = {
   battle_of_the_peak: {
