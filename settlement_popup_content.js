@@ -11,6 +11,7 @@ const iconUrls = {
     ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
     narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
     nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
+    vilya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/vilya.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -269,6 +270,13 @@ export const rings = {
     name: "Nenya (around SA 1590)",
     description: `The Ring of Water. Nenya was set with a white diamond and its band was made of mithril. Galadriel was the bearer of Nenya.`,
     url: "https://thainsbook.minastirith.cz/objects.html#Nenya",
+    coords: [44.9451063,-93.3071364],
+    icon: icons.NenyaIcon,
+  },
+  vilya: {
+    name: "Vilya (around SA 1590)",
+    description: `The Ring of Air. Vilya was said to be the mightiest of the Three. It had a gold band set with a blue stone. At the time of the War of the Ring, Vilya was borne by Elrond.`,
+    url: "https://thainsbook.minastirith.cz/objects.html#Vilya",
     coords: [44.9451063,-93.3071364],
     icon: icons.NenyaIcon,
   },
