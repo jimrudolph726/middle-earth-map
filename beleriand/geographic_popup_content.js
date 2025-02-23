@@ -19,12 +19,12 @@ export const mountain_range = {
 };
 
 export const mountain = {
-  lonely_mountain: {
-    name: "Lonely Mountain",
-    elvish_name: "Erebor",
-    elvish_meaning: 'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated."',
-    description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland.",
-    url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
+  mount_dolmed: {
+    name: "Mount Dolmed",
+    elvish_name: "Dolmed",
+    elvish_meaning: `The name Dolmed means "Wet Head" in Sindarin from dol meaning "head" - often used for hills and mountains - and méd meaning "wet."`,
+    description: `Mountain in the Blue Mountains. Mount Dolmed was a tall mountain located near the midpoint of the range as it was during the First Age.`,
+    url: "https://thainsbook.minastirith.cz/mountains.html#Mount-Dolmed",
   },
 }
 
