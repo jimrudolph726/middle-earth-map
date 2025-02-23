@@ -8,6 +8,7 @@ const iconUrls = {
     tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
     battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
     sword: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/sword.png',
+    ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -25,6 +26,7 @@ export const icons = {
   LothlorienIcon: createIcon(iconUrls.lothlorien),
   BattleIcon: createIcon(iconUrls.battle),
   SwordIcon: createIcon(iconUrls.sword),
+  RingIcon: createIcon(iconUrls.ring),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -240,6 +242,16 @@ export const swords = {
     description: `Sword of Gandalf. Glamdring was forged in Gondolin, a great realm of the Elves in the First Age. It once belonged to Turgon, the King of Gondolin. It is not known how Glamdring survived the Fall of Gondolin.`,
     url: "https://thainsbook.minastirith.cz/swords.html#Glamdring",
     coords: [44.9468787,-93.3063229],
+    icon: icons.SwordIcon,
+  },
+}
+
+export const rings = {
+  the_one_ring: {
+    name: "The One Ring (SA 1600)",
+    description: `The One Ring was the greatest of the Rings of Power. Sauron created it to rule the others, and in order to do so he invested the One Ring with much of his strength and will. `,
+    url: "https://thainsbook.minastirith.cz/onering.html",
+    coords: [44.9414214,-93.2990178],
     icon: icons.SwordIcon,
   },
 }

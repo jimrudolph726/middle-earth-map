@@ -16,6 +16,7 @@ import {
   battles,
   one_on_one,
   swords,
+  rings,
 } from './settlement_popup_content.js';
 
 import {
@@ -317,7 +318,9 @@ export const settlementsData = [
   { data: Object.fromEntries(
     Object.keys(swords).map(key => [key, createSettlementObjects(swords, key)])), 
   checkboxId: 'swordsCheckbox', campsite: 'no' },
-  
+  { data: Object.fromEntries(
+    Object.keys(rings).map(key => [key, createSettlementObjects(rings, key)])), 
+  checkboxId: 'swordsCheckbox', campsite: 'no' },
 ];
 
 // Paths
