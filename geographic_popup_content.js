@@ -293,6 +293,20 @@ export const river = {
     description: `River in Lebennin in Gondor. The Sirith began in the White Mountains. It was joined from the west by a tributary called the Celos. The Sirith flowed southward to the Anduin.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Sirith",
   },
+  gilrain: {
+    name: "Gilrain",
+    elvish_name: "Gilrain",
+    elvish_meaning: `The element gil means "star, shine." The element rain is derived from ran meaning "wander, stray, go on uncertain course" in reference to the meandering portion of the Gilrain where Nimrodel wandered.`,
+    description: `River in southern Gondor. The Gilrain began in the White Mountains and flowed south through Lebennin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Gilrain",
+  },
+  sirith: {
+    name: "Serni",
+    elvish_name: "Serni",
+    elvish_meaning: `The name Serni is derived from the Sindarin sarn meaning "pebble." Serni is an adjectival form or a collective, like the Quenya sarnie meaning "shingle, pebble bank."`,
+    description: `River of Gondor. The Serni began south of the White Mountains and flowed southwestward through Lebennin.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+  },
 };
 
 export const lake_sea = {
