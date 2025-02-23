@@ -116,10 +116,17 @@ export const hobbits = {
 
 export const battles = {
   battle_of_dagorlad: {
-    name: "The Battle of Dagorlad",
+    name: "The Battle of Dagorlad (SA 3434 - 3441)",
     description: `In 3434, the armies of the Last Alliance and Sauron met in battle outside the Black Gate of Mordor on the great plain that became known as Dagorlad, the Battle Plain. The army of the Last Alliance consisted of the forces that had marched from the north and the Men of Gondor who had been defending their borders.`,
     url: "https://thainsbook.minastirith.cz/battles.html#Last-Alliance",
     coords: [44.94223205,-93.30016862],
+    icon: icons.BattleIcon,
+  },
+  battle_of_bywater: {
+    name: "The Battle of Bywater (TA November 3rd 3019)",
+    description: `Battle between Hobbits and Men in the Shire. The Battle of Bywater was the last battle of the War of the Ring. The battle was fought on November 3, 3019 of the Third Age, on the Bywater Road near the village of Bywater.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Bywater",
+    coords: [44.9465615,-93.3111173],
     icon: icons.BattleIcon,
   },
 };
