@@ -129,4 +129,11 @@ export const battles = {
     coords: [44.9465615,-93.3111173],
     icon: icons.BattleIcon,
   },
+  battle_of_dale: {
+    name: "The Battle of Dale (TA March 15th 3019)",
+    description: `Battle in the north during the War of the Ring. The Battle of Dale began on March 15, 3019 of the Third Age. An army of Easterlings allied to Sauron crossed the Redwater and King Brand of Dale was forced to retreat to the foot of the Lonely Mountain.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Dale",
+    coords: [44.9479213,-93.3005827],
+    icon: icons.BattleIcon,
+  },
 };
