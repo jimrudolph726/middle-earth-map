@@ -192,6 +192,13 @@ export const battles = {
     coords: [44.9439771,-93.3035051],
     icon: icons.BattleIcon,
   },
+  battle_of_the_five_armies: {
+    name: "Battle of the Five Armies (TA 2941)",
+    description: `Battle involving Dwarves, Elves, and Men against Orcs and Wargs at the Lonely Mountain. The Battle of the Five Armies was fought late in the year of 2941 of the Third Age in the valley between two great spurs on the southern side of the mountain.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Five_Armies",
+    coords: [44.94791343,-93.30077055],
+    icon: icons.BattleIcon,
+  },
 };
 
 
