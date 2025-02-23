@@ -5,7 +5,8 @@ const iconUrls = {
     men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men_rohan.png',
     rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
     lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
-    tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png'
+    tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
+    battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battle.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -21,6 +22,7 @@ export const icons = {
   MenRohanIcon: createIcon(iconUrls.men_rohan),
   RivendellIcon: createIcon(iconUrls.rivendell),
   LothlorienIcon: createIcon(iconUrls.lothlorien),
+  BattleIcon: createIcon(iconUrls.battle),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -109,5 +111,15 @@ export const hobbits = {
     url: "https://tolkiengateway.net/wiki/Crickhollow",
     coords: [44.94648941,-93.31055274],
     icon: icons.HobbitsIcon,
+  },
+};
+
+export const battles = {
+  battle_of_dagorlad: {
+    name: "The Battle of Dagorlad",
+    description: `In 3434, the armies of the Last Alliance and Sauron met in battle outside the Black Gate of Mordor on the great plain that became known as Dagorlad, the Battle Plain. The army of the Last Alliance consisted of the forces that had marched from the north and the Men of Gondor who had been defending their borders.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#Last-Alliance",
+    coords: [44.94223205,-93.30016862],
+    icon: icons.BattleIcon,
   },
 };
