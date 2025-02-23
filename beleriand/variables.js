@@ -386,19 +386,14 @@ const rivers = {
     pathName: 'greater_gelion', color: 'blue', name: 'Greater Gelion', PopupContent: createGeographicPopup(river.greater_gelion.name, river.greater_gelion.elvish_name, river.greater_gelion.elvish_meaning, river.greater_gelion.description, river.greater_gelion.url ), tolerance: 10, weight: 5 
   },
 }
-const lakes_seas = {
-  lake_mithrim: { 
-    pathName: 'lake_mithrim', color: 'blue', name: 'Lake Mithrim', PopupContent: createGeographicPopup(lake_sea.lake_mithrim.name, lake_sea.lake_mithrim.elvish_name, lake_sea.lake_mithrim.elvish_meaning, lake_sea.lake_mithrim.description, lake_sea.lake_mithrim.url ), tolerance: 10, weight: 2 
-  },
-  lake_helevorn: { 
-    pathName: 'lake_helevorn', color: 'blue', name: 'Lake Helevorn', PopupContent: createGeographicPopup(lake_sea.lake_helevorn.name, lake_sea.lake_helevorn.elvish_name, lake_sea.lake_helevorn.elvish_meaning, lake_sea.lake_helevorn.description, lake_sea.lake_helevorn.url ), tolerance: 10, weight: 2 
-  },
-}
+
 
 export const geographicData = [
   {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: mountains, checkboxId: 'mountainsCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
   {data: rivers, checkboxId: 'riversCheckbox'},
-  {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
+  {data: Object.fromEntries(
+      Object.keys(lake_sea).map(key => [key, createGeographicObjects(lake_sea, key, "blue", 1, 2)])), 
+    checkboxId: 'lakes_seasCheckbox'},
 ]

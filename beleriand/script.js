@@ -3,7 +3,7 @@
 import {
   PathListeners,
   MarkerListeners,
-  createGeographicFeature,
+  createGeographicShape,
   createMarkers
 } from './functions.js';
 
@@ -41,13 +41,13 @@ markersData.forEach(({ data, checkboxId, campsite }) => {
 });
 
 // Add Paths
-createGeographicFeature(pathdata).then((polygons) => {
+createGeographicShape(pathdata).then((polygons) => {
   PathListeners(polygons, map);
   });
 
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
-  createGeographicFeature(data).then((polygons) => {
+  createGeographicShape(data).then((polygons) => {
   MarkerListeners(checkboxId, polygons, map);
   });
 });

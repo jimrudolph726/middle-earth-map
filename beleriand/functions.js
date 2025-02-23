@@ -83,7 +83,37 @@ export const createSettlementPopup = (name, description, url) => {
     </button>
   </div>`;
 };
+export const createGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
+  const GeographicData = object_group[object_name];
 
+  return {
+    pathName: object_name,
+    color: color,
+    name: object_name.charAt(0).toUpperCase() + object_name.slice(1),
+    PopupContent: createGeographicPopup(
+      GeographicData.name,
+      GeographicData.elvish_name,
+      GeographicData.elvish_meaning,
+      GeographicData.description,
+      GeographicData.url
+    ),
+    tolerance: tolerance,
+    weight: weight
+  };
+};
+export const createSettlementObjects = (object_group, object_name) => {
+  const SettlementData = object_group[object_name];
+
+  return {
+    coords: SettlementData.coords,
+    icon: SettlementData.icon,
+    popup: createSettlementPopup(
+      SettlementData.name,
+      SettlementData.description,
+      SettlementData.url,
+    ),
+  };
+};
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
@@ -146,11 +176,11 @@ export const createMarkers = (locations, campsite = 'no') => {
 };
 
 // Paths and Geographic Features function
-export const createGeographicFeature = async (geographic_data) => {
+export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/geojson_files/${pathName}.geojson`;
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
 
     try {
       const response = await fetch(geojsonPath);
