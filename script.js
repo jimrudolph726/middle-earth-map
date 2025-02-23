@@ -51,5 +51,3 @@ geographicData.forEach(({ data, checkboxId }) => {
   MarkerListeners(checkboxId, polygons, map);
   });
 });
-
-//test
