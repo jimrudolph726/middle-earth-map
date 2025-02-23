@@ -192,11 +192,18 @@ export const battles = {
     coords: [44.9439771,-93.3035051],
     icon: icons.BattleIcon,
   },
-  battle_of_the_five_armies: {
+  five_armies: {
     name: "Battle of the Five Armies (TA 2941)",
     description: `Battle involving Dwarves, Elves, and Men against Orcs and Wargs at the Lonely Mountain. The Battle of the Five Armies was fought late in the year of 2941 of the Third Age in the valley between two great spurs on the southern side of the mountain.`,
     url: "https://thainsbook.minastirith.cz/battles.html#Five_Armies",
     coords: [44.94791343,-93.30077055],
+    icon: icons.BattleIcon,
+  },
+  fords_of_isen: {
+    name: "Battles of the Fords of Isen (TA February 25th and March 2nd 3019)",
+    description: `The Battles of the Fords of Isen occurred on February 25 and March 2, 3019 of the Third Age. In the first battle, Saruman’s forces ambushed the Rohirrim, mortally wounding Théodred before being driven back by reinforcements. In the second, Saruman’s army launched a larger assault, overwhelming the defenders and forcing them to retreat, leaving the Fords unguarded and clearing the way for the attack on Helm’s Deep.`,
+    url: "https://thainsbook.minastirith.cz/battles.html#First-Isen",
+    coords: [44.9425148,-93.3064139],
     icon: icons.BattleIcon,
   },
 };
