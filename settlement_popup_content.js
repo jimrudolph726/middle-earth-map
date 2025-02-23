@@ -32,6 +32,7 @@ export const icons = {
   RingIcon: createIcon(iconUrls.ring),
   NaryaIcon: createIcon(iconUrls.narya),
   NenyaIcon: createIcon(iconUrls.nenya),
+  VilyaIcon: createIcon(iconUrls.vilya),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
