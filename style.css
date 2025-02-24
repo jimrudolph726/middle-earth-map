@@ -25,12 +25,12 @@ html, body, #map {
   padding-top: 16px; /* Optional: Add padding for indentation */
 }
 
-#campsSection h2,
-#itemsSection h2, 
-#settlementsSection h2, 
-#pathsSection h2, 
-#geographySection h2,
-#battlesSection h2 {
+#campsSection h1,
+#itemsSection h1, 
+#settlementsSection h1, 
+#pathsSection h1, 
+#geographySection h1,
+#battlesSection h1 {
   font-size: 18px; /* Adjust the size as needed */
   font-weight: bold; /* Bold text */
   margin: 2px 0; /* Adjust top and bottom spacing */
