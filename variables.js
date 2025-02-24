@@ -324,7 +324,7 @@ export const settlementsData = [
   checkboxId: 'ringsCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
     Object.keys(books).map(key => [key, createSettlementObjects(books, key)])), 
-  checkboxId: 'ringsCheckbox', campsite: 'no' },
+  checkboxId: 'booksCheckbox', campsite: 'no' },
 ];
 
 // Paths
