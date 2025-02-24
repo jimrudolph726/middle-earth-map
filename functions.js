@@ -238,18 +238,18 @@ export const createGeographicShape = async (geographic_data) => {
 };
 
 document.getElementById("allCheckbox").addEventListener("change", function () {
-  let checkboxes = document.querySelectorAll(".itemCheckbox");
+  let itemCheckboxes = document.querySelectorAll("#itemsSection .itemCheckbox");
   
-  checkboxes.forEach(checkbox => {
+  itemCheckboxes.forEach(checkbox => {
       checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Trigger the change event
+      checkbox.dispatchEvent(new Event("change"));  // Trigger change event for MarkerListeners
   });
 });
 
-// If any individual checkbox is unchecked, also uncheck the "All" checkbox
-document.querySelectorAll(".itemCheckbox").forEach(checkbox => {
+// If any individual checkbox is unchecked, also uncheck "All"
+document.querySelectorAll("#itemsSection .itemCheckbox").forEach(checkbox => {
   checkbox.addEventListener("change", function () {
-      let allChecked = document.querySelectorAll(".itemCheckbox:checked").length === document.querySelectorAll(".itemCheckbox").length;
+      let allChecked = document.querySelectorAll("#itemsSection .itemCheckbox:checked").length === document.querySelectorAll("#itemsSection .itemCheckbox").length;
       document.getElementById("allCheckbox").checked = allChecked;
   });
 });
