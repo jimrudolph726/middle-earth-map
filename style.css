@@ -82,3 +82,16 @@ html, body, #map {
   text-align: center;
   pointer-events: none; /* Prevent the label from being interactive */
 }
+
+#campsSection, #pathsSection {
+  padding-top: 0; /* Remove extra padding from the top */
+}
+
+#campsSection h3,
+#pathsSection h3 {
+  margin-top: 0; /* Remove any extra margin on the h3 headers */
+}
+
+#campsSection label, #pathsSection label {
+  margin-top: 0; /* Remove top margin from the labels */
+}
