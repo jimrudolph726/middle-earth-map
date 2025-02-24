@@ -60,3 +60,12 @@ document.getElementById("allItemCheckbox").addEventListener("change", function (
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
+
+document.getElementById("allBattleCheckbox").addEventListener("change", function () {
+  let itemCheckboxes = document.querySelectorAll("#battlesSection input.battleCheckbox");
+
+  itemCheckboxes.forEach(checkbox => {
+      checkbox.checked = this.checked;
+      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
+  });
+});
