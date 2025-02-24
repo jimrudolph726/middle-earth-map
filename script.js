@@ -79,3 +79,11 @@ document.getElementById("allGeographyCheckbox").addEventListener("change", funct
   });
 });
 
+document.getElementById("allSettlementCheckbox").addEventListener("change", function () {
+  let itemCheckboxes = document.querySelectorAll("#settlementsSection input.settlementCheckbox");
+
+  itemCheckboxes.forEach(checkbox => {
+      checkbox.checked = this.checked;
+      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
+  });
+});
