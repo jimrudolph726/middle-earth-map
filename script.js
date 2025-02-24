@@ -69,3 +69,13 @@ document.getElementById("allBattleCheckbox").addEventListener("change", function
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
+
+document.getElementById("allGeographyCheckbox").addEventListener("change", function () {
+  let itemCheckboxes = document.querySelectorAll("#geographySection input.geographyCheckbox");
+
+  itemCheckboxes.forEach(checkbox => {
+      checkbox.checked = this.checked;
+      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
+  });
+});
+
