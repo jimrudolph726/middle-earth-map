@@ -320,4 +320,11 @@ export const books = {
     coords: [44.9466424,-93.3109916],
     icon: icons.BookIcon,
   },
+  akallabeth: {
+    name: "Akallabêth",
+    description: `Story of the Downfall of Numenor. The Akallabeth was written by Elendil, the leader of the survivors of Numenor.`,
+    url: "https://thainsbook.minastirith.cz/books.html#Akallab%C3%AAth",
+    coords: [44.94092381,-93.30125186],
+    icon: icons.BookIcon,
+  },
 }
