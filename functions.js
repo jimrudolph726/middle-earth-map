@@ -237,3 +237,18 @@ export const createGeographicShape = async (geographic_data) => {
   return polygons;
 };
 
+document.getElementById("allCheckbox").addEventListener("change", function () {
+  let checkboxes = document.querySelectorAll(".itemCheckbox");
+  checkboxes.forEach(checkbox => {
+      checkbox.checked = this.checked;
+  });
+});
+
+// If any individual checkbox is unchecked, also uncheck the "All" checkbox
+document.querySelectorAll(".itemCheckbox").forEach(checkbox => {
+  checkbox.addEventListener("change", function () {
+      let allChecked = document.querySelectorAll(".itemCheckbox:checked").length === document.querySelectorAll(".itemCheckbox").length;
+      document.getElementById("allCheckbox").checked = allChecked;
+  });
+});
+
