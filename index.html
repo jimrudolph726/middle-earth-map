@@ -193,21 +193,22 @@
 
     <script>
         document.getElementById("allCheckbox").addEventListener("change", function () {
-            let itemCheckboxes = document.querySelectorAll("#itemsSection .itemCheckbox");
-            
+            let itemCheckboxes = document.querySelectorAll("#itemsSection input.itemCheckbox");
+
             itemCheckboxes.forEach(checkbox => {
                 checkbox.checked = this.checked;
                 checkbox.dispatchEvent(new Event("change"));  // Trigger change event for MarkerListeners
             });
         });
-        
+
         // If any individual checkbox is unchecked, also uncheck "All"
-        document.querySelectorAll("#itemsSection .itemCheckbox").forEach(checkbox => {
+        document.querySelectorAll("#itemsSection input.itemCheckbox").forEach(checkbox => {
             checkbox.addEventListener("change", function () {
-                let allChecked = document.querySelectorAll("#itemsSection .itemCheckbox:checked").length === document.querySelectorAll("#itemsSection .itemCheckbox").length;
+                let allChecked = document.querySelectorAll("#itemsSection input.itemCheckbox:checked").length === document.querySelectorAll("#itemsSection input.itemCheckbox").length;
                 document.getElementById("allCheckbox").checked = allChecked;
             });
         });
+
     </script>
 </body>
 </html>
