@@ -30,7 +30,6 @@ html, body, #map {
 #settlementsSection h2, 
 #pathsSection h2, 
 #geographySection h2,
-#pathsSection h2,
 #battlesSection h2 {
   font-size: 18px; /* Adjust the size as needed */
   font-weight: bold; /* Bold text */
@@ -53,7 +52,6 @@ html, body, #map {
 #itemsSection input[type="checkbox"],
 #battlesSection input[type="checkbox"],
 #settlementsSection input[type="checkbox"],
-#pathsSection input[type="checkbox"],
 #geographySection input[type="checkbox"] {
   margin-right: 8px; /* Add spacing between the checkbox and label text */
 }
