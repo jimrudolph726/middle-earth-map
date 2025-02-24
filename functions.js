@@ -114,6 +114,14 @@ export const createSettlementObjects = (object_group, object_name) => {
     ),
   };
 };
+export const createSettlementData = (dataObj, checkboxId, campsite = 'no') => ({
+  data: Object.fromEntries(
+    Object.keys(dataObj).map(key => [key, createSettlementObjects(dataObj, key)])
+  ),
+  checkboxId,
+  campsite
+});
+
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
