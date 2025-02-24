@@ -327,4 +327,11 @@ export const books = {
     coords: [44.94092381,-93.30125186],
     icon: icons.BookIcon,
   },
+  book_of_mazarbul: {
+    name: "Book of Mazarbul",
+    description: `Record of Balin's expedition to Moria. The Book of Mazarbul covered five years, beginning with the arrival of the Dwarves in Moria in 2989 of the Third Age and abruptly ending in the year 2994. . Mazarbul means "records" in Dwarvish.`,
+    url: "https://thainsbook.minastirith.cz/books.html#Book%20of%20Mazarbul",
+    coords: [44.9449721,-93.3056964],
+    icon: icons.BookIcon,
+  },
 }
