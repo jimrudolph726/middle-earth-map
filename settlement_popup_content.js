@@ -15,6 +15,7 @@ const iconUrls = {
     nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
     vilya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/vilya.png',
     barahir: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/barahir.png',
+    book: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/book.png',
 };
 function createIcon(url, size = [48, 48]) {
   return L.icon({
@@ -39,6 +40,7 @@ export const icons = {
   NenyaIcon: createIcon(iconUrls.nenya),
   VilyaIcon: createIcon(iconUrls.vilya),
   BarahirIcon: createIcon(iconUrls.barahir),
+  BookIcon: createIcon(iconUrls.book),
   TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -307,5 +309,15 @@ export const rings = {
     url: "https://thainsbook.minastirith.cz/objects.html#Ring%20of%20Barahir",
     coords: [44.9408248,-93.3012181],
     icon: icons.BarahirIcon,
+  },
+}
+
+export const books = {
+  red_book_of_westmarch: {
+    name: "The Red Book of Westmarch",
+    description: `The Red Book was written by Bilbo and Frodo Baggins and completed by Sam Gamgee. It tells of their adventures in the Third Age of Middle-earth and is the primary source of information on Hobbits and their role in the War of the Ring.`,
+    url: "https://thainsbook.minastirith.cz/books.html#Red%20Book%20of%20Westmarch",
+    coords: [44.9466424,-93.3109916],
+    icon: icons.BookIcon,
   },
 }
