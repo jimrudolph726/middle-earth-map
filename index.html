@@ -146,17 +146,30 @@
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
                 <div id="itemsSection">
+                    <label for="allCheckbox">
+                        <input type="checkbox" id="allCheckbox" /> All
+                    </label>
                     <label for="swordsCheckbox">
-                        <input type="checkbox" id="swordsCheckbox" /> Swords
+                        <input type="checkbox" class="itemCheckbox" id="swordsCheckbox" /> Swords
                     </label>
                     <label for="ringsCheckbox">
-                        <input type="checkbox" id="ringsCheckbox" /> Rings
+                        <input type="checkbox" class="itemCheckbox" id="ringsCheckbox" /> Rings
                     </label>
                     <label for="booksCheckbox">
-                        <input type="checkbox" id="booksCheckbox" /> Books
+                        <input type="checkbox" class="itemCheckbox" id="booksCheckbox" /> Books
                     </label>
                 </div>
             </div>
+            
+            <script>
+                document.getElementById("allCheckbox").addEventListener("change", function () {
+                    let checkboxes = document.querySelectorAll(".itemCheckbox");
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = this.checked;
+                    });
+                });
+            </script>
+            
 
             <div class="sidebar-pane" id="mapSectionPane">
                 <h1 class="sidebar-header">
