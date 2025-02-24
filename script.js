@@ -98,7 +98,7 @@ document.getElementById("allPathCheckbox").addEventListener("change", function (
 });
 
 document.getElementById("allCampCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#pathsSection input.campCheckbox");
+  let itemCheckboxes = document.querySelectorAll("#campsSection input.campCheckbox");
 
   itemCheckboxes.forEach(checkbox => {
       checkbox.checked = this.checked;
