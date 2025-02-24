@@ -87,3 +87,12 @@ document.getElementById("allSettlementCheckbox").addEventListener("change", func
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
+
+document.getElementById("allPathCheckbox").addEventListener("change", function () {
+  let itemCheckboxes = document.querySelectorAll("#pathsSection input.pathCheckbox");
+
+  itemCheckboxes.forEach(checkbox => {
+      checkbox.checked = this.checked;
+      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
+  });
+});
