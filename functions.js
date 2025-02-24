@@ -239,8 +239,10 @@ export const createGeographicShape = async (geographic_data) => {
 
 document.getElementById("allCheckbox").addEventListener("change", function () {
   let checkboxes = document.querySelectorAll(".itemCheckbox");
+  
   checkboxes.forEach(checkbox => {
       checkbox.checked = this.checked;
+      checkbox.dispatchEvent(new Event("change"));  // Trigger the change event
   });
 });
 
@@ -251,4 +253,5 @@ document.querySelectorAll(".itemCheckbox").forEach(checkbox => {
       document.getElementById("allCheckbox").checked = allChecked;
   });
 });
+
 
