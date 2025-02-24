@@ -335,6 +335,20 @@ export const river = {
     description: `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
     url: "https://thainsbook.minastirith.cz/rivers.html#Lefnui",
   },
+  adorn: {
+    name: "Adorn",
+    elvish_name: "Adorn",
+    elvish_meaning: `None. The name Adorn was of pre-Numenorean origin adapted to Sindarin. The meaning cannot be interpreted.`,
+    description: `River in Rohan. The Adorn flowed northwest from its source in the White Mountains to join the River Isen. Together the Adorn and the Isen formed the far western boundary of Rohan.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Adorn",
+  },
+  isen: {
+    name: "Isen",
+    elvish_name: "Sîr Angren",
+    elvish_meaning: `The name Isen means "iron" in the language of Rohan, from the Old English word ísen. The Sindarin name was Sîr Angren, from sîr meaning "river" and angren meaning "iron."`,
+    description: `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
+    url: "https://thainsbook.minastirith.cz/rivers.html#Isen",
+  },
 };
 
 export const lake_sea = {
