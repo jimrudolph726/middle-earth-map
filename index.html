@@ -160,7 +160,7 @@
                     </label>
                 </div>
             </div>
-            
+
             <div class="sidebar-pane" id="mapSectionPane">
                 <h1 class="sidebar-header">
                     Maps
@@ -190,5 +190,24 @@
     <script type="module" src="plugins/leaflet.geometryutil.js"></script>
     <script type="module" src="script.js"></script>
     <script type="module" src="variables.js"></script>
+
+    <script>
+        document.getElementById("allCheckbox").addEventListener("change", function () {
+            let itemCheckboxes = document.querySelectorAll("#itemsSection .itemCheckbox");
+            
+            itemCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+                checkbox.dispatchEvent(new Event("change"));  // Trigger change event for MarkerListeners
+            });
+        });
+        
+        // If any individual checkbox is unchecked, also uncheck "All"
+        document.querySelectorAll("#itemsSection .itemCheckbox").forEach(checkbox => {
+            checkbox.addEventListener("change", function () {
+                let allChecked = document.querySelectorAll("#itemsSection .itemCheckbox:checked").length === document.querySelectorAll("#itemsSection .itemCheckbox").length;
+                document.getElementById("allCheckbox").checked = allChecked;
+            });
+        });
+    </script>
 </body>
 </html>
