@@ -18,7 +18,7 @@ html, body, #map {
   color: #AAA;
 }
 
-#settlementsSection, #pathsSection, #geographySection, #battlesSection, #itemsSection, #pathsSection, #campsSection {
+#settlementsSection, #pathsSection, #geographySection, #battlesSection, #itemsSection, #campsSection {
   display: flex;
   flex-direction: column; /* Stack the labels vertically */
   gap: 8px; /* Optional: Add spacing between items */
