@@ -96,12 +96,3 @@ document.getElementById("allPathCheckbox").addEventListener("change", function (
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
-
-document.getElementById("allCampCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#campsSection input.campCheckbox");
-
-  itemCheckboxes.forEach(checkbox => {
-      checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
-  });
-});
