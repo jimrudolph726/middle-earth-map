@@ -18,13 +18,14 @@ html, body, #map {
   color: #AAA;
 }
 
-#settlementsSection, #pathsSection, #geographySection, #battlesSection, #itemsSection, #pathsSection {
+#settlementsSection, #pathsSection, #geographySection, #battlesSection, #itemsSection, #pathsSection, #campsSection {
   display: flex;
   flex-direction: column; /* Stack the labels vertically */
   gap: 8px; /* Optional: Add spacing between items */
   padding-top: 16px; /* Optional: Add padding for indentation */
 }
 
+#campsSection h2,
 #itemsSection h2, 
 #settlementsSection h2, 
 #pathsSection h2, 
@@ -39,13 +40,14 @@ html, body, #map {
   text-align: left; /* Align text to the left */
 }
 
-#settlementsSection label, #pathsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label {
+#settlementsSection label, #pathsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label, #campsSection label {
   display: flex;
   align-items: center; /* Align the checkbox and label text */
   cursor: pointer; /* Change the cursor to indicate clickability */
   font-size: 16px;
 }
 
+#campsSection input[type="checkbox"],
 #itemsSection input[type="checkbox"],
 #pathsSection input[type="checkbox"],
 #itemsSection input[type="checkbox"],
