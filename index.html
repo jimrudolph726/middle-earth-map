@@ -191,23 +191,6 @@
     <script type="module" src="script.js"></script>
     <script type="module" src="variables.js"></script>
     
-    <script>
-        const allCheckbox = document.getElementById("allCheckbox");
-        const itemCheckboxes = document.querySelectorAll("#itemsSection input.itemCheckbox");
-    
-        allCheckbox.addEventListener("change", function () {
-            itemCheckboxes.forEach(checkbox => {
-                checkbox.checked = allCheckbox.checked; // Use allCheckbox directly
-                checkbox.dispatchEvent(new Event("change"));
-            });
-        });
-    
-        itemCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener("change", function () {
-                const allChecked = Array.from(itemCheckboxes).every(cb => cb.checked); // More robust check
-                allCheckbox.checked = allChecked;
-            });
-        });
-    </script>
+
 </body>
 </html>
