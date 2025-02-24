@@ -190,25 +190,24 @@
     <script type="module" src="plugins/leaflet.geometryutil.js"></script>
     <script type="module" src="script.js"></script>
     <script type="module" src="variables.js"></script>
-
+    
     <script>
-        document.getElementById("allCheckbox").addEventListener("change", function () {
-            let itemCheckboxes = document.querySelectorAll("#itemsSection input.itemCheckbox");
-
+        const allCheckbox = document.getElementById("allCheckbox");
+        const itemCheckboxes = document.querySelectorAll("#itemsSection input.itemCheckbox");
+    
+        allCheckbox.addEventListener("change", function () {
             itemCheckboxes.forEach(checkbox => {
-                checkbox.checked = this.checked;
-                checkbox.dispatchEvent(new Event("change"));  // Trigger change event for MarkerListeners
+                checkbox.checked = allCheckbox.checked; // Use allCheckbox directly
+                checkbox.dispatchEvent(new Event("change"));
             });
         });
-
-        // If any individual checkbox is unchecked, also uncheck "All"
-        document.querySelectorAll("#itemsSection input.itemCheckbox").forEach(checkbox => {
+    
+        itemCheckboxes.forEach(checkbox => {
             checkbox.addEventListener("change", function () {
-                let allChecked = document.querySelectorAll("#itemsSection input.itemCheckbox:checked").length === document.querySelectorAll("#itemsSection input.itemCheckbox").length;
-                document.getElementById("allCheckbox").checked = allChecked;
+                const allChecked = Array.from(itemCheckboxes).every(cb => cb.checked); // More robust check
+                allCheckbox.checked = allChecked;
             });
         });
-
     </script>
 </body>
 </html>
