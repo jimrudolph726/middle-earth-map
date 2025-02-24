@@ -46,9 +46,9 @@ html, body, #map {
   font-size: 16px;
 }
 
-#campsSection input[type="checkbox"],
+/* #campsSection input[type="checkbox"], */
 #itemsSection input[type="checkbox"],
-#pathsSection input[type="checkbox"],
+/* #pathsSection input[type="checkbox"], */
 #itemsSection input[type="checkbox"],
 #battlesSection input[type="checkbox"],
 #settlementsSection input[type="checkbox"],
