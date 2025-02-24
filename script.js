@@ -52,7 +52,7 @@ geographicData.forEach(({ data, checkboxId }) => {
   });
 });
 
-document.getElementById("allCheckbox").addEventListener("change", function () {
+document.getElementById("allItemCheckbox").addEventListener("change", function () {
     let itemCheckboxes = document.querySelectorAll("#itemsSection input.itemCheckbox");
 
     itemCheckboxes.forEach(checkbox => {
