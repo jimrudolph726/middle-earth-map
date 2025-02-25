@@ -297,22 +297,33 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 
 // Settlements (markers)
 export const settlementsData = [
-  // Campsite data
-  ...['samfrodo', 'aragorn', 'pippin', 'merry', 'gandalfthegrey'].map(name => ({
-    data: eval(`${name}campsites`),  // Dynamically fetch variable (ensure safety)
-    checkboxId: `${name}campsitesCheckbox`,
-    campsite: 'campsite'
-  })),
-
-  // Other settlement categories
-  createSettlementData(elves, 'elvesCheckbox'),
-  createSettlementData(men, 'menCheckbox'),
-  createSettlementData(hobbits, 'hobbitsCheckbox'),
-  createSettlementData(battles, 'battlesCheckbox'),
-  createSettlementData(one_on_one, 'oneononeCheckbox'),
-  createSettlementData(swords, 'swordsCheckbox'),
-  createSettlementData(rings, 'ringsCheckbox'),
-  createSettlementData(books, 'booksCheckbox')
+  { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
+  { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
+  { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
+  { data: merrycampsites, checkboxId: 'merrycampsitesCheckbox', campsite: 'campsite' },
+  { data: gandalfthegreycampsites, checkboxId: 'gandalfthegreycampsitesCheckbox', campsite: 'campsite' },
+  { data: elves, checkboxId: 'elvesCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(men).map(key => [key, createSettlementObjects(men, key)])), 
+    checkboxId: 'menCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(hobbits).map(key => [key, createSettlementObjects(hobbits, key)])), 
+  checkboxId: 'hobbitsCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(battles).map(key => [key, createSettlementObjects(battles, key)])), 
+  checkboxId: 'battlesCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(one_on_one).map(key => [key, createSettlementObjects(one_on_one, key)])), 
+  checkboxId: 'oneononeCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(swords).map(key => [key, createSettlementObjects(swords, key)])), 
+  checkboxId: 'swordsCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(rings).map(key => [key, createSettlementObjects(rings, key)])), 
+  checkboxId: 'ringsCheckbox', campsite: 'no' },
+  { data: Object.fromEntries(
+    Object.keys(books).map(key => [key, createSettlementObjects(books, key)])), 
+  checkboxId: 'booksCheckbox', campsite: 'no' },
 ];
 
 // Paths
