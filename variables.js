@@ -297,11 +297,12 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 
 // Settlements (markers)
 export const settlementsData = [
-  { data: samfrodocampsites, checkboxId: 'samfrodocampsitesCheckbox', campsite: 'campsite' },
-  { data: aragorncampsites, checkboxId: 'aragorncampsitesCheckbox', campsite: 'campsite' },
-  { data: pippincampsites, checkboxId: 'pippincampsitesCheckbox', campsite: 'campsite' },
-  { data: merrycampsites, checkboxId: 'merrycampsitesCheckbox', campsite: 'campsite' },
-  { data: gandalfthegreycampsites, checkboxId: 'gandalfthegreycampsitesCheckbox', campsite: 'campsite' },
+  ...['samfrodo', 'aragorn', 'pippin', 'merry', 'gandalfthegrey'].map(name => ({
+    data: eval(`${name}campsites`),  // Dynamically fetch variable (ensure safety)
+    checkboxId: `${name}campsitesCheckbox`,
+    campsite: 'campsite'
+  })),
+
   { data: elves, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
     Object.keys(men).map(key => [key, createSettlementObjects(men, key)])), 
