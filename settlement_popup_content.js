@@ -169,100 +169,73 @@ export const hobbits = {
   },
 };
 
-
 export const battles = {
   battle_of_dagorlad: {
-    name: "The Battle of Dagorlad (SA 3434 - 3441)",
-    description: `In 3434, the armies of the Last Alliance and Sauron met in battle outside the Black Gate of Mordor on the great plain that became known as Dagorlad, the Battle Plain. The army of the Last Alliance consisted of the forces that had marched from the north and the Men of Gondor who had been defending their borders.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Last-Alliance",
+    popup: createBattlePopup("The Battle of Dagorlad (SA 3434 - 3441)",
+      `In 3434, the armies of the Last Alliance and Sauron met in battle outside the Black Gate of Mordor on the great plain that became known as Dagorlad, the Battle Plain. The army of the Last Alliance consisted of the forces that had marched from the north and the Men of Gondor who had been defending their borders.`,
+      "https://thainsbook.minastirith.cz/battles.html#Last-Alliance"
+    ),
     coords: [44.9424929,-93.3001234],
     icon: icons.BattleIcon,
   },
   battle_of_bywater: {
-    name: "The Battle of Bywater (TA November 3rd 3019)",
-    description: `Battle between Hobbits and Men in the Shire. The Battle of Bywater was the last battle of the War of the Ring. The battle was fought on November 3, 3019 of the Third Age, on the Bywater Road near the village of Bywater.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Bywater",
+    popup: createBattlePopup("The Battle of Bywater (TA November 3rd 3019)",
+      `Battle between Hobbits and Men in the Shire. The Battle of Bywater was the last battle of the War of the Ring. The battle was fought on November 3, 3019 of the Third Age, on the Bywater Road near the village of Bywater.`,
+      "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Bywater"
+    ),
     coords: [44.9465615,-93.3111173],
     icon: icons.BattleIcon,
   },
   battle_of_dale: {
-    name: "The Battle of Dale (TA March 15th 3019)",
-    description: `Battle in the north during the War of the Ring. The Battle of Dale began on March 15, 3019 of the Third Age. An army of Easterlings allied to Sauron crossed the Redwater and King Brand of Dale was forced to retreat to the foot of the Lonely Mountain.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Dale",
+    popup: createBattlePopup("The Battle of Dale (TA March 15th 3019)",
+      `Battle in the north during the War of the Ring. The Battle of Dale began on March 15, 3019 of the Third Age. An army of Easterlings allied to Sauron crossed the Redwater and King Brand of Dale was forced to retreat to the foot of the Lonely Mountain.`,
+      "https://thainsbook.minastirith.cz/battles.html#Dale"
+    ),
     coords: [44.9479213,-93.3005827],
     icon: icons.BattleIcon,
   },
   battle_of_fornost: {
-    name: "The Battle of Fornost (TA 1975)",
-    description: `Battle between the forces of the Witch-king of Angmar and the combined forces of the Dunedain of the North, Elves of Lindon and Rivendell, and Men of Gondor.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Fornost",
+    popup: createBattlePopup("The Battle of Fornost (TA 1975)",
+      `Battle between the forces of the Witch-king of Angmar and the combined forces of the Dunedain of the North, Elves of Lindon and Rivendell, and Men of Gondor.`,
+      "https://thainsbook.minastirith.cz/battles.html#Fornost"
+    ),
     coords: [44.9475027,-93.3100271],
     icon: icons.BattleIcon,
   },
   battle_of_greenfields: {
-    name: "Battle of Greenfields (TA 2747)",
-    description: `Battle between Orcs and Hobbits in the Shire. In the year 2747 of the Third Age, an army of Orcs from Mount Gram led by Golfimbul invaded Greenfields in the Northfarthing.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Greenfields",
+    popup: createBattlePopup("Battle of Greenfields (TA 2747)",
+      `Battle between Orcs and Hobbits in the Shire. In the year 2747 of the Third Age, an army of Orcs from Mount Gram led by Golfimbul invaded Greenfields in the Northfarthing.`,
+      "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Greenfields"
+    ),
     coords: [44.9470883,-93.3108774],
     icon: icons.BattleIcon,
   },
   battle_of_helms_deep: {
-    name: "Battle of Helm's Deep (TA March 3rd and 4th 3019)",
-    description: `Battle between the Men of Rohan and the forces of Saruman during the War of the Ring. The Battle of Helm's Deep was fought during the rainy night of March 3-4, 3019 of the Third Age.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Helm%27s",
+    popup: createBattlePopup("Battle of Helm's Deep (TA March 3rd and 4th 3019)",
+      `Battle between the Men of Rohan and the forces of Saruman during the War of the Ring. The Battle of Helm's Deep was fought during the rainy night of March 3-4, 3019 of the Third Age.`,
+      "https://thainsbook.minastirith.cz/battles.html#Helm%27s"
+    ),
     coords: [44.9422362,-93.3058114],
     icon: icons.BattleIcon,
   },
   battle_of_the_morannon: {
-    name: "Battle of the Morannon (TA March 25th 3019)",
-    description: `Battle between the Host of the West and the forces of Sauron during the War of the Ring. The Battle of the Morannon took place on March 25, 3019 of the Third Age, in front of the Black Gate of Mordor.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Morannon",
+    popup: createBattlePopup("Battle of the Morannon (TA March 25th 3019)",
+      `Battle between the Host of the West and the forces of Sauron during the War of the Ring. The Battle of the Morannon took place on March 25, 3019 of the Third Age, in front of the Black Gate of Mordor.`,
+      "https://thainsbook.minastirith.cz/battles.html#Morannon"
+    ),
     coords: [44.9422380,-93.3001737],
     icon: icons.BattleIcon,
   },
   battle_of_the_camp: {
-    name: "Battle of the Camp (TA July 13th 1944)",
-    description: `Battle resulting in the final defeat of the Wainriders. The Battle of the Camp was fought in Ithilien on the night of July 13, 1944 of the Third Age, between the Wainriders and the Southern Army of Gondor led by Earnil.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Battle-Camp",
+    popup: createBattlePopup("Battle of the Camp (TA July 13th 1944)",
+      `Battle resulting in the final defeat of the Wainriders. The Battle of the Camp was fought in Ithilien on the night of July 13, 1944 of the Third Age, between the Wainriders and the Southern Army of Gondor led by Earnil.`,
+      "https://thainsbook.minastirith.cz/battles.html#Battle-Camp"
+    ),
     coords: [44.9411760,-93.3006287],
     icon: icons.BattleIcon,
   },
-  kin_strife: {
-    name: "Kin-strife - Civil war in Gondor (TA 1432 to 1448)",
-    description: `Civil war in Gondor. The Kin-strife began in 1432 of the Third Age and lasted until 1448. On one side were the loyal supporters of King Eldacar, and on the other side were the rebels led by Castamir. The rebels opposed King Eldacar because he was not of pure Numenorean descent.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Kin-strife",
-    coords: [44.94087139,-93.30086638],
-    icon: icons.BattleIcon,
-  },
-  celebrant: {
-    name: "Battle of the Field of Celebrant (TA April 15th 2510)",
-    description: `Battle where the ancestors of the Rohirrim first came to the aid of Gondor. The Battle of the Field of Celebrant was fought on April 15, 2510 of the Third Age, against the Balchoth - a group of Men from Rhun who were under the influence of Sauron.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Celebrant",
-    coords: [44.9439771,-93.3035051],
-    icon: icons.BattleIcon,
-  },
-  five_armies: {
-    name: "Battle of the Five Armies (TA 2941)",
-    description: `Battle involving Dwarves, Elves, and Men against Orcs and Wargs at the Lonely Mountain. The Battle of the Five Armies was fought late in the year of 2941 of the Third Age in the valley between two great spurs on the southern side of the mountain.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Five_Armies",
-    coords: [44.94791343,-93.30077055],
-    icon: icons.BattleIcon,
-  },
-  fords_of_isen: {
-    name: "Battles of the Fords of Isen (TA February 25th and March 2nd 3019)",
-    description: `The Battles of the Fords of Isen occurred on February 25 and March 2, 3019 of the Third Age. In the first battle, Saruman’s forces ambushed the Rohirrim, mortally wounding Théodred before being driven back by reinforcements. In the second, Saruman’s army launched a larger assault, overwhelming the defenders and forcing them to retreat, leaving the Fords unguarded and clearing the way for the attack on Helm’s Deep.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#First-Isen",
-    coords: [44.9425148,-93.3064139],
-    icon: icons.BattleIcon,
-  },
-  elves_sauron: {
-    name: "War of the Elves and Sauron (SA 1693 to 1701)",
-    description: `Battle over the Rings of Power in the Second Age. The War of the Elves and Sauron was fought in Eriador. It lasted from 1693 to 1701 of the Second Age. Sauron suffered a temporary defeat but gained possession of the Nine Rings and six of the Seven Rings.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Elves-Sauron",
-    coords: [44.9452681,-93.3069094],
-    icon: icons.BattleIcon,
-  },
 };
+
 
 export const one_on_one = {
   battle_of_the_peak: {
