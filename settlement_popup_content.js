@@ -259,23 +259,29 @@ export const one_on_one = {
 
 export const swords = {
   glamdring: {
-    name: "Glamdring",
-    description: `Sword of Gandalf. Glamdring was forged in Gondolin, a great realm of the Elves in the First Age. It once belonged to Turgon, the King of Gondolin. It is not known how Glamdring survived the Fall of Gondolin.`,
-    url: "https://thainsbook.minastirith.cz/swords.html#Glamdring",
+    popup: createSettlementPopup(
+      "Glamdring",
+      `Sword of Gandalf. Glamdring was forged in Gondolin, a great realm of the Elves in the First Age. It once belonged to Turgon, the King of Gondolin. It is not known how Glamdring survived the Fall of Gondolin.`,
+      "https://thainsbook.minastirith.cz/swords.html#Glamdring"
+    ),
     coords: [44.9468787,-93.3063229],
     icon: icons.GlamdringIcon,
   },
   sting: {
-    name: "Sting",
-    description: `Sword of Bilbo Baggins. Sting was actually a long knife that made the perfect Hobbit-sized sword. Bilbo found it in 2941 of the Third Age in the Troll-hoard of Bert, Tom and William, where the swords Glamdring and Orcrist were also found. `,
-    url: "https://thainsbook.minastirith.cz/swords.html#Sting",
+    popup: createSettlementPopup(
+      "Sting",
+      `Sword of Bilbo Baggins. Sting was actually a long knife that made the perfect Hobbit-sized sword. Bilbo found it in 2941 of the Third Age in the Troll-hoard of Bert, Tom and William, where the swords Glamdring and Orcrist were also found.`,
+      "https://thainsbook.minastirith.cz/swords.html#Sting"
+    ),
     coords: [44.9467978,-93.3058998],
     icon: icons.StingIcon,
   },
   anduril_narsil: {
-    name: "Andúril / Narsil",
-    description: `Anduril was the sword of Aragorn. It was forged from the shards of Elendil's sword, Narsil.`,
-    url: "https://thainsbook.minastirith.cz/swords.html#Anduril",
+    popup: createSettlementPopup(
+      "Andúril / Narsil",
+      `Anduril was the sword of Aragorn. It was forged from the shards of Elendil's sword, Narsil.`,
+      "https://thainsbook.minastirith.cz/swords.html#Anduril"
+    ),
     coords: [44.94091256,-93.30126127],
     icon: icons.NarsilIcon,
   },
@@ -283,37 +289,47 @@ export const swords = {
 
 export const rings = {
   the_one_ring: {
-    name: "The One Ring (forged around SA 1600)",
-    description: `The One Ring was the greatest of the Rings of Power. Sauron created it to rule the others, and in order to do so he invested the One Ring with much of his strength and will. `,
-    url: "https://thainsbook.minastirith.cz/onering.html",
+    popup: createSettlementPopup(
+      "The One Ring (forged around SA 1600)",
+      `The One Ring was the greatest of the Rings of Power. Sauron created it to rule the others, and in order to do so he invested the One Ring with much of his strength and will.`,
+      "https://thainsbook.minastirith.cz/onering.html"
+    ),
     coords: [44.9414214,-93.2990178],
     icon: icons.RingIcon,
   },
   narya: {
-    name: "Narya (forged around SA 1590)",
-    description: `The Ring of Fire. Narya was set with a red stone. At the time of the War of the Ring, Gandalf was the bearer of Narya.`,
-    url: "https://thainsbook.minastirith.cz/objects.html#Narya",
+    popup: createSettlementPopup(
+      "Narya (forged around SA 1590)",
+      `The Ring of Fire. Narya was set with a red stone. At the time of the War of the Ring, Gandalf was the bearer of Narya.`,
+      "https://thainsbook.minastirith.cz/objects.html#Narya"
+    ),
     coords: [44.9455179,-93.3068293],
     icon: icons.NaryaIcon,
   },
   nenya: {
-    name: "Nenya (forged around SA 1590)",
-    description: `The Ring of Water. Nenya was set with a white diamond and its band was made of mithril. Galadriel was the bearer of Nenya.`,
-    url: "https://thainsbook.minastirith.cz/objects.html#Nenya",
+    popup: createSettlementPopup(
+      "Nenya (forged around SA 1590)",
+      `The Ring of Water. Nenya was set with a white diamond and its band was made of mithril. Galadriel was the bearer of Nenya.`,
+      "https://thainsbook.minastirith.cz/objects.html#Nenya"
+    ),
     coords: [44.9451063,-93.3071364],
     icon: icons.NenyaIcon,
   },
   vilya: {
-    name: "Vilya (forged around SA 1590)",
-    description: `The Ring of Air. Vilya was said to be the mightiest of the Three. It had a gold band set with a blue stone. At the time of the War of the Ring, Vilya was borne by Elrond.`,
-    url: "https://thainsbook.minastirith.cz/objects.html#Vilya",
+    popup: createSettlementPopup(
+      "Vilya (forged around SA 1590)",
+      `The Ring of Air. Vilya was said to be the mightiest of the Three. It had a gold band set with a blue stone. At the time of the War of the Ring, Vilya was borne by Elrond.`,
+      "https://thainsbook.minastirith.cz/objects.html#Vilya"
+    ),
     coords: [44.9450277,-93.3063262],
     icon: icons.VilyaIcon,
   },
   barahir: {
-    name: "Ring of Barahir (forged around FA 400)",
-    description: `Heirloom of the House of Isildur and a symbol of friendship between Elves and Men. The Ring of Barahir had no special powers but it was valued for its heritage. It was made by the Noldor in the Undying Lands.`,
-    url: "https://thainsbook.minastirith.cz/objects.html#Ring%20of%20Barahir",
+    popup: createSettlementPopup(
+      "Ring of Barahir (forged around FA 400)",
+      `Heirloom of the House of Isildur and a symbol of friendship between Elves and Men. The Ring of Barahir had no special powers but it was valued for its heritage. It was made by the Noldor in the Undying Lands.`,
+      "https://thainsbook.minastirith.cz/objects.html#Ring%20of%20Barahir"
+    ),
     coords: [44.9408248,-93.3012181],
     icon: icons.BarahirIcon,
   },
@@ -321,23 +337,29 @@ export const rings = {
 
 export const books = {
   red_book_of_westmarch: {
-    name: "The Red Book of Westmarch",
-    description: `The Red Book was written by Bilbo and Frodo Baggins and completed by Sam Gamgee. It tells of their adventures in the Third Age of Middle-earth and is the primary source of information on Hobbits and their role in the War of the Ring.`,
-    url: "https://thainsbook.minastirith.cz/books.html#Red%20Book%20of%20Westmarch",
+    popup: createSettlementPopup(
+      "The Red Book of Westmarch",
+      `The Red Book was written by Bilbo and Frodo Baggins and completed by Sam Gamgee. It tells of their adventures in the Third Age of Middle-earth and is the primary source of information on Hobbits and their role in the War of the Ring.`,
+      "https://thainsbook.minastirith.cz/books.html#Red%20Book%20of%20Westmarch"
+    ),
     coords: [44.9466424,-93.3109916],
     icon: icons.BookIcon,
   },
   akallabeth: {
-    name: "Akallabêth",
-    description: `Story of the Downfall of Numenor. The Akallabeth was written by Elendil, the leader of the survivors of Numenor.`,
-    url: "https://thainsbook.minastirith.cz/books.html#Akallab%C3%AAth",
+    popup: createSettlementPopup(
+      "Akallabêth",
+      `Story of the Downfall of Numenor. The Akallabeth was written by Elendil, the leader of the survivors of Numenor.`,
+      "https://thainsbook.minastirith.cz/books.html#Akallab%C3%AAth"
+    ),
     coords: [44.94092381,-93.30125186],
     icon: icons.BookIcon,
   },
   book_of_mazarbul: {
-    name: "Book of Mazarbul",
-    description: `Record of Balin's expedition to Moria. The Book of Mazarbul covered five years, beginning with the arrival of the Dwarves in Moria in 2989 of the Third Age and abruptly ending in the year 2994. . Mazarbul means "records" in Dwarvish.`,
-    url: "https://thainsbook.minastirith.cz/books.html#Book%20of%20Mazarbul",
+    popup: createSettlementPopup(
+      "Book of Mazarbul",
+      `Record of Balin's expedition to Moria. The Book of Mazarbul covered five years, beginning with the arrival of the Dwarves in Moria in 2989 of the Third Age and abruptly ending in the year 2994. Mazarbul means "records" in Dwarvish.`,
+      "https://thainsbook.minastirith.cz/books.html#Book%20of%20Mazarbul"
+    ),
     coords: [44.9449721,-93.3056964],
     icon: icons.BookIcon,
   },
