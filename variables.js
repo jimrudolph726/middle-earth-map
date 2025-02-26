@@ -9,6 +9,14 @@ import {
 } from './geographic_popup_content.js';
 
 import {
+  elves,
+  men,
+  hobbits,
+  battles,
+  one_on_one,
+  swords,
+  rings,
+  books,
   icons,
 } from './settlement_popup_content.js';
 
@@ -16,7 +24,7 @@ import {
   createCampsitePopup,
   createSettlementPopup,
   createGeographicObjects,
- } from './functions.js';
+ } from './function.js';
 
 // Campsites (markers)
 const samfrodocampsites = {
