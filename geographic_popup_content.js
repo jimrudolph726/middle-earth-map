@@ -278,201 +278,391 @@ export const hills = {
 
 export const rivers = {
   greylin: {
+    pathName: 'greylin',
+    color: "blue",  // Color is set to blue for every object
     name: "Greylin",
-    elvish_name: "None",
-    elvish_meaning: `The Greylin had no elvish meaning and was named by the Eotheod. The first element is a reference to the river's source in the Grey Mountains, while the second element is derived from the Anglo-Saxon hylnnmeaning "torrent" or "the noisy one."`,
-    description: `River at the source of the Anduin. The Greylin began in the Grey Mountains. It was joined by another stream from the Grey Mountains and flowed south to merge with the Langwell - a river from the Misty Mountains which was the source of the Anduin.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Greylin",
+    PopupContent: createGeographicPopup(
+      "Greylin",
+      "None",
+      `The Greylin had no elvish meaning and was named by the Eotheod. The first element is a reference to the river's source in the Grey Mountains, while the second element is derived from the Anglo-Saxon hylnnmeaning "torrent" or "the noisy one."`,
+      `River at the source of the Anduin. The Greylin began in the Grey Mountains. It was joined by another stream from the Grey Mountains and flowed south to merge with the Langwell - a river from the Misty Mountains which was the source of the Anduin.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Greylin"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   langwell: {
+    pathName: 'langwell',
+    color: "blue",  // Color is set to blue for every object
     name: "Langwell",
-    elvish_name: "None",
-    elvish_meaning: `The word lang is a variant of "long" and the word well is used to mean "spring, source." The Langwell was so called by the Eotheod because it was the source of the Anduin, which they named the Langflood, or "Long River."`,
-    description: `The Langwell was one of the two rivers, along with Greylin, that met in the northern Vale of Anduin to form the beginnings of the Anduin River. The Langwell flowed east from the Misty Mountains.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Langwell",
+    PopupContent: createGeographicPopup(
+      "Langwell",
+      "None",
+      `The Langwell was named by the local inhabitants, referencing the large stones that lined its bed. The name is derived from the Old Elvish for "long stone."`,
+      `The Langwell started in the Misty Mountains and flowed into the Anduin, with several tributaries along its course.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Langwell"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   anduin: {
+    pathName: 'anduin',
+    color: "blue",  // Color is set to blue for every object
     name: "Anduin",
-    elvish_name: "Anduin",
-    elvish_meaning: `The name Anduin means "long river" from an or and meaning "long" and duin meaning "river." The Anduin was called the Great River in the Common Speech, or sometimes simply the River. `,
-    description: `Longest river in Middle-earth. The Anduin flowed from north to south for over 1,100 miles.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Anduin",
+    PopupContent: createGeographicPopup(
+      "Anduin",
+      "None",
+      `The Anduin was the longest and mightiest river in Middle-earth, known as the "Great River." Its name is derived from the Elvish languages.`,
+      `The Anduin was the main river in the region, flowing from the Misty Mountains to the Bay of Belfalas. It was the lifeblood of many cultures.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Anduin"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   silverlode: {
+    pathName: 'silverlode',
+    color: "blue",  // Color is set to blue for every object
     name: "Silverlode",
-    elvish_name: "Celebrant",
-    elvish_meaning: `The Sindarin name of the Silverlode was the Celebrant. The word celeb means "silver" and the word rant means "lode, vein; flow, course of river."`,
-    description: `River of Lothlorien, called the Celebrant by the Elves. The Silverlode began in the Dimrill Dale just south of Mirrormere. The river emerged from a spring fed by the lake's waters.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Silverlode",
+    PopupContent: createGeographicPopup(
+      "Silverlode",
+      "Celebrant",
+      `The Sindarin name of the Silverlode was the Celebrant. The word celeb means "silver" and the word rant means "lode, vein; flow, course of river."`,
+      `River of Lothlorien, called the Celebrant by the Elves. The Silverlode began in the Dimrill Dale just south of Mirrormere. The river emerged from a spring fed by the lake's waters.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Silverlode"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   nimrodel: {
+    pathName: 'nimrodel',
+    color: "blue",  // Color is set to blue for every object
     name: "Nimrodel",
-    elvish_name: "Nimrodel",
-    elvish_meaning: `The Nimrodel was named for the Elf maiden whose name meant "Lady of the White Grotto," probably in reference to her dwelling place near the waterfall. The element nim means "white" and rod means "cave, grotto."`,
-    description: `River of Lothlorien. The source of the Nimrodel was in the eastern Misty Mountains. The Nimrodel flowed down the wooded mountain slopes and over a waterfall and then joined the Silverlode, a river that ran through Lothlorien to the Anduin.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Nimrodel",
+    PopupContent: createGeographicPopup(
+      "Nimrodel",
+      "Nimrodel",
+      `The Nimrodel was named for the Elf maiden whose name meant "Lady of the White Grotto," probably in reference to her dwelling place near the waterfall. The element nim means "white" and rod means "cave, grotto."`,
+      `River of Lothlorien. The source of the Nimrodel was in the eastern Misty Mountains. The Nimrodel flowed down the wooded mountain slopes and over a waterfall and then joined the Silverlode, a river that ran through Lothlorien to the Anduin.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Nimrodel"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   hoarwell: {
+    pathName: 'hoarwell',
+    color: "blue",  // Color is set to blue for every object
     name: "Hoarwell",
-    elvish_name: "Mitheithel",
-    elvish_meaning: `The word Mitheithel comes from the words mith meaning "grey" and eithel meaning "spring, well." The word hoar means "grey."`,
-    description: `River in Eriador. The source of the Hoarwell was in the Ettenmoors on the west side of the northern Misty Mountains. The place where the Hoarwell rose may have been called Hoardale.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Hoarwell",
+    PopupContent: createGeographicPopup(
+      "Hoarwell",
+      "Mitheithel",
+      `The word Mitheithel comes from the words mith meaning "grey" and eithel meaning "spring, well." The word hoar means "grey."`,
+      `River in Eriador. The source of the Hoarwell was in the Ettenmoors on the west side of the northern Misty Mountains. The place where the Hoarwell rose may have been called Hoardale.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Hoarwell"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   greyflood: {
+    pathName: 'greyflood',
+    color: "blue",  // Color is set to blue for every object
     name: "Greyflood",
-    elvish_name: "Gwaithir/Gwathlo",
-    elvish_meaning: `The original Sindarin name given to the river was Gwaithir meaning "River of Shadow" from gwath meaning "shadow" and hir from sir meaning "river." The name referred to the shadows cast on the river by the dense forest on its banks. Later when the Numenoreans discovered the marshy Swanfleet at the source of the river they changed the name to Gwathló - "the shadowy river from the fens." The element lô is from loga meaning "wet, soaked, swampy."`,
-    description: `River on the southern border of Eriador. North of the Greyflood was the region of Eriador called Minhiriath and south of the Greyflood was an area called Enedwaith.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Hoarwell",
+    PopupContent: createGeographicPopup(
+      "Greyflood",
+      "Gwaithir/Gwathlo",
+      `The original Sindarin name given to the river was Gwaithir meaning "River of Shadow" from gwath meaning "shadow" and hir from sir meaning "river." The name referred to the shadows cast on the river by the dense forest on its banks. Later when the Numenoreans discovered the marshy Swanfleet at the source of the river they changed the name to Gwathló - "the shadowy river from the fens." The element lô is from loga meaning "wet, soaked, swampy."`,
+      `River on the southern border of Eriador. North of the Greyflood was the region of Eriador called Minhiriath and south of the Greyflood was an area called Enedwaith.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Hoarwell"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   sirannon: {
+    pathName: 'sirannon',
+    color: "blue",  // Color is set to blue for every object
     name: "Sirannon",
-    elvish_name: "Sirannon",
-    elvish_meaning: `The name Sirannon means "Gate-stream" from sîr meaning "river" and annon meaning "great door or gate." It was called the Gate-stream in the Common Speech.`,
-    description: `The Gate-stream of Moria, or Khazad-dum. The Sirannon began under the Mountains of Moria and emerged from the base of the Walls of Moria near the West-gate. It flowed through the valley in front of the gate and then cascaded over the Stair Falls.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Sirannon",
+    PopupContent: createGeographicPopup(
+      "Sirannon",
+      "Sirannon",
+      `The name Sirannon means "Gate-stream" from sîr meaning "river" and annon meaning "great door or gate." It was called the Gate-stream in the Common Speech.`,
+      `The Gate-stream of Moria, or Khazad-dum. The Sirannon began under the Mountains of Moria and emerged from the base of the Walls of Moria near the West-gate. It flowed through the valley in front of the gate and then cascaded over the Stair Falls.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Sirannon"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   glanduin: {
+    pathName: 'glanduin',
+    color: "blue",  // Color is set to blue for every object
     name: "Glanduin",
-    elvish_name: "Glanduin",
-    elvish_meaning: `The name Glanduin means "border river" from glan meaning "border" and duin meaning "river." The name was usually applied only to the swift upper course of the river, while the marshy lower course was called Swanfleet. It was also called the Swanfleet river because it was the river that fed the marshlands of Swanfleet.`,
-    description: `River on the southern border of Eriador. The Glanduin began in the Misty Mountains south of Moria and flowed westward.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Glanduin",
+    PopupContent: createGeographicPopup(
+      "Glanduin",
+      "Glanduin",
+      `The name Glanduin means "border river" from glan meaning "border" and duin meaning "river." The name was usually applied only to the swift upper course of the river, while the marshy lower course was called Swanfleet. It was also called the Swanfleet river because it was the river that fed the marshlands of Swanfleet.`,
+      `River on the southern border of Eriador. The Glanduin began in the Misty Mountains south of Moria and flowed westward.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Glanduin"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
+
+
+
+
   forest_river: {
+    pathName: 'forest_river',
+    color: "blue",  // Color is set to blue for every object
     name: "Forest River",
-    elvish_name: "None",
-    elvish_meaning: `None`,
-    description: `River in Mirkwood. The Forest River began in the Grey Mountains and flowed southeast through Mirkwood to Long Lake. The Enchanted Stream was a tributary of the Forest River in the heart of Mirkwood.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Forest%20River",
+    PopupContent: createGeographicPopup(
+      "Forest River",
+      "None",
+      `None`,
+      `River in Mirkwood. The Forest River began in the Grey Mountains and flowed southeast through Mirkwood to Long Lake. The Enchanted Stream was a tributary of the Forest River in the heart of Mirkwood.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Forest%20River"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   river_running: {
+    pathName: 'river_running',
+    color: "blue",  // Color is set to blue for every object
     name: "River Running",
-    elvish_name: "None",
-    elvish_meaning: `None`,
-    description: `Also called the Running River. The Sindarin name is Celduin. The name Celduin is formed from the elements cel or kel meaning "run (especially of water)" and duin meaning "river."`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#River%20Running",
+    PopupContent: createGeographicPopup(
+      "River Running",
+      "None",
+      `None`,
+      `Also called the Running River. The Sindarin name is Celduin. The name Celduin is formed from the elements cel or kel meaning "run (especially of water)" and duin meaning "river."`,
+      "https://thainsbook.minastirith.cz/rivers.html#River%20Running"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   enchanted_stream: {
+    pathName: 'enchanted_stream',
+    color: "blue",  // Color is set to blue for every object
     name: "Enchanted Stream",
-    elvish_name: "None",
-    elvish_meaning: `None`,
-    description: `Stream in Mirkwood. The Enchanted Stream was a tributary of the Forest River. Its source was in the Mountains of Mirkwood, and it flowed north and crossed the path that led from the Forest Gate to the Elven-king's Halls.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Enchanted%20Stream",
+    PopupContent: createGeographicPopup(
+      "Enchanted Stream",
+      "None",
+      `None`,
+      `Stream in Mirkwood. The Enchanted Stream was a tributary of the Forest River. Its source was in the Mountains of Mirkwood, and it flowed north and crossed the path that led from the Forest Gate to the Elven-king's Halls.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Enchanted%20Stream"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   redwater: {
+    pathName: 'redwater',
+    color: "blue",  // Color is set to blue for every object
     name: "Redwater",
-    elvish_name: "Carnen",
-    elvish_meaning: `A possible explanation for the name Redwater is that iron deposits from the Iron Hills may have turned sediment in the riverbed a rusty red color. The Redwater was called the Carnen in Sindarin which means "red water" from caran meaning "red" and nen meaning "water."`,
-    description: `River in northeastern Middle-earth. The Redwater began in the Iron Hills. It flowed south to join the River Running, which in turn flowed into the Sea of Rhun.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Redwater",
+    PopupContent: createGeographicPopup(
+      "Redwater",
+      "Carnen",
+      `A possible explanation for the name Redwater is that iron deposits from the Iron Hills may have turned sediment in the riverbed a rusty red color. The Redwater was called the Carnen in Sindarin which means "red water" from caran meaning "red" and nen meaning "water."`,
+      `River in northeastern Middle-earth. The Redwater began in the Iron Hills. It flowed south to join the River Running, which in turn flowed into the Sea of Rhun.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Redwater"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   entwash: {
+    pathName: 'entwash',
+    color: "blue",  // Color is set to blue for every object
     name: "Entwash",
-    elvish_name: "Onodlo",
-    elvish_meaning: `The Entwash got its name from the Ents who dwelled in Fangorn. The word wash is from the Old English waesc meaning "flood water." The Sindarin name Onodló translates as "Entwash," from the word Onod meaning "Ent" and ló meaning "soaking wet, swampy, flood."`,
-    description: `River in Fangorn and Rohan. The source of the Entwash was high on the slopes of Methedras, the southernmost of the Misty Mountains. The river flowed southeastward through Fangorn Forest.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Entwash",
+    PopupContent: createGeographicPopup(
+      "Entwash",
+      "Onodlo",
+      `The Entwash got its name from the Ents who dwelled in Fangorn. The word wash is from the Old English waesc meaning "flood water." The Sindarin name Onodló translates as "Entwash," from the word Onod meaning "Ent" and ló meaning "soaking wet, swampy, flood."`,
+      `River in Fangorn and Rohan. The source of the Entwash was high on the slopes of Methedras, the southernmost of the Misty Mountains. The river flowed southeastward through Fangorn Forest.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Entwash"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   loudwater: {
+    pathName: 'loudwater',
+    color: "blue",  // Color is set to blue for every object
     name: "Loudwater",
-    elvish_name: "Bruinen",
-    elvish_meaning: `Called the Loudwater in the Common Speech. The name Bruinen means "Loudwater," though the origin of the element brui - apparently meaning "loud, noisy" - is not clear. The element nen means "water."`,
-    description: `River of Rivendell. The Bruinen was a loud, rushing river that came down from the snows of the Misty Mountains. About 50 miles from its source, the Bruinen was joined by a mountain stream.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Bruinen",
+    PopupContent: createGeographicPopup(
+      "Loudwater",
+      "Bruinen",
+      `Called the Loudwater in the Common Speech. The name Bruinen means "Loudwater," though the origin of the element brui - apparently meaning "loud, noisy" - is not clear. The element nen means "water."`,
+      `River of Rivendell. The Bruinen was a loud, rushing river that came down from the snows of the Misty Mountains. About 50 miles from its source, the Bruinen was joined by a mountain stream.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Bruinen"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   river_lune: {
+    pathName: 'river_lune',
+    color: "blue",  // Color is set to blue for every object
     name: "River Lune",
-    elvish_name: "Lhûn",
-    elvish_meaning: `Called the Lhûn in Sindarin. Lune is a Common Speech adaptation of Lhûn. The word lhûn means "blue" and is apparently an earlier version of luin, the more commonly used word for "blue" as in Ered Luin, the Blue Mountains, from which the Lhûn sprang.`,
-    description: `River in Eriador. The River Lune began in the northeastern Blue Mountains and flowed southward for about 300 miles. The Lune had two tributaries: a river from the Blue Mountains called the Little Lune merged with the Lune from the west, and a river from the Hills of Evendim joined the Lune from the east.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Lune",
+    PopupContent: createGeographicPopup(
+      "River Lune",
+      "Lhûn",
+      `Called the Lhûn in Sindarin. Lune is a Common Speech adaptation of Lhûn. The word lhûn means "blue" and is apparently an earlier version of luin, the more commonly used word for "blue" as in Ered Luin, the Blue Mountains, from which the Lhûn sprang.`,
+      `River in Eriador. The River Lune began in the northeastern Blue Mountains and flowed southward for about 300 miles. The Lune had two tributaries: a river from the Blue Mountains called the Little Lune merged with the Lune from the west, and a river from the Hills of Evendim joined the Lune from the east.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Lune"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   brandywine: {
+    pathName: 'brandywine',
+    color: "blue",  // Color is set to blue for every object
     name: "Brandywine",
-    elvish_name: "Baranduin",
-    elvish_meaning: `so called the Baranduin in Sindarin. The name Baranduin comes from the words baran meaning "golden brown" and duin meaning "river." The old Hobbit name for the river was Branda-nîn meaning "border water," but Hobbits also jokingly referred to the river as Bralda-hîm meaning "heady ale."`,
-    description: `River in Eriador. The Brandywine originated in Lake Evendim in the north and flowed south-southwest to the Sea. The Brandywine was the eastern border of the Shire. `,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Brandywine",
+    PopupContent: createGeographicPopup(
+      "Brandywine",
+      "Baranduin",
+      `so called the Baranduin in Sindarin. The name Baranduin comes from the words baran meaning "golden brown" and duin meaning "river." The old Hobbit name for the river was Branda-nîn meaning "border water," but Hobbits also jokingly referred to the river as Bralda-hîm meaning "heady ale."`,
+      `River in Eriador. The Brandywine originated in Lake Evendim in the north and flowed south-southwest to the Sea. The Brandywine was the eastern border of the Shire.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Brandywine"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   erui: {
+    pathName: 'erui',
+    color: "blue",  // Color is set to blue for every object
     name: "Erui",
-    elvish_name: "Erui",
-    elvish_meaning: `The name Erui is composed of er meaning "one, single, alone" and ui which is a common adjectival ending in Sindarin. It was apparently so named because it had no tributaries.`,
-    description: `River in Gondor. The Erui began in the White Mountains. It flowed southeastward through Lossarnach and Lebennin to the Anduin. The road from Minas Tirith to Pelargir passed over the river at the Crossings of Erui. The Erui was a short but swift river.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Erui",
+    PopupContent: createGeographicPopup(
+      "Erui",
+      "Erui",
+      `The name Erui is composed of er meaning "one, single, alone" and ui which is a common adjectival ending in Sindarin. It was apparently so named because it had no tributaries.`,
+      `River in Gondor. The Erui began in the White Mountains. It flowed southeastward through Lossarnach and Lebennin to the Anduin. The road from Minas Tirith to Pelargir passed over the river at the Crossings of Erui. The Erui was a short but swift river.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Erui"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
   celos: {
+    pathName: 'erui',
+    color: "blue", 
     name: "Brandywine",
-    elvish_name: "Baranduin",
-    elvish_meaning: `Also spelled (and pronounced) Kelos. The Sindarin name Celos is dervied from the Quenya Kelussë meaning "freshet, water falling out swiftly from a rocky spring."`,
-    description: `River in Lebennin in Gondor. The Celos was a tributary of the Sirith. The river began in the White Mountains and flowed southward, joining the Sirith from the west. The Sirith in turn flowed into the Anduin.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Celos",
+    PopupContent: createGeographicPopup(
+    "Baranduin",
+    `Also spelled (and pronounced) Kelos. The Sindarin name Celos is dervied from the Quenya Kelussë meaning "freshet, water falling out swiftly from a rocky spring."`,
+    `River in Lebennin in Gondor. The Celos was a tributary of the Sirith. The river began in the White Mountains and flowed southward, joining the Sirith from the west. The Sirith in turn flowed into the Anduin.`,
+    "https://thainsbook.minastirith.cz/rivers.html#Celos"),
+    tolerance: 10,
+    weight: 7
   },
   sirith: {
+    pathName: 'sirith',
+    color: "blue", 
     name: "Sirith",
-    elvish_name: "Sirith",
-    elvish_meaning: `The name Sirith means "a flowing" from sîr meaning "river."`,
-    description: `River in Lebennin in Gondor. The Sirith began in the White Mountains. It was joined from the west by a tributary called the Celos. The Sirith flowed southward to the Anduin.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Sirith",
+    PopupContent: createGeographicPopup(
+      "Sirith",
+      `The name Sirith means "a flowing" from sîr meaning "river."`,
+      `River in Lebennin in Gondor. The Sirith began in the White Mountains. It was joined from the west by a tributary called the Celos. The Sirith flowed southward to the Anduin.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Sirith"
+    ),
+    tolerance: 10,
+    weight: 7
   },
-  gilrain: {
+gilrain: {
+    pathName: 'gilrain',
+    color: "blue", 
     name: "Gilrain",
-    elvish_name: "Gilrain",
-    elvish_meaning: `The element gil means "star, shine." The element rain is derived from ran meaning "wander, stray, go on uncertain course" in reference to the meandering portion of the Gilrain where Nimrodel wandered.`,
-    description: `River in southern Gondor. The Gilrain began in the White Mountains and flowed south through Lebennin.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Gilrain",
+    PopupContent: createGeographicPopup(
+      "Gilrain",
+      `The element gil means "star, shine." The element rain is derived from ran meaning "wander, stray, go on uncertain course" in reference to the meandering portion of the Gilrain where Nimrodel wandered.`,
+      `River in southern Gondor. The Gilrain began in the White Mountains and flowed south through Lebennin.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Gilrain"
+    ),
+    tolerance: 10,
+    weight: 7
   },
-  serni: {
+serni: {
+    pathName: 'serni',
+    color: "blue", 
     name: "Serni",
-    elvish_name: "Serni",
-    elvish_meaning: `The name Serni is derived from the Sindarin sarn meaning "pebble." Serni is an adjectival form or a collective, like the Quenya sarnie meaning "shingle, pebble bank."`,
-    description: `River of Gondor. The Serni began south of the White Mountains and flowed southwestward through Lebennin.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+    PopupContent: createGeographicPopup(
+      "Serni",
+      `The name Serni is derived from the Sindarin sarn meaning "pebble." Serni is an adjectival form or a collective, like the Quenya sarnie meaning "shingle, pebble bank."`,
+      `River of Gondor. The Serni began south of the White Mountains and flowed southwestward through Lebennin.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Serni"
+    ),
+    tolerance: 10,
+    weight: 7
   },
-  ringlo: {
+ringlo: {
+    pathName: 'ringlo',
+    color: "blue", 
     name: "Ringlo",
-    elvish_name: "Ringlo",
-    elvish_meaning: `The name Ringló means "chill flood" from ring meaning "cold" and lô meaning "soaking wet, swampy, flood." The latter element most likely referred to the spreading floodwaters during the spring thaw in the snowfield at the river's source.`,
-    description: `River in southern Gondor. The source of the Ringlo was in the White Mountains. The waters of the river came from a snowfield high in the mountains that formed a glacial lake. `,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+    PopupContent: createGeographicPopup(
+      "Ringlo",
+      `The name Ringló means "chill flood" from ring meaning "cold" and lô meaning "soaking wet, swampy, flood." The latter element most likely referred to the spreading floodwaters during the spring thaw in the snowfield at the river's source.`,
+      `River in southern Gondor. The source of the Ringlo was in the White Mountains. The waters of the river came from a snowfield high in the mountains that formed a glacial lake.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Ringlo"
+    ),
+    tolerance: 10,
+    weight: 7
   },
   ciril: {
+    pathName: 'ciril',
+    color: "blue", 
     name: "Ciril",
-    elvish_name: "Ciril",
-    elvish_meaning: `Also spelled (and pronounced) Kiril. The name Ciril is derived from kir meaning "cut."`,
-    description: `River in Lamedon in Gondor. The Ciril was a tributary of the Ringlo. It began in the White Mountains near Tarlang's Neck and flowed at first through a deep rocky channel.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Serni",
+    PopupContent: createGeographicPopup(
+      "Ciril",
+      `Also spelled (and pronounced) Kiril. The name Ciril is derived from kir meaning "cut."`,
+      `River in Lamedon in Gondor. The Ciril was a tributary of the Ringlo. It began in the White Mountains near Tarlang's Neck and flowed at first through a deep rocky channel.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Ciril"
+    ),
+    tolerance: 10,
+    weight: 7
   },
-  blackroot: {
+blackroot: {
+    pathName: 'blackroot',
+    color: "blue", 
     name: "Blackroot",
-    elvish_name: "Morthond",
-    elvish_meaning: `The Blackroot was so named because its source was in the dark caverns of the Dead. The river was called Morthond in Sindarin, meaning "Blackroot" from mor meaning "black" and thond meaning "root."`,
-    description: `River in Gondor. The Blackroot was a long, cold river that began beneath the White Mountains. The river emerged from the southern entrance of the Paths of the Dead and cascaded in a series of waterfalls into the Blackroot Vale.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Blackroot",
+    PopupContent: createGeographicPopup(
+      "Morthond",
+      `The Blackroot was so named because its source was in the dark caverns of the Dead. The river was called Morthond in Sindarin, meaning "Blackroot" from mor meaning "black" and thond meaning "root."`,
+      `River in Gondor. The Blackroot was a long, cold river that began beneath the White Mountains. The river emerged from the southern entrance of the Paths of the Dead and cascaded in a series of waterfalls into the Blackroot Vale.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Blackroot"
+    ),
+    tolerance: 10,
+    weight: 7
   },
-  lefnui: {
+lefnui: {
+    pathName: 'lefnui',
+    color: "blue", 
     name: "Lefnui",
-    elvish_name: "Lefnui",
-    elvish_meaning: `The name Lefnui means "fifth." The river was so named because it was the fifth river or river system in southern Gondor after the Erui, the Sirith-Celos, the Serni-Gilrain, and the Morthond-Ciril-Ringlo.`,
-    description: `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Lefnui",
+    PopupContent: createGeographicPopup(
+      "Lefnui",
+      `The name Lefnui means "fifth." The river was so named because it was the fifth river or river system in southern Gondor after the Erui, the Sirith-Celos, the Serni-Gilrain, and the Morthond-Ciril-Ringlo.`,
+      `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Lefnui"
+    ),
+    tolerance: 10,
+    weight: 7
   },
-  adorn: {
+adorn: {
+    pathName: 'adorn',
+    color: "blue", 
     name: "Adorn",
-    elvish_name: "Adorn",
-    elvish_meaning: `None. The name Adorn was of pre-Numenorean origin adapted to Sindarin. The meaning cannot be interpreted.`,
-    description: `River in Rohan. The Adorn flowed northwest from its source in the White Mountains to join the River Isen. Together the Adorn and the Isen formed the far western boundary of Rohan.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Adorn",
+    PopupContent: createGeographicPopup(
+      "Adorn",
+      `None. The name Adorn was of pre-Numenorean origin adapted to Sindarin. The meaning cannot be interpreted.`,
+      `River in Rohan. The Adorn flowed northwest from its source in the White Mountains to join the River Isen. Together the Adorn and the Isen formed the far western boundary of Rohan.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Adorn"
+    ),
+    tolerance: 10,
+    weight: 7
   },
-  isen: {
+isen: {
+    pathName: 'isen',
+    color: "blue", 
     name: "Isen",
-    elvish_name: "Sîr Angren",
-    elvish_meaning: `The name Isen means "iron" in the language of Rohan, from the Old English word ísen. The Sindarin name was Sîr Angren, from sîr meaning "river" and angren meaning "iron."`,
-    description: `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
-    url: "https://thainsbook.minastirith.cz/rivers.html#Isen",
+    PopupContent: createGeographicPopup(
+      "Sîr Angren",
+      `The name Isen means "iron" in the language of Rohan, from the Old English word ísen. The Sindarin name was Sîr Angren, from sîr meaning "river" and angren meaning "iron."`,
+      `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Isen"
+    ),
+    tolerance: 10,
+    weight: 7
   },
+
 };
 
 export const lakes_seas = {
