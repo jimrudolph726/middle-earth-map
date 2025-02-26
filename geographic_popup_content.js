@@ -75,55 +75,98 @@ export const forest = {
 
 export const mountain_range = {
   misty_mountains: {
-    name: "Misty Mountains",
-    elvish_name: "Hithaeglir",
-    elvish_meaning: 'The name Hithaeglir means "Line of Misty Peaks" from hîth meaning "mist" and oeglir meaning "range of mountain peaks."',
-    description: "Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.",
-    url: "https://tolkiengateway.net/wiki/Misty_Mountains",
+    pathName: "misty_mountains",
+    color: "orange",
+    PopupContent: createGeographicPopup(
+      "Misty Mountains",
+      "Hithaeglir",
+      'The name Hithaeglir means "Line of Misty Peaks" from hîth meaning "mist" and oeglir meaning "range of mountain peaks."',
+      "Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.",
+      "https://tolkiengateway.net/wiki/Misty_Mountains"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
   white_mountains: {
-    name: "White Mountains",
-    elvish_name: "Ered Nimrais",
-    elvish_meaning: 'The White Mountains were called Ered Nimrais in Sindarin meaning "White-horn Mountains." The word ered means "mountains" from the singular orod. The word nimrais means "white horns" from nim meaning "white" and rais, the plural of ras meaning "horn." The mountains were named for their snow-capped peaks.',
-    description: "Mountain range of Gondor and Rohan. The White Mountains were high and their peaks were covered with snow year-round. ",
-    url: "https://tolkiengateway.net/wiki/White_Mountains",
+    pathName: "white_mountains",
+    color: "orange",
+    PopupContent: createGeographicPopup(
+      "White Mountains",
+      "Ered Nimrais",
+      'The White Mountains were called Ered Nimrais in Sindarin meaning "White-horn Mountains." The word ered means "mountains" from the singular orod. The word nimrais means "white horns" from nim meaning "white" and rais, the plural of ras meaning "horn." The mountains were named for their snow-capped peaks.',
+      "Mountain range of Gondor and Rohan. The White Mountains were high and their peaks were covered with snow year-round.",
+      "https://tolkiengateway.net/wiki/White_Mountains"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
   ash_mountains: {
-    name: "Ash Mountains",
-    elvish_name: "Ered Lithui",
-    elvish_meaning: 'Also called the Ashen Mountains. The Ash Mountains were called Ered Lithui in Sindarin. The word ered means "mountains" and lithui means "ashen." They were so called because of their ash-grey color.',
-    description: "Mountain range on the northern border of Mordor. The Ash Mountains stretched 500 miles from east to west. ",
-    url: "https://tolkiengateway.net/wiki/Ered_Lithui",
+    pathName: "ash_mountains",
+    color: "orange",
+    PopupContent: createGeographicPopup(
+      "Ash Mountains",
+      "Ered Lithui",
+      'Also called the Ashen Mountains. The Ash Mountains were called Ered Lithui in Sindarin. The word ered means "mountains" and lithui means "ashen." They were so called because of their ash-grey color.',
+      "Mountain range on the northern border of Mordor. The Ash Mountains stretched 500 miles from east to west.",
+      "https://tolkiengateway.net/wiki/Ered_Lithui"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
   mountains_of_angmar: {
-    name: "Mountains of Angmar",
-    elvish_name: "Emyn Angmar",
-    elvish_meaning: 'Emyn means "hills", and Angmar is composed of ang meaning "iron" and mar, a lenited form of bar meaning "dwelling."',
-    description: "The Mountains of Angmar were an extension of the Misty Mountains that lay to the west of Mount Gundabad, home to the Witch-king of Angmar who ruled from his capital Carn Dûm on the western tip of the mountain range.",
-    url: "https://tolkiengateway.net/wiki/Mountains_of_Angmar",
+    pathName: "mountains_of_angmar",
+    color: "orange",
+    PopupContent: createGeographicPopup(
+      "Mountains of Angmar",
+      "Emyn Angmar",
+      'Emyn means "hills", and Angmar is composed of ang meaning "iron" and mar, a lenited form of bar meaning "dwelling."',
+      "The Mountains of Angmar were an extension of the Misty Mountains that lay to the west of Mount Gundabad, home to the Witch-king of Angmar who ruled from his capital Carn Dûm on the western tip of the mountain range.",
+      "https://tolkiengateway.net/wiki/Mountains_of_Angmar"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
   grey_mountains: {
-    name: "Grey Mountains",
-    elvish_name: "Ered Mithrin",
-    elvish_meaning: `Also called Ered Mithrin in Sindarin from ered, the plural of orod meaning "mountain," and mithrin from mith meaning "grey."`,
-    description: `Mountain range on the northern boundary of Wilderland. At their western end, the Grey Mountains drew near to Mount Gundabad in the Misty Mountains. At their eastern end, the Grey Mountains branched into two forks, between which lay the Withered Heath.`,
-    url: "https://thainsbook.minastirith.cz/mountains.html#Grey%20Mountains",
+    pathName: "grey_mountains",
+    color: "orange",
+    PopupContent: createGeographicPopup(
+      "Grey Mountains",
+      "Ered Mithrin",
+      `Also called Ered Mithrin in Sindarin from ered, the plural of orod meaning "mountain," and mithrin from mith meaning "grey."`,
+      `Mountain range on the northern boundary of Wilderland. At their western end, the Grey Mountains drew near to Mount Gundabad in the Misty Mountains. At their eastern end, the Grey Mountains branched into two forks, between which lay the Withered Heath.`,
+      "https://thainsbook.minastirith.cz/mountains.html#Grey%20Mountains"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
   blue_mountains: {
-    name: "Blue Mountains",
-    elvish_name: "Ered Luin",
-    elvish_meaning: `The Blue Mountains were so named because they appeared blue from a distance. The Sindarin name for the Blue Mountains was Ered Luin from ered meaning "mountains" and luin meaning "blue."`,
-    description: `Mountain range in northwestern Middle-earth. The Blue Mountains were on the western border of Eriador.`,
-    url: "https://thainsbook.minastirith.cz/mountains.html#Blue",
+    pathName: "blue_mountains",
+    color: "orange",
+    PopupContent: createGeographicPopup(
+      "Blue Mountains",
+      "Ered Luin",
+      `The Blue Mountains were so named because they appeared blue from a distance. The Sindarin name for the Blue Mountains was Ered Luin from ered meaning "mountains" and luin meaning "blue."`,
+      `Mountain range in northwestern Middle-earth. The Blue Mountains were on the western border of Eriador.`,
+      "https://thainsbook.minastirith.cz/mountains.html#Blue"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
   mountains_of_shadow: {
-    name: "Mountains of Shadow",
-    elvish_name: "Ephel Duath",
-    elvish_meaning: `The Mountains of Shadow were so called because of the gloom that hung over them. Also called the Shadowy Mountains. The Sindarin name was Ephel Dúath. The word ephel means "outer fence" and the word dúath means "dark shadow" from dú meaning "night, dimness" and gwath meaning "shadow."`,
-    description: `Great range forming the western and southern borders of Mordor. The Mountains of Shadow were dark and gloomy.`,
-    url: "https://thainsbook.minastirith.cz/mountains.html#Mts-Shadow",
+    pathName: "mountains_of_shadow",
+    color: "orange",
+    PopupContent: createGeographicPopup(
+      "Mountains of Shadow",
+      "Ephel Duath",
+      `The Mountains of Shadow were so called because of the gloom that hung over them. Also called the Shadowy Mountains. The Sindarin name was Ephel Dúath. The word ephel means "outer fence" and the word dúath means "dark shadow" from dú meaning "night, dimness" and gwath meaning "shadow."`,
+      `Great range forming the western and southern borders of Mordor. The Mountains of Shadow were dark and gloomy.`,
+      "https://thainsbook.minastirith.cz/mountains.html#Mts-Shadow"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
 };
+
 
 export const mountain = {
   lonely_mountain: {

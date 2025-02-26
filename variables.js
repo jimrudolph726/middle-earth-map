@@ -329,9 +329,7 @@ export const pathdata = {
 
 // Geographic Features
 export const geographicData = [
-  {data: Object.fromEntries(
-    Object.keys(mountain_range).map(key => [key, createGeographicObjects(mountain_range, key, "orange", 1, 2)])),  
-    checkboxId: 'mountain_rangesCheckbox'},
+  {data: mountain_rangesCheckbox, checkboxId: 'mountain_rangesCheckbox'},
   {data: Object.fromEntries(
     Object.keys(mountain).map(key => [key, createGeographicObjects(mountain, key, "brown", 1, 2)])),  
     checkboxId: 'mountainsCheckbox'},
