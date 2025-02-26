@@ -3,7 +3,6 @@ import {
   createIcon,
 } from './functions.js';
 
-
 const iconUrls = {
   hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
   men_gondor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tree_of_gondor.png',
@@ -23,8 +22,6 @@ const iconUrls = {
   book: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/book.png',
 };
  // Icons
- 
-
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
 MenGondorIcon: createIcon(iconUrls.men_gondor),
