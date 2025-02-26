@@ -171,7 +171,7 @@ export const hobbits = {
 
 export const battles = {
   battle_of_dagorlad: {
-    popup: createBattlePopup("The Battle of Dagorlad (SA 3434 - 3441)",
+    popup: createSettlementPopup("The Battle of Dagorlad (SA 3434 - 3441)",
       `In 3434, the armies of the Last Alliance and Sauron met in battle outside the Black Gate of Mordor on the great plain that became known as Dagorlad, the Battle Plain. The army of the Last Alliance consisted of the forces that had marched from the north and the Men of Gondor who had been defending their borders.`,
       "https://thainsbook.minastirith.cz/battles.html#Last-Alliance"
     ),
@@ -179,7 +179,7 @@ export const battles = {
     icon: icons.BattleIcon,
   },
   battle_of_bywater: {
-    popup: createBattlePopup("The Battle of Bywater (TA November 3rd 3019)",
+    popup: createSettlementPopup("The Battle of Bywater (TA November 3rd 3019)",
       `Battle between Hobbits and Men in the Shire. The Battle of Bywater was the last battle of the War of the Ring. The battle was fought on November 3, 3019 of the Third Age, on the Bywater Road near the village of Bywater.`,
       "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Bywater"
     ),
@@ -187,7 +187,7 @@ export const battles = {
     icon: icons.BattleIcon,
   },
   battle_of_dale: {
-    popup: createBattlePopup("The Battle of Dale (TA March 15th 3019)",
+    popup: createSettlementPopup("The Battle of Dale (TA March 15th 3019)",
       `Battle in the north during the War of the Ring. The Battle of Dale began on March 15, 3019 of the Third Age. An army of Easterlings allied to Sauron crossed the Redwater and King Brand of Dale was forced to retreat to the foot of the Lonely Mountain.`,
       "https://thainsbook.minastirith.cz/battles.html#Dale"
     ),
@@ -195,7 +195,7 @@ export const battles = {
     icon: icons.BattleIcon,
   },
   battle_of_fornost: {
-    popup: createBattlePopup("The Battle of Fornost (TA 1975)",
+    popup: createSettlementPopup("The Battle of Fornost (TA 1975)",
       `Battle between the forces of the Witch-king of Angmar and the combined forces of the Dunedain of the North, Elves of Lindon and Rivendell, and Men of Gondor.`,
       "https://thainsbook.minastirith.cz/battles.html#Fornost"
     ),
@@ -203,7 +203,7 @@ export const battles = {
     icon: icons.BattleIcon,
   },
   battle_of_greenfields: {
-    popup: createBattlePopup("Battle of Greenfields (TA 2747)",
+    popup: createSettlementPopup("Battle of Greenfields (TA 2747)",
       `Battle between Orcs and Hobbits in the Shire. In the year 2747 of the Third Age, an army of Orcs from Mount Gram led by Golfimbul invaded Greenfields in the Northfarthing.`,
       "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Greenfields"
     ),
@@ -211,7 +211,7 @@ export const battles = {
     icon: icons.BattleIcon,
   },
   battle_of_helms_deep: {
-    popup: createBattlePopup("Battle of Helm's Deep (TA March 3rd and 4th 3019)",
+    popup: createSettlementPopup("Battle of Helm's Deep (TA March 3rd and 4th 3019)",
       `Battle between the Men of Rohan and the forces of Saruman during the War of the Ring. The Battle of Helm's Deep was fought during the rainy night of March 3-4, 3019 of the Third Age.`,
       "https://thainsbook.minastirith.cz/battles.html#Helm%27s"
     ),
@@ -219,7 +219,7 @@ export const battles = {
     icon: icons.BattleIcon,
   },
   battle_of_the_morannon: {
-    popup: createBattlePopup("Battle of the Morannon (TA March 25th 3019)",
+    popup: createSettlementPopup("Battle of the Morannon (TA March 25th 3019)",
       `Battle between the Host of the West and the forces of Sauron during the War of the Ring. The Battle of the Morannon took place on March 25, 3019 of the Third Age, in front of the Black Gate of Mordor.`,
       "https://thainsbook.minastirith.cz/battles.html#Morannon"
     ),
@@ -227,7 +227,7 @@ export const battles = {
     icon: icons.BattleIcon,
   },
   battle_of_the_camp: {
-    popup: createBattlePopup("Battle of the Camp (TA July 13th 1944)",
+    popup: createSettlementPopup("Battle of the Camp (TA July 13th 1944)",
       `Battle resulting in the final defeat of the Wainriders. The Battle of the Camp was fought in Ithilien on the night of July 13, 1944 of the Third Age, between the Wainriders and the Southern Army of Gondor led by Earnil.`,
       "https://thainsbook.minastirith.cz/battles.html#Battle-Camp"
     ),
