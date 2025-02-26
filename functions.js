@@ -126,23 +126,25 @@ export const createSettlementData = (dataObj, checkboxId, campsite = 'no') => ({
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
+  console.log(`Looking for checkbox with ID: ${checkboxId}`, checkbox); // Debugging line
 
-  // Ensure markers is an array (if it's not, make it an array of a single element)
+  if (!checkbox) {
+    console.error(`Checkbox with ID "${checkboxId}" not found in the DOM.`);
+    return; // Exit the function early
+  }
+
   const markersArray = Array.isArray(markers) ? markers : Object.values(markers);
 
-  // Function to add/remove markers based on checkbox state
   const toggleMarkers = () => {
     markersArray.forEach(marker => 
       checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
     );
   };
 
-  // Attach the change event listener
   checkbox.addEventListener('change', toggleMarkers);
-
-  // Trigger toggleMarkers on load based on the initial checkbox state
   toggleMarkers();
 };
+
 export const PathListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
