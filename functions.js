@@ -101,27 +101,6 @@ export const createGeographicObjects = (object_group, object_name, color, tolera
     weight: weight
   };
 };
-export const createSettlementObjects = (object_group, object_name) => {
-  const SettlementData = object_group[object_name];
-
-  return {
-    coords: SettlementData.coords,
-    icon: SettlementData.icon,
-    popup: createSettlementPopup(
-      SettlementData.name,
-      SettlementData.description,
-      SettlementData.url,
-    ),
-  };
-};
-export const createSettlementData = (dataObj, checkboxId, campsite = 'no') => ({
-  data: Object.fromEntries(
-    Object.keys(dataObj).map(key => [key, createSettlementObjects(dataObj, key)])
-  ),
-  checkboxId,
-  campsite
-});
-
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
@@ -144,7 +123,6 @@ export const MarkerListeners = (checkboxId, markers, map) => {
   checkbox.addEventListener('change', toggleMarkers);
   toggleMarkers();
 };
-
 export const PathListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${key}Checkbox`);

@@ -9,23 +9,13 @@ import {
 } from './geographic_popup_content.js';
 
 import {
-  elves,
-  men,
-  hobbits,
   icons,
-  battles,
-  one_on_one,
-  swords,
-  rings,
-  books,
 } from './settlement_popup_content.js';
 
 import {
   createCampsitePopup,
   createSettlementPopup,
   createGeographicObjects,
-  createSettlementObjects,
-  createSettlementData,
  } from './functions.js';
 
 // Campsites (markers)
