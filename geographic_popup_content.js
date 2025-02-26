@@ -535,6 +535,7 @@ export const rivers = {
     name: "Celos",
     PopupContent: createGeographicPopup(
     "Celos",
+    "Celos",
     `Also spelled (and pronounced) Kelos. The Sindarin name Celos is dervied from the Quenya Kelussë meaning "freshet, water falling out swiftly from a rocky spring."`,
     `River in Lebennin in Gondor. The Celos was a tributary of the Sirith. The river began in the White Mountains and flowed southward, joining the Sirith from the west. The Sirith in turn flowed into the Anduin.`,
     "https://thainsbook.minastirith.cz/rivers.html#Celos"),
@@ -546,6 +547,7 @@ export const rivers = {
     color: "blue", 
     name: "Sirith",
     PopupContent: createGeographicPopup(
+      "Sirith",
       "Sirith",
       `The name Sirith means "a flowing" from sîr meaning "river."`,
       `River in Lebennin in Gondor. The Sirith began in the White Mountains. It was joined from the west by a tributary called the Celos. The Sirith flowed southward to the Anduin.`,
@@ -560,6 +562,7 @@ gilrain: {
     name: "Gilrain",
     PopupContent: createGeographicPopup(
       "Gilrain",
+      "Gilrain",
       `The element gil means "star, shine." The element rain is derived from ran meaning "wander, stray, go on uncertain course" in reference to the meandering portion of the Gilrain where Nimrodel wandered.`,
       `River in southern Gondor. The Gilrain began in the White Mountains and flowed south through Lebennin.`,
       "https://thainsbook.minastirith.cz/rivers.html#Gilrain"
@@ -573,6 +576,7 @@ serni: {
     name: "Serni",
     PopupContent: createGeographicPopup(
       "Serni",
+      "Serni",
       `The name Serni is derived from the Sindarin sarn meaning "pebble." Serni is an adjectival form or a collective, like the Quenya sarnie meaning "shingle, pebble bank."`,
       `River of Gondor. The Serni began south of the White Mountains and flowed southwestward through Lebennin.`,
       "https://thainsbook.minastirith.cz/rivers.html#Serni"
@@ -585,6 +589,7 @@ ringlo: {
     color: "blue", 
     name: "Ringlo",
     PopupContent: createGeographicPopup(
+      "Ringlo",
       "Ringlo",
       `The name Ringló means "chill flood" from ring meaning "cold" and lô meaning "soaking wet, swampy, flood." The latter element most likely referred to the spreading floodwaters during the spring thaw in the snowfield at the river's source.`,
       `River in southern Gondor. The source of the Ringlo was in the White Mountains. The waters of the river came from a snowfield high in the mountains that formed a glacial lake.`,
