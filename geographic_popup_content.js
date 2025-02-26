@@ -141,7 +141,7 @@ export const hill = {
   weather_top: {
     pathName: "weather_top",
     color: "red",
-    popup: createGeographicPopup(
+    PopupContent: createGeographicPopup(
     "Weather Top",
     "Amon Sul",
     `Weathertop was called Amon Sûl in Sindarin. Amon Sûl means "Hill of the Wind" from amon meaning "hill" and sûl meaning "wind." It was also called Weathertop Hill.`,
@@ -153,7 +153,7 @@ export const hill = {
   iron_hills: {
     pathName: "iron_hills",
     color: "red",
-    popup: createGeographicPopup(
+    PopupContent: createGeographicPopup(
     "Iron Hills",
     "Emyn Angren",
     'The Iron Hills were so called because they were rich in iron ore. The Sindarin name was probably Emyn Engrin from emyn meaning "hills" and engrin the plural of angren meaning "iron".',
