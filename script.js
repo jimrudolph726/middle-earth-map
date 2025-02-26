@@ -5,7 +5,7 @@ import {
   MarkerListeners,
   createGeographicShape,
   createMarkers
-} from './function.js';
+} from './functions.js';
 
 import {
   settlementsData,

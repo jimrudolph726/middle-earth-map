@@ -1,7 +1,7 @@
 // Icons
 import {
   createSettlementPopup,
- } from './function.js';
+ } from './functions.js';
 
 
 const iconUrls = {

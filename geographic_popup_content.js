@@ -1,4 +1,4 @@
-import { createGeographicPopup } from "./function";
+import { createGeographicPopup } from "./functions";
 
 export const forest = {
   mirkwood: {
