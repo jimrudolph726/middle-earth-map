@@ -632,6 +632,7 @@ lefnui: {
     name: "Lefnui",
     PopupContent: createGeographicPopup(
       "Lefnui",
+      "Lefnui",
       `The name Lefnui means "fifth." The river was so named because it was the fifth river or river system in southern Gondor after the Erui, the Sirith-Celos, the Serni-Gilrain, and the Morthond-Ciril-Ringlo.`,
       `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
       "https://thainsbook.minastirith.cz/rivers.html#Lefnui"
@@ -645,6 +646,7 @@ adorn: {
     name: "Adorn",
     PopupContent: createGeographicPopup(
       "Adorn",
+      "Adorn",
       `None. The name Adorn was of pre-Numenorean origin adapted to Sindarin. The meaning cannot be interpreted.`,
       `River in Rohan. The Adorn flowed northwest from its source in the White Mountains to join the River Isen. Together the Adorn and the Isen formed the far western boundary of Rohan.`,
       "https://thainsbook.minastirith.cz/rivers.html#Adorn"
@@ -657,6 +659,7 @@ isen: {
     color: "blue", 
     name: "Isen",
     PopupContent: createGeographicPopup(
+      "Isen",
       "Sîr Angren",
       `The name Isen means "iron" in the language of Rohan, from the Old English word ísen. The Sindarin name was Sîr Angren, from sîr meaning "river" and angren meaning "iron."`,
       `River in Gondor. The Lefnui flowed southward from the White Mountains to the Bay of Belfalas.`,
