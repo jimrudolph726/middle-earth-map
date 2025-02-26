@@ -17,7 +17,6 @@ import {
   swords,
   rings,
   books,
-  icons,
 } from './settlement_item_data.js';
 
 import {
