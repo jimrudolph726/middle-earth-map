@@ -294,22 +294,18 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 }
 
 // Settlements (markers)
-// Settlements (markers)
 export const settlementsData = [
-  ...['samfrodocampsites', 'aragorncampsites', 'pippincampsites', 'merrycampsites', 'gandalfthegreycampsites'].map(name => ({
-    data: window[name],  // Safer than eval
-    checkboxId: `${name}Checkbox`,
-    campsite: 'campsite'
-  })),
-
-  ...['elves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'].map(name => ({
-    data: window[name],  // Safer than eval
-    checkboxId: `${name}Checkbox`,
-    campsite: 'no'
-  }))
+  ...[
+    { names: ['samfrodocampsites', 'aragorncampsites', 'pippincampsites', 'merrycampsites', 'gandalfthegreycampsites'], campsite: 'campsite' },
+    { names: ['elves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'], campsite: 'no' }
+  ].flatMap(({ names, campsite }) =>
+    names.map(name => ({
+      data: window[name], // Safer than eval
+      checkboxId: `${name}Checkbox`,
+      campsite
+    }))
+  )
 ];
-
-
 
 // Paths
 export const pathdata = { 
