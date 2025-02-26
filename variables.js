@@ -327,9 +327,7 @@ export const geographicData = [
   {data: Object.fromEntries(
     Object.keys(mountain).map(key => [key, createGeographicObjects(mountain, key, "brown", 1, 2)])),  
     checkboxId: 'mountainsCheckbox'},
-  {data: Object.fromEntries(
-    Object.keys(hill).map(key => [key, createGeographicObjects(hill, key, "red", 1, 2)])),  
-  checkboxId: 'hillsCheckbox'},
+  {data: hill, checkboxId: 'hillsCheckbox'},
   {data: Object.fromEntries(
     Object.keys(forest).map(key => [key, createGeographicObjects(forest, key, "green", 1, 2)])), 
     checkboxId: 'forestsCheckbox'},
