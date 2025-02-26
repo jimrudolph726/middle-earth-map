@@ -134,31 +134,41 @@ export const men = {
   },
 };
 
-
 export const hobbits = {
   hobbiton: {
-    name: "Hobbiton",
-    description: `Village in the Westfarthing of the Shire; home of Bilbo and Frodo Baggins. Hobbiton was located on the Water, about a mile northwest of its neighboring village Bywater. The Bywater Road passed through both villages and connected with the Great East Road to the south.`,
-    url: "https://thainsbook.minastirith.cz/towns.html#Hobbiton",
-    coords: [44.9466054,-93.3112966],
+    popup: createSettlementPopup(
+      "Hobbiton",
+      `Village in the Westfarthing of the Shire; home of Bilbo and Frodo Baggins. 
+      Hobbiton was located on the Water, about a mile northwest of its neighboring village Bywater. 
+      The Bywater Road passed through both villages and connected with the Great East Road to the south.`,
+      "https://thainsbook.minastirith.cz/towns.html#Hobbiton"
+    ),
+    coords: [44.9466054, -93.3112966],
     icon: icons.HobbitsIcon,
   },
   michel_delving: {
-    name: "Michel Delving",
-    description: `Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. The Mayor of Michel Delving was the Shire's only real government official. His office was in the Town Hole in Michel Delving. The museum known as the Mathom-house was also located in Michel Delving.`,
-    url: "https://thainsbook.minastirith.cz/towns.html#Michel%20Delving",
-    coords: [44.9464735,-93.3116819],
+    popup: createSettlementPopup(
+      "Michel Delving",
+      `Chief township of the Shire. Michel Delving was located in the Westfarthing of the Shire on the White Downs. 
+      The Mayor of Michel Delving was the Shire's only real government official. 
+      His office was in the Town Hole in Michel Delving. 
+      The museum known as the Mathom-house was also located in Michel Delving.`,
+      "https://thainsbook.minastirith.cz/towns.html#Michel%20Delving"
+    ),
+    coords: [44.9464735, -93.3116819],
     icon: icons.HobbitsIcon,
-    
   },
   crick_hollow: {
-    name: "Crick Hollow",
-    description: `Village in Buckland. Crickhollow was a few miles northeast of Bucklebury. It was a quiet, secluded village. `,
-    url: "https://tolkiengateway.net/wiki/Crickhollow",
-    coords: [44.94648941,-93.31055274],
+    popup: createSettlementPopup(
+      "Crick Hollow",
+      `Village in Buckland. Crickhollow was a few miles northeast of Bucklebury. It was a quiet, secluded village.`,
+      "https://tolkiengateway.net/wiki/Crickhollow"
+    ),
+    coords: [44.94648941, -93.31055274],
     icon: icons.HobbitsIcon,
   },
 };
+
 
 export const battles = {
   battle_of_dagorlad: {
