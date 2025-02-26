@@ -306,12 +306,8 @@ export const settlementsData = [
   { data: elves, checkboxId: 'elvesCheckbox', campsite: 'no' },
   { data: men, checkboxId: 'menCheckbox', campsite: 'no' },
   { data: hobbits, checkboxId: 'hobbitsCheckbox', campsite: 'no' },
-  { data: Object.fromEntries(
-    Object.keys(battles).map(key => [key, createSettlementObjects(battles, key)])), 
-  checkboxId: 'battlesCheckbox', campsite: 'no' },
-  { data: Object.fromEntries(
-    Object.keys(one_on_one).map(key => [key, createSettlementObjects(one_on_one, key)])), 
-  checkboxId: 'oneononeCheckbox', campsite: 'no' },
+  { data: battles, checkboxId: 'battlesCheckbox', campsite: 'no' },
+  { data: one_on_one, checkboxId: 'oneononeCheckbox', campsite: 'no' },
   { data: Object.fromEntries(
     Object.keys(swords).map(key => [key, createSettlementObjects(swords, key)])), 
   checkboxId: 'swordsCheckbox', campsite: 'no' },

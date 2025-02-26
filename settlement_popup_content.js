@@ -236,23 +236,26 @@ export const battles = {
   },
 };
 
-
 export const one_on_one = {
   battle_of_the_peak: {
-    name: "Battle of the Peak (TA January 23rd to January 25th 3019)",
-    description: `Battle between Gandalf and the Balrog on the Silvertine during the War of the Ring. After Gandalf and the Balrog fell into the abyss in Moria on January 15, 3019 of the Third Age, they fought long underground and then climbed the Endless Stair to the peak of the Silvertine where Durin's Tower stood.`,
-    url: "https://thainsbook.minastirith.cz/battles.html#Peak",
-    coords: [44.94491777,-93.30559552],
+    popup: createSettlementPopup(
+      "Battle of the Peak (TA January 23rd to January 25th 3019)",
+      `Battle between Gandalf and the Balrog on the Silvertine during the War of the Ring. After Gandalf and the Balrog fell into the abyss in Moria on January 15, 3019 of the Third Age, they fought long underground and then climbed the Endless Stair to the peak of the Silvertine where Durin's Tower stood.`,
+      "https://thainsbook.minastirith.cz/battles.html#Peak"
+    ),
+    coords: [44.94491777, -93.30559552],
     icon: icons.BattleIcon,
   },
   eowyn_witch_king: {
-    name: "Eowyn vs the With King of Angmar (TA March 15th 3019)",
-    description: `Battle between Éowyn and the Witch-king of Angmar during the Battle of the Pelennor Fields. On March 15, 3019 of the Third Age, Éowyn, disguised as a soldier, defended Théoden against the Witch-king. After slaying his fell beast, she faced him in combat. With Merry’s aid, she defied prophecy and struck the final blow, destroying him.`,
-    url: "https://thainsbook.minastirith.cz/eowyn.html",
-    coords: [44.94095898,-93.30106586],
+    popup: createSettlementPopup(
+      "Éowyn vs the Witch-king of Angmar (TA March 15th 3019)",
+      `Battle between Éowyn and the Witch-king of Angmar during the Battle of the Pelennor Fields. On March 15, 3019 of the Third Age, Éowyn, disguised as a soldier, defended Théoden against the Witch-king. After slaying his fell beast, she faced him in combat. With Merry’s aid, she defied prophecy and struck the final blow, destroying him.`,
+      "https://thainsbook.minastirith.cz/eowyn.html"
+    ),
+    coords: [44.94095898, -93.30106586],
     icon: icons.BattleIcon,
   },
-}
+};
 
 export const swords = {
   glamdring: {
