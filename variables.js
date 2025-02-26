@@ -303,14 +303,11 @@ export const settlementsData = [
     campsite: 'campsite'
   })),
 
-  { data: elves, checkboxId: 'elvesCheckbox', campsite: 'no' },
-  { data: men, checkboxId: 'menCheckbox', campsite: 'no' },
-  { data: hobbits, checkboxId: 'hobbitsCheckbox', campsite: 'no' },
-  { data: battles, checkboxId: 'battlesCheckbox', campsite: 'no' },
-  { data: one_on_one, checkboxId: 'oneononeCheckbox', campsite: 'no' },
-  { data: swords, checkboxId: 'swordsCheckbox', campsite: 'no' },
-  { data: rings, checkboxId: 'ringsCheckbox', campsite: 'no' },
-  { data: books, checkboxId: 'booksCheckbox', campsite: 'no' },
+  ...['elves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'].map(name => ({
+    data: eval(name),  // Dynamically fetch variable (ensure safety)
+    checkboxId: `${name}Checkbox`,
+    campsite: 'no'
+  }))
 ];
 
 // Paths
