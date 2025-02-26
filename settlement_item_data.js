@@ -1,8 +1,6 @@
-// Icons
 import {
   createSettlementPopup,
  } from './functions.js';
-
 
 const iconUrls = {
     hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
