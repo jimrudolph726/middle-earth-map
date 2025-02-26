@@ -1,9 +1,9 @@
 import {
   createSettlementPopup,
- } from './functions.js';
+} from './functions.js';
 
 import {
-icons,
+  icons,
 } from './variables.js';
 
 export const elves = {

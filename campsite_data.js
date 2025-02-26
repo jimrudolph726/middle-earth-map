@@ -1,9 +1,9 @@
 import {
-    createCampsitePopup,
-   } from './functions.js';
+  createCampsitePopup,
+} from './functions.js';
 import {
-    icons,
-   } from './variables.js';
+  icons,
+} from './variables.js';
 
   
 export const samfrodocampsites = {
