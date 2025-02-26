@@ -1,6 +1,14 @@
 // functions.js
 
 // Helper functions
+export function createIcon(url, size = [48, 48]) {
+  return L.icon({
+    iconUrl: url,
+    iconSize: size,
+    iconAnchor: [size[0] / 2, size[1] / 2],
+    popupAnchor: [0, -size[1] / 2],
+  });
+}
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
     <div style="width: 100%; background-color: white; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; margin: auto;" 
@@ -82,14 +90,7 @@ export const createSettlementPopup = (name, description, url) => {
     </button>
   </div>`;
 };
-export function createIcon(url, size = [48, 48]) {
-  return L.icon({
-    iconUrl: url,
-    iconSize: size,
-    iconAnchor: [size[0] / 2, size[1] / 2],
-    popupAnchor: [0, -size[1] / 2],
-  });
-}
+
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {

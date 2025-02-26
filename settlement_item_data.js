@@ -6,8 +6,6 @@ import {
   createSettlementPopup,
 } from './functions.js';
 
-
-
 export const elves = {
   rivendell: {
     coords: [44.94677219,-93.30552175],
