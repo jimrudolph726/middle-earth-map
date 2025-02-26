@@ -3,7 +3,7 @@ import {
 } from './functions.js';
 import {
   icons,
-} from './variables.js';
+} from './settlement_item_data.js';
 
   
 export const samfrodocampsites = {

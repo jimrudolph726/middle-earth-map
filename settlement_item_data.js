@@ -1,10 +1,46 @@
 import {
-  icons,
-} from './variables.js';
-
-import {
   createSettlementPopup,
 } from './functions.js';
+
+ // Icons
+ const iconUrls = {
+  hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
+  men_gondor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tree_of_gondor.png',
+  men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men_rohan.png',
+  rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
+  lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
+  tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
+  battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
+  glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
+  sting: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/sting.png',
+  narsil: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narsil.png',
+  ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
+  narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
+  nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
+  vilya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/vilya.png',
+  barahir: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/barahir.png',
+  book: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/book.png',
+};
+export const icons = {
+HobbitsIcon: createIcon(iconUrls.hobbits),
+MenGondorIcon: createIcon(iconUrls.men_gondor),
+MenRohanIcon: createIcon(iconUrls.men_rohan),
+RivendellIcon: createIcon(iconUrls.rivendell),
+LothlorienIcon: createIcon(iconUrls.lothlorien),
+BattleIcon: createIcon(iconUrls.battle),
+GlamdringIcon: createIcon(iconUrls.glamdring),
+StingIcon: createIcon(iconUrls.sting),
+NarsilIcon: createIcon(iconUrls.narsil),
+RingIcon: createIcon(iconUrls.ring),
+NaryaIcon: createIcon(iconUrls.narya),
+NenyaIcon: createIcon(iconUrls.nenya),
+VilyaIcon: createIcon(iconUrls.vilya),
+BarahirIcon: createIcon(iconUrls.barahir),
+BookIcon: createIcon(iconUrls.book),
+TentIcon: createIcon(iconUrls.tent, [30, 30])
+};
+
+
 
 export const elves = {
   rivendell: {
