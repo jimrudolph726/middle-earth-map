@@ -70,7 +70,8 @@ export const elves = {
 
 export const men = {
   bree: {
-    popup: createSettlementPopup("Bree",
+    popup: createSettlementPopup(
+      "Bree",
       `Village at the crossroads of the Great East Road and the Greenway in Eriador. Bree was unique in that the Big Folk (Men) and Little Folk (Hobbits) both dwelled there on friendly terms.`,
       "https://thainsbook.minastirith.cz/towns.html#Bree"
     ),
@@ -78,7 +79,8 @@ export const men = {
     icon: icons.MenGondorIcon,
   },
   minastirith: {
-    popup: createSettlementPopup("Minas Tirith",
+    popup: createSettlementPopup(
+      "Minas Tirith",
       `Minas Anor - the Tower of the Sun - was established as a stronghold by Anarion, son of Elendil, and over time it became the greatest city in Gondor. As the threat from Mordor increased, the city was renamed Minas Tirith - the Tower of Guard.`,
       "https://thainsbook.minastirith.cz/minastirith.html"
     ),
@@ -86,7 +88,8 @@ export const men = {
     icon: icons.MenGondorIcon,
   },
   tower_of_amon_sul: {
-    popup: createSettlementPopup("Tower of Amon Sul",
+    popup: createSettlementPopup(
+      "Tower of Amon Sul",
       `Watch-tower on Weathertop. Weathertop - which was also called Amon Sul - was the southernmost of the Weather Hills. It was located north of the Great East Road in Eriador. The Tower of Amon Sul was once tall and fair, but by the end of the Third Age only ruins remained.`,
       "https://thainsbook.minastirith.cz/fortress.html#Amon%20Sul"
     ),
@@ -94,7 +97,8 @@ export const men = {
     icon: icons.MenGondorIcon,
   },
   fornost: {
-    popup: createSettlementPopup("Fornost",
+    popup: createSettlementPopup(
+      "Fornost",
       `Capital of Arthedain in the North-kingdom. Fornost was located in the North Downs of Eriador, about 100 miles north of Bree and about 100 miles east of Annuminas.`,
       "https://thainsbook.minastirith.cz/towns.html#Fornost"
     ),
@@ -102,7 +106,8 @@ export const men = {
     icon: icons.MenGondorIcon,
   },
   lake_town: {
-    popup: createSettlementPopup("Lake-town",
+    popup: createSettlementPopup(
+      "Lake-town",
       `Town of Men on Long Lake in Wilderland. Lake-town was built on the surface of the lake supported by great wooden piles in the water. It was located on the west side of the lake near the mouth of the Forest River in a calm bay that was formed by the shelter of a rock promontory. The town was connected to the land by a long bridge.`,
       "https://thainsbook.minastirith.cz/towns.html#Lake-town"
     ),
@@ -110,15 +115,17 @@ export const men = {
     icon: icons.MenGondorIcon,
   },
   rohan: {
-    popup: createSettlementPopup("Rohan",
+    popup: createSettlementPopup(
+      "Rohan",
       `Rohan was the home of the Rohirrim - a hardy race of Men known for their love of horses. The land was once part of Gondor, but it was given to the Rohirrim when Eorl the Young led them from the North to help Gondor fight an enemy invasion. Rohan remained Gondor's staunchest ally, and during the War of the Ring, the Rohirrim rode to the aid of Gondor once more at the Battle of the Pelennor Fields.`,
       "https://thainsbook.minastirith.cz/rohan.html"
     ),
-    coords: [44.9426410, -93.3043699],
+    coords: [44.942641, -93.3043699],
     icon: icons.MenRohanIcon,
   },
   edoras: {
-    popup: createSettlementPopup("Edoras",
+    popup: createSettlementPopup(
+      "Edoras",
       `Main town in Rohan and site of the royal court. Edoras was located at the foot of the White Mountains, which formed the southern border of Rohan. The town stood on a green hill at the mouth of the valley of Harrowdale.`,
       "https://thainsbook.minastirith.cz/towns.html#Edoras"
     ),
