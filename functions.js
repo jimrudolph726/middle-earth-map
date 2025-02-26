@@ -72,7 +72,6 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
     </div>
   `;
 };
-
 export const createSettlementPopup = (name, description, url) => {
   return`<div>
     <h3 style="font-size: 24px;">${name}</h3>
@@ -82,24 +81,6 @@ export const createSettlementPopup = (name, description, url) => {
       Learn more here
     </button>
   </div>`;
-};
-export const createGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
-  const GeographicData = object_group[object_name];
-
-  return {
-    pathName: object_name,
-    color: color,
-    name: object_name.charAt(0).toUpperCase() + object_name.slice(1),
-    PopupContent: createGeographicPopup(
-      GeographicData.name,
-      GeographicData.elvish_name,
-      GeographicData.elvish_meaning,
-      GeographicData.description,
-      GeographicData.url
-    ),
-    tolerance: tolerance,
-    weight: weight
-  };
 };
 
 // Checkbox listener functions

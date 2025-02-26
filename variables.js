@@ -23,7 +23,6 @@ import {
 import {
   createCampsitePopup,
   createSettlementPopup,
-  createGeographicObjects,
  } from './functions.js';
 
 // Campsites (markers)
