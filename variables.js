@@ -329,11 +329,8 @@ export const pathdata = {
 
 // Geographic Features
 export const geographicData = [
-  {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
-  {data: mountains, checkboxId: 'mountainsCheckbox'},
-  {data: hills, checkboxId: 'hillsCheckbox'},
-  {data: forests, checkboxId: 'forestsCheckbox'},
-  {data: rivers, checkboxId: 'riversCheckbox'},
-  {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
-  {data: wetlands, checkboxId: 'wetlandsCheckbox'},
+  ...['mountain_ranges', 'mountains', 'hills', 'forests', 'rivers', 'lakes_seas', 'wetlands'].map(name => ({
+    data: eval(name),
+    checkboxId: `${name}Checkbox`
+  }))
 ]
