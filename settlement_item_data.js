@@ -1,5 +1,6 @@
 import {
   createSettlementPopup,
+  createIcon,
 } from './functions.js';
 
  // Icons
@@ -39,8 +40,6 @@ BarahirIcon: createIcon(iconUrls.barahir),
 BookIcon: createIcon(iconUrls.book),
 TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
-
-
 
 export const elves = {
   rivendell: {
