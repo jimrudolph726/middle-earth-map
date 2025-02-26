@@ -1,6 +1,10 @@
 import {
     createCampsitePopup,
    } from './functions.js';
+import {
+    icons,
+   } from './variables.js';
+
   
 export const samfrodocampsites = {
     September23: { coords: [44.94642366,-93.31109147], icon: icons.TentIcon, popup: createCampsitePopup('September 23',5,18,3.6,'Evening march.','Green Hill Country'),
