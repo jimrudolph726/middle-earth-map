@@ -672,34 +672,59 @@ isen: {
 
 export const lakes_seas = {
   lake_evendim: {
+    pathName: 'lake_evendim',
+    color: "blue", 
     name: "Lake Evendim",
-    elvish_name: "Nenuial",
-    elvish_meaning: `Evendim means "evening twilight." The Sindarin name was Nenuial meaning "lake of twilight" from nen meaning "lake" and uial meaning "twilight."`,
-    description: `Lake in Eriador. Lake Evendim was in the Hills of Evendim north of the Shire. The lake was the source of the Brandywine River.`,
-    url: "https://thainsbook.minastirith.cz/lakes.html#Evendim",
+    PopupContent: createGeographicPopup(
+      "Lake Evendim",
+      `Evendim means "evening twilight." The Sindarin name was Nenuial meaning "lake of twilight" from nen meaning "lake" and uial meaning "twilight."`,
+      `Lake in Eriador. Lake Evendim was in the Hills of Evendim north of the Shire. The lake was the source of the Brandywine River.`,
+      "https://thainsbook.minastirith.cz/lakes.html#Evendim"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   nen_hithoel: {
+    pathName: 'nen_hithoel',
+    color: "blue", 
     name: "Nen Hithoel",
-    elvish_name: "Nen Hithoel",
-    elvish_meaning: `Nen Hithoel means "mist-cool water" in Sindarin. The word nen means "water" and hîth means "mist." The final element oel apparently means "cool" although this usage is not found elsewhere.`,
-    description: `Lake formed by the Anduin. Nen Hithoel was a long, oval-shaped lake. The rugged land called the Emyn Muil spread out from both shores of Nen Hithoel. `,
-    url: "https://thainsbook.minastirith.cz/lakes.html#Hithoel",
+    PopupContent: createGeographicPopup(
+      "Nen Hithoel",
+      `Nen Hithoel means "mist-cool water" in Sindarin. The word nen means "water" and hîth means "mist." The final element oel apparently means "cool" although this usage is not found elsewhere.`,
+      `Lake formed by the Anduin. Nen Hithoel was a long, oval-shaped lake. The rugged land called the Emyn Muil spread out from both shores of Nen Hithoel.`,
+      "https://thainsbook.minastirith.cz/lakes.html#Hithoel"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   sea_of_nurnen: {
+    pathName: 'sea_of_nurnen',
+    color: "blue", 
     name: "Sea of Nurnen",
-    elvish_name: "Nurnen",
-    elvish_meaning: `On Tolkien's map of Middle-earth, this body of water is called the Sea of Nurnen. In the text, it is referred to as an inland sea but it is called Lake Nurnen. Nurnen means "sad water" in Sindarin. The word nurn means "lament" and the word nen means "water."`,
-    description: `Body of water in Mordor. Nurnen was a large, dark lake or inland sea in the southeastern part of Mordor.`,
-    url: "https://thainsbook.minastirith.cz/lakes.html#Lake%20Nurnen",
+    PopupContent: createGeographicPopup(
+      "Sea of Nurnen",
+      `On Tolkien's map of Middle-earth, this body of water is called the Sea of Nurnen. In the text, it is referred to as an inland sea but it is called Lake Nurnen. Nurnen means "sad water" in Sindarin. The word nurn means "lament" and the word nen means "water."`,
+      `Body of water in Mordor. Nurnen was a large, dark lake or inland sea in the southeastern part of Mordor.`,
+      "https://thainsbook.minastirith.cz/lakes.html#Lake%20Nurnen"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   sea_of_rhun: {
+    pathName: 'sea_of_rhun',
+    color: "blue", 
     name: "Sea of Rhun",
-    elvish_name: "Rhun",
-    elvish_meaning: `Also called the Inland Sea. Rhûn means "east" in Sindarin.`,
-    description: `Sea in eastern Middle-earth. The Sea of Rhun was a large inland sea located in Rhun, a land in far eastern Middle-earth.`,
-    url: "https://thainsbook.minastirith.cz/lakes.html#Rhun",
+    PopupContent: createGeographicPopup(
+      "Sea of Rhun",
+      `Also called the Inland Sea. Rhûn means "east" in Sindarin.`,
+      `Sea in eastern Middle-earth. The Sea of Rhun was a large inland sea located in Rhun, a land in far eastern Middle-earth.`,
+      "https://thainsbook.minastirith.cz/lakes.html#Rhun"
+    ),
+    tolerance: 1,
+    weight: 2
   },
 };
+
 
 export const wetlands = {
   dead_marshes: {

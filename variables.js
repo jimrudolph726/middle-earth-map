@@ -334,9 +334,7 @@ export const geographicData = [
   {data: hills, checkboxId: 'hillsCheckbox'},
   {data: forests, checkboxId: 'forestsCheckbox'},
   {data: rivers, checkboxId: 'riversCheckbox'},
-  {data: Object.fromEntries(
-    Object.keys(lakes_seas).map(key => [key, createGeographicObjects(lakes_seas, key, "blue", 1, 2)])), 
-  checkboxId: 'lakes_seasCheckbox'},
+  {data: lakes_seas, checkboxId: 'lakes_seasCheckbox'},
   {data: Object.fromEntries(
     Object.keys(wetlands).map(key => [key, createGeographicObjects(wetlands, key, "brown", 1, 2)])), 
     checkboxId: 'wetlandsCheckbox'},
