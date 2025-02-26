@@ -1,6 +1,6 @@
 import { createGeographicPopup } from "./functions.js";
 
-export const forest = {
+export const forests = {
   mirkwood: {
     name: "Mirkwood",
     elvish_name: "Taur-nu-Fuin",
@@ -73,7 +73,7 @@ export const forest = {
   },
 };
 
-export const mountain_range = {
+export const mountain_ranges = {
   misty_mountains: {
     pathName: "misty_mountains",
     color: "orange",
@@ -168,7 +168,7 @@ export const mountain_range = {
 };
 
 
-export const mountain = {
+export const mountains = {
   lonely_mountain: {
     pathName: 'lonely_mountain',
     color: 'brown',
@@ -180,7 +180,7 @@ export const mountain = {
   },
 };
 
-export const hill = {
+export const hills = {
   weather_top: {
     pathName: "weather_top",
     color: "red",
@@ -207,7 +207,7 @@ export const hill = {
   },
 };
 
-export const river = {
+export const rivers = {
   greylin: {
     name: "Greylin",
     elvish_name: "None",
@@ -406,7 +406,7 @@ export const river = {
   },
 };
 
-export const lake_sea = {
+export const lakes_seas = {
   lake_evendim: {
     name: "Lake Evendim",
     elvish_name: "Nenuial",
@@ -437,7 +437,7 @@ export const lake_sea = {
   },
 };
 
-export const wetland = {
+export const wetlands = {
   dead_marshes: {
     name: "Dead Marshes",
     elvish_name: "None",

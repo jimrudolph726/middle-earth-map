@@ -1,11 +1,11 @@
 import {
-  forest,
-  mountain_range,
-  mountain,
-  river,
-  hill,
-  lake_sea,
-  wetland,
+  forests,
+  mountain_ranges,
+  mountains,
+  rivers,
+  hills,
+  lakes_seas,
+  wetlands,
 } from './geographic_popup_content.js';
 
 import {
@@ -329,21 +329,21 @@ export const pathdata = {
 
 // Geographic Features
 export const geographicData = [
-  {data: mountain_range, checkboxId: 'mountain_rangesCheckbox'},
+  {data: mountain_ranges, checkboxId: 'mountain_rangesCheckbox'},
   {data: Object.fromEntries(
-    Object.keys(mountain).map(key => [key, createGeographicObjects(mountain, key, "brown", 1, 2)])),  
+    Object.keys(mountains).map(key => [key, createGeographicObjects(mountains, key, "brown", 1, 2)])),  
     checkboxId: 'mountainsCheckbox'},
-  {data: hill, checkboxId: 'hillsCheckbox'},
+  {data: hills, checkboxId: 'hillsCheckbox'},
   {data: Object.fromEntries(
-    Object.keys(forest).map(key => [key, createGeographicObjects(forest, key, "green", 1, 2)])), 
+    Object.keys(forests).map(key => [key, createGeographicObjects(forests, key, "green", 1, 2)])), 
     checkboxId: 'forestsCheckbox'},
   {data: Object.fromEntries(
-    Object.keys(river).map(key => [key, createGeographicObjects(river, key, "blue", 10, 7)])), 
+    Object.keys(rivers).map(key => [key, createGeographicObjects(rivers, key, "blue", 10, 7)])), 
   checkboxId: 'riversCheckbox'},
   {data: Object.fromEntries(
-    Object.keys(lake_sea).map(key => [key, createGeographicObjects(lake_sea, key, "blue", 1, 2)])), 
+    Object.keys(lakes_seas).map(key => [key, createGeographicObjects(lakes_seas, key, "blue", 1, 2)])), 
   checkboxId: 'lakes_seasCheckbox'},
   {data: Object.fromEntries(
-    Object.keys(wetland).map(key => [key, createGeographicObjects(wetland, key, "brown", 1, 2)])), 
+    Object.keys(wetlands).map(key => [key, createGeographicObjects(wetlands, key, "brown", 1, 2)])), 
     checkboxId: 'wetlandsCheckbox'},
 ]
