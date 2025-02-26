@@ -77,6 +77,7 @@ export const mountain_ranges = {
   misty_mountains: {
     pathName: "misty_mountains",
     color: "orange",
+    name: "misty_mountains",
     PopupContent: createGeographicPopup(
       "Misty Mountains",
       "Hithaeglir",
@@ -90,6 +91,7 @@ export const mountain_ranges = {
   white_mountains: {
     pathName: "white_mountains",
     color: "orange",
+    name: "white_mountains",
     PopupContent: createGeographicPopup(
       "White Mountains",
       "Ered Nimrais",
@@ -103,6 +105,7 @@ export const mountain_ranges = {
   ash_mountains: {
     pathName: "ash_mountains",
     color: "orange",
+    name: "ash_mountains",
     PopupContent: createGeographicPopup(
       "Ash Mountains",
       "Ered Lithui",
@@ -116,6 +119,7 @@ export const mountain_ranges = {
   mountains_of_angmar: {
     pathName: "mountains_of_angmar",
     color: "orange",
+    name: "mountains_of_angmar",
     PopupContent: createGeographicPopup(
       "Mountains of Angmar",
       "Emyn Angmar",
@@ -129,6 +133,7 @@ export const mountain_ranges = {
   grey_mountains: {
     pathName: "grey_mountains",
     color: "orange",
+    name: "grey_mountains",
     PopupContent: createGeographicPopup(
       "Grey Mountains",
       "Ered Mithrin",
@@ -142,6 +147,7 @@ export const mountain_ranges = {
   blue_mountains: {
     pathName: "blue_mountains",
     color: "orange",
+    name: "blue_mountains",
     PopupContent: createGeographicPopup(
       "Blue Mountains",
       "Ered Luin",
@@ -155,6 +161,7 @@ export const mountain_ranges = {
   mountains_of_shadow: {
     pathName: "mountains_of_shadow",
     color: "orange",
+    name: "mountains_of_shadow",
     PopupContent: createGeographicPopup(
       "Mountains of Shadow",
       "Ephel Duath",
@@ -166,6 +173,7 @@ export const mountain_ranges = {
     weight: 2,
   },
 };
+
 
 export const mountains = {
   lonely_mountain: {
@@ -182,7 +190,6 @@ export const mountains = {
     weight: 2,
   },
 };
-
 
 export const hills = {
   weather_top: {
