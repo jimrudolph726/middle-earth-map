@@ -33,7 +33,7 @@ import {
  } from './campsite_data.js';
 
 // Icon URLs
-const iconUrls = {
+export const iconUrls = {
   hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
   men_gondor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tree_of_gondor.png',
   men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men_rohan.png',
