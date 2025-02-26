@@ -1,12 +1,12 @@
-// import {
-//   forests,
-//   mountain_ranges,
-//   mountains,
-//   rivers,
-//   hills,
-//   lakes_seas,
-//   wetlands,
-// } from './geographic_popup_content.js';
+import {
+  forests,
+  mountain_ranges,
+  mountains,
+  rivers,
+  hills,
+  lakes_seas,
+  wetlands,
+} from './geographic_popup_content.js';
 
 import {
   elves,
