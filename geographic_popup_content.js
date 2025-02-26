@@ -725,48 +725,83 @@ export const lakes_seas = {
   },
 };
 
-
 export const wetlands = {
   dead_marshes: {
+    pathName: 'dead_marshes',
+    color: "brown", 
     name: "Dead Marshes",
-    elvish_name: "None",
-    elvish_meaning: `None`,
-    description: `Marshes near Mordor. The Dead Marshes were a vast network of pools, mires, and waterways east of the Emyn Muil. The wetlands were fed by many small rivers that ran down from the hills. `,
-    url: "https://thainsbook.minastirith.cz/marshes.html#Dead",
+    PopupContent: createGeographicPopup(
+      "Dead Marshes",
+      `None`,
+      `Marshes near Mordor. The Dead Marshes were a vast network of pools, mires, and waterways east of the Emyn Muil. The wetlands were fed by many small rivers that ran down from the hills.`,
+      "https://thainsbook.minastirith.cz/marshes.html#Dead"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   wetwang: {
+    pathName: 'wetwang',
+    color: "brown", 
     name: "Wetwang",
-    elvish_name: "Nindalf",
-    elvish_meaning: `The word wang means "field, flat area." Nindalf is the Sindarin name from nîn meaning "wet" and talf meaning "flat field."`,
-    description: `Marshland at the mouth of the Entwash. The Wetwang was a wide region of fens located where the Entwash flowed into the Anduin just below the Falls of Rauros.`,
-    url: "https://thainsbook.minastirith.cz/marshes.html#Wetwang",
+    PopupContent: createGeographicPopup(
+      "Wetwang",
+      `The word wang means "field, flat area." Nindalf is the Sindarin name from nîn meaning "wet" and talf meaning "flat field."`,
+      `Marshland at the mouth of the Entwash. The Wetwang was a wide region of fens located where the Entwash flowed into the Anduin just below the Falls of Rauros.`,
+      "https://thainsbook.minastirith.cz/marshes.html#Wetwang"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   midgewater_marshes: {
+    pathName: 'midgewater_marshes',
+    color: "brown", 
     name: "Midgewater Marshes",
-    elvish_name: "Nindalf",
-    elvish_meaning: `None. The Midgewater Marshes are named for the small insects called midges that lived there.`,
-    description: `Marshes in Eriador. The Midgewater Marshes were east of Bree. The Chetwood was on the western side of the marshes and the Weather Hills were on the east. The Great East Road curved around the southern edge of the Midgewater Marshes.`,
-    url: "https://thainsbook.minastirith.cz/marshes.html#Midgewater%20Marshes",
+    PopupContent: createGeographicPopup(
+      "Midgewater Marshes",
+      `None. The Midgewater Marshes are named for the small insects called midges that lived there.`,
+      `Marshes in Eriador. The Midgewater Marshes were east of Bree. The Chetwood was on the western side of the marshes and the Weather Hills were on the east. The Great East Road curved around the southern edge of the Midgewater Marshes.`,
+      "https://thainsbook.minastirith.cz/marshes.html#Midgewater%20Marshes"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   overbourn_marshes: {
+    pathName: 'overbourn_marshes',
+    color: "brown", 
     name: "Overbourn Marshes",
-    elvish_name: "Nindalf",
-    elvish_meaning: `None. A bourn is a small stream or brook. The Overbourn Marshes may have been so named because they were across the Shirebourn from the most populous part of the Eastfarthing. Or the first element may come from the Old English ofer meaning "border, riverbank."`,
-    description: `Marshes in the Shire. The Overbourn Marshes were in the Southfarthing south of the River Shirebourn where it flowed into the Brandywine River.`,
-    url: "https://thainsbook.minastirith.cz/marshes.html#Overbourn%20Marshes",
+    PopupContent: createGeographicPopup(
+      "Overbourn Marshes",
+      `None. A bourn is a small stream or brook. The Overbourn Marshes may have been so named because they were across the Shirebourn from the most populous part of the Eastfarthing. Or the first element may come from the Old English ofer meaning "border, riverbank."`,
+      `Marshes in the Shire. The Overbourn Marshes were in the Southfarthing south of the River Shirebourn where it flowed into the Brandywine River.`,
+      "https://thainsbook.minastirith.cz/marshes.html#Overbourn%20Marshes"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   rushock_bog: {
+    pathName: 'rushock_bog',
+    color: "brown", 
     name: "Rushock Bog",
-    elvish_name: "Nindalf",
-    elvish_meaning: `None. The name Rushock is composed of rush - a plant commonly found in swamplands - and hassock or "coarse grass."`,
-    description: `Bog in the Shire. Rushock Bog was in the Westfarthing south of the village of Needlehole. The bog was located along the Water at a point where the river branched into two streams.`,
-    url: "https://thainsbook.minastirith.cz/marshes.html#Rushock%20Bog",
+    PopupContent: createGeographicPopup(
+      "Rushock Bog",
+      `None. The name Rushock is composed of rush - a plant commonly found in swamplands - and hassock or "coarse grass."`,
+      `Bog in the Shire. Rushock Bog was in the Westfarthing south of the village of Needlehole. The bog was located along the Water at a point where the river branched into two streams.`,
+      "https://thainsbook.minastirith.cz/marshes.html#Rushock%20Bog"
+    ),
+    tolerance: 1,
+    weight: 2
   },
   swanfleet: {
+    pathName: 'swanfleet',
+    color: "brown", 
     name: "Swanfleet",
-    elvish_name: "Nîn-in-Eilph",
-    elvish_meaning: `The word fleet is an archaic term for an estuary - the mouth of a river - from the the Old English fleot. The Sindarin name was Nîn-in-Eilph meaning "waterlands of the swans." The word nîn means "waters." The word eilph is the plural of alph meaning "swan."`,
-    description: `Wetlands on the southern border of Eriador. Swanfleet was a region of swamps, pools, and eyots - or small islands. Many water birds lived there among the reeds, particularly swans.`,
-    url: "https://thainsbook.minastirith.cz/marshes.html#Swanfleet",
+    PopupContent: createGeographicPopup(
+      "Swanfleet",
+      `The word fleet is an archaic term for an estuary - the mouth of a river - from the Old English fleot. The Sindarin name was Nîn-in-Eilph meaning "waterlands of the swans." The word nîn means "waters." The word eilph is the plural of alph meaning "swan."`,
+      `Wetlands on the southern border of Eriador. Swanfleet was a region of swamps, pools, and eyots - or small islands. Many water birds lived there among the reeds, particularly swans.`,
+      "https://thainsbook.minastirith.cz/marshes.html#Swanfleet"
+    ),
+    tolerance: 1,
+    weight: 2
   },
 };
