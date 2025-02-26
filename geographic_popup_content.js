@@ -77,7 +77,7 @@ export const mountain_ranges = {
   misty_mountains: {
     pathName: "misty_mountains",
     color: "orange",
-    name: "misty_mountains",
+    name: "Misty Mountains",
     PopupContent: createGeographicPopup(
       "Misty Mountains",
       "Hithaeglir",
@@ -91,7 +91,7 @@ export const mountain_ranges = {
   white_mountains: {
     pathName: "white_mountains",
     color: "orange",
-    name: "white_mountains",
+    name: "White Mountains",
     PopupContent: createGeographicPopup(
       "White Mountains",
       "Ered Nimrais",
@@ -105,7 +105,7 @@ export const mountain_ranges = {
   ash_mountains: {
     pathName: "ash_mountains",
     color: "orange",
-    name: "ash_mountains",
+    name: "Ash Mountains",
     PopupContent: createGeographicPopup(
       "Ash Mountains",
       "Ered Lithui",
@@ -119,7 +119,7 @@ export const mountain_ranges = {
   mountains_of_angmar: {
     pathName: "mountains_of_angmar",
     color: "orange",
-    name: "mountains_of_angmar",
+    name: "Mountains of Angmar",
     PopupContent: createGeographicPopup(
       "Mountains of Angmar",
       "Emyn Angmar",
@@ -133,7 +133,7 @@ export const mountain_ranges = {
   grey_mountains: {
     pathName: "grey_mountains",
     color: "orange",
-    name: "grey_mountains",
+    name: "Grey Mountains",
     PopupContent: createGeographicPopup(
       "Grey Mountains",
       "Ered Mithrin",
@@ -147,7 +147,7 @@ export const mountain_ranges = {
   blue_mountains: {
     pathName: "blue_mountains",
     color: "orange",
-    name: "blue_mountains",
+    name: "Blue Mountains",
     PopupContent: createGeographicPopup(
       "Blue Mountains",
       "Ered Luin",
@@ -161,7 +161,7 @@ export const mountain_ranges = {
   mountains_of_shadow: {
     pathName: "mountains_of_shadow",
     color: "orange",
-    name: "mountains_of_shadow",
+    name: "Mountains of Shadow",
     PopupContent: createGeographicPopup(
       "Mountains of Shadow",
       "Ephel Duath",
@@ -178,7 +178,7 @@ export const mountains = {
   lonely_mountain: {
     pathName: "lonely_mountain",
     color: "brown",
-    name: "lonely_mountain",
+    name: "Lonely Mountain",
     PopupContent: createGeographicPopup(
       "Lonely Mountain",
       "Erebor",
@@ -195,7 +195,7 @@ export const hills = {
   weather_top: {
     pathName: "weather_top",
     color: "red",
-    name: "weather_top",
+    name: "Weather Top",
     PopupContent: createGeographicPopup(
     "Weather Top",
     "Amon Sul",
@@ -208,7 +208,7 @@ export const hills = {
   iron_hills: {
     pathName: "iron_hills",
     color: "red",
-    name: "iron_hills",
+    name: "Iron Hills",
     PopupContent: createGeographicPopup(
     "Iron Hills",
     "Emyn Angren",
