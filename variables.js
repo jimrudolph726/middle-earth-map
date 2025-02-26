@@ -24,7 +24,7 @@ import {
   createCampsitePopup,
   createSettlementPopup,
   createGeographicObjects,
- } from './function.js';
+ } from './functions.js';
 
 // Campsites (markers)
 const samfrodocampsites = {
