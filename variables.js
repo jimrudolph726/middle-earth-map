@@ -299,13 +299,16 @@ export const settlementsData = [
     { names: ['samfrodocampsites', 'aragorncampsites', 'pippincampsites', 'merrycampsites', 'gandalfthegreycampsites'], campsite: 'campsite' },
     { names: ['elves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'], campsite: 'no' }
   ].flatMap(({ names, campsite }) =>
-    names.map(name => ({
-      data: window[name], // Safer than eval
-      checkboxId: `${name}Checkbox`,
-      campsite
-    }))
+    names
+      .map(name => ({
+        data: window[name] || [], // Prevent undefined values
+        checkboxId: `${name}Checkbox`,
+        campsite
+      }))
+      .filter(item => item.data.length > 0) // Remove items with no data
   )
 ];
+
 
 // Paths
 export const pathdata = { 
