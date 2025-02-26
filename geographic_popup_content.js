@@ -167,18 +167,22 @@ export const mountain_ranges = {
   },
 };
 
-
 export const mountains = {
   lonely_mountain: {
-    pathName: 'lonely_mountain',
-    color: 'brown',
-    name: "Lonely Mountain",
-    elvish_name: "Erebor",
-    elvish_meaning: 'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated."',
-    description: "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland.",
-    url: "https://tolkiengateway.net/wiki/Lonely_Mountain",
+    pathName: "lonely_mountain",
+    color: "brown",
+    PopupContent: createGeographicPopup(
+      "Lonely Mountain",
+      "Erebor",
+      'The Lonely Mountain was so called because it stood alone and was not part of a mountain range. The name Erebor means "Lonely Mountain." The word ere means "be alone" and ereb means "isolated."',
+      "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland.",
+      "https://tolkiengateway.net/wiki/Lonely_Mountain"
+    ),
+    tolerance: 1,
+    weight: 2,
   },
 };
+
 
 export const hills = {
   weather_top: {
