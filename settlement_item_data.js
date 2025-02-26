@@ -1,10 +1,12 @@
 import {
+  icons,
+} from './variables.js';
+
+import {
   createSettlementPopup,
 } from './functions.js';
 
-import {
-  icons,
-} from './variables.js';
+
 
 export const elves = {
   rivendell: {
