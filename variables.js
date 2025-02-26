@@ -295,20 +295,18 @@ Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icon
 
 // Settlements (markers)
 export const settlementsData = [
-  ...[
-    { names: ['samfrodocampsites', 'aragorncampsites', 'pippincampsites', 'merrycampsites', 'gandalfthegreycampsites'], campsite: 'campsite' },
-    { names: ['elves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'], campsite: 'no' }
-  ].flatMap(({ names, campsite }) =>
-    names
-      .map(name => ({
-        data: window[name] || [], // Prevent undefined values
-        checkboxId: `${name}Checkbox`,
-        campsite
-      }))
-      .filter(item => item.data.length > 0) // Remove items with no data
-  )
-];
+  ...['samfrodocampsites', 'aragorncampsites', 'pippincampsites', 'merrycampsites', 'gandalfthegreycampsites'].map(name => ({
+    data: eval(`${name}`),  // Dynamically fetch variable (ensure safety)
+    checkboxId: `${name}Checkbox`,
+    campsite: 'campsite'
+  })),
 
+  ...['elves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'].map(name => ({
+    data: eval(name),  // Dynamically fetch variable (ensure safety)
+    checkboxId: `${name}Checkbox`,
+    campsite: 'no'
+  }))
+];
 
 // Paths
 export const pathdata = { 
