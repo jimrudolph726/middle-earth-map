@@ -60,7 +60,6 @@ document.getElementById("allItemCheckbox").addEventListener("change", function (
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
-
 document.getElementById("allBattleCheckbox").addEventListener("change", function () {
   let itemCheckboxes = document.querySelectorAll("#battlesSection input.battleCheckbox");
 
@@ -69,7 +68,6 @@ document.getElementById("allBattleCheckbox").addEventListener("change", function
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
-
 document.getElementById("allGeographyCheckbox").addEventListener("change", function () {
   let itemCheckboxes = document.querySelectorAll("#geographySection input.geographyCheckbox");
 
@@ -78,7 +76,6 @@ document.getElementById("allGeographyCheckbox").addEventListener("change", funct
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
-
 document.getElementById("allSettlementCheckbox").addEventListener("change", function () {
   let itemCheckboxes = document.querySelectorAll("#settlementsSection input.settlementCheckbox");
 
@@ -87,7 +84,6 @@ document.getElementById("allSettlementCheckbox").addEventListener("change", func
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
-
 document.getElementById("allPathCheckbox").addEventListener("change", function () {
   let itemCheckboxes = document.querySelectorAll("#pathsSection input.pathCheckbox");
 
@@ -96,7 +92,6 @@ document.getElementById("allPathCheckbox").addEventListener("change", function (
       checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
   });
 });
-
 document.getElementById("allCampCheckbox").addEventListener("change", function () {
   let itemCheckboxes = document.querySelectorAll("#campsSection input.campCheckbox");
 

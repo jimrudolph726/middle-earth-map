@@ -6,7 +6,7 @@ import {
   hills,
   lakes_seas,
   wetlands,
-} from './geographic_popup_content.js';
+} from './geographic_data.js';
 
 import {
   elves,
@@ -18,7 +18,7 @@ import {
   rings,
   books,
   icons,
-} from './settlement_popup_content.js';
+} from './settlement_item_data.js';
 
 import {
   createCampsitePopup,
