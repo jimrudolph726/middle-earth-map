@@ -534,11 +534,11 @@ export const rivers = {
     weight: 7  // Weight is set to 7 for every object
   },
   celos: {
-    pathName: 'erui',
+    pathName: 'celos',
     color: "blue", 
-    name: "Brandywine",
+    name: "Celos",
     PopupContent: createGeographicPopup(
-    "Baranduin",
+    "Celos",
     `Also spelled (and pronounced) Kelos. The Sindarin name Celos is dervied from the Quenya Kelussë meaning "freshet, water falling out swiftly from a rocky spring."`,
     `River in Lebennin in Gondor. The Celos was a tributary of the Sirith. The river began in the White Mountains and flowed southward, joining the Sirith from the west. The Sirith in turn flowed into the Anduin.`,
     "https://thainsbook.minastirith.cz/rivers.html#Celos"),
@@ -662,7 +662,6 @@ isen: {
     tolerance: 10,
     weight: 7
   },
-
 };
 
 export const lakes_seas = {
