@@ -174,11 +174,11 @@ export const mountain_ranges = {
   },
 };
 
-
 export const mountains = {
   lonely_mountain: {
     pathName: "lonely_mountain",
     color: "brown",
+    name: "lonely_mountain",
     PopupContent: createGeographicPopup(
       "Lonely Mountain",
       "Erebor",
@@ -195,6 +195,7 @@ export const hills = {
   weather_top: {
     pathName: "weather_top",
     color: "red",
+    name: "weather_top",
     PopupContent: createGeographicPopup(
     "Weather Top",
     "Amon Sul",
@@ -207,6 +208,7 @@ export const hills = {
   iron_hills: {
     pathName: "iron_hills",
     color: "red",
+    name: "iron_hills",
     PopupContent: createGeographicPopup(
     "Iron Hills",
     "Emyn Angren",
