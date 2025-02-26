@@ -604,6 +604,7 @@ ringlo: {
     name: "Ciril",
     PopupContent: createGeographicPopup(
       "Ciril",
+      "Ciril",
       `Also spelled (and pronounced) Kiril. The name Ciril is derived from kir meaning "cut."`,
       `River in Lamedon in Gondor. The Ciril was a tributary of the Ringlo. It began in the White Mountains near Tarlang's Neck and flowed at first through a deep rocky channel.`,
       "https://thainsbook.minastirith.cz/rivers.html#Ciril"
@@ -616,6 +617,7 @@ blackroot: {
     color: "blue", 
     name: "Blackroot",
     PopupContent: createGeographicPopup(
+      "Blackroot",
       "Morthond",
       `The Blackroot was so named because its source was in the dark caverns of the Dead. The river was called Morthond in Sindarin, meaning "Blackroot" from mor meaning "black" and thond meaning "root."`,
       `River in Gondor. The Blackroot was a long, cold river that began beneath the White Mountains. The river emerged from the southern entrance of the Paths of the Dead and cascaded in a series of waterfalls into the Blackroot Vale.`,
