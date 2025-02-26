@@ -403,10 +403,6 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
-
-
-
-
   forest_river: {
     pathName: 'forest_river',
     color: "blue",  // Color is set to blue for every object

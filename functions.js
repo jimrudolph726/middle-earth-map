@@ -46,19 +46,19 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
         <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${name}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${name}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${elvish_name}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_name}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Meaning</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${elvish_meaning}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_meaning}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${description}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${description}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more here</th>
@@ -68,11 +68,11 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
             </tr>
         </table>
         <div class="popup-content" style="display: none; margin-top: 10px;">
-
         </div>
     </div>
   `;
 };
+
 export const createSettlementPopup = (name, description, url) => {
   return`<div>
     <h3 style="font-size: 24px;">${name}</h3>
