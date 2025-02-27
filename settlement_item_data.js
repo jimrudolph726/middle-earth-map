@@ -1,7 +1,9 @@
 import {
   createSettlementPopup,
+  createIcon,
 } from './functions.js';
 
+ // Icons
 const iconUrls = {
   hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/hobbits.png',
   men_gondor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tree_of_gondor.png',
@@ -20,7 +22,6 @@ const iconUrls = {
   barahir: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/barahir.png',
   book: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/book.png',
 };
- // Icons
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
 MenGondorIcon: createIcon(iconUrls.men_gondor),
