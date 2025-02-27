@@ -41,6 +41,7 @@ geographicData.forEach(({ data, checkboxId }) => {
   });
 });
 
+// Add "All" Checkboxes
 const checkboxMappings = {
   allItemCheckbox: "#itemsSection input.itemCheckbox",
   allBattleCheckbox: "#battlesSection input.battleCheckbox",
@@ -49,7 +50,6 @@ const checkboxMappings = {
   allPathCheckbox: "#pathsSection input.pathCheckbox",
   allCampCheckbox: "#campsSection input.campCheckbox",
 };
-
 Object.keys(checkboxMappings).forEach(masterCheckboxId => {
   document.getElementById(masterCheckboxId).addEventListener("change", function () {
     document.querySelectorAll(checkboxMappings[masterCheckboxId]).forEach(checkbox => {
