@@ -43,7 +43,7 @@ BookIcon: createIcon(iconUrls.book),
 TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
-//Settlements
+// Settlements
 export const elves = {
   rivendell: {
     coords: [44.94677219,-93.30552175],
