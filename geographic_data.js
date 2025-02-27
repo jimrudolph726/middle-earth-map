@@ -271,7 +271,7 @@ export const hills = {
     "Iron Hills",
     "Emyn Angren",
     'The Iron Hills were so called because they were rich in iron ore. The Sindarin name was probably Emyn Engrin from emyn meaning "hills" and engrin the plural of angren meaning "iron".',
-    "Range of hills in northeastern Middle-earth. The Iron Hills were isolated in the middle of an empty region about 125 miles east of the Lonely Mountain and Mirkwood. The range stretched about 200 miles from west to east. Near the western end, the Redwater flowed southward from the hills to join the River Running. On the eastern end, a spur of hills curved north and then back westward forming a hook at the end of the range.",
+    "Range of hills in northeastern Middle-earth. The Iron Hills were isolated in the middle of an empty region about 125 miles east of the Lonely Mountain and Mirkwood.",
     "https://tolkiengateway.net/wiki/Iron_Hills"),
     tolerance: 1,
     weight: 2,
@@ -708,6 +708,7 @@ export const lakes_seas = {
     name: "Lake Evendim",
     PopupContent: createGeographicPopup(
       "Lake Evendim",
+      "Evendim",
       `Evendim means "evening twilight." The Sindarin name was Nenuial meaning "lake of twilight" from nen meaning "lake" and uial meaning "twilight."`,
       `Lake in Eriador. Lake Evendim was in the Hills of Evendim north of the Shire. The lake was the source of the Brandywine River.`,
       "https://thainsbook.minastirith.cz/lakes.html#Evendim"
@@ -749,6 +750,7 @@ export const lakes_seas = {
     name: "Sea of Rhun",
     PopupContent: createGeographicPopup(
       "Sea of Rhun",
+      "Rhun",
       `Also called the Inland Sea. Rhûn means "east" in Sindarin.`,
       `Sea in eastern Middle-earth. The Sea of Rhun was a large inland sea located in Rhun, a land in far eastern Middle-earth.`,
       "https://thainsbook.minastirith.cz/lakes.html#Rhun"
@@ -806,6 +808,7 @@ export const wetlands = {
     name: "Wetwang",
     PopupContent: createGeographicPopup(
       "Wetwang",
+      "Nindalf",
       `The word wang means "field, flat area." Nindalf is the Sindarin name from nîn meaning "wet" and talf meaning "flat field."`,
       `Marshland at the mouth of the Entwash. The Wetwang was a wide region of fens located where the Entwash flowed into the Anduin just below the Falls of Rauros.`,
       "https://thainsbook.minastirith.cz/marshes.html#Wetwang"
@@ -819,6 +822,7 @@ export const wetlands = {
     name: "Midgewater Marshes",
     PopupContent: createGeographicPopup(
       "Midgewater Marshes",
+      "None",
       `None. The Midgewater Marshes are named for the small insects called midges that lived there.`,
       `Marshes in Eriador. The Midgewater Marshes were east of Bree. The Chetwood was on the western side of the marshes and the Weather Hills were on the east. The Great East Road curved around the southern edge of the Midgewater Marshes.`,
       "https://thainsbook.minastirith.cz/marshes.html#Midgewater%20Marshes"
@@ -832,6 +836,7 @@ export const wetlands = {
     name: "Overbourn Marshes",
     PopupContent: createGeographicPopup(
       "Overbourn Marshes",
+      "None",
       `None. A bourn is a small stream or brook. The Overbourn Marshes may have been so named because they were across the Shirebourn from the most populous part of the Eastfarthing. Or the first element may come from the Old English ofer meaning "border, riverbank."`,
       `Marshes in the Shire. The Overbourn Marshes were in the Southfarthing south of the River Shirebourn where it flowed into the Brandywine River.`,
       "https://thainsbook.minastirith.cz/marshes.html#Overbourn%20Marshes"
@@ -845,6 +850,7 @@ export const wetlands = {
     name: "Rushock Bog",
     PopupContent: createGeographicPopup(
       "Rushock Bog",
+      "None"
       `None. The name Rushock is composed of rush - a plant commonly found in swamplands - and hassock or "coarse grass."`,
       `Bog in the Shire. Rushock Bog was in the Westfarthing south of the village of Needlehole. The bog was located along the Water at a point where the river branched into two streams.`,
       "https://thainsbook.minastirith.cz/marshes.html#Rushock%20Bog"
@@ -858,8 +864,23 @@ export const wetlands = {
     name: "Swanfleet",
     PopupContent: createGeographicPopup(
       "Swanfleet",
+      "Nin-in-Eilph"
       `The word fleet is an archaic term for an estuary - the mouth of a river - from the Old English fleot. The Sindarin name was Nîn-in-Eilph meaning "waterlands of the swans." The word nîn means "waters." The word eilph is the plural of alph meaning "swan."`,
       `Wetlands on the southern border of Eriador. Swanfleet was a region of swamps, pools, and eyots - or small islands. Many water birds lived there among the reeds, particularly swans.`,
+      "https://thainsbook.minastirith.cz/marshes.html#Swanfleet"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  long_marshes: {
+    pathName: 'long_marshes',
+    color: "brown", 
+    name: "Long Marshes",
+    PopupContent: createGeographicPopup(
+      "Long Marshes",
+      "None",
+      `None`,
+      `The Long Marshes were a region of marshes and pools dotted with isles that flanked both sides of the Forest River. They extended from the eastern edge of Mirkwood nearly to the shores of the Long Lake.`,
       "https://thainsbook.minastirith.cz/marshes.html#Swanfleet"
     ),
     tolerance: 1,
