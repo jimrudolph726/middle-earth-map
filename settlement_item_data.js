@@ -105,6 +105,15 @@ export const men = {
     coords: [44.9476928, -93.3007613],
     icon: icons.MenGondorIcon,
   },
+  annuminas: {
+    popup: createSettlementPopup(
+      "Annúminas",
+      `Capital of the North-kingdom of Arnor. Annuminas was located in Eriador. The city was on the southeastern shore of Lake Evendim among the Hills of Evendim north of the Shire.`,
+      "https://thainsbook.minastirith.cz/towns.html#Ann%C3%BAminas"
+    ),
+    coords: [44.94739293,-93.31120919],
+    icon: icons.MenGondorIcon,
+  },
   rohan: {
     popup: createSettlementPopup(
       "Rohan",
