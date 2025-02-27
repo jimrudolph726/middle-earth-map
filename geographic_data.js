@@ -844,7 +844,7 @@ export const wetlands = {
     name: "Rushock Bog",
     PopupContent: createGeographicPopup(
       "Rushock Bog",
-      "None"
+      "None",
       `None. The name Rushock is composed of rush - a plant commonly found in swamplands - and hassock or "coarse grass."`,
       `Bog in the Shire. Rushock Bog was in the Westfarthing south of the village of Needlehole. The bog was located along the Water at a point where the river branched into two streams.`,
       "https://thainsbook.minastirith.cz/marshes.html#Rushock%20Bog"
