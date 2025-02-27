@@ -91,7 +91,6 @@ export const createSettlementPopup = (name, description, url) => {
   </div>`;
 };
 
-
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
