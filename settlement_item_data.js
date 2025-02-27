@@ -10,6 +10,7 @@ const iconUrls = {
   men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men_rohan.png',
   rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
   lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
+  mithlond: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/mithlond.png',
   tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
   battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
   glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
@@ -28,6 +29,7 @@ MenGondorIcon: createIcon(iconUrls.men_gondor),
 MenRohanIcon: createIcon(iconUrls.men_rohan),
 RivendellIcon: createIcon(iconUrls.rivendell),
 LothlorienIcon: createIcon(iconUrls.lothlorien),
+MithlondIcon: createIcon(iconUrls.mithlond),
 BattleIcon: createIcon(iconUrls.battle),
 GlamdringIcon: createIcon(iconUrls.glamdring),
 StingIcon: createIcon(iconUrls.sting),
@@ -57,6 +59,13 @@ export const elves = {
     popup: createSettlementPopup("Lothlorien",
     "Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood.",
     "https://thainsbook.minastirith.cz/lothlorien.html")
+  },
+  mithlond: {
+    coords: [44.9448403,-93.3045497],
+    icon: icons.LothlorienIcon,
+    popup: createSettlementPopup("Mithlond",
+    "Port on the northwestern coast of Middle-earth. The Grey Havens were the place from which the ships of the Elves sailed westward across the Sea to the Undying Lands, where the spirits called the Valar dwelled. At the end of the Third Age, many Elves left Middle-earth from the Grey Havens, and the Ringbearers Frodo and Bilbo Baggins also embarked from there so they could find peace and healing in the Undying Lands.",
+    "https://thainsbook.minastirith.cz/towns.html#Grey-Havens")
   },
 
 };
