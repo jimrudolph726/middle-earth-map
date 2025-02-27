@@ -1,6 +1,5 @@
 import {
   createSettlementPopup,
-  createIcon,
 } from './functions.js';
 
 import {

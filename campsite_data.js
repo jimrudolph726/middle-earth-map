@@ -1,6 +1,7 @@
 import {
   createCampsitePopup,
 } from './functions.js';
+
 import {
   icons,
 } from './variables.js';
