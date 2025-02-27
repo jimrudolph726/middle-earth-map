@@ -754,6 +754,19 @@ export const lakes_seas = {
     tolerance: 1,
     weight: 2
   },
+  lake_helevorn: {
+    pathName: 'lake_helevorn',
+    color: "blue", 
+    name: "Lake Helevorn",
+    PopupContent: createGeographicPopup(
+      "Lake Helevorn",
+      `The name Helevorn means "black glass" in Sindarin. The Sindarin word hele or heledh meaning "glass" is derived from the Dwarvish word kheled. The element vorn is from morn meaning "black."`,
+      `Lake in Beleriand. Lake Helevorn was located in the region of Thargelion on the western side of the Blue Mountains. It was a deep, dark lake at the southern foot of Mount Rerir, which stood out from the main range. `,
+      "https://thainsbook.minastirith.cz/lakes.html#Lake-Helevorn"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 
 export const wetlands = {
