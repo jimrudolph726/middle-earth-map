@@ -21,7 +21,6 @@ import {
 
 import {
   createSettlementPopup,
-  createIcon,
  } from './functions.js';
 
  import {
@@ -31,9 +30,6 @@ import {
   merrycampsites,
   gandalfthegreycampsites,
  } from './campsite_data.js';
-
-// Icon URLs
-
 
 // Campsites and Settlements
 export const settlementsData = [
