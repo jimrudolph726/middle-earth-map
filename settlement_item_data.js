@@ -61,7 +61,7 @@ export const elves = {
     "https://thainsbook.minastirith.cz/lothlorien.html")
   },
   mithlond: {
-    coords: [44.9448403,-93.3045497],
+    coords: [44.94660051,-93.31353613],
     icon: icons.LothlorienIcon,
     popup: createSettlementPopup("Mithlond",
     "Port on the northwestern coast of Middle-earth. The Grey Havens were the place from which the ships of the Elves sailed westward across the Sea to the Undying Lands, where the spirits called the Valar dwelled. At the end of the Third Age, many Elves left Middle-earth from the Grey Havens, and the Ringbearers Frodo and Bilbo Baggins also embarked from there so they could find peace and healing in the Undying Lands.",
