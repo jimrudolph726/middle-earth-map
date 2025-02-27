@@ -10,7 +10,7 @@ const iconUrls = {
   men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men_rohan.png',
   rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
   lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
-  mithlond: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/mithlond.png',
+  mithlond: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/cirdan.png',
   tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
   battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
   glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
