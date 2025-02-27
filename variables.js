@@ -1,3 +1,5 @@
+//variables.js
+
 import {
   forests,
   mountain_ranges,

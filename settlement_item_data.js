@@ -41,6 +41,7 @@ BookIcon: createIcon(iconUrls.book),
 TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
+//Settlements
 export const elves = {
   rivendell: {
     coords: [44.94677219,-93.30552175],
@@ -59,7 +60,6 @@ export const elves = {
   },
 
 };
-
 export const men = {
   bree: {
     popup: createSettlementPopup(
@@ -134,7 +134,6 @@ export const men = {
     icon: icons.MenRohanIcon,
   },
 };
-
 export const hobbits = {
   hobbiton: {
     popup: createSettlementPopup(
@@ -169,7 +168,6 @@ export const hobbits = {
     icon: icons.HobbitsIcon,
   },
 };
-
 export const battles = {
   battle_of_dagorlad: {
     popup: createSettlementPopup("The Battle of Dagorlad (SA 3434 - 3441)",
@@ -236,7 +234,6 @@ export const battles = {
     icon: icons.BattleIcon,
   },
 };
-
 export const one_on_one = {
   battle_of_the_peak: {
     popup: createSettlementPopup(
@@ -258,6 +255,7 @@ export const one_on_one = {
   },
 };
 
+// Items
 export const swords = {
   glamdring: {
     popup: createSettlementPopup(
@@ -287,7 +285,6 @@ export const swords = {
     icon: icons.NarsilIcon,
   },
 }
-
 export const rings = {
   the_one_ring: {
     popup: createSettlementPopup(
@@ -335,7 +332,6 @@ export const rings = {
     icon: icons.BarahirIcon,
   },
 }
-
 export const books = {
   red_book_of_westmarch: {
     popup: createSettlementPopup(
