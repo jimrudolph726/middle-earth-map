@@ -875,7 +875,7 @@ export const wetlands = {
       "None",
       `None`,
       `The Long Marshes were a region of marshes and pools dotted with isles that flanked both sides of the Forest River. They extended from the eastern edge of Mirkwood nearly to the shores of the Long Lake.`,
-      "https://thainsbook.minastirith.cz/marshes.html#Swanfleet"
+      "https://tolkiengateway.net/wiki/Long_Marshes"
     ),
     tolerance: 1,
     weight: 2
