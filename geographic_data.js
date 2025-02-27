@@ -670,6 +670,35 @@ isen: {
     tolerance: 10,
     weight: 7
   },
+  the_water: {
+    pathName: 'the_water',
+    color: "blue", 
+    name: "The Water",
+    PopupContent: createGeographicPopup(
+      "The Water",
+      "None",
+      `None. The Water was a shortening of the river's full name, the Shire-water.`,
+      `River in the Shire. The Water began north of Needlehole, possibly in the North Moors. Below Needlehole in Rushock Bog, the Water branched into two streams and then rejoined. `,
+      "https://thainsbook.minastirith.cz/rivers.html#The%20Water"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+  withywindle: {
+    pathName: 'withywindle',
+    color: "blue", 
+    name: "Withywindle",
+    PopupContent: createGeographicPopup(
+      "Withywindle",
+      "None",
+      `None. The word withy means "willow" and windle means "spindle" or "reel."`,
+      `River in the Old Forest in Eriador. The Withywindle valley was said to be the heart of all the strange happenings in the Old Forest. The Withywindle began in the Barrow-downs and flowed southwest through the Old Forest to join the Brandywine.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Withywindle"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+
 };
 
 export const lakes_seas = {
