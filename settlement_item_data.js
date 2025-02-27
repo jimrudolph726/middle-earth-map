@@ -51,7 +51,6 @@ export const elves = {
     popup: createSettlementPopup("Rivendell",
     "Rivendell was the realm of Elrond. During the Third Age it was one of the few remaining realms of the Elves in Middle-earth. Much of the history and lore of the Elves was preserved in Rivendell and it was a place of peace and beauty.",
     "https://thainsbook.minastirith.cz/rivendell.html")
-    
   },
   lothlorien: {
     coords: [44.9448403,-93.3045497],
