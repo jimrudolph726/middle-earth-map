@@ -130,7 +130,6 @@ export const forests = {
     weight: 2,
   },
 };
-
 export const mountain_ranges = {
   misty_mountains: {
     pathName: "misty_mountains",
@@ -231,7 +230,6 @@ export const mountain_ranges = {
     weight: 2,
   },
 };
-
 export const mountains = {
   lonely_mountain: {
     pathName: "lonely_mountain",
@@ -248,7 +246,6 @@ export const mountains = {
     weight: 2,
   },
 };
-
 export const hills = {
   weather_top: {
     pathName: "weather_top",
@@ -277,7 +274,6 @@ export const hills = {
     weight: 2,
   },
 };
-
 export const rivers = {
   greylin: {
     pathName: 'greylin',
@@ -700,7 +696,6 @@ isen: {
   },
 
 };
-
 export const lakes_seas = {
   lake_evendim: {
     pathName: 'lake_evendim',
@@ -787,7 +782,6 @@ export const lakes_seas = {
     weight: 2
   },
 };
-
 export const wetlands = {
   dead_marshes: {
     pathName: 'dead_marshes',
