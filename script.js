@@ -41,51 +41,20 @@ geographicData.forEach(({ data, checkboxId }) => {
   });
 });
 
-document.getElementById("allItemCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#itemsSection input.itemCheckbox");
+const checkboxMappings = {
+  allItemCheckbox: "#itemsSection input.itemCheckbox",
+  allBattleCheckbox: "#battlesSection input.battleCheckbox",
+  allGeographyCheckbox: "#geographySection input.geographyCheckbox",
+  allSettlementCheckbox: "#settlementsSection input.settlementCheckbox",
+  allPathCheckbox: "#pathsSection input.pathCheckbox",
+  allCampCheckbox: "#campsSection input.campCheckbox",
+};
 
-  itemCheckboxes.forEach(checkbox => {
+Object.keys(checkboxMappings).forEach(masterCheckboxId => {
+  document.getElementById(masterCheckboxId).addEventListener("change", function () {
+    document.querySelectorAll(checkboxMappings[masterCheckboxId]).forEach(checkbox => {
       checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
-  });
-});
-document.getElementById("allBattleCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#battlesSection input.battleCheckbox");
-
-  itemCheckboxes.forEach(checkbox => {
-      checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
-  });
-});
-document.getElementById("allGeographyCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#geographySection input.geographyCheckbox");
-
-  itemCheckboxes.forEach(checkbox => {
-      checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
-  });
-});
-document.getElementById("allSettlementCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#settlementsSection input.settlementCheckbox");
-
-  itemCheckboxes.forEach(checkbox => {
-      checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
-  });
-});
-document.getElementById("allPathCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#pathsSection input.pathCheckbox");
-
-  itemCheckboxes.forEach(checkbox => {
-      checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
-  });
-});
-document.getElementById("allCampCheckbox").addEventListener("change", function () {
-  let itemCheckboxes = document.querySelectorAll("#campsSection input.campCheckbox");
-
-  itemCheckboxes.forEach(checkbox => {
-      checkbox.checked = this.checked;
-      checkbox.dispatchEvent(new Event("change"));  // Ensures MarkerListeners function runs
+      checkbox.dispatchEvent(new Event("change")); // Ensures MarkerListeners function runs
+    });
   });
 });
