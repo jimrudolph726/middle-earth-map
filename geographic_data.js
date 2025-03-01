@@ -694,6 +694,34 @@ isen: {
     tolerance: 10,
     weight: 7
   },
+  poros: {
+    pathName: 'poros',
+    color: "blue", 
+    name: "Poros",
+    PopupContent: createGeographicPopup(
+      "Poros",
+      "Poros",
+      `The meaning of Poros is not known. It may contain the element ros meaning "foam."`,
+      `River on the southern border of Ithilien. The Poros flowed westward from the Mountains of Shadow on the border of Mordor to the Anduin.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Poros"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+  harnen: {
+    pathName: 'harnen',
+    color: "blue", 
+    name: "Harnen",
+    PopupContent: createGeographicPopup(
+      "Harnen",
+      "Harnen",
+      `The name Harnen means "south water" from harad meaning "south" and nen meaning "water."`,
+      `River on the border between Harad and South Gondor. The Harnen began in the Mountains of Shadow on the southern border of Mordor.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Harnen"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
 
 };
 export const lakes_seas = {
