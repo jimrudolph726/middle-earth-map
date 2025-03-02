@@ -49,6 +49,7 @@ const checkboxMappings = {
   allSettlementCheckbox: "#settlementsSection input.settlementCheckbox",
   allPathCheckbox: "#pathsSection input.pathCheckbox",
   allCampCheckbox: "#campsSection input.campCheckbox",
+  allRegionCheckbox: "#regionsSection input.regionCheckbox",
 };
 Object.keys(checkboxMappings).forEach(masterCheckboxId => {
   document.getElementById(masterCheckboxId).addEventListener("change", function () {
