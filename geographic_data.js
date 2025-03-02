@@ -926,3 +926,19 @@ export const large_regions = {
     weight: 2
   },
 };
+export const sub_regions = {
+  enedwaith: {
+    pathName: 'enedwaith',
+    color: "brown", 
+    name: "Enedwaith",
+    PopupContent: createGeographicPopup(
+      "Enedwaith",
+      `Enedwaith`,
+      `Region south of Eriador. Enedwaith was located between the Misty Mountains and the Sea. Dunland was in eastern Enedwaith at the foot of the Misty Mountains.`,
+      `Eriador was a large region in northwestern Middle-earth between the Misty Mountains and the Blue Mountains. The Glanduin and Greyflood rivers formed the southern boundary of Eriador.`,
+      "https://thainsbook.minastirith.cz/lands.html#Enedwaith"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+};
