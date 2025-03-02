@@ -910,3 +910,19 @@ export const wetlands = {
     weight: 2
   },
 };
+export const large_regions = {
+  eriador: {
+    pathName: 'eriador',
+    color: "brown", 
+    name: "Eriador",
+    PopupContent: createGeographicPopup(
+      "Eriador",
+      `Eriador`,
+      `Eriador means "lonely land" or "wilderness." The element er means "one, alone." The element dor means "land."`,
+      `Eriador was a large region in northwestern Middle-earth between the Misty Mountains and the Blue Mountains. The Glanduin and Greyflood rivers formed the southern boundary of Eriador.`,
+      "https://thainsbook.minastirith.cz/eriador.html"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+};
