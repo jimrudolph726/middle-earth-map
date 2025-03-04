@@ -934,9 +934,51 @@ export const sub_regions = {
     PopupContent: createGeographicPopup(
       "Enedwaith",
       `Enedwaith`,
-      `Region south of Eriador. Enedwaith was located between the Misty Mountains and the Sea. Dunland was in eastern Enedwaith at the foot of the Misty Mountains.`,
-      `Eriador was a large region in northwestern Middle-earth between the Misty Mountains and the Blue Mountains. The Glanduin and Greyflood rivers formed the southern boundary of Eriador.`,
+      `Also spelled Enedhwaith. The name Enedwaith means "middle folk" or "middle region" in Sindarin from enedh meaning "middle" and waith from gwaith which means "people" but is also used for regions. `,
+      `Region south of Eriador. Enedwaith was located between the Misty Mountains and the Sea.`,
       "https://thainsbook.minastirith.cz/lands.html#Enedwaith"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  eregion: {
+    pathName: 'eregion',
+    color: "brown", 
+    name: "Eregion",
+    PopupContent: createGeographicPopup(
+      "Eregion",
+      `Eregion`,
+      `The name Eregion means "Land of Holly" from ereg meaning "holly tree" and the ending -ion which appears to denote "land of." The Common Speech name was Hollin.`,
+      `Realm of the Elven-smiths who forged the Rings of Power. Eregion was located in Eriador along the western side of the Misty Mountains. `,
+      "https://thainsbook.minastirith.cz/lands.html#Eregion"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  harlindon: {
+    pathName: 'harlindon',
+    color: "brown", 
+    name: "Harlindon",
+    PopupContent: createGeographicPopup(
+      "Harlindon",
+      `Harlindon`,
+      `Harlindon means South Lindon in Sindarin, from har(ad), meaning south, and lindon as a noun.`,
+      `Harlindon was a green and fair elvish land on the north-western shores of Middle-earth. It was located west of the Blue Mountains and south of the Gulf of Lune, which divided Lindon into the northern Forlindon and the southern Harlindon.`,
+      "https://tolkiengateway.net/wiki/Harlindon"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  minhiriath: {
+    pathName: 'minhiriath',
+    color: "brown", 
+    name: "minhiriath",
+    PopupContent: createGeographicPopup(
+      "Minhiriath",
+      `Minhiriath`,
+      `The name Minhiriath means "between the rivers" in Sindarin in reference to the Brandywine and Greyflood. The word min means "between" and hiriath is from siriath meaning "rivers."`,
+      `Region of southern Eriador. Minhiriath was located between the Brandywine River on its northern border and the Greyflood on its southern border.`,
+      "https://thainsbook.minastirith.cz/lands.html#Minhiriath"
     ),
     tolerance: 1,
     weight: 2
