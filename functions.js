@@ -166,7 +166,7 @@ export const createGeographicShape = async (geographic_data) => {
       const polygon = L.geoJSON(data, {
         style: {
           color,
-          weight: weight,
+          weight: 5,
           fillOpacity: 0.5,
         },
         clickTolerance: tolerance,
