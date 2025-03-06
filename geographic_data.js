@@ -554,7 +554,7 @@ export const rivers = {
     tolerance: 10,
     weight: 7
   },
-gilrain: {
+  gilrain: {
     pathName: 'gilrain',
     color: "blue", 
     name: "Gilrain",
@@ -568,7 +568,7 @@ gilrain: {
     tolerance: 10,
     weight: 7
   },
-serni: {
+  serni: {
     pathName: 'serni',
     color: "blue", 
     name: "Serni",
@@ -582,7 +582,7 @@ serni: {
     tolerance: 10,
     weight: 7
   },
-ringlo: {
+  ringlo: {
     pathName: 'ringlo',
     color: "blue", 
     name: "Ringlo",
@@ -610,7 +610,7 @@ ringlo: {
     tolerance: 10,
     weight: 7
   },
-blackroot: {
+  blackroot: {
     pathName: 'blackroot',
     color: "blue", 
     name: "Blackroot",
@@ -624,7 +624,7 @@ blackroot: {
     tolerance: 10,
     weight: 7
   },
-lefnui: {
+  lefnui: {
     pathName: 'lefnui',
     color: "blue", 
     name: "Lefnui",
@@ -638,7 +638,7 @@ lefnui: {
     tolerance: 10,
     weight: 7
   },
-adorn: {
+  adorn: {
     pathName: 'adorn',
     color: "blue", 
     name: "Adorn",
@@ -652,7 +652,7 @@ adorn: {
     tolerance: 10,
     weight: 7
   },
-isen: {
+  isen: {
     pathName: 'isen',
     color: "blue", 
     name: "Isen",
@@ -718,6 +718,34 @@ isen: {
       `The name Harnen means "south water" from harad meaning "south" and nen meaning "water."`,
       `River on the border between Harad and South Gondor. The Harnen began in the Mountains of Shadow on the southern border of Mordor.`,
       "https://thainsbook.minastirith.cz/rivers.html#Harnen"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+  gladden: {
+    pathName: 'gladden',
+    color: "blue", 
+    name: "Gladden",
+    PopupContent: createGeographicPopup(
+      "Gladden",
+      "Sîr Ninglor",
+      `The word gladden is from the Anglo-Saxon glædene, meaning "iris," referring to the yellow irises that grew in the Gladden Fields. The word sîr means "river" and ninglor means "golden waters" from nin meaning "waters" and glor or glaur meaning "gold."`,
+      `River of Wilderland. The Gladden began on the east side of the Misty Mountains. There was a pass over the mountains near its source. `,
+      "https://thainsbook.minastirith.cz/rivers.html#Gladden"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+  limlight: {
+    pathName: 'limlight',
+    color: "blue", 
+    name: "Limlight",
+    PopupContent: createGeographicPopup(
+      "Limlight",
+      "Limlight",
+      `The Sindarin word lim has the meaning "swift" as in "noro lim" which Tolkien translated in unpublished notes as "run swift." Thus Limlight could mean "swift light" as one source indicates.`,
+      `River on the northern border of Rohan. The Limlight began in the Misty Mountains and flowed eastward.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Limlight"
     ),
     tolerance: 10,
     weight: 7
