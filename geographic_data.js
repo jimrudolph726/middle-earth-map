@@ -937,6 +937,20 @@ export const wetlands = {
     tolerance: 1,
     weight: 2
   },
+  gladden_fields: {
+    pathName: 'gladden_fields',
+    color: "brown", 
+    name: "Gladden Fields",
+    PopupContent: createGeographicPopup(
+      "Gladden Fields",
+      "Loeg Ningloron",
+      `The word gladden is from the Anglo-Saxon glædene, meaning "iris," referring to the yellow irises that grew in the Gladden Fields. Called Loeg Ningloron in Sindarin, meaning "pools of the golden water-flowers." The word loeg is probably derived from the stem log meaning "wet, soaked, swampy." The word ninglor means "golden waters" from nin meaning "waters" and glor or glaur meaning "gold."`,
+      `Marshes on the banks of the Anduin. The Gladden Fields were located around the mouth of the Gladden River where it flowed into the Anduin from the west. `,
+      "https://thainsbook.minastirith.cz/marshes.html#Gladden"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const large_regions = {
   eriador: {
