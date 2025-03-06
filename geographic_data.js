@@ -925,6 +925,34 @@ export const large_regions = {
     tolerance: 1,
     weight: 2
   },
+  wilderland: {
+    pathName: 'wilderland',
+    color: "brown", 
+    name: "Wilderland",
+    PopupContent: createGeographicPopup(
+      "Wilderland",
+      `Rhovanion`,
+      `Rhovanion is a Sindarin name meaning "Wilderland." The word rhovan apparently means "wild." The name Rhovanion applied to the entire region of Wilderland.`,
+      `Wilderland stretched from the Misty Mountains to the River Running and the Sea of Rhun. East of Wilderland was Rhun.`,
+      "https://thainsbook.minastirith.cz/wilderland.html"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  rohan: {
+    pathName: 'rohan',
+    color: "brown", 
+    name: "Rohan",
+    PopupContent: createGeographicPopup(
+      "Rohan",
+      `Rohan`,
+      `Rohan means "horse land" from the Sindarin roch meaning "horse" and the ending -and denoting a country or region.`,
+      `Rohan was the home of the Rohirrim - a hardy race of Men known for their love of horses. The land was once part of Gondor, but it was given to the Rohirrim when Eorl the Young led them from the North to help Gondor fight an enemy invasion.`,
+      "https://thainsbook.minastirith.cz/rohan.html"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const sub_regions = {
   enedwaith: {
