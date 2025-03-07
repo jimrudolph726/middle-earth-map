@@ -1009,6 +1009,20 @@ export const large_regions = {
     tolerance: 1,
     weight: 2
   },
+  mordor: {
+    pathName: 'mordor',
+    color: "brown", 
+    name: "Mordor",
+    PopupContent: createGeographicPopup(
+      "Mordor",
+      `Mordor`,
+      `Mordor means "Black Land" from mor meaning "dark, black" and dor meaning "land." Mordor was often referred to as the Black Land in the Common Speech, as well as the Dark Country and the Land of Shadow.`,
+      `Mordor was the realm of the Dark Lord Sauron. It was a terrible land of darkness and fear, inhabited by Orcs and other evil creatures`,
+      "https://thainsbook.minastirith.cz/mordor.html"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const sub_regions = {
   enedwaith: {
