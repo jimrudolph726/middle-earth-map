@@ -995,6 +995,20 @@ export const large_regions = {
     tolerance: 1,
     weight: 2
   },
+  gondor: {
+    pathName: 'gondor',
+    color: "brown", 
+    name: "Gondor",
+    PopupContent: createGeographicPopup(
+      "Gondor",
+      `Gondor`,
+      `The name Gondor means "stone land" from gond meaning "stone" and dor, ndor meaning "land." The land was so named because of the great cities and works of stone built there by the survivors of Numenor.`,
+      `Gondor was the greatest kingdom of Men in Middle-earth. It was founded by the survivors of Numenor - Elendil and his sons Isildur and Anarion.`,
+      "https://thainsbook.minastirith.cz/gondor.html"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const sub_regions = {
   enedwaith: {
