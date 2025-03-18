@@ -286,6 +286,32 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
+  weather_hills: {
+    pathName: "weather_hills",
+    color: "red",
+    name: "Weather Hills",
+    PopupContent: createGeographicPopup(
+    "Weather Hills",
+    "None",
+    'None',
+    "Hills in Eriador. The Weather Hills were located just north of the Great East Road about midway between Bree and the Last Bridge.",
+    "https://thainsbook.minastirith.cz/hills.html#Weathertop"),
+    tolerance: 1,
+    weight: 2,
+  },
+  south_downs: {
+    pathName: "south_downs",
+    color: "red",
+    name: "South Downs",
+    PopupContent: createGeographicPopup(
+    "South Downs",
+    "None",
+    'None',
+    "Downs in Eriador. The South Downs were located south of Bree and east of the Barrow-downs. The North-South Road ran through a narrow pass called Andrath between the Barrow-downs and the South Downs.",
+    "https://thainsbook.minastirith.cz/hills.html#South_Downs"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const rivers = {
   greylin: {
