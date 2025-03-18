@@ -273,6 +273,19 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
+  northern_downs: {
+    pathName: "northern_downs",
+    color: "red",
+    name: "Northern Downs",
+    PopupContent: createGeographicPopup(
+    "Northern Downs",
+    "None",
+    'None',
+    "Downs in Eriador. The North Downs were located about 100 miles north of Bree, at the end of the North-South Road. The town of Fornost was in the southern end of the North Downs.",
+    "https://thainsbook.minastirith.cz/hills.html#North_Downs"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const rivers = {
   greylin: {
