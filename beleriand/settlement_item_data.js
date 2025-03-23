@@ -7,8 +7,8 @@ import {
 const iconUrls = {
   finrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod.png',
   beor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/beor.png',
-  men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/men_rohan.png',
-  rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/rivendell.png',
+  belegost: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/belegost.png',
+  nogrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nogrod.png',
   lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
   mithlond: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/cirdan.png',
   tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
@@ -26,8 +26,8 @@ const iconUrls = {
 export const icons = {
 NargothrondIcon: createIcon(iconUrls.finrod),
 LadrosIcon: createIcon(iconUrls.beor),
-MenRohanIcon: createIcon(iconUrls.men_rohan),
-RivendellIcon: createIcon(iconUrls.rivendell),
+BelegostIcon: createIcon(iconUrls.belegost),
+NogrodIcon: createIcon(iconUrls.nogrod),
 LothlorienIcon: createIcon(iconUrls.lothlorien),
 MithlondIcon: createIcon(iconUrls.mithlond),
 BattleIcon: createIcon(iconUrls.battle),
@@ -62,6 +62,26 @@ export const men = {
     ),
     coords: [44.9430762,-93.2946712],
     icon: icons.LadrosIcon,
+  },
+};
+export const dwarves = {
+  belegost: {
+    popup: createSettlementPopup(
+      "Belegost",
+      `Belegost was one of two great underground Dwarven cities in the Blue Mountains, the other being Nogrod, that prospered during the First Age.`,
+      "https://tolkiengateway.net/wiki/Belegost"
+    ),
+    coords: [44.9411277,-93.2907660],
+    icon: icons.BelegostIcon,
+  },
+  nogrod: {
+    popup: createSettlementPopup(
+      "Nogrod",
+      `Nogrod was one of two great underground Dwarven cities in the Ered Luin, the other being Belegost, that prospered during the First Age. `,
+      "https://tolkiengateway.net/wiki/Nogrod"
+    ),
+    coords: [44.9409122,-93.2906264],
+    icon: icons.NogrodIcon,
   },
 };
 export const battles = {
