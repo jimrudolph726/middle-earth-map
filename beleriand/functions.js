@@ -151,7 +151,7 @@ export const createMarkers = (locations, campsite = 'no') => {
 };
 
 // Paths and Geographic Features function
-export const createGeographicShape = async (geographic_data) => {
+export const createGeographicShape = async (geographic_data, map) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
