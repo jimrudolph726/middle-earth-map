@@ -174,12 +174,20 @@ export const createGeographicShape = async (geographic_data) => {
           return;
         }
 
-        // Create a polyline using L.geoJSON
-        const polyline = L.geoJSON(data, {
-          style: {
-            color,
-            weight: weight || 5,
-          },
+        // Extract coordinates from the GeoJSON data
+        const coordinates = data.features.flatMap(feature => {
+          if (feature.geometry.type === 'LineString') {
+            return feature.geometry.coordinates;
+          } else if (feature.geometry.type === 'MultiLineString') {
+            return feature.geometry.coordinates.flat();
+          }
+          return [];
+        });
+
+        // Create a polyline using L.polyline
+        const polyline = L.polyline(coordinates, {
+          color,
+          weight: weight || 5,
         });
 
         // Apply arrowheads to the polyline
