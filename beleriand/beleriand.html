@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="../plugins/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="plugins/leaflet-sidebar.css" />
     <link rel="stylesheet" href="style.css"> 
-    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -19,6 +20,16 @@
                 <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
+                <li><a href="#battles" role="tab">
+                    <span class="material-symbols-outlined">swords</span> Battles
+                </a></li>
+                <li><a href="#items" role="tab">
+                    <span class="material-symbols-outlined">diamond</span> Important Items
+                </a></li>
+                <li><a href="#regions" role="tab">
+                    <span class="material-symbols-outlined">travel_explore</span> Regions
+                </a></li>
+
                 <li><a href="#mapSectionPane" role="tab"><i class="material-icons">map</i> Maps</a></li>
             </ul>
             <ul role="tablist">
@@ -33,38 +44,46 @@
                     Paths
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
-                <div id="pathsSection">
                     <h2>Campsites</h2>
+                <div id="campsSection">
+                    <label for="allCampCheckbox">
+                        <input type="checkbox" id="allCampCheckbox" /> All
+                    </label>
                     <label for="samfrodocampsitesCheckbox">
-                      <input type="checkbox" id="samfrodocampsitesCheckbox" /> Fellowship/Sam and Frodo Campsites
+                      <input type="checkbox" class="campCheckbox" id="samfrodocampsitesCheckbox" /> Fellowship/Sam and Frodo Campsites
                     </label>
                     <label for="aragorncampsitesCheckbox">
-                        <input type="checkbox" id="aragorncampsitesCheckbox" /> Aragorn, Gimli, Legolas Campsites
+                        <input type="checkbox" class="campCheckbox" id="aragorncampsitesCheckbox" /> Aragorn, Gimli, Legolas Campsites
                     </label>
                     <label for="pippincampsitesCheckbox">
-                        <input type="checkbox" id="pippincampsitesCheckbox" /> Pippin Campsites
+                        <input type="checkbox" class="campCheckbox" id="pippincampsitesCheckbox" /> Pippin Campsites
                     </label>
                     <label for="merrycampsitesCheckbox">
-                        <input type="checkbox" id="merrycampsitesCheckbox" /> Merry Campsites
+                        <input type="checkbox" class="campCheckbox" id="merrycampsitesCheckbox" /> Merry Campsites
                     </label>
                     <label for="gandalfthegreycampsitesCheckbox">
-                        <input type="checkbox" id="gandalfthegreycampsitesCheckbox" /> Gandalf the Grey Campsites
+                        <input type="checkbox" class="campCheckbox" id="gandalfthegreycampsitesCheckbox" /> Gandalf the Grey Campsites
                     </label>
+                </div>
                     <h2>Paths</h2>
+                <div id="pathsSection">
+                    <label for="allPathCheckbox">
+                        <input type="checkbox" id="allPathCheckbox" /> All
+                    </label>
                     <label for="samfrodopathCheckbox">
-                      <input type="checkbox" id="samfrodopathCheckbox" /> Fellowship/Sam and Frodo
+                    <input type="checkbox" class="pathCheckbox" id="samfrodopathCheckbox" /> Fellowship/Sam and Frodo
                     </label>
                     <label for="aragornpathCheckbox">
-                      <input type="checkbox" id="aragornpathCheckbox" /> Aragorn, Gimli, and Legolas
+                    <input type="checkbox" class="pathCheckbox" id="aragornpathCheckbox" /> Aragorn, Gimli, and Legolas
                     </label>
                     <label for="pippinpathCheckbox">
-                        <input type="checkbox" id="pippinpathCheckbox" /> Pippin
+                        <input type="checkbox" class="pathCheckbox" id="pippinpathCheckbox" /> Pippin
                     </label>
                     <label for="merrypathCheckbox">
-                        <input type="checkbox" id="merrypathCheckbox" /> Merry
+                        <input type="checkbox" class="pathCheckbox" id="merrypathCheckbox" /> Merry
                     </label>
                     <label for="gandalfthegrey_mergedCheckbox">
-                        <input type="checkbox" id="gandalfthegrey_mergedCheckbox" /> Gandalf the Grey
+                        <input type="checkbox" class="pathCheckbox" id="gandalfthegrey_mergedCheckbox" /> Gandalf the Grey
                     </label>
                 </div>
             </div>
@@ -78,14 +97,14 @@
                     <label for="allSettlementCheckbox">
                         <input type="checkbox" id="allSettlementCheckbox" /> All
                     </label>
-                    <label for="elvesCheckbox">
-                      <input type="checkbox" class="settlementCheckbox" id="elvesCheckbox" /> Elves
+                    <label for="hobbitsCheckbox">
+                      <input type="checkbox" class="settlementCheckbox" id="hobbitsCheckbox" /> Hobbits
                     </label>
                     <label for="menCheckbox">
-                        <input type="checkbox" class="settlementCheckbox" id="menCheckbox" /> Men
+                      <input type="checkbox" class="settlementCheckbox" id="menCheckbox" /> Men
                     </label>
-                    <label for="dwarvesCheckbox">
-                        <input type="checkbox" class="settlementCheckbox" id="dwarvesCheckbox" /> Dwarves
+                    <label for="elvesCheckbox">
+                      <input type="checkbox" class="settlementCheckbox" id="elvesCheckbox" /> Elves
                     </label>
                 </div>
             </div>
@@ -105,6 +124,9 @@
                     <label for="mountainsCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="mountainsCheckbox" /> Mountains
                     </label>
+                    <label for="hillsCheckbox">
+                        <input type="checkbox" class="geographyCheckbox" id="hillsCheckbox" /> Hills
+                    </label>
                     <label for="forestsCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="forestsCheckbox" /> Forests
                     </label>
@@ -113,6 +135,66 @@
                     </label>
                     <label for="lakes_seasCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="lakes_seasCheckbox" /> Lakes and Seas
+                    </label>
+                    <label for="wetlandsCheckbox">
+                        <input type="checkbox" class="geographyCheckbox" id="wetlandsCheckbox" /> Wetlands
+                    </label>
+                </div>
+            </div>
+            
+            <div class="sidebar-pane" id="battles">
+                <h1 class="sidebar-header">
+                    Battles
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <div id="battlesSection">
+                    <label for="allBattleCheckbox">
+                        <input type="checkbox" id="allBattleCheckbox" /> All
+                    </label>
+                    <label for="battlesCheckbox">
+                        <input type="checkbox" class="battleCheckbox" id="battlesCheckbox" /> Battles
+                    </label>
+                    <label for="one_on_oneCheckbox">
+                        <input type="checkbox" class="battleCheckbox" id="one_on_oneCheckbox" /> One-on-One Duels
+                    </label>
+                </div>
+            </div>
+
+            <div class="sidebar-pane" id="regions">
+                <h1 class="sidebar-header">
+                    Regions
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <div id="regionsSection">
+                    <label for="allRegionCheckbox">
+                        <input type="checkbox" id="allRegionCheckbox" /> All
+                    </label>
+                    <label for="large_regionsCheckbox">
+                        <input type="checkbox" class="regionCheckbox" id="large_regionsCheckbox" /> Large Regions
+                    </label>
+                    <label for="sub_regionsCheckbox">
+                        <input type="checkbox" class="regionCheckbox" id="sub_regionsCheckbox" /> Sub Regions
+                    </label>
+                </div>
+            </div>
+
+            <div class="sidebar-pane" id="items">
+                <h1 class="sidebar-header">
+                    Important Items
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+                <div id="itemsSection">
+                    <label for="allItemCheckbox">
+                        <input type="checkbox" id="allItemCheckbox" /> All
+                    </label>
+                    <label for="swordsCheckbox">
+                        <input type="checkbox" class="itemCheckbox" id="swordsCheckbox" /> Swords
+                    </label>
+                    <label for="ringsCheckbox">
+                        <input type="checkbox" class="itemCheckbox" id="ringsCheckbox" /> Rings
+                    </label>
+                    <label for="booksCheckbox">
+                        <input type="checkbox" class="itemCheckbox" id="booksCheckbox" /> Books
                     </label>
                 </div>
             </div>
@@ -124,10 +206,10 @@
                 </h1>
                 <div id="mapSection">
                     <label>
-                        <button onclick="window.location.href='../index.html'">View Map of Middle-earth</button>
+                        <button onclick="window.location.href='beleriand/beleriand.html'">View Map of Beleriand</button>
                     </label>
                     <label>
-                        <button onclick="window.location.href='../numenor/numenor.html'">View Map of Numenor</button>
+                        <button onclick="window.location.href='numenor/numenor.html'">View Map of Numenor</button>
                     </label>
                 </div>
             </div>
@@ -141,10 +223,15 @@
     <div id="map" class="sidebar-map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-clicktolerance/src/index.js"></script>
-    <script src="../plugins/leaflet-sidebar.js"></script>
-    <script type="module" src="../plugins/leaflet-arrowheads.js"></script>
-    <script type="module" src="../plugins/leaflet.geometryutil.js"></script>
-    <script type="module" src="script.js"></script>
-    <script type="module" src="variables.js"></script>
+    <script src="plugins/leaflet-sidebar.js"></script>
+    <script type="module" src="plugins/leaflet-arrowheads.js"></script>
+    <script type="module" src="plugins/leaflet.geometryutil.js"></script>
+    <script type="module" src="functions.js"></script>  <!-- Utility functions first -->
+    <script type="module" src="geographic_data.js"></script>  <!-- Map features -->
+    <script type="module" src="settlement_item_data.js"></script>  <!-- Settlements -->
+    <script type="module" src="campsite_data.js"></script>  <!-- Campsites -->
+    <script type="module" src="variables.js"></script>  <!-- Variables relying on above -->
+    <script type="module" src="script.js"></script>  <!-- Main script last -->
+    
 </body>
 </html>

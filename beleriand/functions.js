@@ -1,13 +1,21 @@
 // functions.js
 
 // Helper functions
+export function createIcon(url, size = [48, 48]) {
+  return L.icon({
+    iconUrl: url,
+    iconSize: size,
+    iconAnchor: [size[0] / 2, size[1] / 2],
+    popupAnchor: [0, -size[1] / 2],
+  });
+}
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
-    <div style="width: 250%; background-color: white; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; margin: auto;" 
+    <div style="width: 100%; background-color: white; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; margin: auto;" 
          onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
          onmouseout="this.querySelector('.popup-content').style.display = 'none';">
         <h3>${date}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px; font-size: 14px;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
                 <td style="border: 1px solid #ddd; padding: 8px;">${date}</td>
@@ -46,19 +54,19 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
         <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${name}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${name}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${elvish_name}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_name}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Meaning</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${elvish_meaning}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_meaning}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${description}</td>
+                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${description}</td>
             </tr>
             <tr>
                 <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more here</th>
@@ -68,7 +76,6 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
             </tr>
         </table>
         <div class="popup-content" style="display: none; margin-top: 10px;">
-
         </div>
     </div>
   `;
@@ -83,45 +90,15 @@ export const createSettlementPopup = (name, description, url) => {
     </button>
   </div>`;
 };
-export const createGeographicObjects = (object_group, object_name, color, tolerance, weight) => {
-  const GeographicData = object_group[object_name];
-
-  return {
-    pathName: object_name,
-    color: color,
-    name: object_name.charAt(0).toUpperCase() + object_name.slice(1),
-    PopupContent: createGeographicPopup(
-      GeographicData.name,
-      GeographicData.elvish_name,
-      GeographicData.elvish_meaning,
-      GeographicData.description,
-      GeographicData.url
-    ),
-    tolerance: tolerance,
-    weight: weight
-  };
-};
-export const createSettlementObjects = (object_group, object_name) => {
-  const SettlementData = object_group[object_name];
-
-  return {
-    coords: SettlementData.coords,
-    icon: SettlementData.icon,
-    popup: createSettlementPopup(
-      SettlementData.name,
-      SettlementData.description,
-      SettlementData.url,
-    ),
-  };
-};
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
+  console.log(`Looking for checkbox with ID: ${checkboxId}`, checkbox); // Debugging line
 
   if (!checkbox) {
-    console.error(`Checkbox with ID "${checkboxId}" not found.`);
-    return;
+    console.error(`Checkbox with ID "${checkboxId}" not found in the DOM.`);
+    return; // Exit the function early
   }
 
   const markersArray = Array.isArray(markers) ? markers : Object.values(markers);
@@ -133,10 +110,8 @@ export const MarkerListeners = (checkboxId, markers, map) => {
   };
 
   checkbox.addEventListener('change', toggleMarkers);
-
   toggleMarkers();
 };
-
 export const PathListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
@@ -191,7 +166,7 @@ export const createGeographicShape = async (geographic_data) => {
       const polygon = L.geoJSON(data, {
         style: {
           color,
-          weight: weight,
+          weight: 5,
           fillOpacity: 0.5,
         },
         clickTolerance: tolerance,
