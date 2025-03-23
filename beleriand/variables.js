@@ -5,9 +5,7 @@ import {
   mountain_ranges,
   mountains,
   rivers,
-  hills,
   lakes_seas,
-  wetlands,
   large_regions,
   sub_regions,
 } from './geographic_data.js';
