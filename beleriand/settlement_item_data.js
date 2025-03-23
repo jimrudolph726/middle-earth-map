@@ -5,7 +5,7 @@ import {
 
  // Icons
 const iconUrls = {
-  hobbits: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/hobbits.png',
+  finrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod..png',
   men_gondor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/tree_of_gondor.png',
   men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/men_rohan.png',
   rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/rivendell.png',
@@ -24,7 +24,7 @@ const iconUrls = {
   book: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/book.png',
 };
 export const icons = {
-HobbitsIcon: createIcon(iconUrls.hobbits),
+NargothrondIcon: createIcon(iconUrls.finrod),
 MenGondorIcon: createIcon(iconUrls.men_gondor),
 MenRohanIcon: createIcon(iconUrls.men_rohan),
 RivendellIcon: createIcon(iconUrls.rivendell),
@@ -45,28 +45,13 @@ TentIcon: createIcon(iconUrls.tent, [30, 30])
 
 // Settlements
 export const elves = {
-  rivendell: {
-    coords: [44.94677219,-93.30552175],
-    icon: icons.RivendellIcon,
-    popup: createSettlementPopup("Rivendell",
-    "Rivendell was the realm of Elrond. During the Third Age it was one of the few remaining realms of the Elves in Middle-earth. Much of the history and lore of the Elves was preserved in Rivendell and it was a place of peace and beauty.",
-    "https://thainsbook.minastirith.cz/rivendell.html")
+  nargothrond: {
+    coords: [44.9407283,-93.2984007],
+    icon: icons.NargothrondIcon,
+    popup: createSettlementPopup("Nargothrond",
+    "Nargothrond was the underground fortress of Finrod Felagund and the surrounding realm in West Beleriand. It was one of the great strongholds of the Elves in Middle-earth during the First Age.",
+    "https://thainsbook.minastirith.cz/nargothrond.html")
   },
-  lothlorien: {
-    coords: [44.9448403,-93.3045497],
-    icon: icons.LothlorienIcon,
-    popup: createSettlementPopup("Lothlorien",
-    "Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood.",
-    "https://thainsbook.minastirith.cz/lothlorien.html")
-  },
-  mithlond: {
-    coords: [44.94660051,-93.31353613],
-    icon: icons.MithlondIcon,
-    popup: createSettlementPopup("Mithlond",
-    "Port on the northwestern coast of Middle-earth. The Grey Havens were the place from which the ships of the Elves sailed westward across the Sea to the Undying Lands, where the spirits called the Valar dwelled. At the end of the Third Age, many Elves left Middle-earth from the Grey Havens, and the Ringbearers Frodo and Bilbo Baggins also embarked from there so they could find peace and healing in the Undying Lands.",
-    "https://thainsbook.minastirith.cz/towns.html#Grey-Havens")
-  },
-
 };
 export const men = {
   bree: {
