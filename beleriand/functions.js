@@ -151,8 +151,6 @@ export const createMarkers = (locations, campsite = 'no') => {
 };
 
 // Paths and Geographic Features function
-import 'leaflet-arrowheads'; // Ensure the plugin is imported
-
 export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
