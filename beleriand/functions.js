@@ -1,7 +1,4 @@
 // functions.js
-import L from 'https://unpkg.com/leaflet/dist/leaflet-src.esm.js'; // Import Leaflet as an ES module
-import 'https://unpkg.com/leaflet-arrowheads'; // Import the plugin
-
 // Helper functions
 export function createIcon(url, size = [48, 48]) {
   return L.icon({
