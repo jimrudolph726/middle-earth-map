@@ -154,7 +154,7 @@ export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/geojson_files/${pathName}.geojson`;
 
     try {
       const response = await fetch(geojsonPath);
