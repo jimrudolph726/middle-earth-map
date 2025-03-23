@@ -5,7 +5,7 @@ import {
 
  // Icons
 const iconUrls = {
-  finrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod..png',
+  finrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod.png',
   men_gondor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/tree_of_gondor.png',
   men_rohan: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/men_rohan.png',
   rivendell: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/rivendell.png',
