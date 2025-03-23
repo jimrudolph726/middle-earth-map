@@ -201,7 +201,19 @@ export const createGeographicShape = async (geographic_data) => {
           });
         }
       });
-    
+
+      // Check if pathName contains "path", and add arrowheads if true
+      if (pathName.toLowerCase().includes("path")) {
+        setTimeout(() => {
+          polygon.arrowheads({
+            fill: true,
+            frequency: 'endonly',
+            size: '15px',
+            yawn: 60
+          });
+        }, 500); // Delay ensures map layers are fully initialized
+      }
+
       // Store the polygon in the polygons object
       polygons[key] = polygon;
       console.log(`Polygon created for ${key}`);
@@ -213,4 +225,5 @@ export const createGeographicShape = async (geographic_data) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
 };
+
 
