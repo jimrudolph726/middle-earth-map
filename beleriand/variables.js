@@ -6,8 +6,6 @@ import {
   mountains,
   rivers,
   lakes_seas,
-  large_regions,
-  sub_regions,
 } from './geographic_data.js';
 
 import {
