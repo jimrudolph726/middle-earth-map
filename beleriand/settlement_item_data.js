@@ -7,39 +7,12 @@ import {
 const iconUrls = {
   finrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod.png',
   beor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/beor.png',
-  belegost: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/belegost.png',
-  nogrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nogrod.png',
-  lothlorien: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/galadriel.png',
-  mithlond: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/cirdan.png',
-  tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
-  battle: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/battles.png',
-  glamdring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/glamdring.png',
-  sting: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/sting.png',
-  narsil: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narsil.png',
-  ring: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/ring.png',
-  narya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/narya.png',
-  nenya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/nenya.png',
-  vilya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/vilya.png',
-  barahir: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/barahir.png',
-  book: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/book.png',
+  dwarves: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/dwarves.png',
 };
 export const icons = {
 NargothrondIcon: createIcon(iconUrls.finrod),
 LadrosIcon: createIcon(iconUrls.beor),
-BelegostIcon: createIcon(iconUrls.belegost),
-NogrodIcon: createIcon(iconUrls.nogrod),
-LothlorienIcon: createIcon(iconUrls.lothlorien),
-MithlondIcon: createIcon(iconUrls.mithlond),
-BattleIcon: createIcon(iconUrls.battle),
-GlamdringIcon: createIcon(iconUrls.glamdring),
-StingIcon: createIcon(iconUrls.sting),
-NarsilIcon: createIcon(iconUrls.narsil),
-RingIcon: createIcon(iconUrls.ring),
-NaryaIcon: createIcon(iconUrls.narya),
-NenyaIcon: createIcon(iconUrls.nenya),
-VilyaIcon: createIcon(iconUrls.vilya),
-BarahirIcon: createIcon(iconUrls.barahir),
-BookIcon: createIcon(iconUrls.book),
+DwarvesIcon: createIcon(iconUrls.dwarves),
 TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -72,7 +45,7 @@ export const dwarves = {
       "https://tolkiengateway.net/wiki/Belegost"
     ),
     coords: [44.9411277,-93.2907660],
-    icon: icons.BelegostIcon,
+    icon: icons.DwarvesIcon,
   },
   nogrod: {
     popup: createSettlementPopup(
@@ -81,7 +54,7 @@ export const dwarves = {
       "https://tolkiengateway.net/wiki/Nogrod"
     ),
     coords: [44.9409122,-93.2906264],
-    icon: icons.NogrodIcon,
+    icon: icons.DwarvesIcon,
   },
 };
 export const battles = {
