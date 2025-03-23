@@ -11,7 +11,6 @@ import {
 import {
   elves,
   men,
-  hobbits,
   battles,
   one_on_one,
   swords,
