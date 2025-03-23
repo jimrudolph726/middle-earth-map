@@ -161,6 +161,7 @@ export const createGeographicShape = async (geographic_data, map) => {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
+      console.log(`Data for ${key}:`, data);
 
       let polyline;  // Declare polyline variable
 
@@ -205,7 +206,9 @@ export const createGeographicShape = async (geographic_data, map) => {
       // If pathName contains "path", extract coordinates and create a Polyline
       if (pathName.toLowerCase().includes("path")) {
         const coordinates = data.features[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+        console.log(`Coordinates for ${key}:`, coordinates);
         polyline = L.polyline(coordinates, { color, weight: 5 }).addTo(map);
+        console.log(`Polyline created for ${key}:`, polyline);
         
         setTimeout(() => {
           polyline.arrowheads({
@@ -214,6 +217,7 @@ export const createGeographicShape = async (geographic_data, map) => {
             size: '15px',
             yawn: 60
           });
+          console.log(`Arrowheads added to polyline for ${key}`);
         }, 500);
         
         polygons[key] = polyline;  // Store polyline instead of GeoJSON layer
