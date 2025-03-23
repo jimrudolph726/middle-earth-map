@@ -151,87 +151,85 @@ export const createMarkers = (locations, campsite = 'no') => {
 };
 
 // Paths and Geographic Features function
-export const createGeographicShape = async (geographic_data, map) => {
+export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/geojson_files/${pathName}.geojson`;
+    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/geojson_files/${pathName}.geojson`;
 
     try {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-      console.log(`Data for ${key}:`, data);
 
-      let polyline;  // Declare polyline variable
+      if (pathName.includes("path")) {
+        // Create a polyline with arrowheads
+        const polyline = L.geoJSON(data, {
+          style: {
+            color,
+            weight: weight || 5,
+          },
+        }).arrowheads({
+          size: '10%', // Adjust the size of the arrowheads
+          frequency: 'endonly', // Add arrowheads only at the end of the polyline
+          fill: true,
+          color: color,
+        });
 
-      // Create either a polygon (default) or polyline if pathName includes "path"
-      const geoLayer = L.geoJSON(data, {
-        style: {
-          color,
-          weight: 5,
-          fillOpacity: 0.5,
-        },
-        clickTolerance: tolerance,
-        onEachFeature: (feature, layer) => {
-          const tooltip = L.tooltip({
-            permanent: false,
-            className: "polygon-label",
-            direction: "center",
-            offset: L.point(0, 0)
-          });
-
-          layer.on('mousemove', (e) => {
-            tooltip.setLatLng(e.latlng).setContent(name);
-            if (!layer._map.hasLayer(tooltip)) {
-              tooltip.addTo(layer._map);
-            }
-          });
-
-          layer.on('mouseout', () => {
-            if (layer._map.hasLayer(tooltip)) {
-              layer._map.removeLayer(tooltip);
-            }
-          });
-
-          layer.on('click', (e) => {
-            const popup = L.popup()
-              .setLatLng(e.latlng)
-              .setContent(PopupContent || `Name: ${name}`)
-              .openOn(layer._map);
-          });
-        }
-      });
-
-      // If pathName contains "path", extract coordinates and create a Polyline
-      if (pathName.toLowerCase().includes("path")) {
-        const coordinates = data.features[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
-        console.log(`Coordinates for ${key}:`, coordinates);
-        polyline = L.polyline(coordinates, { color, weight: 5 }).addTo(map);
-        console.log(`Polyline created for ${key}:`, polyline);
-        
-        // setTimeout(() => {
-        //   polyline.arrowheads({
-        //     fill: true,
-        //     frequency: 'endonly',
-        //     size: '15px',
-        //     yawn: 60
-        //   });
-        //   console.log(`Arrowheads added to polyline for ${key}`);
-        // }, 500);
-        
-        polygons[key] = polyline;  // Store polyline instead of GeoJSON layer
+        // Store the polyline in the polygons object
+        polygons[key] = polyline;
+        console.log(`Polyline with arrowheads created for ${key}`);
       } else {
-        polygons[key] = geoLayer;  // Store normal geoJSON layer if not a path
-      }
+        // Create the polygon using the GeoJSON data
+        const polygon = L.geoJSON(data, {
+          style: {
+            color,
+            weight: 5,
+            fillOpacity: 0.5,
+          },
+          clickTolerance: tolerance,
+          onEachFeature: (feature, layer) => {
+            // Create a tooltip but do not bind it statically
+            const tooltip = L.tooltip({
+              permanent: false,
+              className: "polygon-label",
+              direction: "center",
+              offset: L.point(0, 0) // Prevent offset issues
+            });
 
-      console.log(`Polygon created for ${key}`);
+            layer.on('mousemove', (e) => {
+              tooltip.setLatLng(e.latlng).setContent(name);
+              if (!layer._map.hasLayer(tooltip)) {
+                tooltip.addTo(layer._map);
+              }
+            });
+
+            layer.on('mouseout', () => {
+              if (layer._map.hasLayer(tooltip)) {
+                layer._map.removeLayer(tooltip);
+              }
+            });
+
+            // Add click event
+            layer.on('click', (e) => {
+              const popup = L.popup()
+                .setLatLng(e.latlng)
+                .setContent(PopupContent || `Name: ${name}`)
+                .openOn(layer._map);
+            });
+          }
+        });
+
+        // Store the polygon in the polygons object
+        polygons[key] = polygon;
+        console.log(`Polygon created for ${key}`);
+      }
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
 
-  await Promise.all(promises);
+  await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
 };
 
