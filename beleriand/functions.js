@@ -210,15 +210,15 @@ export const createGeographicShape = async (geographic_data, map) => {
         polyline = L.polyline(coordinates, { color, weight: 5 }).addTo(map);
         console.log(`Polyline created for ${key}:`, polyline);
         
-        setTimeout(() => {
-          polyline.arrowheads({
-            fill: true,
-            frequency: 'endonly',
-            size: '15px',
-            yawn: 60
-          });
-          console.log(`Arrowheads added to polyline for ${key}`);
-        }, 500);
+        // setTimeout(() => {
+        //   polyline.arrowheads({
+        //     fill: true,
+        //     frequency: 'endonly',
+        //     size: '15px',
+        //     yawn: 60
+        //   });
+        //   console.log(`Arrowheads added to polyline for ${key}`);
+        // }, 500);
         
         polygons[key] = polyline;  // Store polyline instead of GeoJSON layer
       } else {
