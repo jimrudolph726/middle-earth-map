@@ -161,9 +161,11 @@ export const createGeographicShape = async (geographic_data) => {
       const response = await fetch(geojsonPath);
       console.log(`Response received for ${key}`);
       const data = await response.json();
-      
-      // Create the polygon using the GeoJSON data
-      const polygon = L.geoJSON(data, {
+
+      let polyline;  // Declare polyline variable
+
+      // Create either a polygon (default) or polyline if pathName includes "path"
+      const geoLayer = L.geoJSON(data, {
         style: {
           color,
           weight: 5,
@@ -171,12 +173,11 @@ export const createGeographicShape = async (geographic_data) => {
         },
         clickTolerance: tolerance,
         onEachFeature: (feature, layer) => {
-          // Create a tooltip but do not bind it statically
           const tooltip = L.tooltip({
             permanent: false,
             className: "polygon-label",
             direction: "center",
-            offset: L.point(0, 0) // Prevent offset issues
+            offset: L.point(0, 0)
           });
 
           layer.on('mousemove', (e) => {
@@ -192,7 +193,6 @@ export const createGeographicShape = async (geographic_data) => {
             }
           });
 
-          // Add click event
           layer.on('click', (e) => {
             const popup = L.popup()
               .setLatLng(e.latlng)
@@ -202,27 +202,32 @@ export const createGeographicShape = async (geographic_data) => {
         }
       });
 
-      // Check if pathName contains "path", and add arrowheads if true
+      // If pathName contains "path", extract coordinates and create a Polyline
       if (pathName.toLowerCase().includes("path")) {
+        const coordinates = data.features[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+        polyline = L.polyline(coordinates, { color, weight: 5 }).addTo(map);
+        
         setTimeout(() => {
-          polygon.arrowheads({
+          polyline.arrowheads({
             fill: true,
             frequency: 'endonly',
             size: '15px',
             yawn: 60
           });
-        }, 500); // Delay ensures map layers are fully initialized
+        }, 500);
+        
+        polygons[key] = polyline;  // Store polyline instead of GeoJSON layer
+      } else {
+        polygons[key] = geoLayer;  // Store normal geoJSON layer if not a path
       }
 
-      // Store the polygon in the polygons object
-      polygons[key] = polygon;
       console.log(`Polygon created for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
 
-  await Promise.all(promises); // Wait for all fetches to complete
+  await Promise.all(promises);
   return polygons;
 };
 
