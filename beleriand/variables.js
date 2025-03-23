@@ -52,7 +52,7 @@ export const settlementsData = [
     campsite: 'campsite'
   })),
 
-  ...['elves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'].map(name => ({
+  ...['elves', 'men', 'battles', 'one_on_one', 'swords', 'rings', 'books'].map(name => ({
     data: eval(name),
     checkboxId: `${name}Checkbox`,
     campsite: 'no'
