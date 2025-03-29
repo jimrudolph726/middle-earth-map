@@ -1155,6 +1155,34 @@ export const large_regions = {
     tolerance: 1,
     weight: 2
   },
+  rhun: {
+    pathName: 'rhun',
+    color: "brown", 
+    name: "Rhun",
+    PopupContent: createGeographicPopup(
+      "Rhun",
+      `Rhun`,
+      `The name Rhûn means "east" in Sindarin.`,
+      `Rhun was the name of the uncharted lands in far eastern Middle-earth. A race of Men called the Easterlings lived in Rhun.`,
+      "https://thainsbook.minastirith.cz/rhun.html"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  forodwaith: {
+    pathName: 'forodwaith',
+    color: "brown", 
+    name: "Forodwaith",
+    PopupContent: createGeographicPopup(
+      "Forodwaith",
+      `Forodwaith`,
+      `The name Forodwaith means both "north region" and "north people" in Sindarin. The word forod means "north." The element waith is from gwaith which means "people" but is also used for regions.`,
+      `The Northern Waste. Forodwaith was located in the far north of Middle-earth. The region was bordered on the south by the Grey Mountains and the northern end of the Misty Mountains, and it extended north as far as the Sea.`,
+      "https://thainsbook.minastirith.cz/lands.html#Forodwaith"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const sub_regions = {
   enedwaith: {
