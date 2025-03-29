@@ -364,6 +364,19 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
+  hills_of_evendim: {
+    pathName: "hills_of_evendim",
+    color: "red",
+    name: "Hills of Evendim",
+    PopupContent: createGeographicPopup(
+    "Hills of Evendim",
+    "Emyn Uial",
+    `The Hills of Evendim were called Emyn Uial in Sindarin. The word emyn means "hills" and uial means 'twilight." Evendim means "evening twilight."`,
+    "Hills in Eriador. The Hills of Evendim were located just north of the Shire. The southern slopes of the Hills of Evendim were the North Moors in the Northfarthing of the Shire.",
+    "https://thainsbook.minastirith.cz/hills.html#Tower%20Hills"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const rivers = {
   greylin: {
