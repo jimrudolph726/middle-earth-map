@@ -312,6 +312,19 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
+  barrow_downs: {
+    pathName: "barrow_downs",
+    color: "red",
+    name: "Barrow Downs",
+    PopupContent: createGeographicPopup(
+    "Barrow Downs",
+    "Tyrn Gorthad",
+    'The word tyrn may mean "downs" or "hills." The word gorth may mean "one who is dead." The ending ad is used for "place." ',
+    "Downs east of the Old Forest in Eriador. They were known as the Barrow-downs because of the barrows, or burial mounds, that had been made there.",
+    "https://thainsbook.minastirith.cz/hills.html#Barrow-downs"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const rivers = {
   greylin: {
