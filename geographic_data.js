@@ -325,6 +325,45 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
+  white_downs: {
+    pathName: "white_downs",
+    color: "red",
+    name: "White Downs",
+    PopupContent: createGeographicPopup(
+    "White Downs",
+    "None",
+    'None',
+    "Downs in the Westfarthing of the Shire. The White Downs were west of Hobbiton and east of the Far Downs. The Free Fair was held on the White Downs at Lithe, or Midsummer. ",
+    "https://thainsbook.minastirith.cz/hills.html#White%20Downs"),
+    tolerance: 1,
+    weight: 2,
+  },
+  far_downs: {
+    pathName: "far_downs",
+    color: "red",
+    name: "Far Downs",
+    PopupContent: createGeographicPopup(
+    "Far Downs",
+    "None",
+    'None',
+    "Downs in the Westfarthing of the Shire. Originally the Far Downs formed the western border of the Shire.",
+    "https://thainsbook.minastirith.cz/hills.html#Far%20Downs"),
+    tolerance: 1,
+    weight: 2,
+  },
+  tower_hills: {
+    pathName: "tower_hills",
+    color: "red",
+    name: "Tower Hills",
+    PopupContent: createGeographicPopup(
+    "Tower Hills",
+    "Emyn Beraid",
+    'Also called Emyn Beraid in Sindarin. The word emyn means "hills" and beraid means "towers."',
+    "Hills in Eriador west of the Shire. The three White Towers were built in the Tower Hills by Gil-galad for Elendil, and the tallest, Elostirion, housed the palantir of Elendil that looked west across the Sea.",
+    "https://thainsbook.minastirith.cz/hills.html#Tower%20Hills"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const rivers = {
   greylin: {
