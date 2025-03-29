@@ -854,6 +854,34 @@ export const rivers = {
     tolerance: 10,
     weight: 7
   },
+  mering_stream: {
+    pathName: 'mering_stream',
+    color: "blue", 
+    name: "Mering Stream",
+    PopupContent: createGeographicPopup(
+      "Mering Stream",
+      "Glanhír",
+      `The name Mering Stream means "boundary stream" from the Old English maere or mere meaning "boundary." The Sindarin name for the Mering Stream was Glanhír, also meaning "boundary stream" from glan meaning "boundary, border" and hir from sîr meaning "river, stream."`,
+      "Stream on the border between Rohan and Gondor.",
+      "https://thainsbook.minastirith.cz/rivers.html#Mering"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+  snowbourn: {
+    pathName: 'snowbourn',
+    color: "blue", 
+    name: "Snowbourn",
+    PopupContent: createGeographicPopup(
+      "Snowbourn",
+      "None",
+      `None`,
+      `River in Rohan. The Snowbourn began under the Starkhorn in the White Mountains and flowed north through the valley of Harrowdale past the villages of Underharrow and Upbourn.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Snowbourn"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
 
 };
 export const lakes_seas = {
