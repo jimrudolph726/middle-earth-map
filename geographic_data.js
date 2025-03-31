@@ -315,6 +315,34 @@ export const mountains = {
     tolerance: 1,
     weight: 2,
   },
+  mount_doom: {
+    pathName: "mount_doom",
+    color: "brown",
+    name: "Mount Doom",
+    PopupContent: createGeographicPopup(
+      "Mount Doom",
+      "Orodruin",
+      `Orodruin means "Mountain of Blazing Fire" from orod meaning "mountain" and ruin meaning "red flame." Amon Amarth means "Mount Doom" from amon meaning "hill" and amarth meaning "doom."`,
+      "Volcanic mountain in Mordor where the One Ring was created and destroyed. Mount Doom stood alone on the plateau of Gorgoroth in northwestern Mordor about 90 miles from the Black Gate. ",
+      "https://thainsbook.minastirith.cz/mountains.html#Mount%20Doom"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+  mindolluin: {
+    pathName: "mindolluin",
+    color: "brown",
+    name: "Mindolluin",
+    PopupContent: createGeographicPopup(
+      "Mindolluin",
+      "Celebdil",
+      `Mindolluin means "towering blue-head." The element mini means "stand alone, stick out" and mindo means "isolated tower." The word luin means "blue."`,
+      "Easternmost mountain of the White Mountains; site of Minas Tirith. Mount Mindolluin was a tall mountain with a snow-capped peak and high glens with deep purple shadows on its slopes.",
+      "https://thainsbook.minastirith.cz/mountains.html#Mindolluin"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const hills = {
   weather_top: {
