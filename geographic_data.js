@@ -1067,6 +1067,20 @@ export const lakes_seas = {
     tolerance: 1,
     weight: 2
   },
+  mirrormere: {
+    pathName: 'mirrormere',
+    color: "blue", 
+    name: "Mirrormere",
+    PopupContent: createGeographicPopup(
+      "Mirrormere",
+      "Nen Cenedril",
+      `Mirrormere was so-called because of the lake's reflective surface. Mere is an archaic word for lake. The Dwarves called the lake Kheled-zâram meaning "glass pool." The Dwarvish word kheled means "glass" and the word zâram means "pool." The Elvish name was Nen Cenedril which means "Lake Looking-glass" in Sindarin.`,
+      `Lake in the Dimrill Dale east of Khazad-dum.`,
+      "https://thainsbook.minastirith.cz/lakes.html#Mirrormere"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const wetlands = {
   dead_marshes: {
