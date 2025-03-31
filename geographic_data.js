@@ -245,6 +245,76 @@ export const mountains = {
     tolerance: 1,
     weight: 2,
   },
+  mount_gundabad: {
+    pathName: "mount_gundabad",
+    color: "brown",
+    name: "Mount Gundabad",
+    PopupContent: createGeographicPopup(
+      "Mount Gundabad",
+      "None",
+      'The name Gundabad is Dwarvish in origin. It is most likely derived from gunud meaning "delve underground, excavate, tunnel" and gundu meaning "underground hall." Also called Gundabad of the North.',
+      "Mountain in the Misty Mountains. Mount Gundabad was located in the far northern Misty Mountains, near the western end of the Grey Mountains. ",
+      "https://thainsbook.minastirith.cz/mountains.html#Gundabad"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+  mount_gram: {
+    pathName: "mount_gram",
+    color: "brown",
+    name: "Mount Gram",
+    PopupContent: createGeographicPopup(
+      "Mount Gram",
+      "None",
+      'Gram in Old English means "fierce, grim" but it is not certain that the name was intended as Old English.',
+      "Mountain in the Misty Mountains. In 2747 of the Third Age, a band of Orcs led by Golfimbul came from Mount Gram and invaded the Northfarthing of the Shire. ",
+      "https://thainsbook.minastirith.cz/mountains.html#Mount%20Gram"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+  cloudyhead: {
+    pathName: "cloudyhead",
+    color: "brown",
+    name: "Cloudyhead",
+    PopupContent: createGeographicPopup(
+      "Cloudyhead",
+      "Fanuidhol",
+      'The Elvish name Fanuidhol translates as "Cloudyhead" in the Common Speech, from fána meaning "cloud" and dôl meaning "head." It is likely that the Dwarvish name Bundushathûr also means "Cloudyhead." The element bund probably means "head"; u may mean "of" or "in"; and shathûr probably means "clouds."',
+      "Mountain in the Misty Mountains. Cloudyhead was one of the three Mountains of Moria under which lay the ancient Dwarf realm of Khazad-dum.",
+      "https://thainsbook.minastirith.cz/mountains.html#Cloudyhead"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+  redhorn: {
+    pathName: "redhorn",
+    color: "brown",
+    name: "Redhorn",
+    PopupContent: createGeographicPopup(
+      "Redhorn",
+      "Caradhras",
+      `The Redhorn was so named because the mountain's peak appeared red in the light of the rising or setting sun. The Sindarin name Caradhras also means "red horn." The word caran means "red." The element ras means "stick up" or "horn".`,
+      "Mountain in the Misty Mountains. The Redhorn was one of the three Mountains of Moria under which lay the ancient Dwarf realm of Khazad-dum.",
+      "https://thainsbook.minastirith.cz/mountains.html#Redhorn"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+  silvertine: {
+    pathName: "silvertine",
+    color: "brown",
+    name: "Silvertine",
+    PopupContent: createGeographicPopup(
+      "Silvertine",
+      "Celebdil",
+      `A tine is a point or prong. Celebdil means "silver point" from celeb meaning "silver" and til or dil meaning "point, horn."`,
+      "Mountain in the Misty Mountains. The Silvertine was one of the three Mountains of Moria under which lay the ancient Dwarf realm of Khazad-dum.",
+      "https://thainsbook.minastirith.cz/mountains.html#Silvertine"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const hills = {
   weather_top: {
