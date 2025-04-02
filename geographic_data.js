@@ -475,6 +475,19 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
+  emyn_muil: {
+    pathName: "emyn_muil",
+    color: "red",
+    name: "Emyn Muil",
+    PopupContent: createGeographicPopup(
+    "Emyn Muil",
+    "Emyn Muil",
+    `Emyn Muil is translated as "Drear Hills." The word emyn means "hills." The word muil means "twilight, shadow, vagueness."`,
+    "Rugged hills along the Anduin. The Emyn Muil were located on both sides of the river around Nen Hithoel north of the Falls of Rauros.",
+    "https://thainsbook.minastirith.cz/hills.html#Emyn%20Muil"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const rivers = {
   greylin: {
