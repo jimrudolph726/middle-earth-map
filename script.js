@@ -28,7 +28,7 @@ settlementsData.forEach(({ data, checkboxId, campsite }) => {
   MarkerListeners(checkboxId, markers, map);
   });
 });
-
+ 
 // Add Paths
 createGeographicShape(pathdata).then((polygons) => {
   PathListeners(polygons, map);
