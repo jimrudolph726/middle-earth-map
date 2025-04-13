@@ -36,16 +36,15 @@ var family = new FamilyTree(document.getElementById('tree'), {
 
 family.on('field', function (sender, args) {
     if (args.name === 'born') {
-        const date = new Date(args.value);
-        // If it's a valid date, format it
-        if (!isNaN(date.getTime())) {
+        // Only try to parse ISO-like dates (yyyy-mm-dd)
+        if (/^\d{4}-\d{2}-\d{2}$/.test(args.value)) {
+            const date = new Date(args.value);
             args.value = date.toLocaleDateString();
-        } else {
-            // Otherwise, just show the original string
-            args.value = args.value;
         }
+        // Otherwise leave as-is (e.g. "Third Age 41")
     }
 });
+
 
 family.load(
     [
