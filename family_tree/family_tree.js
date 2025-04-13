@@ -51,7 +51,6 @@ family.on('field', function (sender, args) {
     }
 });
 
-
 family.load(
     [
         { id: 2, pids: [3], gender: 'male', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/aragorn.png', name: 'Aragon Elessar II', born: 'March 1, 2931 of the Third Age', died: 'March 1, 120 of the Fourth Age' },
