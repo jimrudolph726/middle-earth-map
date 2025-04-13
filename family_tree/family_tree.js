@@ -28,10 +28,8 @@ var family = new FamilyTree(document.getElementById('tree'), {
         elements: [
             { type: 'textbox', label: 'Full Name', binding: 'name' },
             { type: 'textbox', label: 'Email Address', binding: 'email' },
-            [
-                { type: 'textbox', label: 'Phone', binding: 'phone' },
-                { type: 'date', label: 'Date Of Birth', binding: 'born' }
-            ],
+            { type: 'textbox', label: 'Date Of Birth', binding: 'born' },
+            { type: 'textbox', label: 'Date Of Death', binding: 'died' }
             [
                 { type: 'select', options: [{ value: 'bg', text: 'Bulgaria' }, { value: 'ru', text: 'Russia' }, { value: 'gr', text: 'Greece' }], label: 'Country', binding: 'country' },
                 { type: 'textbox', label: 'City', binding: 'city' },
