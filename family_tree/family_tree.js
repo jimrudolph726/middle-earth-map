@@ -39,9 +39,15 @@ var family = new FamilyTree(document.getElementById('tree'), {
 });
 
 family.on('field', function (sender, args) {
-    if (args.name == 'born') {
-        var date = new Date(args.value);
-        args.value = date.toLocaleDateString();
+    if (args.name === 'born') {
+        const date = new Date(args.value);
+        // If it's a valid date, format it
+        if (!isNaN(date.getTime())) {
+            args.value = date.toLocaleDateString();
+        } else {
+            // Otherwise, just show the original string
+            args.value = args.value;
+        }
     }
 });
 
