@@ -15,6 +15,7 @@ var family = new FamilyTree(document.getElementById('tree'), {
     nodeBinding: {
         field_0: 'name',
         field_1: 'born',
+        field_2: 'died',
         img_0: 'photo'
     },
     editForm: {
@@ -50,8 +51,8 @@ family.on('field', function (sender, args) {
 
 family.load(
     [
-        { id: 2, pids: [3], gender: 'male', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/aragorn.png', name: 'Aragon Elessar II', born: 'March 1, 2931 of the Third Age' },
-        { id: 3, pids: [1], gender: 'female', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/arwen.png', name: 'Arwen Undómiel', born: '41 of the Third Age' },
+        { id: 2, pids: [3], gender: 'male', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/aragorn.png', name: 'Aragon Elessar II', born: 'March 1, 2931 of the Third Age', died: 'March 1, 120 of the Fourth Age' },
+        { id: 3, pids: [1], gender: 'female', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/arwen.png', name: 'Arwen Undómiel', born: '41 of the Third Age', died: '121 of the Fourth Age' },
         { id: 4, pids: [5], photo: 'https://cdn.balkan.app/shared/m60/3.jpg', name: 'Rowan Annable' },
         { id: 5, pids: [4], gender: 'female', photo: 'https://cdn.balkan.app/shared/w60/3.jpg', name: 'Lois Sowle' },
         { id: 6, mid: 2, fid: 3, pids: [7], gender: 'female', photo: 'https://cdn.balkan.app/shared/w30/1.jpg', name: 'Tyler Heath', born: '1975-11-12' },
