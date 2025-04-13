@@ -27,7 +27,6 @@ var family = new FamilyTree(document.getElementById('tree'), {
         generateElementsFromFields: false,
         elements: [
             { type: 'textbox', label: 'Full Name', binding: 'name' },
-            { type: 'textbox', label: 'Email Address', binding: 'email' },
             { type: 'textbox', label: 'Date Of Birth', binding: 'born' },
             { type: 'textbox', label: 'Date Of Death', binding: 'died' },
             [
