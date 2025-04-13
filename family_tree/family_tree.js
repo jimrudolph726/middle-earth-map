@@ -2,7 +2,7 @@
 var options = getOptions();
 
 var family = new FamilyTree(document.getElementById('tree'), {
-    mouseScrool: FamilyTree.none,
+    mouseScrool: FamilyTree.action.zoom,
     scaleInitial: options.scaleInitial,
     mode: 'dark',
     template: 'hugo',
