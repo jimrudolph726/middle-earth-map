@@ -49,7 +49,6 @@ family.on('field', function (sender, args) {
 
 family.load(
     [
-        { id: 1, pids: [2], gender: 'male', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/elrond.png', name: 'Elrond', born: 'Around First Age 532', died: 'No death, left Middle-earth on September 29, 3021 of the Third Age' },
         { id: 1, pids: [2], gender: 'male', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/elrond.png', name: 'Elrond', born: 'Around 532 of the First Age', died: 'No death, left Middle-earth on September 29, 3021 of the Third Age' },
         { id: 2, pids: [1], gender: 'female', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/celebrian.png', name: 'Celebrian', born: 'Likely born between Second Age 750 and Second Age 900', died: 'No death, left Middle-earth in 2510 of the Third Age' },
         { id: 3, pids: [4], gender: 'male', photo: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/family_tree/aragorn.png', name: 'Aragon Elessar II', born: 'March 1, 2931 of the Third Age', died: 'March 1, 120 of the Fourth Age' },
