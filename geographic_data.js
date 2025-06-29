@@ -1380,4 +1380,18 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  cardolan: {
+    pathName: 'cardolan',
+    color: "brown", 
+    name: "cardolan",
+    PopupContent: createGeographicPopup(
+      "Cardolan",
+      `Cardolan`,
+      `Several authors suggest Cardolan means "red hill country", "land of red hills" or "Red Hill Land" and is a compound of caran ("red"), dol ("hill") and -(i)an(d) ("land").`,
+      `Cardolan was a breakaway realm of the Dúnedain kingdom of Arnor. After the death of Arnor's King Eärendur, his sons divided the realm into the kingdoms of Arthedain, Rhudaur and Cardolan.`,
+      "https://tolkiengateway.net/wiki/Cardolan"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
