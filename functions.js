@@ -203,6 +203,9 @@ export const createGeographicShape = async (geographic_data) => {
       });
     
       // Store the polygon in the polygons object
+      if (pathName == 'minhiriath'){
+        polygon.bringToFront();
+      }
       polygons[key] = polygon;
       console.log(`Polygon created for ${key}`);
     } catch (error) {
