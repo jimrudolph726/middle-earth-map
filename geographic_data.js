@@ -1366,4 +1366,18 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  forlindon: {
+    pathName: 'forlindon',
+    color: "brown", 
+    name: "forlindon",
+    PopupContent: createGeographicPopup(
+      "Forlindon",
+      `Forlindon`,
+      `The name Forlindon likely means "North Lindon",[5] apparently derived from forn (Sindarin; "right, north") + lindon.`,
+      `Forlindon was a name for the northern part of Lindon, north of the Gulf of Lune and west of the Blue Mountains. The land was traversed by a river which ended on the northern shore of the Gulf; the haven of Forlond was built there, on its mouths.`,
+      "https://tolkiengateway.net/wiki/Forlindon"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
