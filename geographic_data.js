@@ -1351,21 +1351,7 @@ export const sub_regions = {
     ),
     tolerance: 1,
     weight: 2
-  },
-  minhiriath: {
-    pathName: 'minhiriath',
-    color: "brown", 
-    name: "minhiriath",
-    PopupContent: createGeographicPopup(
-      "Minhiriath",
-      `Minhiriath`,
-      `The name Minhiriath means "between the rivers" in Sindarin in reference to the Brandywine and Greyflood. The word min means "between" and hiriath is from siriath meaning "rivers."`,
-      `Region of southern Eriador. Minhiriath was located between the Brandywine River on its northern border and the Greyflood on its southern border.`,
-      "https://thainsbook.minastirith.cz/lands.html#Minhiriath"
-    ),
-    tolerance: 1,
-    weight: 2
-  },
+  }, 
   forlindon: {
     pathName: 'forlindon',
     color: "brown", 
@@ -1390,6 +1376,20 @@ export const sub_regions = {
       `Several authors suggest Cardolan means "red hill country", "land of red hills" or "Red Hill Land" and is a compound of caran ("red"), dol ("hill") and -(i)an(d) ("land").`,
       `Cardolan was a breakaway realm of the Dúnedain kingdom of Arnor. After the death of Arnor's King Eärendur, his sons divided the realm into the kingdoms of Arthedain, Rhudaur and Cardolan.`,
       "https://tolkiengateway.net/wiki/Cardolan"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  minhiriath: {
+    pathName: 'minhiriath',
+    color: "brown", 
+    name: "minhiriath",
+    PopupContent: createGeographicPopup(
+      "Minhiriath",
+      `Minhiriath`,
+      `The name Minhiriath means "between the rivers" in Sindarin in reference to the Brandywine and Greyflood. The word min means "between" and hiriath is from siriath meaning "rivers."`,
+      `Region of southern Eriador. Minhiriath was located between the Brandywine River on its northern border and the Greyflood on its southern border.`,
+      "https://thainsbook.minastirith.cz/lands.html#Minhiriath"
     ),
     tolerance: 1,
     weight: 2
