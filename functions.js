@@ -137,7 +137,7 @@ export const createMarkers = (locations, campsite = 'no') => {
       const marker = L.marker(coords, { icon }).bindPopup(popup);
 
       // Attach specific logic based on whether the campsite variable is 'yes'
-      if (campsite === 'campsite') {
+      if (campsite == 'campsite') {
         marker.on('mouseover', () => marker.openPopup());
         marker.on('mouseout', () => marker.closePopup());
       }
