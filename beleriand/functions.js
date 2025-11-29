@@ -1,4 +1,5 @@
 // functions.js
+
 // Helper functions
 export function createIcon(url, size = [48, 48]) {
   return L.icon({
