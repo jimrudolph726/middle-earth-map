@@ -25,10 +25,6 @@ import {
 
  import {
   samfrodocampsites,
-  aragorncampsites,
-  pippincampsites,
-  merrycampsites,
-  gandalfthegreycampsites,
  } from './campsite_data.js';
 
 // Map
