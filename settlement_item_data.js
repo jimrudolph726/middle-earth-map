@@ -123,6 +123,18 @@ export const men = {
     coords: [44.94739293,-93.31120919],
     icon: icons.MenGondorIcon,
   },
+
+  vinyalonde: {
+    popup: createSettlementPopup(
+      "Vinyalonde (Lond Daer)",
+      `Numenorean port on the west coast of Middle-earth. Lond Daer was located at the mouth of the Gwathlo, or Greyflood. It was in the region of Enedwaith south of Eriador. The city of Tharbad was about 200 miles upriver from Lond Daer.`,
+      "https://thainsbook.minastirith.cz/towns.html#Lond-Daer"
+    ),
+    coords: [44.9431934,-93.3102993],
+    icon: icons.MenGondorIcon,
+  },
+
+
   rohan: {
     popup: createSettlementPopup(
       "Rohan",
