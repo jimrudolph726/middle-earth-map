@@ -76,6 +76,13 @@ export const dwarves = {
     popup: createSettlementPopup("Khazad-dûm",
     "Khazad-dum was the greatest of the Dwarf realms in Middle-earth. Its vast and beautiful halls lay under the Misty Mountains. From its mines came great riches and it was the only source of the precious metal called mithril.",
     "https://thainsbook.minastirith.cz/moria.html")
+  },
+  erebor: {
+    coords: [44.9479827,-93.3006965],
+    icon: icons.DwarvesIcon,
+    popup: createSettlementPopup("Erebor",
+    "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland. It stood near the edge of Mirkwood, about 50 miles south of the Grey Mountains and about 125 miles west of the Iron Hills.",
+    "https://thainsbook.minastirith.cz/mountains.html#Lonely")
   }
 };
 export const men = {
