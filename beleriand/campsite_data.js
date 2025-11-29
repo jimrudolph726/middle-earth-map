@@ -8,6 +8,6 @@ import {
 
   
 export const berencampsites = {
-    FA460: { coords: [44.9428698,-93.2952427], icon: icons.TentIcon, popup: createCampsitePopup('FA 460-464',5,18,3.6,'Beren lives in Dorthonion during his youth.','Dorthonion'),
+    FA460: { coords: [44.9428698,-93.2952427], icon: icons.TentIcon, popup: createCampsitePopup('FA 460-464','NA','NA','NA','Beren lives in Dorthonion during his youth.','Dorthonion'),
     },
   };
