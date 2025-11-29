@@ -94,7 +94,6 @@ export const createSettlementPopup = (name, description, url) => {
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
-  console.log(`Looking for checkbox with ID: ${checkboxId}`, checkbox); // Debugging line
 
   if (!checkbox) {
     console.error(`Checkbox with ID "${checkboxId}" not found in the DOM.`);
@@ -159,7 +158,6 @@ export const createGeographicShape = async (geographic_data) => {
 
     try {
       const response = await fetch(geojsonPath);
-      console.log(`Response received for ${key}`);
       const data = await response.json();
       
       // Create the polygon using the GeoJSON data
@@ -207,7 +205,6 @@ export const createGeographicShape = async (geographic_data) => {
         polygon.bringToFront();
       }
       polygons[key] = polygon;
-      console.log(`Polygon created for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
