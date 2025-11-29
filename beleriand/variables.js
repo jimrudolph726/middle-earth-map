@@ -43,7 +43,7 @@ export const imageBounds = [[44.94393060,-93.30248833],[44.937485956,-93.2901198
 
 // Campsites and Settlements
 export const settlementsData = [
-  ...['samfrodocampsites', 'aragorncampsites', 'pippincampsites', 'merrycampsites', 'gandalfthegreycampsites'].map(name => ({
+  ...['samfrodocampsites'].map(name => ({
     data: eval(`${name}`),
     checkboxId: `${name}Checkbox`,
     campsite: 'campsite'
