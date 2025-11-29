@@ -8,6 +8,7 @@ const iconUrls = {
   finrod: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/finrod.png',
   beor: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/beor.png',
   dwarves: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/dwarves.png',
+  tent: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/tent.png',
 };
 export const icons = {
 NargothrondIcon: createIcon(iconUrls.finrod),
