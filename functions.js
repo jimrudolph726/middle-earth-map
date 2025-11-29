@@ -216,4 +216,3 @@ export const createGeographicShape = async (geographic_data) => {
   await Promise.all(promises); // Wait for all fetches to complete
   return polygons;
 };
-
