@@ -2,47 +2,60 @@
 
 import {
   PathListeners,
-  createPolyline,
   MarkerListeners,
-  createPolygon,
+  createGeographicShape,
   createMarkers
 } from './functions.js';
 
 import {
-  markersData,
+  settlementsData,
   pathdata,
-  geographicData
+  geographicData,
+  imageUrl,
+  map,
+  imageBounds,
 } from './variables.js';
 
-// Add Mapd
-const map = L.map('map', {
-  crs: L.CRS.EPSG3857,
-  minZoom: 15,
-  maxZoom: 18,
-  zoom: 15,
-  center: [0, 0],
-});
-
-const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/numenor/assets/numenor.png';
-const imageBounds = [[44.9509454,-93.3340925],[44.929893420,-93.295343975],];
+// Add Map
+map.options.wheelPxPerZoomLevel = 40; 
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
-
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Campsites and Settlements
-markersData.forEach(({ data, checkboxId, campsite }) => {
+settlementsData.forEach(({ data, checkboxId, campsite }) => {
   createMarkers(data, campsite).then((markers) => {
   MarkerListeners(checkboxId, markers, map);
   });
 });
 
 // Add Paths
-createPolyline(pathdata).then((polylines) => {PathListeners(polylines, map);});
+createGeographicShape(pathdata, map).then((polygons) => {
+  PathListeners(polygons, map);
+  });
 
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
-  createPolygon(data).then((polygons) => {
+  createGeographicShape(data).then((polygons) => {
   MarkerListeners(checkboxId, polygons, map);
+  });
+});
+
+// Add "All" Checkboxes
+const checkboxMappings = {
+  allItemCheckbox: "#itemsSection input.itemCheckbox",
+  allBattleCheckbox: "#battlesSection input.battleCheckbox",
+  allGeographyCheckbox: "#geographySection input.geographyCheckbox",
+  allSettlementCheckbox: "#settlementsSection input.settlementCheckbox",
+  allPathCheckbox: "#pathsSection input.pathCheckbox",
+  allCampCheckbox: "#campsSection input.campCheckbox",
+  allRegionCheckbox: "#regionsSection input.regionCheckbox",
+};
+Object.keys(checkboxMappings).forEach(masterCheckboxId => {
+  document.getElementById(masterCheckboxId).addEventListener("change", function () {
+    document.querySelectorAll(checkboxMappings[masterCheckboxId]).forEach(checkbox => {
+      checkbox.checked = this.checked;
+      checkbox.dispatchEvent(new Event("change")); // Ensures MarkerListeners function runs
+    });
   });
 });
