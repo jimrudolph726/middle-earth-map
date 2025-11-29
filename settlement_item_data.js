@@ -22,6 +22,7 @@ const iconUrls = {
   vilya: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/vilya.png',
   barahir: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/barahir.png',
   book: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/book.png',
+  dwarves_durin: 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/dwarves_durin.png',
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -40,7 +41,8 @@ NenyaIcon: createIcon(iconUrls.nenya),
 VilyaIcon: createIcon(iconUrls.vilya),
 BarahirIcon: createIcon(iconUrls.barahir),
 BookIcon: createIcon(iconUrls.book),
-TentIcon: createIcon(iconUrls.tent, [30, 30])
+TentIcon: createIcon(iconUrls.tent, [30, 30]),
+DwarvesIcon: createIcon(iconUrls.dwarves_durin),
 };
 
 // Settlements
@@ -66,7 +68,15 @@ export const elves = {
     "Port on the northwestern coast of Middle-earth. The Grey Havens were the place from which the ships of the Elves sailed westward across the Sea to the Undying Lands, where the spirits called the Valar dwelled. At the end of the Third Age, many Elves left Middle-earth from the Grey Havens, and the Ringbearers Frodo and Bilbo Baggins also embarked from there so they could find peace and healing in the Undying Lands.",
     "https://thainsbook.minastirith.cz/towns.html#Grey-Havens")
   },
-
+};
+export const dwarves = {
+  khazad_dûm: {
+    coords: [44.9449491,-93.3057188],
+    icon: icons.DwarvesIcon,
+    popup: createSettlementPopup("Khazad-dûm",
+    "Khazad-dum was the greatest of the Dwarf realms in Middle-earth. Its vast and beautiful halls lay under the Misty Mountains. From its mines came great riches and it was the only source of the precious metal called mithril.",
+    "https://thainsbook.minastirith.cz/moria.html")
+  }
 };
 export const men = {
   bree: {
@@ -123,7 +133,6 @@ export const men = {
     coords: [44.94739293,-93.31120919],
     icon: icons.MenGondorIcon,
   },
-
   vinyalonde: {
     popup: createSettlementPopup(
       "Vinyalonde (Lond Daer)",
@@ -133,8 +142,6 @@ export const men = {
     coords: [44.9431934,-93.3102993],
     icon: icons.MenGondorIcon,
   },
-
-
   rohan: {
     popup: createSettlementPopup(
       "Rohan",
