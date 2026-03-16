@@ -17,20 +17,7 @@ export const forests = {
     tolerance: 1,
     weight: 2,
   },
-  forest_of_brethil: {
-    pathName: "forest_of_brethil",
-    color: "green", 
-    name: "Forest of Brethil",
-    PopupContent: createGeographicPopup(
-      "Forest of Brethil",
-      "Forest of Brethil",
-      `The word brethil in the name Forest of Brethil is defined as "beech-tree" in Sindarin in The Etymologies. (However it should be noted that the Appendix to The Silmarillion gives the definition of brethil as "silver birch" as in the Birchwoods of Nimbrethil.) Also called Brethiliand.`,
-      `Woods in Beleriand where the Men of the House of Haleth lived. The Forest of Brethil was located west of the great woodland realm of Doriath.`,
-      "https://thainsbook.minastirith.cz/forests.html#Brethil",
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
+
 };
 export const mountain_ranges = {
   mountains_of_mithrim: {

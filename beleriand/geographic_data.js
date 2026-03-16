@@ -17,7 +17,22 @@ export const forests = {
     tolerance: 1,
     weight: 2,
   },
+    forest_of_brethil: {
+    pathName: "forest_of_brethil",
+    color: "green", 
+    name: "Forest of Brethil",
+    PopupContent: createGeographicPopup(
+      "Forest of Brethil",
+      "Forest of Brethil",
+      `The word brethil in the name Forest of Brethil is defined as "beech-tree" in Sindarin in The Etymologies. (However it should be noted that the Appendix to The Silmarillion gives the definition of brethil as "silver birch" as in the Birchwoods of Nimbrethil.) Also called Brethiliand.`,
+      `Woods in Beleriand where the Men of the House of Haleth lived. The Forest of Brethil was located west of the great woodland realm of Doriath.`,
+      "https://thainsbook.minastirith.cz/forests.html#Brethil",
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
 };
+
 export const mountain_ranges = {
   mountains_of_mithrim: {
     pathName: "mountains_of_mithrim",
@@ -34,6 +49,7 @@ export const mountain_ranges = {
     weight: 2,
   },
 };
+
 export const mountains = {
   mount_dolmed: {
     pathName: "mount_dolmed",
@@ -50,6 +66,7 @@ export const mountains = {
     weight: 2,
   },
 };
+
 export const rivers = {
   greater_gelion: {
     pathName: 'greater_gelion',
@@ -66,6 +83,7 @@ export const rivers = {
     weight: 7  // Weight is set to 7 for every object
   },
 };
+
 export const lakes_seas = {
   lake_mithrim: {
     pathName: 'lake_mithrim',
