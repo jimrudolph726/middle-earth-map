@@ -31,6 +31,34 @@ export const forests = {
     tolerance: 1,
     weight: 2,
   },
+      forest_of_region: {
+    pathName: "forest_of_region",
+    color: "green", 
+    name: "Forest of Region",
+    PopupContent: createGeographicPopup(
+      "Forest of Region",
+      "Forest of Region",
+      `Region is given as Doriathrin.[3] The base is the word reg ("holly tree"), with perhaps the toponymical ending -ion (*"holly-land") or a plural genitive ending -ion (as in Quenya), having the meaning *"(Land) of Hollies".`,
+      `The Forest of Region was a forest, primarily made up of holly. Early in the First Age, the Tatyar rested in its woods.`,
+      "https://tolkiengateway.net/wiki/Forest_of_Region#:~:text=The%20Forest%20of%20Region%20was,and%20the%20Girdle%20of%20Melian.",
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+        forest_of_neldoreth: {
+    pathName: "forest_of_neldoreth",
+    color: "green", 
+    name: "Forest of Neldoreth",
+    PopupContent: createGeographicPopup(
+      "Forest of Neldoreth",
+      "Forest of Neldoreth",
+      `The name Neldoreth is unclear, but seems to be a compound of neldor ("beech") and the abstract noun ending -eth.`,
+      `The Forest of Neldoreth was the beech-forest that lay between the banks of the Esgalduin River and the Mindeb River that formed the northern and lesser part of the Kingdom of Doriath.`,
+      "https://tolkiengateway.net/wiki/Forest_of_Neldoreth",
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 
 export const mountain_ranges = {
