@@ -31,7 +31,7 @@ export const forests = {
     tolerance: 1,
     weight: 2,
   },
-      forest_of_region: {
+    forest_of_region: {
     pathName: "forest_of_region",
     color: "green", 
     name: "Forest of Region",
@@ -45,7 +45,7 @@ export const forests = {
     tolerance: 1,
     weight: 2,
   },
-        forest_of_neldoreth: {
+    forest_of_neldoreth: {
     pathName: "forest_of_neldoreth",
     color: "green", 
     name: "Forest of Neldoreth",
@@ -54,6 +54,48 @@ export const forests = {
       "Forest of Neldoreth",
       `The name Neldoreth is unclear, but seems to be a compound of neldor ("beech") and the abstract noun ending -eth.`,
       `The Forest of Neldoreth was the beech-forest that lay between the banks of the Esgalduin River and the Mindeb River that formed the northern and lesser part of the Kingdom of Doriath.`,
+      "https://tolkiengateway.net/wiki/Forest_of_Neldoreth",
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+    taur_im_duinath: {
+    pathName: "taur_im_duinath",
+    color: "green", 
+    name: "Taur-im-Duinath",
+    PopupContent: createGeographicPopup(
+      "Taur-im-Duinath",
+      "Taur-im-Duinath",
+      `The name Taur-im-Duinath means "Forest between Rivers" in Sindarin from taur meaning "forest," im meaning "between," duin meaning "river" and the collective plural ending -ath.`,
+      `Forest in Beleriand. Taur-im-Duinath was located in southern Beleriand between the Gelion and the Sirion.`,
+      "https://tolkiengateway.net/wiki/Forest_of_Neldoreth",
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+    birchwoods_of_nimbrethil: {
+    pathName: "birchwoods_of_nimbrethil",
+    color: "green", 
+    name: "Birchwoods of Nimbrethil",
+    PopupContent: createGeographicPopup(
+      "Birchwoods of Nimbrethil",
+      "Birchwoods of Nimbrethil",
+      `The name Nimbrethil means "white birches." The Sindarin word nim means "white." The word brethil is defined as "silver birch" (though other sources define brethil as "beech tree"). Also called the Birchwoods of Nimbrethil.`,
+      `Birchwoods of Beleriand. Nimbrethil was located on the northern shore of the Bay of Balar which opened onto the Sea on the west coast of Middle-earth.`,
+      "https://tolkiengateway.net/wiki/Forest_of_Neldoreth",
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+    nan_tathren: {
+    pathName: "nan_tathren",
+    color: "green", 
+    name: "Nan-Tathren",
+    PopupContent: createGeographicPopup(
+      "Nan-Tathren",
+      "Nan-Tathren",
+      `The name Nan-tathren means "Willow-vale" in Sindarin from nan meaning "valley" and tathren, the adjective form of tathar meaning "willow." The Quenya forms of the name were Tasarinan and Nan-tasarion from tasarë meaning "willow." Also called the Land of Willows.`,
+      `Land of Willows in Beleriand. Nan-tathren was a wooded area at the confluence of the Narog and the Sirion.`,
       "https://tolkiengateway.net/wiki/Forest_of_Neldoreth",
     ),
     tolerance: 1,
