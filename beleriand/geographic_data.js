@@ -152,6 +152,34 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
+    little_gelion: {
+    pathName: 'little_gelion',
+    color: "blue",  // Color is set to blue for every object
+    name: "Little Gelion",
+    PopupContent: createGeographicPopup(
+      "Little Gelion",
+      "None",
+      `In one source (HoME IV, p. 210), Tolkien equated the name Gelion with the Old English word glæden meaning "iris," but this is not a translation from Elvish.`,
+      `Little Gelion was a lesser river that rose beneath Himring in the north marches of Beleriand, whose spring was close by that of the Celon.`,
+      "https://tolkiengateway.net/wiki/Little_Gelion"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+      river_gelion: {
+    pathName: 'river_gelion',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Gelion",
+    PopupContent: createGeographicPopup(
+      "River Gelion",
+      "None",
+      `In one source (HoME IV, p. 210), Tolkien equated the name Gelion with the Old English word glæden meaning "iris," but this is not a translation from Elvish.`,
+      `River on the western border of Ossiriand. The Gelion was the longest river in Beleriand. It was twice the length of the Sirion, which would make the Gelion approximately 780 miles long.`,
+      "https://tolkiengateway.net/wiki/Little_Gelion"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
 };
 
 export const lakes_seas = {
