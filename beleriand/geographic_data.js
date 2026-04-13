@@ -166,7 +166,7 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
-      river_gelion: {
+    river_gelion: {
     pathName: 'river_gelion',
     color: "blue",  // Color is set to blue for every object
     name: "River Gelion",
@@ -175,6 +175,20 @@ export const rivers = {
       "None",
       `In one source (HoME IV, p. 210), Tolkien equated the name Gelion with the Old English word glæden meaning "iris," but this is not a translation from Elvish.`,
       `River on the western border of Ossiriand. The Gelion was the longest river in Beleriand. It was twice the length of the Sirion, which would make the Gelion approximately 780 miles long.`,
+      "https://tolkiengateway.net/wiki/Little_Gelion"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+      river_ascar: {
+    pathName: 'river_ascar',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Ascar",
+    PopupContent: createGeographicPopup(
+      "River Ascar",
+      "None",
+      `The name Ascar means "rushing, impetuous" in Sindarin, derived from the root A-SKAR. It was later named Rathlóriel meaning "golden riverbed" from rath meaning "course, riverbed" and gloriel meaning "golden."`,
+      `One of the Seven Rivers of Ossiriand. The Ascar formed the northern border of Ossiriand, a region in East Beleriand.`,
       "https://tolkiengateway.net/wiki/Little_Gelion"
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object
