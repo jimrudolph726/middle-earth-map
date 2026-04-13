@@ -144,7 +144,7 @@ export const rivers = {
     name: "Greater Gelion",
     PopupContent: createGeographicPopup(
       "Greater Gelion",
-      "None",
+      "Gelion",
       `In one source (HoME IV, p. 210), Tolkien equated the name Gelion with the Old English word glæden meaning "iris," but this is not a translation from Elvish.`,
       `The Greater Gelion was one of the two rivers that flowed together to form the source of long Gelion, that flowed along the eastern borders of Beleriand.`,
       "https://tolkiengateway.net/wiki/Greater_Gelion"
@@ -158,7 +158,7 @@ export const rivers = {
     name: "Little Gelion",
     PopupContent: createGeographicPopup(
       "Little Gelion",
-      "None",
+      "Gelion",
       `In one source (HoME IV, p. 210), Tolkien equated the name Gelion with the Old English word glæden meaning "iris," but this is not a translation from Elvish.`,
       `Little Gelion was a lesser river that rose beneath Himring in the north marches of Beleriand, whose spring was close by that of the Celon.`,
       "https://tolkiengateway.net/wiki/Little_Gelion"
@@ -172,7 +172,7 @@ export const rivers = {
     name: "River Gelion",
     PopupContent: createGeographicPopup(
       "River Gelion",
-      "None",
+      "Gelion",
       `In one source (HoME IV, p. 210), Tolkien equated the name Gelion with the Old English word glæden meaning "iris," but this is not a translation from Elvish.`,
       `River on the western border of Ossiriand. The Gelion was the longest river in Beleriand. It was twice the length of the Sirion, which would make the Gelion approximately 780 miles long.`,
       "https://tolkiengateway.net/wiki/Little_Gelion"
@@ -186,7 +186,7 @@ export const rivers = {
     name: "River Ascar",
     PopupContent: createGeographicPopup(
       "River Ascar",
-      "None",
+      "Ascar",
       `The name Ascar means "rushing, impetuous" in Sindarin, derived from the root A-SKAR. It was later named Rathlóriel meaning "golden riverbed" from rath meaning "course, riverbed" and gloriel meaning "golden."`,
       `One of the Seven Rivers of Ossiriand. The Ascar formed the northern border of Ossiriand, a region in East Beleriand.`,
       "https://tolkiengateway.net/wiki/Little_Gelion"
