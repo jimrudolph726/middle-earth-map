@@ -298,10 +298,24 @@ export const rivers = {
     name: "River Aros",
     PopupContent: createGeographicPopup(
       "River Aros",
-      "Celon",
+      "Aros",
       `The word Aros, derived from the Elvish root YAR- ("blood"), is said to be a "name of river with reddish water". The Noldorin form of the word was iaros.`,
       `Aros was a river of East Beleriand that formed much of the border of the Kingdom of Doriath.`,
       "https://tolkiengateway.net/wiki/Thalos#:~:text=Thalos%20was%20the%20second%20of,rivers%20Ascar%20and%20the%20Legolin."
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_esgalduin: {
+    pathName: 'river_esgalduin',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Esgalduin",
+    PopupContent: createGeographicPopup(
+      "River Esgalduin",
+      "Esgalduin",
+      `The name Esgalduin means "River under Veil" from esgal meaning "screen, hiding, roof of leaves" and duin meaning "river."`,
+      `River of Doriath. The Esgalduin divided the Forest of Neldoreth from the Forest of Region. It was a dark, enchanted river.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Esgalduin"
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
