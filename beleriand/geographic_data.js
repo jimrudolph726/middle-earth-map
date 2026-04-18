@@ -425,7 +425,7 @@ export const rivers = {
     PopupContent: createGeographicPopup(
       "River Narog",
       "Narog",
-      `The name Narog is derived from the root narak meaning "tear, rend" and naraka meaning "rushing, rapid, violent" apparently in reference to the torrential rapids of the river as it passed Nargothrond.`,
+      `Tthe name Narog is derived from the root narak meaning "tear, rend" and naraka meaning "rushing, rapid, violent" apparently in reference to the torrential rapids of the river as it passed Nargothrond.`,
       `River of Nargothrond in West Beleriand. The Narog was a tributary of the Sirion. It was a swift-moving river that flowed from north to south for about 240 miles. Its river valley was called the Vale of Narog.`,
       "https://thainsbook.minastirith.cz/rivers.html#Narog"
     ),
