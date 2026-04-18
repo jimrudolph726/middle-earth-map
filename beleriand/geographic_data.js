@@ -229,9 +229,37 @@ export const rivers = {
     PopupContent: createGeographicPopup(
       "River Brilthor",
       "Brilthor",
-      `DThe name Brilthor means "glittering torrent" from the root ril meaning "glitter" and thor meaning "come swooping down" and thorod meaning "torrent." The name may be in the dialect of the Green-elves of Ossiriand.`,
+      `The name Brilthor means "glittering torrent" from the root ril meaning "glitter" and thor meaning "come swooping down" and thorod meaning "torrent." The name may be in the dialect of the Green-elves of Ossiriand.`,
       `One of the Seven Rivers of Ossiriand. The Brilthor was the fourth of the six tributaries of the Gelion.`,
       "https://thainsbook.minastirith.cz/rivers.html#Brilthor"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_legolin: {
+    pathName: 'river_legolin',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Legolin",
+    PopupContent: createGeographicPopup(
+      "River Legolin",
+      "Legolin",
+      `The name Legolin contains the word legol meaning "nimble, active, running free" in the early Elvish language Ilkorin.`,
+      `One of the Seven Rivers of Ossiriand. The Legolin was the third of the six tributaries of the Gelion. `,
+      "https://thainsbook.minastirith.cz/rivers.html#Legolin"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_thalos: {
+    pathName: 'river_thalos',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Thalos",
+    PopupContent: createGeographicPopup(
+      "River Thalos",
+      "Thalos",
+      `TThe name comes from the Ilkorin word thalos ("torrent") used as a name.`,
+      `Thalos was the second of the six rivers that rushed down from the Blue Mountains through Ossiriand to meet the great River Gelion, between the rivers Ascar and the Legolin.`,
+      "https://tolkiengateway.net/wiki/Thalos#:~:text=Thalos%20was%20the%20second%20of,rivers%20Ascar%20and%20the%20Legolin."
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
