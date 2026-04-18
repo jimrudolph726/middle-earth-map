@@ -112,7 +112,22 @@ export const mountain_ranges = {
       "Mountains of Mithrim",
       "Mithrim",
       'The name Mithrim means "Grey-elves" in Sindarin from mith meaning "grey" and rim meaning "host, great number."',
-      "The Mountains of Mithrim or the Hills of Mithrim were a range of mountains located in Hithlum. They formed the border between Mithrim and Dor-lómin,",
+      "The Mountains of Mithrim or the Hills of Mithrim were a range of mountains located in Hithlum. They formed the border between Mithrim and Dor-lómin.",
+      "https://tolkiengateway.net/wiki/Mountains_of_Mithrim#:~:text=The%20Mountains%20of%20Mithrim%20or,the%20Noldor%20settled%20in%20Hithlum."
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+
+    ered_wethrin: {
+    pathName: "ered_wethrin",
+    color: "orange",
+    name: "Ered Wethrin",
+    PopupContent: createGeographicPopup(
+      "Ered Wethrin",
+      "Ered Wethrin",
+      'Ered Wethrin is Sindarin for "Shadowy Mountains". It consists of ered ("mountains") and gwethrin ("shadowy").',
+      "The Ered Wethrin, or the Mountains of Shadow, was a mountain range in the north of Beleriand in the First Age.",
       "https://tolkiengateway.net/wiki/Mountains_of_Mithrim#:~:text=The%20Mountains%20of%20Mithrim%20or,the%20Noldor%20settled%20in%20Hithlum."
     ),
     tolerance: 1,
