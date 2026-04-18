@@ -362,6 +362,62 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
+    river_teiglin: {
+    pathName: 'river_teiglin',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Teiglin",
+    PopupContent: createGeographicPopup(
+      "River Teiglin",
+      "Teiglin",
+      `The element taeg means "boundary". In the Etymologies the name appears in its earlier form "Taiglin" and its second element appears to be lin "pool".`,
+      `The Taeglin was a river in Beleriand, a tributary of Sirion. It rose in the Ered Wethrin and flowed southeast through Brethil to join Sirion on the borders of Doriath. It had three minor tributaries: Glithui, Malduin[1] and Celebros.`,
+      "https://tolkiengateway.net/wiki/Taeglin"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_malduin: {
+    pathName: 'river_malduin',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Malduin",
+    PopupContent: createGeographicPopup(
+      "River Malduin",
+      "Malduin",
+      `Malduin means "Golden River" in Sindarin, from MAL ("gold") + duin ("river").`,
+      `Malduin was a minor river of northern Beleriand. It flowed southwards from the Ered Wethrin to meet the Teiglin before that river passed under the eaves of the Forest of Brethil.`,
+      "https://tolkiengateway.net/wiki/Malduin"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_celebros: {
+    pathName: 'river_celebros',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Celebros",
+    PopupContent: createGeographicPopup(
+      "River Celebros",
+      "Celebros",
+      `Celebros is Sindarin, from celeb ("silver") and ros ("foam").`,
+      `Celebros was a stream of Beleriand, a tributary to Taeglin that flowed through Brethil forest.`,
+      "https://tolkiengateway.net/wiki/Celebros"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_glithui: {
+    pathName: 'river_glithui',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Glithui",
+    PopupContent: createGeographicPopup(
+      "River Glithui",
+      "Glithui",
+      `The name Glithui is Sindarin but does not have a clear etymology; the construction "of deep ash colour" is suggested. Glithui may also come from the very old word giltha, meaning a white metal, and especially silver. In form, Glithui appears to be an adjective, so we might very tentatively interpret the name as something like 'silvery'.`,
+      `Glithui was a small river that rose beneath Amon Darthir in the Mountains of Shadow, beneath a steep and treacherous pass out of Dor-lómin into West Beleriand. `,
+      "https://tolkiengateway.net/wiki/Glithui"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
 };
 
 export const lakes_seas = {
