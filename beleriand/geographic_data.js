@@ -348,6 +348,20 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
+    dry_river: {
+    pathName: 'dry_river',
+    color: "blue",  // Color is set to blue for every object
+    name: "Dry River",
+    PopupContent: createGeographicPopup(
+      "Dry River",
+      "None",
+      `None`,
+      `Dry River was the name given to the dry bed of what had once been a tributary of the River Sirion rising in the Encircling Mountains. It had joined the Sirion just north of the Ford of Brithiach.`,
+      "https://tolkiengateway.net/wiki/Dry_River"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
 };
 
 export const lakes_seas = {
