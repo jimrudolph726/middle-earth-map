@@ -222,6 +222,20 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
+    river_brilthor: {
+    pathName: 'river_brilthor',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Brilthor",
+    PopupContent: createGeographicPopup(
+      "River Brilthor",
+      "Brilthor",
+      `DThe name Brilthor means "glittering torrent" from the root ril meaning "glitter" and thor meaning "come swooping down" and thorod meaning "torrent." The name may be in the dialect of the Green-elves of Ossiriand.`,
+      `One of the Seven Rivers of Ossiriand. The Brilthor was the fourth of the six tributaries of the Gelion.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Brilthor"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
 };
 
 export const lakes_seas = {
