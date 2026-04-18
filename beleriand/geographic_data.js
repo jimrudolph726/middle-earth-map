@@ -257,8 +257,50 @@ export const rivers = {
     PopupContent: createGeographicPopup(
       "River Thalos",
       "Thalos",
-      `TThe name comes from the Ilkorin word thalos ("torrent") used as a name.`,
+      `The name comes from the Ilkorin word thalos ("torrent") used as a name.`,
       `Thalos was the second of the six rivers that rushed down from the Blue Mountains through Ossiriand to meet the great River Gelion, between the rivers Ascar and the Legolin.`,
+      "https://tolkiengateway.net/wiki/Thalos#:~:text=Thalos%20was%20the%20second%20of,rivers%20Ascar%20and%20the%20Legolin."
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_celon: {
+    pathName: 'river_celon',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Celon",
+    PopupContent: createGeographicPopup(
+      "River Celon",
+      "Celon",
+      `The name Celon means "stream flowing down from heights" from the root kel meaning "go, run (especially water)."`,
+      `River in East Beleriand. The Celon was a tributary of the Aros. It was a narrow river with clear waters.`,
+      "https://tolkiengateway.net/wiki/Thalos#:~:text=Thalos%20was%20the%20second%20of,rivers%20Ascar%20and%20the%20Legolin."
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_celon: {
+    pathName: 'river_celon',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Celon",
+    PopupContent: createGeographicPopup(
+      "River Celon",
+      "Celon",
+      `The name Celon means "stream flowing down from heights" from the root kel meaning "go, run (especially water)."`,
+      `River in East Beleriand. The Celon was a tributary of the Aros. It was a narrow river with clear waters.`,
+      "https://tolkiengateway.net/wiki/Thalos#:~:text=Thalos%20was%20the%20second%20of,rivers%20Ascar%20and%20the%20Legolin."
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_aros: {
+    pathName: 'river_aros',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Aros",
+    PopupContent: createGeographicPopup(
+      "River Aros",
+      "Celon",
+      `The word Aros, derived from the Elvish root YAR- ("blood"), is said to be a "name of river with reddish water". The Noldorin form of the word was iaros.`,
+      `Aros was a river of East Beleriand that formed much of the border of the Kingdom of Doriath.`,
       "https://tolkiengateway.net/wiki/Thalos#:~:text=Thalos%20was%20the%20second%20of,rivers%20Ascar%20and%20the%20Legolin."
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object
