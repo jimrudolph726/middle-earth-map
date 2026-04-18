@@ -201,9 +201,23 @@ export const rivers = {
     PopupContent: createGeographicPopup(
       "River Adurant",
       "Adurant",
-      `TThe name Adurant means "double stream" in reference to the way it branched around Tol Galen. The word adu means "double" in Ilkorin, an early form of Elvish, and rant means "course, riverbed" in Sindarin.`,
+      `The name Adurant means "double stream" in reference to the way it branched around Tol Galen. The word adu means "double" in Ilkorin, an early form of Elvish, and rant means "course, riverbed" in Sindarin.`,
       `One of the Seven Rivers of Ossiriand. The Adurant was the southernmost tributary of the Gelion.`,
       "https://thainsbook.minastirith.cz/rivers.html#Adurant"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_duilwen: {
+    pathName: 'river_duilwen',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Duilwen",
+    PopupContent: createGeographicPopup(
+      "River Duilwen",
+      "Duilwen",
+      `Duilwen can probably be considered as a Sindarin name,[2] but was originally conceived as Ilkorin by Tolkien, consisting of the Ilkorin elements duil ("river") and gwene ("green").`,
+      `The Duilwen was one of the six rivers that flowed west through Ossiriand to meet Gelion. The Duilwen was the last-but-one of these to flow into the great south-flowing river; only the Adurant was further south.`,
+      "https://tolkiengateway.net/wiki/Duilwen"
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
