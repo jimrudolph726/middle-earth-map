@@ -320,6 +320,34 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
+    river_mindeb: {
+    pathName: 'river_mindeb',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Mindeb",
+    PopupContent: createGeographicPopup(
+      "River Mindeb",
+      "Mindeb",
+      `The name Mindeb is Sindarin and has no clear etymology; it is speculated to translate as “Shadowed Isolated”.`,
+      `River of Doriath. The Esgalduin divided the Forest of Neldoreth from the Forest of Region. It was a dark, enchanted river.`,
+      "https://tolkiengateway.net/wiki/Mindeb"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_sirion: {
+    pathName: 'river_sirion',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Sirion",
+    PopupContent: createGeographicPopup(
+      "River Sirion",
+      "Sirion",
+      `Sirion is Sindarin for "Great River" or "Great Stream", from sîr ("river") with the suffix iaun ("roomy, wide, extensive") simplified.`,
+      `Sirion was a river of Middle-earth in the First Age, the principal river of Beleriand. During most of its course it was the border between East Beleriand and West Beleriand.`,
+      "https://tolkiengateway.net/wiki/Sirion"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
 };
 
 export const lakes_seas = {
