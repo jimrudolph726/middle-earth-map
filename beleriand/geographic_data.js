@@ -412,8 +412,36 @@ export const rivers = {
       "River Glithui",
       "Glithui",
       `The name Glithui is Sindarin but does not have a clear etymology; the construction "of deep ash colour" is suggested. Glithui may also come from the very old word giltha, meaning a white metal, and especially silver. In form, Glithui appears to be an adjective, so we might very tentatively interpret the name as something like 'silvery'.`,
-      `Glithui was a small river that rose beneath Amon Darthir in the Mountains of Shadow, beneath a steep and treacherous pass out of Dor-lómin into West Beleriand. `,
+      `Glithui was a small river that rose beneath Amon Darthir in the Mountains of Shadow, beneath a steep and treacherous pass out of Dor-lómin into West Beleriand.`,
       "https://tolkiengateway.net/wiki/Glithui"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_narog: {
+    pathName: 'river_narog',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Narog",
+    PopupContent: createGeographicPopup(
+      "River Narog",
+      "Narog",
+      `The name Narog is derived from the root narak meaning "tear, rend" and naraka meaning "rushing, rapid, violent" apparently in reference to the torrential rapids of the river as it passed Nargothrond.`,
+      `River of Nargothrond in West Beleriand. The Narog was a tributary of the Sirion. It was a swift-moving river that flowed from north to south for about 240 miles. Its river valley was called the Vale of Narog.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Narog"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_ginglith: {
+    pathName: 'river_ginglith',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Ginglith",
+    PopupContent: createGeographicPopup(
+      "River Ginglith",
+      "Ginglith",
+      `The meaning of Ginglith is unclear. The name Ginglith first appeared in The Lays of Beleriand from the 1920s, and then reappeared in Silmarillion maps and drafts from the 1930s`,
+      `River of Nargothrond in West Beleriand. The Narog was a tributary of the Sirion. It was a swift-moving river that flowed from north to south for about 240 miles. Its river valley was called the Vale of Narog.`,
+      "https://tolkiengateway.net/wiki/Ginglith"
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
