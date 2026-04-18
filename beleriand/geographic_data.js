@@ -180,7 +180,7 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
-      river_ascar: {
+    river_ascar: {
     pathName: 'river_ascar',
     color: "blue",  // Color is set to blue for every object
     name: "River Ascar",
@@ -190,6 +190,20 @@ export const rivers = {
       `The name Ascar means "rushing, impetuous" in Sindarin, derived from the root A-SKAR. It was later named Rathlóriel meaning "golden riverbed" from rath meaning "course, riverbed" and gloriel meaning "golden."`,
       `One of the Seven Rivers of Ossiriand. The Ascar formed the northern border of Ossiriand, a region in East Beleriand.`,
       "https://tolkiengateway.net/wiki/Little_Gelion"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_adurant: {
+    pathName: 'river_adurant',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Adurant",
+    PopupContent: createGeographicPopup(
+      "River Adurant",
+      "Adurant",
+      `TThe name Adurant means "double stream" in reference to the way it branched around Tol Galen. The word adu means "double" in Ilkorin, an early form of Elvish, and rant means "course, riverbed" in Sindarin.`,
+      `One of the Seven Rivers of Ossiriand. The Adurant was the southernmost tributary of the Gelion.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Adurant"
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
