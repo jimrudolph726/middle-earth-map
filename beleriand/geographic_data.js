@@ -446,6 +446,34 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
+    river_nenning: {
+    pathName: 'river_nenning',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Nenning",
+    PopupContent: createGeographicPopup(
+      "River Nenning",
+      "Nenning",
+      `The name Nenning contains the Sindarin word nen meaning "water."`,
+      `River in West Beleriand. The Nenning formed the western border of the Realm of Nargothrond. West of the Nenning was the coastal region of the Falas. The Nenning began in a small range of hills south of the Ered Wethrin and flowed southward to the Sea.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Nenning"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+    river_brithon: {
+    pathName: 'river_brithon',
+    color: "blue",  // Color is set to blue for every object
+    name: "River Brithon",
+    PopupContent: createGeographicPopup(
+      "River Brithon",
+      "Brithon",
+      `The name Brithon means "pebbly" from brith meaning "gravel."`,
+      `River in Beleriand. The Brithon was located in the coastal region of the Falas. It began in a small range of hills south of the Ered Wethrin and flowed southwestward to the Sea. `,
+      "https://thainsbook.minastirith.cz/rivers.html#Brithon"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
 };
 
 export const lakes_seas = {
