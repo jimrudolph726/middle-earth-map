@@ -118,7 +118,6 @@ export const mountain_ranges = {
     tolerance: 1,
     weight: 2,
   },
-
     ered_wethrin: {
     pathName: "ered_wethrin",
     color: "orange",
@@ -129,6 +128,20 @@ export const mountain_ranges = {
       'Ered Wethrin is Sindarin for "Shadowy Mountains". It consists of ered ("mountains") and gwethrin ("shadowy").',
       "The Ered Wethrin, or the Mountains of Shadow, was a mountain range in the north of Beleriand in the First Age.",
       "https://tolkiengateway.net/wiki/Mountains_of_Mithrim#:~:text=The%20Mountains%20of%20Mithrim%20or,the%20Noldor%20settled%20in%20Hithlum."
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+    ered_luin: {
+    pathName: "ered_luin",
+    color: "orange",
+    name: "Ered Luin",
+    PopupContent: createGeographicPopup(
+      "Ered Luin",
+      "Ered Luin",
+      'The Blue Mountains were so named because they appeared blue from a distance. The Sindarin name for the Blue Mountains was Ered Luin from ered meaning "mountains" and luin meaning "blue."',
+      "Mountain range in northwestern Middle-earth. The Blue Mountains were on the western border of Eriador. The geography of the Blue Mountains changed during the War of Wrath at the end of the First Age.",
+      "https://thainsbook.minastirith.cz/mountains.html#Blue"
     ),
     tolerance: 1,
     weight: 2,
