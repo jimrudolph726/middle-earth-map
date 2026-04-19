@@ -146,6 +146,20 @@ export const mountain_ranges = {
     tolerance: 1,
     weight: 2,
   },
+    ered_lomin: {
+    pathName: "ered_lomin",
+    color: "orange",
+    name: "Ered Lomin",
+    PopupContent: createGeographicPopup(
+      "Ered Lomin",
+      "Ered Lomin",
+      'The name Ered Lómin means "Echoing Mountains." The word ered means "mountains" in Sindarin and the word lómen means "echoing" in the Doriathrin dialect. Also called the Echoing Hills. The mountains were so named because they resonated and magnified noises, particularly around the region of Lammoth.',
+      "Mountain range on the western border of Hithlum. The Ered Lomin were located on the western shore of Middle-earth. At their southern end, the Ered Lomin joined the Ered Wethrin, which formed the southern and eastern borders of Hithlum.",
+      "https://thainsbook.minastirith.cz/mountains.html#Ered-Lomin"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 
 export const mountains = {
