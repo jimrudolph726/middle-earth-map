@@ -602,7 +602,7 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
-  andram: {
+  himring: {
     pathName: "himring",
     color: "red",
     name: "himring",
