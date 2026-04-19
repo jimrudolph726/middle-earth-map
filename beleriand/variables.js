@@ -6,6 +6,7 @@ import {
   mountains,
   rivers,
   lakes_seas,
+  hills
 } from './geographic_data.js';
 
 import {
@@ -65,7 +66,7 @@ export const pathdata = {
 
 // Geographic Features
 export const geographicData = [
-  ...['mountain_ranges', 'mountains', 'forests', 'rivers', 'lakes_seas'].map(name => ({
+  ...['mountain_ranges', 'mountains', 'forests', 'rivers', 'lakes_seas', 'hills'].map(name => ({
     data: eval(name),
     checkboxId: `${name}Checkbox`
   }))

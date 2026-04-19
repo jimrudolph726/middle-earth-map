@@ -548,3 +548,19 @@ export const lakes_seas = {
     weight: 2
   },
 };
+
+export const hills = {
+  andram: {
+    pathName: "andram",
+    color: "red",
+    name: "Andram",
+    PopupContent: createGeographicPopup(
+    "Andram",
+    "Andram",
+    `The name Andram means "Long Wall" in Sindarin from and meaning "long" and ram meaning "wall."`,
+    `Range of hills in Beleriand. Andram stretched from east to west across Beleriand, dividing the higher northern region from the southern lowlands.`,
+    "https://thainsbook.minastirith.cz/hills.html#Andram"),
+    tolerance: 1,
+    weight: 2,
+  },
+}
