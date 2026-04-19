@@ -589,7 +589,7 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
-  andram: {
+  amon_ereb: {
     pathName: "amon_ereb",
     color: "red",
     name: "amon_ereb",
