@@ -160,6 +160,20 @@ export const mountain_ranges = {
     tolerance: 1,
     weight: 2,
   },
+    ered_gorgoroth: {
+    pathName: "ered_gorgoroth",
+    color: "orange",
+    name: "Ered Gorgoroth",
+    PopupContent: createGeographicPopup(
+      "Ered Gorgoroth",
+      "Ered Gorgoroth",
+      'The name Ered Gorgoroth means "Mountains of Terror." The word ered means "mountains" in Sindarin and the word gorgoroth means "terror".',
+      `The Ered Gorgoroth or Mountains of Terror were a mountain chain in the north of Beleriand. The Ered Gorgoroth was the southern edge of the highlands of Dorthonion, and separated Dorthonion from Beleriand proper.`,
+      "https://thainsbook.minastirith.cz/mountains.html#Ered-Lomin"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 
 export const mountains = {
