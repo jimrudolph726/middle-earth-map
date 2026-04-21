@@ -125,8 +125,8 @@ export const createMarkers = (locations, campsite = 'no') => {
     const markers = Object.keys(locations).reduce((acc, key) => {
       const { coords, icon, popup } = locations[key];
       const popupOptions = campsite == 'campsite'
-        ? { className: 'campsite-popup-shell' }
-        : { className: 'lore-popup-shell' };
+        ? { className: 'campsite-popup-shell', maxWidth: 520 }
+        : { className: 'lore-popup-shell', maxWidth: 520 };
       const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
 
       // Attach specific logic based on whether the campsite variable is 'yes'
@@ -186,7 +186,7 @@ export const createGeographicShape = async (geographic_data) => {
 
           // Add click event
           layer.on('click', (e) => {
-            const popup = L.popup({ className: 'lore-popup-shell' })
+            const popup = L.popup({ className: 'lore-popup-shell', maxWidth: 520 })
               .setLatLng(e.latlng)
               .setContent(PopupContent || `Name: ${name}`);
             popup
