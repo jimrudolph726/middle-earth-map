@@ -70,11 +70,9 @@ export const createSettlementPopup = (name, description, url) => {
   return `
     <article class="lore-popup lore-popup--settlement">
       <div class="lore-popup__frame">
-        <p class="lore-popup__kicker">Chronicle of a Place</p>
         <h3 class="lore-popup__title">${name}</h3>
 
         <div class="lore-popup__notes">
-          <p class="lore-popup__notes-label">Account</p>
           <p class="lore-popup__notes-text">${description}</p>
         </div>
 
