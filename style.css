@@ -249,7 +249,7 @@ h3,
 
 .lore-popup {
   min-width: 260px;
-  max-width: 340px;
+  max-width: 440px;
   color: #38291a;
 }
 
@@ -294,7 +294,7 @@ h3,
 }
 
 .lore-popup__section-title {
-  margin: 0 0 4px;
+  margin: 0 0 1px;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 19px;
   color: #41301c;
@@ -330,12 +330,12 @@ h3,
 
 .lore-popup__notes {
   margin-top: 14px;
-  padding-top: 12px;
+  padding-top: 10px;
   border-top: 1px solid rgba(111, 83, 40, 0.35);
 }
 
 .lore-popup__notes-label {
-  margin: 0 0 6px;
+  margin: 0 0 1px;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 18px;
   color: #41301c;
