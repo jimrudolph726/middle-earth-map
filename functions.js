@@ -47,18 +47,18 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
 
         <div class="lore-popup__sections">
           <div class="lore-popup__section">
-            <p class="lore-popup__section-title">Elvish Name</p>
-            <p class="lore-popup__section-text">${elvish_name}</p>
+            <div class="lore-popup__section-title">Elvish Name</div>
+            <div class="lore-popup__section-text">${elvish_name}</div>
           </div>
           <div class="lore-popup__section">
-            <p class="lore-popup__section-title">Meaning</p>
-            <p class="lore-popup__section-text">${elvish_meaning}</p>
+            <div class="lore-popup__section-title">Meaning</div>
+            <div class="lore-popup__section-text">${elvish_meaning}</div>
           </div>
         </div>
 
         <div class="lore-popup__notes">
-          <p class="lore-popup__section-title">Description</p>
-          <p class="lore-popup__section-text">${description}</p>
+          <div class="lore-popup__section-title">Description</div>
+          <div class="lore-popup__section-text">${description}</div>
         </div>
 
         <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read More</a>
