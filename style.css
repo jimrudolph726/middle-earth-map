@@ -282,6 +282,31 @@ h3,
   margin-top: 12px;
 }
 
+.lore-popup__sections {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.lore-popup__section {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(111, 83, 40, 0.2);
+}
+
+.lore-popup__section-title {
+  margin: 0 0 4px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 19px;
+  color: #41301c;
+}
+
+.lore-popup__section-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #38291a;
+}
+
 .lore-popup__row {
   display: flex;
   justify-content: space-between;
