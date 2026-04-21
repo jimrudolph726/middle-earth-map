@@ -139,6 +139,21 @@ h3,
   color: #38291a;
 }
 
+.campsite-popup-shell .leaflet-popup-content-wrapper {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.campsite-popup-shell .leaflet-popup-content {
+  margin: 0;
+}
+
+.campsite-popup-shell .leaflet-popup-tip {
+  background: #dcc28f;
+  box-shadow: none;
+}
+
 .campsite-popup__frame {
   padding: 16px;
   border: 1px solid #8f7650;
