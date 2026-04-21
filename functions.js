@@ -41,47 +41,48 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
 };
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
   return `
-    <div onclick="const content = this.querySelector('.popup-content'); 
-                   content.style.display = content.style.display === 'block' ? 'none' : 'block';">
-        <h3>${name}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${name}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_name}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Meaning</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_meaning}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${description}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more here</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">
-                    <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
-                </td>
-            </tr>
-        </table>
-        <div class="popup-content" style="display: none; margin-top: 10px;">
+    <article class="lore-popup lore-popup--geography">
+      <div class="lore-popup__frame">
+        <p class="lore-popup__kicker">Lore of the Land</p>
+        <h3 class="lore-popup__title">${name}</h3>
+
+        <div class="lore-popup__details">
+          <div class="lore-popup__row">
+            <span class="lore-popup__label">Elvish Name</span>
+            <span class="lore-popup__value">${elvish_name}</span>
+          </div>
+          <div class="lore-popup__row">
+            <span class="lore-popup__label">Meaning</span>
+            <span class="lore-popup__value">${elvish_meaning}</span>
+          </div>
         </div>
-    </div>
+
+        <div class="lore-popup__notes">
+          <p class="lore-popup__notes-label">Description</p>
+          <p class="lore-popup__notes-text">${description}</p>
+        </div>
+
+        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read More</a>
+      </div>
+    </article>
   `;
 };
 export const createSettlementPopup = (name, description, url) => {
-  return`<div>
-    <h3 style="font-size: 24px;">${name}</h3>
-  <p style="font-size: 18px;">${description}</p>
-    <button onclick="window.open('${url}', '_blank');" 
-            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more here
-    </button>
-  </div>`;
+  return `
+    <article class="lore-popup lore-popup--settlement">
+      <div class="lore-popup__frame">
+        <p class="lore-popup__kicker">Chronicle of a Place</p>
+        <h3 class="lore-popup__title">${name}</h3>
+
+        <div class="lore-popup__notes">
+          <p class="lore-popup__notes-label">Account</p>
+          <p class="lore-popup__notes-text">${description}</p>
+        </div>
+
+        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read More</a>
+      </div>
+    </article>
+  `;
 };
 
 // Checkbox listener functions
@@ -126,7 +127,9 @@ export const createMarkers = (locations, campsite = 'no') => {
   return new Promise((resolve) => {
     const markers = Object.keys(locations).reduce((acc, key) => {
       const { coords, icon, popup } = locations[key];
-      const popupOptions = campsite == 'campsite' ? { className: 'campsite-popup-shell' } : undefined;
+      const popupOptions = campsite == 'campsite'
+        ? { className: 'campsite-popup-shell' }
+        : { className: 'lore-popup-shell' };
       const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
 
       // Attach specific logic based on whether the campsite variable is 'yes'
@@ -186,9 +189,10 @@ export const createGeographicShape = async (geographic_data) => {
 
           // Add click event
           layer.on('click', (e) => {
-            const popup = L.popup()
+            const popup = L.popup({ className: 'lore-popup-shell' })
               .setLatLng(e.latlng)
-              .setContent(PopupContent || `Name: ${name}`)
+              .setContent(PopupContent || `Name: ${name}`);
+            popup
               .openOn(layer._map);
           });
         }
