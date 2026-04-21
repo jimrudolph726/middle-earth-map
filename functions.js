@@ -43,7 +43,6 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
   return `
     <article class="lore-popup lore-popup--geography">
       <div class="lore-popup__frame">
-        <p class="lore-popup__kicker">Lore of the Land</p>
         <h3 class="lore-popup__title">${name}</h3>
 
         <div class="lore-popup__details">
