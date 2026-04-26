@@ -87,7 +87,7 @@ export const createMarkerClusterGroup = (options = {}) => {
     showCoverageOnHover: false,
     spiderfyOnMaxZoom: true,
     disableClusteringAtZoom: 25,
-    maxClusterRadius: 60,
+    maxClusterRadius: 25,
     ...options,
   });
 };
