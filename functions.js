@@ -150,7 +150,12 @@ export const createMarkers = (locations, campsite = 'no') => {
     const clusterGroup = L.markerClusterGroup({
       showCoverageOnHover: false,
       spiderfyOnMaxZoom: true,
-      disableClusteringAtZoom: 10 // adjust based on your map scale
+
+      // 👇 KEY FIX
+      disableClusteringAtZoom: 18,
+
+      // 👇 Adjust clustering sensitivity
+      maxClusterRadius: 60
     });
 
     const markers = Object.keys(locations).reduce((acc, key) => {
