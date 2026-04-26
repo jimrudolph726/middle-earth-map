@@ -11,84 +11,75 @@ export function createIcon(url, size = [48, 48]) {
 }
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
   return `
-    <div style="width: 100%; background-color: white; border: 1px solid #ddd; padding: 10px; box-sizing: border-box; margin: auto;" 
-         onmouseover="this.querySelector('.popup-content').style.display = 'block';" 
-         onmouseout="this.querySelector('.popup-content').style.display = 'none';">
-        <h3>${date}</h3>
-        <table style="border-collapse: collapse; width: 100%; max-width: 600px; font-size: 14px;">
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${date}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Hours Travelled</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${hoursTravelled}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Mileage</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${mileage}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Miles per hour</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${milesPerHour}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Comments</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${comments}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Campsite</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">${campsite}</td>
-            </tr>
-        </table>
-        <div class="popup-content" style="display: none; margin-top: 10px;">
+    <article class="campsite-popup">
+      <div class="campsite-popup__frame">
+        <h3 class="campsite-popup__title">${date}</h3>
+        <p class="campsite-popup__subtitle">${campsite}</p>
+
+        <div class="campsite-popup__details">
+          <div class="campsite-popup__row">
+            <span class="campsite-popup__label">Hours on the Road</span>
+            <span class="campsite-popup__value">${hoursTravelled}</span>
+          </div>
+          <div class="campsite-popup__row">
+            <span class="campsite-popup__label">Miles Traveled</span>
+            <span class="campsite-popup__value">${mileage}</span>
+          </div>
+          <div class="campsite-popup__row">
+            <span class="campsite-popup__label">Pace</span>
+            <span class="campsite-popup__value">${milesPerHour} mph</span>
+          </div>
         </div>
-    </div>
+
+        <div class="campsite-popup__notes">
+          <p class="campsite-popup__notes-label">Notes from the Road</p>
+          <p class="campsite-popup__notes-text">${comments}</p>
+        </div>
+      </div>
+    </article>
   `;
 };
 export const createGeographicPopup = (name, elvish_name, elvish_meaning, description, url) => {
   return `
-    <div onclick="const content = this.querySelector('.popup-content'); 
-                   content.style.display = content.style.display === 'block' ? 'none' : 'block';">
-        <h3>${name}</h3>
-        <table style="border-collapse: collapse; width: 100%; font-size: 14px;">
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${name}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Name</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_name}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Sindarin Elvish Meaning</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${elvish_meaning}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
-                <td style="border: 1px solid #ddd; padding: 8px; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">${description}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Learn more here</th>
-                <td style="border: 1px solid #ddd; padding: 8px;">
-                    <a href="${url}" target="_blank" rel="noopener noreferrer">Visit</a>
-                </td>
-            </tr>
-        </table>
-        <div class="popup-content" style="display: none; margin-top: 10px;">
+    <article class="lore-popup lore-popup--geography">
+      <div class="lore-popup__frame">
+        <h3 class="lore-popup__title">${name}</h3>
+
+        <div class="lore-popup__sections">
+          <div class="lore-popup__section">
+            <div class="lore-popup__section-title">Elvish Name</div>
+            <div class="lore-popup__section-text">${elvish_name}</div>
+          </div>
+          <div class="lore-popup__section">
+            <div class="lore-popup__section-title">Meaning</div>
+            <div class="lore-popup__section-text">${elvish_meaning}</div>
+          </div>
         </div>
-    </div>
+
+        <div class="lore-popup__notes">
+          <div class="lore-popup__section-title">Description</div>
+          <div class="lore-popup__section-text">${description}</div>
+        </div>
+
+        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read More</a>
+      </div>
+    </article>
   `;
 };
 export const createSettlementPopup = (name, description, url) => {
-  return`<div>
-    <h3 style="font-size: 24px;">${name}</h3>
-  <p style="font-size: 18px;">${description}</p>
-    <button onclick="window.open('${url}', '_blank');" 
-            style="cursor: pointer; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-      Learn more here
-    </button>
-  </div>`;
+  return `
+    <article class="lore-popup lore-popup--settlement">
+      <div class="lore-popup__frame">
+        <h3 class="lore-popup__title">${name}</h3>
+
+        <div class="lore-popup__notes">
+          <p class="lore-popup__notes-text">${description}</p>
+        </div>
+
+        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read More</a>
+      </div>
+    </article>
+  `;
 };
 
 // Checkbox listener functions
@@ -134,10 +125,12 @@ export const createMarkers = (locations, campsite = 'no') => {
   return new Promise((resolve) => {
     const markers = Object.keys(locations).reduce((acc, key) => {
       const { coords, icon, popup } = locations[key];
-      const marker = L.marker(coords, { icon }).bindPopup(popup);
+      const popupOptions = campsite == 'campsite'
+        ? { className: 'campsite-popup-shell', maxWidth: 520 }
+        : { className: 'lore-popup-shell', maxWidth: 520 };
+      const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
 
-      // Attach specific logic based on whether the campsite variable is 'yes'
-      if (campsite === 'campsite') {
+      if (campsite == 'campsite') {
         marker.on('mouseover', () => marker.openPopup());
         marker.on('mouseout', () => marker.closePopup());
       }
@@ -196,10 +189,10 @@ export const createGeographicShape = async (geographic_data) => {
 
           // Add click event
           layer.on('click', (e) => {
-            const popup = L.popup()
+            const popup = L.popup({ className: 'lore-popup-shell', maxWidth: 520 })
               .setLatLng(e.latlng)
-              .setContent(PopupContent || `Name: ${name}`)
-              .openOn(layer._map);
+              .setContent(PopupContent || `Name: ${name}`);
+            popup.openOn(layer._map);
           });
         }
       });

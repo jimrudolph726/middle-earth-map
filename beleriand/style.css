@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Libre+Baskerville:wght@400;700&display=swap");
+
 body {
   padding: 0;
   margin: 0;
@@ -10,7 +12,38 @@ body {
 
 html, body, #map {
   height: 100%;
-  font: 10pt "Ringbearer", Arial, Helvetica, sans-serif; 
+  font: 10pt "Libre Baskerville", Georgia, serif;
+}
+
+body,
+button,
+input,
+label,
+table,
+td,
+th,
+p {
+  font-family: "Libre Baskerville", Georgia, serif;
+}
+
+h1,
+h2,
+h3,
+.sidebar-header,
+.polygon-label {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-tabs a,
+.atlas-map-nav__link {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.map-title,
+.brand-mark,
+.ringbearer-accent {
+  font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
 }
 
 .lorem {
@@ -20,82 +53,261 @@ html, body, #map {
 
 #settlementsSection, #pathsSection, #geographySection, #battlesSection, #itemsSection, #campsSection, #regionsSection {
   display: flex;
-  flex-direction: column; /* Stack the labels vertically */
-  gap: 8px; /* Optional: Add spacing between items */
-  padding-top: 16px; /* Optional: Add padding for indentation */
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
 }
 
 #regionsSection h1,
 #campsSection h1,
-#itemsSection h1, 
-#settlementsSection h1, 
-#pathsSection h1, 
+#itemsSection h1,
+#settlementsSection h1,
+#pathsSection h1,
 #geographySection h1,
 #battlesSection h1 {
-  font-size: 18px; /* Adjust the size as needed */
-  font-weight: bold; /* Bold text */
-  margin: 2px 0; /* Adjust top and bottom spacing */
-  padding-top: 2px; /* Optional: Add spacing above the header */
-  color: #444; /* Set a consistent text color */
-  text-align: left; /* Align text to the left */
+  font-size: 18px;
+  font-weight: 600;
+  margin: 2px 0;
+  padding-top: 2px;
+  color: #444;
+  text-align: left;
 }
 
 #settlementsSection label, #pathsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label, #campsSection label, #regionsSection label {
   display: flex;
-  align-items: center; /* Align the checkbox and label text */
-  cursor: pointer; /* Change the cursor to indicate clickability */
-  font-size: 16px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 #regionsSection input[type="checkbox"],
-/* #campsSection input[type="checkbox"], */
 #itemsSection input[type="checkbox"],
-/* #pathsSection input[type="checkbox"], */
 #itemsSection input[type="checkbox"],
 #battlesSection input[type="checkbox"],
 #settlementsSection input[type="checkbox"],
 #geographySection input[type="checkbox"] {
-  margin-right: 8px; /* Add spacing between the checkbox and label text */
-}
-
-#mapSection button {
-  display: block;
-  width: 50%; /* Optional: Makes buttons stretch to full width */
-  margin-bottom: 10px; /* Adds spacing between buttons */
+  margin-right: 8px;
 }
 
 .sidebar-tabs .material-icons {
   position: relative;
-  top: 10px; /* Shifts the icons down */
+  top: 10px;
 }
+
 .sidebar-tabs .material-symbols-outlined {
   position: relative;
-  top: 10px; /* Shifts the icons down */
+  top: 10px;
 }
 
 .polygon-label {
-  /*background-color: rgba(255, 255, 255, 1); /* Fully opaque for visibility */
   border: 2px solid black;
   border-radius: 5px;
   padding: 2px 6px;
-  font-size: 16px;
+  font-size: 18px;
   color: black;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
-  pointer-events: none; /* Prevent the label from being interactive */
+  pointer-events: none;
 }
 
 #campsSection, #pathsSection {
-  padding-top: 0; /* Remove extra padding from the top */
+  padding-top: 0;
 }
 
 #campsSection h3,
 #pathsSection h3 {
-  margin-top: 0; /* Remove any extra margin on the h3 headers */
+  margin-top: 0;
 }
 
 #campsSection label, #pathsSection label {
-  margin-top: 0; /* Remove top margin from the labels */
+  margin-top: 0;
+}
+
+.campsite-popup {
+  min-width: 260px;
+  max-width: 320px;
+  color: #38291a;
+}
+
+.campsite-popup-shell .leaflet-popup-content-wrapper {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.campsite-popup-shell .leaflet-popup-content {
+  margin: 0;
+}
+
+.campsite-popup-shell .leaflet-popup-tip {
+  background: #fefaf0;
+  box-shadow: none;
+}
+
+.lore-popup-shell .leaflet-popup-content-wrapper {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.lore-popup-shell .leaflet-popup-content {
+  margin: 0;
+}
+
+.lore-popup-shell .leaflet-popup-tip {
+  background: #fefaf0;
+  box-shadow: none;
+}
+
+.campsite-popup__frame {
+  padding: 16px;
+  border: 1px solid #8f7650;
+  border-radius: 10px;
+  background: #fefaf0;
+  box-shadow: inset 0 0 0 1px rgba(255, 248, 224, 0.45);
+}
+
+.campsite-popup__title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1;
+  color: #2d2013;
+}
+
+.campsite-popup__subtitle {
+  margin: 6px 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(111, 83, 40, 0.35);
+  font-size: 15px;
+  font-style: italic;
+  color: #5e4727;
+}
+
+.campsite-popup__details {
+  display: grid;
+  gap: 8px;
+}
+
+.campsite-popup__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 4px 0;
+  border-bottom: 1px dashed rgba(111, 83, 40, 0.2);
+}
+
+.campsite-popup__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #755a32;
+}
+
+.campsite-popup__value {
+  font-size: 14px;
+  text-align: right;
+  color: #2c2218;
+}
+
+.campsite-popup__notes {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(111, 83, 40, 0.35);
+}
+
+.campsite-popup__notes-label {
+  margin: 0 0 6px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+  color: #41301c;
+}
+
+.campsite-popup__notes-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #38291a;
+}
+
+.lore-popup {
+  min-width: 260px;
+  max-width: 440px;
+  color: #38291a;
+}
+
+.lore-popup__frame {
+  padding: 16px;
+  border: 1px solid #8f7650;
+  border-radius: 10px;
+  background: #fefaf0;
+  box-shadow: inset 0 0 0 1px rgba(255, 248, 224, 0.45);
+}
+
+.lore-popup__title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1;
+  color: #2d2013;
+}
+
+.lore-popup__sections {
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.lore-popup__section {
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(111, 83, 40, 0.2);
+}
+
+.lore-popup__section-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.05;
+  color: #41301c;
+}
+
+.lore-popup__section-text {
+  margin: 1px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #38291a;
+}
+
+.lore-popup__notes {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(111, 83, 40, 0.35);
+}
+
+.lore-popup__notes-text {
+  margin: 1px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #38291a;
+}
+
+.lore-popup__link {
+  display: table;
+  margin-top: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px 12px;
+  border: 1px solid #8f7650;
+  border-radius: 999px;
+  background: rgba(126, 102, 59, 0.12);
+  color: #4d371a;
+  text-decoration: none;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+}
+
+.lore-popup__link:hover,
+.lore-popup__link:focus-visible {
+  background: rgba(126, 102, 59, 0.2);
 }
 
 .atlas-map-nav {
@@ -107,6 +319,7 @@ html, body, #map {
   flex-direction: column;
   gap: 10px;
   width: min(220px, calc(100vw - 36px));
+  pointer-events: auto;
 }
 
 .atlas-map-nav__link {
@@ -114,21 +327,28 @@ html, body, #map {
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  border: 1px solid rgba(68, 68, 68, 0.4);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
-  color: #2c2c2c;
+  border: 1px solid rgba(111, 83, 40, 0.5);
+  border-radius: 12px;
+  background: rgba(254, 250, 240, 0.92);
+  box-shadow: 0 10px 24px rgba(31, 20, 8, 0.18);
+  color: #3f2c15;
   text-decoration: none;
+  font-size: 21px;
+  backdrop-filter: blur(3px);
+}
+
+.atlas-map-nav__link .material-icons {
+  font-size: 20px;
 }
 
 .atlas-map-nav__link--home {
-  background: rgba(245, 241, 228, 0.96);
+  background: rgba(244, 232, 199, 0.95);
 }
 
 .atlas-map-nav__link:hover,
 .atlas-map-nav__link:focus-visible {
-  background: rgba(255, 255, 255, 0.98);
+  transform: translateY(-1px);
+  background: rgba(255, 252, 245, 0.98);
 }
 
 @media (max-width: 720px) {
@@ -142,5 +362,6 @@ html, body, #map {
 
   .atlas-map-nav__link {
     justify-content: center;
+    font-size: 18px;
   }
 }
