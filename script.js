@@ -5,7 +5,8 @@ import {
   MarkerListeners,
   createGeographicShape,
   createMarkers,
-  createMarkerClusterGroup
+  createMarkerClusterGroup,
+  buildMarkers
 } from './functions.js';
 
 import {
@@ -26,14 +27,12 @@ let settlementClusterGroup = null;
 
 // Add Campsites and Settlements
 Promise.all(
-  settlementsData.map(({ data, checkboxId, campsite, clusterScope }) =>
-    createMarkers(data, campsite).then(({ markers }) => ({
-      checkboxId,
-      campsite,
-      clusterScope,
-      markers,
-    }))
-  )
+  settlementsData.map(({ data, checkboxId, campsite, clusterScope }) => ({
+    checkboxId,
+    campsite,
+    clusterScope,
+    data,
+  }))
 ).then((markerEntries) => {
   const sharedClusterEntries = markerEntries.filter(
     ({ clusterScope }) => clusterScope === 'sharedSettlementCluster'
@@ -53,13 +52,20 @@ Promise.all(
         return;
       }
 
+      const entry = sharedClusterEntries.find((item) => item.checkboxId === checkboxId);
+      const markers = buildMarkers(entry.data, entry.campsite);
+
       Object.values(markers).forEach((marker) => {
         activeMarkers.push(marker);
       });
     });
 
-    if (settlementClusterGroup && map.hasLayer(settlementClusterGroup)) {
-      map.removeLayer(settlementClusterGroup);
+    if (settlementClusterGroup) {
+      if (map.hasLayer(settlementClusterGroup)) {
+        map.removeLayer(settlementClusterGroup);
+      }
+
+      settlementClusterGroup.clearLayers();
     }
 
     if (activeMarkers.length === 0) {
@@ -85,14 +91,12 @@ Promise.all(
 
   syncSharedSettlementCluster();
 
-  categoryClusterEntries.forEach(({ checkboxId, markers }) => {
+  categoryClusterEntries.forEach(({ checkboxId, data, campsite }) => {
     const clusterGroup = createMarkerClusterGroup();
 
-    Object.values(markers).forEach((marker) => {
-      clusterGroup.addLayer(marker);
+    createMarkers(data, campsite, clusterGroup).then(({ markers, clusterGroup }) => {
+      MarkerListeners(checkboxId, { markers, clusterGroup }, map);
     });
-
-    MarkerListeners(checkboxId, { markers, clusterGroup }, map);
   });
 });
  

@@ -92,6 +92,26 @@ export const createMarkerClusterGroup = (options = {}) => {
   });
 };
 
+export const buildMarkers = (locations, campsite = 'no') => {
+  return Object.keys(locations).reduce((acc, key) => {
+    const { coords, icon, popup } = locations[key];
+
+    const popupOptions = campsite == 'campsite'
+      ? { className: 'campsite-popup-shell', maxWidth: 520 }
+      : { className: 'lore-popup-shell', maxWidth: 520 };
+
+    const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
+
+    if (campsite == 'campsite') {
+      marker.on('mouseover', () => marker.openPopup());
+      marker.on('mouseout', () => marker.closePopup());
+    }
+
+    acc[key] = marker;
+    return acc;
+  }, {});
+};
+
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markerData, map) => {
   const checkbox = document.getElementById(checkboxId);
@@ -169,27 +189,13 @@ export const PathListeners = (items, map) => {
 // Campsites and Settlements function
 export const createMarkers = (locations, campsite = 'no', clusterGroup = null) => {
   return new Promise((resolve) => {
-    const markers = Object.keys(locations).reduce((acc, key) => {
-      const { coords, icon, popup } = locations[key];
+    const markers = buildMarkers(locations, campsite);
 
-      const popupOptions = campsite == 'campsite'
-        ? { className: 'campsite-popup-shell', maxWidth: 520 }
-        : { className: 'lore-popup-shell', maxWidth: 520 };
-
-      const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
-
-      if (campsite == 'campsite') {
-        marker.on('mouseover', () => marker.openPopup());
-        marker.on('mouseout', () => marker.closePopup());
-      }
-
+    Object.values(markers).forEach((marker) => {
       if (clusterGroup) {
         clusterGroup.addLayer(marker);
       }
-
-      acc[key] = marker;
-      return acc;
-    }, {});
+    });
 
     resolve({
       markers,

@@ -68,6 +68,9 @@ const settlementGroups = {
   dwarves,
   men,
   hobbits,
+};
+
+const miscMarkerGroups = {
   battles,
   one_on_one,
   swords,
@@ -79,14 +82,23 @@ export const settlementsData = [
   ...Object.entries(campsiteGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
-    campsite: 'campsite'
+    campsite: 'campsite',
+    clusterScope: 'sharedSettlementCluster',
   })),
 
   ...Object.entries(settlementGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
-    campsite: 'no'
-  }))
+    campsite: 'no',
+    clusterScope: 'sharedSettlementCluster',
+  })),
+
+  ...Object.entries(miscMarkerGroups).map(([name, data]) => ({
+    data,
+    checkboxId: `${name}Checkbox`,
+    campsite: 'no',
+    clusterScope: 'categoryCluster',
+  })),
 ];
 
 // Paths
