@@ -22,7 +22,11 @@ map.options.wheelPxPerZoomLevel = 40;
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
-const settlementClusterGroup = createMarkerClusterGroup();
+const settlementClusterGroup = createMarkerClusterGroup({
+  // This map uses a custom image overlay, so a larger radius helps nearby
+  // settlement categories merge into one cluster instead of only same-group markers.
+  maxClusterRadius: 140,
+});
 
 // Add Campsites and Settlements
 Promise.all(

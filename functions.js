@@ -82,12 +82,13 @@ export const createSettlementPopup = (name, description, url) => {
   `;
 };
 
-export const createMarkerClusterGroup = () => {
+export const createMarkerClusterGroup = (options = {}) => {
   return L.markerClusterGroup({
     showCoverageOnHover: false,
     spiderfyOnMaxZoom: true,
     disableClusteringAtZoom: 25,
     maxClusterRadius: 60,
+    ...options,
   });
 };
 
