@@ -250,6 +250,19 @@ body.splash-body {
   .map-card--numenor {
     top: 158px;
     right: 16px;
+    
+  }
+  .map-card__eyebrow {
+  font-size: 0.85rem;
+  }
+
+  .map-card__title {
+    font-size: 1.5rem;
+  }
+
+  .map-card__copy {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }
 
