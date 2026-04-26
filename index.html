@@ -10,26 +10,47 @@
 <body class="splash-body">
     <main class="splash-shell">
         <section class="splash-panel">
+            <p class="splash-kicker">A Cartographer's Table</p>
             <h1 class="splash-title">Tolkien Legendarium Atlas</h1>
             <p class="splash-copy">
-                Wander through the lands, paths, places, and histories of Tolkien's legendarium. Choose a map below to begin.
+                Choose a chart from the table and step into an age of the legendarium.
+                On larger screens the atlas opens like a tabletop spread; on smaller screens
+                the same maps gather into a stack of travel-ready leaves.
             </p>
-            <div class="splash-actions">
-                <a class="splash-link" href="middle-earth.html">
-                    <strong>Middle-earth</strong>
-                    <span>Third Age Middle-earth</span>
+
+            <div class="splash-table" aria-label="Atlas map selection">
+                <div class="splash-prop splash-prop--compass" aria-hidden="true"></div>
+                <div class="splash-prop splash-prop--quill" aria-hidden="true"></div>
+
+                <a class="map-card map-card--middle-earth" href="middle-earth.html">
+                    <span class="map-card__pin" aria-hidden="true"></span>
+                    <span class="map-card__sheet">
+                        <span class="map-card__eyebrow">Third Age</span>
+                        <strong class="map-card__title">Middle-earth</strong>
+                        <span class="map-card__copy">The long road from the Shire to Mordor, with the realms, rivers, and histories of the War of the Ring.</span>
+                    </span>
                 </a>
-                <a class="splash-link" href="beleriand/beleriand.html">
-                    <strong>Beleriand</strong>
-                    <span>The elder lands of the First Age</span>
+
+                <a class="map-card map-card--beleriand" href="beleriand/beleriand.html">
+                    <span class="map-card__pin" aria-hidden="true"></span>
+                    <span class="map-card__sheet">
+                        <span class="map-card__eyebrow">First Age</span>
+                        <strong class="map-card__title">Beleriand</strong>
+                        <span class="map-card__copy">The elder lands west of the Blue Mountains, where the early wars against Morgoth were fought.</span>
+                    </span>
                 </a>
-                <a class="splash-link" href="numenor/numenor.html">
-                    <strong>Numenor</strong>
-                    <span>The island kingdom of Men</span>
+
+                <a class="map-card map-card--numenor" href="numenor/numenor.html">
+                    <span class="map-card__pin" aria-hidden="true"></span>
+                    <span class="map-card__sheet">
+                        <span class="map-card__eyebrow">Second Age</span>
+                        <strong class="map-card__title">Numenor</strong>
+                        <span class="map-card__copy">The sea-kingdom of Men, set apart upon the waters before its fall beneath the waves.</span>
+                    </span>
                 </a>
-                <p class="splash-kicker">Elen síla lúmenn' omentielvo</p>
             </div>
-            <!-- <p class="splash-note">A simple landing page so the maps feel like one shared collection.</p> -->
+
+            <p class="splash-blessing">Elen sila lumenn' omentielvo</p>
         </section>
     </main>
 </body>
