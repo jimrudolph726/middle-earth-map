@@ -280,5 +280,8 @@ export const gandalfthegreycampsites = {
   Year3018September20: { coords: [44.94204054,-93.30480435], icon: icons.TentIcon, popup: createCampsitePopup(`September 20`,"?","?","?",`Gandalf gains entrance to Edoras. Theoden commands him to go: "Take any horse, only be gone ere tomorrow is old!"`,''), },
   Year3018September21: { coords: [44.94253610,-93.30469201], icon: icons.TentIcon, popup: createCampsitePopup(`September 21`,"?","?","?",`Gandalf meets Shadowfax, but the horse will not allow him to come near. He follows Shadowfax far over the fields.`,''), },
   Year3018September22: { coords: [44.94227638,-93.30487260], icon: icons.TentIcon, popup: createCampsitePopup(`September 22`,"?","?","?",`The Black Riders reach Sarn Ford at evening; they drive off the guard of Rangers. Gandalf overtakes Shadowfax.`,''), },
+  Year3018September23: { coords: [44.94211273,-93.30525606], icon: icons.TentIcon, popup: createCampsitePopup(`September 23`,"?","?","?",`Four Riders enter the Shire before dawn. The others puruse the Ranger eastward, and then return to watch the Greenway. A Black Rider comes to Hobbiton at nightfall. Frodo leaves Bag End. Gandalf having tamed Shadowfax rides from Rohan.`,''), },
+  Year3018September24: { coords: [44.94251452,-93.30642415], icon: icons.TentIcon, popup: createCampsitePopup(`September 24`,"?","?","?",`Gandalf crosses the Isen.`,''), },
+  Year3018September27: { coords: [44.9448097,-93.3084362], icon: icons.TentIcon, popup: createCampsitePopup(`September 27`,"?","?","?",`Gandalf crosses Greyflood.`,''), },
   }
   
