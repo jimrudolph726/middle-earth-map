@@ -146,50 +146,38 @@ body.splash-body {
   justify-content: flex-end;
   padding: 22px 22px 20px;
   overflow: hidden;
-  border: 1px solid rgba(111, 76, 38, 0.48);
-  border-radius: 14px;
+  border: none;
+  border-radius: 12px;
+  background-color: #dcc58f;
   background:
-    radial-gradient(circle at 18% 16%, rgba(255, 249, 231, 0.65), transparent 24%),
-    linear-gradient(180deg, #e7d2a0, #cfb178 72%, #c29f67);
-  isolation: isolate;
+    linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
+    var(--map-image) center center / calc(100% - 48px) calc(100% - 48px) no-repeat,
+    url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
   box-shadow:
     0 18px 32px rgba(16, 11, 8, 0.28),
-    inset 0 0 0 1px rgba(255, 246, 222, 0.26),
-    inset 0 0 22px rgba(86, 58, 28, 0.12);
-}
-
-.map-card__sheet > * {
-  position: relative;
-  z-index: 2;
-}
-
-.map-card__sheet::before {
-  content: "";
-  position: absolute;
-  inset: 18px 18px 20px;
-  border-radius: 8px;
-  background:
-    linear-gradient(rgba(246, 233, 196, 0.08), rgba(103, 76, 43, 0.08)),
-    var(--map-image) center center / cover no-repeat;
-  box-shadow:
-    inset 0 0 0 1px rgba(81, 55, 27, 0.26),
-    0 6px 16px rgba(31, 20, 9, 0.12);
+    inset 0 0 0 1px rgba(255, 246, 222, 0.18);
   filter: sepia(0.72) saturate(0.68) contrast(0.9) brightness(0.94);
 }
 
 .map-card__sheet::after {
   content: "";
   position: absolute;
-  inset: 18px 18px 20px;
-  border-radius: 8px;
+  inset: 24px;
   background:
-    linear-gradient(rgba(255, 246, 217, 0.16), transparent 22%, rgba(70, 49, 27, 0.22)),
-    radial-gradient(circle at 18% 14%, rgba(255, 250, 233, 0.28), transparent 22%),
-    radial-gradient(circle at 82% 20%, rgba(74, 51, 29, 0.16), transparent 24%),
-    radial-gradient(circle at 50% 120%, rgba(40, 25, 12, 0.18), transparent 34%),
-    repeating-linear-gradient(0deg, transparent 0 16px, rgba(82, 58, 33, 0.03) 16px 17px);
-  box-shadow: inset 0 0 18px rgba(52, 34, 18, 0.16);
+    linear-gradient(rgba(255, 250, 235, 0.1), transparent 26%, rgba(71, 49, 28, 0.12)),
+    radial-gradient(circle at 18% 14%, rgba(255, 249, 232, 0.2), transparent 22%);
+  border-radius: 6px;
+  box-shadow:
+    inset 0 0 0 1px rgba(86, 60, 34, 0.18),
+    0 4px 10px rgba(28, 18, 10, 0.12);
   mix-blend-mode: multiply;
+}
+
+.map-card__eyebrow,
+.map-card__title,
+.map-card__copy {
+  position: relative;
+  z-index: 1;
 }
 
 .map-card__eyebrow {
@@ -316,11 +304,10 @@ body.splash-body {
   .map-card__sheet {
     min-height: 240px;
     padding: 18px 18px 16px;
-  }
-
-  .map-card__sheet::before,
-  .map-card__sheet::after {
-    inset: 14px 14px 16px;
+    background:
+      linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
+      var(--map-image) center center / calc(100% - 36px) calc(100% - 36px) no-repeat,
+      url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
   }
 
   .map-card__copy {
