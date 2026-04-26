@@ -79,7 +79,6 @@ Promise.all(
     });
 
     settlementClusterGroup.addLayers(activeMarkers);
-    settlementClusterGroup.refreshClusters();
     map.addLayer(settlementClusterGroup);
   };
 
