@@ -23,7 +23,7 @@ map.options.wheelPxPerZoomLevel = 40;
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
-let settlementClusterGroup = null;
+const sharedClusterGroups = {};
 
 // Add Campsites and Settlements
 Promise.all(
@@ -35,17 +35,27 @@ Promise.all(
   }))
 ).then((markerEntries) => {
   const sharedClusterEntries = markerEntries.filter(
-    ({ clusterScope }) => clusterScope === 'sharedSettlementCluster'
+    ({ clusterScope }) => clusterScope === 'sharedSettlementCluster' || clusterScope === 'sharedCampsiteCluster'
   );
 
   const categoryClusterEntries = markerEntries.filter(
-    ({ clusterScope }) => clusterScope !== 'sharedSettlementCluster'
+    ({ clusterScope }) => clusterScope !== 'sharedSettlementCluster' && clusterScope !== 'sharedCampsiteCluster'
   );
 
-  const syncSharedSettlementCluster = () => {
-    const activeMarkers = [];
+  const sharedClusterConfig = {
+    sharedSettlementCluster: {
+      maxClusterRadius: 50,
+    },
+    sharedCampsiteCluster: {
+      maxClusterRadius: 50,
+    },
+  };
 
-    sharedClusterEntries.forEach(({ checkboxId, data, campsite }) => {
+  const syncSharedCluster = (clusterScope) => {
+    const activeMarkers = [];
+    const entries = sharedClusterEntries.filter((entry) => entry.clusterScope === clusterScope);
+
+    entries.forEach(({ checkboxId, data, campsite }) => {
       const checkbox = document.getElementById(checkboxId);
 
       if (!checkbox?.checked) {
@@ -59,35 +69,33 @@ Promise.all(
       });
     });
 
-    if (settlementClusterGroup) {
-      if (map.hasLayer(settlementClusterGroup)) {
-        map.removeLayer(settlementClusterGroup);
+    if (sharedClusterGroups[clusterScope]) {
+      if (map.hasLayer(sharedClusterGroups[clusterScope])) {
+        map.removeLayer(sharedClusterGroups[clusterScope]);
       }
 
-      settlementClusterGroup.clearLayers();
+      sharedClusterGroups[clusterScope].clearLayers();
     }
 
     if (activeMarkers.length === 0) {
-      settlementClusterGroup = null;
+      sharedClusterGroups[clusterScope] = null;
       return;
     }
 
-    settlementClusterGroup = createMarkerClusterGroup({
-      // This map uses a custom image overlay, so a larger radius helps nearby
-      // settlement categories merge into one cluster instead of only same-group markers.
-      maxClusterRadius: 50,
-    });
+    sharedClusterGroups[clusterScope] = createMarkerClusterGroup(sharedClusterConfig[clusterScope]);
 
-    settlementClusterGroup.addLayers(activeMarkers);
-    map.addLayer(settlementClusterGroup);
+    sharedClusterGroups[clusterScope].addLayers(activeMarkers);
+    map.addLayer(sharedClusterGroups[clusterScope]);
   };
 
-  sharedClusterEntries.forEach(({ checkboxId }) => {
+  sharedClusterEntries.forEach(({ checkboxId, clusterScope }) => {
     const checkbox = document.getElementById(checkboxId);
-    checkbox?.addEventListener('change', syncSharedSettlementCluster);
+    checkbox?.addEventListener('change', () => syncSharedCluster(clusterScope));
   });
 
-  syncSharedSettlementCluster();
+  Object.keys(sharedClusterConfig).forEach((clusterScope) => {
+    syncSharedCluster(clusterScope);
+  });
 
   categoryClusterEntries.forEach(({ checkboxId, data, campsite }) => {
     const clusterGroup = createMarkerClusterGroup();

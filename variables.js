@@ -83,7 +83,7 @@ export const settlementsData = [
     data,
     checkboxId: `${name}Checkbox`,
     campsite: 'campsite',
-    clusterScope: 'sharedSettlementCluster',
+    clusterScope: 'sharedCampsiteCluster',
   })),
 
   ...Object.entries(settlementGroups).map(([name, data]) => ({
