@@ -366,3 +366,7 @@ export const gandalfthegreycampsites = {
   January23through25: { coords: [44.9450208,-93.3055802], icon: icons.TentIcon, popup: createCampsitePopup('January 23 through January 25','?','?','?','Battle of the Peak.', `Peak of the Silvertine (Celebdil) Mountain`),
     },
   }
+export const gandalfthewhitecampsites = {
+  February14: { coords: [44.9450208,-93.3055802], icon: icons.TentIcon, popup: createCampsitePopup('February 14','?','?','?','Gandalf returns to life and lies on the peak of the Silvertine mountain in a trance.', 'Peak of the Silvertine (Celebdil) Mountain'),
+    },
+  }
