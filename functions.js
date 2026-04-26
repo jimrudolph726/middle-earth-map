@@ -86,7 +86,7 @@ export const createMarkerClusterGroup = () => {
   return L.markerClusterGroup({
     showCoverageOnHover: false,
     spiderfyOnMaxZoom: true,
-    disableClusteringAtZoom: 18,
+    disableClusteringAtZoom: 25,
     maxClusterRadius: 60,
   });
 };
