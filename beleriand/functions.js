@@ -155,18 +155,20 @@ export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
-    const geojsonPath = `https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/geojson_files/${pathName}.geojson`;
+    const geojsonPath = new URL(`./geojson_files/${pathName}.geojson`, import.meta.url);
 
     try {
       const response = await fetch(geojsonPath);
-      console.log(`Response received for ${key}`);
+      if (!response.ok) {
+        throw new Error(`Failed to load ${geojsonPath} (${response.status})`);
+      }
       const data = await response.json();
       
       // Create the polygon using the GeoJSON data
       const polygon = L.geoJSON(data, {
         style: {
           color,
-          weight: 5,
+          weight: weight ?? 5,
           fillOpacity: 0.5,
         },
         clickTolerance: tolerance,
@@ -204,7 +206,6 @@ export const createGeographicShape = async (geographic_data) => {
     
       // Store the polygon in the polygons object
       polygons[key] = polygon;
-      console.log(`Polygon created for ${key}`);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }

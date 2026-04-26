@@ -37,7 +37,7 @@ import {
  } from './campsite_data.js';
 
 // Map
-export const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/assets/middle-earth.png';
+export const imageUrl = new URL('./assets/middle-earth.png', import.meta.url).href;
 export const map = L.map('map', {
 crs: L.CRS.EPSG3857,
 minZoom: 15,
@@ -51,15 +51,35 @@ preferCanvas: true
 export const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
 
 // Campsites and Settlements
+const campsiteGroups = {
+  samfrodocampsites,
+  aragorncampsites,
+  pippincampsites,
+  merrycampsites,
+  gandalfthegreycampsites,
+};
+
+const settlementGroups = {
+  elves,
+  dwarves,
+  men,
+  hobbits,
+  battles,
+  one_on_one,
+  swords,
+  rings,
+  books,
+};
+
 export const settlementsData = [
-  ...['samfrodocampsites', 'aragorncampsites', 'pippincampsites', 'merrycampsites', 'gandalfthegreycampsites'].map(name => ({
-    data: eval(`${name}`),
+  ...Object.entries(campsiteGroups).map(([name, data]) => ({
+    data,
     checkboxId: `${name}Checkbox`,
     campsite: 'campsite'
   })),
 
-  ...['elves', 'dwarves', 'men', 'hobbits', 'battles', 'one_on_one', 'swords', 'rings', 'books'].map(name => ({
-    data: eval(name),
+  ...Object.entries(settlementGroups).map(([name, data]) => ({
+    data,
     checkboxId: `${name}Checkbox`,
     campsite: 'no'
   }))
@@ -85,9 +105,21 @@ export const pathdata = {
 }
 
 // Geographic Features
+const geographicGroups = {
+  mountain_ranges,
+  mountains,
+  hills,
+  forests,
+  rivers,
+  lakes_seas,
+  wetlands,
+  large_regions,
+  sub_regions,
+};
+
 export const geographicData = [
-  ...['mountain_ranges', 'mountains', 'hills', 'forests', 'rivers', 'lakes_seas', 'wetlands', 'large_regions', 'sub_regions'].map(name => ({
-    data: eval(name),
+  ...Object.entries(geographicGroups).map(([name, data]) => ({
+    data,
     checkboxId: `${name}Checkbox`
   }))
 ]

@@ -29,7 +29,7 @@ import {
  } from './campsite_data.js';
 
 // Map
-export const imageUrl = 'https://raw.githubusercontent.com/jimrudolph726/middle-earth-map/main/beleriand/assets/beleriand.png';
+export const imageUrl = new URL('./assets/beleriand.png', import.meta.url).href;
 export const map = L.map('map', {
 crs: L.CRS.EPSG3857,
 minZoom: 15,
@@ -43,15 +43,30 @@ preferCanvas: true
 export const imageBounds = [[44.94393060,-93.30248833],[44.937485956,-93.290119813],];
 
 // Campsites and Settlements
+const campsiteGroups = {
+  berencampsites,
+};
+
+const settlementGroups = {
+  elves,
+  men,
+  dwarves,
+  battles,
+  one_on_one,
+  swords,
+  rings,
+  books,
+};
+
 export const settlementsData = [
-  ...['berencampsites'].map(name => ({
-    data: eval(`${name}`),
+  ...Object.entries(campsiteGroups).map(([name, data]) => ({
+    data,
     checkboxId: `${name}Checkbox`,
     campsite: 'campsite'
   })),
 
-  ...['elves', 'men', 'dwarves', 'battles', 'one_on_one', 'swords', 'rings', 'books'].map(name => ({
-    data: eval(name),
+  ...Object.entries(settlementGroups).map(([name, data]) => ({
+    data,
     checkboxId: `${name}Checkbox`,
     campsite: 'no'
   }))
@@ -65,9 +80,18 @@ export const pathdata = {
 }
 
 // Geographic Features
+const geographicGroups = {
+  mountain_ranges,
+  mountains,
+  forests,
+  rivers,
+  lakes_seas,
+  hills,
+};
+
 export const geographicData = [
-  ...['mountain_ranges', 'mountains', 'forests', 'rivers', 'lakes_seas', 'hills'].map(name => ({
-    data: eval(name),
+  ...Object.entries(geographicGroups).map(([name, data]) => ({
+    data,
     checkboxId: `${name}Checkbox`
   }))
 ]
