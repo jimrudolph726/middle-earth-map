@@ -147,7 +147,7 @@ export const createMarkers = (locations, campsite = 'no') => {
 export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
-    const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
+    const { pathName, color, name, PopupContent, tolerance, weight, arrows } = geographic_data[key];
     const geojsonPath = new URL(`./geojson_files/${pathName}.geojson`, import.meta.url);
 
     try {
@@ -197,7 +197,17 @@ export const createGeographicShape = async (geographic_data) => {
           });
         }
       });
-    
+      
+      if (arrows) {
+        polygon.arrowheads({
+          size: '18px',
+          frequency: '100px',
+          yawn: 25,
+          fill: true,
+          color: color
+        });
+      }
+          
       // Store the polygon in the polygons object
       if (pathName == 'minhiriath'){
         polygon.bringToFront();
