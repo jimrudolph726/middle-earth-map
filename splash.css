@@ -150,35 +150,36 @@ body.splash-body {
   border-radius: 12px;
   background-color: #dcc58f;
   background:
-    linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
-    var(--map-image) center center / calc(100% - 48px) calc(100% - 48px) no-repeat,
-    url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
+    linear-gradient(rgba(246, 233, 196, 0.2), rgba(103, 76, 43, 0.12)),
+    var(--map-image) center center / cover no-repeat;
   box-shadow:
     0 18px 32px rgba(16, 11, 8, 0.28),
     inset 0 0 0 1px rgba(255, 246, 222, 0.18);
-  filter: sepia(0.52) saturate(0.82) contrast(0.94);
+  filter: sepia(0.72) saturate(0.68) contrast(0.9) brightness(0.94);
 }
 
 .map-card__sheet::before {
   content: "";
   position: absolute;
-  inset: 24px;
+  inset: 0;
   background:
-    linear-gradient(rgba(255, 250, 235, 0.1), transparent 26%, rgba(71, 49, 28, 0.12)),
-    radial-gradient(circle at 18% 14%, rgba(255, 249, 232, 0.2), transparent 22%);
-  border-radius: 6px;
-  box-shadow:
-    inset 0 0 0 1px rgba(86, 60, 34, 0.18),
-    0 4px 10px rgba(28, 18, 10, 0.12);
+    linear-gradient(rgba(255, 246, 217, 0.14), transparent 24%, rgba(70, 49, 27, 0.22)),
+    radial-gradient(circle at 18% 14%, rgba(255, 250, 233, 0.34), transparent 22%),
+    radial-gradient(circle at 82% 20%, rgba(74, 51, 29, 0.12), transparent 24%),
+    repeating-linear-gradient(0deg, transparent 0 16px, rgba(82, 58, 33, 0.03) 16px 17px);
+  border-radius: 12px;
   mix-blend-mode: multiply;
 }
 
 .map-card__sheet::after {
   content: "";
   position: absolute;
-  inset: 16px 18px 18px;
-  border: 1px dashed rgba(111, 76, 38, 0.18);
-  border-radius: 4px;
+  inset: 10px;
+  border: 1px solid rgba(108, 76, 43, 0.28);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 0 18px rgba(52, 34, 18, 0.12),
+    inset 0 0 0 1px rgba(246, 230, 190, 0.12);
 }
 
 .map-card__eyebrow,
@@ -312,10 +313,6 @@ body.splash-body {
   .map-card__sheet {
     min-height: 240px;
     padding: 18px 18px 16px;
-    background:
-      linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
-      var(--map-image) center center / calc(100% - 36px) calc(100% - 36px) no-repeat,
-      url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
   }
 
   .map-card__copy {
