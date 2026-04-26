@@ -153,9 +153,7 @@ body.splash-body {
   background:
     linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
     url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
-  box-shadow:
-    0 18px 32px rgba(16, 11, 8, 0.28),
-    inset 0 0 0 1px rgba(255, 246, 222, 0.18);
+  box-shadow: 0 18px 32px rgba(16, 11, 8, 0.28);
 }
 
 .map-card__sheet::after {
