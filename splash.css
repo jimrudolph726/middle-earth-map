@@ -104,25 +104,21 @@ body.splash-body {
 }
 
 .map-card {
-  --map-rotate: 0deg;
-  --map-top: 0px;
-  --map-left: 0px;
   position: absolute;
-  top: var(--map-top);
-  left: var(--map-left);
+  right: 72px;
   display: block;
-  width: min(34vw, 340px);
-  aspect-ratio: 0.86;
-  padding: 22px;
+  width: min(24vw, 260px);
+  aspect-ratio: 0.9;
+  padding: 0;
   color: var(--ink);
   text-decoration: none;
-  transform: rotate(var(--map-rotate));
-  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+  transform: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .map-card:hover,
 .map-card:focus-visible {
-  transform: translateY(-6px) rotate(var(--map-rotate));
+  transform: translateY(-4px);
 }
 
 .map-card__pin {
@@ -208,24 +204,15 @@ body.splash-body {
 }
 
 .map-card--middle-earth {
-  --map-top: 34px;
-  --map-left: 46px;
-  --map-rotate: -6deg;
-  --map-image: url("assets/middle-earth.png");
+  top: 30px;
 }
 
 .map-card--beleriand {
-  --map-top: 148px;
-  --map-left: min(36vw, 390px);
-  --map-rotate: 4deg;
-  --map-image: url("beleriand/assets/beleriand.png");
+  top: 218px;
 }
 
 .map-card--numenor {
-  --map-top: 64px;
-  --map-left: min(69vw, 760px);
-  --map-rotate: 8deg;
-  --map-image: url("numenor/assets/numenor.png");
+  top: 406px;
 }
 
 .splash-blessing {
@@ -240,26 +227,24 @@ body.splash-body {
 
 @media (max-width: 1100px) {
   .splash-table {
-    min-height: 1120px;
+    min-height: 760px;
   }
 
   .map-card {
-    width: min(68vw, 420px);
+    right: 36px;
+    width: min(28vw, 230px);
   }
 
   .map-card--middle-earth {
-    --map-top: 34px;
-    --map-left: calc(50% - 210px);
+    top: 32px;
   }
 
   .map-card--beleriand {
-    --map-top: 386px;
-    --map-left: calc(50% - 180px);
+    top: 226px;
   }
 
   .map-card--numenor {
-    --map-top: 742px;
-    --map-left: calc(50% - 150px);
+    top: 420px;
   }
 }
 
@@ -287,6 +272,7 @@ body.splash-body {
 
   .map-card {
     position: relative;
+    right: auto;
     top: auto;
     left: auto;
     width: 100%;
