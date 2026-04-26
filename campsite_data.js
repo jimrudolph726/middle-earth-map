@@ -290,5 +290,5 @@ export const gandalfthegreycampsites = {
   Year3018October3: { coords: [44.9466369,-93.3083870], icon: icons.TentIcon, popup: createCampsitePopup(`October 3`,"?","?","?",`Gandalf is attacked at night on Weathertop.`,''), },
   Year3018October3: { coords: [44.9466387,-93.3083844], icon: icons.TentIcon, popup: createCampsitePopup(`October 3`,"?","?","?",`Gandalf is attacked at night on Weathertop.`,''), },
   Year3018October11: { coords: [44.9467046,-93.3069868], icon: icons.TentIcon, popup: createCampsitePopup(`October 11`,"?","?","?",`Gandalf drives the Riders off the Bridge of Mitheithel.`,''), },
-  Year3018October18: { coords: [44.9467074,-93.3069881], icon: icons.TentIcon, popup: createCampsitePopup(`October 18`,"?","?","?",`Hoping to draw the Nazgul away from Frodo, Gandalf took a circuitous route through the Ettenmoors to Rivendell. Glorfindel finds Frodo at dusk. Gandalf reaches Rivendell.`,''), },
+  Year3018October18: { coords: [44.9467642,-93.3055129], icon: icons.TentIcon, popup: createCampsitePopup(`October 18`,"?","?","?",`Hoping to draw the Nazgul away from Frodo, Gandalf took a circuitous route through the Ettenmoors to Rivendell. Glorfindel finds Frodo at dusk. Gandalf reaches Rivendell.`,''), },
   }
