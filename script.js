@@ -45,15 +45,14 @@ Promise.all(
   const syncSharedSettlementCluster = () => {
     const activeMarkers = [];
 
-    sharedClusterEntries.forEach(({ checkboxId, markers }) => {
+    sharedClusterEntries.forEach(({ checkboxId, data, campsite }) => {
       const checkbox = document.getElementById(checkboxId);
 
       if (!checkbox?.checked) {
         return;
       }
 
-      const entry = sharedClusterEntries.find((item) => item.checkboxId === checkboxId);
-      const markers = buildMarkers(entry.data, entry.campsite);
+      const markers = buildMarkers(data, campsite);
 
       Object.values(markers).forEach((marker) => {
         activeMarkers.push(marker);
