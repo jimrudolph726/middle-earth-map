@@ -273,7 +273,8 @@ export const gandalfthegreycampsites = {
   Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icons.TentIcon, popup: createCampsitePopup('March 29 3018',"?","?","?",'Gandalf leaves Mirkwood and sets out for the Shire',''), },
   Year3018MApril12: { coords: [44.94658893,-93.31124476], icon: icons.TentIcon, popup: createCampsitePopup('April 12 3018',"?","?","?",'Gandalf arrives at Bag End',''), },
   Year3018May1: { coords: [44.94567341,-93.31014384], icon: icons.TentIcon, popup: createCampsitePopup('May 1` 3018',"?","?","?",`Gandalf meets Aragorn at Sarn Ford and tells him of Frodo's plan to leave the Shire in September.`,''), },
-  Year3018MidYearsDay: { coords: [444.94672186,-93.30970866], icon: icons.TentIcon, popup: createCampsitePopup(`Mid-year's Day`,"?","?","?",`Gandalf meets Radagast near Bree and learns that the Nine Nazgul are abroad. Gandalf spends the night at the Prancing Pony in Bree. He leaves a message for Frodo with Barliman Butterbur.`,''), },
+  Year3018MidYearsDay: { coords: [44.94672186,-93.30970866], icon: icons.TentIcon, popup: createCampsitePopup(`Mid-year's Day`,"?","?","?",`Gandalf meets Radagast near Bree and learns that the Nine Nazgul are abroad. Gandalf spends the night at the Prancing Pony in Bree. He leaves a message for Frodo with Barliman Butterbur.`,''), },
+  Year3018July10: { coords: [44.94304848,-93.30649196], icon: icons.TentIcon, popup: createCampsitePopup(`July 10`,"?","?","?",`Gandalf is imprisoned by Saruman in Isengard.`,''), },
   }
 
   
