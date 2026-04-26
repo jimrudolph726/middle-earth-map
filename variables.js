@@ -76,9 +76,12 @@ const itemGroups = {
   books,
 };
 
-const miscMarkerGroups = {
+const battleGroups = {
   battles,
   one_on_one,
+};
+
+const miscMarkerGroups = {
 };
 
 export const settlementsData = [
@@ -101,6 +104,13 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     campsite: 'no',
     clusterScope: 'sharedItemCluster',
+  })),
+
+  ...Object.entries(battleGroups).map(([name, data]) => ({
+    data,
+    checkboxId: `${name}Checkbox`,
+    campsite: 'no',
+    clusterScope: 'sharedBattleCluster',
   })),
 
   ...Object.entries(miscMarkerGroups).map(([name, data]) => ({

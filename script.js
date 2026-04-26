@@ -38,14 +38,16 @@ Promise.all(
     ({ clusterScope }) =>
       clusterScope === 'sharedSettlementCluster' ||
       clusterScope === 'sharedCampsiteCluster' ||
-      clusterScope === 'sharedItemCluster'
+      clusterScope === 'sharedItemCluster' ||
+      clusterScope === 'sharedBattleCluster'
   );
 
   const categoryClusterEntries = markerEntries.filter(
     ({ clusterScope }) =>
       clusterScope !== 'sharedSettlementCluster' &&
       clusterScope !== 'sharedCampsiteCluster' &&
-      clusterScope !== 'sharedItemCluster'
+      clusterScope !== 'sharedItemCluster' &&
+      clusterScope !== 'sharedBattleCluster'
   );
 
   const sharedClusterConfig = {
@@ -56,6 +58,9 @@ Promise.all(
       maxClusterRadius: 50,
     },
     sharedItemCluster: {
+      maxClusterRadius: 25,
+    },
+    sharedBattleCluster: {
       maxClusterRadius: 25,
     },
   };
