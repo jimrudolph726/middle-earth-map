@@ -271,4 +271,5 @@ export const gandalfthegreycampsites = {
   Year3017: { coords: [44.940896226244242, -93.301202096752178], icon: icons.TentIcon, popup: createCampsitePopup('3017',"?","?","?",'Gollum is released from Mordor. He is taken by Aragorn in the Dead Marshes, and brought to Thranduil in Mirkwood. Gandalf visits Minas Tirith and reads the scroll of Isildur.',''), },
   Year3018March23: { coords: [44.947773691215993, -93.301321792739841], icon: icons.TentIcon, popup: createCampsitePopup('March 23 3018',"?","?","?",'Gandalf arrives in Mirkwood and begins to question Gollum.',''), },
   Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icons.TentIcon, popup: createCampsitePopup('March 29 3018',"?","?","?",'Gandalf leaves Mirkwood and sets out for the Shire',''), },
+  Year3018MApril12: { coords: [44.94658893,-93.31124476], icon: icons.TentIcon, popup: createCampsitePopup('April 12 3018',"?","?","?",'Gandalf arrives at Bag End',''), },
   }
