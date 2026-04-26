@@ -83,25 +83,48 @@ export const createSettlementPopup = (name, description, url) => {
 };
 
 // Checkbox listener functions
-export const MarkerListeners = (checkboxId, markers, map) => {
+export const MarkerListeners = (checkboxId, markerData, map) => {
   const checkbox = document.getElementById(checkboxId);
 
   if (!checkbox) {
     console.error(`Checkbox with ID "${checkboxId}" not found in the DOM.`);
-    return; // Exit the function early
+    return;
   }
 
-  const markersArray = Array.isArray(markers) ? markers : Object.values(markers);
+  // 👇 Detect if clustering is being used
+  const isClustered = markerData && markerData.clusterGroup;
+
+  let markersArray = [];
+  let clusterGroup = null;
+
+  if (isClustered) {
+    ({ markers: markersArray, clusterGroup } = markerData);
+  } else {
+    markersArray = Array.isArray(markerData)
+      ? markerData
+      : Object.values(markerData);
+  }
 
   const toggleMarkers = () => {
-    markersArray.forEach(marker => 
-      checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
-    );
+    if (isClustered) {
+      // 👇 Use cluster group instead of individual markers
+      if (checkbox.checked) {
+        map.addLayer(clusterGroup);
+      } else {
+        map.removeLayer(clusterGroup);
+      }
+    } else {
+      // 👇 Fallback for non-clustered markers (your original logic)
+      markersArray.forEach(marker =>
+        checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
+      );
+    }
   };
 
   checkbox.addEventListener('change', toggleMarkers);
   toggleMarkers();
 };
+
 export const PathListeners = (items, map) => {
   Object.keys(items).forEach((key) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
@@ -122,24 +145,40 @@ export const PathListeners = (items, map) => {
 // Campsites and Settlements function
 export const createMarkers = (locations, campsite = 'no') => {
   return new Promise((resolve) => {
+
+    // 👇 Create cluster group
+    const clusterGroup = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      disableClusteringAtZoom: 10 // adjust based on your map scale
+    });
+
     const markers = Object.keys(locations).reduce((acc, key) => {
       const { coords, icon, popup } = locations[key];
+
       const popupOptions = campsite == 'campsite'
         ? { className: 'campsite-popup-shell', maxWidth: 520 }
         : { className: 'lore-popup-shell', maxWidth: 520 };
+
       const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
 
-      // Attach specific logic based on whether the campsite variable is 'yes'
       if (campsite == 'campsite') {
         marker.on('mouseover', () => marker.openPopup());
         marker.on('mouseout', () => marker.closePopup());
       }
 
+      // 👇 Add marker to cluster group
+      clusterGroup.addLayer(marker);
+
       acc[key] = marker;
       return acc;
     }, {});
 
-    resolve(markers); // Resolve the promise with the created markers
+    // 👇 Return both
+    resolve({
+      markers,
+      clusterGroup
+    });
   });
 };
 

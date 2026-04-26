@@ -24,9 +24,9 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 // Add Campsites and Settlements
 settlementsData.forEach(({ data, checkboxId, campsite }) => {
-  createMarkers(data, campsite).then((markers) => {
-  MarkerListeners(checkboxId, markers, map);
-  });
+  createMarkers(data, campsite).then(({ markers, clusterGroup }) => {
+  MarkerListeners(checkboxId, { markers, clusterGroup }, map);
+});
 });
  
 // Add Paths
