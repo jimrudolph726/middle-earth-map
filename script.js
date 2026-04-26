@@ -4,7 +4,8 @@ import {
   PathListeners,
   MarkerListeners,
   createGeographicShape,
-  createMarkers
+  createMarkers,
+  createMarkerClusterGroup
 } from './functions.js';
 
 import {
@@ -21,10 +22,15 @@ map.options.wheelPxPerZoomLevel = 40;
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
+const settlementClusterGroup = createMarkerClusterGroup();
 
 // Add Campsites and Settlements
-settlementsData.forEach(({ data, checkboxId, campsite }) => {
-  createMarkers(data, campsite).then(({ markers, clusterGroup }) => {
+settlementsData.forEach(({ data, checkboxId, campsite, clusterScope }) => {
+  const clusterGroup = clusterScope === 'sharedSettlementCluster'
+    ? settlementClusterGroup
+    : createMarkerClusterGroup();
+
+  createMarkers(data, campsite, clusterGroup).then(({ markers, clusterGroup }) => {
   MarkerListeners(checkboxId, { markers, clusterGroup }, map);
 });
 });

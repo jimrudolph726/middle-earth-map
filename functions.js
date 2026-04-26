@@ -82,6 +82,15 @@ export const createSettlementPopup = (name, description, url) => {
   `;
 };
 
+export const createMarkerClusterGroup = () => {
+  return L.markerClusterGroup({
+    showCoverageOnHover: false,
+    spiderfyOnMaxZoom: true,
+    disableClusteringAtZoom: 18,
+    maxClusterRadius: 60,
+  });
+};
+
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markerData, map) => {
   const checkbox = document.getElementById(checkboxId);
@@ -107,14 +116,26 @@ export const MarkerListeners = (checkboxId, markerData, map) => {
 
   const toggleMarkers = () => {
     if (isClustered) {
-      // 👇 Use cluster group instead of individual markers
-      if (checkbox.checked) {
-        map.addLayer(clusterGroup);
-      } else {
+      markersArray.forEach((marker) => {
+        const markerIsClustered = clusterGroup.hasLayer(marker);
+
+        if (checkbox.checked && !markerIsClustered) {
+          clusterGroup.addLayer(marker);
+        }
+
+        if (!checkbox.checked && markerIsClustered) {
+          clusterGroup.removeLayer(marker);
+        }
+      });
+
+      if (clusterGroup.getLayers().length > 0) {
+        if (!map.hasLayer(clusterGroup)) {
+          map.addLayer(clusterGroup);
+        }
+      } else if (map.hasLayer(clusterGroup)) {
         map.removeLayer(clusterGroup);
       }
     } else {
-      // 👇 Fallback for non-clustered markers (your original logic)
       markersArray.forEach(marker =>
         checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
       );
@@ -143,21 +164,8 @@ export const PathListeners = (items, map) => {
 };
 
 // Campsites and Settlements function
-export const createMarkers = (locations, campsite = 'no') => {
+export const createMarkers = (locations, campsite = 'no', clusterGroup = null) => {
   return new Promise((resolve) => {
-
-    // 👇 Create cluster group
-    const clusterGroup = L.markerClusterGroup({
-      showCoverageOnHover: false,
-      spiderfyOnMaxZoom: true,
-
-      // 👇 KEY FIX
-      disableClusteringAtZoom: 18,
-
-      // 👇 Adjust clustering sensitivity
-      maxClusterRadius: 60
-    });
-
     const markers = Object.keys(locations).reduce((acc, key) => {
       const { coords, icon, popup } = locations[key];
 
@@ -172,14 +180,14 @@ export const createMarkers = (locations, campsite = 'no') => {
         marker.on('mouseout', () => marker.closePopup());
       }
 
-      // 👇 Add marker to cluster group
-      clusterGroup.addLayer(marker);
+      if (clusterGroup) {
+        clusterGroup.addLayer(marker);
+      }
 
       acc[key] = marker;
       return acc;
     }, {});
 
-    // 👇 Return both
     resolve({
       markers,
       clusterGroup
