@@ -199,12 +199,16 @@ export const createGeographicShape = async (geographic_data) => {
       });
       
       if (arrows) {
-        polygon.arrowheads({
-          size: '18px',
-          frequency: '100px',
-          yawn: 25,
-          fill: true,
-          color: color
+        polygon.eachLayer((layer) => {
+          if (layer instanceof L.Polyline) {
+            layer.arrowheads({
+              size: '18px',
+              frequency: '100px',
+              yawn: 25,
+              fill: true,
+              color: color
+            });
+          }
         });
       }
           
