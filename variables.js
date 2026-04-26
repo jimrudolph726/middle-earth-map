@@ -61,6 +61,7 @@ const campsiteGroups = {
   pippincampsites,
   merrycampsites,
   gandalfthegreycampsites,
+  gandalfthewhitecampsites,
 };
 
 const settlementGroups = {
