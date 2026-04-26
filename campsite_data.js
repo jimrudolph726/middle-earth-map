@@ -272,10 +272,13 @@ export const gandalfthegreycampsites = {
   Year3018March23: { coords: [44.947773691215993, -93.301321792739841], icon: icons.TentIcon, popup: createCampsitePopup('March 23 3018',"?","?","?",'Gandalf arrives in Mirkwood and begins to question Gollum.',''), },
   Year3018March29: { coords: [44.947682267986565, -93.303630070285379], icon: icons.TentIcon, popup: createCampsitePopup('March 29 3018',"?","?","?",'Gandalf leaves Mirkwood and sets out for the Shire',''), },
   Year3018MApril12: { coords: [44.94658893,-93.31124476], icon: icons.TentIcon, popup: createCampsitePopup('April 12 3018',"?","?","?",'Gandalf arrives at Bag End',''), },
-  Year3018May1: { coords: [44.94567341,-93.31014384], icon: icons.TentIcon, popup: createCampsitePopup('May 1` 3018',"?","?","?",`Gandalf meets Aragorn at Sarn Ford and tells him of Frodo's plan to leave the Shire in September.`,''), },
+  Year3018May1: { coords: [44.94567341,-93.31014384], icon: icons.TentIcon, popup: createCampsitePopup('May 1 3018',"?","?","?",`Gandalf meets Aragorn at Sarn Ford and tells him of Frodo's plan to leave the Shire in September.`,''), },
   Year3018MidYearsDay: { coords: [44.94672186,-93.30970866], icon: icons.TentIcon, popup: createCampsitePopup(`Mid-year's Day`,"?","?","?",`Gandalf meets Radagast near Bree and learns that the Nine Nazgul are abroad. Gandalf spends the night at the Prancing Pony in Bree. He leaves a message for Frodo with Barliman Butterbur.`,''), },
   Year3018July10: { coords: [44.94304848,-93.30649196], icon: icons.TentIcon, popup: createCampsitePopup(`July 10`,"?","?","?",`Gandalf is imprisoned by Saruman in Isengard.`,''), },
-  Year3018September18: { coords: [44.94298579,-93.30639649], icon: icons.TentIcon, popup: createCampsitePopup(`September 18`,"?","?","?",`Gandalf is rescued from the pinnacle of Orthanc by Gwaihir.`,''), },
+  Year3018September18: { coords: [44.94298579,-93.30639649], icon: icons.TentIcon, popup: createCampsitePopup(`September 18`,"?","?","?",`Gandalf is rescued from the pinnacle of Orthanc by Gwaihir. The Black Riders cross the Fords of Isen`,''), },
+  Year3018September19: { coords: [44.94206768,-93.30485227], icon: icons.TentIcon, popup: createCampsitePopup(`September 19`,"?","?","?",`Gandalf comes to Edoras as a beggar, and is refused admittance.`,''), },
+  Year3018September20: { coords: [44.94204054,-93.30480435], icon: icons.TentIcon, popup: createCampsitePopup(`September 20`,"?","?","?",`Gandalf gains entrance to Edoras. Theoden commands him to go: "Take any horse, only be gone ere tomorrow is old!"`,''), },
+  Year3018September21: { coords: [44.94253610,-93.30469201], icon: icons.TentIcon, popup: createCampsitePopup(`September 21`,"?","?","?",`Gandalf meets Shadowfax, but the horse will not allow him to come near. He follows Shadowfax far over the fields.`,''), },
+  Year3018September22: { coords: [44.94227638,-93.30487260], icon: icons.TentIcon, popup: createCampsitePopup(`September 22`,"?","?","?",`The Black Riders reach Sarn Ford at evening; they drive off the guard of Rangers. Gandalf overtakes Shadowfax.`,''), },
   }
-
   
