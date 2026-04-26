@@ -25,14 +25,64 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 const settlementClusterGroup = createMarkerClusterGroup();
 
 // Add Campsites and Settlements
-settlementsData.forEach(({ data, checkboxId, campsite, clusterScope }) => {
-  const clusterGroup = clusterScope === 'sharedSettlementCluster'
-    ? settlementClusterGroup
-    : createMarkerClusterGroup();
+Promise.all(
+  settlementsData.map(({ data, checkboxId, campsite, clusterScope }) =>
+    createMarkers(data, campsite).then(({ markers }) => ({
+      checkboxId,
+      campsite,
+      clusterScope,
+      markers,
+    }))
+  )
+).then((markerEntries) => {
+  const sharedClusterEntries = markerEntries.filter(
+    ({ clusterScope }) => clusterScope === 'sharedSettlementCluster'
+  );
 
-  createMarkers(data, campsite, clusterGroup).then(({ markers, clusterGroup }) => {
-  MarkerListeners(checkboxId, { markers, clusterGroup }, map);
-});
+  const categoryClusterEntries = markerEntries.filter(
+    ({ clusterScope }) => clusterScope !== 'sharedSettlementCluster'
+  );
+
+  const syncSharedSettlementCluster = () => {
+    settlementClusterGroup.clearLayers();
+
+    sharedClusterEntries.forEach(({ checkboxId, markers }) => {
+      const checkbox = document.getElementById(checkboxId);
+
+      if (!checkbox?.checked) {
+        return;
+      }
+
+      Object.values(markers).forEach((marker) => {
+        settlementClusterGroup.addLayer(marker);
+      });
+    });
+
+    if (settlementClusterGroup.getLayers().length > 0) {
+      if (!map.hasLayer(settlementClusterGroup)) {
+        map.addLayer(settlementClusterGroup);
+      }
+    } else if (map.hasLayer(settlementClusterGroup)) {
+      map.removeLayer(settlementClusterGroup);
+    }
+  };
+
+  sharedClusterEntries.forEach(({ checkboxId }) => {
+    const checkbox = document.getElementById(checkboxId);
+    checkbox?.addEventListener('change', syncSharedSettlementCluster);
+  });
+
+  syncSharedSettlementCluster();
+
+  categoryClusterEntries.forEach(({ checkboxId, markers }) => {
+    const clusterGroup = createMarkerClusterGroup();
+
+    Object.values(markers).forEach((marker) => {
+      clusterGroup.addLayer(marker);
+    });
+
+    MarkerListeners(checkboxId, { markers, clusterGroup }, map);
+  });
 });
  
 // Add Paths
