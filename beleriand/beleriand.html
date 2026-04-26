@@ -30,7 +30,6 @@
                     <span class="material-symbols-outlined">travel_explore</span> Regions
                 </a></li>
 
-                <li><a href="#mapSectionPane" role="tab"><i class="material-icons">map</i> Maps</a></li>
             </ul>
             <ul role="tablist">
                 <li><a href="#settings" role="tab"><i class="material-icons">settings</i></a></li>
@@ -172,29 +171,25 @@
                 </div>
             </div>
 
-            <div class="sidebar-pane" id="mapSectionPane">
-                <h1 class="sidebar-header">
-                    Maps
-                    <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
-                </h1>
-                <div id="mapSection">
-                    <label>
-                        <button onclick="window.location.href='../middle-earth.html'">View Map of Middle-earth</button>
-                    </label>
-                    <label>
-                        <button onclick="window.location.href='../numenor/numenor.html'">View Map of Numenor</button>
-                    </label>
-                    <label>
-                        <button onclick="window.location.href='../index.html'">Back to Splash Page</button>
-                    </label>
-                </div>
-            </div>
-            
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
             </div>
         </div>
     </div>
+    <nav class="atlas-map-nav" aria-label="Atlas navigation">
+        <a class="atlas-map-nav__link atlas-map-nav__link--home" href="../index.html">
+            <i class="material-icons">home</i>
+            <span>Home</span>
+        </a>
+        <a class="atlas-map-nav__link" href="../middle-earth.html">
+            <i class="material-icons">terrain</i>
+            <span>Middle-earth</span>
+        </a>
+        <a class="atlas-map-nav__link" href="../numenor/numenor.html">
+            <i class="material-icons">public</i>
+            <span>Numenor</span>
+        </a>
+    </nav>
     <div id="map" class="sidebar-map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-clicktolerance/src/index.js"></script>

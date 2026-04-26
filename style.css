@@ -36,7 +36,7 @@ h3,
 }
 
 .sidebar-tabs a,
-#mapSection button {
+.atlas-map-nav__link {
   font-family: "Cormorant Garamond", Georgia, serif;
 }
 
@@ -90,13 +90,6 @@ h3,
 #settlementsSection input[type="checkbox"],
 #geographySection input[type="checkbox"] {
   margin-right: 8px; /* Add spacing between the checkbox and label text */
-}
-
-#mapSection button {
-  display: block;
-  width: 50%; /* Optional: Makes buttons stretch to full width */
-  margin-bottom: 10px; /* Adds spacing between buttons */
-  font-size: 18px;
 }
 
 .sidebar-tabs .material-icons {
@@ -368,4 +361,60 @@ h3,
 .lore-popup__link:hover,
 .lore-popup__link:focus-visible {
   background: rgba(126, 102, 59, 0.2);
+}
+
+.atlas-map-nav {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(220px, calc(100vw - 36px));
+  pointer-events: auto;
+}
+
+.atlas-map-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(111, 83, 40, 0.5);
+  border-radius: 12px;
+  background: rgba(254, 250, 240, 0.92);
+  box-shadow: 0 10px 24px rgba(31, 20, 8, 0.18);
+  color: #3f2c15;
+  text-decoration: none;
+  font-size: 21px;
+  backdrop-filter: blur(3px);
+}
+
+.atlas-map-nav__link .material-icons {
+  font-size: 20px;
+}
+
+.atlas-map-nav__link--home {
+  background: rgba(244, 232, 199, 0.95);
+}
+
+.atlas-map-nav__link:hover,
+.atlas-map-nav__link:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 252, 245, 0.98);
+}
+
+@media (max-width: 720px) {
+  .atlas-map-nav {
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  .atlas-map-nav__link {
+    justify-content: center;
+    font-size: 18px;
+  }
 }
