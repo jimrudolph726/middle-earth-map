@@ -283,5 +283,12 @@ export const gandalfthegreycampsites = {
   Year3018September23: { coords: [44.94211273,-93.30525606], icon: icons.TentIcon, popup: createCampsitePopup(`September 23`,"?","?","?",`Four Riders enter the Shire before dawn. The others puruse the Ranger eastward, and then return to watch the Greenway. A Black Rider comes to Hobbiton at nightfall. Frodo leaves Bag End. Gandalf having tamed Shadowfax rides from Rohan.`,''), },
   Year3018September24: { coords: [44.94251452,-93.30642415], icon: icons.TentIcon, popup: createCampsitePopup(`September 24`,"?","?","?",`Gandalf crosses the Isen.`,''), },
   Year3018September27: { coords: [44.9448097,-93.3084362], icon: icons.TentIcon, popup: createCampsitePopup(`September 27`,"?","?","?",`Gandalf crosses Greyflood.`,''), },
+  Year3018September28: { coords: [44.9456761,-93.3101408], icon: icons.TentIcon, popup: createCampsitePopup(`September 28`,"?","?","?",`The Hobbits Captured by a Barrow-wight. Gandalf reaches Sarn Ford.`,''), },
+  Year3018September29: { coords: [44.94656971,-93.31127269], icon: icons.TentIcon, popup: createCampsitePopup(`September 29`,"?","?","?",`Frodo reaches Bree at night. Gandalf visits the Gaffer.`,''), },
+  Year3018September30: { coords: [44.94672144,-93.30972330], icon: icons.TentIcon, popup: createCampsitePopup(`September 30`,"?","?","?",`Crickhollow and the Inn at Bree are raided in the early hours. Frodo leaves Bree. Gandalf comes to Crickhollow, and reaches Bree at night.`,''), },
+  Year3018October1: { coords: [44.9465837,-93.3093303], icon: icons.TentIcon, popup: createCampsitePopup(`October 1`,"?","?","?",`Gandalf leaves Bree.`,''), },
+  Year3018October3: { coords: [44.9466369,-93.3083870], icon: icons.TentIcon, popup: createCampsitePopup(`October 3`,"?","?","?",`Gandalf is attacked at night on Weathertop.`,''), },
+  Year3018October3: { coords: [44.9466387,-93.3083844], icon: icons.TentIcon, popup: createCampsitePopup(`October 3`,"?","?","?",`Gandalf is attacked at night on Weathertop.`,''), },
+  Year3018October11: { coords: [44.9467046,-93.3069868], icon: icons.TentIcon, popup: createCampsitePopup(`October 11`,"?","?","?",`Gandalf drives the Riders off the Bridge of Mitheithel.`,''), },
+  Year3018October18: { coords: [44.9467074,-93.3069881], icon: icons.TentIcon, popup: createCampsitePopup(`October 18`,"?","?","?",`Hoping to draw the Nazgul away from Frodo, Gandalf took a circuitous route through the Ettenmoors to Rivendell. Glorfindel finds Frodo at dusk. Gandalf reaches Rivendell.`,''), },
   }
-  
