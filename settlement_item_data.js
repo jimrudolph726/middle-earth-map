@@ -275,7 +275,7 @@ export const one_on_one = {
       `Battle between Gandalf and the Balrog on the Silvertine during the War of the Ring. After Gandalf and the Balrog fell into the abyss in Moria on January 15, 3019 of the Third Age, they fought long underground and then climbed the Endless Stair to the peak of the Silvertine where Durin's Tower stood.`,
       "https://thainsbook.minastirith.cz/battles.html#Peak"
     ),
-    coords: [44.94491777, -93.30559552],
+    coords: [44.9450208,-93.3055802],
     icon: icons.BattleIcon,
   },
   eowyn_witch_king: {
