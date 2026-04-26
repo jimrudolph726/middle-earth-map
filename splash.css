@@ -143,7 +143,8 @@ body.splash-body {
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   padding: 22px 22px 20px;
   overflow: hidden;
   border: none;
@@ -151,18 +152,16 @@ body.splash-body {
   background-color: #dcc58f;
   background:
     linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
-    var(--map-image) center center / calc(100% - 48px) calc(100% - 48px) no-repeat,
     url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
   box-shadow:
     0 18px 32px rgba(16, 11, 8, 0.28),
     inset 0 0 0 1px rgba(255, 246, 222, 0.18);
-  filter: sepia(0.72) saturate(0.68) contrast(0.9) brightness(0.94);
 }
 
 .map-card__sheet::after {
   content: "";
   position: absolute;
-  inset: 24px;
+  inset: 18px;
   background:
     linear-gradient(rgba(255, 250, 235, 0.1), transparent 26%, rgba(71, 49, 28, 0.12)),
     radial-gradient(circle at 18% 14%, rgba(255, 249, 232, 0.2), transparent 22%);
@@ -181,11 +180,12 @@ body.splash-body {
 }
 
 .map-card__eyebrow {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: #6f502d;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 0.95rem;
   letter-spacing: 0.16em;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -196,6 +196,7 @@ body.splash-body {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 0.98;
   font-weight: normal;
+  text-align: center;
   text-shadow: 0 1px 0 rgba(255, 248, 230, 0.48);
 }
 
@@ -206,6 +207,7 @@ body.splash-body {
   font-size: 0.87rem;
   line-height: 1.65;
   max-width: 24ch;
+  text-align: center;
 }
 
 .map-card--middle-earth {
@@ -306,7 +308,6 @@ body.splash-body {
     padding: 18px 18px 16px;
     background:
       linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
-      var(--map-image) center center / calc(100% - 36px) calc(100% - 36px) no-repeat,
       url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
   }
 
