@@ -34,6 +34,7 @@ import {
   pippincampsites,
   merrycampsites,
   gandalfthegreycampsites,
+  gandalfthewhitecampsites,
  } from './campsite_data.js';
 
 // Map
