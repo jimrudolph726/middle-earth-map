@@ -22,11 +22,7 @@ map.options.wheelPxPerZoomLevel = 40;
 L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
-const settlementClusterGroup = createMarkerClusterGroup({
-  // This map uses a custom image overlay, so a larger radius helps nearby
-  // settlement categories merge into one cluster instead of only same-group markers.
-  maxClusterRadius: 500,
-});
+let settlementClusterGroup = null;
 
 // Add Campsites and Settlements
 Promise.all(
@@ -62,15 +58,20 @@ Promise.all(
       });
     });
 
-    if (map.hasLayer(settlementClusterGroup)) {
+    if (settlementClusterGroup && map.hasLayer(settlementClusterGroup)) {
       map.removeLayer(settlementClusterGroup);
     }
 
-    settlementClusterGroup.clearLayers();
-
     if (activeMarkers.length === 0) {
+      settlementClusterGroup = null;
       return;
     }
+
+    settlementClusterGroup = createMarkerClusterGroup({
+      // This map uses a custom image overlay, so a larger radius helps nearby
+      // settlement categories merge into one cluster instead of only same-group markers.
+      maxClusterRadius: 500,
+    });
 
     settlementClusterGroup.addLayers(activeMarkers);
     settlementClusterGroup.refreshClusters();
