@@ -48,7 +48,7 @@ Promise.all(
   );
 
   const syncSharedSettlementCluster = () => {
-    settlementClusterGroup.clearLayers();
+    const activeMarkers = [];
 
     sharedClusterEntries.forEach(({ checkboxId, markers }) => {
       const checkbox = document.getElementById(checkboxId);
@@ -58,17 +58,23 @@ Promise.all(
       }
 
       Object.values(markers).forEach((marker) => {
-        settlementClusterGroup.addLayer(marker);
+        activeMarkers.push(marker);
       });
     });
 
-    if (settlementClusterGroup.getLayers().length > 0) {
-      if (!map.hasLayer(settlementClusterGroup)) {
-        map.addLayer(settlementClusterGroup);
-      }
-    } else if (map.hasLayer(settlementClusterGroup)) {
+    if (map.hasLayer(settlementClusterGroup)) {
       map.removeLayer(settlementClusterGroup);
     }
+
+    settlementClusterGroup.clearLayers();
+
+    if (activeMarkers.length === 0) {
+      return;
+    }
+
+    settlementClusterGroup.addLayers(activeMarkers);
+    settlementClusterGroup.refreshClusters();
+    map.addLayer(settlementClusterGroup);
   };
 
   sharedClusterEntries.forEach(({ checkboxId }) => {
