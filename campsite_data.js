@@ -104,7 +104,7 @@ export const samfrodocampsites = {
       },
     January13: { coords: [44.944942822449207, -93.306117484465432], icon: icons.TentIcon, popup: createCampsitePopup('January 13',17.5,40,2.3,'Dawn to dusk outside; dusk to after midnight inside Moria.','Guardroom'),
       },
-    January14: { coords: [44.944960354870418, -93.305275277261956], icon: icons.TentIcon, popup: createCampsitePopup('January 14',8,20,2.5,'Mid-morning to evening march.','Hall Twenty-one'),
+    January14: { coords: [44.9449507,-93.3056074], icon: icons.TentIcon, popup: createCampsitePopup('January 14',8,20,2.5,'Mid-morning to evening march.','Hall Twenty-one'),
       },
     January15: { coords: [44.944697367990038, -93.305022615100896], icon: icons.TentIcon, popup: createCampsitePopup('January 15',8,17.5,1.7,'Attack in Moria. Escape.','Flets by Nimrodel'),
       },
@@ -267,7 +267,7 @@ export const merrycampsites = {
     March15: { coords: [44.941592811896278, -93.303756899969343], icon: icons.TentIcon, popup: createCampsitePopup('March 15',3.5,24.5,7,'Reach Rammas at dawn.  Battle of the Pelennor Fields','Minas Tirith'), },
   }
 export const gandalfthegreycampsites = {
-    Years2956to3009: { coords: [44.946589266766118, -93.311289597977662], icon: icons.TentIcon, popup: createCampsitePopup('2956 to 3009',"?","?","?","2956: 2956–3009 TA: Aragorn and Gandalf meet and become friends (2956). Bilbo's farewell feast; Gandalf suspects the One Ring and doubles the Shire’s guard (3001). Gandalf visits Frodo periodically (3004–3008). Gandalf and Aragorn hunt for Gollum (3009), who is eventually captured by Sauron.",'" "'), 
+  Years2956to3009: { coords: [44.946589266766118, -93.311289597977662], icon: icons.TentIcon, popup: createCampsitePopup('2956 to 3009',"?","?","?","2956: 2956–3009 TA: Aragorn and Gandalf meet and become friends (2956). Bilbo's farewell feast; Gandalf suspects the One Ring and doubles the Shire’s guard (3001). Gandalf visits Frodo periodically (3004–3008). Gandalf and Aragorn hunt for Gollum (3009), who is eventually captured by Sauron.",'" "'), 
     },
   Year3017: { coords: [44.940896226244242, -93.301202096752178], icon: icons.TentIcon, popup: createCampsitePopup('3017',"?","?","?",'Gollum is released from Mordor. He is taken by Aragorn in the Dead Marshes, and brought to Thranduil in Mirkwood. Gandalf visits Minas Tirith and reads the scroll of Isildur.',''), 
     },
@@ -357,8 +357,8 @@ export const gandalfthegreycampsites = {
     },
   January13: { coords: [44.944942822449207, -93.306117484465432], icon: icons.TentIcon, popup: createCampsitePopup('January 13',17.5,40,2.3,'Dawn to dusk outside; dusk to after midnight inside Moria.','Guardroom'),
     },
-  January14: { coords: [44.944960354870418, -93.305275277261956], icon: icons.TentIcon, popup: createCampsitePopup('January 14',8,20,2.5,'Mid-morning to evening march.','Hall Twenty-one'),
+  January14: { coords: [44.9449507,-93.3056074], icon: icons.TentIcon, popup: createCampsitePopup('January 14',8,20,2.5,'Mid-morning to evening march.','Hall Twenty-one'),
     },
-  January15: { coords: [44.944697367990038, -93.305022615100896], icon: icons.TentIcon, popup: createCampsitePopup('January 15',8,17.5,1.7,'Attack in Moria. Gandalf breaks the bridge of Khazad-dum and falls with the Balrog. The rest of the Fellowship escape.','Flets by Nimrodel'),
+  January15: { coords: [44.9449471,-93.3054198], icon: icons.TentIcon, popup: createCampsitePopup('January 15',8,17.5,1.7,'Attack in Moria. Gandalf breaks the bridge of Khazad-dum and falls with the Balrog. The rest of the Fellowship escape.','Flets by Nimrodel'),
     },
   }
