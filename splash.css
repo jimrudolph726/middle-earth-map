@@ -149,7 +149,7 @@ body.splash-body {
   overflow: hidden;
   border: none;
   border-radius: 12px;
-  background-color: #dcc58f;
+  background-color: #dcc58f00;
   background:
     linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
     url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
