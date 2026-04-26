@@ -202,11 +202,11 @@ export const createGeographicShape = async (geographic_data) => {
         polygon.eachLayer((layer) => {
           if (layer instanceof L.Polyline) {
             layer.arrowheads({
-              size: '18px',
-              frequency: '100px',
+              size: '16px',
+              frequency: '120px',
               yawn: 25,
               fill: true,
-              color: color
+              color: '#222',   // darker than line
             });
           }
         });
