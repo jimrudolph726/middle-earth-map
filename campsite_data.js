@@ -359,7 +359,7 @@ export const gandalfthegreycampsites = {
     },
   January14: { coords: [44.9449507,-93.3056074], icon: icons.TentIcon, popup: createCampsitePopup('January 14',8,20,2.5,'Mid-morning to evening march.','Hall Twenty-one'),
     },
-  January15: { coords: [44.9449471,-93.3054198], icon: icons.TentIcon, popup: createCampsitePopup('January 15',8,17.5,1.7,'Attack in Moria. Gandalf breaks the bridge of Khazad-dum and falls with the Balrog. The rest of the Fellowship escape.', 'Bridge of Khazad-Dûm'),
+  January15: { coords: [44.9449471,-93.3054198], icon: icons.TentIcon, popup: createCampsitePopup('January 15',8,17.5,1.7,'Attack in Moria. Gandalf breaks the bridge of Khazad-dum and falls with the Balrog. The rest of the Fellowship escape.', 'Bridge of Khazad-dûm'),
     },
   January15through22: { coords: [44.94484280,-93.30565170], icon: icons.TentIcon, popup: createCampsitePopup('January 15 through January 22','?','?','?',`Gandalf pursues the Balrog through the deepest tunnels of Moria to Durin's Tower.`, `Depths of Moria`),
     },
