@@ -107,7 +107,9 @@ export const MarkerListeners = (checkboxId, markerData, map) => {
   let clusterGroup = null;
 
   if (isClustered) {
-    ({ markers: markersArray, clusterGroup } = markerData);
+    const { markers, clusterGroup: resolvedClusterGroup } = markerData;
+    markersArray = Array.isArray(markers) ? markers : Object.values(markers);
+    clusterGroup = resolvedClusterGroup;
   } else {
     markersArray = Array.isArray(markerData)
       ? markerData
