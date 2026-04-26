@@ -86,7 +86,8 @@ export const createMarkerClusterGroup = (options = {}) => {
   return L.markerClusterGroup({
     showCoverageOnHover: false,
     spiderfyOnMaxZoom: true,
-    disableClusteringAtZoom: 25,
+    // The map tops out at zoom 20, so decluster before the final zoom step.
+    disableClusteringAtZoom: 19,
     maxClusterRadius: 25,
     ...options,
   });
