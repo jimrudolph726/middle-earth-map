@@ -33,12 +33,13 @@ body.splash-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px 18px;
+  padding: 12px 18px;
 }
 
 .splash-panel {
   width: min(1200px, 100%);
-  padding: 28px 28px 34px;
+  box-sizing: border-box;
+  padding: 20px 24px 18px;
   border: 1px solid rgba(233, 214, 167, 0.16);
   border-radius: 28px;
   background:
@@ -70,17 +71,17 @@ body.splash-body {
 
 .splash-copy {
   max-width: 54rem;
-  margin: 14px 0 0;
+  margin: 10px 0 0;
   color: #e2d4b3;
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .splash-table {
   position: relative;
-  min-height: 620px;
-  margin-top: 28px;
-  padding: 42px 30px 34px;
+  min-height: 500px;
+  margin-top: 18px;
+  padding: 24px 20px 20px;
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid rgba(255, 240, 207, 0.1);
@@ -106,7 +107,7 @@ body.splash-body {
 .map-card {
   position: absolute;
   display: block;
-  width: min(21vw, 220px);
+  width: min(18vw, 190px);
   aspect-ratio: 0.88;
   padding: 0;
   color: var(--ink);
@@ -140,7 +141,7 @@ body.splash-body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 22px 22px 20px;
+  padding: 18px 16px 16px;
   overflow: hidden;
   border: none;
   border-radius: 12px;
@@ -154,7 +155,7 @@ body.splash-body {
 .map-card__sheet::after {
   content: "";
   position: absolute;
-  inset: 18px;
+  inset: 14px;
   background:
     linear-gradient(rgba(255, 250, 235, 0.1), transparent 26%, rgba(71, 49, 28, 0.12)),
     radial-gradient(circle at 18% 14%, rgba(255, 249, 232, 0.2), transparent 22%);
@@ -172,10 +173,10 @@ body.splash-body {
 }
 
 .map-card__eyebrow {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: #6f502d;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   letter-spacing: 0.16em;
   text-align: center;
   text-transform: uppercase;
@@ -185,7 +186,7 @@ body.splash-body {
   display: block;
   color: #2f1d12;
   font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.2rem, 2.1vw, 1.8rem);
   line-height: 0.98;
   font-weight: normal;
   text-align: center;
@@ -194,61 +195,61 @@ body.splash-body {
 
 .map-card__copy {
   display: block;
-  margin-top: 12px;
+  margin-top: 8px;
   color: var(--ink-soft);
-  font-size: 0.87rem;
-  line-height: 1.65;
-  max-width: 24ch;
+  font-size: 0.73rem;
+  line-height: 1.45;
+  max-width: 20ch;
   text-align: center;
 }
 
 .map-card--middle-earth {
-  top: 34px;
-  right: 180px;
+  top: 148px;
+  right: 404px;
 }
 
 .map-card--beleriand {
-  top: 214px;
-  right: 36px;
+  top: 118px;
+  right: 214px;
 }
 
 .map-card--numenor {
-  top: 394px;
-  right: 132px;
+  top: 160px;
+  right: 24px;
 }
 
 .splash-blessing {
-  margin: 22px 0 0;
+  margin: 14px 0 0;
   text-align: center;
   color: #d7c28f;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 @media (max-width: 1100px) {
   .splash-table {
-    min-height: 760px;
+    min-height: 520px;
   }
 
   .map-card {
-    width: min(24vw, 210px);
+    width: min(20vw, 170px);
   }
 
   .map-card--middle-earth {
-    top: 34px;
-    right: 122px;
+    top: 170px;
+    right: 300px;
   }
 
   .map-card--beleriand {
-    top: 230px;
-    right: 24px;
+    top: 138px;
+    right: 152px;
   }
 
   .map-card--numenor {
-    top: 426px;
-    right: 92px;
+    top: 182px;
+    right: 16px;
   }
 }
 
