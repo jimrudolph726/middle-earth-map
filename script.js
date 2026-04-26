@@ -25,7 +25,7 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 const settlementClusterGroup = createMarkerClusterGroup({
   // This map uses a custom image overlay, so a larger radius helps nearby
   // settlement categories merge into one cluster instead of only same-group markers.
-  maxClusterRadius: 140,
+  maxClusterRadius: 500,
 });
 
 // Add Campsites and Settlements
