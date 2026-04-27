@@ -369,4 +369,14 @@ export const gandalfthegreycampsites = {
 export const gandalfthewhitecampsites = {
   February14: { coords: [44.9450208,-93.3055802], icon: icons.TentIcon, popup: createCampsitePopup('February 14','?','?','?','Gandalf returns to life and lies on the peak of the Silvertine mountain in a trance.', 'Peak of the Silvertine (Celebdil) Mountain'),
     },
+  February17: { coords: [44.94468224,-93.30447087], icon: icons.TentIcon, popup: createCampsitePopup('February 17','?','?','?','Gwaihir carries Gandalf to Lothlorien', 'PLothlorien'),
+    },
+  February18: { coords: [44.94466539,-93.30446414], icon: icons.TentIcon, popup: createCampsitePopup('February 18','?','?','?','Galadriel arrays Gandalf in white and places a new staff in his hand.', 'PLothlorien'),
+    },
+  February20: { coords: [44.94466539,-93.30446414], icon: icons.TentIcon, popup: createCampsitePopup('February 20','?','?','?','Gandalf leaves Lothlorien and is flown south by Gwaihir.', 'PLothlorien'),
+    },
+  February25: { coords: [44.94362377,-93.30513597], icon: icons.TentIcon, popup: createCampsitePopup('February 25','?','?','?','Gandalf comes to Fangorn and sends Gwaihir to gather news.', 'PLothlorien'),
+    },
   }
+
+  44.9440833,-93.3046289
