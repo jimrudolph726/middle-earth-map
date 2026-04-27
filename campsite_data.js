@@ -384,5 +384,3 @@ export const gandalfthewhitecampsites = {
   March1: { coords: [44.94333163,-93.30456729], icon: icons.TentIcon, popup: createCampsitePopup('March 1','?','?','?','Gandalf is reunited with Aragorn, Legolas and Gimli in Fangorn. They set out for Edoras in Rohan.', 'PLothlorien'),
     },
   }
-
-  44.9440833,-93.3046289
