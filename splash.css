@@ -209,13 +209,13 @@ body.splash-body {
 }
 
 .map-card--beleriand {
-  top: 116px;
-  right: 176px;
+  top: 150px;
+  right: 24px;
 }
 
 .map-card--numenor {
-  top: 150px;
-  right: 24px;
+  top: 116px;
+  right: 176px;
 }
 
 .splash-blessing {
