@@ -219,7 +219,18 @@ export const createGeographicShape = async (geographic_data) => {
       }
       const data = await response.json();
       
-      // Create the polygon using the GeoJSON data
+      const outlinePolygon = outlineColor
+        ? L.geoJSON(data, {
+            style: {
+              color: outlineColor,
+              weight: outlineWeight ?? ((weight ?? 5) + 4),
+              fillOpacity: 0,
+            },
+            interactive: false,
+          })
+        : null;
+
+      // Create the visible path after the outline so it renders above it.
       const polygon = L.geoJSON(data, {
         style: {
           color,
@@ -259,17 +270,6 @@ export const createGeographicShape = async (geographic_data) => {
           });
         }
       });
-
-      const outlinePolygon = outlineColor
-        ? L.geoJSON(data, {
-            style: {
-              color: outlineColor,
-              weight: outlineWeight ?? ((weight ?? 5) + 4),
-              fillOpacity: 0,
-            },
-            interactive: false,
-          })
-        : null;
       
       if (arrows) {
         polygon.eachLayer((layer) => {
