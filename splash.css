@@ -144,12 +144,12 @@ body.splash-body {
   padding: 14px 12px 12px;
   overflow: hidden;
   border: none;
-  border-radius: 12px;
+  border-radius: opx;
   background-color: #dcc58f00;
   background:
     linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
     url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
-  box-shadow: 0 18px 32px rgba(16, 11, 8, 0.28);
+  /* box-shadow: 0 18px 32px rgba(16, 11, 8, 0.28); */
 }
 
 .map-card__sheet::after {
@@ -159,9 +159,9 @@ body.splash-body {
   background:
     linear-gradient(rgba(255, 250, 235, 0.1), transparent 26%, rgba(71, 49, 28, 0.12)),
     radial-gradient(circle at 18% 14%, rgba(255, 249, 232, 0.2), transparent 22%);
-  border-radius: 6px;
+  /* border-radius: 6px;
   box-shadow:
-    0 4px 10px rgba(28, 18, 10, 0.12);
+    0 4px 10px rgba(28, 18, 10, 0.12); */
   mix-blend-mode: multiply;
 }
 
