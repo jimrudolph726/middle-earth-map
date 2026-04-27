@@ -110,6 +110,9 @@ body.splash-body {
   width: min(16vw, 168px);
   aspect-ratio: 0.84;
   padding: 0;
+  border: 0;
+  outline: none;
+  box-shadow: none;
   color: var(--ink);
   text-decoration: none;
   transform: none;
@@ -144,25 +147,9 @@ body.splash-body {
   padding: 14px 12px 12px;
   overflow: hidden;
   border: none;
-  border-radius: opx;
-  /* background-color: #dcc58f00; */
-  background:
-    linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
-    url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
-  /* box-shadow: 0 18px 32px rgba(16, 11, 8, 0.28); */
-}
-
-.map-card__sheet::after {
-  content: ""; 
-  /* position: absolute;
-  inset: 10px;
-  background:
-    linear-gradient(rgba(34, 29, 14, 0.1), transparent 26%, rgba(71, 49, 28, 0.12)),
-    radial-gradient(circle at 18% 14%, rgba(255, 249, 232, 0.2), transparent 22%); 
-  border-radius: 6px;
-  box-shadow:
-    0 4px 10px rgba(28, 18, 10, 0.12);
-  mix-blend-mode: multiply; */
+  outline: none;
+  box-shadow: none;
+  background: url("assets/splash/map_parchment.png") center center / 101% 101% no-repeat;
 }
 
 .map-card__eyebrow,
@@ -306,9 +293,7 @@ body.splash-body {
   .map-card__sheet {
     min-height: 240px;
     padding: 18px 18px 16px;
-    background:
-      linear-gradient(rgba(245, 229, 192, 0.02), rgba(120, 92, 54, 0.08)),
-      url("assets/splash/map_parchment.png") center center / 100% 100% no-repeat;
+    background: url("assets/splash/map_parchment.png") center center / 101% 101% no-repeat;
   }
 
   .map-card__copy {
