@@ -208,14 +208,14 @@ body.splash-body {
   right: 330px;
 }
 
-.map-card--beleriand {
-  top: 150px;
-  right: 24px;
-}
-
 .map-card--numenor {
   top: 116px;
   right: 176px;
+}
+
+.map-card--beleriand {
+  top: 150px;
+  right: 24px;
 }
 
 .splash-blessing {
@@ -242,16 +242,16 @@ body.splash-body {
     right: 230px;
   }
 
+    .map-card--numenor {
+    top: 158px;
+    right: 16px;
+  }
+
   .map-card--beleriand {
     top: 126px;
     right: 122px;
   }
 
-  .map-card--numenor {
-    top: 158px;
-    right: 16px;
-    
-  }
   .map-card__eyebrow {
   font-size: 0.85rem;
   }
@@ -316,8 +316,8 @@ body.splash-body {
   }
 
   .map-card--middle-earth,
-  .map-card--beleriand,
-  .map-card--numenor {
+  .map-card--numenor,
+  .map-card--beleriand {
     --map-top: auto;
     --map-left: auto;
     --map-rotate: 0deg;
