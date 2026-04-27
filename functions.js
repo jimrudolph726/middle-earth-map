@@ -209,7 +209,7 @@ export const createMarkers = (locations, campsite = 'no', clusterGroup = null) =
 export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
-    const { pathName, color, name, PopupContent, tolerance, weight, arrows } = geographic_data[key];
+    const { pathName, color, outlineColor, outlineWeight, name, PopupContent, tolerance, weight, arrows } = geographic_data[key];
     const geojsonPath = new URL(`./geojson_files/${pathName}.geojson`, import.meta.url);
 
     try {
@@ -259,6 +259,17 @@ export const createGeographicShape = async (geographic_data) => {
           });
         }
       });
+
+      const outlinePolygon = outlineColor
+        ? L.geoJSON(data, {
+            style: {
+              color: outlineColor,
+              weight: outlineWeight ?? ((weight ?? 5) + 4),
+              fillOpacity: 0,
+            },
+            interactive: false,
+          })
+        : null;
       
       if (arrows) {
         polygon.eachLayer((layer) => {
@@ -278,7 +289,9 @@ export const createGeographicShape = async (geographic_data) => {
       if (pathName == 'minhiriath'){
         polygon.bringToFront();
       }
-      polygons[key] = polygon;
+      polygons[key] = outlinePolygon
+        ? L.layerGroup([outlinePolygon, polygon])
+        : polygon;
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
