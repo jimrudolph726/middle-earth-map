@@ -377,6 +377,12 @@ export const gandalfthewhitecampsites = {
     },
   February25: { coords: [44.94362377,-93.30513597], icon: icons.TentIcon, popup: createCampsitePopup('February 25','?','?','?','Gandalf comes to Fangorn and sends Gwaihir to gather news.', 'PLothlorien'),
     },
+  February26: { coords: [44.94341147,-93.30495744], icon: icons.TentIcon, popup: createCampsitePopup('February 26','?','?','?','Gandalf strives in thought with Sauron to prevent him from finding Frodo at Amon Hen.', 'PLothlorien'),
+    },
+  February27: { coords: [44.94336825,-93.30475564], icon: icons.TentIcon, popup: createCampsitePopup('February 27','?','?','?','Gandalf sees Treebeard in Fangorn but does not speak to him.', 'PLothlorien'),
+    },
+  March1: { coords: [44.94333163,-93.30456729], icon: icons.TentIcon, popup: createCampsitePopup('March 1','?','?','?','Gandalf is reunited with Aragorn, Legolas and Gimli in Fangorn. They set out for Edoras in Rohan.', 'PLothlorien'),
+    },
   }
 
   44.9440833,-93.3046289
