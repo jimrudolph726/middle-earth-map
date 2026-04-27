@@ -373,7 +373,7 @@ export const gandalfthewhitecampsites = {
     },
   February18: { coords: [44.94466539,-93.30446414], icon: icons.TentIcon, popup: createCampsitePopup('February 18','?','?','?','Galadriel arrays Gandalf in white and places a new staff in his hand.', 'PLothlorien'),
     },
-  February20: { coords: [44.94466539,-93.30446414], icon: icons.TentIcon, popup: createCampsitePopup('February 20','?','?','?','Gandalf leaves Lothlorien and is flown south by Gwaihir.', 'PLothlorien'),
+  February20: { coords: [44.9440813,-93.3046144], icon: icons.TentIcon, popup: createCampsitePopup('February 20','?','?','?','Gandalf leaves Lothlorien and is flown south by Gwaihir.', 'PLothlorien'),
     },
   February25: { coords: [44.94362377,-93.30513597], icon: icons.TentIcon, popup: createCampsitePopup('February 25','?','?','?','Gandalf comes to Fangorn and sends Gwaihir to gather news.', 'PLothlorien'),
     },
