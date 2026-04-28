@@ -125,7 +125,7 @@ export const settlementsData = [
 ];
 
 // Paths and Roads
-export const pathdata = { 
+export const pathData = { 
   samfrodopath: { 
     pathName: 'samfrodopath', color: 'red', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
   }, 

@@ -11,7 +11,7 @@ import {
 
 import {
   settlementsData,
-  pathdata,
+  pathData,
   geographicData,
   imageUrl,
   map,
@@ -121,7 +121,7 @@ Promise.all(
 });
  
 // Add Paths
-createGeographicShape(pathdata).then((polygons) => {
+createGeographicShape(pathData).then((polygons) => {
   PathListeners(polygons, map);
   });
 
