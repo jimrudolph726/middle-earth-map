@@ -148,6 +148,9 @@ export const pathData = {
   old_forest_road: { 
     pathName: 'old_forest_road', color: 'red', name: 'Old Forest Road', PopupContent: createSettlementPopup('Old Forest Road', 'Road through Mirkwood. The Old Forest Road began on the eastern side of the Misty Mountains. It came down from the High Pass, also called the Pass of Imladris. The Old Forest Road ran eastward and crossed the Anduin at the Old Ford. In the late Second Age there was a bridge over the Anduin at this point, but by the late Third Age it was gone.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
   },
+  north_way: { 
+    pathName: 'north_way', color: 'red', name: 'North-way', PopupContent: createSettlementPopup('North-way', 'The North-way began at the Great Gate of Minas Tirith and ran northward across the Pelennor Fields. At the Rammas Echor, the North-way passed through Forannest, the North-gate. The North-way then joined the Great West Road which ran through Anorien and Rohan.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
+  },
 }
 
 // Geographic Features
