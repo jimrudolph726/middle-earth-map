@@ -51,7 +51,7 @@ h3,
   color: #AAA;
 }
 
-#settlementsSection, #pathsSection, #geographySection, #battlesSection, #itemsSection, #campsSection, #regionsSection {
+#settlementsSection, #pathsSection, #roadsSection, #geographySection, #battlesSection, #itemsSection, #campsSection, #regionsSection {
   display: flex;
   flex-direction: column; /* Stack the labels vertically */
   gap: 8px; /* Optional: Add spacing between items */
@@ -73,7 +73,7 @@ h3,
   text-align: left; /* Align text to the left */
 }
 
-#settlementsSection label, #pathsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label, #campsSection label, #regionsSection label {
+#settlementsSection label, #pathsSection label, #roadsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label, #campsSection label, #regionsSection label {
   display: flex;
   align-items: center; /* Align the checkbox and label text */
   cursor: pointer; /* Change the cursor to indicate clickability */
@@ -85,6 +85,7 @@ h3,
 /* #campsSection input[type="checkbox"], */
 #itemsSection input[type="checkbox"],
 /* #pathsSection input[type="checkbox"], */
+#roadsSection input[type="checkbox"],
 #itemsSection input[type="checkbox"],
 #battlesSection input[type="checkbox"],
 #settlementsSection input[type="checkbox"],
@@ -113,16 +114,17 @@ h3,
   pointer-events: none; /* Prevent the label from being interactive */
 }
 
-#campsSection, #pathsSection {
+#campsSection, #pathsSection, #roadsSection {
   padding-top: 0; /* Remove extra padding from the top */
 }
 
 #campsSection h3,
-#pathsSection h3 {
+#pathsSection h3,
+#roadsSection h3 {
   margin-top: 0; /* Remove any extra margin on the h3 headers */
 }
 
-#campsSection label, #pathsSection label {
+#campsSection label, #pathsSection label, #roadsSection label {
   margin-top: 0; /* Remove top margin from the labels */
 }
 
