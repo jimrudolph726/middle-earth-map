@@ -25,7 +25,7 @@ map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 const sharedClusterGroups = {};
 
-// Add Campsites and Settlements
+// Add Campsites, Settlements, Items
 Promise.all(
   settlementsData.map(({ data, checkboxId, campsite, clusterScope }) => ({
     checkboxId,
@@ -120,7 +120,7 @@ Promise.all(
   });
 });
  
-// Add Paths
+// Add Paths and Roads
 createGeographicShape(pathData).then((polygons) => {
   PathListeners(polygons, map);
   });

@@ -51,11 +51,7 @@ preferCanvas: true
 });
 export const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
 
-
-
-
-
-// Campsites and Settlements
+// Campsites, Settlements, Items
 const campsiteGroups = {
   samfrodocampsites,
   aragorncampsites,
