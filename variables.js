@@ -124,7 +124,7 @@ export const settlementsData = [
   })),
 ];
 
-// Paths
+// Paths and Roads
 export const pathdata = { 
   samfrodopath: { 
     pathName: 'samfrodopath', color: 'red', name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
@@ -143,6 +143,9 @@ export const pathdata = {
   },
   gandalfthewhitepath: { 
     pathName: 'gandalfthewhitepath', color: '#ffffff', outlineColor: '#000000', outlineWeight: 8, name: 'Gandalf the White', PopupContent: createSettlementPopup('Gandalf the White', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 6, arrows: false 
+  },
+  great_east_road: { 
+    pathName: 'great_east_road', color: 'brown', name: 'Great East Road', PopupContent: createSettlementPopup('reat East Road', 'Major road through Eriador. The Great East Road ran between the Grey Havens and Rivendell. The Road was approximately 575 miles long. The Road was not paved and sometimes developed ruts and potholes during wet weather.', 'https://thainsbook.minastirith.cz/roads.html#Great-East-Road'), tolerance: 10, weight: 6, arrows: false 
   },
 }
 

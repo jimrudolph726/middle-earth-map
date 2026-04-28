@@ -1395,19 +1395,3 @@ export const sub_regions = {
     weight: 2
   },
 };
-export const roads = {
-  great_east_road: {
-    pathName: "great_east_road",
-    color: "brown",
-    name: "Great East Road",
-    PopupContent: createGeographicPopup(
-      "Great East Road",
-      "None",
-      `Taur-nu-Fuin means "forest under night." The word taur means "wood, forest"; nu means "down below, underneath"; and fuin means "gloom, darkness."`,
-      "Largest continuous forest in Middle-earth during the War of the Ring. King Thranduil's kingdom is located here.",
-      "https://tolkiengateway.net/wiki/Mirkwood"
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
-};
