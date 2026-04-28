@@ -164,5 +164,5 @@ export const geographicData = [
   ...Object.entries(geographicGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`
-  }))
+  })),
 ]
