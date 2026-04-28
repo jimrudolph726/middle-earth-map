@@ -10,7 +10,6 @@ import {
   wetlands,
   large_regions,
   sub_regions,
-  roads,
 } from './geographic_data.js';
 
 import {
