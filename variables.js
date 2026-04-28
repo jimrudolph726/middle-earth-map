@@ -157,6 +157,7 @@ const geographicGroups = {
   wetlands,
   large_regions,
   sub_regions,
+  roads,
 };
 
 export const geographicData = [
