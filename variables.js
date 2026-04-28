@@ -146,6 +146,9 @@ export const pathData = {
   great_east_road: { 
     pathName: 'great_east_road', color: 'brown', name: 'Great East Road', PopupContent: createSettlementPopup('Great East Road', 'Major road through Eriador. The Great East Road ran between the Grey Havens and Rivendell. The Road was approximately 575 miles long. The Road was not paved and sometimes developed ruts and potholes during wet weather.', 'https://thainsbook.minastirith.cz/roads.html#Great-East-Road'), tolerance: 10, weight: 6, arrows: false 
   },
+  old_forest_road: { 
+    pathName: 'old_forest_road', color: 'red', name: 'Old Forest Road', PopupContent: createSettlementPopup('Old Forest Road', 'Road through Mirkwood. The Old Forest Road began on the eastern side of the Misty Mountains. It came down from the High Pass, also called the Pass of Imladris. The Old Forest Road ran eastward and crossed the Anduin at the Old Ford. In the late Second Age there was a bridge over the Anduin at this point, but by the late Third Age it was gone.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
+  },
 }
 
 // Geographic Features
