@@ -29,7 +29,7 @@ import {
  } from './campsite_data.js';
 
 // Map
-export const imageUrl = new URL('./assets/the_shire.png', import.meta.url).href;
+export const imageUrl = new URL('./assets/the_shire.jpg', import.meta.url).href;
 export const map = L.map('map', {
 crs: L.CRS.EPSG3857,
 minZoom: 15,
