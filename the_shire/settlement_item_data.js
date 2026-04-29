@@ -20,7 +20,7 @@ TentIcon: createIcon(iconUrls.tent, [30, 30])
 // Settlements
 export const elves = {
   nargothrond: {
-    coords: [44.9407283,-93.2984007],
+    coords: [44.94113227,-93.28396406],
     icon: icons.NargothrondIcon,
     popup: createSettlementPopup("Nargothrond",
     "Nargothrond was the underground fortress of Finrod Felagund and the surrounding realm in West Beleriand. It was one of the great strongholds of the Elves in Middle-earth during the First Age.",
