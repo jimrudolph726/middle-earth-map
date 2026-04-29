@@ -40,7 +40,7 @@ import {
 // Map
 export const imageUrl = new URL('./assets/middle-earth.png', import.meta.url).href;
 export const map = L.map('map', {
-crs: L.CRS.EPSG3857,
+crs: L.CRS.EPSG4326,
 minZoom: 15,
 maxZoom: 20,
 zoom: 15.5, // Fractional zoom level
