@@ -40,7 +40,7 @@ zoomSnap: 1, // Allows fractional zoom levels
 zoomDelta: 5, // Controls the increment of zoom changes
 preferCanvas: true
 });
-export const imageBounds = [[44.94393060,-93.30248833],[44.937485956,-93.290119813],];
+export const imageBounds = [[44.942894017,-93.288129001],[44.938806559,-93.278576287],];
 
 // Campsites and Settlements
 const campsiteGroups = {
