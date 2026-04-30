@@ -434,6 +434,7 @@ h3,
 
 .atlas-map-nav__link > span,
 .atlas-map-nav__toggle-label > span {
+  font-family: "Ringbearer";
   flex: 1;
 }
 
