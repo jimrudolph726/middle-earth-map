@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <title>D3 Tolkien Family Tree Fullscreen Bio</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
   <style>
+    @font-face {
+      font-family: "Ringbearer";
+      src: url("./assets/ringbearer.TTF") format("truetype");
+    }
+
     body {
       margin: 0;
       font-family: Georgia, serif;
@@ -181,6 +187,88 @@
       color: #5f5544;
     }
 
+    .atlas-map-nav {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: min(220px, calc(100vw - 36px));
+      pointer-events: auto;
+    }
+
+    .atlas-map-nav__menu {
+      position: relative;
+    }
+
+    .atlas-map-nav__toggle {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .atlas-map-nav__toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .atlas-map-nav__link,
+    .atlas-map-nav__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid rgba(111, 83, 40, 0.5);
+      border-radius: 12px;
+      background: rgba(254, 250, 240, 0.92);
+      box-shadow: 0 10px 24px rgba(31, 20, 8, 0.18);
+      color: #3f2c15;
+      font-family: "Ringbearer", Georgia, serif;
+      font-size: 21px;
+      text-decoration: none;
+      backdrop-filter: blur(3px);
+    }
+
+    .atlas-map-nav__dropdown {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .atlas-map-nav__toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .atlas-map-nav__link > span,
+    .atlas-map-nav__toggle-label > span {
+      flex: 1;
+    }
+
+    .atlas-map-nav__link .material-icons,
+    .atlas-map-nav__toggle .material-icons {
+      font-size: 20px;
+    }
+
+    .atlas-map-nav__link--home,
+    .atlas-map-nav__link--current {
+      background: rgba(244, 232, 199, 0.95);
+    }
+
+    .atlas-map-nav__menu[open] .atlas-map-nav__chevron {
+      transform: rotate(180deg);
+    }
+
+    .atlas-map-nav__link:hover,
+    .atlas-map-nav__link:focus-visible,
+    .atlas-map-nav__toggle:hover,
+    .atlas-map-nav__toggle:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(255, 252, 245, 0.98);
+    }
+
     @media (max-width: 700px) {
       .character-header {
         flex-direction: column;
@@ -190,12 +278,64 @@
       .character-header h1 {
         font-size: 2rem;
       }
+
+      .atlas-map-nav {
+        top: auto;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        width: auto;
+      }
+
+      .atlas-map-nav__link,
+      .atlas-map-nav__toggle {
+        justify-content: center;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
   <div id="tree">
+    <nav class="atlas-map-nav" aria-label="Atlas navigation">
+      <a class="atlas-map-nav__link atlas-map-nav__link--home" href="index.html">
+        <i class="material-icons">home</i>
+        <span>Home</span>
+      </a>
+      <details class="atlas-map-nav__menu">
+        <summary class="atlas-map-nav__toggle">
+          <span class="atlas-map-nav__toggle-label">
+            <i class="material-icons">map</i>
+            <span>Maps</span>
+          </span>
+          <i class="material-icons atlas-map-nav__chevron">expand_more</i>
+        </summary>
+        <div class="atlas-map-nav__dropdown">
+          <a class="atlas-map-nav__link" href="middle-earth.html">
+            <i class="material-icons">map</i>
+            <span>Middle-earth</span>
+          </a>
+          <a class="atlas-map-nav__link" href="numenor/numenor.html">
+            <i class="material-icons">map</i>
+            <span>Numenor</span>
+          </a>
+          <a class="atlas-map-nav__link" href="beleriand/beleriand.html">
+            <i class="material-icons">map</i>
+            <span>Beleriand</span>
+          </a>
+          <a class="atlas-map-nav__link" href="the_shire/the_shire.html">
+            <i class="material-icons">map</i>
+            <span>The Shire</span>
+          </a>
+          <a class="atlas-map-nav__link atlas-map-nav__link--current" href="family_tree.html" aria-current="page">
+            <i class="material-icons">account_tree</i>
+            <span>Family Tree</span>
+          </a>
+        </div>
+      </details>
+    </nav>
+
     <div id="tree-toolbar">
       <button id="reset-view">Reset View</button>
     </div>
@@ -418,36 +558,5 @@
       document.querySelector("#character-sheet").classList.remove("hidden");
     }
   </script>
-  <details class="atlas-map-nav__menu">
-            <summary class="atlas-map-nav__toggle">
-                <span class="atlas-map-nav__toggle-label">
-                    <i class="material-icons">map</i>
-                    <span>Maps</span>
-                </span>
-                <i class="material-icons atlas-map-nav__chevron">expand_more</i>
-            </summary>
-            <div class="atlas-map-nav__dropdown">
-                <a class="atlas-map-nav__link atlas-map-nav__link--current" href="middle-earth.html" aria-current="page">
-                    <i class="material-icons">map</i>
-                    <span>Middle-earth</span>
-                </a>
-                <a class="atlas-map-nav__link" href="numenor/numenor.html">
-                    <i class="material-icons">map</i>
-                    <span>Numenor</span>
-                </a>
-                <a class="atlas-map-nav__link" href="beleriand/beleriand.html">
-                    <i class="material-icons">map</i>
-                    <span>Beleriand</span>
-                </a>
-                <a class="atlas-map-nav__link" href="the_shire/the_shire.html">
-                    <i class="material-icons">map</i>
-                    <span>The Shire</span>
-                </a>
-                <a class="atlas-map-nav__link" href="family_tree.html">
-                    <i class="material-icons">account_tree</i>
-                    <span>Family Tree</span>
-                </a>
-            </div>
-        </details>
 </body>
 </html>
