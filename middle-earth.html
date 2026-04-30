@@ -232,26 +232,37 @@
             <i class="material-icons">home</i>
             <span>Home</span>
         </a>
-        <a class="atlas-map-nav__link" href="middle-earth.html">
-            <i class="material-icons">map</i>
-            <span>Middle-earth</span>
-        </a>
-        <a class="atlas-map-nav__link" href="numenor/numenor.html">
-            <i class="material-icons">map</i>
-            <span>Numenor</span>
-        </a>
-        <a class="atlas-map-nav__link" href="beleriand/beleriand.html">
-            <i class="material-icons">map</i>
-            <span>Beleriand</span>
-        </a>
-        <a class="atlas-map-nav__link" href="the_shire/the_shire.html">
-            <i class="material-icons">map</i>
-            <span>The Shire</span>
-        </a>
-        <a class="atlas-map-nav__link" href="family_tree.html">
-            <i class="material-icons">map</i>
-            <span>The Shire</span>
-        </a>
+        <details class="atlas-map-nav__menu">
+            <summary class="atlas-map-nav__toggle">
+                <span class="atlas-map-nav__toggle-label">
+                    <i class="material-icons">map</i>
+                    <span>Maps</span>
+                </span>
+                <i class="material-icons atlas-map-nav__chevron">expand_more</i>
+            </summary>
+            <div class="atlas-map-nav__dropdown">
+                <a class="atlas-map-nav__link atlas-map-nav__link--current" href="middle-earth.html" aria-current="page">
+                    <i class="material-icons">map</i>
+                    <span>Middle-earth</span>
+                </a>
+                <a class="atlas-map-nav__link" href="numenor/numenor.html">
+                    <i class="material-icons">map</i>
+                    <span>Numenor</span>
+                </a>
+                <a class="atlas-map-nav__link" href="beleriand/beleriand.html">
+                    <i class="material-icons">map</i>
+                    <span>Beleriand</span>
+                </a>
+                <a class="atlas-map-nav__link" href="the_shire/the_shire.html">
+                    <i class="material-icons">map</i>
+                    <span>The Shire</span>
+                </a>
+                <a class="atlas-map-nav__link" href="family_tree.html">
+                    <i class="material-icons">account_tree</i>
+                    <span>Family Tree</span>
+                </a>
+            </div>
+        </details>
     </nav>
     <div id="map" class="sidebar-map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
