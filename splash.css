@@ -190,20 +190,23 @@ body.splash-body {
   text-align: center;
 }
 
+.map-card--the_shire {
+  top: 175px;
+  right: 750px;
+}
 .map-card--middle-earth {
   top: 146px;
-  right: 330px;
+  right: 300px;
 }
-
 .map-card--numenor {
   top: 116px;
-  right: 176px;
+  right: 150px;
 }
-
 .map-card--beleriand {
   top: 150px;
-  right: 24px;
+  right: 0px;
 }
+
 
 .splash-blessing {
   margin: 10px 0 0;
@@ -222,6 +225,11 @@ body.splash-body {
 
   .map-card {
     width: min(17vw, 146px);
+  }
+
+  .map-card--the_shire {
+    top: 154px;
+    right: 450px;
   }
 
   .map-card--middle-earth {
@@ -302,7 +310,8 @@ body.splash-body {
 
   .map-card--middle-earth,
   .map-card--numenor,
-  .map-card--beleriand {
+  .map-card--beleriand,
+   .map-card--the_shire {
     --map-top: auto;
     --map-left: auto;
     --map-rotate: 0deg;
