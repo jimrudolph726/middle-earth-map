@@ -2,10 +2,302 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>D3 Tolkien Family Tree Fullscreen Bio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D3 + ELK Tolkien Family Tree with Couple Nodes</title>
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/elkjs/lib/elk.bundled.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body.family-tree-page {
+      margin: 0;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #17110b;
+      color: #f5f0e6;
+    }
+
+    #tree {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(183, 137, 68, 0.18), transparent 45%),
+        linear-gradient(135deg, #1d150d, #0f0a06 70%);
+      overflow: hidden;
+    }
+
+    svg {
+      display: block;
+      cursor: grab;
+    }
+
+    svg:active {
+      cursor: grabbing;
+    }
+
+    .atlas-map-nav {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 10;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-family: Arial, sans-serif;
+    }
+
+    .atlas-map-nav__link,
+    .atlas-map-nav__toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid rgba(218, 184, 112, 0.55);
+      border-radius: 999px;
+      background: rgba(31, 22, 13, 0.88);
+      color: #f5e6c8;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    }
+
+    .atlas-map-nav__menu {
+      position: relative;
+    }
+
+    .atlas-map-nav__menu summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .atlas-map-nav__menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .atlas-map-nav__toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .atlas-map-nav__dropdown {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+      min-width: 210px;
+    }
+
+    .atlas-map-nav__link--current {
+      background: rgba(111, 72, 32, 0.92);
+    }
+
+    #tree-toolbar {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 10;
+      font-family: Arial, sans-serif;
+    }
+
+    #reset-view {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(218, 184, 112, 0.65);
+      background: rgba(31, 22, 13, 0.9);
+      color: #f5e6c8;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+    }
+
+    .hint {
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      z-index: 10;
+      padding: 8px 14px;
+      border: 1px solid rgba(218, 184, 112, 0.35);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.45);
+      color: #e8d3a6;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    .node {
+      cursor: pointer;
+    }
+
+    .node-card {
+      fill: rgba(245, 240, 230, 0.94);
+      stroke: #b78944;
+      stroke-width: 2;
+      rx: 16;
+      filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.38));
+    }
+
+    .portrait-ring {
+      fill: #efe1c4;
+      stroke: #8c5f2a;
+      stroke-width: 2;
+    }
+
+    .node-name {
+      fill: #2f2a1f;
+      font-size: 16px;
+      font-weight: bold;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .node-title {
+      fill: #66513a;
+      font-size: 10px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .parent-link {
+      fill: none;
+      stroke: rgba(211, 176, 105, 0.85);
+      stroke-width: 2.5;
+    }
+
+    .spouse-line {
+      stroke: rgba(224, 202, 150, 0.95);
+      stroke-width: 2.5;
+    }
+
+    .descent-line {
+      stroke: rgba(211, 176, 105, 0.9);
+      stroke-width: 2.5;
+    }
+
+    .couple-node {
+      display: none;
+    }
+
+    .character-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background:
+        radial-gradient(circle at top left, rgba(183, 137, 68, 0.22), transparent 35%),
+        linear-gradient(135deg, #21170e, #090604 75%);
+      color: #f5f0e6;
+      overflow-y: auto;
+    }
+
+    .character-sheet.hidden {
+      display: none;
+    }
+
+    .character-sheet__inner {
+      width: min(1000px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 32px 0 60px;
+    }
+
+    .back-button {
+      border: 1px solid rgba(218, 184, 112, 0.65);
+      background: rgba(31, 22, 13, 0.8);
+      color: #f5e6c8;
+      border-radius: 999px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-size: 15px;
+      margin-bottom: 34px;
+    }
+
+    .character-header {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      padding: 30px;
+      border: 1px solid rgba(218, 184, 112, 0.45);
+      border-radius: 26px;
+      background: rgba(255, 244, 222, 0.08);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+
+    .character-header img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #b78944;
+      background: #efe1c4;
+    }
+
+    .character-header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 0.95;
+      color: #f7dfaa;
+    }
+
+    .character-header h2 {
+      margin: 0;
+      color: #d7b36c;
+      font-weight: normal;
+      font-size: clamp(18px, 2.5vw, 28px);
+    }
+
+    .character-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 24px 0;
+    }
+
+    .meta-card {
+      padding: 18px;
+      border: 1px solid rgba(218, 184, 112, 0.35);
+      border-radius: 18px;
+      background: rgba(255, 244, 222, 0.07);
+      color: #f0dfbd;
+    }
+
+    .meta-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #d7b36c;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: Arial, sans-serif;
+    }
+
+    .character-section {
+      padding: 26px 30px;
+      border-radius: 22px;
+      background: rgba(255, 244, 222, 0.07);
+      border: 1px solid rgba(218, 184, 112, 0.3);
+      font-size: 20px;
+      line-height: 1.65;
+      color: #f5e9cf;
+    }
+
+    @media (max-width: 760px) {
+      .character-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .character-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body class="family-tree-page">
@@ -15,6 +307,7 @@
         <i class="material-icons">home</i>
         <span>Home</span>
       </a>
+
       <details class="atlas-map-nav__menu">
         <summary class="atlas-map-nav__toggle">
           <span class="atlas-map-nav__toggle-label">
@@ -23,6 +316,7 @@
           </span>
           <i class="material-icons atlas-map-nav__chevron">expand_more</i>
         </summary>
+
         <div class="atlas-map-nav__dropdown">
           <a class="atlas-map-nav__link" href="middle-earth.html">
             <i class="material-icons">map</i>
@@ -66,13 +360,33 @@
     const placeholder = "https://placehold.co/220x220/f5f0e6/2f2a1f?text=";
 
     const people = {
+        arador_wife: {
+        id: "arador_wife",
+        name: "arador_wife",
+        title: "arador_wife",
+        house: "House of Isildur",
+        realm: "Dúnedain of the North",
+        born: "T.A. 2700",
+        image: placeholder + "Arador",
+        bio: "arador_wife."
+      },
+      arador: {
+        id: "arador",
+        name: "Arador",
+        title: "Chieftain of the Dúnedain",
+        house: "House of Isildur",
+        realm: "Dúnedain of the North",
+        born: "T.A. 2700",
+        image: placeholder + "Arador",
+        bio: "Father of Arathorn II."
+      },
       arathorn: {
         id: "arathorn",
         name: "Arathorn",
         title: "Chieftain of the Dúnedain",
         house: "House of Isildur",
         realm: "Dúnedain of the North",
-        born: "2050",
+        born: "T.A. 2873",
         image: placeholder + "Arathorn",
         bio: "Arathorn II was the father of Aragorn and a chieftain of the Dúnedain. His line preserved the royal inheritance of Isildur in the North."
       },
@@ -82,7 +396,7 @@
         title: "King Elessar",
         house: "House of Isildur",
         realm: "Reunited Kingdom",
-        born: "2050",
+        born: "T.A. 2931",
         image: "assets/family_tree/aragorn.png",
         bio: "Aragorn, son of Arathorn, was heir of Isildur and became King of the Reunited Kingdom after the War of the Ring."
       },
@@ -92,7 +406,7 @@
         title: "Evenstar",
         house: "House of Elrond",
         realm: "Rivendell / Gondor",
-        born: "2050",
+        born: "T.A. 241",
         image: "assets/family_tree/arwen.png",
         bio: "Arwen Undómiel, daughter of Elrond, chose a mortal life and became Queen of the Reunited Kingdom."
       },
@@ -102,31 +416,40 @@
         title: "Son of Aragorn and Arwen",
         house: "House of Telcontar",
         realm: "Reunited Kingdom",
-        born: "2050",
+        born: "Fourth Age",
         image: placeholder + "Eldarion",
         bio: "Eldarion was the son and heir of Aragorn and Arwen, continuing the royal line after King Elessar."
       }
     };
 
-    const nodes = [
-      { id: "arathorn", x: 380, y: 80 },
-      { id: "aragorn", x: 280, y: 280 },
-      { id: "arwen", x: 520, y: 280 },
-      { id: "eldarion", x: 400, y: 500 }
-    ];
+    const relationships = {
+      couples: [
+        {
+          id: "couple-aragorn-arwen",
+          partners: ["aragorn", "arwen"],
+          children: ["eldarion"],
+          label: "Marriage"
+        },
+        {
+          id: "couple-arador-wife",
+          partners: ["arador", "arador_wife"],
+          children: ["arathorn"],
+          label: "Marriage"
+        }
+      ],
+      parentChild: [
+        { source: "arathorn", target: "aragorn" }
+      ]
+    };
 
-    const links = [
-      { source: "arathorn", target: "aragorn", type: "parent" },
-      { source: "aragorn", target: "eldarion", type: "parent" },
-      { source: "arwen", target: "eldarion", type: "parent" },
-      { source: "aragorn", target: "arwen", type: "spouse" }
-    ];
-
-    const width = 900;
-    const height = 650;
+    const width = 1200;
+    const height = 800;
     const cardWidth = 170;
     const cardHeight = 104;
+    const coupleNodeWidth = 42;
+    const coupleNodeHeight = 28;
     const portraitRadius = 28;
+    const descentLineCardGap = 10;
 
     const svg = d3.select("#tree")
       .append("svg")
@@ -136,20 +459,20 @@
 
     const zoomLayer = svg.append("g");
     const linkLayer = zoomLayer.append("g");
-    const spouseLayer = zoomLayer.append("g");
+    const spouseLineLayer = zoomLayer.append("g");
+    const descentLineLayer = zoomLayer.append("g");
+    const coupleNodeLayer = zoomLayer.append("g");
     const nodeLayer = zoomLayer.append("g");
 
-    const nodeById = new Map(nodes.map(d => [d.id, d]));
-
     const zoom = d3.zoom()
-      .scaleExtent([0.35, 2.5])
+      .scaleExtent([0.2, 3])
       .on("zoom", event => {
         zoomLayer.attr("transform", event.transform);
       });
 
     svg.call(zoom);
 
-    const initialTransform = d3.zoomIdentity.translate(120, 40).scale(0.95);
+    let initialTransform = d3.zoomIdentity.translate(250, 80).scale(0.95);
     svg.call(zoom.transform, initialTransform);
 
     document.querySelector("#reset-view").addEventListener("click", () => {
@@ -160,88 +483,331 @@
       document.querySelector("#character-sheet").classList.add("hidden");
     });
 
-    linkLayer.selectAll(".link")
-      .data(links.filter(d => d.type === "parent"))
-      .enter()
-      .append("path")
-      .attr("class", "link")
-      .attr("d", d => {
-        const source = nodeById.get(d.source);
-        const target = nodeById.get(d.target);
+    const elk = new ELK();
 
-        const startX = source.x;
-        const startY = source.y + cardHeight / 2;
-        const endX = target.x;
-        const endY = target.y - cardHeight / 2;
-        const midY = (startY + endY) / 2;
+    function makeCurve(source, target, sourceOffsetY = 0, targetOffsetY = 0) {
+      const startX = source.x;
+      const startY = source.y + sourceOffsetY;
+      const endX = target.x;
+      const endY = target.y + targetOffsetY;
+      const midY = (startY + endY) / 2;
 
-        return `
-          M ${startX},${startY}
-          C ${startX},${midY}
-            ${endX},${midY}
-            ${endX},${endY}
-        `;
+      return `
+        M ${startX},${startY}
+        C ${startX},${midY}
+          ${endX},${midY}
+          ${endX},${endY}
+      `;
+    }
+
+    function assertValidData() {
+      const personIds = new Set(Object.keys(people));
+      const coupleIds = new Set(relationships.couples.map(couple => couple.id));
+      const errors = [];
+
+      Object.entries(people).forEach(([key, person]) => {
+        if (person.id !== key) {
+          errors.push(`people.${key}.id is "${person.id}" but should match key "${key}".`);
+        }
       });
 
-    spouseLayer.selectAll(".spouse-link")
-      .data(links.filter(d => d.type === "spouse"))
-      .enter()
-      .append("line")
-      .attr("class", "spouse-link")
-      .attr("x1", d => nodeById.get(d.source).x + cardWidth / 2)
-      .attr("y1", d => nodeById.get(d.source).y)
-      .attr("x2", d => nodeById.get(d.target).x - cardWidth / 2)
-      .attr("y2", d => nodeById.get(d.target).y);
-
-    const node = nodeLayer.selectAll(".node")
-      .data(nodes)
-      .enter()
-      .append("g")
-      .attr("class", "node")
-      .attr("transform", d => `translate(${d.x}, ${d.y})`)
-      .on("click", (event, d) => {
-        event.stopPropagation();
-        showCharacterSheet(d.id);
+      relationships.parentChild.forEach((link, index) => {
+        if (!personIds.has(link.source)) errors.push(`parentChild[${index}].source "${link.source}" is not in people.`);
+        if (!personIds.has(link.target)) errors.push(`parentChild[${index}].target "${link.target}" is not in people.`);
       });
 
-    node.append("rect")
-      .attr("class", "node-card")
-      .attr("x", -cardWidth / 2)
-      .attr("y", -cardHeight / 2)
-      .attr("width", cardWidth)
-      .attr("height", cardHeight);
+      relationships.couples.forEach((couple, coupleIndex) => {
+        if (!couple.id) errors.push(`couples[${coupleIndex}] is missing an id.`);
+        if (coupleIds.has(couple.id) === false) errors.push(`couples[${coupleIndex}] has an invalid id.`);
 
-    node.append("circle")
-      .attr("class", "portrait-ring")
-      .attr("cx", 0)
-      .attr("cy", -24)
-      .attr("r", portraitRadius + 3);
+        couple.partners.forEach((partnerId, partnerIndex) => {
+          if (!personIds.has(partnerId)) {
+            errors.push(`couples[${coupleIndex}].partners[${partnerIndex}] "${partnerId}" is not in people.`);
+          }
+        });
 
-    node.append("clipPath")
-      .attr("id", d => `clip-${d.id}`)
-      .append("circle")
-      .attr("cx", 0)
-      .attr("cy", -24)
-      .attr("r", portraitRadius);
+        couple.children.forEach((childId, childIndex) => {
+          if (!personIds.has(childId)) {
+            errors.push(`couples[${coupleIndex}].children[${childIndex}] "${childId}" is not in people.`);
+          }
+        });
+      });
 
-    node.append("image")
-      .attr("href", d => people[d.id].image)
-      .attr("x", -portraitRadius)
-      .attr("y", -24 - portraitRadius)
-      .attr("width", portraitRadius * 2)
-      .attr("height", portraitRadius * 2)
-      .attr("clip-path", d => `url(#clip-${d.id})`)
-      .attr("preserveAspectRatio", "xMidYMid slice");
+      if (errors.length > 0) {
+        throw new Error(`Family tree data validation failed:\n${errors.join("\n")}`);
+      }
 
-    node.append("text")
-      .attr("class", "node-name")
-      .attr("y", 26)
-      .text(d => people[d.id].name);
+      console.info("Family tree data validation passed.");
+    }
 
-    node.append("text")
-      .attr("class", "node-title")
-      .attr("y", 45)
-      .text(d => people[d.id].title);
+    function getTypicalGenerationGap(nodeById) {
+      const gaps = relationships.parentChild
+        .map(link => {
+          const parent = nodeById.get(link.source);
+          const child = nodeById.get(link.target);
+          return parent && child ? child.y - parent.y : null;
+        })
+        .filter(gap => Number.isFinite(gap) && gap > 0);
+
+      if (gaps.length === 0) return 160;
+
+      const sortedGaps = [...gaps].sort((a, b) => a - b);
+      return sortedGaps[Math.floor(sortedGaps.length / 2)];
+    }
+
+    async function drawTree() {
+      assertValidData();
+
+      const coupleIds = relationships.couples.map(couple => couple.id);
+
+      const elkChildren = [
+        ...Object.keys(people).map(id => ({
+          id,
+          width: cardWidth,
+          height: cardHeight
+        })),
+        ...relationships.couples.map(couple => ({
+          id: couple.id,
+          width: coupleNodeWidth,
+          height: coupleNodeHeight
+        }))
+      ];
+
+      const elkEdges = [
+        ...relationships.parentChild.map((link, index) => ({
+          id: `direct-parent-edge-${index}`,
+          sources: [link.source],
+          targets: [link.target]
+        })),
+        ...relationships.couples.flatMap(couple => {
+          const partnerEdges = couple.partners.map((partnerId, index) => ({
+            id: `${couple.id}-partner-${index}`,
+            sources: [partnerId],
+            targets: [couple.id]
+          }));
+
+          const childEdges = couple.children.map((childId, index) => ({
+            id: `${couple.id}-child-${index}`,
+            sources: [couple.id],
+            targets: [childId]
+          }));
+
+          return [...partnerEdges, ...childEdges];
+        })
+      ];
+
+      const elkGraph = {
+        id: "root",
+        layoutOptions: {
+          "elk.algorithm": "layered",
+          "elk.direction": "DOWN",
+          "elk.spacing.nodeNode": "90",
+          "elk.layered.spacing.nodeNodeBetweenLayers": "90",
+          "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
+          "elk.layered.crossingMinimization.strategy": "LAYER_SWEEP",
+          "elk.edgeRouting": "ORTHOGONAL",
+          "elk.padding": "[top=60,left=60,bottom=60,right=60]"
+        },
+        children: elkChildren,
+        edges: elkEdges
+      };
+
+      const layout = await elk.layout(elkGraph);
+
+      const normalNodes = layout.children
+        .filter(node => !coupleIds.includes(node.id))
+        .map(node => ({
+          id: node.id,
+          x: node.x + cardWidth / 2,
+          y: node.y + cardHeight / 2,
+          width: cardWidth,
+          height: cardHeight
+        }));
+
+      const coupleNodes = layout.children
+        .filter(node => coupleIds.includes(node.id))
+        .map(node => ({
+          id: node.id,
+          x: node.x + coupleNodeWidth / 2,
+          y: node.y + coupleNodeHeight / 2,
+          width: coupleNodeWidth,
+          height: coupleNodeHeight,
+          label: relationships.couples.find(couple => couple.id === node.id)?.label || "♥"
+        }));
+
+      const nodeById = new Map([
+        ...normalNodes.map(d => [d.id, d]),
+        ...coupleNodes.map(d => [d.id, d])
+      ]);
+
+      // Post-process couple families so children are visually centered under the spouse line.
+      // ELK still does the hard work of spacing generations, but this makes the genealogy
+      // convention cleaner: spouse line midpoint -> vertical descent line -> child.
+      relationships.couples.forEach(couple => {
+        const partnerA = nodeById.get(couple.partners[0]);
+        const partnerB = nodeById.get(couple.partners[1]);
+        const coupleNode = nodeById.get(couple.id);
+
+        if (!partnerA || !partnerB || !coupleNode) return;
+
+        const spouseMidpointX = (partnerA.x + partnerB.x) / 2;
+        const spouseY = (partnerA.y + partnerB.y) / 2;
+        const desiredGap = getTypicalGenerationGap(nodeById);
+
+        coupleNode.x = spouseMidpointX;
+        coupleNode.y = spouseY;
+
+        couple.children.forEach(childId => {
+          const child = nodeById.get(childId);
+          if (!child) return;
+
+          child.x = spouseMidpointX;
+          child.y = spouseY + desiredGap;
+        });
+      });
+
+      const graphWidth = layout.width || width;
+      const graphHeight = layout.height || height;
+      const scale = Math.min(1, Math.max(0.45, Math.min(width / graphWidth, height / graphHeight) * 0.85));
+      initialTransform = d3.zoomIdentity.translate(120, 80).scale(scale);
+      svg.call(zoom.transform, initialTransform);
+
+      const directParentLinks = relationships.parentChild.map(link => ({
+        source: nodeById.get(link.source),
+        target: nodeById.get(link.target),
+        type: "direct-parent"
+      }));
+
+      const spouseLines = relationships.couples.map(couple => {
+        const partnerA = nodeById.get(couple.partners[0]);
+        const partnerB = nodeById.get(couple.partners[1]);
+
+        const leftPartner = partnerA.x < partnerB.x ? partnerA : partnerB;
+        const rightPartner = partnerA.x < partnerB.x ? partnerB : partnerA;
+        const spouseY = (leftPartner.y + rightPartner.y) / 2;
+        const midpointX = (leftPartner.x + rightPartner.x) / 2;
+
+        return {
+          leftPartner,
+          rightPartner,
+          spouseY,
+          midpointX
+        };
+      });
+
+      const descentLines = relationships.couples.flatMap(couple => {
+        const partnerA = nodeById.get(couple.partners[0]);
+        const partnerB = nodeById.get(couple.partners[1]);
+        const spouseY = (partnerA.y + partnerB.y) / 2;
+        const midpointX = (partnerA.x + partnerB.x) / 2;
+
+        return couple.children.map(childId => ({
+          midpointX,
+          spouseY,
+          child: nodeById.get(childId)
+        }));
+      });
+
+      console.assert(
+        descentLines.every(d => Number.isFinite(d.midpointX) && Number.isFinite(d.spouseY) && d.child),
+        "Each couple descent line should have a valid midpoint and child."
+      );
+
+      linkLayer.selectAll(".parent-link")
+        .data(directParentLinks)
+        .enter()
+        .append("path")
+        .attr("class", "parent-link")
+        .attr("d", d => makeCurve(d.source, d.target, cardHeight / 2, -cardHeight / 2));
+
+      spouseLineLayer.selectAll(".spouse-line")
+        .data(spouseLines)
+        .enter()
+        .append("line")
+        .attr("class", "spouse-line")
+        .attr("x1", d => d.leftPartner.x + cardWidth / 2)
+        .attr("y1", d => d.spouseY)
+        .attr("x2", d => d.rightPartner.x - cardWidth / 2)
+        .attr("y2", d => d.spouseY);
+
+      descentLineLayer.selectAll(".descent-line")
+        .data(descentLines)
+        .enter()
+        .append("line")
+        .attr("class", "descent-line")
+        .attr("x1", d => d.midpointX)
+        .attr("y1", d => d.spouseY)
+        .attr("x2", d => d.midpointX)
+        .attr("y2", d => d.child.y - cardHeight / 2 + descentLineCardGap);
+
+      const coupleNode = coupleNodeLayer.selectAll(".couple-node")
+        .data(coupleNodes)
+        .enter()
+        .append("g")
+        .attr("class", "couple-node")
+        .attr("transform", d => `translate(${d.x}, ${d.y})`);
+
+      coupleNode.append("rect")
+        .attr("x", -coupleNodeWidth / 2)
+        .attr("y", -coupleNodeHeight / 2)
+        .attr("width", coupleNodeWidth)
+        .attr("height", coupleNodeHeight)
+        .attr("rx", 14);
+
+      coupleNode.append("text")
+        .attr("y", 1)
+        .text("♥");
+
+      const node = nodeLayer.selectAll(".node")
+        .data(normalNodes)
+        .enter()
+        .append("g")
+        .attr("class", "node")
+        .attr("transform", d => `translate(${d.x}, ${d.y})`)
+        .on("click", (event, d) => {
+          event.stopPropagation();
+          showCharacterSheet(d.id);
+        });
+
+      node.append("rect")
+        .attr("class", "node-card")
+        .attr("x", -cardWidth / 2)
+        .attr("y", -cardHeight / 2)
+        .attr("width", cardWidth)
+        .attr("height", cardHeight);
+
+      node.append("circle")
+        .attr("class", "portrait-ring")
+        .attr("cx", 0)
+        .attr("cy", -24)
+        .attr("r", portraitRadius + 3);
+
+      node.append("clipPath")
+        .attr("id", d => `clip-${d.id}`)
+        .append("circle")
+        .attr("cx", 0)
+        .attr("cy", -24)
+        .attr("r", portraitRadius);
+
+      node.append("image")
+        .attr("href", d => people[d.id].image)
+        .attr("x", -portraitRadius)
+        .attr("y", -24 - portraitRadius)
+        .attr("width", portraitRadius * 2)
+        .attr("height", portraitRadius * 2)
+        .attr("clip-path", d => `url(#clip-${d.id})`)
+        .attr("preserveAspectRatio", "xMidYMid slice");
+
+      node.append("text")
+        .attr("class", "node-name")
+        .attr("y", 26)
+        .text(d => people[d.id].name);
+
+      node.append("text")
+        .attr("class", "node-title")
+        .attr("y", 45)
+        .text(d => people[d.id].title);
+    }
 
     function showCharacterSheet(id) {
       const person = people[id];
@@ -277,6 +843,25 @@
 
       document.querySelector("#character-sheet").classList.remove("hidden");
     }
+
+    drawTree().catch(error => {
+      console.error("Failed to draw family tree:", error);
+      const tree = document.querySelector("#tree");
+      const errorBox = document.createElement("pre");
+      errorBox.style.position = "absolute";
+      errorBox.style.left = "20px";
+      errorBox.style.bottom = "20px";
+      errorBox.style.zIndex = "999";
+      errorBox.style.maxWidth = "calc(100vw - 40px)";
+      errorBox.style.whiteSpace = "pre-wrap";
+      errorBox.style.padding = "16px";
+      errorBox.style.border = "1px solid #d7b36c";
+      errorBox.style.borderRadius = "12px";
+      errorBox.style.background = "rgba(0, 0, 0, 0.78)";
+      errorBox.style.color = "#f5e6c8";
+      errorBox.textContent = error.message;
+      tree.appendChild(errorBox);
+    });
   </script>
 </body>
 </html>
