@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>D3 Tolkien Family Tree Fullscreen Bio</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f5f0e6;
+      color: #2f2a1f;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #tree {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.65), rgba(230,220,195,0.35)),
+        #efe6d2;
+    }
+
+    #tree-toolbar {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 10;
+    }
+
+    #tree-toolbar button,
+    .back-button {
+      border: 1px solid #9c8b69;
+      background: #fffaf0;
+      color: #2f2a1f;
+      padding: 8px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: Georgia, serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    }
+
+    .link {
+      fill: none;
+      stroke: #9a8a68;
+      stroke-width: 2.25;
+    }
+
+    .spouse-link {
+      stroke: #6f5f3e;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+
+    .node { cursor: pointer; }
+
+    .node-card {
+      fill: #fffaf0;
+      stroke: #6f5f3e;
+      stroke-width: 2;
+      rx: 14;
+      ry: 14;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25));
+    }
+
+    .node:hover .node-card {
+      stroke-width: 3;
+      fill: #fff4dc;
+    }
+
+    .portrait-ring {
+      fill: #efe6d2;
+      stroke: #6f5f3e;
+      stroke-width: 2;
+    }
+
+    .node-name {
+      font-size: 16px;
+      font-weight: bold;
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    .node-title {
+      font-size: 11px;
+      text-anchor: middle;
+      fill: #5f5544;
+      pointer-events: none;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(255,250,240,0.9);
+      border: 1px solid #c8bfae;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: #5f5544;
+    }
+
+    .character-sheet {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.75), rgba(239,230,210,0.95)),
+        #efe6d2;
+      z-index: 50;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .character-sheet.hidden {
+      display: none;
+    }
+
+    .character-sheet__inner {
+      max-width: 850px;
+      margin: 40px auto;
+      background: #fffaf0;
+      border: 1px solid #c8bfae;
+      border-radius: 24px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+      padding: 32px;
+    }
+
+    .character-header {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .character-header img {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #8a7a5c;
+      background: #efe6d2;
+    }
+
+    .character-header h1 {
+      margin: 0;
+      font-size: 2.6rem;
+    }
+
+    .character-header h2 {
+      margin: 0.35rem 0 0;
+      color: #6f5f3e;
+      font-weight: normal;
+    }
+
+    .character-section {
+      margin-top: 28px;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .character-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-card {
+      border: 1px solid #d8cdb9;
+      background: #fff4dc;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .meta-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #5f5544;
+    }
+
+    @media (max-width: 700px) {
+      .character-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .character-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="tree">
+    <div id="tree-toolbar">
+      <button id="reset-view">Reset View</button>
+    </div>
+
+    <div class="hint">Drag to move • Scroll to zoom • Click a person for full bio</div>
+  </div>
+
+  <section id="character-sheet" class="character-sheet hidden">
+    <div class="character-sheet__inner">
+      <button id="back-to-tree" class="back-button">← Back to family tree</button>
+      <div id="character-sheet-content"></div>
+    </div>
+  </section>
+
+  <script>
+    const placeholder = "https://placehold.co/220x220/f5f0e6/2f2a1f?text=";
+
+    const people = {
+      arathorn: {
+        id: "arathorn",
+        name: "Arathorn",
+        title: "Chieftain of the Dúnedain",
+        house: "House of Isildur",
+        realm: "Dúnedain of the North",
+        image: placeholder + "Arathorn",
+        bio: "Arathorn II was the father of Aragorn and a chieftain of the Dúnedain. His line preserved the royal inheritance of Isildur in the North."
+      },
+      aragorn: {
+        id: "aragorn",
+        name: "Aragorn",
+        title: "King Elessar",
+        house: "House of Isildur",
+        realm: "Reunited Kingdom",
+        image: placeholder + "Aragorn",
+        bio: "Aragorn, son of Arathorn, was heir of Isildur and became King of the Reunited Kingdom after the War of the Ring."
+      },
+      arwen: {
+        id: "arwen",
+        name: "Arwen",
+        title: "Evenstar",
+        house: "House of Elrond",
+        realm: "Rivendell / Gondor",
+        image: placeholder + "Arwen",
+        bio: "Arwen Undómiel, daughter of Elrond, chose a mortal life and became Queen of the Reunited Kingdom."
+      },
+      eldarion: {
+        id: "eldarion",
+        name: "Eldarion",
+        title: "Son of Aragorn and Arwen",
+        house: "House of Telcontar",
+        realm: "Reunited Kingdom",
+        image: placeholder + "Eldarion",
+        bio: "Eldarion was the son and heir of Aragorn and Arwen, continuing the royal line after King Elessar."
+      }
+    };
+
+    const nodes = [
+      { id: "arathorn", x: 380, y: 80 },
+      { id: "aragorn", x: 280, y: 280 },
+      { id: "arwen", x: 520, y: 280 },
+      { id: "eldarion", x: 400, y: 500 }
+    ];
+
+    const links = [
+      { source: "arathorn", target: "aragorn", type: "parent" },
+      { source: "aragorn", target: "eldarion", type: "parent" },
+      { source: "arwen", target: "eldarion", type: "parent" },
+      { source: "aragorn", target: "arwen", type: "spouse" }
+    ];
+
+    const width = 900;
+    const height = 650;
+    const cardWidth = 170;
+    const cardHeight = 104;
+    const portraitRadius = 28;
+
+    const svg = d3.select("#tree")
+      .append("svg")
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("width", "100%")
+      .attr("height", "100%");
+
+    const zoomLayer = svg.append("g");
+    const linkLayer = zoomLayer.append("g");
+    const spouseLayer = zoomLayer.append("g");
+    const nodeLayer = zoomLayer.append("g");
+
+    const nodeById = new Map(nodes.map(d => [d.id, d]));
+
+    const zoom = d3.zoom()
+      .scaleExtent([0.35, 2.5])
+      .on("zoom", event => {
+        zoomLayer.attr("transform", event.transform);
+      });
+
+    svg.call(zoom);
+
+    const initialTransform = d3.zoomIdentity.translate(120, 40).scale(0.95);
+    svg.call(zoom.transform, initialTransform);
+
+    document.querySelector("#reset-view").addEventListener("click", () => {
+      svg.transition().duration(500).call(zoom.transform, initialTransform);
+    });
+
+    document.querySelector("#back-to-tree").addEventListener("click", () => {
+      document.querySelector("#character-sheet").classList.add("hidden");
+    });
+
+    linkLayer.selectAll(".link")
+      .data(links.filter(d => d.type === "parent"))
+      .enter()
+      .append("path")
+      .attr("class", "link")
+      .attr("d", d => {
+        const source = nodeById.get(d.source);
+        const target = nodeById.get(d.target);
+
+        const startX = source.x;
+        const startY = source.y + cardHeight / 2;
+        const endX = target.x;
+        const endY = target.y - cardHeight / 2;
+        const midY = (startY + endY) / 2;
+
+        return `
+          M ${startX},${startY}
+          C ${startX},${midY}
+            ${endX},${midY}
+            ${endX},${endY}
+        `;
+      });
+
+    spouseLayer.selectAll(".spouse-link")
+      .data(links.filter(d => d.type === "spouse"))
+      .enter()
+      .append("line")
+      .attr("class", "spouse-link")
+      .attr("x1", d => nodeById.get(d.source).x + cardWidth / 2)
+      .attr("y1", d => nodeById.get(d.source).y)
+      .attr("x2", d => nodeById.get(d.target).x - cardWidth / 2)
+      .attr("y2", d => nodeById.get(d.target).y);
+
+    const node = nodeLayer.selectAll(".node")
+      .data(nodes)
+      .enter()
+      .append("g")
+      .attr("class", "node")
+      .attr("transform", d => `translate(${d.x}, ${d.y})`)
+      .on("click", (event, d) => {
+        event.stopPropagation();
+        showCharacterSheet(d.id);
+      });
+
+    node.append("rect")
+      .attr("class", "node-card")
+      .attr("x", -cardWidth / 2)
+      .attr("y", -cardHeight / 2)
+      .attr("width", cardWidth)
+      .attr("height", cardHeight);
+
+    node.append("circle")
+      .attr("class", "portrait-ring")
+      .attr("cx", 0)
+      .attr("cy", -24)
+      .attr("r", portraitRadius + 3);
+
+    node.append("clipPath")
+      .attr("id", d => `clip-${d.id}`)
+      .append("circle")
+      .attr("cx", 0)
+      .attr("cy", -24)
+      .attr("r", portraitRadius);
+
+    node.append("image")
+      .attr("href", d => people[d.id].image)
+      .attr("x", -portraitRadius)
+      .attr("y", -24 - portraitRadius)
+      .attr("width", portraitRadius * 2)
+      .attr("height", portraitRadius * 2)
+      .attr("clip-path", d => `url(#clip-${d.id})`)
+      .attr("preserveAspectRatio", "xMidYMid slice");
+
+    node.append("text")
+      .attr("class", "node-name")
+      .attr("y", 26)
+      .text(d => people[d.id].name);
+
+    node.append("text")
+      .attr("class", "node-title")
+      .attr("y", 45)
+      .text(d => people[d.id].title);
+
+    function showCharacterSheet(id) {
+      const person = people[id];
+
+      document.querySelector("#character-sheet-content").innerHTML = `
+        <div class="character-header">
+          <img src="${person.image}" alt="${person.name}">
+          <div>
+            <h1>${person.name}</h1>
+            <h2>${person.title}</h2>
+          </div>
+        </div>
+
+        <div class="character-meta">
+          <div class="meta-card">
+            <strong>House</strong>
+            ${person.house}
+          </div>
+          <div class="meta-card">
+            <strong>Realm / Affiliation</strong>
+            ${person.realm}
+          </div>
+        </div>
+
+        <div class="character-section">
+          <p>${person.bio}</p>
+        </div>
+      `;
+
+      document.querySelector("#character-sheet").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
