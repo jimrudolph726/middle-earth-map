@@ -359,8 +359,13 @@ h3,
 .atlas-map-nav__dropdown {
   display: grid;
   gap: 8px;
-  margin-top: 8px;
-  min-width: 210px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 230px;
+  max-width: calc(100vw - 24px);
+  z-index: 901;
 }
 
 .atlas-map-nav__toggle {

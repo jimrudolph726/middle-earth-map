@@ -414,8 +414,13 @@ h3,
 .atlas-map-nav__dropdown {
   display: grid;
   gap: 8px;
-  margin-top: 8px;
-  min-width: 210px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 230px;
+  max-width: calc(100vw - 24px);
+  z-index: 901;
 }
 
 .atlas-map-nav__toggle {
@@ -530,14 +535,18 @@ body.family-tree-page {
 .family-tree-page .atlas-map-nav {
   position: absolute;
   top: 18px;
-  left: 18px;
+  left: 50%;
   right: auto;
   bottom: auto;
+  transform: translateX(-50%);
   z-index: 10;
   display: flex;
   flex-direction: row;
   gap: 10px;
   width: auto;
+  max-width: calc(100vw - 24px);
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: flex-start;
   font-family: Arial, sans-serif;
 }
@@ -583,8 +592,13 @@ body.family-tree-page {
 .family-tree-page .atlas-map-nav__dropdown {
   display: grid;
   gap: 8px;
-  margin-top: 8px;
-  min-width: 210px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 230px;
+  max-width: calc(100vw - 24px);
+  z-index: 11;
 }
 
 .family-tree-page .atlas-map-nav__link > span,
@@ -822,10 +836,12 @@ body.family-tree-page {
 
 @media (max-width: 760px) {
   .family-tree-page .atlas-map-nav {
+    top: 12px;
     right: auto;
     bottom: auto;
-    left: 12px;
-    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - 24px);
   }
 
   .family-tree-page .character-header {
