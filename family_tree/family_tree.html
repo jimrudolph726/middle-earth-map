@@ -348,31 +348,35 @@
         ...coupleNodes.map(d => [d.id, d])
       ]);
 
-      // Post-process couple families so children are visually centered under the spouse line.
-      // ELK still does the hard work of spacing generations, but this makes the genealogy
-      // convention cleaner: spouse line midpoint -> vertical descent line -> child.
-      relationships.couples.forEach(couple => {
-        const partnerA = nodeById.get(couple.partners[0]);
-        const partnerB = nodeById.get(couple.partners[1]);
-        const coupleNode = nodeById.get(couple.id);
+      function positionCoupleFamilies() {
+        // Post-process couple families so children are visually centered under the spouse line.
+        // ELK still does the hard work of spacing generations, but this makes the genealogy
+        // convention cleaner: spouse line midpoint -> vertical descent line -> child.
+        relationships.couples.forEach(couple => {
+          const partnerA = nodeById.get(couple.partners[0]);
+          const partnerB = nodeById.get(couple.partners[1]);
+          const coupleNode = nodeById.get(couple.id);
 
-        if (!partnerA || !partnerB || !coupleNode) return;
+          if (!partnerA || !partnerB || !coupleNode) return;
 
-        const spouseMidpointX = (partnerA.x + partnerB.x) / 2;
-        const spouseY = (partnerA.y + partnerB.y) / 2;
-        const desiredGap = getTypicalGenerationGap(nodeById);
+          const spouseMidpointX = (partnerA.x + partnerB.x) / 2;
+          const spouseY = (partnerA.y + partnerB.y) / 2;
+          const desiredGap = getTypicalGenerationGap(nodeById);
 
-        coupleNode.x = spouseMidpointX;
-        coupleNode.y = spouseY;
+          coupleNode.x = spouseMidpointX;
+          coupleNode.y = spouseY;
 
-        couple.children.forEach(childId => {
-          const child = nodeById.get(childId);
-          if (!child) return;
+          couple.children.forEach(childId => {
+            const child = nodeById.get(childId);
+            if (!child) return;
 
-          child.x = spouseMidpointX;
-          child.y = spouseY + desiredGap;
+            child.x = spouseMidpointX;
+            child.y = spouseY + desiredGap;
+          });
         });
-      });
+      }
+
+      positionCoupleFamilies();
 
       // Direct parent-child links should read like the couple descent lines:
       // centered, vertical, and using the same generation spacing.
@@ -386,6 +390,10 @@
         child.x = parent.x;
         child.y = parent.y + desiredGap;
       });
+
+      // A direct-parent adjustment can move a spouse, so run the couple positioning
+      // pass again to keep children like Eldarion centered under the spouse midpoint.
+      positionCoupleFamilies();
 
       const graphWidth = layout.width || width;
       const graphHeight = layout.height || height;
@@ -440,7 +448,7 @@
         .append("line")
         .attr("class", "parent-link")
         .attr("x1", d => d.source.x)
-        .attr("y1", d => d.source.y)
+        .attr("y1", d => d.source.y + cardHeight / 2)
         .attr("x2", d => d.target.x)
         .attr("y2", d => d.target.y - cardHeight / 2 + descentLineCardGap);
 
