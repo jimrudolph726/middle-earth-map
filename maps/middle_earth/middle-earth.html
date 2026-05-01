@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Beleriand Map</title>
+    <title>Middle-earth Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="../plugins/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="plugins/leaflet-sidebar.css" />
     <link rel="stylesheet" href="style.css"> 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
 </head>
 
 <body>
     <div id="sidebar" class="sidebar collapsed">
-        <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
                 <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
@@ -36,11 +37,10 @@
             </ul>
         </div>
 
-        <!-- Tab panes -->
         <div class="sidebar-content">
             <div class="sidebar-pane" id="paths">
                 <h1 class="sidebar-header">
-                    Paths
+                    Travels
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
                     <h2>Campsites</h2>
@@ -48,8 +48,23 @@
                     <label for="allCampCheckbox">
                         <input type="checkbox" id="allCampCheckbox" /> All
                     </label>
-                    <label for="berencampsitesCheckbox">
-                      <input type="checkbox" class="campCheckbox" id="berencampsitesCheckbox" /> Beren Campsites
+                    <label for="samfrodocampsitesCheckbox">
+                      <input type="checkbox" class="campCheckbox" id="samfrodocampsitesCheckbox" /> Fellowship/Sam and Frodo
+                    </label>
+                    <label for="aragorncampsitesCheckbox">
+                        <input type="checkbox" class="campCheckbox" id="aragorncampsitesCheckbox" /> Aragorn, Gimli, Legolas
+                    </label>
+                    <label for="pippincampsitesCheckbox">
+                        <input type="checkbox" class="campCheckbox" id="pippincampsitesCheckbox" /> Pippin
+                    </label>
+                    <label for="merrycampsitesCheckbox">
+                        <input type="checkbox" class="campCheckbox" id="merrycampsitesCheckbox" /> Merry
+                    </label>
+                    <label for="gandalfthegreycampsitesCheckbox">
+                        <input type="checkbox" class="campCheckbox" id="gandalfthegreycampsitesCheckbox" /> Gandalf the Grey
+                    </label>
+                    <label for="gandalfthewhitecampsitesCheckbox">
+                        <input type="checkbox" class="campCheckbox" id="gandalfthewhitecampsitesCheckbox" /> Gandalf the White
                     </label>
                 </div>
                     <h2>Paths</h2>
@@ -57,8 +72,38 @@
                     <label for="allPathCheckbox">
                         <input type="checkbox" id="allPathCheckbox" /> All
                     </label>
-                    <label for="beren_pathCheckbox">
-                    <input type="checkbox" class="pathCheckbox" id="beren_pathCheckbox" /> Beren
+                    <label for="samfrodopathCheckbox">
+                    <input type="checkbox" class="pathCheckbox" id="samfrodopathCheckbox" /> Fellowship/Sam and Frodo
+                    </label>
+                    <label for="aragornpathCheckbox">
+                    <input type="checkbox" class="pathCheckbox" id="aragornpathCheckbox" /> Aragorn, Gimli, and Legolas
+                    </label>
+                    <label for="pippinpathCheckbox">
+                        <input type="checkbox" class="pathCheckbox" id="pippinpathCheckbox" /> Pippin
+                    </label>
+                    <label for="merrypathCheckbox">
+                        <input type="checkbox" class="pathCheckbox" id="merrypathCheckbox" /> Merry
+                    </label>
+                    <label for="gandalfthegreypathCheckbox">
+                        <input type="checkbox" class="pathCheckbox" id="gandalfthegreypathCheckbox" /> Gandalf the Grey
+                    </label>
+                    <label for="gandalfthewhitepathCheckbox">
+                        <input type="checkbox" class="pathCheckbox" id="gandalfthewhitepathCheckbox" /> Gandalf the White
+                    </label>
+                </div>
+                    <h2>Roads</h2>
+                <div id="roadsSection">
+                    <label for="allRoadCheckbox">
+                        <input type="checkbox" id="allRoadCheckbox" /> All
+                    </label>
+                    <label for="great_east_roadCheckbox">
+                    <input type="checkbox" class="roadCheckbox" id="great_east_roadCheckbox" /> Great East Road
+                    </label>
+                    <label for="old_forest_roadCheckbox">
+                    <input type="checkbox" class="roadCheckbox" id="old_forest_roadCheckbox" /> Old Forest Road
+                    </label>
+                    <label for="north_wayCheckbox">
+                    <input type="checkbox" class="roadCheckbox" id="north_wayCheckbox" /> North-way
                     </label>
                 </div>
             </div>
@@ -72,6 +117,9 @@
                     <label for="allSettlementCheckbox">
                         <input type="checkbox" id="allSettlementCheckbox" /> All
                     </label>
+                    <label for="hobbitsCheckbox">
+                      <input type="checkbox" class="settlementCheckbox" id="hobbitsCheckbox" /> Hobbits
+                    </label>
                     <label for="menCheckbox">
                       <input type="checkbox" class="settlementCheckbox" id="menCheckbox" /> Men
                     </label>
@@ -79,7 +127,7 @@
                       <input type="checkbox" class="settlementCheckbox" id="elvesCheckbox" /> Elves
                     </label>
                     <label for="dwarvesCheckbox">
-                        <input type="checkbox" class="settlementCheckbox" id="dwarvesCheckbox" /> Dwarves
+                      <input type="checkbox" class="settlementCheckbox" id="dwarvesCheckbox" /> Dwarves
                     </label>
                 </div>
             </div>
@@ -99,6 +147,9 @@
                     <label for="mountainsCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="mountainsCheckbox" /> Mountains
                     </label>
+                    <label for="hillsCheckbox">
+                        <input type="checkbox" class="geographyCheckbox" id="hillsCheckbox" /> Hills
+                    </label>
                     <label for="forestsCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="forestsCheckbox" /> Forests
                     </label>
@@ -108,8 +159,8 @@
                     <label for="lakes_seasCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="lakes_seasCheckbox" /> Lakes and Seas
                     </label>
-                    <label for="hillsCheckbox">
-                        <input type="checkbox" class="geographyCheckbox" id="hillsCheckbox" /> Hills
+                    <label for="wetlandsCheckbox">
+                        <input type="checkbox" class="geographyCheckbox" id="wetlandsCheckbox" /> Wetlands
                     </label>
                 </div>
             </div>
@@ -177,7 +228,7 @@
         </div>
     </div>
     <nav class="atlas-map-nav" aria-label="Atlas navigation">
-        <a class="atlas-map-nav__link atlas-map-nav__link--home" href="../index.html">
+        <a class="atlas-map-nav__link atlas-map-nav__link--home" href="index.html">
             <i class="material-icons">home</i>
             <span>Home</span>
         </a>
@@ -190,7 +241,7 @@
                 <i class="material-icons atlas-map-nav__chevron">expand_more</i>
             </summary>
             <div class="atlas-map-nav__dropdown">
-                <a class="atlas-map-nav__link" href="../middle-earth.html">
+                <a class="atlas-map-nav__link atlas-map-nav__link--current" href="middle-earth.html" aria-current="page">
                     <i class="material-icons">map</i>
                     <span>Middle-earth</span>
                 </a>
@@ -198,7 +249,7 @@
                     <i class="material-icons">map</i>
                     <span>Numenor</span>
                 </a>
-                <a class="atlas-map-nav__link atlas-map-nav__link--current" href="beleriand.html" aria-current="page">
+                <a class="atlas-map-nav__link" href="../beleriand/beleriand.html">
                     <i class="material-icons">map</i>
                     <span>Beleriand</span>
                 </a>
@@ -206,7 +257,7 @@
                     <i class="material-icons">map</i>
                     <span>The Shire</span>
                 </a>
-                <a class="atlas-map-nav__link" href="../family_tree.html">
+                <a class="atlas-map-nav__link" href="../../family_tree/family_tree.html">
                     <i class="material-icons">account_tree</i>
                     <span>Family Tree</span>
                 </a>
@@ -217,14 +268,15 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-clicktolerance/src/index.js"></script>
     <script src="plugins/leaflet-sidebar.js"></script>
-    <script type="module" src="plugins/leaflet-arrowheads.js"></script>
+    <script src="plugins/leaflet-arrowheads.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <script type="module" src="plugins/leaflet.geometryutil.js"></script>
-    <script type="module" src="functions.js"></script>  <!-- Utility functions first -->
-    <script type="module" src="geographic_data.js"></script>  <!-- Map features -->
-    <script type="module" src="settlement_item_data.js"></script>  <!-- Settlements -->
-    <script type="module" src="campsite_data.js"></script>  <!-- Campsites -->
-    <script type="module" src="variables.js"></script>  <!-- Variables relying on above -->
-    <script type="module" src="script.js"></script>  <!-- Main script last -->
+    <script type="module" src="functions.js"></script>
+    <script type="module" src="geographic_data.js"></script>
+    <script type="module" src="settlement_item_data.js"></script>
+    <script type="module" src="campsite_data.js"></script>
+    <script type="module" src="variables.js"></script>
+    <script type="module" src="script.js"></script>
     
 </body>
 </html>
