@@ -5,10 +5,10 @@ import {
 
  // Icons
 const iconUrls = {
-  finrod: new URL('../assets/finrod.png', import.meta.url).href,
-  beor: new URL('../assets/beor.png', import.meta.url).href,
-  dwarves: new URL('../assets/dwarves.png', import.meta.url).href,
-  tent: new URL('../assets/tent.png', import.meta.url).href,
+  finrod: new URL('assets/finrod.png', import.meta.url).href,
+  beor: new URL('assets/beor.png', import.meta.url).href,
+  dwarves: new URL('assets/dwarves.png', import.meta.url).href,
+  tent: new URL('assets/tent.png', import.meta.url).href,
 };
 export const icons = {
 NargothrondIcon: createIcon(iconUrls.finrod),
