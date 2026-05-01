@@ -362,6 +362,10 @@
         return Math.abs(partnerB.x - partnerA.x);
       }
 
+      function getSiblingSpacing() {
+        return cardWidth + 36;
+      }
+
       function normalizeCouplePartners() {
         const referenceSpouseCenterGap = getReferenceSpouseCenterGap();
 
@@ -394,11 +398,15 @@
           coupleNode.x = spouseMidpointX;
           coupleNode.y = spouseY;
 
-          couple.children.forEach(childId => {
+          const siblingSpacing = getSiblingSpacing();
+          const childCount = couple.children.length;
+
+          couple.children.forEach((childId, index) => {
             const child = nodeById.get(childId);
             if (!child) return;
 
-            child.x = spouseMidpointX;
+            const siblingOffset = (index - (childCount - 1) / 2) * siblingSpacing;
+            child.x = spouseMidpointX + siblingOffset;
             child.y = spouseY + verticalConnectionLength + cardHeight / 2 - descentLineCardGap;
           });
         });
@@ -456,22 +464,62 @@
         };
       });
 
-      const descentLines = relationships.couples.flatMap(couple => {
+      const descentSegments = relationships.couples.flatMap(couple => {
         const partnerA = nodeById.get(couple.partners[0]);
         const partnerB = nodeById.get(couple.partners[1]);
         const spouseY = (partnerA.y + partnerB.y) / 2;
         const midpointX = (partnerA.x + partnerB.x) / 2;
+        const children = couple.children
+          .map(childId => nodeById.get(childId))
+          .filter(Boolean);
 
-        return couple.children.map(childId => ({
-          midpointX,
-          spouseY,
-          child: nodeById.get(childId)
-        }));
+        if (children.length === 0) return [];
+
+        if (children.length === 1) {
+          return [{
+            x1: midpointX,
+            y1: spouseY,
+            x2: children[0].x,
+            y2: children[0].y - cardHeight / 2 + descentLineCardGap
+          }];
+        }
+
+        const childTopY = children[0].y - cardHeight / 2 + descentLineCardGap;
+        const branchY = spouseY + Math.max(28, verticalConnectionLength * 0.45);
+        const sortedChildren = [...children].sort((a, b) => a.x - b.x);
+        const leftX = sortedChildren[0].x;
+        const rightX = sortedChildren[sortedChildren.length - 1].x;
+
+        return [
+          {
+            x1: midpointX,
+            y1: spouseY,
+            x2: midpointX,
+            y2: branchY
+          },
+          {
+            x1: leftX,
+            y1: branchY,
+            x2: rightX,
+            y2: branchY
+          },
+          ...children.map(child => ({
+            x1: child.x,
+            y1: branchY,
+            x2: child.x,
+            y2: childTopY
+          }))
+        ];
       });
 
       console.assert(
-        descentLines.every(d => Number.isFinite(d.midpointX) && Number.isFinite(d.spouseY) && d.child),
-        "Each couple descent line should have a valid midpoint and child."
+        descentSegments.every(segment =>
+          Number.isFinite(segment.x1) &&
+          Number.isFinite(segment.y1) &&
+          Number.isFinite(segment.x2) &&
+          Number.isFinite(segment.y2)
+        ),
+        "Each couple descent segment should have valid coordinates."
       );
 
       linkLayer.selectAll(".parent-link")
@@ -495,14 +543,14 @@
         .attr("y2", d => d.spouseY);
 
       descentLineLayer.selectAll(".descent-line")
-        .data(descentLines)
+        .data(descentSegments)
         .enter()
         .append("line")
         .attr("class", "descent-line")
-        .attr("x1", d => d.midpointX)
-        .attr("y1", d => d.spouseY)
-        .attr("x2", d => d.midpointX)
-        .attr("y2", d => d.child.y - cardHeight / 2 + descentLineCardGap);
+        .attr("x1", d => d.x1)
+        .attr("y1", d => d.y1)
+        .attr("x2", d => d.x2)
+        .attr("y2", d => d.y2);
 
       const coupleNode = coupleNodeLayer.selectAll(".couple-node")
         .data(coupleNodes)
