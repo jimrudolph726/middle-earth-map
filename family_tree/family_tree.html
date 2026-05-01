@@ -112,11 +112,21 @@
         id: "eldarion",
         name: "Eldarion",
         title: "Son of Aragorn and Arwen",
-        house: "House of Telcontar",
+        house: "House of Isildur",
         realm: "Reunited Kingdom",
         born: "Fourth Age",
         image: placeholder + "Eldarion",
         bio: "Eldarion was the son and heir of Aragorn and Arwen, continuing the royal line after King Elessar."
+      },
+        unknown_daughters: {
+        id: "unknown_daughters",
+        name: "Unknown Daughters",
+        title: "Daughters of Aragorn and Arwen",
+        house: "House of Isildur",
+        realm: "Reunited Kingdom",
+        born: "Fourth Age",
+        image: placeholder + "Eldarion",
+        bio: "Daughters of Aragorn and Arwen."
       }
     };
 
@@ -125,19 +135,14 @@
         {
           id: "couple-aragorn-arwen",
           partners: ["aragorn", "arwen"],
-          children: ["eldarion"],
+          children: ["eldarion", "unknown_daughters"],
           label: "Marriage"
         },
-        // {
-        //   id: "couple-arador-wife",
-        //   partners: ["arador", "arador_wife"],
-        //   children: ["arathorn"],
-        //   label: "Marriage"
-        // }
       ],
       parentChild: [
         { source: "arador", target: "arathorn" },
-        { source: "arathorn", target: "aragorn" }
+        { source: "arathorn", target: "aragorn" },
+
       ]
     };
 
