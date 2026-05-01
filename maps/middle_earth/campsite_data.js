@@ -389,7 +389,7 @@ export const gandalfthewhitecampsites = {
     },
   March4: { coords: [44.9422609,-93.3057847], icon: icons.TentIcon, popup: createCampsitePopup('March 4','?','?','?',`Gandalf, Theoden and Erkenbrand arrive at Helm's Deep with 1,000 Men and the enemy is routed.`, `Helm's Deep`),
     },
-  March5: { coords: [44.9422609,-93.3057847], icon: icons.TentIcon, popup: createCampsitePopup('March 5','?','?','?',`Gandalf and Erkenbrand arrive at Helm's Deep with 1,000 Men and the enemy is routed. Gandalf sets out with Peregrin for Minas Tirith.`, `Helm's Deep`),
+  March5: { coords: [44.94296552,-93.30647630], icon: icons.TentIcon, popup: createCampsitePopup('March 5','?','?','?',`Parley with Saruman. Gandalf casts Saruman out of the order of Wizards and breaks his staff. Later that night Pippin looks into the palantir and is confronted by Sauron. Gandalf sets out with Pippin to Minas Tirith.`, `Helm's Deep`),
     },
   March06: { coords: [44.942046012949142, -93.304839715015703], icon: icons.TentIcon, popup: createCampsitePopup('March 06',12,120,10,'Travel dusk to dawn on Shadowfax.','Firien Wood'), 
    },
