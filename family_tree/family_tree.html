@@ -263,18 +263,6 @@
       return sortedGaps[Math.floor(sortedGaps.length / 2)];
     }
 
-    function getReferenceDirectParentLineLength(nodeById) {
-      const referenceLink = relationships.parentChild[0];
-      if (!referenceLink) return 160 - cardHeight + descentLineCardGap;
-
-      const parent = nodeById.get(referenceLink.source);
-      const child = nodeById.get(referenceLink.target);
-
-      if (!parent || !child) return 160 - cardHeight + descentLineCardGap;
-
-      return (child.y - cardHeight / 2 + descentLineCardGap) - (parent.y + cardHeight / 2);
-    }
-
     async function drawTree() {
       assertValidData();
 
@@ -360,7 +348,9 @@
         ...coupleNodes.map(d => [d.id, d])
       ]);
 
-      function positionCoupleFamilies(referenceLineLength = null) {
+      const verticalConnectionLength = getTypicalGenerationGap(nodeById) - cardHeight + descentLineCardGap;
+
+      function positionCoupleFamilies() {
         // Post-process couple families so children are visually centered under the spouse line.
         // ELK still does the hard work of spacing generations, but this makes the genealogy
         // convention cleaner: spouse line midpoint -> vertical descent line -> child.
@@ -373,8 +363,6 @@
 
           const spouseMidpointX = (partnerA.x + partnerB.x) / 2;
           const spouseY = (partnerA.y + partnerB.y) / 2;
-          const desiredGap = getTypicalGenerationGap(nodeById);
-          const targetLineLength = referenceLineLength ?? (desiredGap - cardHeight + descentLineCardGap);
 
           coupleNode.x = spouseMidpointX;
           coupleNode.y = spouseY;
@@ -384,7 +372,7 @@
             if (!child) return;
 
             child.x = spouseMidpointX;
-            child.y = spouseY + targetLineLength + cardHeight / 2 - descentLineCardGap;
+            child.y = spouseY + verticalConnectionLength + cardHeight / 2 - descentLineCardGap;
           });
         });
       }
@@ -399,15 +387,13 @@
 
         if (!parent || !child) return;
 
-        const desiredGap = getTypicalGenerationGap(nodeById);
         child.x = parent.x;
-        child.y = parent.y + desiredGap;
+        child.y = parent.y + cardHeight - descentLineCardGap + verticalConnectionLength;
       });
 
       // A direct-parent adjustment can move a spouse, so run the couple positioning
-      // pass again using the exact direct-parent line length as the reference.
-      const referenceLineLength = getReferenceDirectParentLineLength(nodeById);
-      positionCoupleFamilies(referenceLineLength);
+      // pass again to keep every vertical connector at the same fixed length.
+      positionCoupleFamilies();
 
       const graphWidth = layout.width || width;
       const graphHeight = layout.height || height;
