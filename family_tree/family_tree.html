@@ -350,6 +350,19 @@
 
       const verticalConnectionLength = getTypicalGenerationGap(nodeById) - cardHeight + descentLineCardGap;
 
+      function alignCouplePartners() {
+        relationships.couples.forEach(couple => {
+          const partnerA = nodeById.get(couple.partners[0]);
+          const partnerB = nodeById.get(couple.partners[1]);
+
+          if (!partnerA || !partnerB) return;
+
+          const sharedY = Math.round((partnerA.y + partnerB.y) / 2);
+          partnerA.y = sharedY;
+          partnerB.y = sharedY;
+        });
+      }
+
       function positionCoupleFamilies() {
         // Post-process couple families so children are visually centered under the spouse line.
         // ELK still does the hard work of spacing generations, but this makes the genealogy
@@ -390,6 +403,10 @@
         child.x = parent.x;
         child.y = parent.y + cardHeight - descentLineCardGap + verticalConnectionLength;
       });
+
+      // A direct-parent adjustment can move one spouse off the couple's shared row,
+      // so normalize partner heights before placing spouse/child connectors.
+      alignCouplePartners();
 
       // A direct-parent adjustment can move a spouse, so run the couple positioning
       // pass again to keep every vertical connector at the same fixed length.
