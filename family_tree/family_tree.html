@@ -350,16 +350,34 @@
 
       const verticalConnectionLength = getTypicalGenerationGap(nodeById) - cardHeight + descentLineCardGap;
 
-      function alignCouplePartners() {
+      function getReferenceCouple() {
+        return relationships.couples.find(couple => couple.id === "couple-arador-wife") || relationships.couples[0];
+      }
+
+      function getReferenceSpouseCenterGap() {
+        const referenceCouple = getReferenceCouple();
+        if (!referenceCouple) return cardWidth + 36;
+
+        const partnerA = nodeById.get(referenceCouple.partners[0]);
+        const partnerB = nodeById.get(referenceCouple.partners[1]);
+
+        if (!partnerA || !partnerB) return cardWidth + 36;
+
+        return Math.abs(partnerB.x - partnerA.x);
+      }
+
+      function normalizeCouplePartners() {
+        const referenceSpouseCenterGap = getReferenceSpouseCenterGap();
+
         relationships.couples.forEach(couple => {
           const partnerA = nodeById.get(couple.partners[0]);
           const partnerB = nodeById.get(couple.partners[1]);
 
           if (!partnerA || !partnerB) return;
 
-          const sharedY = Math.round((partnerA.y + partnerB.y) / 2);
-          partnerA.y = sharedY;
-          partnerB.y = sharedY;
+          const horizontalDirection = partnerB.x >= partnerA.x ? 1 : -1;
+          partnerB.x = partnerA.x + horizontalDirection * referenceSpouseCenterGap;
+          partnerB.y = partnerA.y;
         });
       }
 
@@ -404,9 +422,10 @@
         child.y = parent.y + cardHeight - descentLineCardGap + verticalConnectionLength;
       });
 
-      // A direct-parent adjustment can move one spouse off the couple's shared row,
-      // so normalize partner heights before placing spouse/child connectors.
-      alignCouplePartners();
+      // A direct-parent adjustment can move one spouse off the couple's shared row
+      // and stretch the couple apart, so normalize the spouse pair before
+      // placing spouse/child connectors.
+      normalizeCouplePartners();
 
       // A direct-parent adjustment can move a spouse, so run the couple positioning
       // pass again to keep every vertical connector at the same fixed length.
