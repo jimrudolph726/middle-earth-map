@@ -138,14 +138,15 @@
           children: ["eldarion"],
           label: "Marriage"
         },
-        {
-          id: "couple-arador-wife",
-          partners: ["arador", "arador_wife"],
-          children: ["arathorn"],
-          label: "Marriage"
-        }
+        // {
+        //   id: "couple-arador-wife",
+        //   partners: ["arador", "arador_wife"],
+        //   children: ["arathorn"],
+        //   label: "Marriage"
+        // }
       ],
       parentChild: [
+        { source: "arador", target: "arathorn" },
         { source: "arathorn", target: "aragorn" }
       ]
     };
