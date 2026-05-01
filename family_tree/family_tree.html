@@ -345,6 +345,7 @@
       ]);
 
       const verticalConnectionLength = getTypicalGenerationGap(nodeById) - cardHeight + descentLineCardGap;
+      const coupleChildExtraDrop = 56;
 
       function getReferenceCouple() {
         return relationships.couples.find(couple => couple.id === "couple-arador-wife") || relationships.couples[0];
@@ -407,7 +408,7 @@
 
             const siblingOffset = (index - (childCount - 1) / 2) * siblingSpacing;
             child.x = spouseMidpointX + siblingOffset;
-            child.y = spouseY + verticalConnectionLength + cardHeight / 2 - descentLineCardGap;
+            child.y = spouseY + verticalConnectionLength + coupleChildExtraDrop + cardHeight / 2 - descentLineCardGap;
           });
         });
       }
@@ -484,7 +485,7 @@
           }];
         }
 
-        const branchY = spouseY + Math.max(28, verticalConnectionLength * 0.45);
+        const branchY = spouseY + Math.max(28, (verticalConnectionLength + coupleChildExtraDrop) * 0.45);
         const sortedChildren = [...children].sort((a, b) => a.x - b.x);
         const leftChild = sortedChildren[0];
         const rightChild = sortedChildren[sortedChildren.length - 1];
