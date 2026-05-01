@@ -374,6 +374,19 @@
         });
       });
 
+      // Direct parent-child links should read like the couple descent lines:
+      // centered, vertical, and using the same generation spacing.
+      relationships.parentChild.forEach(link => {
+        const parent = nodeById.get(link.source);
+        const child = nodeById.get(link.target);
+
+        if (!parent || !child) return;
+
+        const desiredGap = getTypicalGenerationGap(nodeById);
+        child.x = parent.x;
+        child.y = parent.y + desiredGap;
+      });
+
       const graphWidth = layout.width || width;
       const graphHeight = layout.height || height;
       const scale = Math.min(1, Math.max(0.45, Math.min(width / graphWidth, height / graphHeight) * 0.85));
@@ -424,9 +437,12 @@
       linkLayer.selectAll(".parent-link")
         .data(directParentLinks)
         .enter()
-        .append("path")
+        .append("line")
         .attr("class", "parent-link")
-        .attr("d", d => makeCurve(d.source, d.target, cardHeight / 2, -cardHeight / 2));
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y - cardHeight / 2 + descentLineCardGap);
 
       spouseLineLayer.selectAll(".spouse-line")
         .data(spouseLines)
