@@ -395,6 +395,24 @@
         return cardWidth + 28;
       }
 
+      function getPreferredSpouseDirection(primaryPartnerId, fallbackDirection) {
+        const parentCouple = relationships.couples.find(couple => couple.children.includes(primaryPartnerId));
+        if (!parentCouple) return fallbackDirection;
+
+        const siblingCount = parentCouple.children.length;
+        if (siblingCount <= 1) return fallbackDirection;
+
+        const childIndex = parentCouple.children.indexOf(primaryPartnerId);
+        const centerIndex = (siblingCount - 1) / 2;
+
+        // When a child has siblings, place their spouse on the outer side of the
+        // sibling group so spouse cards do not cover adjacent brothers/sisters.
+        if (childIndex < centerIndex) return -1;
+        if (childIndex > centerIndex) return 1;
+
+        return fallbackDirection;
+      }
+
       function normalizeCouplePartners() {
         const referenceSpouseCenterGap = getReferenceSpouseCenterGap();
 
@@ -404,7 +422,8 @@
 
           if (!partnerA || !partnerB) return;
 
-          const horizontalDirection = partnerB.x >= partnerA.x ? 1 : -1;
+          const fallbackDirection = partnerB.x >= partnerA.x ? 1 : -1;
+          const horizontalDirection = getPreferredSpouseDirection(couple.partners[0], fallbackDirection);
           partnerB.x = partnerA.x + horizontalDirection * referenceSpouseCenterGap;
           partnerB.y = partnerA.y;
         });
