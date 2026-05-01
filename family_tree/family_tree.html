@@ -263,6 +263,18 @@
       return sortedGaps[Math.floor(sortedGaps.length / 2)];
     }
 
+    function getReferenceDirectParentLineLength(nodeById) {
+      const referenceLink = relationships.parentChild[0];
+      if (!referenceLink) return 160 - cardHeight + descentLineCardGap;
+
+      const parent = nodeById.get(referenceLink.source);
+      const child = nodeById.get(referenceLink.target);
+
+      if (!parent || !child) return 160 - cardHeight + descentLineCardGap;
+
+      return (child.y - cardHeight / 2 + descentLineCardGap) - (parent.y + cardHeight / 2);
+    }
+
     async function drawTree() {
       assertValidData();
 
@@ -348,7 +360,7 @@
         ...coupleNodes.map(d => [d.id, d])
       ]);
 
-      function positionCoupleFamilies() {
+      function positionCoupleFamilies(referenceLineLength = null) {
         // Post-process couple families so children are visually centered under the spouse line.
         // ELK still does the hard work of spacing generations, but this makes the genealogy
         // convention cleaner: spouse line midpoint -> vertical descent line -> child.
@@ -362,6 +374,7 @@
           const spouseMidpointX = (partnerA.x + partnerB.x) / 2;
           const spouseY = (partnerA.y + partnerB.y) / 2;
           const desiredGap = getTypicalGenerationGap(nodeById);
+          const targetLineLength = referenceLineLength ?? (desiredGap - cardHeight + descentLineCardGap);
 
           coupleNode.x = spouseMidpointX;
           coupleNode.y = spouseY;
@@ -371,7 +384,7 @@
             if (!child) return;
 
             child.x = spouseMidpointX;
-            child.y = spouseY + desiredGap - cardHeight / 2;
+            child.y = spouseY + targetLineLength + cardHeight / 2 - descentLineCardGap;
           });
         });
       }
@@ -392,8 +405,9 @@
       });
 
       // A direct-parent adjustment can move a spouse, so run the couple positioning
-      // pass again to keep children like Eldarion centered under the spouse midpoint.
-      positionCoupleFamilies();
+      // pass again using the exact direct-parent line length as the reference.
+      const referenceLineLength = getReferenceDirectParentLineLength(nodeById);
+      positionCoupleFamilies(referenceLineLength);
 
       const graphWidth = layout.width || width;
       const graphHeight = layout.height || height;
