@@ -30,9 +30,10 @@ import {
 
  import {
   samfrodocampsites,
-  aragorncampsites,
   pippincampsites,
   merrycampsites,
+  aragorncampsites,
+  boromircampsites,
   gandalfthegreycampsites,
   gandalfthewhitecampsites,
  } from './campsite_data.js';
