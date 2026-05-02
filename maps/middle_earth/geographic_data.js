@@ -1439,7 +1439,7 @@ export const sub_regions = {
   umbar: {
     pathName: 'umbar',
     color: "brown", 
-    name: "umbar",
+    name: "Umbar",
     PopupContent: createGeographicPopup(
       "Umbar",
       `Umbar`,
