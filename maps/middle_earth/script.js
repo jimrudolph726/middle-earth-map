@@ -12,6 +12,7 @@ import {
 import {
   settlementsData,
   pathData,
+  roadData,
   geographicData,
   imageUrl,
   map,
@@ -124,7 +125,9 @@ Promise.all(
 createGeographicShape(pathData).then((polygons) => {
   PathListeners(polygons, map);
   });
-
+createGeographicShape(roadData).then((polygons) => {
+  PathListeners(polygons, map);
+  });
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
   createGeographicShape(data).then((polygons) => {

@@ -157,6 +157,22 @@ export const pathData = {
   },
 }
 
+export const roadData = { 
+  great_east_road: { 
+    pathName: 'great_east_road', color: 'brown', name: 'Great East Road', PopupContent: createSettlementPopup('Great East Road', 'Major road through Eriador. The Great East Road ran between the Grey Havens and Rivendell. The Road was approximately 575 miles long. The Road was not paved and sometimes developed ruts and potholes during wet weather.', 'https://thainsbook.minastirith.cz/roads.html#Great-East-Road'), tolerance: 10, weight: 6, arrows: false 
+  },
+  great_west_road: { 
+    pathName: 'great_west_road', color: 'red', name: 'Great West Road', PopupContent: createSettlementPopup('Great West Road', 'Road connecting Gondor and Rohan. The Great West Road was originally part of the Royal Road linking Gondor to the North-kingdom of Arnor. It ran between Minas Tirith and the Fords of Isen in the Gap of Rohan, where it joined the North-South Road to Arnor. The Great West Road was approximately 425 miles long.', 'https://thainsbook.minastirith.cz/roads.html#Great-West-Road'), tolerance: 10, weight: 6, arrows: false 
+  },
+  old_forest_road: { 
+    pathName: 'old_forest_road', color: 'red', name: 'Old Forest Road', PopupContent: createSettlementPopup('Old Forest Road', 'Road through Mirkwood. The Old Forest Road began on the eastern side of the Misty Mountains. It came down from the High Pass, also called the Pass of Imladris. The Old Forest Road ran eastward and crossed the Anduin at the Old Ford. In the late Second Age there was a bridge over the Anduin at this point, but by the late Third Age it was gone.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
+  },
+  north_way: { 
+    pathName: 'north_way', color: 'red', name: 'North-way', PopupContent: createSettlementPopup('North-way', 'The North-way began at the Great Gate of Minas Tirith and ran northward across the Pelennor Fields. At the Rammas Echor, the North-way passed through Forannest, the North-gate. The North-way then joined the Great West Road which ran through Anorien and Rohan.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
+  },
+}
+
+
 // Geographic Features
 const geographicGroups = {
   mountain_ranges,
