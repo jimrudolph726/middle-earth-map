@@ -1411,7 +1411,7 @@ export const sub_regions = {
   forlindon: {
     pathName: 'forlindon',
     color: "brown", 
-    name: "forlindon",
+    name: "Forlindon",
     PopupContent: createGeographicPopup(
       "Forlindon",
       `Forlindon`,
