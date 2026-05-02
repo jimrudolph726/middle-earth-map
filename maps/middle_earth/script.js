@@ -122,12 +122,12 @@ Promise.all(
 });
  
 // Add Paths and Roads
-createGeographicShape(pathData).then((polygons) => {
-  PathListeners(polygons, map);
+[pathData, roadData].forEach((data) => {
+  createGeographicShape(data).then((polygons) => {
+    PathListeners(polygons, map);
   });
-createGeographicShape(roadData).then((polygons) => {
-  PathListeners(polygons, map);
-  });
+});
+
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
   createGeographicShape(data).then((polygons) => {
