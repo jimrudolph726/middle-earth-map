@@ -401,7 +401,7 @@ export const gandalfthewhitecampsites = {
    },
   March10: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: createCampsitePopup('March 10'," "," "," ",'Gandalf rides out to rescue Faramir from the Winged Nazgul. He learns that Frodo and Sam are being led into Mordor by Gollum.','Minas Tirith'), 
    },
-  March12: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: createCampsitePopup('March 12'," "," "," ",`Gandalf rides to Faramir's aid as he retreats from Osgiliath, but returns when Faramir chooses to remain with the rear-guard.`,'Minas Tirith'), 
+  March12: { coords: [44.94089240,-93.30091351], icon: icons.TentIcon, popup: createCampsitePopup('March 12'," "," "," ",`Gandalf rides to Faramir's aid as he retreats from Osgiliath, but returns when Faramir chooses to remain with the rear-guard.`,'Minas Tirith'), 
    },
   March13: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: createCampsitePopup('March 13'," "," "," ",'Gandalf accompanies the sortie that rides to the aid of the retreating forces. Faramir is brought back wounded and Denethor falls into despair.','Minas Tirith'), 
    },
