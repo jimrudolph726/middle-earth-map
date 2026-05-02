@@ -343,6 +343,20 @@ export const mountains = {
     tolerance: 1,
     weight: 2,
   },
+  dol_baran: {
+    pathName: "dol_baran",
+    color: "brown",
+    name: "Dol Baran",
+    PopupContent: createGeographicPopup(
+      "Dol Baran",
+      "Dol Baran",
+      `In Sindarin, dol means "head" often used to mean "hill." The word baran means "golden-brown" and the hill's name has been translated as "gold-brown hill." But other notes left by Tolkien indicate that in this case baran could be a lenited form of paran meaning "smooth, shaven" often applied to hills without trees.`,
+      "Southernmost foothill of the Misty Mountains. Dol Baran had a rounded summit covered with heather and its lower slopes were green.",
+      "https://thainsbook.minastirith.cz/hills.html#Dol%20Baran"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const hills = {
   weather_top: {
