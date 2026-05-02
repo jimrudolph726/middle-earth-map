@@ -127,19 +127,19 @@ export const pathData = {
     pathName: 'samfrodopath', color: '#ff0000', outlineColor: '#000000', outlineWeight: 10, name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
   }, 
   aragornpath: { 
-    pathName: 'aragornpath', color: 'blue', name: 'Aragorn, Gimli and Legolas', PopupContent: createSettlementPopup('Aragorn, Gimli, and Legolas', '1575 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'aragornpath', color: '#1900ff', outlineColor: '#000000', name: 'Aragorn, Gimli and Legolas', PopupContent: createSettlementPopup('Aragorn, Gimli, and Legolas', '1575 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
   },
   boromirpath: { 
-    pathName: 'boromirpath', color: 'orange', name: 'Boromir', PopupContent: createSettlementPopup('Boromir', '2400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'boromirpath', color: '#421e1e', outlineColor: '#000000', name: 'Boromir', PopupContent: createSettlementPopup('Boromir', '2400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
   },
   pippinpath: { 
-    pathName: 'pippinpath', color: 'green', name: 'Pippin', PopupContent: createSettlementPopup('Pippin', '855 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'pippinpath', color: '#00ab03', outlineColor: '#000000', name: 'Pippin', PopupContent: createSettlementPopup('Pippin', '855 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
   },
   merrypath: { 
-    pathName: 'merrypath', color: 'orange', name: 'Merry', PopupContent: createSettlementPopup('Merry', '907 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'merrypath', color: '#ff8400', outlineColor: '#000000', name: 'Merry', PopupContent: createSettlementPopup('Merry', '907 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
   },
   gandalfthegreypath: { 
-    pathName: 'gandalfthegreypath', color: 'grey', name: 'Gandalf the Grey', PopupContent: createSettlementPopup('Gandalf the Grey', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5, arrows: true 
+    pathName: 'gandalfthegreypath', color: '#8a8080', outlineColor: '#000000', name: 'Gandalf the Grey', PopupContent: createSettlementPopup('Gandalf the Grey', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5, arrows: true 
   },
   gandalfthewhitepath: { 
     pathName: 'gandalfthewhitepath', color: '#ffffff', outlineColor: '#000000', outlineWeight: 10, name: 'Gandalf the White', PopupContent: createSettlementPopup('Gandalf the White', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 6, arrows: true 
