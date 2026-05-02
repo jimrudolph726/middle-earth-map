@@ -217,7 +217,7 @@ export const aragorncampsites = {
     March13: { coords: [44.939700196574755, -93.301764248573292], icon: icons.TentIcon, popup: createCampsitePopup('March 13',5,35,7,'Battle. Readied ships.','Pelargir'), },
     March14: { coords: [44.940352129839553, -93.301007655447478], icon: icons.TentIcon, popup: createCampsitePopup('March 14',18,85,4.7,'Rowed.','On Anduin'), },
   March15to17: { coords: [44.940872882106646, -93.301046669457662], icon: icons.TentIcon, popup: createCampsitePopup('March 15-17',9,65,7.2,'Sailed Midnight to 9 A.M. Battle of the Pelennor Fields. Host musters.','Minas Tirith'), },
-  March18: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: createCampsitePopup('March 18',8,33,4,'Cavalry.','Cross-roads'), },
+  March18: { coords: [44.94085182,-93.30074752], icon: icons.TentIcon, popup: createCampsitePopup('March 18',8,33,4,'Cavalry.','5 miles east of Osgiliath'), },
   March19: { coords: [44.940906415234707, -93.300486539740248], icon: icons.TentIcon, popup: createCampsitePopup('March 19',6,15,2.5,'Infantry joins cavalry.','Cross-roads'), },
   March20: { coords: [44.941231882813007, -93.300533913895421], icon: icons.TentIcon, popup: createCampsitePopup('March 20',10,25,2.5," ",'Ithilien'), },
   March21: { coords: [44.941464640313235, -93.300567354475561], icon: icons.TentIcon, popup: createCampsitePopup('March 21',8,20,2.5,'Battle in afternoon.','East of Henneth Annun'), },
@@ -238,8 +238,8 @@ export const pippincampsites = {
     March07: { coords: [44.941592811896278, -93.303756899969343], icon: icons.TentIcon, popup: createCampsitePopup('March 07',12,120,10,'Travel dusk to dawn on Shadowfax.','Erlas Beacon'), },
     March08: { coords: [44.941267571288705, -93.302127969508291], icon: icons.TentIcon, popup: createCampsitePopup('March 08',12,120,10,'Travel dusk to dawn on Shadowfax. Reach Rammas Echor at dawn of March 9','Minas Tirith'), },
     March9toMarch17: { coords: [44.940899673954469, -93.301184508050511], icon: icons.TentIcon, popup: createCampsitePopup('March 9 to March 17'," "," "," ",'Minas Tirith. Battle of Pelennor Fields on March 15','Minas Tirith'), },
-    March18: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: createCampsitePopup('March 18',8,33,4,'Infantry.','Cross-roads'), },
-    March19: { coords: [44.940906415234707, -93.300486539740248], icon: icons.TentIcon, popup: createCampsitePopup('March 19',6,15,2.5,'Infantry joins cavalry.','Cross-roads'), },
+    March18: { coords: [44.94085182,-93.30074752], icon: icons.TentIcon, popup: createCampsitePopup('March 18',8,33,4,'Infantry.','5 miles east of Osgiliath'), },
+    March19: { coords: [44.94084295,-93.30063469], icon: icons.TentIcon, popup: createCampsitePopup('March 19',6,15,2.5,'Infantry joins cavalry.','Cross-roads'), },
     March20: { coords: [44.941231882813007, -93.300533913895421], icon: icons.TentIcon, popup: createCampsitePopup('March 20',10,25,2.5," ",'Ithilien'), },
     March21: { coords: [44.941464640313235, -93.300567354475561], icon: icons.TentIcon, popup: createCampsitePopup('March 21',8,20,2.5,'Battle in afternoon.','East of Henneth Annun'), },
     March22: { coords: [44.941811802289074, -93.300689969936101], icon: icons.TentIcon, popup: createCampsitePopup('March 22',10,22,2.2," ",'Northern Ithilien'), },
@@ -411,10 +411,9 @@ export const gandalfthewhitecampsites = {
    },
   March16: { coords: [44.94084856,-93.30118553], icon: icons.TentIcon, popup: createCampsitePopup('March 16'," "," "," ",'Gandalf advises the leaders to march to Mordor to give the Ring-bearer time to complete his quest.','Minas Tirith'), 
    },
-
-  March18: { coords: [44.940888662404646, -93.300740130806332], icon: icons.TentIcon, popup: createCampsitePopup('March 18',8,33,4,'The Host of the West marches from Minas Tirith.','Cross-roads'), 
+  March18: { coords: [44.94085182,-93.30074752], icon: icons.TentIcon, popup: createCampsitePopup('March 18',8,33,4,'The Host of the West marches from Minas Tirith.','5 miles east of Osgiliath'), 
    },
-  March19: { coords: [44.940906415234707, -93.300486539740248], icon: icons.TentIcon, popup: createCampsitePopup('March 19',6,15,2.5,'Infantry joins cavalry.','Cross-roads'), 
+  March19: { coords: [44.94084295,-93.30063469], icon: icons.TentIcon, popup: createCampsitePopup('March 19',6,15,2.5,'Infantry joins cavalry.','Cross-roads'), 
    },
   March20: { coords: [44.941231882813007, -93.300533913895421], icon: icons.TentIcon, popup: createCampsitePopup('March 20',10,25,2.5," ",'Ithilien'), 
    },
@@ -429,5 +428,3 @@ export const gandalfthewhitecampsites = {
   March25: { coords: [44.942205315740352, -93.300150740581273], icon: icons.TentIcon, popup: createCampsitePopup('March 25'," "," "," ",'Battle of the Morannon.',''),
    },
   }
-
-  44.94296835,-93.30648030
