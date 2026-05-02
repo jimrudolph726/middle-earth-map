@@ -55,9 +55,10 @@ export const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911
 // Campsites, Settlements, Items
 const campsiteGroups = {
   samfrodocampsites,
-  aragorncampsites,
   pippincampsites,
   merrycampsites,
+  aragorncampsites,
+  boromircampsites,
   gandalfthegreycampsites,
   gandalfthewhitecampsites,
 };
