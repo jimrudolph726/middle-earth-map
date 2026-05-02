@@ -216,7 +216,7 @@ export const aragorncampsites = {
     March12: { coords: [44.939763319029964, -93.302368965730906], icon: icons.TentIcon, popup: createCampsitePopup('March 12',10,70,7,'Drove enemy.','SW of Pelargir'), },
     March13: { coords: [44.939700196574755, -93.301764248573292], icon: icons.TentIcon, popup: createCampsitePopup('March 13',5,35,7,'Battle. Readied ships.','Pelargir'), },
     March14: { coords: [44.940352129839553, -93.301007655447478], icon: icons.TentIcon, popup: createCampsitePopup('March 14',18,85,4.7,'Rowed.','On Anduin'), },
-  March15to17: { coords: [44.940872882106646, -93.301046669457662], icon: icons.TentIcon, popup: createCampsitePopup('March 15-17',9,65,7.2,'Sailed Midnight to 9 A.M. Battle of the Pelennor Fields. Host musters.','Minas Tirith'), },
+  March15to17: { coords: [44.94089574,-93.30102620], icon: icons.TentIcon, popup: createCampsitePopup('March 15-17',9,65,7.2,'Sailed Midnight to 9 A.M. Battle of the Pelennor Fields. Host musters.','Minas Tirith'), },
   March18: { coords: [44.94085182,-93.30074752], icon: icons.TentIcon, popup: createCampsitePopup('March 18',8,33,4,'Cavalry.','5 miles east of Osgiliath'), },
   March19: { coords: [44.94084295,-93.30063469], icon: icons.TentIcon, popup: createCampsitePopup('March 19',6,15,2.5,'Infantry joins cavalry.','Cross-roads'), },
   March20: { coords: [44.941231882813007, -93.300533913895421], icon: icons.TentIcon, popup: createCampsitePopup('March 20',10,25,2.5," ",'Ithilien'), },
