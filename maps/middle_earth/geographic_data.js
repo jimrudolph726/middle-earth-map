@@ -1350,6 +1350,20 @@ export const large_regions = {
     tolerance: 1,
     weight: 2
   },
+  lindon: {
+    pathName: 'lindon',
+    color: "brown", 
+    name: "Lindon",
+    PopupContent: createGeographicPopup(
+      "lindon",
+      `lindon`,
+      `Lindon means "Land of the Singers" from the Quenya term lin or lind[11] ("to sing, make musical sound")[12] and -on, which is a common suffix for regions.`,
+      `Elvish lands west of the Blue Mountains. Lindon was located in far northwestern Middle-earth on the shore of the Sea. It was a fair, green coastal land. Lindon was divided into two regions by the Gulf of Lune. North of the Gulf of Lune was Forlindon, and south of the Gulf was Harlindon.`,
+      "https://thainsbook.minastirith.cz/lands.html#Lindon"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const sub_regions = {
   enedwaith: {
