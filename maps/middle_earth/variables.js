@@ -171,6 +171,9 @@ export const roadData = {
   north_way: { 
     pathName: 'north_way', color: 'red', name: 'North-way', PopupContent: createSettlementPopup('North-way', 'The North-way began at the Great Gate of Minas Tirith and ran northward across the Pelennor Fields. At the Rammas Echor, the North-way passed through Forannest, the North-gate. The North-way then joined the Great West Road which ran through Anorien and Rohan.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
   },
+  harad_road: { 
+    pathName: 'harad_road', color: 'red', name: 'Harad Road', PopupContent: createSettlementPopup('Harad Road', 'Road from Harad through Ithilien to the Black Gate of Mordor. The Harad Road began in the far south of Middle-earth. It passed over the River Harnen into South Gondor and then over the Crossing of Poros into Ithilien. The road ran alongside the Mountains of Shadow on the border of Mordor.', 'https://thainsbook.minastirith.cz/roads.html#Harad-Rd'), tolerance: 10, weight: 6, arrows: false 
+  },
 }
 
 
