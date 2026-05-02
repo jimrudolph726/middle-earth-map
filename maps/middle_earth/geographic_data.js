@@ -1478,4 +1478,18 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  south_gondor: {
+    pathName: 'south_gondor',
+    color: "brown", 
+    name: "South Gondor",
+    PopupContent: createGeographicPopup(
+      "South Gondor",
+      `Harondor`,
+      `The Sindarin name Harondor means "South Gondor", being a compound of the prefixal form har- of harn ("south") and the lenited form of Gondor.`,
+      `South Gondor, known in Sindarin as Harondor, was a region south of Ithilien. The borders of South Gondor were the Ethir Anduin and the river Poros in the north, the river Harnen in the south, the Ephel Dúath and the river Harnen in the east and the Bay of Belfalas in the west.`,
+      "https://tolkiengateway.net/wiki/South_Gondor"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
