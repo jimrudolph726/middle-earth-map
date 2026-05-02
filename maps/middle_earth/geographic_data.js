@@ -1329,7 +1329,7 @@ export const large_regions = {
     PopupContent: createGeographicPopup(
       "Haradwaith",
       `Haradwaith`,
-      `Haradwaith means "southland." Harad means "south" in Sindarin. The ending waith is derived from gwaith meaning "people, region."`,
+      `Haradwaith means "southland." Harad means "South" in Sindarin. The word is derived from root KHYAR, and is cognate to Quenya hyarmen ("south"). The ending waith is derived from gwaith meaning "people, region."`,
       `Harad was a large region in southern Middle-earth. Harad was not a unified realm, but was instead made up of different kingdoms. The people of Harad were often allied with Sauron and many fought for him during the War of the Ring.`,
       "https://thainsbook.minastirith.cz/harad.html"
     ),
@@ -1444,8 +1444,36 @@ export const sub_regions = {
       "Umbar",
       `Umbar`,
       `The origin of the name Umbar was forgotten. Umbar already received its name before the ships of the Númenóreans sailed the sea. As a consequence, it is a name in one of the pre-Númenórean languages. Despite the coincidental similarity, the name Umbar is not related to the Quenya word umbar, which means fate.`,
-      `Haven and coastal region in Harad. Umbar was on the coast of the Sea south of the Bay of Belfalas. The natural harbor was almost completely enclosed on its north and west sides by a long cape. `,
+      `Haven and coastal region in Harad. Umbar was on the coast of the Sea south of the Bay of Belfalas. The natural harbor was almost completely enclosed on its north and west sides by a long cape.`,
       "https://thainsbook.minastirith.cz/coastal.html#Umbar"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  near_harad: {
+    pathName: 'near_harad',
+    color: "brown", 
+    name: "Near Harad",
+    PopupContent: createGeographicPopup(
+      "Near Harad",
+      `Near Harad`,
+      `Harad means "South" in Sindarin. The word is derived from root KHYAR, and is cognate to Quenya hyarmen ("south").`,
+      `Near Harad was an indefinite region of Harad that lay to the south of Gondor and Mordor, beyond the River Harnen.`,
+      "https://tolkiengateway.net/wiki/Near_Harad"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  far_harad: {
+    pathName: 'far_harad',
+    color: "brown", 
+    name: "Far Harad",
+    PopupContent: createGeographicPopup(
+      "Far Harad",
+      `Far Harad`,
+      `Harad means "South" in Sindarin. The word is derived from root KHYAR, and is cognate to Quenya hyarmen ("south").`,
+      `Far Harad, a part of the larger region known as Harad, was a name used in Northwestern Middle-earth for a distant, unknown land far to the south of Gondor.`,
+      "https://tolkiengateway.net/wiki/Far_Harad"
     ),
     tolerance: 1,
     weight: 2

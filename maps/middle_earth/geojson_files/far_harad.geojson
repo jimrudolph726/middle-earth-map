@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "far_harad",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -93.302396602716755, 44.936420051211023 ], [ -93.292563322796056, 44.936398936271374 ], [ -93.292566935038622, 44.934611539324372 ], [ -93.302415239648269, 44.934620564070173 ], [ -93.302396602716755, 44.936420051211023 ] ] ] ] } }
+]
+}
