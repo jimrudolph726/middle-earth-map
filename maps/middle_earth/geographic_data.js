@@ -1322,6 +1322,34 @@ export const large_regions = {
     tolerance: 1,
     weight: 2
   },
+  haradwaith: {
+    pathName: 'haradwaith',
+    color: "brown", 
+    name: "Haradwaith",
+    PopupContent: createGeographicPopup(
+      "Haradwaith",
+      `Haradwaith`,
+      `Haradwaith means "southland." Harad means "south" in Sindarin. The ending waith is derived from gwaith meaning "people, region."`,
+      `Harad was a large region in southern Middle-earth. Harad was not a unified realm, but was instead made up of different kingdoms. The people of Harad were often allied with Sauron and many fought for him during the War of the Ring.`,
+      "https://thainsbook.minastirith.cz/harad.html"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  khand: {
+    pathName: 'khand',
+    color: "brown", 
+    name: "Haradwaith",
+    PopupContent: createGeographicPopup(
+      "Khand",
+      `Khand`,
+      `The meanings of Khand and Variag are not known. These names are in the language of the people of that region.`,
+      `Land in southeastern Middle-earth. Khand was located southeast of Mordor. Rhun was north of Khand, and Harad was to the southwest. Khand was inhabited by people called the Variags.`,
+      "https://thainsbook.minastirith.cz/lands.html#Khand"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
 export const sub_regions = {
   enedwaith: {
