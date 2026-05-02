@@ -1425,7 +1425,7 @@ export const sub_regions = {
   khand: {
     pathName: 'khand',
     color: "brown", 
-    name: "Haradwaith",
+    name: "Khand",
     PopupContent: createGeographicPopup(
       "Khand",
       `Khand`,
