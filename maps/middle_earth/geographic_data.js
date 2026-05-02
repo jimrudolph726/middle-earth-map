@@ -1425,7 +1425,7 @@ export const sub_regions = {
   cardolan: {
     pathName: 'cardolan',
     color: "brown", 
-    name: "cardolan",
+    name: "Cardolan",
     PopupContent: createGeographicPopup(
       "Cardolan",
       `Cardolan`,
