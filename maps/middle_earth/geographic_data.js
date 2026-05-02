@@ -1336,20 +1336,6 @@ export const large_regions = {
     tolerance: 1,
     weight: 2
   },
-  khand: {
-    pathName: 'khand',
-    color: "brown", 
-    name: "Haradwaith",
-    PopupContent: createGeographicPopup(
-      "Khand",
-      `Khand`,
-      `The meanings of Khand and Variag are not known. These names are in the language of the people of that region.`,
-      `Land in southeastern Middle-earth. Khand was located southeast of Mordor. Rhun was north of Khand, and Harad was to the southwest. Khand was inhabited by people called the Variags.`,
-      "https://thainsbook.minastirith.cz/lands.html#Khand"
-    ),
-    tolerance: 1,
-    weight: 2
-  },
 };
 export const sub_regions = {
   enedwaith: {
@@ -1432,6 +1418,34 @@ export const sub_regions = {
       `The name Minhiriath means "between the rivers" in Sindarin in reference to the Brandywine and Greyflood. The word min means "between" and hiriath is from siriath meaning "rivers."`,
       `Region of southern Eriador. Minhiriath was located between the Brandywine River on its northern border and the Greyflood on its southern border.`,
       "https://thainsbook.minastirith.cz/lands.html#Minhiriath"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  khand: {
+    pathName: 'khand',
+    color: "brown", 
+    name: "Haradwaith",
+    PopupContent: createGeographicPopup(
+      "Khand",
+      `Khand`,
+      `The meanings of Khand and Variag are not known. These names are in the language of the people of that region.`,
+      `Land in southeastern Middle-earth. Khand was located southeast of Mordor. Rhun was north of Khand, and Harad was to the southwest. Khand was inhabited by people called the Variags.`,
+      "https://thainsbook.minastirith.cz/lands.html#Khand"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  umbar: {
+    pathName: 'umbar',
+    color: "brown", 
+    name: "umbar",
+    PopupContent: createGeographicPopup(
+      "Umbar",
+      `Umbar`,
+      `The origin of the name Umbar was forgotten. Umbar already received its name before the ships of the Númenóreans sailed the sea. As a consequence, it is a name in one of the pre-Númenórean languages. Despite the coincidental similarity, the name Umbar is not related to the Quenya word umbar, which means fate.`,
+      `Haven and coastal region in Harad. Umbar was on the coast of the Sea south of the Bay of Belfalas. The natural harbor was almost completely enclosed on its north and west sides by a long cape. `,
+      "https://thainsbook.minastirith.cz/coastal.html#Umbar"
     ),
     tolerance: 1,
     weight: 2
