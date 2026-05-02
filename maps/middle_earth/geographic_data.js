@@ -1506,4 +1506,18 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  anorien: {
+    pathName: 'anorien',
+    color: "brown", 
+    name: "Anorien",
+    PopupContent: createGeographicPopup(
+      "Anorien",
+      `Anorien`,
+      `Anórien means "Sun land" from Anor meaning "the Sun" and the ending -ien which is a variation of a commonly used suffix in the names of countries or regions.`,
+      `Region in northern Gondor where Minas Tirith was located. Anorien was north of the White Mountains, between the Anduin and Mering Stream.`,
+      "https://thainsbook.minastirith.cz/lands.html#An%C3%B3rien"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
