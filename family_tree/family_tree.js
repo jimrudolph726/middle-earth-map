@@ -1150,6 +1150,54 @@
       }
     }
 
+    function getLineagePartnerBox(union) {
+      if (union.lineagePartnerId) {
+        return union.partners.find((partner) => partner.id === union.lineagePartnerId) || null;
+      }
+
+      if (union.partners.length === 1) {
+        return union.partners[0];
+      }
+
+      return null;
+    }
+
+    function alignPreferredLineageColumns() {
+      const targetXByPerson = new Map();
+      const sortedUnions = unions
+        .slice()
+        .sort((left, right) => left.symbolY - right.symbolY);
+
+      sortedUnions.forEach((union) => {
+        const lineagePartnerBox = getLineagePartnerBox(union);
+        if (!lineagePartnerBox) {
+          return;
+        }
+
+        const targetX = targetXByPerson.get(lineagePartnerBox.id);
+        if (Number.isFinite(targetX)) {
+          const deltaX = targetX - lineagePartnerBox.centerX;
+
+          if (deltaX !== 0) {
+            if (union.partners.length === 1) {
+              shiftBox(lineagePartnerBox, deltaX);
+            } else if (union.children.length === 1 && union.lineagePartnerId) {
+              union.partners.forEach((partner) => shiftBox(partner, deltaX));
+            } else if (union.lineagePartnerId) {
+              shiftBox(lineagePartnerBox, deltaX);
+            }
+          }
+        }
+
+        refreshUnionGeometry(union);
+
+        if (union.children.length === 1) {
+          const onlyChild = union.children[0];
+          targetXByPerson.set(onlyChild.id, lineagePartnerBox.centerX);
+        }
+      });
+    }
+
     const unions = unionInfos.map((union) => {
       const partners = union.visiblePartners
         .map((partnerId) => people.get(partnerId))
@@ -1274,6 +1322,7 @@
     }
 
     enforceGenerationRowSpacing();
+    alignPreferredLineageColumns();
     unions.forEach((union) => refreshUnionGeometry(union));
 
     const boxes = Array.from(people.values());
