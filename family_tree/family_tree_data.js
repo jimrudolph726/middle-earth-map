@@ -266,8 +266,6 @@
         id: "union-elros",
         partners: Object.freeze(["elros"]),
         children: Object.freeze(["arador"]),
-        lineagePartner: "elros",
-        lineageChild: "arador",
         label: "Issue",
         order: 10
       }),
@@ -276,8 +274,6 @@
         id: "union-arador",
         partners: Object.freeze(["arador"]),
         children: Object.freeze(["arathorn_second"]),
-        lineagePartner: "arador",
-        lineageChild: "arathorn_second",
         label: "Issue",
         order: 10
       }),
