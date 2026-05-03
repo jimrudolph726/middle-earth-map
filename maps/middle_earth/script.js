@@ -195,6 +195,21 @@ const storyState = {
 
 const STORY_AUTOPLAY_MS = 4500;
 
+const restoreMapInteractions = () => {
+  map.dragging?.enable();
+  map.doubleClickZoom?.enable();
+  map.scrollWheelZoom?.enable();
+  map.boxZoom?.enable();
+  map.keyboard?.enable();
+  map.touchZoom?.enable();
+  map.tap?.enable?.();
+  map.getContainer().style.pointerEvents = 'auto';
+
+  window.requestAnimationFrame(() => {
+    map.invalidateSize(false);
+  });
+};
+
 const syncStoryPlayPauseButton = () => {
   const icon = storyPlayPauseButton.querySelector('.material-icons');
   const label = storyPlayPauseButton.querySelector('span');
@@ -354,6 +369,7 @@ const stopStoryMode = () => {
   storyControls.setAttribute('aria-hidden', 'true');
   storyControls.style.display = 'none';
   storyControls.style.pointerEvents = 'none';
+  restoreMapInteractions();
 };
 
 const nextStoryScene = () => {
