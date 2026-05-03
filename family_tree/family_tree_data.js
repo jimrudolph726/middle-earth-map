@@ -215,40 +215,6 @@
         isPlaceholder: true,
         order: 41
       }),
-
-      eldarion_wife: Object.freeze({
-        id: "eldarion_wife",
-        name: "Eldarion's Wife",
-        sex: "female",
-        kindred: "Man",
-        groups: Object.freeze(["men"]),
-        title: "Queen-consort in waiting",
-        house: "Unknown",
-        realm: "Reunited Kingdom",
-        born: "Fourth Age",
-        died: "Unknown",
-        bio: "This placeholder record keeps Eldarion's future union explicit in the graph so later descendants can attach cleanly.",
-        recordType: "placeholder",
-        isPlaceholder: true,
-        order: 42
-      }),
-
-      eldarion_son: Object.freeze({
-        id: "eldarion_son",
-        name: "Eldarion's Son",
-        sex: "male",
-        kindred: "Half-elven",
-        groups: Object.freeze(["men", "elves", "half-elven"]),
-        title: "Future heir placeholder",
-        house: "House of Isildur",
-        realm: "Reunited Kingdom",
-        born: "Fourth Age",
-        died: "Unknown",
-        bio: "This placeholder descendant exists to test deeper generations and future-proof the royal line renderer.",
-        recordType: "placeholder",
-        isPlaceholder: true,
-        order: 50
-      })
     }),
 
     unions: Object.freeze([
@@ -256,6 +222,14 @@
         id: "union-earendil-elwing",
         partners: Object.freeze(["earendil", "elwing"]),
         children: Object.freeze(["elros", "elrond"]),
+        label: "Marriage",
+        order: 10
+      }),
+
+      Object.freeze({
+        id: "union-elros",
+        partners: Object.freeze([]),
+        children: Object.freeze(["aragorn"]),
         label: "Marriage",
         order: 10
       }),
@@ -283,15 +257,6 @@
         label: "Marriage",
         order: 20
       }),
-
-      Object.freeze({
-        id: "union-eldarion-wife",
-        partners: Object.freeze(["eldarion", "eldarion_wife"]),
-        partnerOrder: Object.freeze(["eldarion_wife", "eldarion"]),
-        children: Object.freeze(["eldarion_son"]),
-        label: "Marriage",
-        order: 30
-      })
     ]),
 
     views: Object.freeze({
