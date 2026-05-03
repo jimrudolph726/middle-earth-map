@@ -289,7 +289,7 @@
       }),
 
       Object.freeze({
-        id: "union-aragorn-arwen",
+        id: "union-aragorn_second-arwen",
         partners: Object.freeze(["aragorn_second", "arwen"]),
         children: Object.freeze(["eldarion", "unknown_daughters"]),
         lineagePartner: "aragorn_second",

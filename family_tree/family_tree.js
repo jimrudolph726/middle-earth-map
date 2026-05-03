@@ -844,7 +844,6 @@
           id: node.id,
           x: node.x,
           y: node.y,
-          baseY: node.y,
           width: cardWidth,
           height: cardHeight
         });
@@ -1100,12 +1099,12 @@
     function enforceGenerationRowSpacing() {
       const boxes = Array.from(people.values())
         .sort((left, right) => {
-          if (left.baseY !== right.baseY) {
-            return left.baseY - right.baseY;
-          }
-
           if (left.top !== right.top) {
             return left.top - right.top;
+          }
+
+          if (left.centerY !== right.centerY) {
+            return left.centerY - right.centerY;
           }
 
           return left.left - right.left;
@@ -1116,9 +1115,9 @@
       boxes.forEach((box) => {
         const currentRow = rows[rows.length - 1];
 
-        if (!currentRow || Math.abs(box.baseY - currentRow.baseY) > rowClusterTolerance) {
+        if (!currentRow || Math.abs(box.top - currentRow.referenceTop) > rowClusterTolerance) {
           rows.push({
-            baseY: box.baseY,
+            referenceTop: box.top,
             boxes: [box]
           });
           return;
@@ -1143,10 +1142,9 @@
 
         const deltaY = minimumTop - currentRow.top;
         currentRow.boxes.forEach((box) => {
-          box.baseY += deltaY;
           shiftBoxY(box, deltaY);
         });
-        currentRow.baseY += deltaY;
+        currentRow.referenceTop += deltaY;
         currentRow.top += deltaY;
         currentRow.bottom += deltaY;
       }
