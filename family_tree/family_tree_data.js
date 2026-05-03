@@ -283,6 +283,9 @@
         partners: Object.freeze(["arathorn_second", "gilraen"]),
         children: Object.freeze(["aragorn_second"]),
         partnerGap: 18,
+        partnerNudges: Object.freeze({
+          gilraen: -112
+        }),
         lineagePartner: "arathorn_second",
         lineageChild: "aragorn_second",
         label: "Marriage",

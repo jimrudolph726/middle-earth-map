@@ -282,6 +282,10 @@
         errors.push(`union "${union.id}".partnerGap must be a number when provided.`);
       }
 
+      if (union.partnerNudges !== undefined && (typeof union.partnerNudges !== "object" || union.partnerNudges === null || Array.isArray(union.partnerNudges))) {
+        errors.push(`union "${union.id}".partnerNudges must be an object when provided.`);
+      }
+
       if (union.partnerOrder !== undefined && !Array.isArray(union.partnerOrder)) {
         errors.push(`union "${union.id}".partnerOrder must be an array when provided.`);
       }
@@ -296,6 +300,18 @@
 
       if (union.lineageChild !== undefined && !union.children.includes(union.lineageChild)) {
         errors.push(`union "${union.id}".lineageChild must reference one of its children when provided.`);
+      }
+
+      if (union.partnerNudges) {
+        Object.entries(union.partnerNudges).forEach(([partnerId, deltaX]) => {
+          if (!union.partners.includes(partnerId)) {
+            errors.push(`union "${union.id}".partnerNudges references non-partner "${partnerId}".`);
+          }
+
+          if (!Number.isFinite(deltaX)) {
+            errors.push(`union "${union.id}".partnerNudges["${partnerId}"] must be a finite number.`);
+          }
+        });
       }
 
       union.partners.forEach((partnerId) => {
@@ -973,6 +989,23 @@
       return orderedPartners;
     }
 
+    function applyPartnerNudges(union, partnerById) {
+      if (!union.partnerNudges) {
+        return partnerById;
+      }
+
+      Object.entries(union.partnerNudges).forEach(([partnerId, deltaX]) => {
+        const partnerBox = partnerById.get(partnerId);
+        if (!partnerBox || !Number.isFinite(deltaX) || deltaX === 0) {
+          return;
+        }
+
+        shiftBox(partnerBox, deltaX);
+      });
+
+      return partnerById;
+    }
+
     function enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds) {
       const anchoredSet = new Set(anchoredPartnerIds);
       const orderedPartners = getOrderedPartnerBoxes(union, partnerById);
@@ -1025,6 +1058,7 @@
 
       if (explicitLineagePartnerId) {
         positionPartnersCentered(union, partnerById, average(partners.map((partner) => partner.centerX)), union.partnerGap ?? lineagePartnerGap);
+        applyPartnerNudges(union, partnerById);
         return partners;
       }
 
@@ -1045,12 +1079,14 @@
             : anchorBox.right + preferredGap;
           syncBox(spouseBox);
           syncBox(anchorBox);
+          applyPartnerNudges(union, partnerById);
           return partners;
         }
       }
 
       assignOrderedX(partners);
       enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds);
+      applyPartnerNudges(union, partnerById);
       return partners;
     }
 
@@ -1065,10 +1101,12 @@
         const parent = partners[0];
         parent.x = child.centerX - parent.width / 2;
         syncBox(parent);
+        applyPartnerNudges(union, partnerById);
         return partners;
       }
 
       positionPartnersCentered(union, partnerById, child.centerX, union.partnerGap ?? lineagePartnerGap);
+      applyPartnerNudges(union, partnerById);
       return partners;
     }
 
