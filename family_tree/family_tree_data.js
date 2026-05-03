@@ -281,7 +281,7 @@
       elves_and_half_elven: Object.freeze({
         label: "Elves and Half-elven",
         description: "Elrond's household and its immediate ties into the royal house through Arwen.",
-        seeds: Object.freeze(["galadriel"]),
+        seeds: Object.freeze(["eldarion"]),
         roots: Object.freeze(["galadriel"]),
         generationsUp: 10,
         generationsDown: 10,
