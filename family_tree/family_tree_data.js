@@ -9,6 +9,38 @@
     }),
 
     people: Object.freeze({
+      celeborn: Object.freeze({
+        id: "celeborn",
+        name: "Celeborn",
+        sex: "female",
+        kindred: "Elf",
+        groups: Object.freeze(["elves"]),
+        title: "Lord of Lothlorien",
+        house: "House of the Noldor",
+        realm: "Lothlorien",
+        born: "Sometime during the Years of the Trees",
+        died: "Sailed West in T.A. 3021",
+        image: "assets/galadriel.png",
+        bio: "Celeborn is the Lord of Lothlorien. He rules Lothlorien with his wife Galadriel.",
+        order: 4
+      }),
+
+      galadriel: Object.freeze({
+        id: "galadriel",
+        name: "Galadriel",
+        sex: "female",
+        kindred: "Elf",
+        groups: Object.freeze(["elves"]),
+        title: "Lady of Lothlorien",
+        house: "House of the Noldor",
+        realm: "Lothlorien",
+        born: "Around 1362 of the Years of the Trees",
+        died: "Sailed West in T.A. 3021",
+        image: "assets/galadriel.png",
+        bio: "Galadriel is the oldest elf in Middle-earth at the time of the War of the Ring. She rules Lothlorien with her husband Celeborn.",
+        order: 5
+      }),
+
       elrond: Object.freeze({
         id: "elrond",
         name: "Elrond",
@@ -172,6 +204,14 @@
     }),
 
     unions: Object.freeze([
+      Object.freeze({
+        id: "union-celeborn-galadriel",
+        partners: Object.freeze(["celeborn", "galadriel"]),
+        children: Object.freeze(["celebrian"]),
+        label: "Marriage",
+        order: 10
+      }),
+
       Object.freeze({
         id: "union-elrond-celebrian",
         partners: Object.freeze(["elrond", "celebrian"]),
