@@ -189,6 +189,7 @@ const storyState = {
   isPlaying: false,
   timerId: null,
   previousLayerState: null,
+  previousView: null,
   highlightLayer: null,
 };
 
@@ -334,6 +335,13 @@ const stopStoryMode = () => {
     storyState.highlightLayer = null;
   }
 
+  if (storyState.previousView) {
+    map.setView(storyState.previousView.center, storyState.previousView.zoom, {
+      animate: false,
+    });
+    storyState.previousView = null;
+  }
+
   map.closePopup();
   storyState.activeStory = null;
   storyPanel.classList.add('story-panel--hidden');
@@ -388,6 +396,10 @@ const beginStoryMode = (storyId) => {
   stopStoryMode();
   storyState.activeStory = story;
   storyState.currentSceneIndex = 0;
+  storyState.previousView = {
+    center: map.getCenter(),
+    zoom: map.getZoom(),
+  };
   ensureStoryLayersVisible(story);
   setCampsiteHoverPopupsEnabled(false);
   map.closePopup();
