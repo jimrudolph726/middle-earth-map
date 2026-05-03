@@ -676,11 +676,6 @@ h3,
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
 }
 
-.story-panel__image--hidden,
-.story-panel__placeholder--hidden {
-  display: none;
-}
-
 .story-panel__placeholder {
   box-sizing: border-box;
   display: flex;
@@ -692,6 +687,11 @@ h3,
   background:
     linear-gradient(rgba(254, 250, 240, 0.94), rgba(239, 227, 197, 0.98)),
     url("./assets/book.png") center 24px / 48px 48px no-repeat;
+}
+
+.story-panel__image--hidden,
+.story-panel__placeholder--hidden {
+  display: none;
 }
 
 .story-panel__placeholder-title {
