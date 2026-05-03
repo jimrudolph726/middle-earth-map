@@ -192,7 +192,7 @@ const storyState = {
   highlightLayer: null,
 };
 
-const STORY_AUTOPLAY_MS = 7000;
+const STORY_AUTOPLAY_MS = 1500;
 
 const syncStoryPlayPauseButton = () => {
   const icon = storyPlayPauseButton.querySelector('.material-icons');
