@@ -20,7 +20,7 @@
         realm: "Lothlorien",
         born: "Sometime during the Years of the Trees",
         died: "Sailed West in T.A. 3021",
-        image: "assets/galadriel.png",
+        image: "assets/celeborn.png",
         bio: "Celeborn is the Lord of Lothlorien. He rules Lothlorien with his wife Galadriel.",
         order: 4
       }),
