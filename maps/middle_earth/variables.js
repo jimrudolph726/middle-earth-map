@@ -88,6 +88,7 @@ export const settlementsData = [
   ...Object.entries(campsiteGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
+    groupName: name,
     campsite: 'campsite',
     clusterScope: 'sharedCampsiteCluster',
   })),
@@ -95,6 +96,7 @@ export const settlementsData = [
   ...Object.entries(settlementGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
+    groupName: name,
     campsite: 'no',
     clusterScope: 'sharedSettlementCluster',
   })),
@@ -102,6 +104,7 @@ export const settlementsData = [
   ...Object.entries(itemGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
+    groupName: name,
     campsite: 'no',
     clusterScope: 'sharedItemCluster',
   })),
@@ -109,6 +112,7 @@ export const settlementsData = [
   ...Object.entries(battleGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
+    groupName: name,
     campsite: 'no',
     clusterScope: 'sharedBattleCluster',
   })),
@@ -116,6 +120,7 @@ export const settlementsData = [
   ...Object.entries(miscMarkerGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
+    groupName: name,
     campsite: 'no',
     clusterScope: 'categoryCluster',
   })),

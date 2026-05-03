@@ -30,6 +30,9 @@
                 <li><a href="#regions" role="tab">
                     <span class="material-symbols-outlined">travel_explore</span> Regions
                 </a></li>
+                <li><a href="#stories" role="tab">
+                    <i class="material-icons">auto_stories</i> Curated Stories
+                </a></li>
 
             </ul>
             <ul role="tablist">
@@ -231,6 +234,31 @@
                 </div>
             </div>
 
+            <div class="sidebar-pane" id="stories">
+                <h1 class="sidebar-header">
+                    Curated Stories
+                    <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
+                </h1>
+                <div id="storiesSection" class="stories-section">
+                    <article class="story-launch-card">
+                        <p class="story-launch-card__eyebrow">Prototype Story Mode</p>
+                        <h2 class="story-launch-card__title">Sam and Frodo: From the Shire to Bree</h2>
+                        <p class="story-launch-card__copy">
+                            Follow the first seven campsites of the Ring-bearers with a guided route, narrative scenes, and room for AI-generated illustrations at each stop.
+                        </p>
+                        <div class="story-launch-card__meta">7 scenes</div>
+                        <button
+                            id="startSamFrodoStoryButton"
+                            class="story-launch-card__button"
+                            type="button"
+                            data-story-id="sam-frodo-first-seven"
+                        >
+                            Start Story
+                        </button>
+                    </article>
+                </div>
+            </div>
+
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
             </div>
@@ -286,6 +314,42 @@
         
     </nav>
     <div id="map" class="sidebar-map"></div>
+    <section id="storyPanel" class="story-panel story-panel--hidden" aria-live="polite">
+        <div class="story-panel__inner">
+            <div class="story-panel__text">
+                <p id="storyKicker" class="story-panel__kicker">Curated Story</p>
+                <h2 id="storySceneTitle" class="story-panel__title"></h2>
+                <p id="storySceneMeta" class="story-panel__meta"></p>
+                <p id="storySceneNarrative" class="story-panel__narrative"></p>
+                <p id="storySceneCounter" class="story-panel__counter"></p>
+            </div>
+            <div class="story-panel__media">
+                <img id="storySceneImage" class="story-panel__image" alt="" />
+                <div id="storySceneImagePlaceholder" class="story-panel__placeholder">
+                    <p class="story-panel__placeholder-title">Scene image not added yet</p>
+                    <p id="storySceneImagePath" class="story-panel__placeholder-copy"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="storyControls" class="story-controls story-controls--hidden">
+        <button id="storyPrevButton" class="story-controls__button" type="button">
+            <i class="material-icons">skip_previous</i>
+            <span>Previous</span>
+        </button>
+        <button id="storyPlayPauseButton" class="story-controls__button story-controls__button--primary" type="button">
+            <i class="material-icons">play_arrow</i>
+            <span>Play</span>
+        </button>
+        <button id="storyNextButton" class="story-controls__button" type="button">
+            <i class="material-icons">skip_next</i>
+            <span>Next</span>
+        </button>
+        <button id="storyStopButton" class="story-controls__button" type="button">
+            <i class="material-icons">stop</i>
+            <span>Stop</span>
+        </button>
+    </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-clicktolerance/src/index.js"></script>
     <script src="../../plugins/leaflet-sidebar.js"></script>

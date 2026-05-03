@@ -93,8 +93,14 @@ export const createMarkerClusterGroup = (options = {}) => {
   });
 };
 
-export const buildMarkers = (locations, campsite = 'no') => {
-  return Object.keys(locations).reduce((acc, key) => {
+const markerRegistry = new Map();
+
+export const getMarkerFromRegistry = (groupName, markerKey) => {
+  return markerRegistry.get(groupName)?.[markerKey] || null;
+};
+
+export const buildMarkers = (locations, campsite = 'no', groupName = null) => {
+  const markers = Object.keys(locations).reduce((acc, key) => {
     const { coords, icon, popup } = locations[key];
 
     const popupOptions = campsite == 'campsite'
@@ -111,6 +117,12 @@ export const buildMarkers = (locations, campsite = 'no') => {
     acc[key] = marker;
     return acc;
   }, {});
+
+  if (groupName) {
+    markerRegistry.set(groupName, markers);
+  }
+
+  return markers;
 };
 
 // Checkbox listener functions
@@ -188,9 +200,9 @@ export const PathListeners = (items, map) => {
 };
 
 // Campsites and Settlements function
-export const createMarkers = (locations, campsite = 'no', clusterGroup = null) => {
+export const createMarkers = (locations, campsite = 'no', clusterGroup = null, groupName = null) => {
   return new Promise((resolve) => {
-    const markers = buildMarkers(locations, campsite);
+    const markers = buildMarkers(locations, campsite, groupName);
 
     Object.values(markers).forEach((marker) => {
       if (clusterGroup) {
