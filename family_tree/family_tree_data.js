@@ -152,7 +152,7 @@
         order: 20
       }),
 
-      arathorn: Object.freeze({
+      arathorn_second: Object.freeze({
         id: "arathorn_second",
         name: "Arathorn II",
         sex: "male",
@@ -168,7 +168,7 @@
         order: 30
       }),
 
-      aragorn: Object.freeze({
+      aragorn_second: Object.freeze({
         id: "aragorn_second",
         name: "Aragorn II Elessar",
         sex: "male",
