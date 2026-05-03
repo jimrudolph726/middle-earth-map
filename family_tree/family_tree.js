@@ -1202,32 +1202,6 @@
   function buildConnectorPaths(layout) {
     const spouseLines = [];
     const descentLines = [];
-    const visiblePartnerUnionByPersonId = new Map();
-
-    layout.unions.forEach((union) => {
-      if (union.partners.length < 2) return;
-
-      union.partners.forEach((partner) => {
-        if (!visiblePartnerUnionByPersonId.has(partner.id)) {
-          visiblePartnerUnionByPersonId.set(partner.id, union);
-        }
-      });
-    });
-
-    function getChildAttachment(child) {
-      const partnerUnion = visiblePartnerUnionByPersonId.get(child.id);
-      if (!partnerUnion) {
-        return {
-          x: child.centerX,
-          y: child.top
-        };
-      }
-
-      return {
-        x: partnerUnion.anchorX,
-        y: partnerUnion.spouseLineY
-      };
-    }
 
     layout.unions.forEach((union) => {
       const { partners, children, spouseLineY, anchorX, branchY } = union;
@@ -1257,52 +1231,45 @@
 
       if (children.length === 1) {
         const child = children[0];
-        const attachment = getChildAttachment(child);
-
-        if (Math.abs(attachment.x - anchorX) > 1) {
+        if (Math.abs(child.centerX - anchorX) > 1) {
           descentLines.push({
             id: `${union.id}-branch`,
             x1: anchorX,
             y1: branchY,
-            x2: attachment.x,
+            x2: child.centerX,
             y2: branchY
           });
         }
 
         descentLines.push({
           id: `${union.id}-child-0`,
-          x1: attachment.x,
+          x1: child.centerX,
           y1: branchY,
-          x2: attachment.x,
-          y2: attachment.y
+          x2: child.centerX,
+          y2: child.top
         });
 
         return;
       }
 
-      const childAttachments = children.map((child) => ({
-        child,
-        attachment: getChildAttachment(child)
-      }))
-        .sort((left, right) => left.attachment.x - right.attachment.x);
-      const leftChild = childAttachments[0];
-      const rightChild = childAttachments[childAttachments.length - 1];
+      const leftChild = children[0];
+      const rightChild = children[children.length - 1];
 
       descentLines.push({
         id: `${union.id}-branch`,
-        x1: leftChild.attachment.x,
+        x1: leftChild.centerX,
         y1: branchY,
-        x2: rightChild.attachment.x,
+        x2: rightChild.centerX,
         y2: branchY
       });
 
-      childAttachments.forEach(({ attachment }, index) => {
+      children.forEach((child, index) => {
         descentLines.push({
           id: `${union.id}-child-${index}`,
-          x1: attachment.x,
+          x1: child.centerX,
           y1: branchY,
-          x2: attachment.x,
-          y2: attachment.y
+          x2: child.centerX,
+          y2: child.top
         });
       });
     });
