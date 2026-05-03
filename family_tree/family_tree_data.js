@@ -322,7 +322,7 @@
         label: "Men of the West",
         description: "The Dunedain and royal human branch, while still keeping direct spouses visible for context.",
         seeds: Object.freeze(["arador"]),
-        roots: Object.freeze(["arador"]),
+        roots: Object.freeze(["eldarion"]),
         generationsUp: 10,
         generationsDown: 10,
         includeSpouses: true,
