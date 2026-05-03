@@ -17,6 +17,10 @@
   <div id="tree">
     <nav class="atlas-map-nav" aria-label="Atlas navigation">
       <button id="reset-view" type="button">Reset View</button>
+      <a id="layout-editor-link" class="atlas-map-nav__link" href="family_tree.html?editor=1">
+        <i class="material-icons">edit</i>
+        <span>Layout Studio</span>
+      </a>
       <a class="atlas-map-nav__link atlas-map-nav__link--home" href="../index.html">
         <i class="material-icons">home</i>
         <span>Home</span>
@@ -96,6 +100,19 @@
       <svg id="tree-minimap-svg" viewBox="0 0 220 140" preserveAspectRatio="xMidYMid meet"></svg>
     </aside>
 
+    <aside id="layout-editor-panel" class="layout-editor-panel hidden" aria-live="polite">
+      <p class="layout-editor-panel__eyebrow">Layout Studio</p>
+      <p id="layout-editor-status" class="layout-editor-panel__status">
+        Open this page with <code>?editor=1</code> to drag cards and save a manual layout.
+      </p>
+      <div class="layout-editor-panel__actions">
+        <button id="layout-editor-toggle" type="button">Enable Dragging</button>
+        <button id="layout-editor-save" type="button">Save To Browser</button>
+        <button id="layout-editor-download" type="button">Download Publish File</button>
+        <button id="layout-editor-reset" type="button">Reset This View</button>
+      </div>
+    </aside>
+
     <div id="tree-empty-state" class="tree-empty-state hidden" role="status" aria-live="polite">
       <div class="tree-empty-state__card">
         <p class="tree-empty-state__eyebrow">Planned View</p>
@@ -104,7 +121,7 @@
       </div>
     </div>
 
-    <div class="hint">Drag to pan | Scroll to zoom | Click a person for details</div>
+    <div id="tree-hint" class="hint">Drag to pan | Scroll to zoom | Click a person for details</div>
   </div>
 
   <section id="character-sheet" class="character-sheet hidden">
@@ -115,6 +132,7 @@
   </section>
 
   <script src="family_tree_data.js"></script>
+  <script src="family_tree_layouts.js"></script>
   <script src="family_tree.js"></script>
 </body>
 </html>

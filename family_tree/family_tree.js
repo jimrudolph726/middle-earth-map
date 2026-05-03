@@ -14,6 +14,14 @@
   const emptyTitle = document.getElementById("tree-empty-title");
   const emptyBody = document.getElementById("tree-empty-body");
   const resetViewButton = document.getElementById("reset-view");
+  const layoutEditorLink = document.getElementById("layout-editor-link");
+  const layoutEditorPanel = document.getElementById("layout-editor-panel");
+  const layoutEditorStatus = document.getElementById("layout-editor-status");
+  const layoutEditorToggle = document.getElementById("layout-editor-toggle");
+  const layoutEditorSave = document.getElementById("layout-editor-save");
+  const layoutEditorDownload = document.getElementById("layout-editor-download");
+  const layoutEditorReset = document.getElementById("layout-editor-reset");
+  const treeHint = document.getElementById("tree-hint");
   const characterSheet = document.getElementById("character-sheet");
   const backToTreeButton = document.getElementById("back-to-tree");
   const characterSheetContent = document.getElementById("character-sheet-content");
@@ -32,6 +40,8 @@
   const minimapWidth = 220;
   const minimapHeight = 140;
   const minimapPadding = 10;
+  const layoutDraftStorageKey = "middle-earth-family-tree-layout-drafts-v1";
+  const fileLayouts = window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} };
 
   const elk = window.ELK ? new window.ELK() : null;
 
@@ -41,13 +51,22 @@
     currentRawProjection: null,
     currentProjection: null,
     currentLayout: null,
+    currentAutoLayout: null,
+    currentUnionInfos: [],
     currentTransform: { x: 0, y: 0, k: 1 },
     collapsedIds: new Set(),
     pendingFocus: null,
     renderRevision: 0,
     minimapMetrics: null,
     scene: null,
-    activePersonId: null
+    activePersonId: null,
+    layoutEditor: {
+      available: false,
+      draggingEnabled: false,
+      didDrag: false,
+      dragStarted: false,
+      drafts: { version: 1, views: {} }
+    }
   };
 
   function escapeHtml(value) {
@@ -68,6 +87,133 @@
     const text = String(value || "");
     if (text.length <= maxLength) return text;
     return `${text.slice(0, Math.max(0, maxLength - 1))}…`;
+  }
+
+  function isLayoutEditorRequested() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("editor") === "1";
+  }
+
+  function cloneJson(value) {
+    return JSON.parse(JSON.stringify(value));
+  }
+
+  function loadLayoutDrafts() {
+    try {
+      const raw = window.localStorage.getItem(layoutDraftStorageKey);
+      if (!raw) {
+        return { version: 1, views: {} };
+      }
+
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || typeof parsed.views !== "object" || parsed.views === null) {
+        return { version: 1, views: {} };
+      }
+
+      return {
+        version: 1,
+        views: parsed.views
+      };
+    } catch (_error) {
+      return { version: 1, views: {} };
+    }
+  }
+
+  function saveLayoutDrafts() {
+    try {
+      window.localStorage.setItem(layoutDraftStorageKey, JSON.stringify(state.layoutEditor.drafts));
+      return true;
+    } catch (_error) {
+      return false;
+    }
+  }
+
+  function getDraftViewLayout(viewId) {
+    return state.layoutEditor.drafts.views[viewId] || null;
+  }
+
+  function getFileViewLayout(viewId) {
+    return fileLayouts?.views?.[viewId] || null;
+  }
+
+  function getEffectiveViewLayout(viewId) {
+    return getDraftViewLayout(viewId) || getFileViewLayout(viewId) || null;
+  }
+
+  function ensureDraftViewLayout(viewId) {
+    if (!state.layoutEditor.drafts.views[viewId]) {
+      state.layoutEditor.drafts.views[viewId] = {
+        positions: {}
+      };
+    }
+
+    if (!state.layoutEditor.drafts.views[viewId].positions) {
+      state.layoutEditor.drafts.views[viewId].positions = {};
+    }
+
+    return state.layoutEditor.drafts.views[viewId];
+  }
+
+  function setDraftPosition(viewId, personId, x, y) {
+    const draft = ensureDraftViewLayout(viewId);
+    draft.positions[personId] = {
+      x: Math.round(x),
+      y: Math.round(y)
+    };
+  }
+
+  function clearDraftViewLayout(viewId) {
+    delete state.layoutEditor.drafts.views[viewId];
+  }
+
+  function hasAnyDraftLayouts() {
+    return Object.keys(state.layoutEditor.drafts.views || {}).length > 0;
+  }
+
+  function getMergedLayoutsForExport() {
+    const merged = cloneJson(fileLayouts && typeof fileLayouts === "object" ? fileLayouts : { version: 1, views: {} });
+    if (!merged.views || typeof merged.views !== "object") {
+      merged.views = {};
+    }
+
+    Object.entries(state.layoutEditor.drafts.views || {}).forEach(([viewId, viewLayout]) => {
+      merged.views[viewId] = cloneJson(viewLayout);
+    });
+
+    merged.version = 1;
+    return merged;
+  }
+
+  function formatLayoutsAsJavaScript(layouts) {
+    return `window.FAMILY_TREE_LAYOUTS = ${JSON.stringify(layouts, null, 2)};\n`;
+  }
+
+  function downloadTextFile(filename, content) {
+    const blob = new Blob([content], { type: "application/javascript;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function setLayoutEditorStatus(message) {
+    if (layoutEditorStatus) {
+      layoutEditorStatus.textContent = message;
+    }
+  }
+
+  function syncLayoutBox(box) {
+    box.left = box.x;
+    box.top = box.y;
+    box.right = box.x + box.width;
+    box.bottom = box.y + box.height;
+    box.centerX = box.x + box.width / 2;
+    box.centerY = box.y + box.height / 2;
+    return box;
   }
 
   function renderError(message) {
@@ -854,6 +1000,112 @@
     };
   }
 
+  function calculateLayoutBoundsFromPeople(people) {
+    const boxes = Array.from(people.values());
+    if (boxes.length === 0) {
+      return { minX: 0, minY: 0, maxX: 0, maxY: 0, width: 0, height: 0 };
+    }
+
+    const bounds = {
+      minX: Math.min(...boxes.map((box) => box.left)) - 40,
+      minY: Math.min(...boxes.map((box) => box.top)) - 40,
+      maxX: Math.max(...boxes.map((box) => box.right)) + 40,
+      maxY: Math.max(...boxes.map((box) => box.bottom)) + 40
+    };
+
+    bounds.width = bounds.maxX - bounds.minX;
+    bounds.height = bounds.maxY - bounds.minY;
+    return bounds;
+  }
+
+  function buildManualLayoutFromPeople(projection, unionInfos, people) {
+    const unions = unionInfos.map((union) => {
+      const partners = union.visiblePartners
+        .map((partnerId) => people.get(partnerId))
+        .filter(Boolean)
+        .sort((left, right) => left.centerX - right.centerX);
+      const children = union.visibleChildren
+        .map((childId) => people.get(childId))
+        .filter(Boolean)
+        .sort((left, right) => left.centerX - right.centerX);
+      const lineagePartnerId = union.lineagePartner && union.visiblePartners.includes(union.lineagePartner)
+        ? union.lineagePartner
+        : union.visiblePartners[0] || null;
+      const lineageChildId = union.lineageChild && union.visibleChildren.includes(union.lineageChild)
+        ? union.lineageChild
+        : union.visibleChildren[0] || null;
+
+      const spouseLineY = partners.length > 0
+        ? average(partners.map((partner) => partner.centerY))
+        : 0;
+      const anchorX = partners.length > 1
+        ? average(partners.map((partner) => partner.centerX))
+        : partners.length === 1
+          ? partners[0].centerX
+          : 0;
+      const descentOriginX = anchorX;
+      const descentOriginY = partners.length === 1
+        ? partners[0].bottom
+        : spouseLineY;
+      const firstChildTop = children.length > 0 ? Math.min(...children.map((child) => child.top)) : null;
+      const branchY = firstChildTop === null
+        ? null
+        : Math.min(
+            firstChildTop - siblingBarMinGapToChild,
+            descentOriginY + Math.max(siblingBarMinDropFromParents, (firstChildTop - descentOriginY) * siblingBarDropFactor)
+          );
+
+      return {
+        id: union.id,
+        label: union.label,
+        visiblePartners: union.visiblePartners,
+        visibleChildren: union.visibleChildren,
+        lineagePartnerId,
+        lineageChildId,
+        partners,
+        children,
+        spouseLineY,
+        anchorX,
+        descentOriginX,
+        descentOriginY,
+        branchY,
+        symbolX: anchorX,
+        symbolY: spouseLineY
+      };
+    });
+
+    return {
+      people,
+      unions,
+      bounds: calculateLayoutBoundsFromPeople(people),
+      mode: "manual",
+      unionInfos
+    };
+  }
+
+  function applyManualLayoutToBase(baseLayout, projection, unionInfos, manualLayout) {
+    const manualPositions = manualLayout?.positions || {};
+    const people = new Map();
+
+    projection.peopleIds.forEach((personId) => {
+      const baseBox = baseLayout.people.get(personId);
+      if (!baseBox) {
+        return;
+      }
+
+      const override = manualPositions[personId];
+      people.set(personId, syncLayoutBox({
+        id: personId,
+        x: Number.isFinite(override?.x) ? override.x : baseBox.left,
+        y: Number.isFinite(override?.y) ? override.y : baseBox.top,
+        width: cardWidth,
+        height: cardHeight
+      }));
+    });
+
+    return buildManualLayoutFromPeople(projection, unionInfos, people);
+  }
+
   function normalizeLayout(layoutResult, projection, unionInfos) {
     const people = new Map();
     const unionNodes = new Map();
@@ -879,13 +1131,7 @@
     });
 
     function syncBox(box) {
-      box.left = box.x;
-      box.top = box.y;
-      box.right = box.x + box.width;
-      box.bottom = box.y + box.height;
-      box.centerX = box.x + box.width / 2;
-      box.centerY = box.y + box.height / 2;
-      return box;
+      return syncLayoutBox(box);
     }
 
     people.forEach(syncBox);
@@ -1407,7 +1653,15 @@
   async function layoutProjection(projection) {
     const { graph, unionInfos } = buildElkGraph(projection);
     const layoutResult = await elk.layout(graph);
-    return normalizeLayout(layoutResult, projection, unionInfos);
+    const autoLayout = normalizeLayout(layoutResult, projection, unionInfos);
+    const manualViewLayout = getEffectiveViewLayout(projection.viewId);
+    const layout = manualViewLayout
+      ? applyManualLayoutToBase(autoLayout, projection, unionInfos, manualViewLayout)
+      : autoLayout;
+
+    layout.autoLayout = autoLayout;
+    layout.unionInfos = unionInfos;
+    return layout;
   }
 
   function syncViewQueryParam(viewId) {
@@ -1718,11 +1972,8 @@
     };
   }
 
-  function renderScene(layout, projection, rawProjection) {
-    clearScene();
-
-    const { spouseLines, descentLines } = buildConnectorPaths(layout);
-    const nodeData = projection.peopleIds
+  function getNodeRenderData(layout, projection, rawProjection) {
+    return projection.peopleIds
       .map((personId) => {
         const box = layout.people.get(personId);
         const person = getPersonById(personId);
@@ -1741,6 +1992,57 @@
         };
       })
       .filter(Boolean);
+  }
+
+  function updateScenePositions(layout, projection, rawProjection) {
+    const { spouseLines, descentLines } = buildConnectorPaths(layout);
+    const nodeData = getNodeRenderData(layout, projection, rawProjection);
+
+    state.scene.linkLayer.selectAll(".family-tree-spouse-line")
+      .data(spouseLines, (d) => d.id)
+      .join("line")
+      .attr("class", "family-tree-spouse-line")
+      .attr("x1", (d) => d.x1)
+      .attr("y1", (d) => d.y1)
+      .attr("x2", (d) => d.x2)
+      .attr("y2", (d) => d.y2);
+
+    state.scene.linkLayer.selectAll(".family-tree-descent-line")
+      .data(descentLines, (d) => d.id)
+      .join("line")
+      .attr("class", "family-tree-descent-line")
+      .attr("x1", (d) => d.x1)
+      .attr("y1", (d) => d.y1)
+      .attr("x2", (d) => d.x2)
+      .attr("y2", (d) => d.y2);
+
+    state.scene.unionLayer.selectAll(".family-tree-union")
+      .data(layout.unions, (d) => d.id)
+      .attr("transform", (d) => `translate(${d.symbolX}, ${d.symbolY})`);
+
+    state.scene.nodeLayer.selectAll(".family-tree-node")
+      .data(nodeData, (d) => d.id)
+      .attr("class", (d) => {
+        const classes = ["family-tree-node"];
+        const recordType = getRecordType(d.person);
+
+        if (recordType === "placeholder") classes.push("family-tree-node--placeholder");
+        if (recordType === "aggregate") classes.push("family-tree-node--aggregate");
+        if (state.activePersonId === d.id) classes.push("is-active");
+
+        return classes.join(" ");
+      })
+      .attr("transform", (d) => `translate(${d.left}, ${d.top})`);
+
+    updateActiveNodeSelection();
+    updateMinimap(layout, projection);
+  }
+
+  function renderScene(layout, projection, rawProjection) {
+    clearScene();
+
+    const { spouseLines, descentLines } = buildConnectorPaths(layout);
+    const nodeData = getNodeRenderData(layout, projection, rawProjection);
 
     const portraitClips = state.scene.defs.selectAll(".family-tree-portrait-clip")
       .data(nodeData, (d) => d.id)
@@ -1810,6 +2112,10 @@
       .attr("role", "button")
       .attr("aria-label", (d) => `${d.person.name}: open character details`)
       .on("click", (event, d) => {
+        if (state.layoutEditor.didDrag) {
+          state.layoutEditor.didDrag = false;
+          return;
+        }
         event.stopPropagation();
         showCharacterSheet(d.id);
       })
@@ -1820,6 +2126,10 @@
         showCharacterSheet(d.id);
       })
       .on("dblclick", (event, d) => {
+        if (state.layoutEditor.didDrag) {
+          state.layoutEditor.didDrag = false;
+          return;
+        }
         event.stopPropagation();
         centerOnPerson(d.id, { openDetails: true });
       });
@@ -1889,8 +2199,97 @@
       .attr("y", 1)
       .text((d) => (d.isCollapsed ? "+" : "−"));
 
+    applyLayoutEditorNodeBehavior(nodeGroups);
     updateActiveNodeSelection();
     updateMinimap(layout, projection);
+  }
+
+  function rebuildCurrentLayoutFromDrafts() {
+    if (!state.currentAutoLayout || !state.currentProjection) {
+      return;
+    }
+
+    const manualViewLayout = getEffectiveViewLayout(state.currentViewId);
+    state.currentLayout = manualViewLayout
+      ? applyManualLayoutToBase(state.currentAutoLayout, state.currentProjection, state.currentUnionInfos, manualViewLayout)
+      : state.currentAutoLayout;
+
+    updateScenePositions(state.currentLayout, state.currentProjection, state.currentRawProjection);
+  }
+
+  function applyLayoutEditorNodeBehavior(nodeGroups) {
+    if (!state.layoutEditor.available || !window.d3) {
+      nodeGroups.on(".drag", null);
+      return;
+    }
+
+    const dragBehavior = d3.drag()
+      .on("start", (event, d) => {
+        if (!state.layoutEditor.draggingEnabled) {
+          return;
+        }
+
+        event.sourceEvent.stopPropagation();
+        state.layoutEditor.didDrag = false;
+        d3.select(event.currentTarget).classed("is-dragging", true);
+      })
+      .on("drag", (event, d) => {
+        if (!state.layoutEditor.draggingEnabled || !state.currentLayout) {
+          return;
+        }
+
+        const scale = state.currentTransform.k || 1;
+        const currentBox = state.currentLayout.people.get(d.id);
+        if (!currentBox) {
+          return;
+        }
+
+        const nextLeft = currentBox.left + event.dx / scale;
+        const nextTop = currentBox.top + event.dy / scale;
+        setDraftPosition(state.currentViewId, d.id, nextLeft, nextTop);
+        state.layoutEditor.didDrag = true;
+        rebuildCurrentLayoutFromDrafts();
+      })
+      .on("end", (event) => {
+        d3.select(event.currentTarget).classed("is-dragging", false);
+
+        if (!state.layoutEditor.draggingEnabled) {
+          return;
+        }
+
+        if (state.layoutEditor.didDrag) {
+          const saved = saveLayoutDrafts();
+          setLayoutEditorStatus(saved
+            ? `Moved cards in ${data.views[state.currentViewId].label}. The browser draft is already saved, and you can download a publish file whenever you're happy with the layout.`
+            : `Moved cards in ${data.views[state.currentViewId].label}. The layout changed in memory, but this browser would not save the draft automatically.`);
+        }
+      });
+
+    nodeGroups.call(dragBehavior);
+  }
+
+  function updateLayoutEditorChrome() {
+    if (!state.layoutEditor.available) {
+      document.body.classList.remove("is-layout-editor");
+      layoutEditorPanel?.classList.add("hidden");
+      if (treeHint) {
+        treeHint.textContent = "Drag to pan | Scroll to zoom | Click a person for details";
+      }
+      return;
+    }
+
+    document.body.classList.add("is-layout-editor");
+    layoutEditorPanel?.classList.remove("hidden");
+
+    if (treeHint) {
+      treeHint.textContent = state.layoutEditor.draggingEnabled
+        ? "Drag cards to place them | Scroll to zoom | Save to browser when the layout feels right"
+        : "Pan the tree normally | Enable dragging in Layout Studio when you're ready to place cards";
+    }
+
+    if (layoutEditorToggle) {
+      layoutEditorToggle.textContent = state.layoutEditor.draggingEnabled ? "Disable Dragging" : "Enable Dragging";
+    }
   }
 
   function getTreeViewport() {
@@ -2190,6 +2589,8 @@
       showEmptyState(rawProjection.view);
       state.currentProjection = rawProjection;
       state.currentLayout = null;
+      state.currentAutoLayout = null;
+      state.currentUnionInfos = [];
       hideSearchResults();
       return;
     }
@@ -2205,6 +2606,8 @@
 
     if (currentRevision !== state.renderRevision) return;
 
+    state.currentAutoLayout = layout.autoLayout || layout;
+    state.currentUnionInfos = layout.unionInfos || [];
     state.currentLayout = layout;
     renderScene(layout, projection, rawProjection);
 
@@ -2279,10 +2682,28 @@
     }
 
     try {
+      state.layoutEditor.available = isLayoutEditorRequested();
+      state.layoutEditor.draggingEnabled = state.layoutEditor.available;
+      state.layoutEditor.drafts = loadLayoutDrafts();
       state.indexes = buildIndexes();
       state.scene = initializeScene();
       populateViewSelect();
       initMinimapInteractions();
+      updateLayoutEditorChrome();
+
+      if (layoutEditorLink && state.layoutEditor.available) {
+        layoutEditorLink.setAttribute("href", "family_tree.html");
+        const label = layoutEditorLink.querySelector("span");
+        if (label) {
+          label.textContent = "Tree Mode";
+        }
+      }
+
+      if (state.layoutEditor.available) {
+        setLayoutEditorStatus(hasAnyDraftLayouts()
+          ? "Layout Studio is active. Drag cards to place them, save to browser for everyday use, or download a publish file for the repo."
+          : "Layout Studio is active. Drag cards to place them, then save to browser or download a publish file.");
+      }
 
       viewSelect.addEventListener("change", (event) => {
         requestRender({
@@ -2305,6 +2726,50 @@
           fitToBounds(state.currentLayout.bounds, true);
         }
       });
+
+      if (layoutEditorToggle) {
+        layoutEditorToggle.addEventListener("click", () => {
+          state.layoutEditor.draggingEnabled = !state.layoutEditor.draggingEnabled;
+          updateLayoutEditorChrome();
+          setLayoutEditorStatus(state.layoutEditor.draggingEnabled
+            ? "Dragging enabled. Move cards directly in the tree, then save or download when you're happy."
+            : "Dragging disabled. The tree is back in browse mode until you enable dragging again.");
+        });
+      }
+
+      if (layoutEditorSave) {
+        layoutEditorSave.addEventListener("click", () => {
+          const saved = saveLayoutDrafts();
+          setLayoutEditorStatus(saved
+            ? `Saved the current manual layouts to this browser. ${data.views[state.currentViewId].label} will now reopen with these card positions here.`
+            : "This browser blocked local saving, so the draft could not be saved here.");
+        });
+      }
+
+      if (layoutEditorDownload) {
+        layoutEditorDownload.addEventListener("click", () => {
+          const layouts = getMergedLayoutsForExport();
+          downloadTextFile("family_tree_layouts.js", formatLayoutsAsJavaScript(layouts));
+          setLayoutEditorStatus("Downloaded a publish file. Replace family_tree_layouts.js with that file when you want the repo to use these saved positions.");
+        });
+      }
+
+      if (layoutEditorReset) {
+        layoutEditorReset.addEventListener("click", () => {
+          if (!state.currentViewId) {
+            return;
+          }
+
+          clearDraftViewLayout(state.currentViewId);
+          saveLayoutDrafts();
+          setLayoutEditorStatus(`Cleared the browser draft for ${data.views[state.currentViewId].label}. The view is back on its automatic layout unless a published layout file exists for it.`);
+          requestRender({
+            viewId: state.currentViewId,
+            fit: false,
+            preserveCollapsed: true
+          });
+        });
+      }
 
       backToTreeButton.addEventListener("click", hideCharacterSheet);
 
