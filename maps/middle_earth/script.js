@@ -345,9 +345,7 @@ const nextStoryScene = () => {
   }
 
   if (storyState.currentSceneIndex >= storyState.activeStory.scenes.length - 1) {
-    storyState.isPlaying = false;
-    clearStoryTimer();
-    syncStoryPlayPauseButton();
+    stopStoryMode();
     return;
   }
 
