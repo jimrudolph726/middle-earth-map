@@ -253,8 +253,8 @@
       all_lineages: Object.freeze({
         label: "All Current Lineages",
         description: "The combined Men and Elven branches currently modeled around Aragorn, Arwen, and Elrond's house.",
-        seeds: Object.freeze(["aragorn", "elrond"]),
-        roots: Object.freeze(["arador", "elrond"]),
+        seeds: Object.freeze(["eldarion_son"]),
+        roots: Object.freeze(["galadriel"]),
         generationsUp: 10,
         generationsDown: 10,
         includeSpouses: true,
