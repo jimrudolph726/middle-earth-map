@@ -147,6 +147,7 @@
         realm: "Dunedain of the North",
         born: "T.A. 2873",
         died: "T.A. 2933",
+        image: "assets/gilraen.png",
         bio: "Gilraen the Fair was a Dúnadan of the North, the daughter of Dírhael and Ivorwen, and a descendant of the first chieftain, Aranarth.",
         order: 20
       }),
