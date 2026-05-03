@@ -136,23 +136,39 @@
         order: 10
       }),
 
-      arathorn: Object.freeze({
-        id: "arathorn",
-        name: "Arathorn II",
-        sex: "male",
-        kindred: "Man",
+      gilraen: Object.freeze({
+        id: "gilraen",
+        name: "Gilraen",
+        sex: "female",
+        kindred: "Woman",
         groups: Object.freeze(["men", "dunedain"]),
-        title: "Chieftain of the Dunedain",
+        title: "Gilraen the Fair",
         house: "House of Isildur",
         realm: "Dunedain of the North",
         born: "T.A. 2873",
         died: "T.A. 2933",
-        bio: "Arathorn II is the father of Aragorn and a chieftain of the Dunedain in exile.",
+        bio: "Gilraen the Fair was a Dúnadan of the North, the daughter of Dírhael and Ivorwen, and a descendant of the first chieftain, Aranarth.",
         order: 20
       }),
 
+      arathorn: Object.freeze({
+        id: "arathorn_second",
+        name: "Arathorn II",
+        sex: "male",
+        kindred: "Man",
+        groups: Object.freeze(["men", "dunedain"]),
+        title: "K15th Chieftain of the Dunedain, father to Aragorn II Elessar",
+        house: "House of Isildur",
+        realm: "Remnant of Arthedain",
+        born: "T.A. 2873",
+        died: "T.A. 2933",
+        image: "assets/arathorn_second.png",
+        bio: "Arathorn II was the fifteenth Chieftain of the Dúnedain and succeeded his father, Arador, when he was killed in 2930.",
+        order: 30
+      }),
+
       aragorn: Object.freeze({
-        id: "aragorn",
+        id: "aragorn_second",
         name: "Aragorn II Elessar",
         sex: "male",
         kindred: "Man",
@@ -162,7 +178,7 @@
         realm: "Gondor and Arnor",
         born: "T.A. 2931",
         died: "F.A. 120",
-        image: "assets/aragorn.png",
+        image: "assets/aragorn_second.png",
         bio: "Aragorn, son of Arathorn, is the heir of Isildur and becomes King Elessar after the War of the Ring.",
         order: 30
       }),
@@ -218,21 +234,7 @@
     }),
 
     unions: Object.freeze([
-      Object.freeze({
-        id: "union-earendil-elwing",
-        partners: Object.freeze(["earendil", "elwing"]),
-        children: Object.freeze(["elros", "elrond"]),
-        label: "Marriage",
-        order: 10
-      }),
 
-      Object.freeze({
-        id: "union-elros",
-        partners: Object.freeze(["elros"]),
-        children: Object.freeze(["aragorn"]),
-        label: "Issue",
-        order: 10
-      }),
 
       Object.freeze({
         id: "union-celeborn-galadriel",
@@ -251,8 +253,32 @@
       }),
 
       Object.freeze({
+        id: "union-earendil-elwing",
+        partners: Object.freeze(["earendil", "elwing"]),
+        children: Object.freeze(["elros", "elrond"]),
+        label: "Marriage",
+        order: 10
+      }),
+
+      Object.freeze({
+        id: "union-elros",
+        partners: Object.freeze(["elros"]),
+        children: Object.freeze(["arathorn_second"]),
+        label: "Issue",
+        order: 10
+      }),
+
+      Object.freeze({
+        id: "union-arathorn_second-gilraen",
+        partners: Object.freeze(["arathorn_second", "gilraen"]),
+        children: Object.freeze(["aragorn_second"]),
+        label: "Marriage",
+        order: 10
+      }),
+
+      Object.freeze({
         id: "union-aragorn-arwen",
-        partners: Object.freeze(["aragorn", "arwen"]),
+        partners: Object.freeze(["aragorn_second", "arwen"]),
         children: Object.freeze(["eldarion", "unknown_daughters"]),
         label: "Marriage",
         order: 20
@@ -263,7 +289,7 @@
       aragorn_lineage: Object.freeze({
         label: "Aragorn Lineage",
         description: "The direct House of Isildur line around Aragorn, including ancestors, descendants, and direct spouses.",
-        seeds: Object.freeze(["aragorn"]),
+        seeds: Object.freeze(["aragorn_second"]),
         roots: Object.freeze(["arador"]),
         generationsUp: 10,
         generationsDown: 10,
