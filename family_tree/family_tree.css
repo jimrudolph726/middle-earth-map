@@ -156,6 +156,7 @@
 .family-tree-page .family-tree-spouse-line,
 .family-tree-page .family-tree-descent-line {
   stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .family-tree-page .family-tree-spouse-line {
