@@ -1096,6 +1096,31 @@
       return union;
     }
 
+    function recenterUnionChildren(union) {
+      if (union.children.length === 0) {
+        return union;
+      }
+
+      if (union.children.length === 1) {
+        const onlyChild = union.children[0];
+        onlyChild.x = union.anchorX - onlyChild.width / 2;
+        syncBox(onlyChild);
+        return union;
+      }
+
+      const leftChild = union.children[0];
+      const rightChild = union.children[union.children.length - 1];
+      const currentMidpoint = (leftChild.centerX + rightChild.centerX) / 2;
+      const shiftX = union.anchorX - currentMidpoint;
+
+      union.children.forEach((child) => {
+        child.x += shiftX;
+        syncBox(child);
+      });
+
+      return union;
+    }
+
     function enforceGenerationRowSpacing() {
       const boxes = Array.from(people.values())
         .sort((left, right) => {
@@ -1250,27 +1275,6 @@
           ? partners[0].bottom
           : spouseLineY;
 
-      if (children.length === 1) {
-        const onlyChild = children[0];
-        onlyChild.x = anchorX - onlyChild.width / 2;
-        syncBox(onlyChild);
-      }
-
-      if (children.length > 1) {
-        const lineageChild = lineageChildId ? childById.get(lineageChildId) || null : null;
-        const leftChild = children[0];
-        const rightChild = children[children.length - 1];
-        const currentAnchor = lineageChild
-          ? lineageChild.centerX
-          : (leftChild.centerX + rightChild.centerX) / 2;
-        const shiftX = anchorX - currentAnchor;
-
-        children.forEach((child) => {
-          child.x += shiftX;
-          syncBox(child);
-        });
-      }
-
       const firstChildTop = children.length > 0 ? Math.min(...children.map((child) => child.top)) : null;
       const branchY = firstChildTop === null
         ? null
@@ -1298,6 +1302,11 @@
       };
     });
 
+    unions.forEach((union) => {
+      recenterUnionChildren(union);
+      refreshUnionGeometry(union);
+    });
+
     for (let index = unions.length - 1; index >= 0; index -= 1) {
       const union = unions[index];
       const lockedChild = union.children.length === 1 && hasVisibleFamilyElsewhere(union.children[0].id, union.id)
@@ -1323,7 +1332,14 @@
 
     enforceGenerationRowSpacing();
     alignPreferredLineageColumns();
-    unions.forEach((union) => refreshUnionGeometry(union));
+    unions
+      .slice()
+      .sort((left, right) => left.symbolY - right.symbolY)
+      .forEach((union) => {
+        refreshUnionGeometry(union);
+        recenterUnionChildren(union);
+        refreshUnionGeometry(union);
+      });
 
     const boxes = Array.from(people.values());
     const bounds = boxes.length === 0
