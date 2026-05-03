@@ -37,7 +37,8 @@ body.splash-body {
 }
 
 .splash-panel {
-  width: min(1200px, 100%);
+  width: 100%;
+  max-width: 1200px;
   box-sizing: border-box;
   padding: 16px 20px 12px;
   border: 1px solid rgba(233, 214, 167, 0.16);
@@ -79,6 +80,8 @@ body.splash-body {
 
 .splash-table {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   margin-top: 14px;
   min-height: 620px;
   aspect-ratio: 1448 / 1131;
@@ -240,7 +243,8 @@ body.splash-body {
   }
 
   .splash-table {
-    min-height: 420px;
+    width: 100%;
+    min-height: 0;
     aspect-ratio: 1448 / 1131;
     padding: 0;
   }
