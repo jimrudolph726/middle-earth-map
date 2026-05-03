@@ -835,16 +835,33 @@
     people.forEach(syncBox);
     unionNodes.forEach(syncBox);
 
+    function assignOrderedX(boxesInPreferredOrder) {
+      if (boxesInPreferredOrder.length < 2) return boxesInPreferredOrder;
+
+      const slotXs = boxesInPreferredOrder
+        .slice()
+        .sort((left, right) => left.x - right.x)
+        .map((box) => box.x);
+
+      boxesInPreferredOrder.forEach((box, index) => {
+        box.x = slotXs[index];
+        syncBox(box);
+      });
+
+      return boxesInPreferredOrder;
+    }
+
     const unions = unionInfos.map((union) => {
       const partners = union.visiblePartners
         .map((partnerId) => people.get(partnerId))
-        .filter(Boolean)
-        .sort((left, right) => left.centerX - right.centerX);
+        .filter(Boolean);
 
       const children = union.visibleChildren
         .map((childId) => people.get(childId))
-        .filter(Boolean)
-        .sort((left, right) => left.centerX - right.centerX);
+        .filter(Boolean);
+
+      assignOrderedX(partners);
+      assignOrderedX(children);
 
       if (partners.length > 1) {
         const alignedTop = average(partners.map((partner) => partner.top));
@@ -861,6 +878,9 @@
           syncBox(child);
         });
       }
+
+      partners.sort((left, right) => left.centerX - right.centerX);
+      children.sort((left, right) => left.centerX - right.centerX);
 
       const unionNode = unionNodes.get(union.id);
       const spouseLineY = partners.length > 0

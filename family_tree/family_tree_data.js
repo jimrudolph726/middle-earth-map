@@ -191,6 +191,7 @@
       Object.freeze({
         id: "union-eldarion-wife",
         partners: Object.freeze(["eldarion", "eldarion_wife"]),
+        partnerOrder: Object.freeze(["eldarion_wife", "eldarion"]),
         children: Object.freeze(["eldarion_son"]),
         label: "Marriage",
         order: 30
