@@ -9,6 +9,70 @@
     }),
 
     people: Object.freeze({
+      elwing: Object.freeze({
+        id: "elwing",
+        name: "Elwing",
+        sex: "female",
+        kindred: "Elf / Half-elven",
+        groups: Object.freeze(["elves", "half-elven"]),
+        title: "Elwing the White",
+        house: "House of Elwe",
+        realm: "Gondolin",
+        born: "F.A. 503",
+        died: "Elwing was given a white tower in Valinor northward upon the borders of the Sundering Seas, and there she helped seabirds that came to her windows. ",
+        image: "assets/elwing.png",
+        bio: "Earendil was descended from all Three Houses of the Edain, he was the first known person to reach Aman in the First Age after the Noldor went into exile. ",
+        order: 4
+      }),
+
+      earendil: Object.freeze({
+        id: "earendil",
+        name: "Earendil",
+        sex: "male",
+        kindred: "Elf / Half-elven",
+        groups: Object.freeze(["elves", "half-elven"]),
+        title: "Mariner",
+        house: "House of Earendil",
+        realm: "Gondolin",
+        born: "F.A. 532",
+        died: "Sailed West in T.A. 3021",
+        image: "assets/earendil.png",
+        bio: "Earendil was descended from all Three Houses of the Edain, he was the first known person to reach Aman in the First Age after the Noldor went into exile. ",
+        order: 4
+      }),
+
+      elrond: Object.freeze({
+        id: "elrond",
+        name: "Elrond",
+        sex: "male",
+        kindred: "Elf / Half-elven",
+        groups: Object.freeze(["elves", "half-elven"]),
+        title: "Lord of Rivendell",
+        house: "House of Earendil",
+        realm: "Rivendell",
+        born: "F.A. 532",
+        died: "Sailed West in T.A. 3021",
+        image: "assets/elrond.png",
+        bio: "Elrond is the loremaster and lord of Rivendell, one of the key keepers of the Elder Days within Middle-earth.",
+        order: 5
+      }),
+
+      elros: Object.freeze({
+        id: "elros",
+        name: "Elros",
+        sex: "male",
+        kindred: "Man",
+        groups: Object.freeze(["men"]),
+        title: "First Lord of Numenor",
+        house: "House of Earendil",
+        realm: "Numenor",
+        born: "F.A. 532",
+        died: "S.A. 442",
+        image: "assets/elros.png",
+        bio: "Elros founded the realm of Numenor and was its first king.",
+        order: 5
+      }),
+
       celeborn: Object.freeze({
         id: "celeborn",
         name: "Celeborn",
@@ -38,22 +102,6 @@
         died: "Sailed West in T.A. 3021",
         image: "assets/galadriel.png",
         bio: "Galadriel is the oldest elf in Middle-earth at the time of the War of the Ring. She rules Lothlorien with her husband Celeborn.",
-        order: 5
-      }),
-
-      elrond: Object.freeze({
-        id: "elrond",
-        name: "Elrond",
-        sex: "male",
-        kindred: "Elf / Half-elven",
-        groups: Object.freeze(["elves", "half-elven"]),
-        title: "Lord of Rivendell",
-        house: "House of Earendil",
-        realm: "Rivendell",
-        born: "F.A. 532",
-        died: "Sailed West in T.A. 3021",
-        image: "assets/elrond.png",
-        bio: "Elrond is the loremaster and lord of Rivendell, one of the key keepers of the Elder Days within Middle-earth.",
         order: 5
       }),
 
@@ -204,6 +252,14 @@
     }),
 
     unions: Object.freeze([
+      Object.freeze({
+        id: "union-earendil-elwing",
+        partners: Object.freeze(["earendil", "elwing"]),
+        children: Object.freeze(["elrond", "elros"]),
+        label: "Marriage",
+        order: 10
+      }),
+
       Object.freeze({
         id: "union-celeborn-galadriel",
         partners: Object.freeze(["celeborn", "galadriel"]),
