@@ -23,6 +23,9 @@
   const portraitRadius = 32;
   const unionNodeSize = 18;
   const coupleGap = 46;
+  const siblingBarMinGapToChild = 10;
+  const siblingBarMinDropFromParents = 18;
+  const siblingBarDropFactor = 0.7;
   const minimapWidth = 220;
   const minimapHeight = 140;
   const minimapPadding = 10;
@@ -981,7 +984,10 @@
       const firstChildTop = children.length > 0 ? Math.min(...children.map((child) => child.top)) : null;
       const branchY = firstChildTop === null
         ? null
-        : Math.min(firstChildTop - 18, spouseLineY + Math.max(26, (firstChildTop - spouseLineY) * 0.45));
+        : Math.min(
+            firstChildTop - siblingBarMinGapToChild,
+            spouseLineY + Math.max(siblingBarMinDropFromParents, (firstChildTop - spouseLineY) * siblingBarDropFactor)
+          );
 
       return {
         id: union.id,
