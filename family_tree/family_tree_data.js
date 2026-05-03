@@ -127,7 +127,7 @@
         sex: "male",
         kindred: "Man",
         groups: Object.freeze(["men", "dunedain"]),
-        title: "Chieftain of the Dunedain",
+        title: "14th Chieftain of the Dunedain, father to Arathorn II",
         house: "House of Isildur",
         realm: "Dunedain of the North",
         born: "T.A. 2700",
@@ -158,7 +158,7 @@
         sex: "male",
         kindred: "Man",
         groups: Object.freeze(["men", "dunedain"]),
-        title: "K15th Chieftain of the Dunedain, father to Aragorn II Elessar",
+        title: "15th Chieftain of the Dunedain, father to Aragorn II Elessar",
         house: "House of Isildur",
         realm: "Remnant of Arthedain",
         born: "T.A. 2873",
@@ -264,6 +264,14 @@
       Object.freeze({
         id: "union-elros",
         partners: Object.freeze(["elros"]),
+        children: Object.freeze(["arador"]),
+        label: "Issue",
+        order: 10
+      }),
+
+      Object.freeze({
+        id: "union-arador",
+        partners: Object.freeze(["arador"]),
         children: Object.freeze(["arathorn_second"]),
         label: "Issue",
         order: 10
