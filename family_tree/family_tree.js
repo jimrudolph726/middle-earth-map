@@ -938,36 +938,26 @@
       ));
     }
 
-    function positionPartnersAroundAnchor(union, partnerById, anchorId, gap = coupleGap) {
+    function positionPartnersCentered(union, partnerById, targetCenterX, gap = coupleGap) {
       const orderedPartnerIds = union.visiblePartners.filter((partnerId) => partnerById.has(partnerId));
-      const anchorIndex = orderedPartnerIds.indexOf(anchorId);
-      const anchorBox = partnerById.get(anchorId);
+      const orderedPartners = orderedPartnerIds
+        .map((partnerId) => partnerById.get(partnerId))
+        .filter(Boolean);
 
-      if (!anchorBox || anchorIndex === -1) {
-        return Array.from(partnerById.values());
+      if (orderedPartners.length === 0) {
+        return [];
       }
 
-      let leftEdge = anchorBox.left;
-      for (let index = anchorIndex - 1; index >= 0; index -= 1) {
-        const box = partnerById.get(orderedPartnerIds[index]);
-        if (!box) continue;
-        box.y = anchorBox.y;
-        box.x = leftEdge - box.width - gap;
-        syncBox(box);
-        leftEdge = box.left;
-      }
+      const totalWidth = orderedPartners.reduce((sum, partner) => sum + partner.width, 0) + gap * Math.max(0, orderedPartners.length - 1);
+      let cursorX = targetCenterX - totalWidth / 2;
 
-      let rightEdge = anchorBox.right;
-      for (let index = anchorIndex + 1; index < orderedPartnerIds.length; index += 1) {
-        const box = partnerById.get(orderedPartnerIds[index]);
-        if (!box) continue;
-        box.y = anchorBox.y;
-        box.x = rightEdge + gap;
-        syncBox(box);
-        rightEdge = box.right;
-      }
+      orderedPartners.forEach((partner) => {
+        partner.x = cursorX;
+        syncBox(partner);
+        cursorX += partner.width + gap;
+      });
 
-      return orderedPartnerIds.map((partnerId) => partnerById.get(partnerId)).filter(Boolean);
+      return orderedPartners;
     }
 
     function enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds) {
@@ -1020,7 +1010,7 @@
         : null;
 
       if (explicitLineagePartnerId) {
-        positionPartnersAroundAnchor(union, partnerById, explicitLineagePartnerId, lineagePartnerGap);
+        positionPartnersCentered(union, partnerById, average(partners.map((partner) => partner.centerX)), lineagePartnerGap);
         return partners;
       }
 
@@ -1056,23 +1046,15 @@
       }
 
       const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
-      const anchorId = getVisibleLineagePartnerId(union);
-      const anchorBox = anchorId ? partnerById.get(anchorId) : null;
 
-      if (partners.length === 1 && anchorBox) {
-        anchorBox.x = child.centerX - anchorBox.width / 2;
-        syncBox(anchorBox);
+      if (partners.length === 1) {
+        const parent = partners[0];
+        parent.x = child.centerX - parent.width / 2;
+        syncBox(parent);
         return partners;
       }
 
-      if (anchorBox) {
-        anchorBox.x = child.centerX - anchorBox.width / 2;
-        syncBox(anchorBox);
-        positionPartnersAroundAnchor(union, partnerById, anchorId, lineagePartnerGap);
-        return partners;
-      }
-
-      positionPartnersForUnion(union, partners);
+      positionPartnersCentered(union, partnerById, child.centerX, lineagePartnerGap);
       return partners;
     }
 
@@ -1080,27 +1062,16 @@
       union.partners.sort((left, right) => left.centerX - right.centerX);
       union.children.sort((left, right) => left.centerX - right.centerX);
 
-      const lineagePartner = union.lineagePartnerId
-        ? union.partners.find((partner) => partner.id === union.lineagePartnerId) || null
-        : null;
       union.spouseLineY = union.partners.length > 0
         ? average(union.partners.map((partner) => partner.centerY))
         : 0;
-      union.anchorX = lineagePartner
-        ? lineagePartner.centerX
-        : union.partners.length > 1
-          ? average(union.partners.map((partner) => partner.centerX))
-          : union.partners.length === 1
-            ? union.partners[0].centerX
-            : 0;
-      union.descentOriginX = lineagePartner
-        ? lineagePartner.centerX
+      union.anchorX = union.partners.length > 1
+        ? average(union.partners.map((partner) => partner.centerX))
         : union.partners.length === 1
           ? union.partners[0].centerX
-          : union.anchorX;
-      union.descentOriginY = lineagePartner
-        ? lineagePartner.bottom
-        : union.partners.length === 1
+          : 0;
+      union.descentOriginX = union.anchorX;
+      union.descentOriginY = union.partners.length === 1
           ? union.partners[0].bottom
           : union.spouseLineY;
 
@@ -1151,29 +1122,20 @@
       children.sort((left, right) => left.centerX - right.centerX);
 
       const unionNode = unionNodes.get(union.id);
-      const lineagePartner = lineagePartnerId ? partners.find((partner) => partner.id === lineagePartnerId) || null : null;
       const spouseLineY = partners.length > 0
         ? average(partners.map((partner) => partner.centerY))
         : unionNode
           ? unionNode.centerY
           : 0;
-      const anchorX = lineagePartner
-        ? lineagePartner.centerX
-        : partners.length > 1
-          ? average(partners.map((partner) => partner.centerX))
-          : partners.length === 1
-            ? partners[0].centerX
-            : unionNode
-              ? unionNode.centerX
-              : 0;
-      const descentOriginX = lineagePartner
-        ? lineagePartner.centerX
+      const anchorX = partners.length > 1
+        ? average(partners.map((partner) => partner.centerX))
         : partners.length === 1
           ? partners[0].centerX
-          : anchorX;
-      const descentOriginY = lineagePartner
-        ? lineagePartner.bottom
-        : partners.length === 1
+          : unionNode
+            ? unionNode.centerX
+            : 0;
+      const descentOriginX = anchorX;
+      const descentOriginY = partners.length === 1
           ? partners[0].bottom
           : spouseLineY;
 
