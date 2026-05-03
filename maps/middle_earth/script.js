@@ -323,6 +323,7 @@ const stopStoryMode = () => {
   storyState.isPlaying = false;
   syncStoryPlayPauseButton();
   setCampsiteHoverPopupsEnabled(true);
+  map.stop();
 
   if (storyState.activeStory) {
     restoreStoryLayers(storyState.activeStory);
@@ -336,7 +337,11 @@ const stopStoryMode = () => {
   map.closePopup();
   storyState.activeStory = null;
   storyPanel.classList.add('story-panel--hidden');
+  storyPanel.setAttribute('hidden', '');
+  storyPanel.setAttribute('aria-hidden', 'true');
   storyControls.classList.add('story-controls--hidden');
+  storyControls.setAttribute('hidden', '');
+  storyControls.setAttribute('aria-hidden', 'true');
 };
 
 const nextStoryScene = () => {
@@ -387,7 +392,11 @@ const beginStoryMode = (storyId) => {
   setCampsiteHoverPopupsEnabled(false);
   map.closePopup();
   sidebar.close();
+  storyPanel.removeAttribute('hidden');
+  storyPanel.setAttribute('aria-hidden', 'false');
   storyPanel.classList.remove('story-panel--hidden');
+  storyControls.removeAttribute('hidden');
+  storyControls.setAttribute('aria-hidden', 'false');
   storyControls.classList.remove('story-controls--hidden');
   pauseStoryPlayback();
   goToStoryScene(0);

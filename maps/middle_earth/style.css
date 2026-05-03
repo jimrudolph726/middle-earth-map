@@ -552,6 +552,10 @@ h3,
   display: none;
 }
 
+.story-panel[hidden] {
+  display: none !important;
+}
+
 .story-panel__inner {
   width: min(1240px, calc(100vw - 36px));
   min-height: min(72vh, 820px);
@@ -711,6 +715,10 @@ h3,
 
 .story-controls--hidden {
   display: none;
+}
+
+.story-controls[hidden] {
+  display: none !important;
 }
 
 .story-controls__button {
