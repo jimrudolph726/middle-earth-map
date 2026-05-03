@@ -1229,11 +1229,7 @@
 
   function buildConnectorPaths(layout) {
     const spouseLines = [];
-    const descentPaths = [];
-
-    function snap(value) {
-      return Math.round(value * 2) / 2;
-    }
+    const descentLines = [];
 
     layout.unions.forEach((union) => {
       const { partners, children, spouseLineY, anchorX, branchY } = union;
@@ -1255,9 +1251,12 @@
 
       if (children.length === 1) {
         const child = children[0];
-        descentPaths.push({
-          id: `${union.id}-descent`,
-          d: `M ${snap(anchorX)} ${snap(spouseLineY)} V ${snap(child.top)}`
+        descentLines.push({
+          id: `${union.id}-child`,
+          x1: anchorX,
+          y1: spouseLineY,
+          x2: child.centerX,
+          y2: child.top
         });
 
         return;
@@ -1270,29 +1269,56 @@
       const branchHalfSpan = Math.max(anchorX - leftChildX, rightChildX - anchorX);
       const branchLeft = anchorX - branchHalfSpan;
       const branchRight = anchorX + branchHalfSpan;
-      let d = `M ${snap(anchorX)} ${snap(spouseLineY)} V ${snap(branchY)}`;
-      d += ` M ${snap(branchLeft)} ${snap(branchY)} H ${snap(branchRight)}`;
 
-      children.forEach((child) => {
-        d += ` M ${snap(child.centerX)} ${snap(branchY)} V ${snap(child.top)}`;
+      descentLines.push({
+        id: `${union.id}-stem`,
+        x1: anchorX,
+        y1: spouseLineY,
+        x2: anchorX,
+        y2: branchY
       });
 
-      descentPaths.push({
-        id: `${union.id}-descent`,
-        d
+      if (branchLeft < anchorX) {
+        descentLines.push({
+          id: `${union.id}-branch-left`,
+          x1: branchLeft,
+          y1: branchY,
+          x2: anchorX,
+          y2: branchY
+        });
+      }
+
+      if (branchRight > anchorX) {
+        descentLines.push({
+          id: `${union.id}-branch-right`,
+          x1: anchorX,
+          y1: branchY,
+          x2: branchRight,
+          y2: branchY
+        });
+      }
+
+      children.forEach((child, index) => {
+        descentLines.push({
+          id: `${union.id}-child-${index}`,
+          x1: child.centerX,
+          y1: branchY,
+          x2: child.centerX,
+          y2: child.top
+        });
       });
     });
 
     return {
       spouseLines,
-      descentPaths
+      descentLines
     };
   }
 
   function renderScene(layout, projection, rawProjection) {
     clearScene();
 
-    const { spouseLines, descentPaths } = buildConnectorPaths(layout);
+    const { spouseLines, descentLines } = buildConnectorPaths(layout);
     const nodeData = projection.peopleIds
       .map((personId) => {
         const box = layout.people.get(personId);
@@ -1340,11 +1366,13 @@
       .attr("y2", (d) => d.y2);
 
     state.scene.linkLayer.selectAll(".family-tree-descent-line")
-      .data(descentPaths, (d) => d.id)
-      .join("path")
+      .data(descentLines, (d) => d.id)
+      .join("line")
       .attr("class", "family-tree-descent-line")
-      .attr("fill", "none")
-      .attr("d", (d) => d.d);
+      .attr("x1", (d) => d.x1)
+      .attr("y1", (d) => d.y1)
+      .attr("x2", (d) => d.x2)
+      .attr("y2", (d) => d.y2);
 
     const unionGroups = state.scene.unionLayer.selectAll(".family-tree-union")
       .data(layout.unions, (d) => d.id)
