@@ -8,6 +8,7 @@ import {
   createMarkerClusterGroup,
   buildMarkers,
   getMarkerFromRegistry,
+  setCampsiteHoverPopupsEnabled,
 } from './functions.js';
 
 import {
@@ -296,8 +297,6 @@ const goToStoryScene = (sceneIndex) => {
 
   const boundedIndex = Math.max(0, Math.min(sceneIndex, story.scenes.length - 1));
   const scene = story.scenes[boundedIndex];
-  const marker = getMarkerFromRegistry(story.markerGroupName, scene.markerKey);
-
   storyState.currentSceneIndex = boundedIndex;
 
   storyKicker.textContent = story.title;
@@ -317,18 +316,13 @@ const goToStoryScene = (sceneIndex) => {
     animate: true,
     duration: 1.1,
   });
-
-  if (marker) {
-    map.once('moveend', () => {
-      marker.openPopup();
-    });
-  }
 };
 
 const stopStoryMode = () => {
   clearStoryTimer();
   storyState.isPlaying = false;
   syncStoryPlayPauseButton();
+  setCampsiteHoverPopupsEnabled(true);
 
   if (storyState.activeStory) {
     restoreStoryLayers(storyState.activeStory);
@@ -392,6 +386,8 @@ const beginStoryMode = (storyId) => {
   storyState.activeStory = story;
   storyState.currentSceneIndex = 0;
   ensureStoryLayersVisible(story);
+  setCampsiteHoverPopupsEnabled(false);
+  map.closePopup();
   sidebar.close();
   storyPanel.classList.remove('story-panel--hidden');
   storyControls.classList.remove('story-controls--hidden');

@@ -36,7 +36,7 @@ const samFrodoFirstSevenScenes = [
     title: 'Farmer Maggot and the Ferry East',
     date: 'September 25',
     location: 'Crickhollow',
-    narrative: 'Crossing the Marish draws the travellers deeper into danger and farther from home. Farmer Maggot’s help and the passage into Buckland mark one of the last warm acts of ordinary Hobbit-kindness before the journey darkens.',
+    narrative: `The hobbits cross the Brandywine River and the Marish and encounter a friendly, yet shrewd hobbit by the name of Farmer Maggot. A friend of Tom Bombadil's `,
     camp: 'Crickhollow',
     hoursOnRoad: '7.5',
     milesTraveled: '27',

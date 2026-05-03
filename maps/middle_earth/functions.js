@@ -94,6 +94,11 @@ export const createMarkerClusterGroup = (options = {}) => {
 };
 
 const markerRegistry = new Map();
+let campsiteHoverPopupsEnabled = true;
+
+export const setCampsiteHoverPopupsEnabled = (enabled) => {
+  campsiteHoverPopupsEnabled = enabled;
+};
 
 export const getMarkerFromRegistry = (groupName, markerKey) => {
   return markerRegistry.get(groupName)?.[markerKey] || null;
@@ -110,8 +115,16 @@ export const buildMarkers = (locations, campsite = 'no', groupName = null) => {
     const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
 
     if (campsite == 'campsite') {
-      marker.on('mouseover', () => marker.openPopup());
-      marker.on('mouseout', () => marker.closePopup());
+      marker.on('mouseover', () => {
+        if (campsiteHoverPopupsEnabled) {
+          marker.openPopup();
+        }
+      });
+      marker.on('mouseout', () => {
+        if (campsiteHoverPopupsEnabled) {
+          marker.closePopup();
+        }
+      });
     }
 
     acc[key] = marker;
