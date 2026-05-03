@@ -782,7 +782,7 @@
           "elk.edgeRouting": "ORTHOGONAL",
           "elk.padding": "[top=80,left=80,bottom=80,right=80]",
           "elk.spacing.nodeNode": "46",
-          "elk.layered.spacing.nodeNodeBetweenLayers": "44",
+          "elk.layered.spacing.nodeNodeBetweenLayers": "15",
           "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
           "elk.layered.crossingMinimization.strategy": "LAYER_SWEEP",
           "elk.layered.considerModelOrder.strategy": "NODES_AND_EDGES"
