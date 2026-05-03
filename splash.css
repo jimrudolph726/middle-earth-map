@@ -240,57 +240,15 @@ body.splash-body {
   }
 
   .splash-table {
-    min-height: 620px;
-    padding: 14px 12px 12px;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .study-hotspots {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    display: grid;
-    gap: 12px;
-    margin-top: auto;
-    padding-top: 240px;
-    background: linear-gradient(180deg, transparent, rgba(17, 11, 7, 0.1) 10%, rgba(17, 11, 7, 0.72) 28%, rgba(17, 11, 7, 0.9));
-  }
-
-  .study-hotspot {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    height: auto;
-    min-height: 56px;
-    border-radius: 14px;
-    background: rgba(255, 247, 226, 0.08);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  }
-
-  .study-hotspot:hover,
-  .study-hotspot:focus-visible {
-    transform: translateY(-2px);
-  }
-
-  .study-hotspot::before {
-    opacity: 1;
-    border-color: rgba(244, 221, 168, 0.4);
-    box-shadow: inset 0 0 0 1px rgba(71, 46, 18, 0.22);
+    min-height: 420px;
+    aspect-ratio: 1448 / 1131;
+    padding: 0;
   }
 
   .study-hotspot__label {
-    position: static;
-    display: block;
-    opacity: 1;
-    transform: none;
-    padding: 16px 18px 14px;
-    border-radius: 14px;
-    background: transparent;
-    font-size: 1.02rem;
-    text-align: left;
-    box-shadow: none;
+    font-size: 0.72rem;
+    padding: 5px 10px 4px;
+    bottom: 6px;
   }
 
   .splash-blessing {
