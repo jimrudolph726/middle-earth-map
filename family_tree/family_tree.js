@@ -1265,8 +1265,11 @@
 
       const leftChild = children[0];
       const rightChild = children[children.length - 1];
-      const branchLeft = Math.min(anchorX, leftChild.centerX);
-      const branchRight = Math.max(anchorX, rightChild.centerX);
+      const leftChildX = leftChild.centerX;
+      const rightChildX = rightChild.centerX;
+      const branchHalfSpan = Math.max(anchorX - leftChildX, rightChildX - anchorX);
+      const branchLeft = anchorX - branchHalfSpan;
+      const branchRight = anchorX + branchHalfSpan;
       let d = `M ${snap(anchorX)} ${snap(spouseLineY)} V ${snap(branchY)}`;
       d += ` M ${snap(branchLeft)} ${snap(branchY)} H ${snap(branchRight)}`;
 
