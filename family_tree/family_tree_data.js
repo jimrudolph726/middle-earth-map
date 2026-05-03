@@ -265,6 +265,8 @@
         id: "union-elros",
         partners: Object.freeze(["elros"]),
         children: Object.freeze(["arador"]),
+        lineagePartner: "elros",
+        lineageChild: "arador",
         label: "Issue",
         order: 10
       }),
@@ -273,6 +275,8 @@
         id: "union-arador",
         partners: Object.freeze(["arador"]),
         children: Object.freeze(["arathorn_second"]),
+        lineagePartner: "arador",
+        lineageChild: "arathorn_second",
         label: "Issue",
         order: 10
       }),
@@ -281,6 +285,8 @@
         id: "union-arathorn_second-gilraen",
         partners: Object.freeze(["arathorn_second", "gilraen"]),
         children: Object.freeze(["aragorn_second"]),
+        lineagePartner: "arathorn_second",
+        lineageChild: "aragorn_second",
         label: "Marriage",
         order: 10
       }),
@@ -289,6 +295,9 @@
         id: "union-aragorn-arwen",
         partners: Object.freeze(["aragorn_second", "arwen"]),
         children: Object.freeze(["eldarion", "unknown_daughters"]),
+        lineagePartner: "aragorn_second",
+        lineageChild: "eldarion",
+        childOrder: Object.freeze(["eldarion", "unknown_daughters"]),
         label: "Marriage",
         order: 20
       }),

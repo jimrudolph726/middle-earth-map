@@ -23,6 +23,7 @@
   const portraitRadius = 32;
   const unionNodeSize = 18;
   const coupleGap = 46;
+  const lineagePartnerGap = 54;
   const siblingBarMinGapToChild = 10;
   const siblingBarMinDropFromParents = 18;
   const siblingBarDropFactor = 0.7;
@@ -281,6 +282,14 @@
 
       if (union.childOrder !== undefined && !Array.isArray(union.childOrder)) {
         errors.push(`union "${union.id}".childOrder must be an array when provided.`);
+      }
+
+      if (union.lineagePartner !== undefined && !union.partners.includes(union.lineagePartner)) {
+        errors.push(`union "${union.id}".lineagePartner must reference one of its partners when provided.`);
+      }
+
+      if (union.lineageChild !== undefined && !union.children.includes(union.lineageChild)) {
+        errors.push(`union "${union.id}".lineageChild must reference one of its children when provided.`);
       }
 
       union.partners.forEach((partnerId) => {
@@ -785,7 +794,7 @@
           "elk.edgeRouting": "ORTHOGONAL",
           "elk.padding": "[top=80,left=80,bottom=80,right=80]",
           "elk.spacing.nodeNode": "46",
-          "elk.layered.spacing.nodeNodeBetweenLayers": "15",
+          "elk.layered.spacing.nodeNodeBetweenLayers": "32",
           "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
           "elk.layered.crossingMinimization.strategy": "LAYER_SWEEP",
           "elk.layered.considerModelOrder.strategy": "NODES_AND_EDGES"
@@ -892,6 +901,22 @@
       return parentUnionId;
     }
 
+    function getVisibleLineagePartnerId(union) {
+      if (union.lineagePartner && union.visiblePartners.includes(union.lineagePartner)) {
+        return union.lineagePartner;
+      }
+
+      return union.visiblePartners[0] || null;
+    }
+
+    function getVisibleLineageChildId(union) {
+      if (union.lineageChild && union.visibleChildren.includes(union.lineageChild)) {
+        return union.lineageChild;
+      }
+
+      return union.visibleChildren[0] || null;
+    }
+
     function getAnchoredPartnerIds(union) {
       return union.visiblePartners.filter((partnerId) => Boolean(getVisibleParentUnionId(partnerId)));
     }
@@ -902,12 +927,47 @@
         .filter(Boolean);
     }
 
-    function hasVisibleCoupleElsewhere(personId, excludingUnionId) {
+    function hasVisibleFamilyElsewhere(personId, excludingUnionId) {
       return getPartnerUnions(personId).some((union) => (
         union.id !== excludingUnionId
         && projection.unionIdSet.has(union.id)
-        && union.partners.filter((partnerId) => projection.peopleSet.has(partnerId)).length > 1
+        && (
+          union.partners.filter((partnerId) => projection.peopleSet.has(partnerId)).length > 1
+          || union.children.filter((childId) => projection.peopleSet.has(childId)).length > 0
+        )
       ));
+    }
+
+    function positionPartnersAroundAnchor(union, partnerById, anchorId, gap = coupleGap) {
+      const orderedPartnerIds = union.visiblePartners.filter((partnerId) => partnerById.has(partnerId));
+      const anchorIndex = orderedPartnerIds.indexOf(anchorId);
+      const anchorBox = partnerById.get(anchorId);
+
+      if (!anchorBox || anchorIndex === -1) {
+        return Array.from(partnerById.values());
+      }
+
+      let leftEdge = anchorBox.left;
+      for (let index = anchorIndex - 1; index >= 0; index -= 1) {
+        const box = partnerById.get(orderedPartnerIds[index]);
+        if (!box) continue;
+        box.y = anchorBox.y;
+        box.x = leftEdge - box.width - gap;
+        syncBox(box);
+        leftEdge = box.left;
+      }
+
+      let rightEdge = anchorBox.right;
+      for (let index = anchorIndex + 1; index < orderedPartnerIds.length; index += 1) {
+        const box = partnerById.get(orderedPartnerIds[index]);
+        if (!box) continue;
+        box.y = anchorBox.y;
+        box.x = rightEdge + gap;
+        syncBox(box);
+        rightEdge = box.right;
+      }
+
+      return orderedPartnerIds.map((partnerId) => partnerById.get(partnerId)).filter(Boolean);
     }
 
     function enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds) {
@@ -955,6 +1015,14 @@
 
       const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
       const anchoredPartnerIds = getAnchoredPartnerIds(union);
+      const explicitLineagePartnerId = union.lineagePartner && partnerById.has(union.lineagePartner)
+        ? union.lineagePartner
+        : null;
+
+      if (explicitLineagePartnerId) {
+        positionPartnersAroundAnchor(union, partnerById, explicitLineagePartnerId, lineagePartnerGap);
+        return partners;
+      }
 
       if (partners.length === 2 && anchoredPartnerIds.length === 1) {
         const anchorId = anchoredPartnerIds[0];
@@ -988,36 +1056,20 @@
       }
 
       const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
-      const orderedPartners = getOrderedPartnerBoxes(union, partnerById);
-      const anchoredPartnerIds = getAnchoredPartnerIds(union);
+      const anchorId = getVisibleLineagePartnerId(union);
+      const anchorBox = anchorId ? partnerById.get(anchorId) : null;
 
-      if (partners.length === 1) {
-        const parent = partners[0];
-        parent.x = child.centerX - parent.width / 2;
-        syncBox(parent);
+      if (partners.length === 1 && anchorBox) {
+        anchorBox.x = child.centerX - anchorBox.width / 2;
+        syncBox(anchorBox);
         return partners;
       }
 
-      if (partners.length === 2 && anchoredPartnerIds.length === 1) {
-        const anchorId = anchoredPartnerIds[0];
-        const anchorBox = partnerById.get(anchorId);
-        const spouseBox = orderedPartners.find((partner) => partner.id !== anchorId);
-
-        if (anchorBox && spouseBox) {
-          const anchorIndex = orderedPartners.indexOf(anchorBox);
-          const spouseIndex = orderedPartners.indexOf(spouseBox);
-          const direction = spouseIndex < anchorIndex ? -1 : 1;
-          const desiredSpouseCenterX = child.centerX * 2 - anchorBox.centerX;
-
-          spouseBox.y = anchorBox.y;
-          spouseBox.x = desiredSpouseCenterX - spouseBox.width / 2;
-          spouseBox.x = direction < 0
-            ? Math.min(spouseBox.x, anchorBox.left - spouseBox.width - coupleGap)
-            : Math.max(spouseBox.x, anchorBox.right + coupleGap);
-          syncBox(spouseBox);
-          enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds);
-          return partners;
-        }
+      if (anchorBox) {
+        anchorBox.x = child.centerX - anchorBox.width / 2;
+        syncBox(anchorBox);
+        positionPartnersAroundAnchor(union, partnerById, anchorId, lineagePartnerGap);
+        return partners;
       }
 
       positionPartnersForUnion(union, partners);
@@ -1028,21 +1080,36 @@
       union.partners.sort((left, right) => left.centerX - right.centerX);
       union.children.sort((left, right) => left.centerX - right.centerX);
 
+      const lineagePartner = union.lineagePartnerId
+        ? union.partners.find((partner) => partner.id === union.lineagePartnerId) || null
+        : null;
       union.spouseLineY = union.partners.length > 0
         ? average(union.partners.map((partner) => partner.centerY))
         : 0;
-      union.anchorX = union.partners.length > 1
-        ? average(union.partners.map((partner) => partner.centerX))
+      union.anchorX = lineagePartner
+        ? lineagePartner.centerX
+        : union.partners.length > 1
+          ? average(union.partners.map((partner) => partner.centerX))
+          : union.partners.length === 1
+            ? union.partners[0].centerX
+            : 0;
+      union.descentOriginX = lineagePartner
+        ? lineagePartner.centerX
         : union.partners.length === 1
           ? union.partners[0].centerX
-          : 0;
+          : union.anchorX;
+      union.descentOriginY = lineagePartner
+        ? lineagePartner.bottom
+        : union.partners.length === 1
+          ? union.partners[0].bottom
+          : union.spouseLineY;
 
       const firstChildTop = union.children.length > 0 ? Math.min(...union.children.map((child) => child.top)) : null;
       union.branchY = firstChildTop === null
         ? null
         : Math.min(
             firstChildTop - siblingBarMinGapToChild,
-            union.spouseLineY + Math.max(siblingBarMinDropFromParents, (firstChildTop - union.spouseLineY) * siblingBarDropFactor)
+            union.descentOriginY + Math.max(siblingBarMinDropFromParents, (firstChildTop - union.descentOriginY) * siblingBarDropFactor)
           );
       union.symbolX = union.anchorX;
       union.symbolY = union.spouseLineY;
@@ -1057,6 +1124,9 @@
       const children = union.visibleChildren
         .map((childId) => people.get(childId))
         .filter(Boolean);
+      const childById = new Map(children.map((child) => [child.id, child]));
+      const lineagePartnerId = getVisibleLineagePartnerId(union);
+      const lineageChildId = getVisibleLineageChildId(union);
 
       positionPartnersForUnion(union, partners);
       assignOrderedX(children);
@@ -1081,18 +1151,31 @@
       children.sort((left, right) => left.centerX - right.centerX);
 
       const unionNode = unionNodes.get(union.id);
+      const lineagePartner = lineagePartnerId ? partners.find((partner) => partner.id === lineagePartnerId) || null : null;
       const spouseLineY = partners.length > 0
         ? average(partners.map((partner) => partner.centerY))
         : unionNode
           ? unionNode.centerY
           : 0;
-      const anchorX = partners.length > 1
-        ? average(partners.map((partner) => partner.centerX))
+      const anchorX = lineagePartner
+        ? lineagePartner.centerX
+        : partners.length > 1
+          ? average(partners.map((partner) => partner.centerX))
+          : partners.length === 1
+            ? partners[0].centerX
+            : unionNode
+              ? unionNode.centerX
+              : 0;
+      const descentOriginX = lineagePartner
+        ? lineagePartner.centerX
         : partners.length === 1
           ? partners[0].centerX
-          : unionNode
-            ? unionNode.centerX
-            : 0;
+          : anchorX;
+      const descentOriginY = lineagePartner
+        ? lineagePartner.bottom
+        : partners.length === 1
+          ? partners[0].bottom
+          : spouseLineY;
 
       if (children.length === 1) {
         const onlyChild = children[0];
@@ -1101,10 +1184,13 @@
       }
 
       if (children.length > 1) {
+        const lineageChild = lineageChildId ? childById.get(lineageChildId) || null : null;
         const leftChild = children[0];
         const rightChild = children[children.length - 1];
-        const currentMidpoint = (leftChild.centerX + rightChild.centerX) / 2;
-        const shiftX = anchorX - currentMidpoint;
+        const currentAnchor = lineageChild
+          ? lineageChild.centerX
+          : (leftChild.centerX + rightChild.centerX) / 2;
+        const shiftX = anchorX - currentAnchor;
 
         children.forEach((child) => {
           child.x += shiftX;
@@ -1117,7 +1203,7 @@
         ? null
         : Math.min(
             firstChildTop - siblingBarMinGapToChild,
-            spouseLineY + Math.max(siblingBarMinDropFromParents, (firstChildTop - spouseLineY) * siblingBarDropFactor)
+            descentOriginY + Math.max(siblingBarMinDropFromParents, (firstChildTop - descentOriginY) * siblingBarDropFactor)
           );
 
       return {
@@ -1125,10 +1211,14 @@
         label: union.label,
         visiblePartners: union.visiblePartners,
         visibleChildren: union.visibleChildren,
+        lineagePartnerId,
+        lineageChildId,
         partners,
         children,
         spouseLineY,
         anchorX,
+        descentOriginX,
+        descentOriginY,
         branchY,
         symbolX: anchorX,
         symbolY: spouseLineY
@@ -1137,7 +1227,7 @@
 
     for (let index = unions.length - 1; index >= 0; index -= 1) {
       const union = unions[index];
-      const lockedChild = union.children.length === 1 && hasVisibleCoupleElsewhere(union.children[0].id, union.id)
+      const lockedChild = union.children.length === 1 && hasVisibleFamilyElsewhere(union.children[0].id, union.id)
         ? union.children[0]
         : null;
 
@@ -1406,7 +1496,15 @@
     const descentLines = [];
 
     layout.unions.forEach((union) => {
-      const { partners, children, spouseLineY, anchorX, branchY } = union;
+      const {
+        partners,
+        children,
+        spouseLineY,
+        anchorX,
+        branchY,
+        descentOriginX = anchorX,
+        descentOriginY = spouseLineY
+      } = union;
 
       if (partners.length > 1) {
         const leftPartner = partners[0];
@@ -1427,8 +1525,8 @@
         const child = children[0];
         descentLines.push({
           id: `${union.id}-child`,
-          x1: anchorX,
-          y1: spouseLineY,
+          x1: descentOriginX,
+          y1: descentOriginY,
           x2: child.centerX,
           y2: child.top
         });
@@ -1441,26 +1539,26 @@
 
       descentLines.push({
         id: `${union.id}-stem`,
-        x1: anchorX,
-        y1: spouseLineY,
-        x2: anchorX,
+        x1: descentOriginX,
+        y1: descentOriginY,
+        x2: descentOriginX,
         y2: branchY
       });
 
-      if (leftChild.centerX < anchorX) {
+      if (leftChild.centerX < descentOriginX) {
         descentLines.push({
           id: `${union.id}-branch-left`,
           x1: leftChild.centerX,
           y1: branchY,
-          x2: anchorX,
+          x2: descentOriginX,
           y2: branchY
         });
       }
 
-      if (rightChild.centerX > anchorX) {
+      if (rightChild.centerX > descentOriginX) {
         descentLines.push({
           id: `${union.id}-branch-right`,
-          x1: anchorX,
+          x1: descentOriginX,
           y1: branchY,
           x2: rightChild.centerX,
           y2: branchY
