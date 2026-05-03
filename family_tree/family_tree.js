@@ -332,6 +332,10 @@
           errors.push(`view "${viewId}" filter references missing excluded person "${personId}".`);
         }
       });
+
+      if (view.includeSiblingBranches !== undefined && typeof view.includeSiblingBranches !== "boolean") {
+        errors.push(`view "${viewId}".includeSiblingBranches must be true or false when provided.`);
+      }
     });
 
     if (errors.length > 0) {
@@ -505,6 +509,23 @@
               "ancestor"
             );
           });
+
+          if (view.includeSiblingBranches) {
+            parentUnion.children.forEach((siblingId) => {
+              if (siblingId === current.personId) return;
+
+              enqueue(
+                siblingId,
+                {
+                  up: 0,
+                  down: view.generationsDown ?? 0,
+                  traverseSpouses: Boolean(view.includeSpouses),
+                  expandSpouseLineage: false
+                },
+                "sibling-branch"
+              );
+            });
+          }
         }
       }
     }
