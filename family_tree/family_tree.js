@@ -782,7 +782,7 @@
           "elk.edgeRouting": "ORTHOGONAL",
           "elk.padding": "[top=80,left=80,bottom=80,right=80]",
           "elk.spacing.nodeNode": "46",
-          "elk.layered.spacing.nodeNodeBetweenLayers": "120",
+          "elk.layered.spacing.nodeNodeBetweenLayers": "88",
           "elk.layered.nodePlacement.strategy": "NETWORK_SIMPLEX",
           "elk.layered.crossingMinimization.strategy": "LAYER_SWEEP",
           "elk.layered.considerModelOrder.strategy": "NODES_AND_EDGES"
@@ -959,6 +959,13 @@
           : unionNode
             ? unionNode.centerX
             : 0;
+
+      if (children.length === 1) {
+        const onlyChild = children[0];
+        onlyChild.x = anchorX - onlyChild.width / 2;
+        syncBox(onlyChild);
+      }
+
       const firstChildTop = children.length > 0 ? Math.min(...children.map((child) => child.top)) : null;
       const branchY = firstChildTop === null
         ? null
@@ -1252,20 +1259,10 @@
 
       if (children.length === 1) {
         const child = children[0];
-        if (Math.abs(child.centerX - anchorX) > 1) {
-          descentLines.push({
-            id: `${union.id}-branch`,
-            x1: anchorX,
-            y1: branchY,
-            x2: child.centerX,
-            y2: branchY
-          });
-        }
-
         descentLines.push({
-          id: `${union.id}-child-0`,
-          x1: child.centerX,
-          y1: branchY,
+          id: `${union.id}-child`,
+          x1: anchorX,
+          y1: spouseLineY,
           x2: child.centerX,
           y2: child.top
         });
