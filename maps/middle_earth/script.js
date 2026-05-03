@@ -208,8 +208,9 @@ const clearStoryTimer = () => {
   }
 };
 
-const setCheckboxState = (checkboxId, checked) => {
+const setCheckboxState = (checkboxId, checked, options = {}) => {
   const checkbox = document.getElementById(checkboxId);
+  const { forceDispatch = false } = options;
 
   if (!checkbox) {
     return;
@@ -217,6 +218,11 @@ const setCheckboxState = (checkboxId, checked) => {
 
   if (checkbox.checked !== checked) {
     checkbox.checked = checked;
+    checkbox.dispatchEvent(new Event('change'));
+    return;
+  }
+
+  if (forceDispatch) {
     checkbox.dispatchEvent(new Event('change'));
   }
 };
@@ -238,8 +244,12 @@ const restoreStoryLayers = (story) => {
     return;
   }
 
-  setCheckboxState(story.campCheckboxId, storyState.previousLayerState.camp);
-  setCheckboxState(story.pathCheckboxId, storyState.previousLayerState.path);
+  setCheckboxState(story.campCheckboxId, storyState.previousLayerState.camp, {
+    forceDispatch: storyState.previousLayerState.camp,
+  });
+  setCheckboxState(story.pathCheckboxId, storyState.previousLayerState.path, {
+    forceDispatch: storyState.previousLayerState.path,
+  });
   storyState.previousLayerState = null;
 };
 
