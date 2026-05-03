@@ -966,6 +966,18 @@
         syncBox(onlyChild);
       }
 
+      if (children.length > 1) {
+        const leftChild = children[0];
+        const rightChild = children[children.length - 1];
+        const currentMidpoint = (leftChild.centerX + rightChild.centerX) / 2;
+        const shiftX = anchorX - currentMidpoint;
+
+        children.forEach((child) => {
+          child.x += shiftX;
+          syncBox(child);
+        });
+      }
+
       const firstChildTop = children.length > 0 ? Math.min(...children.map((child) => child.top)) : null;
       const branchY = firstChildTop === null
         ? null
@@ -1264,11 +1276,6 @@
 
       const leftChild = children[0];
       const rightChild = children[children.length - 1];
-      const leftChildX = leftChild.centerX;
-      const rightChildX = rightChild.centerX;
-      const branchHalfSpan = Math.max(anchorX - leftChildX, rightChildX - anchorX);
-      const branchLeft = anchorX - branchHalfSpan;
-      const branchRight = anchorX + branchHalfSpan;
 
       descentLines.push({
         id: `${union.id}-stem`,
@@ -1278,22 +1285,22 @@
         y2: branchY
       });
 
-      if (branchLeft < anchorX) {
+      if (leftChild.centerX < anchorX) {
         descentLines.push({
           id: `${union.id}-branch-left`,
-          x1: branchLeft,
+          x1: leftChild.centerX,
           y1: branchY,
           x2: anchorX,
           y2: branchY
         });
       }
 
-      if (branchRight > anchorX) {
+      if (rightChild.centerX > anchorX) {
         descentLines.push({
           id: `${union.id}-branch-right`,
           x1: anchorX,
           y1: branchY,
-          x2: branchRight,
+          x2: rightChild.centerX,
           y2: branchY
         });
       }
