@@ -22,6 +22,7 @@
   const cardHeight = 126;
   const portraitRadius = 32;
   const unionNodeSize = 18;
+  const coupleGap = 46;
   const minimapWidth = 220;
   const minimapHeight = 140;
   const minimapPadding = 10;
@@ -851,6 +852,48 @@
       return boxesInPreferredOrder;
     }
 
+    function getVisibleParentUnionId(personId) {
+      const parentUnionId = state.indexes.parentUnionByChild.get(personId);
+      if (!parentUnionId || !projection.unionIdSet.has(parentUnionId)) {
+        return null;
+      }
+
+      return parentUnionId;
+    }
+
+    function positionPartnersForUnion(union, partners) {
+      if (partners.length < 2) {
+        return partners;
+      }
+
+      const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
+      const anchoredPartnerIds = union.visiblePartners.filter((partnerId) => Boolean(getVisibleParentUnionId(partnerId)));
+
+      if (partners.length === 2 && anchoredPartnerIds.length === 1) {
+        const anchorId = anchoredPartnerIds[0];
+        const anchorBox = partnerById.get(anchorId);
+        const spouseBox = partners.find((partner) => partner.id !== anchorId);
+
+        if (anchorBox && spouseBox) {
+          const orderedPartnerIds = union.visiblePartners;
+          const anchorIndex = orderedPartnerIds.indexOf(anchorId);
+          const spouseIndex = orderedPartnerIds.indexOf(spouseBox.id);
+          const direction = spouseIndex < anchorIndex ? -1 : 1;
+
+          spouseBox.y = anchorBox.y;
+          spouseBox.x = direction < 0
+            ? anchorBox.left - spouseBox.width - coupleGap
+            : anchorBox.right + coupleGap;
+          syncBox(spouseBox);
+          syncBox(anchorBox);
+          return partners;
+        }
+      }
+
+      assignOrderedX(partners);
+      return partners;
+    }
+
     const unions = unionInfos.map((union) => {
       const partners = union.visiblePartners
         .map((partnerId) => people.get(partnerId))
@@ -860,7 +903,7 @@
         .map((childId) => people.get(childId))
         .filter(Boolean);
 
-      assignOrderedX(partners);
+      positionPartnersForUnion(union, partners);
       assignOrderedX(children);
 
       if (partners.length > 1) {
@@ -1159,6 +1202,32 @@
   function buildConnectorPaths(layout) {
     const spouseLines = [];
     const descentLines = [];
+    const visiblePartnerUnionByPersonId = new Map();
+
+    layout.unions.forEach((union) => {
+      if (union.partners.length < 2) return;
+
+      union.partners.forEach((partner) => {
+        if (!visiblePartnerUnionByPersonId.has(partner.id)) {
+          visiblePartnerUnionByPersonId.set(partner.id, union);
+        }
+      });
+    });
+
+    function getChildAttachment(child) {
+      const partnerUnion = visiblePartnerUnionByPersonId.get(child.id);
+      if (!partnerUnion) {
+        return {
+          x: child.centerX,
+          y: child.top
+        };
+      }
+
+      return {
+        x: partnerUnion.anchorX,
+        y: partnerUnion.spouseLineY
+      };
+    }
 
     layout.unions.forEach((union) => {
       const { partners, children, spouseLineY, anchorX, branchY } = union;
@@ -1188,45 +1257,52 @@
 
       if (children.length === 1) {
         const child = children[0];
-        if (Math.abs(child.centerX - anchorX) > 1) {
+        const attachment = getChildAttachment(child);
+
+        if (Math.abs(attachment.x - anchorX) > 1) {
           descentLines.push({
             id: `${union.id}-branch`,
             x1: anchorX,
             y1: branchY,
-            x2: child.centerX,
+            x2: attachment.x,
             y2: branchY
           });
         }
 
         descentLines.push({
           id: `${union.id}-child-0`,
-          x1: child.centerX,
+          x1: attachment.x,
           y1: branchY,
-          x2: child.centerX,
-          y2: child.top
+          x2: attachment.x,
+          y2: attachment.y
         });
 
         return;
       }
 
-      const leftChild = children[0];
-      const rightChild = children[children.length - 1];
+      const childAttachments = children.map((child) => ({
+        child,
+        attachment: getChildAttachment(child)
+      }))
+        .sort((left, right) => left.attachment.x - right.attachment.x);
+      const leftChild = childAttachments[0];
+      const rightChild = childAttachments[childAttachments.length - 1];
 
       descentLines.push({
         id: `${union.id}-branch`,
-        x1: leftChild.centerX,
+        x1: leftChild.attachment.x,
         y1: branchY,
-        x2: rightChild.centerX,
+        x2: rightChild.attachment.x,
         y2: branchY
       });
 
-      children.forEach((child, index) => {
+      childAttachments.forEach(({ attachment }, index) => {
         descentLines.push({
           id: `${union.id}-child-${index}`,
-          x1: child.centerX,
+          x1: attachment.x,
           y1: branchY,
-          x2: child.centerX,
-          y2: child.top
+          x2: attachment.x,
+          y2: attachment.y
         });
       });
     });
