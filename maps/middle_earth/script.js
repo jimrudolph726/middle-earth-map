@@ -347,9 +347,13 @@ const stopStoryMode = () => {
   storyPanel.classList.add('story-panel--hidden');
   storyPanel.setAttribute('hidden', '');
   storyPanel.setAttribute('aria-hidden', 'true');
+  storyPanel.style.display = 'none';
+  storyPanel.style.pointerEvents = 'none';
   storyControls.classList.add('story-controls--hidden');
   storyControls.setAttribute('hidden', '');
   storyControls.setAttribute('aria-hidden', 'true');
+  storyControls.style.display = 'none';
+  storyControls.style.pointerEvents = 'none';
 };
 
 const nextStoryScene = () => {
@@ -406,9 +410,13 @@ const beginStoryMode = (storyId) => {
   sidebar.close();
   storyPanel.removeAttribute('hidden');
   storyPanel.setAttribute('aria-hidden', 'false');
+  storyPanel.style.display = '';
+  storyPanel.style.pointerEvents = '';
   storyPanel.classList.remove('story-panel--hidden');
   storyControls.removeAttribute('hidden');
   storyControls.setAttribute('aria-hidden', 'false');
+  storyControls.style.display = '';
+  storyControls.style.pointerEvents = '';
   storyControls.classList.remove('story-controls--hidden');
   pauseStoryPlayback();
   goToStoryScene(0);
