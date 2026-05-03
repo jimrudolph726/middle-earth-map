@@ -255,7 +255,7 @@
       Object.freeze({
         id: "union-earendil-elwing",
         partners: Object.freeze(["earendil", "elwing"]),
-        children: Object.freeze(["elrond", "elros"]),
+        children: Object.freeze(["elros", "elrond"]),
         label: "Marriage",
         order: 10
       }),
