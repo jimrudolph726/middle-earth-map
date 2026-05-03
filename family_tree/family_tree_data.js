@@ -132,6 +132,7 @@
         realm: "Dunedain of the North",
         born: "T.A. 2700",
         died: "T.A. 2930",
+        image: "assets/arador.png",
         bio: "Arador is the father of Arathorn II and part of the northern heir line of Isildur.",
         order: 10
       }),

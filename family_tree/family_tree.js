@@ -27,6 +27,8 @@
   const siblingBarMinGapToChild = 10;
   const siblingBarMinDropFromParents = 18;
   const siblingBarDropFactor = 0.7;
+  const rowClusterTolerance = 18;
+  const minimumRowGap = 18;
   const minimapWidth = 220;
   const minimapHeight = 140;
   const minimapPadding = 10;
@@ -842,6 +844,7 @@
           id: node.id,
           x: node.x,
           y: node.y,
+          baseY: node.y,
           width: cardWidth,
           height: cardHeight
         });
@@ -888,6 +891,13 @@
     function shiftBox(box, deltaX) {
       if (!box || deltaX === 0) return box;
       box.x += deltaX;
+      syncBox(box);
+      return box;
+    }
+
+    function shiftBoxY(box, deltaY) {
+      if (!box || deltaY === 0) return box;
+      box.y += deltaY;
       syncBox(box);
       return box;
     }
@@ -1087,6 +1097,61 @@
       return union;
     }
 
+    function enforceGenerationRowSpacing() {
+      const boxes = Array.from(people.values())
+        .sort((left, right) => {
+          if (left.baseY !== right.baseY) {
+            return left.baseY - right.baseY;
+          }
+
+          if (left.top !== right.top) {
+            return left.top - right.top;
+          }
+
+          return left.left - right.left;
+        });
+
+      const rows = [];
+
+      boxes.forEach((box) => {
+        const currentRow = rows[rows.length - 1];
+
+        if (!currentRow || Math.abs(box.baseY - currentRow.baseY) > rowClusterTolerance) {
+          rows.push({
+            baseY: box.baseY,
+            boxes: [box]
+          });
+          return;
+        }
+
+        currentRow.boxes.push(box);
+      });
+
+      rows.forEach((row) => {
+        row.top = Math.min(...row.boxes.map((box) => box.top));
+        row.bottom = Math.max(...row.boxes.map((box) => box.bottom));
+      });
+
+      for (let index = 1; index < rows.length; index += 1) {
+        const previousRow = rows[index - 1];
+        const currentRow = rows[index];
+        const minimumTop = previousRow.bottom + minimumRowGap;
+
+        if (currentRow.top >= minimumTop) {
+          continue;
+        }
+
+        const deltaY = minimumTop - currentRow.top;
+        currentRow.boxes.forEach((box) => {
+          box.baseY += deltaY;
+          shiftBoxY(box, deltaY);
+        });
+        currentRow.baseY += deltaY;
+        currentRow.top += deltaY;
+        currentRow.bottom += deltaY;
+      }
+    }
+
     const unions = unionInfos.map((union) => {
       const partners = union.visiblePartners
         .map((partnerId) => people.get(partnerId))
@@ -1209,6 +1274,9 @@
 
       refreshUnionGeometry(union);
     }
+
+    enforceGenerationRowSpacing();
+    unions.forEach((union) => refreshUnionGeometry(union));
 
     const boxes = Array.from(people.values());
     const bounds = boxes.length === 0
