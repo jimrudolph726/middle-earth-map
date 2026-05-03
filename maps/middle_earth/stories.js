@@ -68,7 +68,7 @@ const samFrodoFirstSevenScenes = [
     milesTraveled: 'Unknown',
     pace: 'Unknown',
     roadNotes: 'Rain.',
-    imageFileName: 'scene-05-rain-at-bombadil-house.png',
+    imageFileName: 'scene-05.png',
   },
   {
     markerKey: 'September28',
@@ -81,7 +81,7 @@ const samFrodoFirstSevenScenes = [
     milesTraveled: '17',
     pace: '3.4 mph',
     roadNotes: 'Ponies. Sleep afternoon, captured in evening.',
-    imageFileName: 'scene-06-barrow-downs.png',
+    imageFileName: 'scene-06.png',
   },
   {
     markerKey: 'September29',
@@ -94,7 +94,7 @@ const samFrodoFirstSevenScenes = [
     milesTraveled: '20',
     pace: '3.3 mph',
     roadNotes: 'Ponies. Start after lunch.',
-    imageFileName: 'scene-07-bree.png',
+    imageFileName: 'scene-07.png',
   },
 ].map((scene, index) => ({
   ...scene,

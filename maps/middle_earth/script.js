@@ -197,6 +197,7 @@ const storyState = {
   highlightLayer: null,
   routeLayer: null,
   sceneMarkersLayer: null,
+  imageLoadToken: 0,
 };
 
 const STORY_AUTOPLAY_MS = 4500;
@@ -290,19 +291,37 @@ const hideStoryImagePlaceholder = () => {
 };
 
 const setStoryImage = (scene) => {
+  const imageLoadToken = storyState.imageLoadToken + 1;
+  storyState.imageLoadToken = imageLoadToken;
+
   storySceneImage.alt = `${scene.title} illustration`;
   storySceneImage.dataset.expectedPath = scene.imageRelativePath;
-  hideStoryImagePlaceholder();
+  storySceneImage.onload = null;
+  storySceneImage.onerror = null;
+  storySceneImage.removeAttribute('src');
+  storySceneImage.classList.add('story-panel__image--hidden');
+  storySceneImagePlaceholder?.classList.add('story-panel__placeholder--hidden');
 
-  storySceneImage.onerror = () => {
-    showStoryImagePlaceholder(scene);
-  };
+  const preloadedImage = new Image();
 
-  storySceneImage.onload = () => {
+  preloadedImage.onload = () => {
+    if (storyState.imageLoadToken !== imageLoadToken) {
+      return;
+    }
+
+    storySceneImage.src = scene.image;
     hideStoryImagePlaceholder();
   };
 
-  storySceneImage.src = scene.image;
+  preloadedImage.onerror = () => {
+    if (storyState.imageLoadToken !== imageLoadToken) {
+      return;
+    }
+
+    showStoryImagePlaceholder(scene);
+  };
+
+  preloadedImage.src = scene.image;
 };
 
 const updateStoryHighlight = (coords) => {

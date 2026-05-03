@@ -656,12 +656,13 @@ h3,
 }
 
 .story-panel__media {
-  display: flex;
+  display: grid;
   align-items: stretch;
 }
 
 .story-panel__image,
 .story-panel__placeholder {
+  grid-area: 1 / 1;
   width: 100%;
   min-height: 100%;
   border: 1px solid rgba(143, 118, 80, 0.75);
