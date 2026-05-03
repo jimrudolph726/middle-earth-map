@@ -79,16 +79,17 @@ body.splash-body {
 
 .splash-table {
   position: relative;
-  min-height: 410px;
   margin-top: 14px;
-  padding: 18px 16px 14px;
+  min-height: 620px;
+  aspect-ratio: 1448 / 1131;
+  padding: 0;
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid rgba(255, 240, 207, 0.1);
   background:
     linear-gradient(rgba(11, 8, 6, 0.1), rgba(11, 8, 6, 0.24)),
     radial-gradient(circle at 16% 18%, rgba(255, 228, 171, 0.18), transparent 24%),
-    url("assets/bag_end.png") center center / cover no-repeat;
+    url("assets/bag_end_study.png") center center / cover no-repeat;
   box-shadow:
     inset 0 18px 32px rgba(255, 245, 222, 0.05),
     inset 0 -28px 40px rgba(0, 0, 0, 0.18);
@@ -104,107 +105,106 @@ body.splash-body {
   mix-blend-mode: multiply;
 }
 
-.map-card {
+.study-hotspots {
+  position: absolute;
+  inset: 0;
+}
+
+.study-hotspot {
   position: absolute;
   display: block;
-  width: min(16vw, 168px);
-  aspect-ratio: 0.84;
-  padding: 0;
-  border: 0;
+  box-sizing: border-box;
   outline: none;
-  box-shadow: none;
-  color: var(--ink);
+  border-radius: 18px;
+  background: rgba(255, 243, 208, 0.02);
   text-decoration: none;
-  transform: none;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
-.map-card:hover,
-.map-card:focus-visible {
-  transform: translateY(-4px);
-}
-
-.map-card__pin {
+.study-hotspot::before {
+  content: "";
   position: absolute;
-  top: 10px;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(244, 221, 168, 0.72);
+  box-shadow:
+    inset 0 0 0 1px rgba(71, 46, 18, 0.34),
+    0 18px 30px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.study-hotspot:hover,
+.study-hotspot:focus-visible {
+  transform: translateY(-3px);
+  background: rgba(255, 249, 231, 0.08);
+}
+
+.study-hotspot:hover::before,
+.study-hotspot:focus-visible::before {
+  opacity: 1;
+}
+
+.study-hotspot__label {
+  position: absolute;
   left: 50%;
-  width: 15px;
-  height: 15px;
-  margin-left: -7.5px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffe8bd, #b57d46 56%, #6d4324 100%);
-  box-shadow: 0 2px 0 rgba(255, 244, 219, 0.45), 0 4px 10px rgba(0, 0, 0, 0.24);
-  z-index: 2;
-}
-
-.map-card__sheet {
-  position: relative;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 12px 12px;
-  overflow: hidden;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  background: url("assets/map_parchment.png") center center / 101% 101% no-repeat;
-}
-
-.map-card__eyebrow,
-.map-card__title,
-.map-card__copy {
-  position: relative;
-  z-index: 1;
-}
-
-.map-card__eyebrow {
-  margin-bottom: 5px;
-  color: #6f502d;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.map-card__title {
-  display: block;
-  color: #2f1d12;
+  bottom: 10px;
+  transform: translateX(-50%);
+  padding: 7px 14px 6px;
+  border-radius: 999px;
+  background: rgba(47, 29, 18, 0.88);
+  color: #f0dfb0;
   font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1rem, 1.65vw, 1.4rem);
-  line-height: 0.98;
-  font-weight: normal;
+  font-size: 0.95rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
   text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 248, 230, 0.48);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 234, 183, 0.18);
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.map-card__copy {
-  display: block;
-  margin-top: 5px;
-  color: var(--ink-soft);
-  font-size: 0.62rem;
-  line-height: 1.3;
-  max-width: 17ch;
-  text-align: center;
+.study-hotspot:hover .study-hotspot__label,
+.study-hotspot:focus-visible .study-hotspot__label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
 }
 
-.map-card--the_shire {
-  top: 175px;
-  right: 450px;
+.study-hotspot--middle-earth {
+  top: 3.4%;
+  left: 58.4%;
+  width: 18.3%;
+  height: 28.7%;
 }
-.map-card--middle-earth {
-  top: 146px;
-  right: 300px;
+
+.study-hotspot--the-shire {
+  top: 1.5%;
+  left: 79.2%;
+  width: 17.6%;
+  height: 29.2%;
 }
-.map-card--numenor {
-  top: 116px;
-  right: 150px;
+
+.study-hotspot--numenor {
+  top: 31.9%;
+  left: 58.2%;
+  width: 18.4%;
+  height: 29.2%;
 }
-.map-card--beleriand {
-  top: 150px;
-  right: 0px;
+
+.study-hotspot--beleriand {
+  top: 33.4%;
+  left: 79.2%;
+  width: 17.5%;
+  height: 28.9%;
+}
+
+.study-hotspot--family-tree {
+  top: 67.3%;
+  left: 16.8%;
+  width: 44.8%;
+  height: 28.7%;
 }
 
 
@@ -220,43 +220,7 @@ body.splash-body {
 
 @media (max-width: 1100px) {
   .splash-table {
-    min-height: 420px;
-  }
-
-  .map-card {
-    width: min(17vw, 146px);
-  }
-
-  .map-card--the_shire {
-    top: 154px;
-    right: 340px;
-  }
-
-  .map-card--middle-earth {
-    top: 154px;
-    right: 230px;
-  }
-
-    .map-card--numenor {
-    top: 158px;
-    right: 16px;
-  }
-
-  .map-card--beleriand {
-    top: 126px;
-    right: 122px;
-  }
-
-  .map-card__eyebrow {
-  font-size: 0.85rem;
-  }
-
-  .map-card__title {
-    font-size: clamp(1.3rem, 5vw, 1.8rem);
-  }
-
-  .map-card__copy {
-    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    min-height: 540px;
   }
 }
 
@@ -276,45 +240,57 @@ body.splash-body {
   }
 
   .splash-table {
-    min-height: auto;
-    padding: 18px 12px 14px;
-    display: grid;
-    gap: 14px;
+    min-height: 620px;
+    padding: 14px 12px 12px;
+    display: flex;
+    align-items: flex-end;
   }
 
-  .map-card {
+  .study-hotspots {
     position: relative;
-    right: auto;
+    inset: auto;
+    width: 100%;
+    display: grid;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 240px;
+    background: linear-gradient(180deg, transparent, rgba(17, 11, 7, 0.1) 10%, rgba(17, 11, 7, 0.72) 28%, rgba(17, 11, 7, 0.9));
+  }
+
+  .study-hotspot {
+    position: relative;
     top: auto;
     left: auto;
     width: 100%;
-    aspect-ratio: auto;
-    padding: 0;
-    transform: none;
+    height: auto;
+    min-height: 56px;
+    border-radius: 14px;
+    background: rgba(255, 247, 226, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   }
 
-  .map-card:hover,
-  .map-card:focus-visible {
+  .study-hotspot:hover,
+  .study-hotspot:focus-visible {
     transform: translateY(-2px);
   }
 
-  .map-card__sheet {
-    min-height: 240px;
-    padding: 18px 18px 16px;
-    background: url("assets/splash/map_parchment.png") center center / 101% 101% no-repeat;
+  .study-hotspot::before {
+    opacity: 1;
+    border-color: rgba(244, 221, 168, 0.4);
+    box-shadow: inset 0 0 0 1px rgba(71, 46, 18, 0.22);
   }
 
-  .map-card__copy {
-    max-width: none;
-  }
-
-  .map-card--middle-earth,
-  .map-card--numenor,
-  .map-card--beleriand,
-   .map-card--the_shire {
-    --map-top: auto;
-    --map-left: auto;
-    --map-rotate: 0deg;
+  .study-hotspot__label {
+    position: static;
+    display: block;
+    opacity: 1;
+    transform: none;
+    padding: 16px 18px 14px;
+    border-radius: 14px;
+    background: transparent;
+    font-size: 1.02rem;
+    text-align: left;
+    box-shadow: none;
   }
 
   .splash-blessing {
