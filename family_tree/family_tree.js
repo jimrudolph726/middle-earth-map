@@ -876,6 +876,13 @@
       return boxesInPreferredOrder;
     }
 
+    function shiftBox(box, deltaX) {
+      if (!box || deltaX === 0) return box;
+      box.x += deltaX;
+      syncBox(box);
+      return box;
+    }
+
     function getVisibleParentUnionId(personId) {
       const parentUnionId = state.indexes.parentUnionByChild.get(personId);
       if (!parentUnionId || !projection.unionIdSet.has(parentUnionId)) {
@@ -885,13 +892,69 @@
       return parentUnionId;
     }
 
+    function getAnchoredPartnerIds(union) {
+      return union.visiblePartners.filter((partnerId) => Boolean(getVisibleParentUnionId(partnerId)));
+    }
+
+    function getOrderedPartnerBoxes(union, partnerById) {
+      return union.visiblePartners
+        .map((partnerId) => partnerById.get(partnerId))
+        .filter(Boolean);
+    }
+
+    function hasVisibleCoupleElsewhere(personId, excludingUnionId) {
+      return getPartnerUnions(personId).some((union) => (
+        union.id !== excludingUnionId
+        && projection.unionIdSet.has(union.id)
+        && union.partners.filter((partnerId) => projection.peopleSet.has(partnerId)).length > 1
+      ));
+    }
+
+    function enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds) {
+      const anchoredSet = new Set(anchoredPartnerIds);
+      const orderedPartners = getOrderedPartnerBoxes(union, partnerById);
+
+      for (let index = 1; index < orderedPartners.length; index += 1) {
+        const leftPartner = orderedPartners[index - 1];
+        const rightPartner = orderedPartners[index];
+        const overlap = leftPartner.right + coupleGap - rightPartner.left;
+
+        if (overlap <= 0) {
+          continue;
+        }
+
+        const leftAnchored = anchoredSet.has(leftPartner.id);
+        const rightAnchored = anchoredSet.has(rightPartner.id);
+
+        if (leftAnchored && !rightAnchored) {
+          shiftBox(rightPartner, overlap);
+          continue;
+        }
+
+        if (!leftAnchored && rightAnchored) {
+          shiftBox(leftPartner, -overlap);
+          continue;
+        }
+
+        if (leftAnchored && rightAnchored) {
+          shiftBox(leftPartner, -overlap);
+          continue;
+        }
+
+        shiftBox(leftPartner, -overlap / 2);
+        shiftBox(rightPartner, overlap / 2);
+      }
+
+      return orderedPartners;
+    }
+
     function positionPartnersForUnion(union, partners) {
       if (partners.length < 2) {
         return partners;
       }
 
       const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
-      const anchoredPartnerIds = union.visiblePartners.filter((partnerId) => Boolean(getVisibleParentUnionId(partnerId)));
+      const anchoredPartnerIds = getAnchoredPartnerIds(union);
 
       if (partners.length === 2 && anchoredPartnerIds.length === 1) {
         const anchorId = anchoredPartnerIds[0];
@@ -915,7 +978,75 @@
       }
 
       assignOrderedX(partners);
+      enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds);
       return partners;
+    }
+
+    function positionPartnersForLockedChild(union, partners, child) {
+      if (partners.length === 0) {
+        return partners;
+      }
+
+      const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
+      const orderedPartners = getOrderedPartnerBoxes(union, partnerById);
+      const anchoredPartnerIds = getAnchoredPartnerIds(union);
+
+      if (partners.length === 1) {
+        const parent = partners[0];
+        parent.x = child.centerX - parent.width / 2;
+        syncBox(parent);
+        return partners;
+      }
+
+      if (partners.length === 2 && anchoredPartnerIds.length === 1) {
+        const anchorId = anchoredPartnerIds[0];
+        const anchorBox = partnerById.get(anchorId);
+        const spouseBox = orderedPartners.find((partner) => partner.id !== anchorId);
+
+        if (anchorBox && spouseBox) {
+          const anchorIndex = orderedPartners.indexOf(anchorBox);
+          const spouseIndex = orderedPartners.indexOf(spouseBox);
+          const direction = spouseIndex < anchorIndex ? -1 : 1;
+          const desiredSpouseCenterX = child.centerX * 2 - anchorBox.centerX;
+
+          spouseBox.y = anchorBox.y;
+          spouseBox.x = desiredSpouseCenterX - spouseBox.width / 2;
+          spouseBox.x = direction < 0
+            ? Math.min(spouseBox.x, anchorBox.left - spouseBox.width - coupleGap)
+            : Math.max(spouseBox.x, anchorBox.right + coupleGap);
+          syncBox(spouseBox);
+          enforceMinimumPartnerGap(union, partnerById, anchoredPartnerIds);
+          return partners;
+        }
+      }
+
+      positionPartnersForUnion(union, partners);
+      return partners;
+    }
+
+    function refreshUnionGeometry(union) {
+      union.partners.sort((left, right) => left.centerX - right.centerX);
+      union.children.sort((left, right) => left.centerX - right.centerX);
+
+      union.spouseLineY = union.partners.length > 0
+        ? average(union.partners.map((partner) => partner.centerY))
+        : 0;
+      union.anchorX = union.partners.length > 1
+        ? average(union.partners.map((partner) => partner.centerX))
+        : union.partners.length === 1
+          ? union.partners[0].centerX
+          : 0;
+
+      const firstChildTop = union.children.length > 0 ? Math.min(...union.children.map((child) => child.top)) : null;
+      union.branchY = firstChildTop === null
+        ? null
+        : Math.min(
+            firstChildTop - siblingBarMinGapToChild,
+            union.spouseLineY + Math.max(siblingBarMinDropFromParents, (firstChildTop - union.spouseLineY) * siblingBarDropFactor)
+          );
+      union.symbolX = union.anchorX;
+      union.symbolY = union.spouseLineY;
+      return union;
     }
 
     const unions = unionInfos.map((union) => {
@@ -1001,6 +1132,29 @@
         symbolY: spouseLineY
       };
     });
+
+    for (let index = unions.length - 1; index >= 0; index -= 1) {
+      const union = unions[index];
+      const lockedChild = union.children.length === 1 && hasVisibleCoupleElsewhere(union.children[0].id, union.id)
+        ? union.children[0]
+        : null;
+
+      if (lockedChild) {
+        positionPartnersForLockedChild(union, union.partners, lockedChild);
+      } else {
+        positionPartnersForUnion(union, union.partners);
+      }
+
+      if (union.partners.length > 1) {
+        const alignedTop = average(union.partners.map((partner) => partner.top));
+        union.partners.forEach((partner) => {
+          partner.y = alignedTop;
+          syncBox(partner);
+        });
+      }
+
+      refreshUnionGeometry(union);
+    }
 
     const boxes = Array.from(people.values());
     const bounds = boxes.length === 0
