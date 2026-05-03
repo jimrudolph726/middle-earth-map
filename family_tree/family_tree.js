@@ -1123,6 +1123,8 @@
       return {
         id: union.id,
         label: union.label,
+        visiblePartners: union.visiblePartners,
+        visibleChildren: union.visibleChildren,
         partners,
         children,
         spouseLineY,
