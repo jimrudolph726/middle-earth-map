@@ -228,9 +228,9 @@
 
       Object.freeze({
         id: "union-elros",
-        partners: Object.freeze([]),
+        partners: Object.freeze(["elros"]),
         children: Object.freeze(["aragorn"]),
-        label: "Marriage",
+        label: "Issue",
         order: 10
       }),
 
