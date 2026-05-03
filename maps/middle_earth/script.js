@@ -7,7 +7,6 @@ import {
   createMarkers,
   createMarkerClusterGroup,
   buildMarkers,
-  getMarkerFromRegistry,
   setCampsiteHoverPopupsEnabled,
 } from './functions.js';
 
@@ -21,10 +20,7 @@ import {
   imageBounds,
 } from './variables.js';
 
-import {
-  curatedStories,
-  getCuratedStoryById,
-} from './stories.js';
+import { getCuratedStoryById } from './stories.js';
 
 // Add Map
 map.options.wheelPxPerZoomLevel = 40; 
@@ -32,6 +28,15 @@ L.imageOverlay(imageUrl, imageBounds).addTo(map);
 map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 const sharedClusterGroups = {};
+const STORY_PANE_NAME = 'storyPane';
+
+const ensureStoryPane = () => {
+  if (!map.getPane(STORY_PANE_NAME)) {
+    map.createPane(STORY_PANE_NAME);
+  }
+};
+
+ensureStoryPane();
 
 // Add Campsites, Settlements, Items
 Promise.all(
@@ -226,6 +231,12 @@ const clearStoryTimer = () => {
   }
 };
 
+const removeStoryLayer = (layer) => {
+  if (layer && map.hasLayer(layer)) {
+    map.removeLayer(layer);
+  }
+};
+
 const ensureStoryLayersVisible = (story) => {
   const routeLatLngs = story.scenes.map((scene) => scene.coords);
 
@@ -235,6 +246,7 @@ const ensureStoryLayersVisible = (story) => {
       weight: 6,
       opacity: 0.92,
       interactive: false,
+      pane: STORY_PANE_NAME,
     }).addTo(map);
   }
 
@@ -246,6 +258,7 @@ const ensureStoryLayersVisible = (story) => {
       fillColor: '#6f4820',
       fillOpacity: index === storyState.currentSceneIndex ? 0.92 : 0.72,
       interactive: false,
+      pane: STORY_PANE_NAME,
     }));
 
     storyState.sceneMarkersLayer = L.layerGroup(sceneMarkers).addTo(map);
@@ -253,30 +266,40 @@ const ensureStoryLayersVisible = (story) => {
 };
 
 const restoreStoryLayers = () => {
-  if (storyState.routeLayer) {
-    map.removeLayer(storyState.routeLayer);
-    storyState.routeLayer = null;
-  }
+  removeStoryLayer(storyState.routeLayer);
+  removeStoryLayer(storyState.sceneMarkersLayer);
+  removeStoryLayer(storyState.highlightLayer);
 
-  if (storyState.sceneMarkersLayer) {
-    map.removeLayer(storyState.sceneMarkersLayer);
-    storyState.sceneMarkersLayer = null;
+  storyState.routeLayer = null;
+  storyState.sceneMarkersLayer = null;
+  storyState.highlightLayer = null;
+};
+
+const showStoryImagePlaceholder = (scene) => {
+  storySceneImage.classList.add('story-panel__image--hidden');
+  storySceneImagePlaceholder?.classList.remove('story-panel__placeholder--hidden');
+
+  if (storySceneImagePath) {
+    storySceneImagePath.textContent = scene.imageRelativePath;
   }
+};
+
+const hideStoryImagePlaceholder = () => {
+  storySceneImage.classList.remove('story-panel__image--hidden');
+  storySceneImagePlaceholder?.classList.add('story-panel__placeholder--hidden');
 };
 
 const setStoryImage = (scene) => {
   storySceneImage.alt = `${scene.title} illustration`;
   storySceneImage.dataset.expectedPath = scene.imageRelativePath;
+  hideStoryImagePlaceholder();
 
   storySceneImage.onerror = () => {
-    storySceneImage.classList.add('story-panel__image--hidden');
-    storySceneImagePlaceholder.classList.remove('story-panel__placeholder--hidden');
-    storySceneImagePath.textContent = `Add image here: ${scene.imageRelativePath}`;
+    showStoryImagePlaceholder(scene);
   };
 
   storySceneImage.onload = () => {
-    storySceneImage.classList.remove('story-panel__image--hidden');
-    storySceneImagePlaceholder.classList.add('story-panel__placeholder--hidden');
+    hideStoryImagePlaceholder();
   };
 
   storySceneImage.src = scene.image;
@@ -290,7 +313,8 @@ const updateStoryHighlight = (coords) => {
       weight: 3,
       fillColor: '#6f4820',
       fillOpacity: 0.28,
-      pane: 'markerPane',
+      interactive: false,
+      pane: STORY_PANE_NAME,
     }).addTo(map);
     return;
   }
@@ -306,8 +330,8 @@ const updateStorySceneMarkers = () => {
   storyState.sceneMarkersLayer.getLayers().forEach((layer, index) => {
     const isActive = index === storyState.currentSceneIndex;
 
+    layer.setRadius(isActive ? 9 : 6);
     layer.setStyle({
-      radius: isActive ? 9 : 6,
       fillOpacity: isActive ? 0.92 : 0.72,
     });
   });
@@ -338,6 +362,7 @@ const goToStoryScene = (sceneIndex) => {
   updateStoryHighlight(scene.coords);
   updateStorySceneMarkers();
 
+  map.stop();
   map.flyTo(scene.coords, scene.zoom ?? 19, {
     animate: true,
     duration: 1.1,
@@ -350,15 +375,7 @@ const stopStoryMode = () => {
   syncStoryPlayPauseButton();
   setCampsiteHoverPopupsEnabled(true);
   map.stop();
-
-  if (storyState.activeStory) {
-    restoreStoryLayers();
-  }
-
-  if (storyState.highlightLayer) {
-    map.removeLayer(storyState.highlightLayer);
-    storyState.highlightLayer = null;
-  }
+  restoreStoryLayers();
 
   if (storyState.previousView) {
     map.setView(storyState.previousView.center, storyState.previousView.zoom, {

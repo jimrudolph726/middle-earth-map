@@ -538,6 +538,16 @@ h3,
   background: rgba(70, 45, 22, 0.96);
 }
 
+.leaflet-story-pane {
+  z-index: 575;
+  pointer-events: none;
+}
+
+.leaflet-story-pane canvas,
+.leaflet-story-pane svg {
+  pointer-events: none;
+}
+
 .story-panel {
   position: absolute;
   top: 84px;
