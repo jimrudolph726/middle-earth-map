@@ -55,7 +55,7 @@ const samFrodoFirstSevenScenes = [
     milesTraveled: '25',
     pace: '2.4 mph',
     roadNotes: 'On ponies. Knoll, Old Man Willow.',
-    imageFileName: 'scene-04-tom-bombadil-house.png',
+    imageFileName: 'scene-04.png',
   },
   {
     markerKey: 'September27',
