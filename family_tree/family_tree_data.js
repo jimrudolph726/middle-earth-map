@@ -299,7 +299,7 @@
         label: "Aragorn Lineage",
         description: "The direct House of Isildur line around Aragorn, including ancestors, descendants, and direct spouses.",
         seeds: Object.freeze(["aragorn_second"]),
-        roots: Object.freeze(["arador"]),
+        roots: Object.freeze(["eldarion"]),
         generationsUp: 10,
         generationsDown: 10,
         includeSpouses: true,
