@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="family_tree.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <script src="../plugins/atlas-map-nav.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/elkjs/lib/elk.bundled.js"></script>
 </head>
 
 <body class="family-tree-page">
@@ -76,11 +78,23 @@
         <select id="tree-view"></select>
       </label>
 
+      <label class="tree-view-panel__field" for="tree-search">
+        <span>Search current view</span>
+        <input id="tree-search" type="search" placeholder="Search people, houses, realms..." autocomplete="off" />
+      </label>
+
+      <div id="tree-search-results" class="tree-search-results hidden" aria-live="polite"></div>
+
       <p id="tree-view-description" class="tree-view-panel__description"></p>
       <p id="tree-view-stats" class="tree-view-panel__stats" aria-live="polite"></p>
     </aside>
 
     <div id="family-tree-host" aria-label="Family tree canvas"></div>
+
+    <aside id="tree-minimap" class="tree-minimap" aria-label="Tree overview">
+      <p class="tree-minimap__eyebrow">Overview</p>
+      <svg id="tree-minimap-svg" viewBox="0 0 220 140" preserveAspectRatio="xMidYMid meet"></svg>
+    </aside>
 
     <div id="tree-empty-state" class="tree-empty-state hidden" role="status" aria-live="polite">
       <div class="tree-empty-state__card">
@@ -100,7 +114,6 @@
     </div>
   </section>
 
-  <script src="../plugins/familytree.js"></script>
   <script src="family_tree_data.js"></script>
   <script src="family_tree.js"></script>
 </body>

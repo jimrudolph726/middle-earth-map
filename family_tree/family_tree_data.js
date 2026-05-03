@@ -1,4 +1,8 @@
 (function () {
+  // Canonical genealogy dataset:
+  // - people are the single source of truth for character records
+  // - unions represent marriages / family units and can be ordered
+  // - views are filtered projections over the same shared dataset
   window.FAMILY_TREE_DATA = Object.freeze({
     defaults: Object.freeze({
       initialView: "aragorn_lineage"
@@ -172,21 +176,24 @@
         id: "union-elrond-celebrian",
         partners: Object.freeze(["elrond", "celebrian"]),
         children: Object.freeze(["arwen"]),
-        label: "Marriage"
+        label: "Marriage",
+        order: 10
       }),
 
       Object.freeze({
         id: "union-aragorn-arwen",
         partners: Object.freeze(["aragorn", "arwen"]),
         children: Object.freeze(["eldarion", "unknown_daughters"]),
-        label: "Marriage"
+        label: "Marriage",
+        order: 20
       }),
 
       Object.freeze({
         id: "union-eldarion-wife",
         partners: Object.freeze(["eldarion", "eldarion_wife"]),
         children: Object.freeze(["eldarion_son"]),
-        label: "Marriage"
+        label: "Marriage",
+        order: 30
       })
     ]),
 
@@ -221,7 +228,13 @@
         generationsUp: 10,
         generationsDown: 10,
         includeSpouses: true,
-        includeSpouseLineage: false
+        includeSpouseLineage: false,
+        filters: Object.freeze({
+          includeGroupsAny: Object.freeze(["men", "dunedain"]),
+          preserveAncestors: true,
+          preserveDescendants: true,
+          preserveSpouses: true
+        })
       }),
 
       elves_and_half_elven: Object.freeze({
@@ -232,7 +245,13 @@
         generationsUp: 10,
         generationsDown: 10,
         includeSpouses: true,
-        includeSpouseLineage: false
+        includeSpouseLineage: false,
+        filters: Object.freeze({
+          includeGroupsAny: Object.freeze(["elves", "half-elven"]),
+          preserveAncestors: true,
+          preserveDescendants: true,
+          preserveSpouses: true
+        })
       }),
 
       dwarves: Object.freeze({
