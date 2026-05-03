@@ -188,9 +188,10 @@ const storyState = {
   currentSceneIndex: 0,
   isPlaying: false,
   timerId: null,
-  previousLayerState: null,
   previousView: null,
   highlightLayer: null,
+  routeLayer: null,
+  sceneMarkersLayer: null,
 };
 
 const STORY_AUTOPLAY_MS = 4500;
@@ -225,49 +226,42 @@ const clearStoryTimer = () => {
   }
 };
 
-const setCheckboxState = (checkboxId, checked, options = {}) => {
-  const checkbox = document.getElementById(checkboxId);
-  const { forceDispatch = false } = options;
-
-  if (!checkbox) {
-    return;
-  }
-
-  if (checkbox.checked !== checked) {
-    checkbox.checked = checked;
-    checkbox.dispatchEvent(new Event('change'));
-    return;
-  }
-
-  if (forceDispatch) {
-    checkbox.dispatchEvent(new Event('change'));
-  }
-};
-
 const ensureStoryLayersVisible = (story) => {
-  if (!storyState.previousLayerState) {
-    storyState.previousLayerState = {
-      camp: document.getElementById(story.campCheckboxId)?.checked ?? false,
-      path: document.getElementById(story.pathCheckboxId)?.checked ?? false,
-    };
+  const routeLatLngs = story.scenes.map((scene) => scene.coords);
+
+  if (!storyState.routeLayer) {
+    storyState.routeLayer = L.polyline(routeLatLngs, {
+      color: '#d9b161',
+      weight: 6,
+      opacity: 0.92,
+      interactive: false,
+    }).addTo(map);
   }
 
-  setCheckboxState(story.campCheckboxId, true);
-  setCheckboxState(story.pathCheckboxId, true);
+  if (!storyState.sceneMarkersLayer) {
+    const sceneMarkers = story.scenes.map((scene, index) => L.circleMarker(scene.coords, {
+      radius: index === storyState.currentSceneIndex ? 9 : 6,
+      color: '#f7e5b5',
+      weight: 2,
+      fillColor: '#6f4820',
+      fillOpacity: index === storyState.currentSceneIndex ? 0.92 : 0.72,
+      interactive: false,
+    }));
+
+    storyState.sceneMarkersLayer = L.layerGroup(sceneMarkers).addTo(map);
+  }
 };
 
-const restoreStoryLayers = (story) => {
-  if (!storyState.previousLayerState) {
-    return;
+const restoreStoryLayers = () => {
+  if (storyState.routeLayer) {
+    map.removeLayer(storyState.routeLayer);
+    storyState.routeLayer = null;
   }
 
-  setCheckboxState(story.campCheckboxId, storyState.previousLayerState.camp, {
-    forceDispatch: storyState.previousLayerState.camp,
-  });
-  setCheckboxState(story.pathCheckboxId, storyState.previousLayerState.path, {
-    forceDispatch: storyState.previousLayerState.path,
-  });
-  storyState.previousLayerState = null;
+  if (storyState.sceneMarkersLayer) {
+    map.removeLayer(storyState.sceneMarkersLayer);
+    storyState.sceneMarkersLayer = null;
+  }
 };
 
 const setStoryImage = (scene) => {
@@ -304,6 +298,21 @@ const updateStoryHighlight = (coords) => {
   storyState.highlightLayer.setLatLng(coords);
 };
 
+const updateStorySceneMarkers = () => {
+  if (!storyState.sceneMarkersLayer) {
+    return;
+  }
+
+  storyState.sceneMarkersLayer.getLayers().forEach((layer, index) => {
+    const isActive = index === storyState.currentSceneIndex;
+
+    layer.setStyle({
+      radius: isActive ? 9 : 6,
+      fillOpacity: isActive ? 0.92 : 0.72,
+    });
+  });
+};
+
 const goToStoryScene = (sceneIndex) => {
   const story = storyState.activeStory;
 
@@ -327,6 +336,7 @@ const goToStoryScene = (sceneIndex) => {
   storySceneCounter.textContent = `Scene ${boundedIndex + 1} of ${story.scenes.length}`;
   setStoryImage(scene);
   updateStoryHighlight(scene.coords);
+  updateStorySceneMarkers();
 
   map.flyTo(scene.coords, scene.zoom ?? 19, {
     animate: true,
@@ -342,7 +352,7 @@ const stopStoryMode = () => {
   map.stop();
 
   if (storyState.activeStory) {
-    restoreStoryLayers(storyState.activeStory);
+    restoreStoryLayers();
   }
 
   if (storyState.highlightLayer) {
