@@ -4,7 +4,7 @@ import {
 
 const buildSamFrodoImage = (fileName) => new URL(`./assets/stories/sam_frodo/${fileName}`, import.meta.url).href;
 
-const samFrodoFirstSevenScenes = [
+const samFrodoScenes = [
   {
     markerKey: 'September23',
     title: 'Leaving the Shire',
@@ -96,6 +96,20 @@ const samFrodoFirstSevenScenes = [
     roadNotes: 'Ponies. Start after lunch.',
     imageFileName: 'scene-07.png',
   },
+  {
+    markerKey: 'September30',
+    title: 'Heading Out with Strider',
+    date: 'September 30',
+    location: 'Western Chetwood',
+    narrative: 'After an attack by the Ring Wraiths, the hobbits and Strider head out for Rivendell. The first stop is Western Chetwood.',
+    camp: 'Bree',
+    hoursOnRoad: '6',
+    milesTraveled: '20',
+    pace: '3.3 mph',
+    roadNotes: 'Ponies. Start after lunch.',
+    imageFileName: 'scene-08.png',
+  },
+
 ].map((scene, index) => ({
   ...scene,
   coords: samfrodocampsites[scene.markerKey].coords,
@@ -112,7 +126,7 @@ export const curatedStories = [
     markerGroupName: 'samfrodocampsites',
     campCheckboxId: 'samfrodocampsitesCheckbox',
     pathCheckboxId: 'samfrodopathCheckbox',
-    scenes: samFrodoFirstSevenScenes,
+    scenes: samFrodoScenes,
   },
 ];
 

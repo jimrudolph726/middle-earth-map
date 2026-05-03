@@ -1,0 +1,257 @@
+(function () {
+  window.FAMILY_TREE_DATA = Object.freeze({
+    defaults: Object.freeze({
+      initialView: "aragorn_lineage"
+    }),
+
+    people: Object.freeze({
+      elrond: Object.freeze({
+        id: "elrond",
+        name: "Elrond",
+        sex: "male",
+        kindred: "Elf / Half-elven",
+        groups: Object.freeze(["elves", "half-elven"]),
+        title: "Lord of Rivendell",
+        house: "House of Earendil",
+        realm: "Rivendell",
+        born: "F.A. 532",
+        died: "Sailed West in T.A. 3021",
+        image: "assets/elrond.png",
+        bio: "Elrond is the loremaster and lord of Rivendell, one of the key keepers of the Elder Days within Middle-earth.",
+        order: 5
+      }),
+
+      celebrian: Object.freeze({
+        id: "celebrian",
+        name: "Celebrian",
+        sex: "female",
+        kindred: "Elf",
+        groups: Object.freeze(["elves"]),
+        title: "Lady of Rivendell",
+        house: "House of Galadriel",
+        realm: "Rivendell",
+        born: "Second Age",
+        died: "Sailed West in T.A. 2510",
+        image: "assets/celebrian.png",
+        bio: "Celebrian is the daughter of Galadriel and Celeborn, and the wife of Elrond.",
+        order: 6
+      }),
+
+      arador: Object.freeze({
+        id: "arador",
+        name: "Arador",
+        sex: "male",
+        kindred: "Man",
+        groups: Object.freeze(["men", "dunedain"]),
+        title: "Chieftain of the Dunedain",
+        house: "House of Isildur",
+        realm: "Dunedain of the North",
+        born: "T.A. 2700",
+        died: "T.A. 2930",
+        bio: "Arador is the father of Arathorn II and part of the northern heir line of Isildur.",
+        order: 10
+      }),
+
+      arathorn: Object.freeze({
+        id: "arathorn",
+        name: "Arathorn II",
+        sex: "male",
+        kindred: "Man",
+        groups: Object.freeze(["men", "dunedain"]),
+        title: "Chieftain of the Dunedain",
+        house: "House of Isildur",
+        realm: "Dunedain of the North",
+        born: "T.A. 2873",
+        died: "T.A. 2933",
+        bio: "Arathorn II is the father of Aragorn and a chieftain of the Dunedain in exile.",
+        order: 20
+      }),
+
+      aragorn: Object.freeze({
+        id: "aragorn",
+        name: "Aragorn II Elessar",
+        sex: "male",
+        kindred: "Man",
+        groups: Object.freeze(["men", "dunedain"]),
+        title: "King of the Reunited Kingdom",
+        house: "House of Isildur",
+        realm: "Gondor and Arnor",
+        born: "T.A. 2931",
+        died: "F.A. 120",
+        image: "assets/aragorn.png",
+        bio: "Aragorn, son of Arathorn, is the heir of Isildur and becomes King Elessar after the War of the Ring.",
+        order: 30
+      }),
+
+      arwen: Object.freeze({
+        id: "arwen",
+        name: "Arwen Undomiel",
+        sex: "female",
+        kindred: "Elf / Half-elven",
+        groups: Object.freeze(["elves", "half-elven"]),
+        title: "Queen of the Reunited Kingdom",
+        house: "House of Elrond",
+        realm: "Rivendell and Gondor",
+        born: "T.A. 241",
+        died: "F.A. 121",
+        image: "assets/arwen.png",
+        bio: "Arwen, daughter of Elrond and Celebrian, chooses a mortal life and becomes queen beside Aragorn.",
+        order: 35
+      }),
+
+      eldarion: Object.freeze({
+        id: "eldarion",
+        name: "Eldarion",
+        sex: "male",
+        kindred: "Half-elven",
+        groups: Object.freeze(["men", "elves", "half-elven"]),
+        title: "Heir of Aragorn and Arwen",
+        house: "House of Isildur",
+        realm: "Reunited Kingdom",
+        born: "Fourth Age",
+        died: "Unknown",
+        image: "assets/eldarion.png",
+        bio: "Eldarion is the son and heir of Aragorn and Arwen, continuing the reunited royal line into the Fourth Age.",
+        order: 40
+      }),
+
+      unknown_daughters: Object.freeze({
+        id: "unknown_daughters",
+        name: "Unknown Daughters",
+        sex: "female",
+        kindred: "Half-elven",
+        groups: Object.freeze(["men", "elves", "half-elven"]),
+        title: "Unnamed daughters of Aragorn and Arwen",
+        house: "House of Isildur",
+        realm: "Reunited Kingdom",
+        born: "Fourth Age",
+        died: "Unknown",
+        bio: "This aggregate record stands in for Aragorn and Arwen's daughters, who are mentioned but not named in the published legendarium.",
+        recordType: "aggregate",
+        isPlaceholder: true,
+        order: 41
+      }),
+
+      eldarion_wife: Object.freeze({
+        id: "eldarion_wife",
+        name: "Eldarion's Wife",
+        sex: "female",
+        kindred: "Man",
+        groups: Object.freeze(["men"]),
+        title: "Queen-consort in waiting",
+        house: "Unknown",
+        realm: "Reunited Kingdom",
+        born: "Fourth Age",
+        died: "Unknown",
+        bio: "This placeholder record keeps Eldarion's future union explicit in the graph so later descendants can attach cleanly.",
+        recordType: "placeholder",
+        isPlaceholder: true,
+        order: 42
+      }),
+
+      eldarion_son: Object.freeze({
+        id: "eldarion_son",
+        name: "Eldarion's Son",
+        sex: "male",
+        kindred: "Half-elven",
+        groups: Object.freeze(["men", "elves", "half-elven"]),
+        title: "Future heir placeholder",
+        house: "House of Isildur",
+        realm: "Reunited Kingdom",
+        born: "Fourth Age",
+        died: "Unknown",
+        bio: "This placeholder descendant exists to test deeper generations and future-proof the royal line renderer.",
+        recordType: "placeholder",
+        isPlaceholder: true,
+        order: 50
+      })
+    }),
+
+    unions: Object.freeze([
+      Object.freeze({
+        id: "union-elrond-celebrian",
+        partners: Object.freeze(["elrond", "celebrian"]),
+        children: Object.freeze(["arwen"]),
+        label: "Marriage"
+      }),
+
+      Object.freeze({
+        id: "union-aragorn-arwen",
+        partners: Object.freeze(["aragorn", "arwen"]),
+        children: Object.freeze(["eldarion", "unknown_daughters"]),
+        label: "Marriage"
+      }),
+
+      Object.freeze({
+        id: "union-eldarion-wife",
+        partners: Object.freeze(["eldarion", "eldarion_wife"]),
+        children: Object.freeze(["eldarion_son"]),
+        label: "Marriage"
+      })
+    ]),
+
+    views: Object.freeze({
+      aragorn_lineage: Object.freeze({
+        label: "Aragorn Lineage",
+        description: "The direct House of Isildur line around Aragorn, including ancestors, descendants, and direct spouses.",
+        seeds: Object.freeze(["aragorn"]),
+        roots: Object.freeze(["arador"]),
+        generationsUp: 10,
+        generationsDown: 10,
+        includeSpouses: true,
+        includeSpouseLineage: false
+      }),
+
+      all_lineages: Object.freeze({
+        label: "All Current Lineages",
+        description: "The combined Men and Elven branches currently modeled around Aragorn, Arwen, and Elrond's house.",
+        seeds: Object.freeze(["aragorn", "elrond"]),
+        roots: Object.freeze(["arador", "elrond"]),
+        generationsUp: 10,
+        generationsDown: 10,
+        includeSpouses: true,
+        includeSpouseLineage: false
+      }),
+
+      men_of_the_west: Object.freeze({
+        label: "Men of the West",
+        description: "The Dunedain and royal human branch, while still keeping direct spouses visible for context.",
+        seeds: Object.freeze(["arador"]),
+        roots: Object.freeze(["arador"]),
+        generationsUp: 10,
+        generationsDown: 10,
+        includeSpouses: true,
+        includeSpouseLineage: false
+      }),
+
+      elves_and_half_elven: Object.freeze({
+        label: "Elves and Half-elven",
+        description: "Elrond's household and its immediate ties into the royal house through Arwen.",
+        seeds: Object.freeze(["elrond"]),
+        roots: Object.freeze(["elrond"]),
+        generationsUp: 10,
+        generationsDown: 10,
+        includeSpouses: true,
+        includeSpouseLineage: false
+      }),
+
+      dwarves: Object.freeze({
+        label: "Dwarves",
+        description: "Reserved for the Dwarven houses and dynasties.",
+        emptyState: Object.freeze({
+          title: "Dwarf tree planned",
+          body: "This view is ready for Durin's line, Erebor, the Longbeards, and the other houses once you start adding them."
+        })
+      }),
+
+      hobbits: Object.freeze({
+        label: "Hobbits",
+        description: "Reserved for Hobbit genealogies such as the Baggins, Brandybucks, Tooks, and Gamgees.",
+        emptyState: Object.freeze({
+          title: "Hobbit tree planned",
+          body: "This view is ready for the Shire family lines once you start adding Hobbit records to the canonical dataset."
+        })
+      })
+    })
+  });
+})();
