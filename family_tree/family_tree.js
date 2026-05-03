@@ -278,6 +278,10 @@
         errors.push(`union "${union.id}".order must be a number when provided.`);
       }
 
+      if (union.partnerGap !== undefined && !Number.isFinite(union.partnerGap)) {
+        errors.push(`union "${union.id}".partnerGap must be a number when provided.`);
+      }
+
       if (union.partnerOrder !== undefined && !Array.isArray(union.partnerOrder)) {
         errors.push(`union "${union.id}".partnerOrder must be an array when provided.`);
       }
@@ -1017,9 +1021,10 @@
       const explicitLineagePartnerId = union.lineagePartner && partnerById.has(union.lineagePartner)
         ? union.lineagePartner
         : null;
+      const preferredGap = union.partnerGap ?? coupleGap;
 
       if (explicitLineagePartnerId) {
-        positionPartnersCentered(union, partnerById, average(partners.map((partner) => partner.centerX)), lineagePartnerGap);
+        positionPartnersCentered(union, partnerById, average(partners.map((partner) => partner.centerX)), union.partnerGap ?? lineagePartnerGap);
         return partners;
       }
 
@@ -1036,8 +1041,8 @@
 
           spouseBox.y = anchorBox.y;
           spouseBox.x = direction < 0
-            ? anchorBox.left - spouseBox.width - coupleGap
-            : anchorBox.right + coupleGap;
+            ? anchorBox.left - spouseBox.width - preferredGap
+            : anchorBox.right + preferredGap;
           syncBox(spouseBox);
           syncBox(anchorBox);
           return partners;
@@ -1063,7 +1068,7 @@
         return partners;
       }
 
-      positionPartnersCentered(union, partnerById, child.centerX, lineagePartnerGap);
+      positionPartnersCentered(union, partnerById, child.centerX, union.partnerGap ?? lineagePartnerGap);
       return partners;
     }
 

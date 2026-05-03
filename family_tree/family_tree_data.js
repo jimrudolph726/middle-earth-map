@@ -282,6 +282,7 @@
         id: "union-arathorn_second-gilraen",
         partners: Object.freeze(["arathorn_second", "gilraen"]),
         children: Object.freeze(["aragorn_second"]),
+        partnerGap: 18,
         lineagePartner: "arathorn_second",
         lineageChild: "aragorn_second",
         label: "Marriage",
