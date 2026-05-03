@@ -16,7 +16,7 @@ const samFrodoFirstSevenScenes = [
     milesTraveled: '18',
     pace: '3.6 mph',
     roadNotes: 'Evening march.',
-    imageFileName: 'scene-01-leaving-the-shire.png',
+    imageFileName: 'scene-01.png',
   },
   {
     markerKey: 'September24',
@@ -29,7 +29,7 @@ const samFrodoFirstSevenScenes = [
     milesTraveled: '28',
     pace: '3.5 mph',
     roadNotes: 'Black Riders, Elves.',
-    imageFileName: 'scene-02-black-riders-west-of-woodhall.png',
+    imageFileName: 'scene-02.png',
   },
   {
     markerKey: 'September25',
