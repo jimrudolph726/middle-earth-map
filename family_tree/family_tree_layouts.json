@@ -3,57 +3,13 @@
   "views": {
     "all_lineages": {
       "positions": {
-        "celeborn": {
-          "x": 21,
-          "y": -17
+        "celebrian": {
+          "x": 189,
+          "y": 300
         },
-        "earendil": {
-          "x": -946,
-          "y": -30
-        },
-        "elwing": {
-          "x": -553,
-          "y": -35
-        },
-        "elrond": {
-          "x": -547,
-          "y": 167
-        },
-        "elros": {
-          "x": -988,
-          "y": 173
-        },
-        "galadriel": {
-          "x": 345,
-          "y": -10
-        },
-        "gilraen": {
-          "x": -562,
-          "y": 605
-        },
-        "aragorn_second": {
-          "x": -766,
-          "y": 771
-        },
-        "arathorn_second": {
-          "x": -972,
-          "y": 598
-        },
-        "arwen": {
-          "x": -184,
-          "y": 746
-        },
-        "eldarion": {
-          "x": -597,
-          "y": 962
-        },
-        "unknown_daughters": {
-          "x": -343,
-          "y": 956
-        },
-        "test": {
-          "x": 43,
-          "y": 756
+        "arador": {
+          "x": -971,
+          "y": 404
         }
       }
     },
