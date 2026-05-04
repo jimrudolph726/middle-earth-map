@@ -198,6 +198,7 @@ const storyState = {
   routeLayer: null,
   sceneMarkersLayer: null,
   imageLoadToken: 0,
+  imageCache: new Map(),
 };
 
 const STORY_AUTOPLAY_MS = 4500;
@@ -290,6 +291,40 @@ const hideStoryImagePlaceholder = () => {
   storySceneImagePlaceholder?.classList.add('story-panel__placeholder--hidden');
 };
 
+const preloadStoryImage = (scene) => {
+  if (!scene?.image) {
+    return Promise.reject(new Error('Scene image is missing.'));
+  }
+
+  const existing = storyState.imageCache.get(scene.image);
+  if (existing) {
+    return existing;
+  }
+
+  const imagePromise = new Promise((resolve, reject) => {
+    const preloadedImage = new Image();
+
+    preloadedImage.onload = () => resolve(scene.image);
+    preloadedImage.onerror = () => reject(new Error(`Could not load ${scene.image}`));
+    preloadedImage.src = scene.image;
+  });
+
+  storyState.imageCache.set(scene.image, imagePromise);
+  return imagePromise;
+};
+
+const primeStoryImages = (story) => {
+  if (!story?.scenes?.length) {
+    return;
+  }
+
+  story.scenes.forEach((scene) => {
+    preloadStoryImage(scene).catch(() => {
+      // Missing story art is allowed; the placeholder will handle it if needed.
+    });
+  });
+};
+
 const setStoryImage = (scene) => {
   const imageLoadToken = storyState.imageLoadToken + 1;
   storyState.imageLoadToken = imageLoadToken;
@@ -298,30 +333,25 @@ const setStoryImage = (scene) => {
   storySceneImage.dataset.expectedPath = scene.imageRelativePath;
   storySceneImage.onload = null;
   storySceneImage.onerror = null;
-  storySceneImage.removeAttribute('src');
-  storySceneImage.classList.add('story-panel__image--hidden');
-  storySceneImagePlaceholder?.classList.add('story-panel__placeholder--hidden');
 
-  const preloadedImage = new Image();
+  preloadStoryImage(scene)
+    .then(() => {
+      if (storyState.imageLoadToken !== imageLoadToken) {
+        return;
+      }
 
-  preloadedImage.onload = () => {
-    if (storyState.imageLoadToken !== imageLoadToken) {
-      return;
-    }
+      if (storySceneImage.src !== scene.image) {
+        storySceneImage.src = scene.image;
+      }
+      hideStoryImagePlaceholder();
+    })
+    .catch(() => {
+      if (storyState.imageLoadToken !== imageLoadToken) {
+        return;
+      }
 
-    storySceneImage.src = scene.image;
-    hideStoryImagePlaceholder();
-  };
-
-  preloadedImage.onerror = () => {
-    if (storyState.imageLoadToken !== imageLoadToken) {
-      return;
-    }
-
-    showStoryImagePlaceholder(scene);
-  };
-
-  preloadedImage.src = scene.image;
+      showStoryImagePlaceholder(scene);
+    });
 };
 
 const updateStoryHighlight = (coords) => {
@@ -466,6 +496,7 @@ const beginStoryMode = (storyId) => {
     center: map.getCenter(),
     zoom: map.getZoom(),
   };
+  primeStoryImages(story);
   ensureStoryLayersVisible(story);
   setCampsiteHoverPopupsEnabled(false);
   map.closePopup();
