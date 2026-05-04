@@ -60,78 +60,7 @@
           "y": 808
         }
       }
-    },
-    "aragorn_lineage": {
-      "positions": {
-        "arador": {
-          "x": -88,
-          "y": 101
-        },
-        "gilraen": {
-          "x": 236,
-          "y": 312
-        },
-        "aragorn_second": {
-          "x": 77,
-          "y": 492
-        },
-        "arathorn_second": {
-          "x": -88,
-          "y": 318
-        }
-      }
-    },
-    "elves_and_half_elven": {
-      "positions": {
-        "celeborn": {
-          "x": 601,
-          "y": 37
-        },
-        "earendil": {
-          "x": -19,
-          "y": 60
-        },
-        "elwing": {
-          "x": 325,
-          "y": 44
-        },
-        "elrond": {
-          "x": 158,
-          "y": 316
-        },
-        "galadriel": {
-          "x": 983,
-          "y": 51
-        },
-        "celebrian": {
-          "x": 798,
-          "y": 281
-        },
-        "arador": {
-          "x": -529,
-          "y": 78
-        },
-        "gilraen": {
-          "x": -210,
-          "y": 303
-        },
-        "aragorn_second": {
-          "x": -372,
-          "y": 508
-        },
-        "arathorn_second": {
-          "x": -526,
-          "y": 294
-        },
-        "arwen": {
-          "x": 481,
-          "y": 523
-        },
-        "eldarion": {
-          "x": 49,
-          "y": 708
-        }
-      }
     }
   }
 }
+
