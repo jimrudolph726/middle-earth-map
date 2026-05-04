@@ -108,9 +108,179 @@
       <div class="layout-editor-panel__actions">
         <button id="layout-editor-toggle" type="button">Enable Dragging</button>
         <button id="layout-editor-save" type="button">Save To Browser</button>
-        <button id="layout-editor-download" type="button">Download Publish File</button>
+        <button id="layout-editor-download" type="button">Download Publish Files</button>
         <button id="layout-editor-reset" type="button">Reset This View</button>
+        <button id="layout-editor-clear-drafts" type="button">Clear Browser Drafts</button>
       </div>
+
+      <section class="layout-editor-section" aria-labelledby="person-editor-heading">
+        <div class="layout-editor-section__header">
+          <h2 id="person-editor-heading">People</h2>
+          <button id="person-editor-new" type="button">New Person</button>
+        </div>
+
+        <label class="layout-editor-field" for="person-editor-select">
+          <span>Load existing person</span>
+          <select id="person-editor-select"></select>
+        </label>
+
+        <div class="layout-editor-grid">
+          <label class="layout-editor-field" for="person-editor-id">
+            <span>ID</span>
+            <input id="person-editor-id" type="text" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-name">
+            <span>Name</span>
+            <input id="person-editor-name" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-order">
+            <span>Order</span>
+            <input id="person-editor-order" type="number" step="1" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-sex">
+            <span>Sex</span>
+            <input id="person-editor-sex" type="text" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-title">
+            <span>Title</span>
+            <input id="person-editor-title" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-kindred">
+            <span>Kindred</span>
+            <input id="person-editor-kindred" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-house">
+            <span>House</span>
+            <input id="person-editor-house" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-realm">
+            <span>Realm</span>
+            <input id="person-editor-realm" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-born">
+            <span>Born</span>
+            <input id="person-editor-born" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-died">
+            <span>Died</span>
+            <input id="person-editor-died" type="text" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-image">
+            <span>Image</span>
+            <input id="person-editor-image" type="text" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-groups">
+            <span>Groups (comma separated)</span>
+            <input id="person-editor-groups" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="person-editor-record-type">
+            <span>Record Type</span>
+            <input id="person-editor-record-type" type="text" placeholder="person / aggregate / placeholder" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--checkbox" for="person-editor-placeholder">
+            <input id="person-editor-placeholder" type="checkbox" />
+            <span>Placeholder / aggregate helper node</span>
+          </label>
+        </div>
+
+        <label class="layout-editor-field" for="person-editor-bio">
+          <span>Biography</span>
+          <textarea id="person-editor-bio" rows="5"></textarea>
+        </label>
+
+        <div class="layout-editor-panel__actions layout-editor-panel__actions--single">
+          <button id="person-editor-save" type="button">Save Person</button>
+        </div>
+      </section>
+
+      <section class="layout-editor-section" aria-labelledby="union-editor-heading">
+        <div class="layout-editor-section__header">
+          <h2 id="union-editor-heading">Unions</h2>
+          <button id="union-editor-new" type="button">New Union</button>
+        </div>
+
+        <label class="layout-editor-field" for="union-editor-select">
+          <span>Load existing union</span>
+          <select id="union-editor-select"></select>
+        </label>
+
+        <div class="layout-editor-grid">
+          <label class="layout-editor-field" for="union-editor-id">
+            <span>ID</span>
+            <input id="union-editor-id" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="union-editor-order">
+            <span>Order</span>
+            <input id="union-editor-order" type="number" step="1" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-label">
+            <span>Label</span>
+            <input id="union-editor-label" type="text" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-partners">
+            <span>Partners (comma separated IDs)</span>
+            <input id="union-editor-partners" type="text" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-children">
+            <span>Children (comma separated IDs)</span>
+            <input id="union-editor-children" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="union-editor-lineage-partner">
+            <span>Lineage Partner</span>
+            <input id="union-editor-lineage-partner" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="union-editor-lineage-child">
+            <span>Lineage Child</span>
+            <input id="union-editor-lineage-child" type="text" />
+          </label>
+
+          <label class="layout-editor-field" for="union-editor-partner-gap">
+            <span>Partner Gap</span>
+            <input id="union-editor-partner-gap" type="number" step="1" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-partner-order">
+            <span>Partner Order (comma separated IDs)</span>
+            <input id="union-editor-partner-order" type="text" />
+          </label>
+
+          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-child-order">
+            <span>Child Order (comma separated IDs)</span>
+            <input id="union-editor-child-order" type="text" />
+          </label>
+        </div>
+
+        <div class="layout-editor-grid">
+          <label class="layout-editor-field layout-editor-field--wide" for="union-attach-child-select">
+            <span>Attach child to loaded union</span>
+            <select id="union-attach-child-select"></select>
+          </label>
+        </div>
+
+        <div class="layout-editor-panel__actions">
+          <button id="union-editor-save" type="button">Save Union</button>
+          <button id="union-editor-attach-child" type="button">Attach Child</button>
+        </div>
+      </section>
     </aside>
 
     <div id="tree-empty-state" class="tree-empty-state hidden" role="status" aria-live="polite">
@@ -131,8 +301,6 @@
     </div>
   </section>
 
-  <script src="family_tree_data.js"></script>
-  <script src="family_tree_layouts.js"></script>
   <script src="family_tree.js"></script>
 </body>
 </html>

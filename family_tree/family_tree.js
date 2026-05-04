@@ -1,5 +1,5 @@
 (function () {
-  const data = window.FAMILY_TREE_DATA;
+  let data = window.FAMILY_TREE_DATA || null;
   const treeHost = document.getElementById("family-tree-host");
   const treeWrapper = document.getElementById("tree");
   const viewSelect = document.getElementById("tree-view");
@@ -21,6 +21,40 @@
   const layoutEditorSave = document.getElementById("layout-editor-save");
   const layoutEditorDownload = document.getElementById("layout-editor-download");
   const layoutEditorReset = document.getElementById("layout-editor-reset");
+  const layoutEditorClearDrafts = document.getElementById("layout-editor-clear-drafts");
+  const personEditorSelect = document.getElementById("person-editor-select");
+  const personEditorNew = document.getElementById("person-editor-new");
+  const personEditorSave = document.getElementById("person-editor-save");
+  const personEditorId = document.getElementById("person-editor-id");
+  const personEditorName = document.getElementById("person-editor-name");
+  const personEditorOrder = document.getElementById("person-editor-order");
+  const personEditorSex = document.getElementById("person-editor-sex");
+  const personEditorTitle = document.getElementById("person-editor-title");
+  const personEditorKindred = document.getElementById("person-editor-kindred");
+  const personEditorHouse = document.getElementById("person-editor-house");
+  const personEditorRealm = document.getElementById("person-editor-realm");
+  const personEditorBorn = document.getElementById("person-editor-born");
+  const personEditorDied = document.getElementById("person-editor-died");
+  const personEditorImage = document.getElementById("person-editor-image");
+  const personEditorGroups = document.getElementById("person-editor-groups");
+  const personEditorRecordType = document.getElementById("person-editor-record-type");
+  const personEditorPlaceholder = document.getElementById("person-editor-placeholder");
+  const personEditorBio = document.getElementById("person-editor-bio");
+  const unionEditorSelect = document.getElementById("union-editor-select");
+  const unionEditorNew = document.getElementById("union-editor-new");
+  const unionEditorSave = document.getElementById("union-editor-save");
+  const unionEditorAttachChild = document.getElementById("union-editor-attach-child");
+  const unionEditorId = document.getElementById("union-editor-id");
+  const unionEditorOrder = document.getElementById("union-editor-order");
+  const unionEditorLabel = document.getElementById("union-editor-label");
+  const unionEditorPartners = document.getElementById("union-editor-partners");
+  const unionEditorChildren = document.getElementById("union-editor-children");
+  const unionEditorLineagePartner = document.getElementById("union-editor-lineage-partner");
+  const unionEditorLineageChild = document.getElementById("union-editor-lineage-child");
+  const unionEditorPartnerGap = document.getElementById("union-editor-partner-gap");
+  const unionEditorPartnerOrder = document.getElementById("union-editor-partner-order");
+  const unionEditorChildOrder = document.getElementById("union-editor-child-order");
+  const unionAttachChildSelect = document.getElementById("union-attach-child-select");
   const treeHint = document.getElementById("tree-hint");
   const characterSheet = document.getElementById("character-sheet");
   const backToTreeButton = document.getElementById("back-to-tree");
@@ -40,8 +74,11 @@
   const minimapWidth = 220;
   const minimapHeight = 140;
   const minimapPadding = 10;
+  const treeDataDraftStorageKey = "middle-earth-family-tree-data-drafts-v1";
   const layoutDraftStorageKey = "middle-earth-family-tree-layout-drafts-v1";
-  const fileLayouts = window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} };
+  const treeDataUrl = "family_tree_data.json";
+  const treeLayoutsUrl = "family_tree_layouts.json";
+  let fileLayouts = window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} };
 
   const elk = window.ELK ? new window.ELK() : null;
 
@@ -65,7 +102,9 @@
       draggingEnabled: false,
       didDrag: false,
       dragStarted: false,
-      drafts: { version: 1, views: {} }
+      drafts: { version: 1, views: {} },
+      activePersonId: null,
+      activeUnionId: null
     }
   };
 
@@ -98,6 +137,42 @@
     return JSON.parse(JSON.stringify(value));
   }
 
+  function loadDataDraft() {
+    try {
+      const raw = window.localStorage.getItem(treeDataDraftStorageKey);
+      if (!raw) {
+        return null;
+      }
+
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || typeof parsed.people !== "object" || parsed.people === null) {
+        return null;
+      }
+
+      return parsed;
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function saveDataDraft() {
+    try {
+      window.localStorage.setItem(treeDataDraftStorageKey, JSON.stringify(normalizeDataForExport(data)));
+      return true;
+    } catch (_error) {
+      return false;
+    }
+  }
+
+  function clearDataDraft() {
+    try {
+      window.localStorage.removeItem(treeDataDraftStorageKey);
+      return true;
+    } catch (_error) {
+      return false;
+    }
+  }
+
   function loadLayoutDrafts() {
     try {
       const raw = window.localStorage.getItem(layoutDraftStorageKey);
@@ -122,6 +197,16 @@
   function saveLayoutDrafts() {
     try {
       window.localStorage.setItem(layoutDraftStorageKey, JSON.stringify(state.layoutEditor.drafts));
+      return true;
+    } catch (_error) {
+      return false;
+    }
+  }
+
+  function clearLayoutDrafts() {
+    try {
+      window.localStorage.removeItem(layoutDraftStorageKey);
+      state.layoutEditor.drafts = { version: 1, views: {} };
       return true;
     } catch (_error) {
       return false;
@@ -184,12 +269,8 @@
     return merged;
   }
 
-  function formatLayoutsAsJavaScript(layouts) {
-    return `window.FAMILY_TREE_LAYOUTS = ${JSON.stringify(layouts, null, 2)};\n`;
-  }
-
-  function downloadTextFile(filename, content) {
-    const blob = new Blob([content], { type: "application/javascript;charset=utf-8" });
+  function downloadTextFile(filename, content, mimeType = "text/plain;charset=utf-8") {
+    const blob = new Blob([content], { type: mimeType });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
@@ -214,6 +295,476 @@
     box.centerX = box.x + box.width / 2;
     box.centerY = box.y + box.height / 2;
     return box;
+  }
+
+  async function loadJsonFile(url, fallbackValue) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`${url} returned ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      if (fallbackValue) {
+        return fallbackValue;
+      }
+
+      if (window.location.protocol === "file:") {
+        throw new Error(`Could not load ${url}. JSON-backed family trees need to be served from a local web server or static site host, not opened directly with file://.`);
+      }
+
+      throw error;
+    }
+  }
+
+  async function loadTreeFiles() {
+    const [loadedData, loadedLayouts] = await Promise.all([
+      loadJsonFile(treeDataUrl, window.FAMILY_TREE_DATA || null),
+      loadJsonFile(treeLayoutsUrl, window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} })
+    ]);
+
+    data = loadDataDraft() || loadedData;
+    fileLayouts = loadedLayouts && typeof loadedLayouts === "object"
+      ? loadedLayouts
+      : { version: 1, views: {} };
+  }
+
+  function parseCsvIds(value) {
+    return String(value || "")
+      .split(",")
+      .map((part) => part.trim())
+      .filter(Boolean);
+  }
+
+  function parseOptionalNumber(value) {
+    if (value === "" || value === null || value === undefined) {
+      return undefined;
+    }
+
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : undefined;
+  }
+
+  function toSortedPersonEntries(dataset) {
+    return Object.entries(dataset.people || {})
+      .sort(([leftId, leftPerson], [rightId, rightPerson]) => {
+        const leftOrder = leftPerson?.order ?? Number.MAX_SAFE_INTEGER;
+        const rightOrder = rightPerson?.order ?? Number.MAX_SAFE_INTEGER;
+
+        if (leftOrder !== rightOrder) {
+          return leftOrder - rightOrder;
+        }
+
+        return String(leftId).localeCompare(String(rightId));
+      });
+  }
+
+  function getSortedUnionEntries(dataset) {
+    return (dataset.unions || [])
+      .slice()
+      .sort((left, right) => {
+        const leftOrder = left.order ?? Number.MAX_SAFE_INTEGER;
+        const rightOrder = right.order ?? Number.MAX_SAFE_INTEGER;
+        if (leftOrder !== rightOrder) {
+          return leftOrder - rightOrder;
+        }
+
+        return String(left.id).localeCompare(String(right.id));
+      });
+  }
+
+  function normalizeDataForExport(dataset) {
+    const normalizedPeople = {};
+    toSortedPersonEntries(dataset).forEach(([personId, person]) => {
+      normalizedPeople[personId] = cloneJson(person);
+    });
+
+    return {
+      defaults: cloneJson(dataset.defaults || {}),
+      people: normalizedPeople,
+      unions: getSortedUnionEntries(dataset).map((union) => cloneJson(union)),
+      views: cloneJson(dataset.views || {})
+    };
+  }
+
+  function normalizeLayoutsForExport(layouts) {
+    const normalized = { version: 1, views: {} };
+    Object.keys(layouts.views || {})
+      .sort((left, right) => left.localeCompare(right))
+      .forEach((viewId) => {
+        const positions = layouts.views[viewId]?.positions || {};
+        const sortedPositions = {};
+        Object.keys(positions)
+          .sort((left, right) => comparePeopleIds(left, right))
+          .forEach((personId) => {
+            sortedPositions[personId] = {
+              x: Math.round(positions[personId].x),
+              y: Math.round(positions[personId].y)
+            };
+          });
+
+        normalized.views[viewId] = { positions: sortedPositions };
+      });
+
+    return normalized;
+  }
+
+  function downloadJsonFile(filename, value) {
+    downloadTextFile(filename, `${JSON.stringify(value, null, 2)}\n`, "application/json;charset=utf-8");
+  }
+
+  function refreshLayoutEditorData() {
+    if (!state.layoutEditor.available) {
+      return;
+    }
+
+    const peopleEntries = toSortedPersonEntries(data);
+    const unionEntries = getSortedUnionEntries(data);
+
+    if (personEditorSelect) {
+      personEditorSelect.innerHTML = `
+        <option value="">Select a person…</option>
+        ${peopleEntries.map(([personId, person]) => `<option value="${escapeHtml(personId)}">${escapeHtml(person.name)} (${escapeHtml(personId)})</option>`).join("")}
+      `;
+      if (state.layoutEditor.activePersonId && data.people[state.layoutEditor.activePersonId]) {
+        personEditorSelect.value = state.layoutEditor.activePersonId;
+      }
+    }
+
+    if (unionEditorSelect) {
+      unionEditorSelect.innerHTML = `
+        <option value="">Select a union…</option>
+        ${unionEntries.map((union) => `<option value="${escapeHtml(union.id)}">${escapeHtml(union.id)} (${escapeHtml((union.partners || []).join(" + "))})</option>`).join("")}
+      `;
+      if (state.layoutEditor.activeUnionId && (data.unions || []).some((union) => union.id === state.layoutEditor.activeUnionId)) {
+        unionEditorSelect.value = state.layoutEditor.activeUnionId;
+      }
+    }
+
+    if (unionAttachChildSelect) {
+      unionAttachChildSelect.innerHTML = `
+        <option value="">Select a child…</option>
+        ${peopleEntries.map(([personId, person]) => `<option value="${escapeHtml(personId)}">${escapeHtml(person.name)} (${escapeHtml(personId)})</option>`).join("")}
+      `;
+    }
+  }
+
+  function clearPersonEditor() {
+    state.layoutEditor.activePersonId = null;
+    if (personEditorSelect) personEditorSelect.value = "";
+    if (personEditorId) personEditorId.value = "";
+    if (personEditorName) personEditorName.value = "";
+    if (personEditorOrder) personEditorOrder.value = "";
+    if (personEditorSex) personEditorSex.value = "";
+    if (personEditorTitle) personEditorTitle.value = "";
+    if (personEditorKindred) personEditorKindred.value = "";
+    if (personEditorHouse) personEditorHouse.value = "";
+    if (personEditorRealm) personEditorRealm.value = "";
+    if (personEditorBorn) personEditorBorn.value = "";
+    if (personEditorDied) personEditorDied.value = "";
+    if (personEditorImage) personEditorImage.value = "";
+    if (personEditorGroups) personEditorGroups.value = "";
+    if (personEditorRecordType) personEditorRecordType.value = "";
+    if (personEditorPlaceholder) personEditorPlaceholder.checked = false;
+    if (personEditorBio) personEditorBio.value = "";
+  }
+
+  function loadPersonIntoEditor(personId) {
+    const person = getPersonById(personId);
+    if (!person) {
+      clearPersonEditor();
+      return;
+    }
+
+    state.layoutEditor.activePersonId = personId;
+    if (personEditorSelect) personEditorSelect.value = personId;
+    personEditorId.value = person.id || "";
+    personEditorName.value = person.name || "";
+    personEditorOrder.value = person.order ?? "";
+    personEditorSex.value = person.sex || "";
+    personEditorTitle.value = person.title || "";
+    personEditorKindred.value = person.kindred || "";
+    personEditorHouse.value = person.house || "";
+    personEditorRealm.value = person.realm || "";
+    personEditorBorn.value = person.born || "";
+    personEditorDied.value = person.died || "";
+    personEditorImage.value = person.image || "";
+    personEditorGroups.value = (person.groups || []).join(", ");
+    personEditorRecordType.value = person.recordType || "";
+    personEditorPlaceholder.checked = Boolean(person.isPlaceholder);
+    personEditorBio.value = person.bio || "";
+  }
+
+  function clearUnionEditor() {
+    state.layoutEditor.activeUnionId = null;
+    if (unionEditorSelect) unionEditorSelect.value = "";
+    if (unionEditorId) unionEditorId.value = "";
+    if (unionEditorOrder) unionEditorOrder.value = "";
+    if (unionEditorLabel) unionEditorLabel.value = "";
+    if (unionEditorPartners) unionEditorPartners.value = "";
+    if (unionEditorChildren) unionEditorChildren.value = "";
+    if (unionEditorLineagePartner) unionEditorLineagePartner.value = "";
+    if (unionEditorLineageChild) unionEditorLineageChild.value = "";
+    if (unionEditorPartnerGap) unionEditorPartnerGap.value = "";
+    if (unionEditorPartnerOrder) unionEditorPartnerOrder.value = "";
+    if (unionEditorChildOrder) unionEditorChildOrder.value = "";
+    if (unionAttachChildSelect) unionAttachChildSelect.value = "";
+  }
+
+  function loadUnionIntoEditor(unionId) {
+    const union = (data.unions || []).find((entry) => entry.id === unionId);
+    if (!union) {
+      clearUnionEditor();
+      return;
+    }
+
+    state.layoutEditor.activeUnionId = unionId;
+    if (unionEditorSelect) unionEditorSelect.value = unionId;
+    unionEditorId.value = union.id || "";
+    unionEditorOrder.value = union.order ?? "";
+    unionEditorLabel.value = union.label || "";
+    unionEditorPartners.value = (union.partners || []).join(", ");
+    unionEditorChildren.value = (union.children || []).join(", ");
+    unionEditorLineagePartner.value = union.lineagePartner || "";
+    unionEditorLineageChild.value = union.lineageChild || "";
+    unionEditorPartnerGap.value = union.partnerGap ?? "";
+    unionEditorPartnerOrder.value = (union.partnerOrder || []).join(", ");
+    unionEditorChildOrder.value = (union.childOrder || []).join(", ");
+    if (unionAttachChildSelect) unionAttachChildSelect.value = "";
+  }
+
+  function applyCandidateData(candidateData, successMessage) {
+    const normalizedData = normalizeDataForExport(candidateData);
+    buildIndexes(normalizedData);
+    data = normalizedData;
+    state.indexes = buildIndexes();
+    refreshLayoutEditorData();
+    saveDataDraft();
+    saveLayoutDrafts();
+    setLayoutEditorStatus(successMessage);
+    requestRender({
+      viewId: state.currentViewId || getInitialViewId(),
+      fit: false,
+      preserveCollapsed: true
+    });
+  }
+
+  function savePersonFromEditor() {
+    const nextId = String(personEditorId?.value || "").trim();
+    const name = String(personEditorName?.value || "").trim();
+
+    if (!nextId) {
+      setLayoutEditorStatus("A person needs an ID before it can be saved.");
+      return;
+    }
+
+    if (!name) {
+      setLayoutEditorStatus("A person needs a name before it can be saved.");
+      return;
+    }
+
+    const previousId = state.layoutEditor.activePersonId;
+    const isRename = previousId && previousId !== nextId;
+    const candidate = cloneJson(data);
+
+    if (isRename && candidate.people[nextId]) {
+      setLayoutEditorStatus(`The person ID "${nextId}" already exists, so that rename cannot be saved.`);
+      return;
+    }
+
+    const personRecord = {
+      id: nextId,
+      name,
+      order: parseOptionalNumber(personEditorOrder?.value),
+      sex: String(personEditorSex?.value || "").trim() || undefined,
+      title: String(personEditorTitle?.value || "").trim() || undefined,
+      kindred: String(personEditorKindred?.value || "").trim() || undefined,
+      house: String(personEditorHouse?.value || "").trim() || undefined,
+      realm: String(personEditorRealm?.value || "").trim() || undefined,
+      born: String(personEditorBorn?.value || "").trim() || undefined,
+      died: String(personEditorDied?.value || "").trim() || undefined,
+      image: String(personEditorImage?.value || "").trim() || undefined,
+      groups: parseCsvIds(personEditorGroups?.value),
+      recordType: String(personEditorRecordType?.value || "").trim() || undefined,
+      isPlaceholder: Boolean(personEditorPlaceholder?.checked),
+      bio: String(personEditorBio?.value || "").trim() || undefined
+    };
+
+    Object.keys(personRecord).forEach((key) => {
+      const value = personRecord[key];
+      if (value === undefined || (Array.isArray(value) && value.length === 0) || (key === "isPlaceholder" && value === false)) {
+        delete personRecord[key];
+      }
+    });
+
+    if (isRename) {
+      delete candidate.people[previousId];
+      (candidate.unions || []).forEach((union) => {
+        union.partners = (union.partners || []).map((partnerId) => partnerId === previousId ? nextId : partnerId);
+        union.children = (union.children || []).map((childId) => childId === previousId ? nextId : childId);
+        if (union.lineagePartner === previousId) union.lineagePartner = nextId;
+        if (union.lineageChild === previousId) union.lineageChild = nextId;
+        if (Array.isArray(union.partnerOrder)) {
+          union.partnerOrder = union.partnerOrder.map((partnerId) => partnerId === previousId ? nextId : partnerId);
+        }
+        if (Array.isArray(union.childOrder)) {
+          union.childOrder = union.childOrder.map((childId) => childId === previousId ? nextId : childId);
+        }
+      });
+
+      Object.values(candidate.views || {}).forEach((view) => {
+        ["seeds", "roots"].forEach((key) => {
+          if (Array.isArray(view[key])) {
+            view[key] = view[key].map((personId) => personId === previousId ? nextId : personId);
+          }
+        });
+
+        if (view.filters) {
+          ["includePersonIds", "excludePersonIds", "alwaysInclude"].forEach((key) => {
+            if (Array.isArray(view.filters[key])) {
+              view.filters[key] = view.filters[key].map((personId) => personId === previousId ? nextId : personId);
+            }
+          });
+        }
+      });
+
+      Object.values(state.layoutEditor.drafts.views || {}).forEach((viewLayout) => {
+        if (viewLayout.positions && viewLayout.positions[previousId]) {
+          viewLayout.positions[nextId] = viewLayout.positions[previousId];
+          delete viewLayout.positions[previousId];
+        }
+      });
+
+      Object.values(fileLayouts.views || {}).forEach((viewLayout) => {
+        if (viewLayout.positions && viewLayout.positions[previousId]) {
+          viewLayout.positions[nextId] = viewLayout.positions[previousId];
+          delete viewLayout.positions[previousId];
+        }
+      });
+    }
+
+    candidate.people[nextId] = personRecord;
+
+    try {
+      applyCandidateData(candidate, isRename
+        ? `Saved ${name} and renamed ${previousId} to ${nextId}.`
+        : `Saved ${name}.`);
+      state.layoutEditor.activePersonId = nextId;
+      refreshLayoutEditorData();
+      loadPersonIntoEditor(nextId);
+    } catch (error) {
+      setLayoutEditorStatus(error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  function buildUnionRecordFromEditor() {
+    const unionId = String(unionEditorId?.value || "").trim();
+    if (!unionId) {
+      throw new Error("A union needs an ID before it can be saved.");
+    }
+
+    const partners = parseCsvIds(unionEditorPartners?.value);
+    const children = parseCsvIds(unionEditorChildren?.value);
+
+    if (partners.length === 0) {
+      throw new Error("A union needs at least one partner.");
+    }
+
+    return {
+      id: unionId,
+      partners,
+      children,
+      label: String(unionEditorLabel?.value || "").trim() || "Family",
+      order: parseOptionalNumber(unionEditorOrder?.value),
+      lineagePartner: String(unionEditorLineagePartner?.value || "").trim() || undefined,
+      lineageChild: String(unionEditorLineageChild?.value || "").trim() || undefined,
+      partnerGap: parseOptionalNumber(unionEditorPartnerGap?.value),
+      partnerOrder: parseCsvIds(unionEditorPartnerOrder?.value),
+      childOrder: parseCsvIds(unionEditorChildOrder?.value)
+    };
+  }
+
+  function saveUnionFromEditor() {
+    let unionRecord;
+    try {
+      unionRecord = buildUnionRecordFromEditor();
+    } catch (error) {
+      setLayoutEditorStatus(error instanceof Error ? error.message : String(error));
+      return;
+    }
+
+    Object.keys(unionRecord).forEach((key) => {
+      const value = unionRecord[key];
+      if (value === undefined || (Array.isArray(value) && value.length === 0)) {
+        delete unionRecord[key];
+      }
+    });
+
+    const candidate = cloneJson(data);
+    const previousId = state.layoutEditor.activeUnionId;
+    const existingIndex = (candidate.unions || []).findIndex((union) => union.id === previousId || union.id === unionRecord.id);
+
+    if (previousId && previousId !== unionRecord.id) {
+      const duplicateIndex = (candidate.unions || []).findIndex((union) => union.id === unionRecord.id);
+      if (duplicateIndex !== -1 && candidate.unions[duplicateIndex].id !== previousId) {
+        setLayoutEditorStatus(`The union ID "${unionRecord.id}" already exists, so that rename cannot be saved.`);
+        return;
+      }
+    }
+
+    if (existingIndex === -1) {
+      candidate.unions.push(unionRecord);
+    } else {
+      candidate.unions[existingIndex] = unionRecord;
+    }
+
+    try {
+      applyCandidateData(candidate, `Saved union ${unionRecord.id}.`);
+      state.layoutEditor.activeUnionId = unionRecord.id;
+      refreshLayoutEditorData();
+      loadUnionIntoEditor(unionRecord.id);
+    } catch (error) {
+      setLayoutEditorStatus(error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  function attachChildToLoadedUnion() {
+    const unionId = state.layoutEditor.activeUnionId || unionEditorSelect?.value;
+    const childId = unionAttachChildSelect?.value;
+
+    if (!unionId) {
+      setLayoutEditorStatus("Load or create a union first, then attach a child to it.");
+      return;
+    }
+
+    if (!childId) {
+      setLayoutEditorStatus("Choose a child to attach to the loaded union.");
+      return;
+    }
+
+    const candidate = cloneJson(data);
+    const union = (candidate.unions || []).find((entry) => entry.id === unionId);
+    if (!union) {
+      setLayoutEditorStatus(`Could not find union ${unionId}.`);
+      return;
+    }
+
+    if (!Array.isArray(union.children)) {
+      union.children = [];
+    }
+
+    if (!union.children.includes(childId)) {
+      union.children.push(childId);
+    }
+
+    try {
+      applyCandidateData(candidate, `Attached ${getPersonById(childId)?.name || childId} to ${unionId}.`);
+      state.layoutEditor.activeUnionId = unionId;
+      loadUnionIntoEditor(unionId);
+    } catch (error) {
+      setLayoutEditorStatus(error instanceof Error ? error.message : String(error));
+    }
   }
 
   function renderError(message) {
@@ -367,22 +918,22 @@
     return "Lineage record";
   }
 
-  function getPersonById(personId) {
-    return data.people[personId] || null;
+  function getPersonById(personId, dataset = data) {
+    return dataset?.people?.[personId] || null;
   }
 
   function getUnionById(unionId) {
     return state.indexes.unionById.get(unionId) || null;
   }
 
-  function buildIndexes() {
-    const personIds = new Set(Object.keys(data.people));
+  function buildIndexes(dataset = data) {
+    const personIds = new Set(Object.keys(dataset.people || {}));
     const unionById = new Map();
     const unionsByPartner = new Map();
     const parentUnionByChild = new Map();
     const errors = [];
 
-    Object.entries(data.people).forEach(([personId, person]) => {
+    Object.entries(dataset.people || {}).forEach(([personId, person]) => {
       if (person.id !== personId) {
         errors.push(`people.${personId}.id must match its key.`);
       }
@@ -392,7 +943,7 @@
       }
     });
 
-    data.unions.forEach((union, index) => {
+    (dataset.unions || []).forEach((union, index) => {
       if (!union.id) {
         errors.push(`unions[${index}] is missing an id.`);
         return;
@@ -488,7 +1039,7 @@
       });
     });
 
-    Object.entries(data.views).forEach(([viewId, view]) => {
+    Object.entries(dataset.views || {}).forEach(([viewId, view]) => {
       (view.seeds || []).forEach((seedId) => {
         if (!personIds.has(seedId)) {
           errors.push(`view "${viewId}" references missing seed "${seedId}".`);
@@ -2670,7 +3221,7 @@
     });
   }
 
-  function init() {
+  async function init() {
     if (!window.d3) {
       renderError("D3 did not load, so the custom family tree renderer cannot start.");
       return;
@@ -2682,12 +3233,16 @@
     }
 
     try {
+      await loadTreeFiles();
       state.layoutEditor.available = isLayoutEditorRequested();
       state.layoutEditor.draggingEnabled = state.layoutEditor.available;
       state.layoutEditor.drafts = loadLayoutDrafts();
       state.indexes = buildIndexes();
       state.scene = initializeScene();
       populateViewSelect();
+      refreshLayoutEditorData();
+      clearPersonEditor();
+      clearUnionEditor();
       initMinimapInteractions();
       updateLayoutEditorChrome();
 
@@ -2739,18 +3294,21 @@
 
       if (layoutEditorSave) {
         layoutEditorSave.addEventListener("click", () => {
-          const saved = saveLayoutDrafts();
-          setLayoutEditorStatus(saved
-            ? `Saved the current manual layouts to this browser. ${data.views[state.currentViewId].label} will now reopen with these card positions here.`
-            : "This browser blocked local saving, so the draft could not be saved here.");
+          const layoutSaved = saveLayoutDrafts();
+          const dataSaved = saveDataDraft();
+          setLayoutEditorStatus(layoutSaved && dataSaved
+            ? `Saved the current tree data and manual layouts to this browser. ${data.views[state.currentViewId].label} will reopen with these draft edits here.`
+            : "This browser blocked local saving, so the draft could not be fully saved here.");
         });
       }
 
       if (layoutEditorDownload) {
         layoutEditorDownload.addEventListener("click", () => {
-          const layouts = getMergedLayoutsForExport();
-          downloadTextFile("family_tree_layouts.js", formatLayoutsAsJavaScript(layouts));
-          setLayoutEditorStatus("Downloaded a publish file. Replace family_tree_layouts.js with that file when you want the repo to use these saved positions.");
+          const exportedData = normalizeDataForExport(data);
+          const exportedLayouts = normalizeLayoutsForExport(getMergedLayoutsForExport());
+          downloadJsonFile("family_tree_data.json", exportedData);
+          downloadJsonFile("family_tree_layouts.json", exportedLayouts);
+          setLayoutEditorStatus("Downloaded family_tree_data.json and family_tree_layouts.json. Replace those repo files and deploy/commit when you want the public site to use this tree.");
         });
       }
 
@@ -2769,6 +3327,77 @@
             preserveCollapsed: true
           });
         });
+      }
+
+      if (layoutEditorClearDrafts) {
+        layoutEditorClearDrafts.addEventListener("click", async () => {
+          try {
+            clearDataDraft();
+            clearLayoutDrafts();
+            await loadTreeFiles();
+            state.indexes = buildIndexes();
+            refreshLayoutEditorData();
+            clearPersonEditor();
+            clearUnionEditor();
+            setLayoutEditorStatus("Cleared the browser data/layout drafts. The editor is back on the repo's published JSON files.");
+            requestRender({
+              viewId: state.currentViewId || getInitialViewId(),
+              fit: true
+            });
+          } catch (error) {
+            setLayoutEditorStatus(error instanceof Error ? error.message : String(error));
+          }
+        });
+      }
+
+      if (personEditorSelect) {
+        personEditorSelect.addEventListener("change", (event) => {
+          const personId = event.target.value;
+          if (!personId) {
+            clearPersonEditor();
+            return;
+          }
+
+          loadPersonIntoEditor(personId);
+        });
+      }
+
+      if (personEditorNew) {
+        personEditorNew.addEventListener("click", () => {
+          clearPersonEditor();
+          setLayoutEditorStatus("Enter a new person record, save it, then connect it through a union so it appears in the tree.");
+        });
+      }
+
+      if (personEditorSave) {
+        personEditorSave.addEventListener("click", savePersonFromEditor);
+      }
+
+      if (unionEditorSelect) {
+        unionEditorSelect.addEventListener("change", (event) => {
+          const unionId = event.target.value;
+          if (!unionId) {
+            clearUnionEditor();
+            return;
+          }
+
+          loadUnionIntoEditor(unionId);
+        });
+      }
+
+      if (unionEditorNew) {
+        unionEditorNew.addEventListener("click", () => {
+          clearUnionEditor();
+          setLayoutEditorStatus("Create a new union, save it, then attach children or drag the cards into place.");
+        });
+      }
+
+      if (unionEditorSave) {
+        unionEditorSave.addEventListener("click", saveUnionFromEditor);
+      }
+
+      if (unionEditorAttachChild) {
+        unionEditorAttachChild.addEventListener("click", attachChildToLoadedUnion);
       }
 
       backToTreeButton.addEventListener("click", hideCharacterSheet);
