@@ -262,6 +262,28 @@
     return state.layoutEditor.drafts.views[viewId];
   }
 
+  function seedDraftViewLayoutFromLayout(viewId, layout) {
+    if (!viewId || !layout) {
+      return ensureDraftViewLayout(viewId);
+    }
+
+    const draft = ensureDraftViewLayout(viewId);
+    if (!draft.positions) {
+      draft.positions = {};
+    }
+
+    layout.people.forEach((box, personId) => {
+      if (!draft.positions[personId]) {
+        draft.positions[personId] = {
+          x: Math.round(box.left),
+          y: Math.round(box.top)
+        };
+      }
+    });
+
+    return draft;
+  }
+
   function setDraftPosition(viewId, personId, x, y) {
     const draft = ensureDraftViewLayout(viewId);
     draft.positions[personId] = {
@@ -2863,14 +2885,14 @@
           return;
         }
 
-        const scale = state.currentTransform.k || 1;
+        seedDraftViewLayoutFromLayout(state.currentViewId, state.currentLayout);
         const currentBox = state.currentLayout.people.get(d.id);
         if (!currentBox) {
           return;
         }
 
-        const nextLeft = currentBox.left + event.dx / scale;
-        const nextTop = currentBox.top + event.dy / scale;
+        const nextLeft = currentBox.left + event.dx;
+        const nextTop = currentBox.top + event.dy;
         setDraftPosition(state.currentViewId, d.id, nextLeft, nextTop);
         state.layoutEditor.didDrag = true;
         rebuildCurrentLayoutFromDrafts();
@@ -3378,6 +3400,9 @@
 
       if (layoutEditorDownload) {
         layoutEditorDownload.addEventListener("click", () => {
+          if (state.currentViewId && state.currentLayout) {
+            seedDraftViewLayoutFromLayout(state.currentViewId, state.currentLayout);
+          }
           const exportedData = normalizeDataForExport(data);
           const exportedLayouts = normalizeLayoutsForExport(getMergedLayoutsForExport());
           downloadJsonFile("family_tree_data.json", exportedData);
