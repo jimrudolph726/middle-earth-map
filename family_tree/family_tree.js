@@ -215,6 +215,10 @@
   }
 
   function getDraftViewLayout(viewId) {
+    if (!state.layoutEditor.available) {
+      return null;
+    }
+
     return state.layoutEditor.drafts.views[viewId] || null;
   }
 
@@ -222,8 +226,26 @@
     return fileLayouts?.views?.[viewId] || null;
   }
 
+  function mergeViewLayouts(baseLayout, overrideLayout) {
+    if (!baseLayout && !overrideLayout) {
+      return null;
+    }
+
+    const merged = {
+      ...(baseLayout ? cloneJson(baseLayout) : {}),
+      ...(overrideLayout ? cloneJson(overrideLayout) : {})
+    };
+
+    merged.positions = {
+      ...((baseLayout && baseLayout.positions) || {}),
+      ...((overrideLayout && overrideLayout.positions) || {})
+    };
+
+    return merged;
+  }
+
   function getEffectiveViewLayout(viewId) {
-    return getDraftViewLayout(viewId) || getFileViewLayout(viewId) || null;
+    return mergeViewLayouts(getFileViewLayout(viewId), getDraftViewLayout(viewId));
   }
 
   function ensureDraftViewLayout(viewId) {
