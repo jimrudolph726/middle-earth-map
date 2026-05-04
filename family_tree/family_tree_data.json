@@ -340,17 +340,6 @@
       "order": 10
     },
     {
-      "id": "union-elros",
-      "partners": [
-        "elros"
-      ],
-      "children": [
-        "arador"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
       "id": "union-aragorn_second-arwen",
       "partners": [
         "aragorn_second",

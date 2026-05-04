@@ -44,6 +44,7 @@
   const unionEditorNew = document.getElementById("union-editor-new");
   const unionEditorSave = document.getElementById("union-editor-save");
   const unionEditorAttachChild = document.getElementById("union-editor-attach-child");
+  const unionEditorDetachChild = document.getElementById("union-editor-detach-child");
   const unionEditorId = document.getElementById("union-editor-id");
   const unionEditorOrder = document.getElementById("union-editor-order");
   const unionEditorLabel = document.getElementById("union-editor-label");
@@ -762,6 +763,57 @@
       applyCandidateData(candidate, `Attached ${getPersonById(childId)?.name || childId} to ${unionId}.`);
       state.layoutEditor.activeUnionId = unionId;
       loadUnionIntoEditor(unionId);
+    } catch (error) {
+      setLayoutEditorStatus(error instanceof Error ? error.message : String(error));
+    }
+  }
+
+  function detachChildFromLoadedUnion() {
+    const unionId = state.layoutEditor.activeUnionId || unionEditorSelect?.value;
+    const childId = unionAttachChildSelect?.value;
+
+    if (!unionId) {
+      setLayoutEditorStatus("Load or create a union first, then detach a child from it.");
+      return;
+    }
+
+    if (!childId) {
+      setLayoutEditorStatus("Choose a child to detach from the loaded union.");
+      return;
+    }
+
+    const candidate = cloneJson(data);
+    const union = (candidate.unions || []).find((entry) => entry.id === unionId);
+    if (!union) {
+      setLayoutEditorStatus(`Could not find union ${unionId}.`);
+      return;
+    }
+
+    if (!Array.isArray(union.children) || !union.children.includes(childId)) {
+      setLayoutEditorStatus(`${getPersonById(childId)?.name || childId} is not currently attached to ${unionId}.`);
+      return;
+    }
+
+    union.children = union.children.filter((existingChildId) => existingChildId !== childId);
+
+    if (union.lineageChild === childId) {
+      delete union.lineageChild;
+    }
+
+    if (Array.isArray(union.childOrder)) {
+      union.childOrder = union.childOrder.filter((existingChildId) => existingChildId !== childId);
+      if (union.childOrder.length === 0) {
+        delete union.childOrder;
+      }
+    }
+
+    try {
+      applyCandidateData(candidate, `Detached ${getPersonById(childId)?.name || childId} from ${unionId}.`);
+      state.layoutEditor.activeUnionId = unionId;
+      loadUnionIntoEditor(unionId);
+      if (unionAttachChildSelect) {
+        unionAttachChildSelect.value = childId;
+      }
     } catch (error) {
       setLayoutEditorStatus(error instanceof Error ? error.message : String(error));
     }
@@ -3398,6 +3450,10 @@
 
       if (unionEditorAttachChild) {
         unionEditorAttachChild.addEventListener("click", attachChildToLoadedUnion);
+      }
+
+      if (unionEditorDetachChild) {
+        unionEditorDetachChild.addEventListener("click", detachChildFromLoadedUnion);
       }
 
       backToTreeButton.addEventListener("click", hideCharacterSheet);
