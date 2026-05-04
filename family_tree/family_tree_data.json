@@ -125,22 +125,6 @@
       "bio": "Celebrian is the daughter of Galadriel and Celeborn, and the wife of Elrond.",
       "order": 6
     },
-    "test": {
-      "id": "test",
-      "name": "test",
-      "order": 7,
-      "sex": "Male",
-      "title": "King",
-      "kindred": "Men",
-      "house": "Men",
-      "realm": "Gondor",
-      "born": "3009",
-      "died": "3200",
-      "groups": [
-        "elves"
-      ],
-      "bio": "King of a bygone era."
-    },
     "arador": {
       "id": "arador",
       "name": "Arador",
@@ -333,8 +317,7 @@
         "celebrian"
       ],
       "children": [
-        "arwen",
-        "test"
+        "arwen"
       ],
       "label": "Marriage",
       "order": 10
