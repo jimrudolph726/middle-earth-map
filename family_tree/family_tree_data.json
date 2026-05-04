@@ -1,6 +1,6 @@
 {
   "defaults": {
-    "initialView": "aragorn_lineage"
+    "initialView": "all_lineages"
   },
   "people": {
     "celeborn": {
@@ -343,22 +343,8 @@
     }
   ],
   "views": {
-    "aragorn_lineage": {
-      "label": "Aragorn Lineage",
-      "description": "The direct House of Isildur line around Aragorn, including ancestors, descendants, and direct spouses.",
-      "seeds": [
-        "aragorn_second"
-      ],
-      "roots": [
-        "eldarion"
-      ],
-      "generationsUp": 10,
-      "generationsDown": 10,
-      "includeSpouses": true,
-      "includeSpouseLineage": false
-    },
     "all_lineages": {
-      "label": "All Current Lineages",
+      "label": "Elves and Men",
       "description": "The combined Men and Elven branches currently modeled around Aragorn, Arwen, and Elrond's house.",
       "seeds": [
         "eldarion"
@@ -371,68 +357,6 @@
       "includeSpouses": true,
       "includeSpouseLineage": false,
       "includeSiblingBranches": true
-    },
-    "men_of_the_west": {
-      "label": "Men of the West",
-      "description": "The Dunedain and royal human branch, while still keeping direct spouses visible for context.",
-      "seeds": [
-        "arador"
-      ],
-      "roots": [
-        "eldarion"
-      ],
-      "generationsUp": 10,
-      "generationsDown": 10,
-      "includeSpouses": true,
-      "includeSpouseLineage": false,
-      "filters": {
-        "includeGroupsAny": [
-          "men",
-          "dunedain"
-        ],
-        "preserveAncestors": true,
-        "preserveDescendants": true,
-        "preserveSpouses": true
-      }
-    },
-    "elves_and_half_elven": {
-      "label": "Elves and Half-elven",
-      "description": "Elrond's household and its immediate ties into the royal house through Arwen.",
-      "seeds": [
-        "eldarion"
-      ],
-      "roots": [
-        "galadriel"
-      ],
-      "generationsUp": 10,
-      "generationsDown": 10,
-      "includeSpouses": true,
-      "includeSpouseLineage": false,
-      "filters": {
-        "includeGroupsAny": [
-          "elves",
-          "half-elven"
-        ],
-        "preserveAncestors": true,
-        "preserveDescendants": true,
-        "preserveSpouses": true
-      }
-    },
-    "dwarves": {
-      "label": "Dwarves",
-      "description": "Reserved for the Dwarven houses and dynasties.",
-      "emptyState": {
-        "title": "Dwarf tree planned",
-        "body": "This view is ready for Durin's line, Erebor, the Longbeards, and the other houses once you start adding them."
-      }
-    },
-    "hobbits": {
-      "label": "Hobbits",
-      "description": "Reserved for Hobbit genealogies such as the Baggins, Brandybucks, Tooks, and Gamgees.",
-      "emptyState": {
-        "title": "Hobbit tree planned",
-        "body": "This view is ready for the Shire family lines once you start adding Hobbit records to the canonical dataset."
-      }
     }
   }
 }
