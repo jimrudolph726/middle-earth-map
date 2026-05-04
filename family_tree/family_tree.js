@@ -2495,7 +2495,6 @@
       .on("zoom", (event) => {
         state.currentTransform = event.transform;
         zoomLayer.attr("transform", event.transform);
-        updateMinimapViewport();
       });
 
     svg.call(zoom);
@@ -2672,7 +2671,6 @@
       .attr("transform", (d) => `translate(${d.left}, ${d.top})`);
 
     updateActiveNodeSelection();
-    updateMinimap(layout, projection);
   }
 
   function renderScene(layout, projection, rawProjection) {
@@ -2838,7 +2836,6 @@
 
     applyLayoutEditorNodeBehavior(nodeGroups);
     updateActiveNodeSelection();
-    updateMinimap(layout, projection);
   }
 
   function rebuildCurrentLayoutFromDrafts() {
@@ -2927,41 +2924,6 @@
     if (layoutEditorToggle) {
       layoutEditorToggle.textContent = state.layoutEditor.draggingEnabled ? "Disable Dragging" : "Enable Dragging";
     }
-  }
-
-  function getTreeViewport() {
-    if (!state.currentLayout) return null;
-
-    const hostRect = treeHost.getBoundingClientRect();
-    if (hostRect.width === 0 || hostRect.height === 0) return null;
-
-    return {
-      left: -state.currentTransform.x / state.currentTransform.k,
-      top: -state.currentTransform.y / state.currentTransform.k,
-      width: hostRect.width / state.currentTransform.k,
-      height: hostRect.height / state.currentTransform.k
-    };
-  }
-
-  function updateMinimap(layout, projection) {
-    const boxes = projection.peopleIds
-      .map((personId) => layout.people.get(personId))
-      .filter(Boolean);
-
-    const bounds = layout.bounds;
-    const scale = Math.min(usableWidth / Math.max(bounds.width, 1), usableHeight / Math.max(bounds.height, 1));
-
-    const rects = boxes.map((box) => {
-      const person = getPersonById(box.id);
-      return {
-        id: box.id,
-        x: offsetX + (box.left - bounds.minX) * scale,
-        y: offsetY + (box.top - bounds.minY) * scale,
-        width: Math.max(4, box.width * scale),
-        height: Math.max(4, box.height * scale),
-        fill: getAccentColor(person)
-      };
-    });
   }
 
   function fitToBounds(bounds, useTransition = true) {
@@ -3198,7 +3160,6 @@
     }
 
     if (options.fit === false && !switchingView) {
-      updateMinimapViewport();
       return;
     }
 
@@ -3427,10 +3388,6 @@
         if (event.key === "Escape") {
           hideCharacterSheet();
         }
-      });
-
-      window.addEventListener("resize", () => {
-        updateMinimapViewport();
       });
 
       requestRender({

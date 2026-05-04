@@ -91,20 +91,6 @@
   text-overflow: ellipsis;
 }
 
-.family-tree-page .tree-minimap {
-  position: absolute;
-  left: 18px;
-  bottom: 58px;
-  z-index: 12;
-  width: 244px;
-  padding: 12px;
-  border: 1px solid rgba(218, 184, 112, 0.3);
-  border-radius: 20px;
-  background: rgba(10, 7, 4, 0.74);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(8px);
-}
-
 .family-tree-page .layout-editor-panel {
   position: absolute;
   right: 18px;
@@ -270,43 +256,6 @@
   background: rgba(47, 33, 18, 0.95);
 }
 
-.family-tree-page .tree-minimap__eyebrow {
-  margin: 0 0 8px;
-  color: #d7b36c;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.family-tree-page .tree-minimap svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
-.family-tree-page .tree-minimap__background {
-  fill: rgba(255, 244, 222, 0.05);
-}
-
-.family-tree-page .tree-minimap__world {
-  fill: rgba(255, 244, 222, 0.03);
-  stroke: rgba(215, 179, 108, 0.24);
-  stroke-width: 1;
-}
-
-.family-tree-page .tree-minimap__node {
-  opacity: 0.9;
-}
-
-.family-tree-page .tree-minimap__viewport {
-  fill: rgba(247, 223, 170, 0.12);
-  stroke: rgba(247, 223, 170, 0.95);
-  stroke-width: 2;
-}
-
 .family-tree-page .family-tree-canvas {
   display: block;
   width: 100%;
@@ -455,22 +404,12 @@
 }
 
 @media (max-width: 960px) {
-  .family-tree-page .tree-minimap {
-    width: 210px;
-  }
-
   .family-tree-page .layout-editor-panel {
     width: 320px;
   }
 }
 
 @media (max-width: 760px) {
-  .family-tree-page .tree-minimap {
-    left: 12px;
-    bottom: 52px;
-    width: calc(100vw - 24px);
-  }
-
   .family-tree-page .tree-search-results {
     max-height: 220px;
   }
