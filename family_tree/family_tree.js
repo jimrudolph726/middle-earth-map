@@ -3246,7 +3246,6 @@
       refreshLayoutEditorData();
       clearPersonEditor();
       clearUnionEditor();
-      initMinimapInteractions();
       updateLayoutEditorChrome();
 
       if (layoutEditorLink && state.layoutEditor.available) {
