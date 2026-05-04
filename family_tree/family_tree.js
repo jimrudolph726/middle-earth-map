@@ -8,8 +8,6 @@
   const viewStats = document.getElementById("tree-view-stats");
   const searchInput = document.getElementById("tree-search");
   const searchResults = document.getElementById("tree-search-results");
-  const minimapElement = document.getElementById("tree-minimap");
-  const minimapSvg = document.getElementById("tree-minimap-svg");
   const emptyState = document.getElementById("tree-empty-state");
   const emptyTitle = document.getElementById("tree-empty-title");
   const emptyBody = document.getElementById("tree-empty-body");
@@ -72,9 +70,6 @@
   const siblingBarDropFactor = 0.7;
   const rowClusterTolerance = 18;
   const minimumRowGap = 18;
-  const minimapWidth = 220;
-  const minimapHeight = 140;
-  const minimapPadding = 10;
   const treeDataDraftStorageKey = "middle-earth-family-tree-data-drafts-v1";
   const layoutDraftStorageKey = "middle-earth-family-tree-layout-drafts-v1";
   const treeDataUrl = "family_tree_data.json";
@@ -95,7 +90,6 @@
     collapsedIds: new Set(),
     pendingFocus: null,
     renderRevision: 0,
-    minimapMetrics: null,
     scene: null,
     activePersonId: null,
     layoutEditor: {
@@ -2349,7 +2343,6 @@
   function hideEmptyState() {
     emptyState.classList.add("hidden");
     treeHost.classList.remove("hidden");
-    minimapElement.classList.remove("hidden");
   }
 
   function showEmptyState(view) {
@@ -2362,9 +2355,6 @@
     emptyBody.textContent = fallback.body;
     emptyState.classList.remove("hidden");
     treeHost.classList.add("hidden");
-    minimapElement.classList.add("hidden");
-    minimapSvg.innerHTML = "";
-    state.minimapMetrics = null;
   }
 
   function hideCharacterSheet() {
@@ -2958,25 +2948,8 @@
       .map((personId) => layout.people.get(personId))
       .filter(Boolean);
 
-    if (boxes.length === 0) {
-      minimapSvg.innerHTML = "";
-      state.minimapMetrics = null;
-      return;
-    }
-
     const bounds = layout.bounds;
-    const usableWidth = minimapWidth - minimapPadding * 2;
-    const usableHeight = minimapHeight - minimapPadding * 2;
     const scale = Math.min(usableWidth / Math.max(bounds.width, 1), usableHeight / Math.max(bounds.height, 1));
-    const offsetX = minimapPadding + (usableWidth - bounds.width * scale) / 2;
-    const offsetY = minimapPadding + (usableHeight - bounds.height * scale) / 2;
-
-    state.minimapMetrics = {
-      bounds,
-      scale,
-      offsetX,
-      offsetY
-    };
 
     const rects = boxes.map((box) => {
       const person = getPersonById(box.id);
@@ -2989,47 +2962,6 @@
         fill: getAccentColor(person)
       };
     });
-
-    const backdrop = `
-      <rect class="tree-minimap__background" x="0" y="0" width="${minimapWidth}" height="${minimapHeight}" rx="12" ry="12"></rect>
-      <rect class="tree-minimap__world" x="${offsetX}" y="${offsetY}" width="${bounds.width * scale}" height="${bounds.height * scale}" rx="10" ry="10"></rect>
-    `;
-
-    const nodesMarkup = rects.map((rect) => `
-      <rect class="tree-minimap__node"
-        data-node-id="${rect.id}"
-        x="${rect.x}"
-        y="${rect.y}"
-        width="${rect.width}"
-        height="${rect.height}"
-        rx="3"
-        ry="3"
-        fill="${rect.fill}"></rect>
-    `).join("");
-
-    minimapSvg.innerHTML = `${backdrop}${nodesMarkup}<rect id="tree-minimap-viewport" class="tree-minimap__viewport" x="0" y="0" width="0" height="0" rx="4" ry="4"></rect>`;
-    updateMinimapViewport();
-  }
-
-  function updateMinimapViewport() {
-    if (!state.minimapMetrics || !state.currentLayout) return;
-
-    const viewportRect = minimapSvg.querySelector("#tree-minimap-viewport");
-    if (!viewportRect) return;
-
-    const viewport = getTreeViewport();
-    if (!viewport) return;
-
-    const { bounds, scale, offsetX, offsetY } = state.minimapMetrics;
-    const x = offsetX + (viewport.left - bounds.minX) * scale;
-    const y = offsetY + (viewport.top - bounds.minY) * scale;
-    const width = viewport.width * scale;
-    const height = viewport.height * scale;
-
-    viewportRect.setAttribute("x", String(x));
-    viewportRect.setAttribute("y", String(y));
-    viewportRect.setAttribute("width", String(width));
-    viewportRect.setAttribute("height", String(height));
   }
 
   function fitToBounds(bounds, useTransition = true) {
@@ -3290,31 +3222,6 @@
       event.preventDefault();
       focusSearchMatch(firstResult.getAttribute("data-person-id"));
     }
-  }
-
-  function initMinimapInteractions() {
-    minimapSvg.addEventListener("click", (event) => {
-      if (!state.currentLayout || !state.minimapMetrics) return;
-
-      const svgRect = minimapSvg.getBoundingClientRect();
-      if (svgRect.width === 0 || svgRect.height === 0) return;
-
-      const scaleX = minimapWidth / svgRect.width;
-      const scaleY = minimapHeight / svgRect.height;
-      const clickX = (event.clientX - svgRect.left) * scaleX;
-      const clickY = (event.clientY - svgRect.top) * scaleY;
-      const { bounds, scale, offsetX, offsetY } = state.minimapMetrics;
-      const worldX = bounds.minX + (clickX - offsetX) / scale;
-      const worldY = bounds.minY + (clickY - offsetY) / scale;
-
-      const hostRect = treeHost.getBoundingClientRect();
-      const currentScale = state.currentTransform.k || 1;
-      const transform = d3.zoomIdentity
-        .translate(hostRect.width / 2 - worldX * currentScale, hostRect.height / 2 - worldY * currentScale)
-        .scale(currentScale);
-
-      state.scene.svg.transition().duration(250).call(state.scene.zoom.transform, transform);
-    });
   }
 
   async function init() {
