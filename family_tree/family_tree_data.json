@@ -3,6 +3,261 @@
     "initialView": "all_lineages"
   },
   "people": {
+    "amlaith": {
+      "id": "amlaith",
+      "name": "Amlaith",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "1st King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "726",
+      "died": "946",
+      "image": "assets/amlaith.png",
+      "bio": "",
+      "order": 5
+    },
+    "beleg": {
+      "id": "beleg",
+      "name": "Beleg",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "2nd King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "811",
+      "died": "1029",
+      "image": "assets/beleg.png",
+      "bio": "",
+      "order": 5
+    },
+    "mallor": {
+      "id": "mallor",
+      "name": "Mallor",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "3rd King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "895",
+      "died": "1110",
+      "image": "assets/mallor.png",
+      "bio": "",
+      "order": 5
+    },
+    "celepharn": {
+      "id": "celepharn",
+      "name": "Celepharn",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "4th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "979",
+      "died": "1191",
+      "image": "assets/celepharn.png",
+      "bio": "",
+      "order": 5
+    },
+    "celebrindor": {
+      "id": "celebrindor",
+      "name": "Celebrindor",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "5th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1062",
+      "died": "1272",
+      "image": "assets/celebrindor.png",
+      "bio": "",
+      "order": 5
+    },
+    "malvegil": {
+      "id": "malvegil",
+      "name": "Malvegil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "6th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1144",
+      "died": "1349",
+      "image": "assets/malvegil.png",
+      "bio": "",
+      "order": 5
+    },
+    "argeleb_first": {
+      "id": "argeleb_first",
+      "name": "Argeleb I",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "7th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1226",
+      "died": "1356",
+      "image": "assets/argeleb_first.png",
+      "bio": "",
+      "order": 5
+    },
+    "arveleg_first": {
+      "id": "arveleg_first",
+      "name": "Arveleg I",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "8th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1309",
+      "died": "1409",
+      "image": "assets/arveleg_first.png",
+      "bio": "",
+      "order": 5
+    },
+    "araphor": {
+      "id": "araphor",
+      "name": "Araphor",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "9th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1391",
+      "died": "1589",
+      "image": "assets/araphor.png",
+      "bio": "",
+      "order": 5
+    },
+    "argeleb_second": {
+      "id": "argeleb_second",
+      "name": "Argeleb II",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "10th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1473",
+      "died": "1670",
+      "image": "assets/argeleb_second.png",
+      "bio": "",
+      "order": 5
+    },
+    "arvegil": {
+      "id": "arvegil",
+      "name": "Arvegil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "11th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1553",
+      "died": "1743",
+      "image": "assets/arvegil.png",
+      "bio": "",
+      "order": 5
+    },
+    "arveleg_second": {
+      "id": "arveleg_second",
+      "name": "Arveleg II",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "12th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1633",
+      "died": "1813",
+      "image": "assets/arveleg_second.png",
+      "bio": "",
+      "order": 5
+    },
+    "araval": {
+      "id": "araval",
+      "name": "Araval",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "13th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1711",
+      "died": "1891",
+      "image": "assets/araval.png",
+      "bio": "",
+      "order": 5
+    },
+    "araphant": {
+      "id": "araphant",
+      "name": "Araphant",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "14th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1789",
+      "died": "1964",
+      "image": "assets/araphant.png",
+      "bio": "",
+      "order": 5
+    },
+    "arvedui": {
+      "id": "arvedui",
+      "name": "Arvedui",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "15th King of Arthedain",
+      "house": "House of Isildur",
+      "realm": "Arthedain",
+      "born": "1864",
+      "died": "1974",
+      "image": "assets/arvedui.png",
+      "bio": "",
+      "order": 5
+    },
     "aranarth": {
       "id": "aranarth",
       "name": "Aranarth",
@@ -477,6 +732,171 @@
     }
   },
   "unions": [
+    {
+      "id": "union-amlaith",
+      "partners": [
+        "amlaith"
+      ],
+      "children": [
+        "beleg"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-beleg",
+      "partners": [
+        "beleg"
+      ],
+      "children": [
+        "mallor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-mallor",
+      "partners": [
+        "mallor"
+      ],
+      "children": [
+        "celepharn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-celepharn",
+      "partners": [
+        "celepharn"
+      ],
+      "children": [
+        "celebrindor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-celebrindor",
+      "partners": [
+        "celebrindor"
+      ],
+      "children": [
+        "malvegil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-malvegil",
+      "partners": [
+        "malvegil"
+      ],
+      "children": [
+        "argeleb_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-argeleb_first",
+      "partners": [
+        "argeleb_first"
+      ],
+      "children": [
+        "arveleg_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arveleg_first",
+      "partners": [
+        "arveleg_first"
+      ],
+      "children": [
+        "araphor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-araphor",
+      "partners": [
+        "araphor"
+      ],
+      "children": [
+        "argeleb_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-argeleb_second",
+      "partners": [
+        "argeleb_second"
+      ],
+      "children": [
+        "arvegil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arvegil",
+      "partners": [
+        "arvegil"
+      ],
+      "children": [
+        "arveleg_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arveleg_second",
+      "partners": [
+        "arveleg_second"
+      ],
+      "children": [
+        "araval"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-araval",
+      "partners": [
+        "araval"
+      ],
+      "children": [
+        "araphant"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-araphant",
+      "partners": [
+        "araphant"
+      ],
+      "children": [
+        "arvedui"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arvedui",
+      "partners": [
+        "arvedui"
+      ],
+      "children": [
+        ""
+      ],
+      "label": "Issue",
+      "order": 10
+    },
         {
       "id": "union-aranarth",
       "partners": [
