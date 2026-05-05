@@ -51,13 +51,13 @@
           "x": 150,
           "y": -200
         },
-        "unknown daughters": {
-          "x": 600,
-          "y": 200
-        },
         "arwen": {
           "x": 600,
           "y": 0
+        },
+        "unknown daughters": {
+          "x": 600,
+          "y": 200
         }
       }
     }
