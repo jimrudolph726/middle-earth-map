@@ -166,6 +166,10 @@
         "eldarion": {
           "x": 300,
           "y": 200
+        },
+        "unknown_daughters": {
+          "x": 450,
+          "y": 200
         }
       }
     }
