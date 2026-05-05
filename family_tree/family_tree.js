@@ -58,6 +58,10 @@
   const characterSheet = document.getElementById("character-sheet");
   const backToTreeButton = document.getElementById("back-to-tree");
   const characterSheetContent = document.getElementById("character-sheet-content");
+  const portraitLightbox = document.getElementById("portrait-lightbox");
+  const portraitLightboxImage = document.getElementById("portrait-lightbox-image");
+  const portraitLightboxCaption = document.getElementById("portrait-lightbox-caption");
+  const portraitLightboxClose = document.getElementById("portrait-lightbox-close");
 
   const cardWidth = 210;
   const cardHeight = 126;
@@ -2359,8 +2363,33 @@
 
   function hideCharacterSheet() {
     state.activePersonId = null;
+    hidePortraitLightbox();
     characterSheet.classList.add("hidden");
     updateActiveNodeSelection();
+  }
+
+  function showPortraitLightbox(src, alt, caption) {
+    if (!src || !portraitLightbox || !portraitLightboxImage || !portraitLightboxCaption) {
+      return;
+    }
+
+    portraitLightboxImage.setAttribute("src", src);
+    portraitLightboxImage.setAttribute("alt", alt || "");
+    portraitLightboxCaption.textContent = caption || alt || "";
+    portraitLightbox.classList.remove("hidden");
+    portraitLightbox.setAttribute("aria-hidden", "false");
+  }
+
+  function hidePortraitLightbox() {
+    if (!portraitLightbox || !portraitLightboxImage || !portraitLightboxCaption) {
+      return;
+    }
+
+    portraitLightbox.classList.add("hidden");
+    portraitLightbox.setAttribute("aria-hidden", "true");
+    portraitLightboxImage.removeAttribute("src");
+    portraitLightboxImage.setAttribute("alt", "");
+    portraitLightboxCaption.textContent = "";
   }
 
   function updateActiveNodeSelection() {
@@ -2418,13 +2447,26 @@
 
     const summary = getRelationshipSummary(personId);
     const groupsLabel = (person.groups || []).join(", ") || "Unclassified";
+    const portraitSrc = getPortrait(person);
+    const portraitCaption = getDisplayTitle(person) && getDisplayTitle(person) !== person.name
+      ? `${person.name} - ${getDisplayTitle(person)}`
+      : person.name;
     const note = person.isPlaceholder
       ? "<p class=\"character-note\">This record is a placeholder or aggregate node used to keep the larger family graph readable.</p>"
       : "";
 
     characterSheetContent.innerHTML = `
       <div class="character-header">
-        <img src="${escapeHtml(getPortrait(person))}" alt="${escapeHtml(person.name)}" />
+        <button
+          class="character-header__portrait-button"
+          type="button"
+          data-portrait-src="${escapeHtml(portraitSrc)}"
+          data-portrait-alt="${escapeHtml(person.name)}"
+          data-portrait-caption="${escapeHtml(portraitCaption)}"
+          aria-label="View full-size portrait of ${escapeHtml(person.name)}"
+        >
+          <img src="${escapeHtml(portraitSrc)}" alt="${escapeHtml(person.name)}" />
+        </button>
         <div>
           <h1>${escapeHtml(person.name)}</h1>
           <h2>${escapeHtml(getDisplayTitle(person))}</h2>
@@ -3372,9 +3414,30 @@
 
       backToTreeButton.addEventListener("click", hideCharacterSheet);
 
+      characterSheetContent.addEventListener("click", (event) => {
+        const portraitButton = event.target.closest(".character-header__portrait-button");
+        if (!portraitButton) {
+          return;
+        }
+
+        showPortraitLightbox(
+          portraitButton.getAttribute("data-portrait-src"),
+          portraitButton.getAttribute("data-portrait-alt"),
+          portraitButton.getAttribute("data-portrait-caption")
+        );
+      });
+
       characterSheet.addEventListener("click", (event) => {
         if (event.target === characterSheet) {
           hideCharacterSheet();
+        }
+      });
+
+      portraitLightboxClose?.addEventListener("click", hidePortraitLightbox);
+
+      portraitLightbox?.addEventListener("click", (event) => {
+        if (event.target === portraitLightbox) {
+          hidePortraitLightbox();
         }
       });
 
@@ -3386,6 +3449,11 @@
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+          if (portraitLightbox && !portraitLightbox.classList.contains("hidden")) {
+            hidePortraitLightbox();
+            return;
+          }
+
           hideCharacterSheet();
         }
       });

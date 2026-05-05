@@ -312,6 +312,20 @@ body.family-tree-page {
   padding: 30px;
 }
 
+.family-tree-page .character-header__portrait-button {
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.family-tree-page .character-header__portrait-button:focus-visible {
+  outline: 3px solid rgba(244, 220, 166, 0.9);
+  outline-offset: 6px;
+}
+
 .family-tree-page .character-header img {
   width: 180px;
   height: 180px;
@@ -387,6 +401,73 @@ body.family-tree-page {
   margin: 0;
 }
 
+.family-tree-page .portrait-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(7, 4, 2, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.family-tree-page .portrait-lightbox__dialog {
+  position: relative;
+  width: min(1100px, 100%);
+  max-height: 100%;
+  padding: 54px 24px 24px;
+  border: 1px solid rgba(218, 184, 112, 0.35);
+  border-radius: 24px;
+  background: rgba(26, 17, 9, 0.78);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.family-tree-page .portrait-lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 10px 14px;
+  border: 1px solid rgba(218, 184, 112, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 244, 222, 0.08);
+  color: #f5e6c8;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.family-tree-page .portrait-lightbox__close:hover,
+.family-tree-page .portrait-lightbox__close:focus-visible {
+  background: rgba(255, 244, 222, 0.16);
+  border-color: rgba(218, 184, 112, 0.66);
+}
+
+.family-tree-page .portrait-lightbox__figure {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+}
+
+.family-tree-page .portrait-lightbox__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(78vh, 920px);
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 1px solid rgba(218, 184, 112, 0.32);
+  background: rgba(255, 244, 222, 0.06);
+  object-fit: contain;
+}
+
+.family-tree-page .portrait-lightbox__caption {
+  color: #f0dfbd;
+  font-size: 17px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .family-tree-page .relation-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -441,6 +522,18 @@ body.family-tree-page {
   .family-tree-page .character-header {
     flex-direction: column;
     text-align: center;
+  }
+
+  .family-tree-page .portrait-lightbox {
+    padding: 12px;
+  }
+
+  .family-tree-page .portrait-lightbox__dialog {
+    padding: 56px 14px 16px;
+  }
+
+  .family-tree-page .portrait-lightbox__image {
+    max-height: 72vh;
   }
 
   .family-tree-page .character-meta,

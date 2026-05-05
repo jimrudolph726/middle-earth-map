@@ -297,6 +297,23 @@
     </div>
   </section>
 
+  <section id="portrait-lightbox" class="portrait-lightbox hidden" aria-hidden="true">
+    <div class="portrait-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="portrait-lightbox-caption">
+      <button
+        id="portrait-lightbox-close"
+        class="portrait-lightbox__close"
+        type="button"
+        aria-label="Close full-size portrait"
+      >
+        Close
+      </button>
+      <figure class="portrait-lightbox__figure">
+        <img id="portrait-lightbox-image" class="portrait-lightbox__image" alt="" />
+        <figcaption id="portrait-lightbox-caption" class="portrait-lightbox__caption"></figcaption>
+      </figure>
+    </div>
+  </section>
+
   <script src="family_tree.js"></script>
 </body>
 </html>
