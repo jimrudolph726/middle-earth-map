@@ -632,17 +632,6 @@
       "order": 10
     },
     {
-      "id": "union-arador",
-      "partners": [
-        "arador"
-      ],
-      "children": [
-        "arathorn_second"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
       "id": "union-arathorn_second-gilraen",
       "partners": [
         "arathorn_second",
