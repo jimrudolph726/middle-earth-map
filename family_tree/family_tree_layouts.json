@@ -3,6 +3,66 @@
   "views": {
     "all_lineages": {
       "positions": {
+        "aranarth": {
+          "x": -150,
+          "y": -3000
+        },
+        "arahael": {
+          "x": -150,
+          "y": -2800
+        },
+        "aranuir": {
+          "x": -150,
+          "y": -2600
+        },
+        "aravir": {
+          "x": -150,
+          "y": -2400
+        },
+        "aragorn_first": {
+          "x": -150,
+          "y": -2200
+        },
+        "araglas": {
+          "x": -150,
+          "y": -2000
+        },
+        "arahad_first": {
+          "x": -150,
+          "y": -1800
+        },
+        "aragost": {
+          "x": -150,
+          "y": -1600
+        },
+        "aravorn": {
+          "x": -150,
+          "y": -1400
+        },
+        "arahad_second": {
+          "x": -150,
+          "y": -1200
+        },
+        "arassuil": {
+          "x": -150,
+          "y": -1000
+        },
+        "arathorn_first": {
+          "x": -150,
+          "y": -800
+        },
+        "argonui": {
+          "x": -150,
+          "y": -600
+        },
+        "arador": {
+          "x": -150,
+          "y": -400
+        },
+        "arathorn_second": {
+          "x": -150,
+          "y": -200
+        },
         "celeborn": {
           "x": 900,
           "y": -3600
