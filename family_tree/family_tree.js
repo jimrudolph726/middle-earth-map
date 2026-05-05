@@ -76,7 +76,7 @@
   const minimumRowGap = 18;
   const zoomMinScale = 0.08;
   const zoomMaxScale = 3;
-  const zoomWheelSensitivity = 0.003;
+  const zoomWheelSensitivity = 0.01;
   const treeDataDraftStorageKey = "middle-earth-family-tree-data-drafts-v1";
   const layoutDraftStorageKey = "middle-earth-family-tree-layout-drafts-v1";
   const treeDataUrl = "family_tree_data.json";
