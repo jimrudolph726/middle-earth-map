@@ -710,8 +710,8 @@
       "roots": [
         "galadriel"
       ],
-      "generationsUp": 10,
-      "generationsDown": 10,
+      "generationsUp": 100,
+      "generationsDown": 100,
       "includeSpouses": true,
       "includeSpouseLineage": false,
       "includeSiblingBranches": true
