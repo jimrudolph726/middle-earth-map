@@ -2533,7 +2533,7 @@
     const nodeLayer = zoomLayer.append("g").attr("class", "family-tree-node-layer");
 
     const zoom = d3.zoom()
-      .scaleExtent([0.2, 3])
+      .scaleExtent([0.08, 3])
       .on("zoom", (event) => {
         state.currentTransform = event.transform;
         zoomLayer.attr("transform", event.transform);
@@ -2974,7 +2974,7 @@
 
     const padding = 48;
     const scale = Math.max(
-      0.2,
+      0.08,
       Math.min(
         1.5,
         Math.min(
