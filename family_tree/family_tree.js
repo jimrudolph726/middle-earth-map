@@ -74,6 +74,9 @@
   const siblingBarDropFactor = 0.7;
   const rowClusterTolerance = 18;
   const minimumRowGap = 18;
+  const zoomMinScale = 0.08;
+  const zoomMaxScale = 3;
+  const zoomWheelSensitivity = 0.003;
   const treeDataDraftStorageKey = "middle-earth-family-tree-data-drafts-v1";
   const layoutDraftStorageKey = "middle-earth-family-tree-layout-drafts-v1";
   const treeDataUrl = "family_tree_data.json";
@@ -2533,7 +2536,16 @@
     const nodeLayer = zoomLayer.append("g").attr("class", "family-tree-node-layer");
 
     const zoom = d3.zoom()
-      .scaleExtent([0.08, 3])
+      .scaleExtent([zoomMinScale, zoomMaxScale])
+      .wheelDelta((event) => {
+        const modeMultiplier = event.deltaMode === 1
+          ? 25
+          : event.deltaMode
+            ? 500
+            : 1;
+
+        return -event.deltaY * zoomWheelSensitivity * modeMultiplier * (event.ctrlKey ? 10 : 1);
+      })
       .on("zoom", (event) => {
         state.currentTransform = event.transform;
         zoomLayer.attr("transform", event.transform);
@@ -2974,7 +2986,7 @@
 
     const padding = 48;
     const scale = Math.max(
-      0.08,
+      zoomMinScale,
       Math.min(
         1.5,
         Math.min(
