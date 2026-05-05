@@ -3,61 +3,61 @@
   "views": {
     "all_lineages": {
       "positions": {
-        "celeborn": {
-          "x": 800,
-          "y": -231
-        },
-        "earendil": {
-          "x": 91,
-          "y": -242
-        },
         "elwing": {
-          "x": 382,
-          "y": -242
+          "x": 150,
+          "y": -3600
         },
         "elrond": {
-          "x": 401,
-          "y": -52
+          "x": 150,
+          "y": -3400
+        },
+        "earendil": {
+          "x": -150,
+          "y": -3600
         },
         "elros": {
-          "x": 77,
-          "y": -46
+          "x": -150,
+          "y": -3400
         },
-        "galadriel": {
-          "x": 1083,
-          "y": -225
+        "celeborn": {
+          "x": 900,
+          "y": -3600
         },
         "celebrian": {
-          "x": 942,
-          "y": -46
+          "x": 1050,
+          "y": -3400
+        },
+        "galadriel": {
+          "x": 1200,
+          "y": -3600
         },
         "arador": {
-          "x": 145,
-          "y": 224
-        },
-        "gilraen": {
-          "x": 437,
-          "y": 431
-        },
-        "aragorn_second": {
-          "x": 291,
-          "y": 589
+          "x": -150,
+          "y": -400
         },
         "arathorn_second": {
-          "x": 144,
-          "y": 426
+          "x": -150,
+          "y": -200
         },
-        "arwen": {
-          "x": 679,
-          "y": 593
+        "aragorn_second ": {
+          "x": 0,
+          "y": 0
         },
         "eldarion": {
-          "x": 352,
-          "y": 807
+          "x": 150,
+          "y": 200
         },
-        "unknown_daughters": {
-          "x": 638,
-          "y": 808
+        "gilraen": {
+          "x": 150,
+          "y": -200
+        },
+        "unknown daughters": {
+          "x": 600,
+          "y": 200
+        },
+        "arwen": {
+          "x": 600,
+          "y": 0
         }
       }
     }
