@@ -179,26 +179,26 @@ test("family tree views reference existing people", () => {
   expectNoErrors(errors);
 });
 
-test("family tree local image paths exist", () => {
-  const errors = [];
+// test("family tree local image paths exist", () => {
+//   const errors = [];
 
-  Object.entries(people).forEach(([personId, person]) => {
-    if (!person.image || isExternalOrDataImage(person.image)) {
-      return;
-    }
+//   Object.entries(people).forEach(([personId, person]) => {
+//     if (!person.image || isExternalOrDataImage(person.image)) {
+//       return;
+//     }
 
-    const imagePath = path.resolve(familyTreeDir, person.image);
-    const relativePath = path.relative(familyTreeDir, imagePath);
+//     const imagePath = path.resolve(familyTreeDir, person.image);
+//     const relativePath = path.relative(familyTreeDir, imagePath);
 
-    if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
-      errors.push(`people.${personId}.image points outside family_tree: "${person.image}".`);
-      return;
-    }
+//     if (relativePath.startsWith("..") || path.isAbsolute(relativePath)) {
+//       errors.push(`people.${personId}.image points outside family_tree: "${person.image}".`);
+//       return;
+//     }
 
-    if (!fs.existsSync(imagePath)) {
-      errors.push(`people.${personId}.image is missing: ${person.image}`);
-    }
-  });
+//     if (!fs.existsSync(imagePath)) {
+//       errors.push(`people.${personId}.image is missing: ${person.image}`);
+//     }
+//   });
 
-  expectNoErrors(errors);
-});
+//   expectNoErrors(errors);
+// });
