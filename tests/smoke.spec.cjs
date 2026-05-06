@@ -62,6 +62,7 @@ test("All maps load", async ({ page }) => {
   await page.goto("/maps/beleriand/beleriand.html", { waitUntil: "domcontentloaded" });
   await page.goto("/maps/numenor/numenor.html", { waitUntil: "domcontentloaded" });
   await page.goto("/maps/the_shire/the_shire.html", { waitUntil: "domcontentloaded" });
+  await page.goto("/maps/minas_tirith/minas_tirith.html", { waitUntil: "domcontentloaded" });
 
 });
 
