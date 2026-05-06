@@ -1,7 +1,7 @@
 const { defineConfig, devices } = require("@playwright/test");
 
 module.exports = defineConfig({
-  testDir: "./tests",
+  testDir: ".",
   timeout: 45_000,
   expect: {
     timeout: 15_000
@@ -19,7 +19,7 @@ module.exports = defineConfig({
     }
   ],
   webServer: {
-    command: "node tests/static-server.cjs",
+    command: "node static-server.cjs",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000

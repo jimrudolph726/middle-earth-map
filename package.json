@@ -5,9 +5,10 @@
   "description": "Smoke tests for the Middle-earth Atlas static site.",
   "scripts": {
     "test": "npm run test:smoke",
-    "test:smoke": "playwright test",
-    "test:smoke:headed": "playwright test --headed",
-    "test:smoke:ui": "playwright test --ui"
+    "test:smoke": "playwright test -c tests/playwright.config.cjs",
+    "test:smoke:headed": "playwright test -c tests/playwright.config.cjs --headed",
+    "test:smoke:ui": "playwright test -c tests/playwright.config.cjs --ui"
+
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0"
