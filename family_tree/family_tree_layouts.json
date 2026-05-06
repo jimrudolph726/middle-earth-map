@@ -2,6 +2,29 @@
   "version": 1,
   "views": {
     "all_lineages": {
+      "annotations": [
+        {
+          "id": "kings-of-arnor",
+          "label": "Kings of Arnor",
+          "startPersonId": "elendil",
+          "endPersonId": "eärendur",
+          "side": "left"
+        },
+        {
+          "id": "kings-of-arthedain",
+          "label": "Kings of Arthedain",
+          "startPersonId": "amlaith",
+          "endPersonId": "arvedui",
+          "side": "left"
+        },
+        {
+          "id": "chieftains-of-the-dunedain",
+          "label": "Chieftains of the Dúnedain",
+          "startPersonId": "aranarth",
+          "endPersonId": "aragorn_second",
+          "side": "left"
+        }
+      ],
       "positions": {
         "earendil": {
           "x": -150,

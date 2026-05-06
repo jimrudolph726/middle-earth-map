@@ -267,6 +267,36 @@
   cursor: grabbing;
 }
 
+.family-tree-page .family-tree-annotation-layer,
+.family-tree-page .family-tree-annotation {
+  pointer-events: none;
+}
+
+.family-tree-page .family-tree-annotation__banner {
+  fill: rgba(85, 52, 24, 0.28);
+  stroke: rgba(232, 203, 139, 0.72);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.28));
+}
+
+.family-tree-page .family-tree-annotation__bracket {
+  fill: none;
+  stroke: rgba(232, 203, 139, 0.82);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.family-tree-page .family-tree-annotation__label {
+  fill: #f7deb0;
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  text-transform: uppercase;
+}
+
 .family-tree-page .family-tree-spouse-line,
 .family-tree-page .family-tree-descent-line {
   stroke-linecap: round;

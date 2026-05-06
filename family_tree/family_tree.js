@@ -74,6 +74,10 @@
   const siblingBarDropFactor = 0.7;
   const rowClusterTolerance = 18;
   const minimumRowGap = 18;
+  const annotationLabelWidth = 128;
+  const annotationLabelGap = 72;
+  const annotationVerticalPadding = 42;
+  const annotationMinHeight = 220;
   const zoomMinScale = 0.08;
   const zoomMaxScale = 3;
   const zoomWheelSensitivity = 0.01;
@@ -439,7 +443,8 @@
     Object.keys(layouts.views || {})
       .sort((left, right) => left.localeCompare(right))
       .forEach((viewId) => {
-        const positions = layouts.views[viewId]?.positions || {};
+        const viewLayout = layouts.views[viewId] || {};
+        const positions = viewLayout.positions || {};
         const sortedPositions = {};
         Object.keys(positions)
           .sort((left, right) => comparePeopleIds(left, right))
@@ -450,7 +455,10 @@
             };
           });
 
-        normalized.views[viewId] = { positions: sortedPositions };
+        normalized.views[viewId] = {
+          ...(Array.isArray(viewLayout.annotations) ? { annotations: cloneJson(viewLayout.annotations) } : {}),
+          positions: sortedPositions
+        };
       });
 
     return normalized;
@@ -1649,7 +1657,10 @@
   }
 
   function calculateLayoutBoundsFromPeople(people) {
-    const boxes = Array.from(people.values());
+    return calculateBoundsFromBoxes(Array.from(people.values()));
+  }
+
+  function calculateBoundsFromBoxes(boxes) {
     if (boxes.length === 0) {
       return { minX: 0, minY: 0, maxX: 0, maxY: 0, width: 0, height: 0 };
     }
@@ -1664,6 +1675,69 @@
     bounds.width = bounds.maxX - bounds.minX;
     bounds.height = bounds.maxY - bounds.minY;
     return bounds;
+  }
+
+  function getViewLayoutAnnotations(projection) {
+    const viewLayout = getEffectiveViewLayout(projection.viewId);
+    return Array.isArray(viewLayout?.annotations) ? viewLayout.annotations : [];
+  }
+
+  function buildLayoutAnnotations(layout, projection) {
+    return getViewLayoutAnnotations(projection)
+      .map((annotation, index) => {
+        if (!annotation || typeof annotation !== "object") {
+          return null;
+        }
+
+        const startBox = layout.people.get(annotation.startPersonId);
+        const endBox = layout.people.get(annotation.endPersonId);
+        if (!startBox || !endBox) {
+          return null;
+        }
+
+        const side = annotation.side === "right" ? "right" : "left";
+        const paddingY = Number.isFinite(annotation.paddingY) ? annotation.paddingY : annotationVerticalPadding;
+        const width = Number.isFinite(annotation.width) ? annotation.width : annotationLabelWidth;
+        const gap = Number.isFinite(annotation.gap) ? annotation.gap : annotationLabelGap;
+        const top = Math.min(startBox.top, endBox.top) - paddingY;
+        const bottom = Math.max(startBox.bottom, endBox.bottom) + paddingY;
+        const centerTop = Math.min(startBox.centerY, endBox.centerY);
+        const centerBottom = Math.max(startBox.centerY, endBox.centerY);
+        const spannedBoxes = Array.from(layout.people.values())
+          .filter((box) => box.centerY >= centerTop && box.centerY <= centerBottom);
+        const anchorBoxes = spannedBoxes.length > 0 ? spannedBoxes : [startBox, endBox];
+        const minX = Math.min(...anchorBoxes.map((box) => box.left));
+        const maxX = Math.max(...anchorBoxes.map((box) => box.right));
+        const height = Math.max(annotationMinHeight, bottom - top);
+        const left = side === "right" ? maxX + gap : minX - gap - width;
+
+        return {
+          id: annotation.id || `annotation-${index}`,
+          label: String(annotation.label || ""),
+          side,
+          left,
+          top,
+          right: left + width,
+          bottom: top + height,
+          width,
+          height,
+          bracketGap: Math.max(28, gap - 22)
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function addAnnotationsToLayout(layout, projection) {
+    const annotations = buildLayoutAnnotations(layout, projection);
+
+    return {
+      ...layout,
+      annotations,
+      bounds: calculateBoundsFromBoxes([
+        ...Array.from(layout.people.values()),
+        ...annotations
+      ])
+    };
   }
 
   function buildManualLayoutFromPeople(projection, unionInfos, people) {
@@ -1722,13 +1796,15 @@
       };
     });
 
-    return {
+    const layout = {
       people,
       unions,
       bounds: calculateLayoutBoundsFromPeople(people),
       mode: "manual",
       unionInfos
     };
+
+    return addAnnotationsToLayout(layout, projection);
   }
 
   function applyManualLayoutToBase(baseLayout, projection, unionInfos, manualLayout) {
@@ -2278,24 +2354,13 @@
         refreshUnionGeometry(union);
       });
 
-    const boxes = Array.from(people.values());
-    const bounds = boxes.length === 0
-      ? { minX: 0, minY: 0, maxX: 0, maxY: 0, width: 0, height: 0 }
-      : {
-          minX: Math.min(...boxes.map((box) => box.left)) - 40,
-          minY: Math.min(...boxes.map((box) => box.top)) - 40,
-          maxX: Math.max(...boxes.map((box) => box.right)) + 40,
-          maxY: Math.max(...boxes.map((box) => box.bottom)) + 40
-        };
-
-    bounds.width = bounds.maxX - bounds.minX;
-    bounds.height = bounds.maxY - bounds.minY;
-
-    return {
+    const layout = {
       people,
       unions,
-      bounds
+      bounds: calculateLayoutBoundsFromPeople(people)
     };
+
+    return addAnnotationsToLayout(layout, projection);
   }
 
   async function layoutProjection(projection) {
@@ -2531,6 +2596,7 @@
 
     const defs = svg.append("defs");
     const zoomLayer = svg.append("g").attr("class", "family-tree-zoom-layer");
+    const annotationLayer = zoomLayer.append("g").attr("class", "family-tree-annotation-layer");
     const linkLayer = zoomLayer.append("g").attr("class", "family-tree-link-layer");
     const unionLayer = zoomLayer.append("g").attr("class", "family-tree-union-layer");
     const nodeLayer = zoomLayer.append("g").attr("class", "family-tree-node-layer");
@@ -2558,6 +2624,7 @@
       defs,
       zoom,
       zoomLayer,
+      annotationLayer,
       linkLayer,
       unionLayer,
       nodeLayer
@@ -2566,6 +2633,7 @@
 
   function clearScene() {
     state.scene.defs.selectAll("*").remove();
+    state.scene.annotationLayer.selectAll("*").remove();
     state.scene.linkLayer.selectAll("*").remove();
     state.scene.unionLayer.selectAll("*").remove();
     state.scene.nodeLayer.selectAll("*").remove();
@@ -2684,9 +2752,57 @@
       .filter(Boolean);
   }
 
+  function renderAnnotations(layout) {
+    const annotationGroups = state.scene.annotationLayer.selectAll(".family-tree-annotation")
+      .data(layout.annotations || [], (d) => d.id)
+      .join((enter) => {
+        const group = enter.append("g")
+          .attr("class", "family-tree-annotation")
+          .attr("aria-hidden", "true");
+
+        group.append("rect")
+          .attr("class", "family-tree-annotation__banner")
+          .attr("rx", 26)
+          .attr("ry", 26);
+
+        group.append("path")
+          .attr("class", "family-tree-annotation__bracket");
+
+        group.append("text")
+          .attr("class", "family-tree-annotation__label");
+
+        return group;
+      });
+
+    annotationGroups
+      .attr("class", (d) => `family-tree-annotation family-tree-annotation--${d.side}`)
+      .attr("transform", (d) => `translate(${d.left}, ${d.top})`);
+
+    annotationGroups.select(".family-tree-annotation__banner")
+      .attr("width", (d) => d.width)
+      .attr("height", (d) => d.height);
+
+    annotationGroups.select(".family-tree-annotation__bracket")
+      .attr("d", (d) => {
+        if (d.side === "right") {
+          return `M 0 0 H ${-d.bracketGap} V ${d.height} H 0`;
+        }
+
+        return `M ${d.width} 0 H ${d.width + d.bracketGap} V ${d.height} H ${d.width}`;
+      });
+
+    annotationGroups.select(".family-tree-annotation__label")
+      .attr("x", (d) => d.width / 2)
+      .attr("y", (d) => d.height / 2)
+      .attr("transform", (d) => `rotate(-90 ${d.width / 2} ${d.height / 2})`)
+      .text((d) => d.label);
+  }
+
   function updateScenePositions(layout, projection, rawProjection) {
     const { spouseLines, descentLines } = buildConnectorPaths(layout);
     const nodeData = getNodeRenderData(layout, projection, rawProjection);
+
+    renderAnnotations(layout);
 
     state.scene.linkLayer.selectAll(".family-tree-spouse-line")
       .data(spouseLines, (d) => d.id)
@@ -2732,6 +2848,8 @@
 
     const { spouseLines, descentLines } = buildConnectorPaths(layout);
     const nodeData = getNodeRenderData(layout, projection, rawProjection);
+
+    renderAnnotations(layout);
 
     const portraitClips = state.scene.defs.selectAll(".family-tree-portrait-clip")
       .data(nodeData, (d) => d.id)

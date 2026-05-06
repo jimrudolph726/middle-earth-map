@@ -6,12 +6,15 @@ const path = require("node:path");
 const repoRoot = path.resolve(__dirname, "..");
 const familyTreeDir = path.join(repoRoot, "family_tree");
 const dataPath = path.join(familyTreeDir, "family_tree_data.json");
+const layoutsPath = path.join(familyTreeDir, "family_tree_layouts.json");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
+const layouts = JSON.parse(fs.readFileSync(layoutsPath, "utf8"));
 
 const people = data.people || {};
 const peopleIds = new Set(Object.keys(people));
 const unions = Array.isArray(data.unions) ? data.unions : [];
 const views = data.views || {};
+const layoutViews = layouts.views || {};
 
 function expectNoErrors(errors) {
   assert.equal(errors.length, 0, errors.join("\n"));
@@ -173,6 +176,65 @@ test("family tree views reference existing people", () => {
           errors.push(`views.${viewId}.${fieldName} references missing person "${personId}".`);
         }
       });
+    });
+  });
+
+  expectNoErrors(errors);
+});
+
+test("family tree layout annotations reference existing people", () => {
+  const errors = [];
+
+  Object.entries(layoutViews).forEach(([viewId, viewLayout]) => {
+    if (!views[viewId]) {
+      errors.push(`layouts.views.${viewId} references missing data view "${viewId}".`);
+    }
+
+    const annotations = viewLayout.annotations || [];
+    if (!Array.isArray(annotations)) {
+      errors.push(`layouts.views.${viewId}.annotations must be an array when provided.`);
+      return;
+    }
+
+    const annotationIds = [];
+
+    annotations.forEach((annotation, index) => {
+      const annotationLabel = annotation?.id || `layouts.views.${viewId}.annotations[${index}]`;
+
+      if (!annotation || typeof annotation !== "object") {
+        errors.push(`layouts.views.${viewId}.annotations[${index}] must be an object.`);
+        return;
+      }
+
+      if (!annotation.id) {
+        errors.push(`layouts.views.${viewId}.annotations[${index}].id is required.`);
+      } else {
+        annotationIds.push(annotation.id);
+      }
+
+      if (!annotation.label) {
+        errors.push(`${annotationLabel}.label is required.`);
+      }
+
+      ["startPersonId", "endPersonId"].forEach((fieldName) => {
+        const personId = annotation[fieldName];
+        if (!personId) {
+          errors.push(`${annotationLabel}.${fieldName} is required.`);
+          return;
+        }
+
+        if (!peopleIds.has(personId)) {
+          errors.push(`${annotationLabel}.${fieldName} references missing person "${personId}".`);
+        }
+      });
+
+      if (annotation.side && !["left", "right"].includes(annotation.side)) {
+        errors.push(`${annotationLabel}.side must be "left" or "right" when provided.`);
+      }
+    });
+
+    findDuplicates(annotationIds).forEach((annotationId) => {
+      errors.push(`layouts.views.${viewId}.annotations contains duplicate id "${annotationId}".`);
     });
   });
 
