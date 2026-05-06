@@ -54,6 +54,7 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
 
   await expect(page).toHaveTitle(/Middle-earth Atlas/i);
   await expect(page.getByRole("link", { name: /Open the Middle-earth map/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Open the Minas Tirith map/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /Open the family tree/i })).toBeVisible();
 });
 
