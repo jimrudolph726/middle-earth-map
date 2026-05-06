@@ -3,6 +3,176 @@
     "initialView": "all_lineages"
   },
   "people": {
+    "elendil": {
+      "id": "elendil",
+      "name": "Elendil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "1st King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "S.A. 3119",
+      "died": "S.A 3441",
+      "image": "assets/elendil.png",
+      "bio": "",
+      "order": 5
+    },
+    "isildur": {
+      "id": "isildur",
+      "name": "Isildur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "2nd King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "S.A. 3209",
+      "died": "T.A. 2",
+      "image": "assets/isildur.png",
+      "bio": "",
+      "order": 5
+    },
+    "valandil": {
+      "id": "valandil",
+      "name": "Valandil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "3rd King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "S.A. 3430",
+      "died": "T.A. 249",
+      "image": "assets/valandil.png",
+      "bio": "",
+      "order": 5
+    },
+    "eldacar": {
+      "id": "eldacar",
+      "name": "Eldacar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "4th King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "87",
+      "died": "339",
+      "image": "assets/eldacar.png",
+      "bio": "",
+      "order": 5
+    },
+    "arantar": {
+      "id": "arantar",
+      "name": "Arantar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "5th King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "185",
+      "died": "435",
+      "image": "assets/arantar.png",
+      "bio": "",
+      "order": 5
+    },
+    "tarcil": {
+      "id": "tarcil",
+      "name": "Tarcil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "6th King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "280",
+      "died": "515",
+      "image": "assets/tarcil.png",
+      "bio": "",
+      "order": 5
+    },
+    "tarondor": {
+      "id": "tarondor",
+      "name": "Tarondor",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "7th King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "372",
+      "died": "602",
+      "image": "assets/tarondor.png",
+      "bio": "",
+      "order": 5
+    },
+    "valandur": {
+      "id": "valandur",
+      "name": "Valandur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "8th King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "462",
+      "died": "652",
+      "image": "assets/valandur.png",
+      "bio": "",
+      "order": 5
+    },
+    "elendur": {
+      "id": "elendur",
+      "name": "Elendur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "9th King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "552",
+      "died": "777",
+      "image": "assets/elendur.png",
+      "bio": "",
+      "order": 5
+    },
+    "eärendur": {
+      "id": "eärendur",
+      "name": "Eärendur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "10th King of Arnor",
+      "house": "House of Isildur",
+      "realm": "Arnor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/eärendur.png",
+      "bio": "",
+      "order": 5
+    },
     "amlaith": {
       "id": "amlaith",
       "name": "Amlaith",
@@ -732,6 +902,116 @@
     }
   },
   "unions": [
+    {
+      "id": "union-elendil",
+      "partners": [
+        "elendil"
+      ],
+      "children": [
+        "isildur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-isildur",
+      "partners": [
+        "isildur"
+      ],
+      "children": [
+        "valandil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-valandil",
+      "partners": [
+        "valandil"
+      ],
+      "children": [
+        "eldacar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eldacar",
+      "partners": [
+        "eldacar"
+      ],
+      "children": [
+        "arantar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arantar",
+      "partners": [
+        "arantar"
+      ],
+      "children": [
+        "tarcil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarcil",
+      "partners": [
+        "tarcil"
+      ],
+      "children": [
+        "tarondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarondor",
+      "partners": [
+        "tarondor"
+      ],
+      "children": [
+        "valandur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-valandur",
+      "partners": [
+        "valandur"
+      ],
+      "children": [
+        "elendur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-elendur",
+      "partners": [
+        "elendur"
+      ],
+      "children": [
+        "eärendur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärendur",
+      "partners": [
+        "eärendur"
+      ],
+      "children": [
+        "amlaith"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
     {
       "id": "union-amlaith",
       "partners": [
