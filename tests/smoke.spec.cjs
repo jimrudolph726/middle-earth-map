@@ -2,6 +2,41 @@ const { test, expect } = require("@playwright/test");
 
 const pageErrors = new WeakMap();
 
+async function getLeafletMarkerLayerCount(page) {
+  return page.locator(".leaflet-marker-pane .leaflet-marker-icon").count();
+}
+
+async function getLeafletCanvasPaintedPixelCount(page) {
+  return page.evaluate(() => {
+    return Array.from(document.querySelectorAll(".leaflet-overlay-pane canvas"))
+      .reduce((totalPixels, canvas) => {
+        const context = canvas.getContext("2d");
+        if (!context || canvas.width === 0 || canvas.height === 0) {
+          return totalPixels;
+        }
+
+        const { data } = context.getImageData(0, 0, canvas.width, canvas.height);
+        let paintedPixels = 0;
+
+        for (let index = 3; index < data.length; index += 4) {
+          if (data[index] > 0) {
+            paintedPixels += 1;
+          }
+        }
+
+        return totalPixels + paintedPixels;
+      }, 0);
+  });
+}
+
+async function getLeafletLayerSignal(page, layerType) {
+  if (layerType === "canvas") {
+    return getLeafletCanvasPaintedPixelCount(page);
+  }
+
+  return getLeafletMarkerLayerCount(page);
+}
+
 test.beforeEach(({ page }) => {
   const errors = [];
   pageErrors.set(page, errors);
@@ -22,12 +57,13 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   await expect(page.getByRole("link", { name: /Open the family tree/i })).toBeVisible();
 });
 
-test("beleriand map loads and can start story mode", async ({ page }) => {
+test("All maps load", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
   await page.goto("/maps/beleriand/beleriand.html", { waitUntil: "domcontentloaded" });
-  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.goto("/maps/numenor/numenor.html", { waitUntil: "domcontentloaded" });
+  await page.goto("/maps/the_shire/the_shire.html", { waitUntil: "domcontentloaded" });
+
 });
-
-
 
 test("middle-earth map loads and can start story mode", async ({ page }) => {
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
@@ -45,27 +81,37 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.waitForLoadState("networkidle");
 
   const checkboxChecks = [
-    { tabName: /Campsites and Paths/i, checkboxId: "samfrodocampsitesCheckbox" },
-    { tabName: /Campsites and Paths/i, checkboxId: "samfrodopathCheckbox" },
-    { tabName: /Campsites and Paths/i, checkboxId: "great_east_roadCheckbox" },
-    { tabName: /Settlements/i, checkboxId: "hobbitsCheckbox" },
-    { tabName: /Geography/i, checkboxId: "mountain_rangesCheckbox" },
-    { tabName: /Battles/i, checkboxId: "battlesCheckbox" },
-    { tabName: /Important Items/i, checkboxId: "swordsCheckbox" },
-    { tabName: /Regions/i, checkboxId: "large_regionsCheckbox" }
+    { tabName: /Campsites and Paths/i, checkboxId: "samfrodocampsitesCheckbox", layerType: "marker" },
+    { tabName: /Campsites and Paths/i, checkboxId: "samfrodopathCheckbox", layerType: "canvas" },
+    { tabName: /Campsites and Paths/i, checkboxId: "great_east_roadCheckbox", layerType: "canvas" },
+    { tabName: /Settlements/i, checkboxId: "hobbitsCheckbox", layerType: "marker" },
+    { tabName: /Geography/i, checkboxId: "mountain_rangesCheckbox", layerType: "canvas" },
+    { tabName: /Battles/i, checkboxId: "battlesCheckbox", layerType: "marker" },
+    { tabName: /Important Items/i, checkboxId: "swordsCheckbox", layerType: "marker" },
+    { tabName: /Regions/i, checkboxId: "large_regionsCheckbox", layerType: "canvas" }
   ];
 
-  for (const { tabName, checkboxId } of checkboxChecks) {
+  for (const { tabName, checkboxId, layerType } of checkboxChecks) {
     await page.getByRole("tab", { name: tabName }).click();
 
     const checkbox = page.locator(`#${checkboxId}`);
     await expect(checkbox).toBeVisible();
+    const layerSignalBeforeCheck = await getLeafletLayerSignal(page, layerType);
+
     await checkbox.check();
     await expect(checkbox).toBeChecked();
+    await expect.poll(async () => getLeafletLayerSignal(page, layerType), {
+      message: `Expected ${checkboxId} to render at least one Leaflet marker or path layer.`
+    }).toBeGreaterThan(layerSignalBeforeCheck);
+
     await checkbox.uncheck();
     await expect(checkbox).not.toBeChecked();
+    await expect.poll(async () => getLeafletLayerSignal(page, layerType), {
+      message: `Expected ${checkboxId} layers to be removed after unchecking.`
+    }).toBeLessThanOrEqual(layerSignalBeforeCheck);
   }
 });
 
