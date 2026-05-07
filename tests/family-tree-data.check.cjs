@@ -182,6 +182,41 @@ test("family tree views reference existing people", () => {
   expectNoErrors(errors);
 });
 
+test("family tree layout positions reference existing people", () => {
+  const errors = [];
+
+  Object.entries(layoutViews).forEach(([viewId, viewLayout]) => {
+    if (!views[viewId]) {
+      errors.push(`layouts.views.${viewId} references missing data view "${viewId}".`);
+    }
+
+    const positions = viewLayout.positions || {};
+    if (!positions || typeof positions !== "object" || Array.isArray(positions)) {
+      errors.push(`layouts.views.${viewId}.positions must be an object when provided.`);
+      return;
+    }
+
+    Object.entries(positions).forEach(([personId, position]) => {
+      if (!peopleIds.has(personId)) {
+        errors.push(`layouts.views.${viewId}.positions references missing person "${personId}".`);
+      }
+
+      if (!position || typeof position !== "object" || Array.isArray(position)) {
+        errors.push(`layouts.views.${viewId}.positions.${personId} must be an object.`);
+        return;
+      }
+
+      ["x", "y"].forEach((axis) => {
+        if (!Number.isFinite(position[axis])) {
+          errors.push(`layouts.views.${viewId}.positions.${personId}.${axis} must be a finite number.`);
+        }
+      });
+    });
+  });
+
+  expectNoErrors(errors);
+});
+
 test("family tree layout annotations reference existing people", () => {
   const errors = [];
 

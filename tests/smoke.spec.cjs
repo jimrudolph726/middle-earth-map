@@ -1,6 +1,13 @@
 const { test, expect } = require("@playwright/test");
 
 const pageErrors = new WeakMap();
+const mapPages = [
+  { path: "/maps/middle_earth/middle-earth.html", label: "Middle-earth" },
+  { path: "/maps/beleriand/beleriand.html", label: "Beleriand" },
+  { path: "/maps/numenor/numenor.html", label: "Numenor" },
+  { path: "/maps/the_shire/the_shire.html", label: "The Shire" },
+  { path: "/maps/minas_tirith/minas_tirith.html", label: "Minas Tirith" }
+];
 
 async function getLeafletMarkerLayerCount(page) {
   return page.locator(".leaflet-marker-pane .leaflet-marker-icon").count();
@@ -53,18 +60,37 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
 
   await expect(page).toHaveTitle(/Middle-earth Atlas/i);
-  await expect(page.getByRole("link", { name: /Open the Middle-earth map/i })).toBeVisible();
-  await expect(page.getByRole("link", { name: /Open the Minas Tirith map/i })).toBeVisible();
-  await expect(page.getByRole("link", { name: /Open the family tree/i })).toBeVisible();
+
+  const homepageLinks = [
+    /Open the Middle-earth map/i,
+    /Open The Shire map/i,
+    /Open the Numenor map/i,
+    /Open the Beleriand map/i,
+    /Open the Minas Tirith map/i,
+    /Open the family tree/i
+  ];
+
+  for (const linkName of homepageLinks) {
+    await expect(page.getByRole("link", { name: linkName })).toBeVisible();
+  }
 });
 
-test("All maps load", async ({ page }) => {
-  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
-  await page.goto("/maps/beleriand/beleriand.html", { waitUntil: "domcontentloaded" });
-  await page.goto("/maps/numenor/numenor.html", { waitUntil: "domcontentloaded" });
-  await page.goto("/maps/the_shire/the_shire.html", { waitUntil: "domcontentloaded" });
-  await page.goto("/maps/minas_tirith/minas_tirith.html", { waitUntil: "domcontentloaded" });
+test("all map pages render a Leaflet map", async ({ page }) => {
+  for (const mapPage of mapPages) {
+    await page.goto(mapPage.path, { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#map.leaflet-container"), `${mapPage.label} should render its Leaflet map.`).toBeVisible();
+  }
+});
 
+test("map pages highlight exactly one current map nav link", async ({ page }) => {
+  for (const mapPage of mapPages) {
+    await page.goto(mapPage.path, { waitUntil: "domcontentloaded" });
+
+    const mapsDropdown = page.locator(".atlas-map-nav__dropdown").first();
+    const currentMapLinks = mapsDropdown.locator(".atlas-map-nav__link--current");
+    await expect(currentMapLinks, `${mapPage.label} should be the only highlighted map link.`).toHaveCount(1);
+    await expect(currentMapLinks).toHaveText(new RegExp(mapPage.label, "i"));
+  }
 });
 
 test("middle-earth map loads and can start story mode", async ({ page }) => {
@@ -76,7 +102,15 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
 
   await expect(page.locator("#storyPanel")).toBeVisible();
   await expect(page.locator("#storySceneTitle")).toHaveText(/Leaving the Shire/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of/i);
   await expect(page.locator("#storyControls")).toBeVisible();
+
+  await page.getByRole("button", { name: /Next/i }).click();
+  await expect(page.locator("#storySceneTitle")).toHaveText(/Black Riders on the Road/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 2 of/i);
+
+  await page.getByRole("button", { name: /Previous/i }).click();
+  await expect(page.locator("#storySceneTitle")).toHaveText(/Leaving the Shire/i);
 });
 
 test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
