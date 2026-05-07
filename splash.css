@@ -190,31 +190,31 @@ body.splash-body {
 }
 
 .study-hotspot--numenor {
-  top: 35.7%;
-  left: 80.6%;
-  width: 18.7%;
-  height: 31.7%;
-}
-
-.study-hotspot--beleriand {
   top: 35.1%;
   left: 57.1%;
   width: 22.1%;
   height: 33.3%;
 }
 
+.study-hotspot--beleriand {
+  top: 35.7%;
+  left: 80.6%;
+  width: 18.7%;
+  height: 31.7%;
+}
+
 .study-hotspot--minas-tirith {
-  top: 67.4%;
-  left: 80.2%;
-  width: 18.9%;
-  height: 11.9%;
+  top: 68.8%;
+  left: 81.2%;
+  width: 17.2%;
+  height: 9.5%;
 }
 
 .study-hotspot--family-tree {
-  top: 74.5%;
-  left: 76.1%;
-  width: 23.5%;
-  height: 24.7%;
+  top: 79.2%;
+  left: 69.4%;
+  width: 27.4%;
+  height: 20.2%;
 }
 
 
