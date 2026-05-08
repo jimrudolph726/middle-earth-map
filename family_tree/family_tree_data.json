@@ -513,8 +513,8 @@
       "bio": "",
       "order": 5
     },
-    "calimehtar": {
-      "id": "calimehtar",
+    "calimehtar_king_of_gondor": {
+      "id": "calimehtar_king_of_gondor",
       "name": "Calimehtar",
       "sex": "male",
       "kindred": "Men",
@@ -526,7 +526,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/calimehtar.png",
+      "image": "assets/calimehtar_king_of_gondor.png",
       "bio": "",
       "order": 5
     },
@@ -1736,7 +1736,7 @@
         "narmacil_first"
       ],
       "children": [
-        "calmacil"
+        ""
       ],
       "label": "Issue",
       "order": 10
@@ -1780,7 +1780,7 @@
         "eldacar_king_of_gondor"
       ],
       "children": [
-        "castamir"
+        "aldamir"
       ],
       "label": "Issue",
       "order": 10
@@ -1791,7 +1791,7 @@
         "castamir"
       ],
       "children": [
-        "aldamir"
+        ""
       ],
       "label": "Issue",
       "order": 10
@@ -1835,7 +1835,7 @@
         "telemnar"
       ],
       "children": [
-        "tarondor_king_of_gondor"
+        ""
       ],
       "label": "Issue",
       "order": 10
@@ -1868,15 +1868,15 @@
         "narmacil_second"
       ],
       "children": [
-        "calimehtar"
+        "calimehtar_king_of_gondor"
       ],
       "label": "Issue",
       "order": 10
     },
     {
-      "id": "union-calimehtar",
+      "id": "union-calimehtar_king_of_gondor",
       "partners": [
-        "calimehtar"
+        "calimehtar_king_of_gondor"
       ],
       "children": [
         "ondoher"
