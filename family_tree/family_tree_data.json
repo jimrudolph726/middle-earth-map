@@ -3,6 +3,669 @@
     "initialView": "all_lineages"
   },
   "people": {
+    "anárion": {
+      "id": "anárion",
+      "name": "Anárion",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "2nd King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "S.A. 3119",
+      "died": "S.A 3441",
+      "image": "assets/anárion.png",
+      "bio": "",
+      "order": 5
+    },
+    "meneldil": {
+      "id": "meneldil",
+      "name": "Meneldil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "3rd King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "S.A. 3209",
+      "died": "T.A. 2",
+      "image": "assets/meneldil.png",
+      "bio": "",
+      "order": 5
+    },
+    "cemendur": {
+      "id": "cemendur",
+      "name": "Cemendur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "4th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "S.A. 3430",
+      "died": "T.A. 249",
+      "image": "assets/cemendur.png",
+      "bio": "",
+      "order": 5
+    },
+    "eärendil_gondor": {
+      "id": "eärendil_gondor",
+      "name": "Eärendil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "5th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "87",
+      "died": "339",
+      "image": "assets/eärendil.png",
+      "bio": "",
+      "order": 5
+    },
+    "anardil": {
+      "id": "anardil",
+      "name": "Anardil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "6th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "185",
+      "died": "435",
+      "image": "assets/anardil.png",
+      "bio": "",
+      "order": 5
+    },
+    "ostoher": {
+      "id": "ostoher",
+      "name": "Ostoher",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "7th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "280",
+      "died": "515",
+      "image": "assets/ostoher.png",
+      "bio": "",
+      "order": 5
+    },
+    "rómendacil_first": {
+      "id": "rómendacil_first",
+      "name": "Rómendacil I",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "8th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "372",
+      "died": "602",
+      "image": "assets/rómendacil i.png",
+      "bio": "",
+      "order": 5
+    },
+    "turambar": {
+      "id": "turambar",
+      "name": "Turambar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "9th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "462",
+      "died": "652",
+      "image": "assets/turambar.png",
+      "bio": "",
+      "order": 5
+    },
+    "atanatar_first": {
+      "id": "atanatar_first",
+      "name": "Atanatar I",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "10th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "552",
+      "died": "777",
+      "image": "assets/atanatar i.png",
+      "bio": "",
+      "order": 5
+    },
+    "siriondil": {
+      "id": "siriondil",
+      "name": "Siriondil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "11th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/siriondil.png",
+      "bio": "",
+      "order": 5
+    },
+    "tarannon_falastur": {
+      "id": "tarannon_falastur",
+      "name": "Tarannon Falastur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "12th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/tarannon_falastur.png",
+      "bio": "",
+      "order": 5
+    },
+    "tarciryan": {
+      "id": "tarciryan",
+      "name": "Tarciryan",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/tarciryan.png",
+      "bio": "",
+      "order": 5
+    },
+    "eärnil_first": {
+      "id": "eärnil_first",
+      "name": "Eärnil_First",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "13th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/eärnil_first.png",
+      "bio": "",
+      "order": 5
+    },
+    "ciryandil": {
+      "id": "ciryandil",
+      "name": "Ciryandil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "14th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/ciryandil.png",
+      "bio": "",
+      "order": 5
+    },
+    "hyarmendacil_first": {
+      "id": "hyarmendacil_first",
+      "name": "Hyarmendacil I",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "15th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/hyarmendacil i.png",
+      "bio": "",
+      "order": 5
+    },
+    "atanatar_second_alcarin": {
+      "id": "atanatar_second_alcarin",
+      "name": "Atanatar II Alcarin",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "16th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/atanatar_second_alcarin.png",
+      "bio": "",
+      "order": 5
+    },
+    "narmacil_first": {
+      "id": "narmacil_first",
+      "name": "Narmacil II",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "17th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "",
+      "died": "",
+      "image": "assets/narmacil_first.png",
+      "bio": "",
+      "order": 5
+    },
+    "calmacil": {
+      "id": "calmacil",
+      "name": "Calmacil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "18th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/calmacil.png",
+      "bio": "",
+      "order": 5
+    },
+    "rómendacil_second": {
+      "id": "rómendacil_second",
+      "name": "Rómendacil II",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "19th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/rómendacil ii.png",
+      "bio": "",
+      "order": 5
+    },
+    "valacar": {
+      "id": "valacar",
+      "name": "Valacar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "20th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/valacar.png",
+      "bio": "",
+      "order": 5
+    },
+    "eldacar_king_of_gondor": {
+      "id": "eldacar_king_of_gondor",
+      "name": "Eldacar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "21st King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/eldacar.png",
+      "bio": "",
+      "order": 5
+    },
+    "castamir": {
+      "id": "castamir",
+      "name": "Castamir",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "22nd King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/castamir.png",
+      "bio": "",
+      "order": 5
+    },
+    "aldamir": {
+      "id": "aldamir",
+      "name": "Aldamir",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "23rd King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/aldamir.png",
+      "bio": "",
+      "order": 5
+    },
+    "hyarmendacil_second": {
+      "id": "hyarmendacil_second",
+      "name": "Hyarmendacil II",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "24th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/hyarmendacil ii.png",
+      "bio": "",
+      "order": 5
+    },
+    "minardil": {
+      "id": "minardil",
+      "name": "Minardil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "25th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/minardil.png",
+      "bio": "",
+      "order": 5
+    },
+    "minastan": {
+      "id": "minastan",
+      "name": "Minastan",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/minastan.png",
+      "bio": "",
+      "order": 5
+    },
+    "telemnar": {
+      "id": "telemnar",
+      "name": "Telemnar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "26th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/telemnar.png",
+      "bio": "",
+      "order": 5
+    },
+    "tarondor_king_of_gondor": {
+      "id": "tarondor_king_of_gondor",
+      "name": "Tarondor",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "27th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/tarondor.png",
+      "bio": "",
+      "order": 5
+    },
+    "telumehtar_umbardacil": {
+      "id": "telumehtar_umbardacil",
+      "name": "Telumehtar Umbardacil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "28th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/telumehtar_umbardacil.png",
+      "bio": "",
+      "order": 5
+    },
+    "narmacil_second": {
+      "id": "narmacil_second",
+      "name": "Narmacil II",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "29th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/narmacil ii.png",
+      "bio": "",
+      "order": 5
+    },
+    "calimehtar": {
+      "id": "calimehtar",
+      "name": "Calimehtar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "30th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/calimehtar.png",
+      "bio": "",
+      "order": 5
+    },
+    "ondoher": {
+      "id": "ondoher",
+      "name": "Ondoher",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "31st King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/ondoher.png",
+      "bio": "",
+      "order": 5
+    },
+    "eärnil_second": {
+      "id": "eärnil_second",
+      "name": "Eärnil II",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "31st King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/eärnil_second.png",
+      "bio": "",
+      "order": 5
+    },
+    "eärnur": {
+      "id": "eärnur",
+      "name": "Eärnur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "31st King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/eärnur.png",
+      "bio": "",
+      "order": 5
+    },
+    "minastin": {
+      "id": "minastin",
+      "name": "Minastin",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/minastin.png",
+      "bio": "",
+      "order": 5
+    },
+    "arciryas": {
+      "id": "arciryas",
+      "name": "Arciryas",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/arciryas.png",
+      "bio": "",
+      "order": 5
+    },
+    "calimmacil": {
+      "id": "calimmacil",
+      "name": "Calimmacil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/calimmacil.png",
+      "bio": "",
+      "order": 5
+    },
+    "siriondil_son_of_calimmacil": {
+      "id": "siriondil_son_of_calimmacil",
+      "name": "Siriondil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/siriondil_son_of_calimmacil.png",
+      "bio": "",
+      "order": 5
+    },
+    "calimehtar_son_of_calmacil": {
+      "id": "calimehtar_son_of_calmacil",
+      "name": "Calimehtar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/calimehtar_son_of_calmacil.png",
+      "bio": "",
+      "order": 5
+    },
     "elendil": {
       "id": "elendil",
       "name": "Elendil",
@@ -902,6 +1565,423 @@
     }
   },
   "unions": [
+    {
+      "id": "union-anárion",
+      "partners": [
+        "anárion"
+      ],
+      "children": [
+        "meneldil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-meneldil",
+      "partners": [
+        "meneldil"
+      ],
+      "children": [
+        "cemendur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-cemendur",
+      "partners": [
+        "cemendur"
+      ],
+      "children": [
+        "eärendil_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärendil_gondor",
+      "partners": [
+        "eärendil_gondor"
+      ],
+      "children": [
+        "anardil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-anardil",
+      "partners": [
+        "anardil"
+      ],
+      "children": [
+        "ostoher"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ostoher",
+      "partners": [
+        "ostoher"
+      ],
+      "children": [
+        "rómendacil_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-rómendacil_first",
+      "partners": [
+        "rómendacil_first"
+      ],
+      "children": [
+        "turambar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-turambar",
+      "partners": [
+        "turambar"
+      ],
+      "children": [
+        "atanatar_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-atanatar_first",
+      "partners": [
+        "atanatar_first"
+      ],
+      "children": [
+        "siriondil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-siriondil",
+      "partners": [
+        "siriondil"
+      ],
+      "children": [
+        "tarannon_falastur", "tarciryan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarannon_falastur",
+      "partners": [
+        "tarannon_falastur"
+      ],
+      "children": [
+        "eärnil_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärnil_first",
+      "partners": [
+        "eärnil_first"
+      ],
+      "children": [
+        "ciryandil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ciryandil",
+      "partners": [
+        "ciryandil"
+      ],
+      "children": [
+        "hyarmendacil_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-hyarmendacil_first",
+      "partners": [
+        "hyarmendacil_first"
+      ],
+      "children": [
+        "atanatar_second_alcarin"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-atanatar_second_alcarin",
+      "partners": [
+        "atanatar_second_alcarin"
+      ],
+      "children": [
+        "narmacil_first", "calmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-narmacil_first",
+      "partners": [
+        "narmacil_first"
+      ],
+      "children": [
+        "calmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calmacil",
+      "partners": [
+        "calmacil"
+      ],
+      "children": [
+        "rómendacil_second", "calimehtar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-rómendacil_second",
+      "partners": [
+        "rómendacil_second"
+      ],
+      "children": [
+        "valacar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-valacar",
+      "partners": [
+        "valacar"
+      ],
+      "children": [
+        "eldacar_king_of_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eldacar_king_of_gondor",
+      "partners": [
+        "eldacar_king_of_gondor"
+      ],
+      "children": [
+        "castamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-castamir",
+      "partners": [
+        "castamir"
+      ],
+      "children": [
+        "aldamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-aldamir",
+      "partners": [
+        "aldamir"
+      ],
+      "children": [
+        "hyarmendacil_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-hyarmendacil_second",
+      "partners": [
+        "hyarmendacil_second"
+      ],
+      "children": [
+        "minardil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-minardil",
+      "partners": [
+        "minardil"
+      ],
+      "children": [
+        "telemnar", "minastan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-telemnar",
+      "partners": [
+        "telemnar"
+      ],
+      "children": [
+        "tarondor_king_of_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarondor_king_of_gondor",
+      "partners": [
+        "tarondor_king_of_gondor"
+      ],
+      "children": [
+        "telumehtar_umbardacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-telumehtar_umbardacil",
+      "partners": [
+        "telumehtar_umbardacil", "arciryas"
+      ],
+      "children": [
+        "narmacil_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-narmacil_second",
+      "partners": [
+        "narmacil_second"
+      ],
+      "children": [
+        "calimehtar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calimehtar",
+      "partners": [
+        "calimehtar"
+      ],
+      "children": [
+        "ondoher"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ondoher",
+      "partners": [
+        "ondoher"
+      ],
+      "children": [
+        "eärnil_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärnil_second",
+      "partners": [
+        "eärnil_second"
+      ],
+      "children": [
+        "eärnur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärnur",
+      "partners": [
+        "eärnur"
+      ],
+      "children": [],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarciryan",
+      "partners": [
+        "tarciryan"
+      ],
+      "children": [
+        "minastin"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-minastin",
+      "partners": [
+        "minastin"
+      ],
+      "children": [
+        "tarondor_king_of_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arciryas",
+      "partners": [
+        "arciryas"
+      ],
+      "children": [
+        "calimmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calimmacil",
+      "partners": [
+        "calimmacil"
+      ],
+      "children": [
+        "siriondil_son_of_calimmacil",
+        "calimehtar_son_of_calmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-siriondil_son_of_calimmacil",
+      "partners": [
+        "siriondil_son_of_calimmacil"
+      ],
+      "children": [
+        "eärnil_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calimehtar_son_of_calmacil",
+      "partners": [
+        "calimehtar_son_of_calmacil"
+      ],
+      "children": [
+        "castamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
     {
       "id": "union-elendil",
       "partners": [
