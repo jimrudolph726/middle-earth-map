@@ -1918,7 +1918,8 @@
         "ondoher"
       ],
       "children": [
-        "eärnil_second"
+        "eärnil_second",
+        "firiel"
       ],
       "label": "Issue",
       "order": 10
@@ -2025,7 +2026,7 @@
         "elendil"
       ],
       "children": [
-        "isildur"
+        "isildur", "anárion"
       ],
       "label": "Issue",
       "order": 10
