@@ -1846,12 +1846,12 @@
       "order": 10
     },
     {
-      "id": "union-tarondor_king_of_gondor",
+      "id": "union-minastin",
       "partners": [
-        "tarondor_king_of_gondor"
+        "minastin"
       ],
       "children": [
-        "telumehtar_umbardacil"
+        "tarondor_king_of_gondor"
       ],
       "label": "Issue",
       "order": 10
@@ -1992,7 +1992,8 @@
 
 
 
-    
+
+
 
 
 
