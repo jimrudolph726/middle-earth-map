@@ -54,8 +54,8 @@
       "bio": "",
       "order": 5
     },
-    "eärendil_gondor": {
-      "id": "eärendil_gondor",
+    "eärendil": {
+      "id": "eärendil",
       "name": "Eärendil",
       "sex": "male",
       "kindred": "Men",
@@ -105,8 +105,8 @@
       "bio": "",
       "order": 5
     },
-    "rómendacil_first": {
-      "id": "rómendacil_first",
+    "rómendacil i": {
+      "id": "rómendacil i",
       "name": "Rómendacil I",
       "sex": "male",
       "kindred": "Men",
@@ -139,8 +139,8 @@
       "bio": "",
       "order": 5
     },
-    "atanatar_first": {
-      "id": "atanatar_first",
+    "atanatar i": {
+      "id": "atanatar i",
       "name": "Atanatar I",
       "sex": "male",
       "kindred": "Men",
@@ -173,23 +173,6 @@
       "bio": "",
       "order": 5
     },
-    "tarannon_falastur": {
-      "id": "tarannon_falastur",
-      "name": "Tarannon Falastur",
-      "sex": "male",
-      "kindred": "Men",
-      "groups": [
-        "dúnedain"
-      ],
-      "title": "12th King of Gondor",
-      "house": "House of Anárion",
-      "realm": "Gondor",
-      "born": "640",
-      "died": "861",
-      "image": "assets/tarannon_falastur.png",
-      "bio": "",
-      "order": 5
-    },
     "tarciryan": {
       "id": "tarciryan",
       "name": "Tarciryan",
@@ -198,7 +181,7 @@
       "groups": [
         "dúnedain"
       ],
-      "title": "",
+      "title": "12th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
       "born": "640",
@@ -241,8 +224,8 @@
       "bio": "",
       "order": 5
     },
-    "hyarmendacil_first": {
-      "id": "hyarmendacil_first",
+    "hyarmendacil i": {
+      "id": "hyarmendacil i",
       "name": "Hyarmendacil I",
       "sex": "male",
       "kindred": "Men",
@@ -309,8 +292,8 @@
       "bio": "",
       "order": 5
     },
-    "rómendacil_second": {
-      "id": "rómendacil_second",
+    "rómendacil ii": {
+      "id": "rómendacil ii",
       "name": "Rómendacil II",
       "sex": "male",
       "kindred": "Men",
@@ -356,7 +339,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/eldacar.png",
+      "image": "assets/eldacar_king_of_gondor.png",
       "bio": "",
       "order": 5
     },
@@ -394,8 +377,8 @@
       "bio": "",
       "order": 5
     },
-    "hyarmendacil_second": {
-      "id": "hyarmendacil_second",
+    "hyarmendacil ii": {
+      "id": "hyarmendacil ii",
       "name": "Hyarmendacil II",
       "sex": "male",
       "kindred": "Men",
@@ -425,23 +408,6 @@
       "born": "640",
       "died": "861",
       "image": "assets/minardil.png",
-      "bio": "",
-      "order": 5
-    },
-    "minastan": {
-      "id": "minastan",
-      "name": "Minastan",
-      "sex": "male",
-      "kindred": "Men",
-      "groups": [
-        "dúnedain"
-      ],
-      "title": "",
-      "house": "House of Anárion",
-      "realm": "Gondor",
-      "born": "640",
-      "died": "861",
-      "image": "assets/minastan.png",
       "bio": "",
       "order": 5
     },
@@ -475,7 +441,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/tarondor.png",
+      "image": "assets/tarondor_king_of_gondor.png",
       "bio": "",
       "order": 5
     },
@@ -496,8 +462,8 @@
       "bio": "",
       "order": 5
     },
-    "narmacil_second": {
-      "id": "narmacil_second",
+    "narmacil ii": {
+      "id": "narmacil ii",
       "name": "Narmacil II",
       "sex": "male",
       "kindred": "Men",
@@ -513,8 +479,8 @@
       "bio": "",
       "order": 5
     },
-    "calimehtar_king_of_gondor": {
-      "id": "calimehtar_king_of_gondor",
+    "calimehtar": {
+      "id": "calimehtar",
       "name": "Calimehtar",
       "sex": "male",
       "kindred": "Men",
@@ -526,7 +492,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/calimehtar_king_of_gondor.png",
+      "image": "assets/calimehtar.png",
       "bio": "",
       "order": 5
     },
@@ -581,6 +547,24 @@
       "bio": "",
       "order": 5
     },
+    "tarannon_falastur": {
+      "id": "Tarannon Falastur",
+      "name": "Tarannon Falastur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "12th King of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/Tarannon Falastur.png",
+      "bio": "",
+      "order": 5
+    },
+
     "minastin": {
       "id": "minastin",
       "name": "Minastin",
@@ -666,6 +650,15 @@
       "bio": "",
       "order": 5
     },
+
+
+
+
+
+
+
+
+
     "elendil": {
       "id": "elendil",
       "name": "Elendil",
@@ -1670,7 +1663,7 @@
         "siriondil"
       ],
       "children": [
-        "tarannon_falastur", "tarciryan"
+        "tarannon_falastur"
       ],
       "label": "Issue",
       "order": 10
@@ -1725,7 +1718,7 @@
         "atanatar_second_alcarin"
       ],
       "children": [
-        "narmacil_first", "calmacil"
+        "narmacil_first"
       ],
       "label": "Issue",
       "order": 10
@@ -1736,7 +1729,7 @@
         "narmacil_first"
       ],
       "children": [
-        ""
+        "calmacil"
       ],
       "label": "Issue",
       "order": 10
@@ -1747,7 +1740,7 @@
         "calmacil"
       ],
       "children": [
-        "rómendacil_second", "calimehtar"
+        "rómendacil_second"
       ],
       "label": "Issue",
       "order": 10
@@ -1780,7 +1773,7 @@
         "eldacar_king_of_gondor"
       ],
       "children": [
-        "aldamir"
+        "castamir"
       ],
       "label": "Issue",
       "order": 10
@@ -1791,7 +1784,7 @@
         "castamir"
       ],
       "children": [
-        ""
+        "aldamir"
       ],
       "label": "Issue",
       "order": 10
@@ -1824,7 +1817,7 @@
         "minardil"
       ],
       "children": [
-        "telemnar", "minastan"
+        "telemnar"
       ],
       "label": "Issue",
       "order": 10
@@ -1835,7 +1828,7 @@
         "telemnar"
       ],
       "children": [
-        ""
+        "tarondor_king_of_gondor"
       ],
       "label": "Issue",
       "order": 10
@@ -1854,7 +1847,7 @@
     {
       "id": "union-telumehtar_umbardacil",
       "partners": [
-        "telumehtar_umbardacil", "arciryas"
+        "telumehtar_umbardacil"
       ],
       "children": [
         "narmacil_second"
@@ -1868,15 +1861,15 @@
         "narmacil_second"
       ],
       "children": [
-        "calimehtar_king_of_gondor"
+        "calimehtar"
       ],
       "label": "Issue",
       "order": 10
     },
     {
-      "id": "union-calimehtar_king_of_gondor",
+      "id": "union-calimehtar",
       "partners": [
-        "calimehtar_king_of_gondor"
+        "calimehtar"
       ],
       "children": [
         "ondoher"
@@ -1911,7 +1904,9 @@
       "partners": [
         "eärnur"
       ],
-      "children": [],
+      "children": [
+        "tarciryan"
+      ],
       "label": "Issue",
       "order": 10
     },
@@ -1932,7 +1927,7 @@
         "minastin"
       ],
       "children": [
-        "tarondor_king_of_gondor"
+        "arciryas"
       ],
       "label": "Issue",
       "order": 10
@@ -1954,8 +1949,7 @@
         "calimmacil"
       ],
       "children": [
-        "siriondil_son_of_calimmacil",
-        "calimehtar_son_of_calmacil"
+        "siriondil_son_of_calimmacil"
       ],
       "label": "Issue",
       "order": 10
@@ -1966,7 +1960,7 @@
         "siriondil_son_of_calimmacil"
       ],
       "children": [
-        "eärnil_second"
+        "calimehtar_son_of_calmacil"
       ],
       "label": "Issue",
       "order": 10
@@ -1977,11 +1971,21 @@
         "calimehtar_son_of_calmacil"
       ],
       "children": [
-        "castamir"
+        ""
       ],
       "label": "Issue",
       "order": 10
     },
+
+
+
+
+
+
+
+
+
+
     {
       "id": "union-elendil",
       "partners": [
