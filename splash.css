@@ -83,7 +83,6 @@ body.splash-body {
   width: 100%;
   max-width: 100%;
   margin-top: 14px;
-  min-height: 620px;
   aspect-ratio: 16 / 9;
   padding: 0;
   overflow: hidden;
@@ -228,12 +227,6 @@ body.splash-body {
   text-transform: uppercase;
 }
 
-@media (max-width: 1100px) {
-  .splash-table {
-    min-height: 540px;
-  }
-}
-
 @media (max-width: 720px) {
   .splash-shell {
     padding: 16px 12px;
@@ -251,7 +244,6 @@ body.splash-body {
 
   .splash-table {
     width: 100%;
-    min-height: 0;
     aspect-ratio: 16 / 9;
     padding: 0;
   }
