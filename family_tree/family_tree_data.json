@@ -54,8 +54,8 @@
       "bio": "",
       "order": 5
     },
-    "eärendil_gondor": {
-      "id": "eärendil_gondor",
+    "eärendil": {
+      "id": "eärendil",
       "name": "Eärendil",
       "sex": "male",
       "kindred": "Men",
@@ -118,7 +118,7 @@
       "realm": "Gondor",
       "born": "372",
       "died": "602",
-      "image": "assets/rómendacil i.png",
+      "image": "assets/rómendacil_first.png",
       "bio": "",
       "order": 5
     },
@@ -139,8 +139,8 @@
       "bio": "",
       "order": 5
     },
-    "atanatar_first": {
-      "id": "atanatar_first",
+    "atanatar i": {
+      "id": "atanatar i",
       "name": "Atanatar I",
       "sex": "male",
       "kindred": "Men",
@@ -156,9 +156,9 @@
       "bio": "",
       "order": 5
     },
-    "siriondil": {
-      "id": "siriondil",
-      "name": "Siriondil",
+    "siriondil_king_of_gondor": {
+      "id": "siriondil_king_of_gondor",
+      "name": "Siriondil King of Gondor",
       "sex": "male",
       "kindred": "Men",
       "groups": [
@@ -169,13 +169,13 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/siriondil.png",
+      "image": "assets/siriondil_king_of_gondor.png",
       "bio": "",
       "order": 5
     },
-    "tarciryan": {
-      "id": "tarciryan",
-      "name": "Tarciryan",
+    "tarannon_falastur": {
+      "id": "tarannon_falastur",
+      "name": "Tarannon Falastur",
       "sex": "male",
       "kindred": "Men",
       "groups": [
@@ -186,7 +186,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/tarciryan.png",
+      "image": "assets/tarannon_falastur.png",
       "bio": "",
       "order": 5
     },
@@ -237,7 +237,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/hyarmendacil i.png",
+      "image": "assets/hyarmendacil_first.png",
       "bio": "",
       "order": 5
     },
@@ -305,7 +305,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/rómendacil ii.png",
+      "image": "assets/rómendacil_second.png",
       "bio": "",
       "order": 5
     },
@@ -390,7 +390,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/hyarmendacil ii.png",
+      "image": "assets/hyarmendacil_second.png",
       "bio": "",
       "order": 5
     },
@@ -408,23 +408,6 @@
       "born": "640",
       "died": "861",
       "image": "assets/minardil.png",
-      "bio": "",
-      "order": 5
-    },
-    "minastan": {
-      "id": "minastan",
-      "name": "Minastan",
-      "sex": "male",
-      "kindred": "Men",
-      "groups": [
-        "dúnedain"
-      ],
-      "title": "",
-      "house": "House of Anárion",
-      "realm": "Gondor",
-      "born": "640",
-      "died": "861",
-      "image": "assets/minastan.png",
       "bio": "",
       "order": 5
     },
@@ -492,7 +475,7 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/narmacil ii.png",
+      "image": "assets/narmacil_second.png",
       "bio": "",
       "order": 5
     },
@@ -564,27 +547,9 @@
       "bio": "",
       "order": 5
     },
-    "tarannon_falastur": {
-      "id": "tarannon_falastur",
-      "name": "Tarannon Falastur",
-      "sex": "male",
-      "kindred": "Men",
-      "groups": [
-        "dúnedain"
-      ],
-      "title": "12th King of Gondor",
-      "house": "House of Anárion",
-      "realm": "Gondor",
-      "born": "640",
-      "died": "861",
-      "image": "assets/Tarannon Falastur.png",
-      "bio": "",
-      "order": 5
-    },
-
-    "minastin": {
-      "id": "minastin",
-      "name": "Minastin",
+    "tarciryan": {
+      "id": "tarciryan",
+      "name": "Tarciryan",
       "sex": "male",
       "kindred": "Men",
       "groups": [
@@ -595,7 +560,24 @@
       "realm": "Gondor",
       "born": "640",
       "died": "861",
-      "image": "assets/minastin.png",
+      "image": "assets/tarciryan.png",
+      "bio": "",
+      "order": 5
+    },
+    "minastan": {
+      "id": "minastan",
+      "name": "Minastan",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/minastan.png",
       "bio": "",
       "order": 5
     },
@@ -635,7 +617,7 @@
     },
     "siriondil_son_of_calimmacil": {
       "id": "siriondil_son_of_calimmacil",
-      "name": "Siriondil",
+      "name": "Siriondil Son of Calimehtar",
       "sex": "male",
       "kindred": "Men",
       "groups": [
@@ -1697,7 +1679,7 @@
         "siriondil"
       ],
       "children": [
-        "tarannon_falastur"
+        "tarannon_falastur", "tarciryan"
       ],
       "label": "Issue",
       "order": 10
@@ -1851,7 +1833,7 @@
         "tarondor_king_of_gondor"
       ],
       "children": [
-        "telumehtar_umbardacil"
+        "tarondor_king_of_gondor"
       ],
       "label": "Issue",
       "order": 10
@@ -1911,13 +1893,13 @@
       "label": "Issue",
       "order": 10
     },
-    {
+{
       "id": "union-tarciryan",
       "partners": [
         "tarciryan"
       ],
       "children": [
-        "minastin"
+        "eärnil_first"
       ],
       "label": "Issue",
       "order": 10
@@ -1928,7 +1910,7 @@
         "minastin"
       ],
       "children": [
-        "tarondor_king_of_gondor"
+        "tarondor"
       ],
       "label": "Issue",
       "order": 10
@@ -1977,8 +1959,6 @@
       "label": "Issue",
       "order": 10
     },
-
-
 
 
 
