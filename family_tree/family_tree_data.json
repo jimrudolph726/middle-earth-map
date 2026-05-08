@@ -54,8 +54,8 @@
       "bio": "",
       "order": 5
     },
-    "eärendil": {
-      "id": "eärendil",
+    "eärendil_gondor": {
+      "id": "eärendil_gondor",
       "name": "Eärendil",
       "sex": "male",
       "kindred": "Men",
@@ -105,8 +105,8 @@
       "bio": "",
       "order": 5
     },
-    "rómendacil i": {
-      "id": "rómendacil i",
+    "rómendacil_first": {
+      "id": "rómendacil_first",
       "name": "Rómendacil I",
       "sex": "male",
       "kindred": "Men",
@@ -139,8 +139,8 @@
       "bio": "",
       "order": 5
     },
-    "atanatar i": {
-      "id": "atanatar i",
+    "atanatar_first": {
+      "id": "atanatar_first",
       "name": "Atanatar I",
       "sex": "male",
       "kindred": "Men",
@@ -224,8 +224,8 @@
       "bio": "",
       "order": 5
     },
-    "hyarmendacil i": {
-      "id": "hyarmendacil i",
+    "hyarmendacil_first": {
+      "id": "hyarmendacil_first",
       "name": "Hyarmendacil I",
       "sex": "male",
       "kindred": "Men",
@@ -292,8 +292,8 @@
       "bio": "",
       "order": 5
     },
-    "rómendacil ii": {
-      "id": "rómendacil ii",
+    "rómendacil_second": {
+      "id": "rómendacil_second",
       "name": "Rómendacil II",
       "sex": "male",
       "kindred": "Men",
@@ -377,8 +377,8 @@
       "bio": "",
       "order": 5
     },
-    "hyarmendacil ii": {
-      "id": "hyarmendacil ii",
+    "hyarmendacil_second": {
+      "id": "hyarmendacil_second",
       "name": "Hyarmendacil II",
       "sex": "male",
       "kindred": "Men",
@@ -408,6 +408,23 @@
       "born": "640",
       "died": "861",
       "image": "assets/minardil.png",
+      "bio": "",
+      "order": 5
+    },
+    "minastan": {
+      "id": "minastan",
+      "name": "Minastan",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "640",
+      "died": "861",
+      "image": "assets/minastan.png",
       "bio": "",
       "order": 5
     },
@@ -462,8 +479,8 @@
       "bio": "",
       "order": 5
     },
-    "narmacil ii": {
-      "id": "narmacil ii",
+    "narmacil_second": {
+      "id": "narmacil_second",
       "name": "Narmacil II",
       "sex": "male",
       "kindred": "Men",
@@ -548,7 +565,7 @@
       "order": 5
     },
     "tarannon_falastur": {
-      "id": "Tarannon Falastur",
+      "id": "tarannon_falastur",
       "name": "Tarannon Falastur",
       "sex": "male",
       "kindred": "Men",
@@ -1084,6 +1101,23 @@
       "bio": "",
       "order": 5
     },
+    "firiel": {
+      "id": "firiel",
+      "name": "Fíriel",
+      "sex": "female",
+      "kindred": "Men",
+      "groups": [
+        "dúnedain"
+      ],
+      "title": "Princess of Gondor",
+      "house": "House of Anárion",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/firiel.png",
+      "bio": "",
+      "order": 5
+    },
     "aranarth": {
       "id": "aranarth",
       "name": "Aranarth",
@@ -1322,8 +1356,8 @@
       "bio": "Celeborn is the Lord of Lothlorien. He rules Lothlorien with his wife Galadriel.",
       "order": 4
     },
-    "earendil": {
-      "id": "earendil",
+    "eärendil": {
+      "id": "eärendil",
       "name": "Earendil",
       "sex": "male",
       "kindred": "Elf / Half-elven",
@@ -1817,7 +1851,8 @@
         "minardil"
       ],
       "children": [
-        "telemnar"
+        "telemnar",
+        "minastan"
       ],
       "label": "Issue",
       "order": 10
@@ -1970,9 +2005,7 @@
       "partners": [
         "calimehtar_son_of_calmacil"
       ],
-      "children": [
-        ""
-      ],
+      "children": [],
       "label": "Issue",
       "order": 10
     },
@@ -2251,14 +2284,15 @@
       "order": 10
     },
     {
-      "id": "union-arvedui",
+      "id": "union-arvedui-firiel",
       "partners": [
-        "arvedui"
+        "arvedui",
+        "firiel"
       ],
       "children": [
         "aranarth"
       ],
-      "label": "Issue",
+      "label": "Marriage",
       "order": 10
     },
         {
@@ -2442,7 +2476,7 @@
     {
       "id": "union-earendil-elwing",
       "partners": [
-        "earendil",
+        "eärendil",
         "elwing"
       ],
       "children": [
