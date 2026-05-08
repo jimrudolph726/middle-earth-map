@@ -1807,17 +1807,6 @@
         "eldacar_king_of_gondor"
       ],
       "children": [
-        "castamir"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
-      "id": "union-castamir",
-      "partners": [
-        "castamir"
-      ],
-      "children": [
         "aldamir"
       ],
       "label": "Issue",
@@ -1917,7 +1906,7 @@
         "ondoher"
       ],
       "children": [
-        "eärnil_second"
+        "firiel"
       ],
       "label": "Issue",
       "order": 10
@@ -1961,7 +1950,7 @@
         "minastin"
       ],
       "children": [
-        "arciryas"
+        "tarondor"
       ],
       "label": "Issue",
       "order": 10
@@ -2010,8 +1999,6 @@
       "label": "Issue",
       "order": 10
     },
-
-
 
 
 
