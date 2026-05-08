@@ -134,7 +134,7 @@
           "x": -300,
           "y": -7200
         },
-        "siriondil": {
+        "siriondil_king_of_gondor": {
           "x": 0,
           "y": -7200
         },
@@ -290,7 +290,7 @@
           "x": 0,
           "y": -3600
         },
-        "siriondil_son_of_calimmacil": {
+        "siriondil": {
           "x": 300,
           "y": -3600
         },
@@ -386,7 +386,6 @@
           "x": 600,
           "y": 200
         }
-
       }
     }
   }
