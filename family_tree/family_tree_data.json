@@ -1846,17 +1846,6 @@
       "order": 10
     },
     {
-      "id": "union-telemnar",
-      "partners": [
-        "telemnar"
-      ],
-      "children": [
-        "tarondor_king_of_gondor"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
       "id": "union-tarondor_king_of_gondor",
       "partners": [
         "tarondor_king_of_gondor"
@@ -1999,6 +1988,11 @@
       "label": "Issue",
       "order": 10
     },
+
+
+
+
+    
 
 
 
