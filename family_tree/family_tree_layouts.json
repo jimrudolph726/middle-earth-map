@@ -26,6 +26,78 @@
         }
       ],
       "positions": {
+        "valandil_lord_of_andúnië": {
+          "x": -150,
+          "y": -13200
+        },
+        "unknown_lord_of_andúnië_one": {
+          "x": -150,
+          "y": -13000
+        },
+        "unknown_lord_of_andúnië_two": {
+          "x": -150,
+          "y": -12800
+        },
+        "unknown_lord_of_andúnië_three": {
+          "x": -150,
+          "y": -12600
+        },
+        "unknown_lord_of_andúnië_four": {
+          "x": -150,
+          "y": -12400
+        },
+        "unknown_lord_of_andúnië_five": {
+          "x": -150,
+          "y": -12200
+        },
+        "unknown_lord_of_andúnië_six": {
+          "x": -150,
+          "y": -12000
+        },
+        "unknown_lord_of_andúnië_seven": {
+          "x": -150,
+          "y": -11800
+        },
+        "unknown_lord_of_andúnië_eight": {
+          "x": -150,
+          "y": -11600
+        },
+        "unknown_lord_of_andúnië_nine": {
+          "x": -150,
+          "y": -11400
+        },
+        "unknown_lord_of_andúnië_ten": {
+          "x": -150,
+          "y": -11200
+        },
+        "unknown_lord_of_andúnië_eleven": {
+          "x": -150,
+          "y": -11000
+        },
+        "unknown_lord_of_andúnië_twelve": {
+          "x": -150,
+          "y": -10800
+        },
+        "unknown_lord_of_andúnië_thirteen": {
+          "x": -150,
+          "y": -10600
+        },
+        "eärendur_lord_of_andúnië": {
+          "x": -150,
+          "y": -10400
+        },
+        "unknown_lord_of_andúnië_fourteen": {
+          "x": -150,
+          "y": -10200
+        },
+        "númendil": {
+          "x": -150,
+          "y": -10000
+        },
+        "amandil": {
+          "x": -150,
+          "y": -9800
+        },
         "eärendil": {
           "x": -150,
           "y": -9600

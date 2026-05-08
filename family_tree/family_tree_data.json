@@ -3,6 +3,329 @@
     "initialView": "all_lineages"
   },
   "people": {
+    "valandil_lord_of_andúnië": {
+      "id": "valandil_lord_of_andúnië",
+      "name": "Valandil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "1st Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "S.A. 630",
+      "died": "Unknown (aged 240+)",
+      "image": "assets/valandil_lord_of_andúnië.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_one": {
+      "id": "unknown_lord_of_andúnië_one",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "2nd Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_one.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_two": {
+      "id": "unknown_lord_of_andúnië_two",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "3rd Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_two.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_three": {
+      "id": "unknown_lord_of_andúnië_three",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "4th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_three.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_four": {
+      "id": "unknown_lord_of_andúnië_four",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "5th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_four.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_five": {
+      "id": "unknown_lord_of_andúnië_five",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "6th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_five.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_six": {
+      "id": "unknown_lord_of_andúnië_six",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "7th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_six.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_seven": {
+      "id": "unknown_lord_of_andúnië_seven",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "8th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_seven.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_eight": {
+      "id": "unknown_lord_of_andúnië_eight",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "9th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_eight.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_nine": {
+      "id": "unknown_lord_of_andúnië_nine",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "10th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_nine.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_ten": {
+      "id": "unknown_lord_of_andúnië_ten",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "11th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_ten.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_eleven": {
+      "id": "unknown_lord_of_andúnië_eleven",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "12th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_eleven.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_twelve": {
+      "id": "unknown_lord_of_andúnië_twelve",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "13th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_twelve.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_thirteen": {
+      "id": "unknown_lord_of_andúnië_thirteen",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "14th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_thirteen.png",
+      "bio": "",
+      "order": 5
+    },
+    "eärendur_lord_of_andúnië": {
+      "id": "eärendur_lord_of_andúnië",
+      "name": "Eärendur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "15th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/eärendur_lord_of_andúnië.png",
+      "bio": "",
+      "order": 5
+    },
+    "unknown_lord_of_andúnië_fourteen": {
+      "id": "unknown_lord_of_andúnië_fourteen",
+      "name": "Unknown",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "16th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/unknown_lord_of_andúnië_fourteen.png",
+      "bio": "",
+      "order": 5
+    },
+    "númendil": {
+      "id": "númendil",
+      "name": "Númendil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "17th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/númendil.png",
+      "bio": "",
+      "order": 5
+    },
+    "amandil": {
+      "id": "amandil",
+      "name": "Amandil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "andúnië"
+      ],
+      "title": "18th Lord of Andúnië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Before S.A. 3316",
+      "died": "Sailed west for Rómenna in S.A. 3316, aged 197+, was never heard from again",
+      "image": "assets/amandil.png",
+      "bio": "",
+      "order": 5
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "anárion": {
       "id": "anárion",
       "name": "Anárion",
@@ -1576,6 +1899,214 @@
     }
   },
   "unions": [
+    {
+      "id": "union-valandil_lord_of_andúnië",
+      "partners": [
+        "valandil_lord_of_andúnië"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_one"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_one",
+      "partners": [
+        "unknown_lord_of_andúnië_one"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_two"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_two",
+      "partners": [
+        "unknown_lord_of_andúnië_two"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_three"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_three",
+      "partners": [
+        "unknown_lord_of_andúnië_three"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_four"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_four",
+      "partners": [
+        "unknown_lord_of_andúnië_four"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_five"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_five",
+      "partners": [
+        "unknown_lord_of_andúnië_five"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_six"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_six",
+      "partners": [
+        "unknown_lord_of_andúnië_six"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_seven"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_seven",
+      "partners": [
+        "unknown_lord_of_andúnië_seven"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_eight"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_eight",
+      "partners": [
+        "unknown_lord_of_andúnië_eight"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_nine"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_nine",
+      "partners": [
+        "unknown_lord_of_andúnië_nine"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_ten"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_ten",
+      "partners": [
+        "unknown_lord_of_andúnië_ten"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_eleven"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_eleven",
+      "partners": [
+        "unknown_lord_of_andúnië_eleven"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_twelve"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_twelve",
+      "partners": [
+        "unknown_lord_of_andúnië_twelve"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_thirteen"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_thirteen",
+      "partners": [
+        "unknown_lord_of_andúnië_thirteen"
+      ],
+      "children": [
+        "eärendur_lord_of_andúnië"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärendur_lord_of_andúnië",
+      "partners": [
+        "eärendur_lord_of_andúnië"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_fourteen"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_fourteen",
+      "partners": [
+        "unknown_lord_of_andúnië_fourteen"
+      ],
+      "children": [
+        "númendil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-númendil",
+      "partners": [
+        "númendil"
+      ],
+      "children": [
+        "amandil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-amandil",
+      "partners": [
+        "amandil"
+      ],
+      "children": [
+        "elendil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+
+
+
+
+
+
+
+
+
+
     {
       "id": "union-anárion",
       "partners": [
