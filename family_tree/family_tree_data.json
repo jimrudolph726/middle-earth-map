@@ -1936,23 +1936,12 @@
       "order": 10
     },
     {
-      "id": "union-eärnur",
-      "partners": [
-        "eärnur"
-      ],
-      "children": [
-        "tarciryan"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
       "id": "union-tarciryan",
       "partners": [
         "tarciryan"
       ],
       "children": [
-        "minastin"
+        "eärnil_first"
       ],
       "label": "Issue",
       "order": 10
@@ -1963,7 +1952,7 @@
         "minastin"
       ],
       "children": [
-        "arciryas"
+        "tarondor"
       ],
       "label": "Issue",
       "order": 10
