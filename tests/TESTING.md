@@ -46,6 +46,8 @@ The data tests currently cover:
 - Duplicate union IDs and missing partner/child references.
 - View seeds, roots, and filters pointing at missing people.
 - Family tree layout positions and annotations pointing at missing people.
+- Family tree view projection keeping key Aragorn, Gondor, and Andúnië lineage anchors reachable.
+- Aragorn ancestry paths continuing through Fíriel into Gondor and back to the Lords of Andúnië.
 - Homepage hotspots pointing at expected local destinations.
 - Local HTML anchor links pointing at missing files.
 

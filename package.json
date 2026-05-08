@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run test:smoke",
     "test:all": "npm run test:data && npm run test:smoke",
-    "test:data": "node --test tests/family-tree-data.check.cjs tests/site-data.check.cjs",
+    "test:data": "node --test tests/family-tree-data.check.cjs tests/family-tree-projection.check.cjs tests/site-data.check.cjs",
     "test:smoke": "playwright test -c tests/playwright.config.cjs",
     "test:smoke:headed": "playwright test -c tests/playwright.config.cjs --headed",
     "test:smoke:ui": "playwright test -c tests/playwright.config.cjs --ui"
