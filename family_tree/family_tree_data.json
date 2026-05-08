@@ -430,7 +430,7 @@
     },
     "tarondor_king_of_gondor": {
       "id": "tarondor_king_of_gondor",
-      "name": "Tarondor",
+      "name": "Tarondor King of Gondor",
       "sex": "male",
       "kindred": "Men",
       "groups": [
@@ -649,6 +649,7 @@
       "bio": "",
       "order": 5
     },
+
 
 
 
@@ -1662,7 +1663,7 @@
       "label": "Issue",
       "order": 10
     },
-    {
+{
       "id": "union-atanatar_first",
       "partners": [
         "atanatar_first"
@@ -1680,17 +1681,6 @@
       ],
       "children": [
         "tarannon_falastur", "tarciryan"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
-      "id": "union-tarannon_falastur",
-      "partners": [
-        "tarannon_falastur"
-      ],
-      "children": [
-        "eärnil_first"
       ],
       "label": "Issue",
       "order": 10
@@ -1910,7 +1900,7 @@
         "minastan"
       ],
       "children": [
-        "tarondor"
+        "tarondor_king_of_gondor"
       ],
       "label": "Issue",
       "order": 10
@@ -1937,7 +1927,7 @@
       "label": "Issue",
       "order": 10
     },
-    {
+{
       "id": "union-siriondil_son_of_calimmacil",
       "partners": [
         "siriondil_son_of_calimmacil"
@@ -1959,6 +1949,7 @@
       "label": "Issue",
       "order": 10
     },
+
 
 
 
