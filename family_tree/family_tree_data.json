@@ -54,8 +54,8 @@
       "bio": "",
       "order": 5
     },
-    "eärendil": {
-      "id": "eärendil",
+    "eärendil_gondor": {
+      "id": "eärendil_gondor",
       "name": "Eärendil",
       "sex": "male",
       "kindred": "Men",
@@ -67,7 +67,7 @@
       "realm": "Gondor",
       "born": "87",
       "died": "339",
-      "image": "assets/eärendil.png",
+      "image": "assets/eärendil_gondor.png",
       "bio": "",
       "order": 5
     },
@@ -139,8 +139,8 @@
       "bio": "",
       "order": 5
     },
-    "atanatar i": {
-      "id": "atanatar i",
+    "atanatar_first": {
+      "id": "atanatar_first",
       "name": "Atanatar I",
       "sex": "male",
       "kindred": "Men",
@@ -152,7 +152,7 @@
       "realm": "Gondor",
       "born": "552",
       "died": "777",
-      "image": "assets/atanatar i.png",
+      "image": "assets/atanatar_first.png",
       "bio": "",
       "order": 5
     },
@@ -1668,15 +1668,15 @@
         "atanatar_first"
       ],
       "children": [
-        "siriondil"
+        "siriondil_king_of_gondor"
       ],
       "label": "Issue",
       "order": 10
     },
     {
-      "id": "union-siriondil",
+      "id": "union-siriondil_king_of_gondor",
       "partners": [
-        "siriondil"
+        "siriondil_king_of_gondor"
       ],
       "children": [
         "tarannon_falastur", "tarciryan"
@@ -1905,9 +1905,9 @@
       "order": 10
     },
     {
-      "id": "union-minastin",
+      "id": "union-minastan",
       "partners": [
-        "minastin"
+        "minastan"
       ],
       "children": [
         "tarondor"
@@ -1937,7 +1937,7 @@
       "label": "Issue",
       "order": 10
     },
-{
+    {
       "id": "union-siriondil_son_of_calimmacil",
       "partners": [
         "siriondil_son_of_calimmacil"
