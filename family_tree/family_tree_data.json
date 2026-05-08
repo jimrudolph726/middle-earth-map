@@ -260,7 +260,7 @@
     },
     "narmacil_first": {
       "id": "narmacil_first",
-      "name": "Narmacil II",
+      "name": "Narmacil I",
       "sex": "male",
       "kindred": "Men",
       "groups": [
@@ -649,6 +649,7 @@
       "bio": "",
       "order": 5
     },
+
 
 
 
@@ -1674,7 +1675,7 @@
       "label": "Issue",
       "order": 10
     },
-    {
+{
       "id": "union-siriondil_king_of_gondor",
       "partners": [
         "siriondil_king_of_gondor"
@@ -1724,18 +1725,7 @@
         "atanatar_second_alcarin"
       ],
       "children": [
-        "narmacil_first"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
-      "id": "union-narmacil_first",
-      "partners": [
-        "narmacil_first"
-      ],
-      "children": [
-        "calmacil"
+        "narmacil_first", "calmacil"
       ],
       "label": "Issue",
       "order": 10
@@ -1746,7 +1736,7 @@
         "calmacil"
       ],
       "children": [
-        "rómendacil_second"
+        "rómendacil_second", "calimehtar"
       ],
       "label": "Issue",
       "order": 10
@@ -1812,7 +1802,7 @@
         "minardil"
       ],
       "children": [
-        "telemnar"
+        "telemnar", "minastan"
       ],
       "label": "Issue",
       "order": 10
@@ -1949,6 +1939,7 @@
       "label": "Issue",
       "order": 10
     },
+
 
 
 
