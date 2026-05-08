@@ -1846,9 +1846,9 @@
       "order": 10
     },
     {
-      "id": "union-minastin",
+      "id": "union-tarondor_king_of_gondor",
       "partners": [
-        "minastin"
+        "tarondor_king_of_gondor"
       ],
       "children": [
         "tarondor_king_of_gondor"
@@ -1988,6 +1988,7 @@
       "label": "Issue",
       "order": 10
     },
+
 
 
 
