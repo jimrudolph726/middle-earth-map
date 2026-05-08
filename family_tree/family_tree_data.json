@@ -1851,8 +1851,7 @@
         "minardil"
       ],
       "children": [
-        "telemnar",
-        "minastan"
+        "telemnar"
       ],
       "label": "Issue",
       "order": 10
@@ -1885,7 +1884,7 @@
         "telumehtar_umbardacil"
       ],
       "children": [
-        "narmacil_second"
+        "narmacil_second", "arciryas"
       ],
       "label": "Issue",
       "order": 10
@@ -1918,8 +1917,7 @@
         "ondoher"
       ],
       "children": [
-        "eärnil_second",
-        "firiel"
+        "eärnil_second"
       ],
       "label": "Issue",
       "order": 10
@@ -1936,12 +1934,23 @@
       "order": 10
     },
     {
+      "id": "union-eärnur",
+      "partners": [
+        "eärnur"
+      ],
+      "children": [
+        "tarciryan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
       "id": "union-tarciryan",
       "partners": [
         "tarciryan"
       ],
       "children": [
-        "eärnil_first"
+        "minastin"
       ],
       "label": "Issue",
       "order": 10
@@ -1952,7 +1961,7 @@
         "minastin"
       ],
       "children": [
-        "tarondor"
+        "arciryas"
       ],
       "label": "Issue",
       "order": 10
@@ -1979,13 +1988,13 @@
       "label": "Issue",
       "order": 10
     },
-    {
+{
       "id": "union-siriondil_son_of_calimmacil",
       "partners": [
         "siriondil_son_of_calimmacil"
       ],
       "children": [
-        "calimehtar_son_of_calmacil"
+        "eärnil_second"
       ],
       "label": "Issue",
       "order": 10
@@ -1995,10 +2004,13 @@
       "partners": [
         "calimehtar_son_of_calmacil"
       ],
-      "children": [],
+      "children": [
+        ""
+      ],
       "label": "Issue",
       "order": 10
     },
+
 
 
 
