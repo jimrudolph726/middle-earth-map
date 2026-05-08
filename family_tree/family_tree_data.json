@@ -14,8 +14,8 @@
       "title": "2nd King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "S.A. 3119",
-      "died": "S.A 3441",
+      "born": "S.A. 3219",
+      "died": "S.A 3440",
       "image": "assets/anárion.png",
       "bio": "",
       "order": 5
@@ -31,8 +31,8 @@
       "title": "3rd King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "S.A. 3209",
-      "died": "T.A. 2",
+      "born": "S.A. 3318",
+      "died": "T.A. 158",
       "image": "assets/meneldil.png",
       "bio": "",
       "order": 5
@@ -48,8 +48,8 @@
       "title": "4th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "S.A. 3430",
-      "died": "T.A. 249",
+      "born": "S.A. 3399",
+      "died": "T.A. 239",
       "image": "assets/cemendur.png",
       "bio": "",
       "order": 5
@@ -65,8 +65,8 @@
       "title": "5th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "87",
-      "died": "339",
+      "born": "48",
+      "died": "324",
       "image": "assets/eärendil_gondor.png",
       "bio": "",
       "order": 5
@@ -82,8 +82,8 @@
       "title": "6th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "185",
-      "died": "435",
+      "born": "136",
+      "died": "411",
       "image": "assets/anardil.png",
       "bio": "",
       "order": 5
@@ -99,8 +99,8 @@
       "title": "7th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "280",
-      "died": "515",
+      "born": "222",
+      "died": "492",
       "image": "assets/ostoher.png",
       "bio": "",
       "order": 5
@@ -116,8 +116,8 @@
       "title": "8th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "372",
-      "died": "602",
+      "born": "310",
+      "died": "541",
       "image": "assets/rómendacil_first.png",
       "bio": "",
       "order": 5
@@ -133,8 +133,8 @@
       "title": "9th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "462",
-      "died": "652",
+      "born": "397",
+      "died": "667",
       "image": "assets/turambar.png",
       "bio": "",
       "order": 5
@@ -150,8 +150,8 @@
       "title": "10th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "552",
-      "died": "777",
+      "born": "480",
+      "died": "758",
       "image": "assets/atanatar_first.png",
       "bio": "",
       "order": 5
@@ -167,8 +167,8 @@
       "title": "11th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "570",
+      "died": "830",
       "image": "assets/siriondil_king_of_gondor.png",
       "bio": "",
       "order": 5
@@ -184,8 +184,8 @@
       "title": "12th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "654",
+      "died": "913",
       "image": "assets/tarannon_falastur.png",
       "bio": "",
       "order": 5
@@ -201,8 +201,8 @@
       "title": "13th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "736",
+      "died": "936",
       "image": "assets/eärnil_first.png",
       "bio": "",
       "order": 5
@@ -218,8 +218,8 @@
       "title": "14th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "820",
+      "died": "1015",
       "image": "assets/ciryandil.png",
       "bio": "",
       "order": 5
@@ -236,7 +236,7 @@
       "house": "House of Anárion",
       "realm": "Gondor",
       "born": "640",
-      "died": "861",
+      "died": "1149",
       "image": "assets/hyarmendacil_first.png",
       "bio": "",
       "order": 5
@@ -252,8 +252,8 @@
       "title": "16th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "977",
+      "died": "1226",
       "image": "assets/atanatar_second_alcarin.png",
       "bio": "",
       "order": 5
@@ -269,8 +269,8 @@
       "title": "17th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "",
-      "died": "",
+      "born": "1049",
+      "died": "1294",
       "image": "assets/narmacil_first.png",
       "bio": "",
       "order": 5
@@ -286,8 +286,8 @@
       "title": "18th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1058",
+      "died": "1304",
       "image": "assets/calmacil.png",
       "bio": "",
       "order": 5
@@ -303,8 +303,8 @@
       "title": "19th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1126",
+      "died": "1366",
       "image": "assets/rómendacil_second.png",
       "bio": "",
       "order": 5
@@ -320,8 +320,8 @@
       "title": "20th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1194",
+      "died": "1432",
       "image": "assets/valacar.png",
       "bio": "",
       "order": 5
@@ -337,8 +337,8 @@
       "title": "21st King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1255",
+      "died": "1490",
       "image": "assets/eldacar_king_of_gondor.png",
       "bio": "",
       "order": 5
@@ -354,8 +354,8 @@
       "title": "22nd King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1259",
+      "died": "1447",
       "image": "assets/castamir.png",
       "bio": "",
       "order": 5
@@ -371,8 +371,8 @@
       "title": "23rd King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1330",
+      "died": "1540",
       "image": "assets/aldamir.png",
       "bio": "",
       "order": 5
@@ -388,8 +388,8 @@
       "title": "24th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1391",
+      "died": "1621",
       "image": "assets/hyarmendacil_second.png",
       "bio": "",
       "order": 5
@@ -405,8 +405,8 @@
       "title": "25th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1454",
+      "died": "1634",
       "image": "assets/minardil.png",
       "bio": "",
       "order": 5
@@ -422,8 +422,8 @@
       "title": "26th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1516",
+      "died": "1636",
       "image": "assets/telemnar.png",
       "bio": "",
       "order": 5
@@ -439,8 +439,8 @@
       "title": "27th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1577",
+      "died": "1798",
       "image": "assets/tarondor_king_of_gondor.png",
       "bio": "",
       "order": 5
@@ -456,8 +456,8 @@
       "title": "28th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1632",
+      "died": "1850",
       "image": "assets/telumehtar_umbardacil.png",
       "bio": "",
       "order": 5
@@ -473,8 +473,8 @@
       "title": "29th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1684",
+      "died": "1856",
       "image": "assets/narmacil_second.png",
       "bio": "",
       "order": 5
@@ -490,8 +490,8 @@
       "title": "30th King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1736",
+      "died": "1936",
       "image": "assets/calimehtar_king_of_gondor.png",
       "bio": "",
       "order": 5
@@ -507,8 +507,8 @@
       "title": "31st King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1787",
+      "died": "1944",
       "image": "assets/ondoher.png",
       "bio": "",
       "order": 5
@@ -521,11 +521,11 @@
       "groups": [
         "dúnedain"
       ],
-      "title": "31st King of Gondor",
+      "title": "32st King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1883",
+      "died": "2043",
       "image": "assets/eärnil_second.png",
       "bio": "",
       "order": 5
@@ -538,11 +538,11 @@
       "groups": [
         "dúnedain"
       ],
-      "title": "31st King of Gondor",
+      "title": "33rd King of Gondor",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "1928",
+      "died": "2050",
       "image": "assets/eärnur.png",
       "bio": "",
       "order": 5
@@ -558,8 +558,8 @@
       "title": "",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "After T.A. 65",
+      "died": "Before T.A. 913",
       "image": "assets/tarciryan.png",
       "bio": "",
       "order": 5
@@ -575,8 +575,8 @@
       "title": "",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "After T.A. 1516",
+      "died": "Unknown",
       "image": "assets/minastan.png",
       "bio": "",
       "order": 5
@@ -592,8 +592,8 @@
       "title": "",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "After T.A. 1684",
+      "died": "Unknown",
       "image": "assets/arciryas.png",
       "bio": "",
       "order": 5
@@ -609,8 +609,8 @@
       "title": "",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "Mid-18th century T.A.",
+      "died": "Unknown",
       "image": "assets/calimmacil.png",
       "bio": "",
       "order": 5
@@ -626,8 +626,8 @@
       "title": "",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "Before T.A. 1883",
+      "died": "Before or around T.A. 1944",
       "image": "assets/siriondil_son_of_calimmacil.png",
       "bio": "",
       "order": 5
@@ -643,8 +643,8 @@
       "title": "",
       "house": "House of Anárion",
       "realm": "Gondor",
-      "born": "640",
-      "died": "861",
+      "born": "After T.A. 1126",
+      "died": "Unknown",
       "image": "assets/calimehtar_son_of_calmacil.png",
       "bio": "",
       "order": 5
@@ -1736,7 +1736,7 @@
         "calmacil"
       ],
       "children": [
-        "rómendacil_second", "calimehtar_son_of_calmacil"
+        "rómendacil_second", "calimehtar"
       ],
       "label": "Issue",
       "order": 10
@@ -1941,6 +1941,7 @@
     },
 
 
+    
 
 
 
