@@ -1912,17 +1912,6 @@
       "order": 10
     },
     {
-      "id": "union-eärnur",
-      "partners": [
-        "eärnur"
-      ],
-      "children": [
-        ""
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
       "id": "union-tarciryan",
       "partners": [
         "tarciryan"
