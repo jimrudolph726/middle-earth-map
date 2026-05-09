@@ -1520,4 +1520,32 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  eastfold: {
+    pathName: 'eastfold',
+    color: "brown", 
+    name: "Eastfold",
+    PopupContent: createGeographicPopup(
+      "Eastfold",
+      `None`,
+      `Eastfold is not an elvish name, it is a name in the language of Rohan. It is a combination of "East" and fold from Old English folde ("earth", "land", "country").`,
+      `The Eastfold was a region in the east of the realm of Rohan, between the Folde in the west and the Fenmarch in the east, the river Entwash in the north and the White Mountains in the south.`,
+      "https://tolkiengateway.net/wiki/Eastfold"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  westfold: {
+    pathName: 'westfold',
+    color: "brown", 
+    name: "Westfold",
+    PopupContent: createGeographicPopup(
+      "Westfold",
+      `None`,
+      `Westfold is not an elvish name, it is a name in the language of Rohan. It is a combination of "West" and fold from Old English folde ("earth", "land", "country").`,
+      `The Westfold was a region of slopes and fields in the west of Rohan, between the river Isen in the west and the region called the Folde in the east, the White Mountains in the south and the walls of Isengard and the eaves of Fangorn Forest in the north.`,
+      "https://thainsbook.minastirith.cz/lands.html#An%C3%B3rien"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
