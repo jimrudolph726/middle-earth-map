@@ -275,6 +275,28 @@ body.family-tree-page {
   pointer-events: none;
 }
 
+.family-tree-page .lineage-hover-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 18;
+  max-width: min(320px, calc(100vw - 32px));
+  padding: 10px 14px;
+  border: 1px solid rgba(244, 220, 166, 0.92);
+  border-radius: 999px;
+  background: rgba(48, 30, 16, 0.96);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.34);
+  color: #f7deb0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 .family-tree-page .character-sheet {
   position: fixed;
   inset: 0;

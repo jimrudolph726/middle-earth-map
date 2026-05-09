@@ -55,6 +55,7 @@
   const unionEditorChildOrder = document.getElementById("union-editor-child-order");
   const unionAttachChildSelect = document.getElementById("union-attach-child-select");
   const treeHint = document.getElementById("tree-hint");
+  const lineageHoverPill = document.getElementById("lineage-hover-pill");
   const characterSheet = document.getElementById("character-sheet");
   const backToTreeButton = document.getElementById("back-to-tree");
   const characterSheetContent = document.getElementById("character-sheet-content");
@@ -1753,9 +1754,6 @@
         let interactionRight = left + width;
         let interactionTop = top;
         let interactionBottom = top + height;
-        let pillWidth = 0;
-        let pillX = 0;
-        const pillY = -60;
 
         if (interactive) {
           const lineagePathIds = findAncestorPathIds(annotation.endPersonId, annotation.startPersonId, projection)
@@ -1786,10 +1784,6 @@
               interactionRight = Math.max(left + width, zoneMaxX);
               interactionTop = Math.min(top, zoneTop);
               interactionBottom = Math.max(top + height, zoneBottom);
-
-              const zoneCenterX = (zoneMinX + zoneMaxX) / 2;
-              pillWidth = Math.max(240, String(annotation.label || "").length * 9 + 48);
-              pillX = zoneCenterX - left - (pillWidth / 2);
             }
           }
         }
@@ -1811,10 +1805,7 @@
           interactionLeft,
           interactionRight,
           interactionTop,
-          interactionBottom,
-          pillWidth,
-          pillX,
-          pillY
+          interactionBottom
         };
       })
       .filter(Boolean);
@@ -2553,6 +2544,29 @@
     portraitLightboxCaption.textContent = "";
   }
 
+  function hideLineageHoverPill() {
+    if (!lineageHoverPill) return;
+    lineageHoverPill.classList.add("hidden");
+    lineageHoverPill.textContent = "";
+  }
+
+  function updateLineageHoverPill(label, pointerX, pointerY) {
+    if (!lineageHoverPill || !treeWrapper) return;
+
+    lineageHoverPill.textContent = label;
+    lineageHoverPill.classList.remove("hidden");
+
+    const offsetX = 18;
+    const offsetY = -18;
+    const pillRect = lineageHoverPill.getBoundingClientRect();
+    const maxX = Math.max(12, treeWrapper.clientWidth - pillRect.width - 12);
+    const maxY = Math.max(12, treeWrapper.clientHeight - pillRect.height - 12);
+    const nextX = Math.min(Math.max(12, pointerX + offsetX), maxX);
+    const nextY = Math.min(Math.max(12, pointerY + offsetY - pillRect.height), maxY);
+
+    lineageHoverPill.style.transform = `translate(${nextX}px, ${nextY}px)`;
+  }
+
   function updateActiveNodeSelection() {
     if (!state.scene) return;
 
@@ -2749,6 +2763,7 @@
           state.activeLineageZoneId = null;
           updateLineageZoneSelection();
         }
+        hideLineageHoverPill();
         return;
       }
 
@@ -2770,11 +2785,19 @@
         state.activeLineageZoneId = nextZoneId;
         updateLineageZoneSelection();
       }
+
+      if (hoveredZone) {
+        updateLineageHoverPill(hoveredZone.label, pointerX, pointerY);
+      } else {
+        hideLineageHoverPill();
+      }
     });
     svg.on("pointerleave", () => {
-      if (state.activeLineageZoneId === null) return;
-      state.activeLineageZoneId = null;
-      updateLineageZoneSelection();
+      if (state.activeLineageZoneId !== null) {
+        state.activeLineageZoneId = null;
+        updateLineageZoneSelection();
+      }
+      hideLineageHoverPill();
     });
 
     return {
@@ -2935,17 +2958,6 @@
         group.append("text")
           .attr("class", "family-tree-annotation__label");
 
-        const pill = group.append("g")
-          .attr("class", "family-tree-annotation__pill");
-
-        pill.append("rect")
-          .attr("class", "family-tree-annotation__pill-bg")
-          .attr("rx", 18)
-          .attr("ry", 18);
-
-        pill.append("text")
-          .attr("class", "family-tree-annotation__pill-text");
-
         return group;
       });
 
@@ -2970,19 +2982,6 @@
       .attr("x", (d) => d.width / 2)
       .attr("y", (d) => d.height / 2)
       .attr("transform", (d) => `rotate(-90 ${d.width / 2} ${d.height / 2})`)
-      .text((d) => d.label);
-
-    annotationGroups.select(".family-tree-annotation__pill")
-      .attr("display", (d) => (d.interactive ? null : "none"))
-      .attr("transform", (d) => `translate(${d.pillX}, ${d.pillY})`);
-
-    annotationGroups.select(".family-tree-annotation__pill-bg")
-      .attr("width", (d) => d.pillWidth || 0)
-      .attr("height", 36);
-
-    annotationGroups.select(".family-tree-annotation__pill-text")
-      .attr("x", (d) => (d.pillWidth || 0) / 2)
-      .attr("y", 18)
       .text((d) => d.label);
   }
 

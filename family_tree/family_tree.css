@@ -297,33 +297,6 @@
   text-transform: uppercase;
 }
 
-.family-tree-page .family-tree-annotation__pill {
-  opacity: 0;
-  transition: opacity 160ms ease;
-}
-
-.family-tree-page .family-tree-annotation__pill-bg {
-  fill: rgba(48, 30, 16, 0.94);
-  stroke: rgba(244, 220, 166, 0.92);
-  stroke-width: 1.8;
-  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.34));
-}
-
-.family-tree-page .family-tree-annotation__pill-text {
-  fill: #f7deb0;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 0.08em;
-  text-anchor: middle;
-  dominant-baseline: middle;
-  text-transform: uppercase;
-}
-
-.family-tree-page .family-tree-annotation.is-active .family-tree-annotation__pill {
-  opacity: 1;
-}
-
 .family-tree-page .family-tree-annotation.is-active .family-tree-annotation__banner {
   fill: rgba(118, 79, 35, 0.34);
   stroke: rgba(248, 223, 169, 0.9);
