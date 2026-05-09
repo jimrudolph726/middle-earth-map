@@ -297,10 +297,54 @@
   text-transform: uppercase;
 }
 
+.family-tree-page .family-tree-annotation__pill {
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.family-tree-page .family-tree-annotation__pill-bg {
+  fill: rgba(48, 30, 16, 0.94);
+  stroke: rgba(244, 220, 166, 0.92);
+  stroke-width: 1.8;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.34));
+}
+
+.family-tree-page .family-tree-annotation__pill-text {
+  fill: #f7deb0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  text-transform: uppercase;
+}
+
+.family-tree-page .family-tree-annotation.is-active .family-tree-annotation__pill {
+  opacity: 1;
+}
+
+.family-tree-page .family-tree-annotation.is-active .family-tree-annotation__banner {
+  fill: rgba(118, 79, 35, 0.34);
+  stroke: rgba(248, 223, 169, 0.9);
+}
+
+.family-tree-page .family-tree-annotation.is-active .family-tree-annotation__bracket {
+  stroke: rgba(248, 223, 169, 0.96);
+}
+
+.family-tree-page .family-tree-spouse-line,
+.family-tree-page .family-tree-descent-line,
+.family-tree-page .family-tree-node,
+.family-tree-page .family-tree-union {
+  transition: opacity 160ms ease, filter 160ms ease;
+}
+
 .family-tree-page .family-tree-spouse-line,
 .family-tree-page .family-tree-descent-line {
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: opacity 160ms ease, stroke 160ms ease, stroke-width 160ms ease, filter 160ms ease;
 }
 
 .family-tree-page .family-tree-spouse-line {
@@ -317,6 +361,7 @@
   fill: rgba(88, 57, 25, 0.92);
   stroke: rgba(224, 202, 150, 0.92);
   stroke-width: 1.6;
+  transition: fill 160ms ease, stroke 160ms ease, opacity 160ms ease;
 }
 
 .family-tree-page .family-tree-union {
@@ -355,10 +400,12 @@
   stroke: rgba(157, 111, 54, 0.96);
   stroke-width: 2.2;
   filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.34));
+  transition: fill 160ms ease, stroke 160ms ease, stroke-width 160ms ease, filter 160ms ease, opacity 160ms ease;
 }
 
 .family-tree-page .family-tree-node__accent {
   opacity: 0.98;
+  transition: opacity 160ms ease, filter 160ms ease;
 }
 
 .family-tree-page .family-tree-node__portrait {
@@ -412,6 +459,42 @@
 .family-tree-page .family-tree-node:focus-visible .family-tree-node__card {
   stroke: #f4dca6;
   stroke-width: 3;
+}
+
+.family-tree-page .family-tree-node.is-dimmed,
+.family-tree-page .family-tree-union.is-dimmed,
+.family-tree-page .family-tree-spouse-line.is-dimmed,
+.family-tree-page .family-tree-descent-line.is-dimmed {
+  opacity: 0.45;
+}
+
+.family-tree-page .family-tree-node.is-lineage-highlighted .family-tree-node__card {
+  fill: rgba(251, 244, 229, 0.99);
+  stroke: rgba(241, 201, 119, 0.98);
+  stroke-width: 3.2;
+  filter: drop-shadow(0 18px 28px rgba(130, 88, 36, 0.28));
+}
+
+.family-tree-page .family-tree-node.is-lineage-highlighted .family-tree-node__accent {
+  opacity: 1;
+  filter: saturate(1.08) brightness(1.04);
+}
+
+.family-tree-page .family-tree-spouse-line.is-lineage-highlighted {
+  stroke: rgba(247, 221, 163, 1);
+  stroke-width: 4;
+  filter: drop-shadow(0 0 8px rgba(247, 221, 163, 0.28));
+}
+
+.family-tree-page .family-tree-descent-line.is-lineage-highlighted {
+  stroke: rgba(235, 191, 104, 0.98);
+  stroke-width: 3.8;
+  filter: drop-shadow(0 0 8px rgba(235, 191, 104, 0.24));
+}
+
+.family-tree-page .family-tree-union.is-lineage-highlighted .family-tree-union__dot {
+  fill: rgba(123, 79, 32, 0.98);
+  stroke: rgba(247, 221, 163, 1);
 }
 
 .family-tree-page .family-tree-node__toggle circle {

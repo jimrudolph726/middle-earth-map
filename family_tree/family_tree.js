@@ -78,6 +78,9 @@
   const annotationLabelGap = 72;
   const annotationVerticalPadding = 42;
   const annotationMinHeight = 220;
+  const interactiveAnnotationIds = new Set(["chieftains-of-the-dunedain"]);
+  const lineageZonePaddingX = 36;
+  const lineageZonePaddingY = 28;
   const zoomMinScale = 0.08;
   const zoomMaxScale = 3;
   const zoomWheelSensitivity = 0.01;
@@ -103,6 +106,7 @@
     renderRevision: 0,
     scene: null,
     activePersonId: null,
+    activeLineageZoneId: null,
     layoutEditor: {
       available: false,
       draggingEnabled: false,
@@ -1454,6 +1458,38 @@
     return inferredRoots.length > 0 ? inferredRoots : peopleIds.slice(0, 1);
   }
 
+  function findAncestorPathIds(descendantId, ancestorId, projection = state.currentProjection) {
+    if (!descendantId || !ancestorId) return null;
+    if (!projection?.peopleSet?.has(descendantId) || !projection.peopleSet.has(ancestorId)) {
+      return null;
+    }
+
+    const pathIds = [descendantId];
+    let currentId = descendantId;
+
+    while (currentId && currentId !== ancestorId) {
+      const parentUnionId = state.indexes.parentUnionByChild.get(currentId);
+      if (!parentUnionId || !projection.unionIdSet.has(parentUnionId)) {
+        return null;
+      }
+
+      const parentUnion = getUnionById(parentUnionId);
+      if (!parentUnion) {
+        return null;
+      }
+
+      const nextAncestorId = parentUnion.partners.find((partnerId) => projection.peopleSet.has(partnerId));
+      if (!nextAncestorId) {
+        return null;
+      }
+
+      pathIds.push(nextAncestorId);
+      currentId = nextAncestorId;
+    }
+
+    return currentId === ancestorId ? pathIds : null;
+  }
+
   function rebuildProjection(rawProjection, visibleIds, extra = {}) {
     const visibleSet = visibleIds instanceof Set ? new Set(visibleIds) : new Set(visibleIds);
     const peopleIds = rawProjection.peopleIds.filter((personId) => visibleSet.has(personId));
@@ -1710,6 +1746,53 @@
         const maxX = Math.max(...anchorBoxes.map((box) => box.right));
         const height = Math.max(annotationMinHeight, bottom - top);
         const left = side === "right" ? maxX + gap : minX - gap - width;
+        const interactive = interactiveAnnotationIds.has(annotation.id);
+        let memberPersonIds = [];
+        let memberUnionIds = [];
+        let interactionLeft = left;
+        let interactionRight = left + width;
+        let interactionTop = top;
+        let interactionBottom = top + height;
+        let pillWidth = 0;
+        let pillX = 0;
+        const pillY = -60;
+
+        if (interactive) {
+          const lineagePathIds = findAncestorPathIds(annotation.endPersonId, annotation.startPersonId, projection)
+            || findAncestorPathIds(annotation.startPersonId, annotation.endPersonId, projection);
+
+          if (lineagePathIds) {
+            memberPersonIds = uniqueOrdered(lineagePathIds);
+            memberUnionIds = memberPersonIds
+              .slice(0, -1)
+              .map((personId) => state.indexes.parentUnionByChild.get(personId))
+              .filter((unionId, memberIndex, unionIds) =>
+                unionId
+                && projection.unionIdSet.has(unionId)
+                && unionIds.indexOf(unionId) === memberIndex
+              );
+
+            const memberBoxes = memberPersonIds
+              .map((personId) => layout.people.get(personId))
+              .filter(Boolean);
+
+            if (memberBoxes.length > 0) {
+              const zoneMinX = Math.min(...memberBoxes.map((box) => box.left)) - lineageZonePaddingX;
+              const zoneMaxX = Math.max(...memberBoxes.map((box) => box.right)) + lineageZonePaddingX;
+              const zoneTop = Math.min(...memberBoxes.map((box) => box.top)) - lineageZonePaddingY;
+              const zoneBottom = Math.max(...memberBoxes.map((box) => box.bottom)) + lineageZonePaddingY;
+
+              interactionLeft = Math.min(left, zoneMinX);
+              interactionRight = Math.max(left + width, zoneMaxX);
+              interactionTop = Math.min(top, zoneTop);
+              interactionBottom = Math.max(top + height, zoneBottom);
+
+              const zoneCenterX = (zoneMinX + zoneMaxX) / 2;
+              pillWidth = Math.max(240, String(annotation.label || "").length * 9 + 48);
+              pillX = zoneCenterX - left - (pillWidth / 2);
+            }
+          }
+        }
 
         return {
           id: annotation.id || `annotation-${index}`,
@@ -1721,7 +1804,17 @@
           bottom: top + height,
           width,
           height,
-          bracketGap: Math.max(28, gap - 22)
+          bracketGap: Math.max(28, gap - 22),
+          interactive,
+          memberPersonIds,
+          memberUnionIds,
+          interactionLeft,
+          interactionRight,
+          interactionTop,
+          interactionBottom,
+          pillWidth,
+          pillX,
+          pillY
         };
       })
       .filter(Boolean);
@@ -2467,6 +2560,36 @@
       .classed("is-active", (d) => d.id === state.activePersonId);
   }
 
+  function updateLineageZoneSelection() {
+    if (!state.scene || !state.currentLayout) return;
+
+    const activeAnnotation = (state.currentLayout.annotations || []).find(
+      (annotation) => annotation.id === state.activeLineageZoneId
+    ) || null;
+    const hasActiveZone = Boolean(activeAnnotation);
+    const activePersonIds = new Set(activeAnnotation?.memberPersonIds || []);
+    const activeUnionIds = new Set(activeAnnotation?.memberUnionIds || []);
+
+    state.scene.annotationLayer.selectAll(".family-tree-annotation")
+      .classed("is-active", (d) => d.id === state.activeLineageZoneId);
+
+    state.scene.linkLayer.selectAll(".family-tree-spouse-line")
+      .classed("is-lineage-highlighted", (d) => hasActiveZone && activeUnionIds.has(d.unionId))
+      .classed("is-dimmed", (d) => hasActiveZone && !activeUnionIds.has(d.unionId));
+
+    state.scene.linkLayer.selectAll(".family-tree-descent-line")
+      .classed("is-lineage-highlighted", (d) => hasActiveZone && activeUnionIds.has(d.unionId))
+      .classed("is-dimmed", (d) => hasActiveZone && !activeUnionIds.has(d.unionId));
+
+    state.scene.unionLayer.selectAll(".family-tree-union")
+      .classed("is-lineage-highlighted", (d) => hasActiveZone && activeUnionIds.has(d.id))
+      .classed("is-dimmed", (d) => hasActiveZone && !activeUnionIds.has(d.id));
+
+    state.scene.nodeLayer.selectAll(".family-tree-node")
+      .classed("is-lineage-highlighted", (d) => hasActiveZone && activePersonIds.has(d.id))
+      .classed("is-dimmed", (d) => hasActiveZone && !activePersonIds.has(d.id));
+  }
+
   function getSortedPeopleNames(personIds) {
     return uniqueOrdered(personIds)
       .map((personId) => getPersonById(personId))
@@ -2618,6 +2741,41 @@
       });
 
     svg.call(zoom);
+    svg.on("pointermove", (event) => {
+      if (!state.currentLayout) return;
+
+      if (event.buttons) {
+        if (state.activeLineageZoneId !== null) {
+          state.activeLineageZoneId = null;
+          updateLineageZoneSelection();
+        }
+        return;
+      }
+
+      const [pointerX, pointerY] = d3.pointer(event, svg.node());
+      const transform = state.currentTransform || { x: 0, y: 0, k: 1 };
+      const scale = Number.isFinite(transform.k) && transform.k !== 0 ? transform.k : 1;
+      const worldX = (pointerX - (transform.x || 0)) / scale;
+      const worldY = (pointerY - (transform.y || 0)) / scale;
+      const hoveredZone = (state.currentLayout.annotations || []).find((annotation) =>
+        annotation.interactive
+        && worldX >= annotation.interactionLeft
+        && worldX <= annotation.interactionRight
+        && worldY >= annotation.interactionTop
+        && worldY <= annotation.interactionBottom
+      );
+
+      const nextZoneId = hoveredZone ? hoveredZone.id : null;
+      if (state.activeLineageZoneId !== nextZoneId) {
+        state.activeLineageZoneId = nextZoneId;
+        updateLineageZoneSelection();
+      }
+    });
+    svg.on("pointerleave", () => {
+      if (state.activeLineageZoneId === null) return;
+      state.activeLineageZoneId = null;
+      updateLineageZoneSelection();
+    });
 
     return {
       svg,
@@ -2660,6 +2818,7 @@
 
         spouseLines.push({
           id: `${union.id}-spouse`,
+          unionId: union.id,
           x1: leftPartner.right,
           y1: spouseLineY,
           x2: rightPartner.left,
@@ -2673,6 +2832,7 @@
         const child = children[0];
         descentLines.push({
           id: `${union.id}-child`,
+          unionId: union.id,
           x1: descentOriginX,
           y1: descentOriginY,
           x2: child.centerX,
@@ -2687,6 +2847,7 @@
 
       descentLines.push({
         id: `${union.id}-stem`,
+        unionId: union.id,
         x1: descentOriginX,
         y1: descentOriginY,
         x2: descentOriginX,
@@ -2696,6 +2857,7 @@
       if (leftChild.centerX < descentOriginX) {
         descentLines.push({
           id: `${union.id}-branch-left`,
+          unionId: union.id,
           x1: leftChild.centerX,
           y1: branchY,
           x2: descentOriginX,
@@ -2706,6 +2868,7 @@
       if (rightChild.centerX > descentOriginX) {
         descentLines.push({
           id: `${union.id}-branch-right`,
+          unionId: union.id,
           x1: descentOriginX,
           y1: branchY,
           x2: rightChild.centerX,
@@ -2716,6 +2879,7 @@
       children.forEach((child, index) => {
         descentLines.push({
           id: `${union.id}-child-${index}`,
+          unionId: union.id,
           x1: child.centerX,
           y1: branchY,
           x2: child.centerX,
@@ -2771,6 +2935,17 @@
         group.append("text")
           .attr("class", "family-tree-annotation__label");
 
+        const pill = group.append("g")
+          .attr("class", "family-tree-annotation__pill");
+
+        pill.append("rect")
+          .attr("class", "family-tree-annotation__pill-bg")
+          .attr("rx", 18)
+          .attr("ry", 18);
+
+        pill.append("text")
+          .attr("class", "family-tree-annotation__pill-text");
+
         return group;
       });
 
@@ -2795,6 +2970,19 @@
       .attr("x", (d) => d.width / 2)
       .attr("y", (d) => d.height / 2)
       .attr("transform", (d) => `rotate(-90 ${d.width / 2} ${d.height / 2})`)
+      .text((d) => d.label);
+
+    annotationGroups.select(".family-tree-annotation__pill")
+      .attr("display", (d) => (d.interactive ? null : "none"))
+      .attr("transform", (d) => `translate(${d.pillX}, ${d.pillY})`);
+
+    annotationGroups.select(".family-tree-annotation__pill-bg")
+      .attr("width", (d) => d.pillWidth || 0)
+      .attr("height", 36);
+
+    annotationGroups.select(".family-tree-annotation__pill-text")
+      .attr("x", (d) => (d.pillWidth || 0) / 2)
+      .attr("y", 18)
       .text((d) => d.label);
   }
 
@@ -2841,6 +3029,7 @@
       .attr("transform", (d) => `translate(${d.left}, ${d.top})`);
 
     updateActiveNodeSelection();
+    updateLineageZoneSelection();
   }
 
   function renderScene(layout, projection, rawProjection) {
@@ -3008,6 +3197,7 @@
 
     applyLayoutEditorNodeBehavior(nodeGroups);
     updateActiveNodeSelection();
+    updateLineageZoneSelection();
   }
 
   function rebuildCurrentLayoutFromDrafts() {
