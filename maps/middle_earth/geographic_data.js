@@ -1576,4 +1576,32 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  field_of_celebrant: {
+    pathName: 'field_of_celebrant',
+    color: "brown", 
+    name: "Field of Celebrant",
+    PopupContent: createGeographicPopup(
+      "Field of Celebrant",
+      `Parth Celebrant`,
+      `The Field of Celebrant was called Parth Celebrant in Sindarin. Parth means "field, enclosed grassland." Celebrant was the name of the river north of the field; the Common Speech name of this river was the Silverlode.`,
+      `Field where the ancestors of the Rohirrim first came to the aid of Gondor against Sauron's forces. The Field of Celebrant was located on the western side of the Anduin, north of the River Limlight.`,
+      "https://thainsbook.minastirith.cz/plains.html#Celebrant"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  druwaith_iaur: {
+    pathName: 'druwaith_iaur',
+    color: "brown", 
+    name: "Druwaith Iaur",
+    PopupContent: createGeographicPopup(
+      "Druwaith Iaur",
+      `Druwaith Iaur`,
+      `The name Drúwaith Iaur means "old wilderness of the Dru-folk." The term "old" is used in the sense of "former" (although some Druedain may have remained there secretly). The name Drû is a Sindarin adaptation of Drughu which was the Druedain's own name for themselves. The ending waith is from gwaith which means "people" but is also used for regions.`,
+      `Coastal region inhabited by the Druedain. Druwaith Iaur - or Old Pukel-land - was on the southwest coast of Middle-earth. It was south of the River Isen and west of the River Lefnui. `,
+      "https://thainsbook.minastirith.cz/lands.html#Druwaith-Iaur"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
