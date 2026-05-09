@@ -1534,6 +1534,20 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  eastemnet: {
+    pathName: 'eastemnet',
+    color: "brown", 
+    name: "Eastemnet",
+    PopupContent: createGeographicPopup(
+      "Eastemnet",
+      `None`,
+      `Eastemnet is not an elvish name, it means "east-plain" in Rohanese. The element emnet means "flat land" or "plain" in the language of Rohan. The word emnet means "level ground" or "plain" in Old English.`,
+      `The Eastemnet were the plains of Rohan east of the river Entwash[1] until it reached the Anduin and the Emyn Muil, respectively.[2] The Wold was the northern part of the Eastemnet.`,
+      "https://tolkiengateway.net/wiki/Eastemnet"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
   westfold: {
     pathName: 'westfold',
     color: "brown", 
@@ -1544,6 +1558,20 @@ export const sub_regions = {
       `Westfold is not an elvish name, it is a name in the language of Rohan. It is a combination of "West" and fold from Old English folde ("earth", "land", "country").`,
       `The Westfold was a region of slopes and fields in the west of Rohan, between the river Isen in the west and the region called the Folde in the east, the White Mountains in the south and the walls of Isengard and the eaves of Fangorn Forest in the north.`,
       "https://thainsbook.minastirith.cz/lands.html#An%C3%B3rien"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  westemnet: {
+    pathName: 'westemnet',
+    color: "brown", 
+    name: "Westemnet",
+    PopupContent: createGeographicPopup(
+      "Westemnet",
+      `None`,
+      `Westemnet is not an elvish name, it means "west-plain" in Rohanese. The element emnet means "flat land" or "plain" in the language of Rohan. The word emnet means "level ground" or "plain" in Old English.`,
+      `The Westemnet was the western plains of Rohan west of the river Entwash. It probably extended to the river Isen.`,
+      "https://tolkiengateway.net/wiki/Westemnet"
     ),
     tolerance: 1,
     weight: 2
