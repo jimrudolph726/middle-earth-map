@@ -79,7 +79,11 @@
   const annotationLabelGap = 72;
   const annotationVerticalPadding = 42;
   const annotationMinHeight = 220;
-  const interactiveAnnotationIds = new Set(["chieftains-of-the-dunedain"]);
+  const interactiveAnnotationIds = new Set([
+    "kings-of-arnor",
+    "kings-of-arthedain",
+    "chieftains-of-the-dunedain"
+  ]);
   const lineageZonePaddingX = 36;
   const lineageZonePaddingY = 28;
   const zoomMinScale = 0.08;
