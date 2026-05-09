@@ -1604,4 +1604,18 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  anfalas: {
+    pathName: 'anfalas',
+    color: "brown", 
+    name: "Anfalas",
+    PopupContent: createGeographicPopup(
+      "Anfalas",
+      `Anfalas`,
+      `Anfalas is a Sindarin name, which means "Long Beach". It consists of the elements and and falas ("beach", "strand"). It is also translated as Andafalasse in Quenya and Langstrand in Westron ("translated" into English).`,
+      `Anfalas, or Langstrand, was a coastal fief between the rivers Lefnui and Morthond south of the Pinnath Gelin in the southwest of Gondor.`,
+      "https://tolkiengateway.net/wiki/Anfalas"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
