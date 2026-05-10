@@ -1618,4 +1618,88 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
+  plain_of_erech: {
+    pathName: 'plain_of_erech',
+    color: "brown", 
+    name: "Plain of Erech",
+    PopupContent: createGeographicPopup(
+      "Plain of Erech",
+      `Erech`,
+      `The origin of the name Erech, like that of some other names in Gondor, was forgotten and from a time before the Númenóreans sailed to Middle-earth.`,
+      `Erech was a plain in Gondor situated at the mouth of the Blackroot Vale near to the southern entrance to the Paths of the Dead, far to the west of Minas Tirith.`,
+      "https://tolkiengateway.net/wiki/Erech"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  lamedon: {
+    pathName: 'lamedon',
+    color: "brown", 
+    name: "Lamedon",
+    PopupContent: createGeographicPopup(
+      "Lamedon",
+      `Lamedon`,
+      `The name Lamedon is in the language of the area's original inhabitants before the coming of the Numenoreans. The meaning is not known.`,
+      `Lamedon was a region near the upper waters of the rivers Ciril and Ringló[1] on the southern side of the White Mountains in Gondor.`,
+      "https://tolkiengateway.net/wiki/Lamedon"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  belfalas: {
+    pathName: 'belfalas',
+    color: "brown", 
+    name: "belfalas",
+    PopupContent: createGeographicPopup(
+      "Belfalas",
+      `Belfalas`,
+      `The meaning of Belfalas is uncertain. The word falas means "shore, coast" in Sindarin. In his unfinished Index to The Lord of the Rings, Tolkien defined the word bel as "steep, sheer" in Sindarin. But in a later essay he wrote that Bêl was the name of the region in the language of the original inhabitants and that it meant "shore, coast" so that Belfalas was a combination of two words with the same meaning in different languages.`,
+      `Fiefdom of Gondor. Belfalas was located on the southern coast on a peninsula extending into the Bay of Belfalas.`,
+      "https://thainsbook.minastirith.cz/lands.html#Belfalas"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  lebennin: {
+    pathName: 'lebennin',
+    color: "brown", 
+    name: "lebennin",
+    PopupContent: createGeographicPopup(
+      "Lebennin",
+      `Lebennin`,
+      `Lebennin means "Five Rivers" from leben meaning "five" and nin meaning "waters."`,
+      `Lebennin was the land between the White Mountains in the north, the river Anduin in the south and the river Gilrain in the west[3] from Anórien to Belfalas.`,
+      "https://thainsbook.minastirith.cz/lands.html#Lebennin"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  north_ithilien: {
+    pathName: 'north_ithilien',
+    color: "brown", 
+    name: "north_ithilien",
+    PopupContent: createGeographicPopup(
+      "North Ithilien",
+      `Ithilien`,
+      `Ithilien means "Moon land." The word ithil means "moon" from sil or thil meaning "shine with white or silver light." The ending -ien is a variation of a commonly used suffix in the names of countries or regions. The endings-and,-end, and -ond are other variations. It was so named because it was originally the domain of Isildur.`,
+      `North Ithilien was the northern part of Ithilien between the Anduin and the Ephel Dúath and was somewhat less extensive than its southern counterpart, South Ithilien (lower Ithilien).`,
+      "https://tolkiengateway.net/wiki/North_Ithilien"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+  lebennin: {
+    pathName: 'south_ithilien',
+    color: "brown", 
+    name: "south_ithilien",
+    PopupContent: createGeographicPopup(
+      "South Ithilien",
+      `South Ithilien`,
+      `Ithilien means "Moon land." The word ithil means "moon" from sil or thil meaning "shine with white or silver light." The ending -ien is a variation of a commonly used suffix in the names of countries or regions. The endings-and,-end, and -ond are other variations. It was so named because it was originally the domain of Isildur.`,
+      `South Ithilien was the southern lands of Ithilien, from Morgulduin in the north to the River Poros in the south.`,
+      "https://tolkiengateway.net/wiki/South_Ithilien"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
 };
