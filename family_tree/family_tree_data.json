@@ -2621,12 +2621,12 @@
         "elatan"
       ],
       "children": [
-        "valandil"
+        "valandil_lord_of_andúnië"
       ],
       "lineagePartner": "silmariën",
-      "lineageChild": "valandil",
+      "lineageChild": "valandil_lord_of_andúnië",
       "childOrder": [
-        "valandil"
+        "valandil_lord_of_andúnië"
       ],
       "label": "Marriage",
       "order": 20
