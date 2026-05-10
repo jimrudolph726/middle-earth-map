@@ -180,9 +180,115 @@ Amon Din was the first hill to have a beacon built on its summit. Its original p
 
 Names & Etymology:
 Amon Dîn means "Silent Hill" from amon meaning "hill" and dîn meaning "silent." It may have been so named because it was isolated and uninhabited.`,
-      "https://thainsbook.minastirith.cz/towns.html#Edoras"
+      "https://thainsbook.minastirith.cz/hills.html#Beacon-hills"
     ),
     coords: [44.94116240,-93.30121250],
+    icon: icons.BeaconOfGondorIcon,
+  },
+  eilenach: {
+    popup: createSettlementPopup(
+      "Eilenach",
+      `The second of the seven Beacon-hills of Gondor. Eilenach was located in the middle of the Druadan Forest. There were pine trees around its base. Eilenach could be seen from a great distance. It was the highest point in the forest, and was the second tallest of the Beacon-hills after Halifirien. The summit of Eilenach was sharp and narrow, and there was not much room for a large beacon.
+
+Eilenach was one of the three oldest Beacon-hills, along with Amon Din and Min-Rimmon. It was originally used mainly for communicating with the people of Anorien - a region of Gondor west of Minas Tirith.
+
+King Theoden and the Riders of Rohan camped at the foot of Eilenach on the night of March 13-14, 3019 of the Third Age, on their way to Minas Tirith.
+
+Names & Etymology:
+The name Eilenach is of unknown origin. It is not Sindarin, Numenorean, or Common Speech. The hill was probably named before the coming of the Numenoreans to Middle-earth.`,
+      "https://thainsbook.minastirith.cz/hills.html#Beacon-hills"
+    ),
+    coords: [44.94117095,-93.30151140],
+    icon: icons.BeaconOfGondorIcon,
+  },
+  nardol: {
+    popup: createSettlementPopup(
+      "Nardol",
+      `The third of the seven Beacon-hills of Gondor. Nardol was located at the western edge of the Druadan Forest. It was at the end of a high ridge extending from the White Mountains. The ridge was once covered with trees but it had been stripped bare by the workers in the nearby quarries.
+
+Nardol had an especially large beacon-fire. A guard was maintained on Nardol to protect both the beacon and the quarries, and a large store of fuel was kept ready.
+
+On a clear night, Nardol's beacon could be seen from as far away as Halifirien, the seventh and last Beacon-hill, which stood in the Firien Wood on the border between Gondor and Rohan. Erelas, Min-rimmon, and Calenhad curved slightly southward and were not in the straight line of sight between Nardol and Halifirien.
+
+Names & Etymology:
+Nardol means "Fire-hilltop" or "Fiery head." The word nar means "fire." The word dol means "head" and is often used to mean "hill." Nardol was named for its large beacon.`,
+      "https://thainsbook.minastirith.cz/hills.html#Beacon-hills"
+    ),
+    coords: [44.94121168,-93.30179544],
+    icon: icons.BeaconOfGondorIcon,
+  },
+  erelas: {
+    popup: createSettlementPopup(
+      "Erelas",
+      `The fourth of the Beacon-hills of Gondor. Erelas was a green hill without trees. It was located west of the Druadan Forest at the foot of the White Mountains, somewhat south of Nardol. Erelas was a small hill. Its beacon was not always necessary and was only lit in times of great urgency, like during the War of the Ring.
+
+Names & Etymology:
+The name Erelas is Sindarin in form but its meaning is unclear. Apparently the elements er meaning "single" and las meaning "leaf" are not part of this name.`,
+      "https://thainsbook.minastirith.cz/hills.html#Beacon-hills"
+    ),
+    coords: [44.9411907,-93.3021667],
+    icon: icons.BeaconOfGondorIcon,
+  },
+  min_rimmon: {
+    popup: createSettlementPopup(
+      "Min-Rimmon",
+      `The fifth of the Beacon-hills of Gondor. Min-Rimmon was located at the foot of the White Mountains. It was one of the three oldest beacons along with Amon Din and Eilenach. Before the founding of Rohan, the beacon on Min-Rimmon was used to communicate with the people of Anorien - the province of Gondor west of Minas Tirith.
+
+King Theoden and the Riders of Rohan camped at the foot of Min-Rimmon on the way to Minas Tirith on March 12, 3019 of the Third Age.
+
+Names & Etymology:
+The name Min-Rimmon means "Peak of the Rimmon." The word min means "peak" in Sindarin from mini meaning "stick out." The word Rimmon is probably of pre-Numenorean origin. It either means "group of crags" or was the name of the group of crags of which Min-Rimmon was a part.`,
+      "https://thainsbook.minastirith.cz/hills.html#Beacon-hills"
+    ),
+    coords: [44.9412232,-93.3024431],
+    icon: icons.BeaconOfGondorIcon,
+  },
+  calenhad: {
+    popup: createSettlementPopup(
+      "Calenhad",
+      `The sixth of the Beacon-hills of Gondor. Calenhad had a flat crown covered with green turf. It was a relatively small beacon, though it was taller than Erelas. Like Erelas, the beacon of Calenhad was lit only in times of great need, as in the War of the Ring.
+
+Names & Etymology:
+The name Calenhad means "green space" in reference to its flat, grassy top. The word calen means "green" and had is from sad meaning "place, spot."`,
+      "https://thainsbook.minastirith.cz/hills.html#Beacon-hills"
+    ),
+    coords: [44.9412606,-93.3027522],
+    icon: icons.BeaconOfGondorIcon,
+  },
+  halifirien: {
+    popup: createSettlementPopup(
+      "Halifirien",
+      `The seventh of the Beacon-hills of Gondor. Halifirien was located in the Firien Wood on the border between Gondor and Rohan. It was the tallest of the Beacon-hills and its summit rose high above the treetops.
+
+Halifirien was located in the southeastern corner of the forest. Behind it was the deep cleft called the Firien-dale. The Mering Stream flowed past the western side of the hill.
+
+The slopes of Halifirien were wooded nearly to the summit. The trees were especially dense on the lower slopes, particularly near the Mering Stream. The southern slope of Halifirien which rose out of the Firien-dale was sheer, but the other slopes were long and gradual.
+
+A path marked by standing stones ran from the Great West Road to Halifirien. An ancient stone stairway ascended the hill to the top. The summit was surrounded by a belt of white birches. At the summit was a wide level circle where the beacon was located. There were temporary lodges for the Beacon-wardens near the summit.
+
+At the beginning of the Third Age, after the death of Elendil in the War of the Last Alliance, Isildur brought his father's remains to the hill to be buried. He chose the location because it was then near the center of Gondor. Elendil's tomb was on the eastern side of the circle at the summit of the hill. It was marked by a black stone bearing the letters lambe, ando, lambe for Elendil's name. The tomb was covered with white flowers called alfirin or simbelmyne. The summit of the hill remained green and untouched even as the path to the hill became overgrown.
+
+The hill became a sacred place and it was called Amon Anwar, the Hill of Awe. Its original name had been Eilenaer. No one was allowed to ascend to the top of the hill except the King of Gondor and any who accompanied him. It became customary for the King to bring his heir to the hill when he came of age to tell him of Elendil's tomb and of other important matters of the realm. This custom was later followed by the Stewards of Gondor.
+
+In 2510, Cirion, the Steward of Gondor, brought Eorl the Young to the Hill of Awe. Eorl and his people had helped Gondor fight the Balchoth in the Battle of the Field of Celebrant. Cirion gave Eorl the province of Calenardhon, which became Rohan. In return, Eorl swore an Oath to help Gondor in time of need. Elendil's remains were removed from the hill and were interred in the Hallows of Minas Tirith.
+
+The Mering Stream became the border between Rohan and Gondor. Technically, the hill was east of the border and was in Gondor. Initially, guard and maintenance of the hill was shared by both realms. However, over time the entire Firien Wood including the hill came to be considered the territory of Rohan.
+
+The Rohirrim named the hill Halifirien, the Holy Mountain. They considered the hill to be a sacred place because it was where Eorl had taken his Oath and had been granted the land of Rohan.
+
+When the system of Beacon-hills was established as a means of communicating between Gondor and Rohan, a great beacon was placed on Halifirien. This was the beacon that was visible to the people of Rohan.
+
+After the War of the Ring, Aragorn, King Elessar of Gondor brought King Eomer of Rohan to Halifirien and they renewed the Gift of Cirion and the Oath of Eorl.
+
+Names & Etymology:
+The name Halifirien means "holy mountain" in the language of the Rohirrim. It is from the Anglo-Saxon hálig-firgen where hálig means "holy" and firgen means "mountain."
+
+The Sindarin name was Amon Anwar, meaning "the Hill of Awe" from amon meaning "hill" and anwar meaning "awe." It was so named because the tomb of Elendil was on its summit.
+
+Before the burial of Elendil, the hill was called Eilenaer. This was a pre-Numenorean name related to Eilenach. The meaning is not known.`,
+      "https://thainsbook.minastirith.cz/hills.html#Beacon-hills"
+    ),
+    coords: [44.9413671,-93.3032758],
     icon: icons.BeaconOfGondorIcon,
   },
 };
