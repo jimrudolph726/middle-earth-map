@@ -1151,6 +1151,32 @@ Called Tol Brandir in Sindarin. The word tol means "island with sheer sides." Th
     tolerance: 1,
     weight: 2,
   },
+  tol_himling: {
+    pathName: "tol_himling",
+    color: "blue",
+    name: "Tol Himling",
+    PopupContent: createGeographicPopup(
+    "Tol Himling",
+    "Tol Himling",
+    `The name of the hill of Himring means "ever-cold" from him meaning "cool" and ring meaning "cold." An earlier version of the story of Maedhros used the name Himling for the hill instead of Himring. The reason for the use of the name Himling when it became an island is not clear.`
+    `Island in the Sea northwest of Middle-earth. Himling was about 15 miles off the coast of northern Lindon. The larger island of Tol Fuin was located west of Himling. Tol Morwen was southwest of Himling. Himling was once a hill named Himring in Beleriand where Maedhros, son of Feanor, had his fortress. Beleriand sank under the Sea after the War of Wrath at the end of the First Age, and the peak of Himring remained above the waves as the island of Himling.`,
+    "https://thainsbook.minastirith.cz/coastal.html#Himling"),
+    tolerance: 1,
+    weight: 2,
+  },
+  tol_fuin: {
+    pathName: "tol_fuin",
+    color: "blue",
+    name: "Tol Fuin",
+    PopupContent: createGeographicPopup(
+    "Tol Fuin",
+    "Tol Fuin",
+    `Tol Fuin means "dark island." The word tol means "island with sheer sides" and fuin means "gloom, darkness." Taur-nu-Fuin means "forest under night."`
+    `Island off the coast of northwestern Middle-earth. Tol Fuin was located just west of the smaller island of Himling. Tol Morwen was southwest of Tol Fuin. The islands were in the Sea west of the northernmost part of Lindon.`,
+    "https://thainsbook.minastirith.cz/coastal.html#Himling"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const wetlands = {
   dead_marshes: {
