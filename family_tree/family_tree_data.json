@@ -2459,7 +2459,7 @@
         "elros"
       ],
       "children": [
-        "vardamir"
+        "vardamir", "tindómiel", "manwendil", "atanalcar"
       ],
       "label": "Issue",
       "order": 10
@@ -2470,7 +2470,7 @@
         "vardamir"
       ],
       "children": [
-        "tar-amandil"
+        "tar-amandil", "vardilmë", "aulendil", "nolondil"
       ],
       "label": "Issue",
       "order": 10
