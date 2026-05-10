@@ -1117,7 +1117,7 @@ export const islands = {
     PopupContent: createGeographicPopup(
     "Cair Andros",
     "Cair Andros",
-    `Cair Andros means "ship of long foam," in reference to the island's shape and the foamy waters that broke on its northern end. The word cair means "ship." The element and means "long" and ros means "foam, spray."`
+    `Cair Andros means "ship of long foam," in reference to the island's shape and the foamy waters that broke on its northern end. The word cair means "ship." The element and means "long" and ros means "foam, spray."`,
     `Island in the Anduin. Cair Andros was located in the middle of the river about 30 miles north of Osgiliath. There were woods on Cair Andros. The island was long and narrow and was shaped like a ship.`,
     "https://thainsbook.minastirith.cz/coastal.html#Cair_Andros"),
     tolerance: 1,
@@ -1130,7 +1130,7 @@ export const islands = {
     PopupContent: createGeographicPopup(
     "Tolfalas",
     "Tolfalas",
-    `Also written as Tol Falas. The name means "coastal island" from tol meaning "island with sheer sides" and falas meaning "shore, coast."`
+    `Also written as Tol Falas. The name means "coastal island" from tol meaning "island with sheer sides" and falas meaning "shore, coast."`,
     `Island in the Bay of Belfalas. Tolfalas was located in an inlet at the Mouths of the Anduin. It was a large island, over 50 miles in length. There were hills or mountains in the central region of Tolfalas.`,
     "https://tolkiengateway.net/wiki/Tolfalas"),
     tolerance: 1,
@@ -1145,7 +1145,7 @@ export const islands = {
     "Tol Brandir",
     `The name Tindrock means "spiked rock." The word tind is Old English meaning "tine, spike, prong." Also called Tindrock Isle.
 
-Called Tol Brandir in Sindarin. The word tol means "island with sheer sides." The word brandir is said to be a corruption of baradnir meaning "tower-steep" or "steep tower." Barad means "tower" and there is also an adjective baradh meaning "steep" but the meaning of nir is unclear.`
+Called Tol Brandir in Sindarin. The word tol means "island with sheer sides." The word brandir is said to be a corruption of baradnir meaning "tower-steep" or "steep tower." Barad means "tower" and there is also an adjective baradh meaning "steep" but the meaning of nir is unclear.`,
     `Island in Nen Hithoel on the Anduin. The Tindrock was at the southern end of the lake above the Falls of Rauros. On the western shore just south of the Tindrock stood Amon Hen, the Hill of Sight, and on the eastern shore was Amon Lhaw, the Hill of Hearing.`,
     "https://thainsbook.minastirith.cz/coastal.html#Tindrock"),
     tolerance: 1,
@@ -1158,7 +1158,7 @@ Called Tol Brandir in Sindarin. The word tol means "island with sheer sides." Th
     PopupContent: createGeographicPopup(
     "Tol Himling",
     "Tol Himling",
-    `The name of the hill of Himring means "ever-cold" from him meaning "cool" and ring meaning "cold." An earlier version of the story of Maedhros used the name Himling for the hill instead of Himring. The reason for the use of the name Himling when it became an island is not clear.`
+    `The name of the hill of Himring means "ever-cold" from him meaning "cool" and ring meaning "cold." An earlier version of the story of Maedhros used the name Himling for the hill instead of Himring. The reason for the use of the name Himling when it became an island is not clear.`,
     `Island in the Sea northwest of Middle-earth. Himling was about 15 miles off the coast of northern Lindon. The larger island of Tol Fuin was located west of Himling. Tol Morwen was southwest of Himling. Himling was once a hill named Himring in Beleriand where Maedhros, son of Feanor, had his fortress. Beleriand sank under the Sea after the War of Wrath at the end of the First Age, and the peak of Himring remained above the waves as the island of Himling.`,
     "https://thainsbook.minastirith.cz/coastal.html#Himling"),
     tolerance: 1,
@@ -1171,7 +1171,7 @@ Called Tol Brandir in Sindarin. The word tol means "island with sheer sides." Th
     PopupContent: createGeographicPopup(
     "Tol Fuin",
     "Tol Fuin",
-    `Tol Fuin means "dark island." The word tol means "island with sheer sides" and fuin means "gloom, darkness." Taur-nu-Fuin means "forest under night."`
+    `Tol Fuin means "dark island." The word tol means "island with sheer sides" and fuin means "gloom, darkness." Taur-nu-Fuin means "forest under night."`,
     `Island off the coast of northwestern Middle-earth. Tol Fuin was located just west of the smaller island of Himling. Tol Morwen was southwest of Tol Fuin. The islands were in the Sea west of the northernmost part of Lindon.`,
     "https://thainsbook.minastirith.cz/coastal.html#Himling"),
     tolerance: 1,
