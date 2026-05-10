@@ -391,6 +391,96 @@ export const battles = {
     coords: [44.9411760,-93.3006287],
     icon: icons.BattleIcon,
   },
+  battle_of_the_pelennor_fields: {
+    popup: createSettlementPopup("Battle of the Pelennor Fields (TA March 15th 3019)",
+      `Greatest battle of the War of the Ring. The Battle of the Pelennor Fields was fought on March 15, 3019 of the Third Age, between the forces of Sauron and the combined forces of Gondor and Rohan. At the end of the grueling day-long battle, the West was victorious and the Lord of the Nazgul was vanquished, but Sauron remained undefeated.`,
+      "https://thainsbook.minastirith.cz/battles.html#Pelennor"
+    ),
+    coords: [44.9409551,-93.3010730],
+    icon: icons.BattleIcon,
+  },
+  battle_of_five_armies: {
+    popup: createSettlementPopup("Battle of Five Armies (TA 2941)",
+      `Greatest battle of the War of the Ring. The Battle of the Pelennor Fields was fought on March 15, 3019 of the Third Age, between the forces of Sauron and the combined forces of Gondor and Rohan. At the end of the grueling day-long battle, the West was victorious and the Lord of the Nazgul was vanquished, but Sauron remained undefeated.`,
+      "https://thainsbook.minastirith.cz/battles.html#Five_Armies"
+    ),
+    coords: [44.9409551,-93.3010730],
+    icon: icons.BattleIcon,
+  },
+  battle_of_the_field_of_celebrant: {
+    popup: createSettlementPopup("Battle of the Field of Celebrant (TA April 15th 2510)",
+      `Battle where the ancestors of the Rohirrim first came to the aid of Gondor. The Battle of the Field of Celebrant was fought on April 15, 2510 of the Third Age, against the Balchoth - a group of Men from Rhun who were under the influence of Sauron.`,
+      "https://thainsbook.minastirith.cz/battles.html#Celebrant"
+    ),
+    coords: [44.9439394,-93.3034289],
+    icon: icons.BattleIcon,
+  },
+  battle_of_the_fords_of_isen: {
+    popup: createSettlementPopup("Battle of the Fords of Isen (TA February 25th 3019)",
+      `The First Battle was fought on February 25, 3019 of the Third Age. Saruman's intention in this battle was to kill Theodred, the son and heir of King Theoden of Rohan, and his plan was successful.
+      
+      The Second Battle was fought on March 2, 3019 of the Third Age. Saruman launched his invasion of Rohan with his entire army of 10,000. Unaware of the vast size of the enemy forces, Grimbold and Elfhelm tried to defend the Fords, but they were overwhelmed.`,
+      "https://thainsbook.minastirith.cz/battles.html#Isen"
+    ),
+    coords: [44.9425143,-93.3063947],
+    icon: icons.BattleIcon,
+  },
+  war_of_the_elves_and_sauron: {
+    popup: createSettlementPopup("War of the Elves and Sauron (SA 1693 to 1701)",
+      `Battle over the Rings of Power in the Second Age. The War of the Elves and Sauron was fought in Eriador. It lasted from 1693 to 1701 of the Second Age. Sauron suffered a temporary defeat but gained possession of the Nine Rings and six of the Seven Rings.`,
+      "https://thainsbook.minastirith.cz/battles.html#Elves-Sauron"
+    ),
+    coords: [44.9452048,-93.3068041],
+    icon: icons.BattleIcon,
+  },
+  battle_of_the_gwathlo: {
+    popup: createSettlementPopup("Battle of the Gwathló (SA 1700)",
+      `The Battle of the Gwathló was the final battle of the War of the Elves and Sauron, fought between the forces of Sauron and the combined forces of Gil-galad and Minastir.`,
+      "https://tolkiengateway.net/wiki/Battle_of_the_Gwathl%C3%B3"
+    ),
+    coords: [44.9448106,-93.3084582],
+    icon: icons.BattleIcon,
+  },
+  battle_of_the_plains: {
+    popup: createSettlementPopup("Battle of the Plain (TA 1856)",
+      `First major battle between Gondor and the Wainriders. The Battle of the Plains was fought in 1856 of the Third Age on the great plains between Mirkwood and Mordor. The Wainriders defeated the combined forces of Gondor and the Northmen.`,
+      "https://thainsbook.minastirith.cz/battles.html#Plains"
+    ),
+    coords: [44.9437423,-93.2991348],
+    icon: icons.BattleIcon,
+  },
+  kin_strife: {
+    popup: createSettlementPopup("Kin-strife (TA 1432-1448)",
+      `Civil war in Gondor. The Kin-strife began in 1432 of the Third Age and lasted until 1448. On one side were the loyal supporters of King Eldacar, and on the other side were the rebels led by Castamir. The rebels opposed King Eldacar because he was not of pure Numenorean descent.`,
+      "https://thainsbook.minastirith.cz/battles.html#Kin-strife"
+    ),
+    coords: [44.94087084,-93.30086278],
+    icon: icons.BattleIcon,
+  },
+  war_of_the_dwarves_and_the_orcs: {
+    popup: createSettlementPopup("War of the Dwarves and the Orcs (TA 2793-2799)",
+      `War fought in the Misty Mountains between 2793 and 2799 of the Third Age. The Dwarves led by Thrain II declared war on the Orcs of the Misty Mountains in 2790 after the Orc-leader Azog killed Thrain's father Thror at the gates of Moria.`,
+      "https://thainsbook.minastirith.cz/battles.html#Dwarves-Orcs"
+    ),
+    coords: [44.9488017,-93.3051478],
+    icon: icons.BattleIcon,
+  },
+  the_battle_of_azanulbizar: {
+    popup: createSettlementPopup("The Battle of Azanulbizar (TA 2793-2799)",
+      `In 2799, the final battle of the War of the Dwarves and the Orcs was fought outside the East-gate of Moria in the valley the Dwarves called Azanulbizar, also known as the Dimrill Dale.`,
+      "https://thainsbook.minastirith.cz/battles.html#Dwarves-Orcs"
+    ),
+    coords: [44.9449436,-93.3051924],
+    icon: icons.BattleIcon,
+  },
+  the_battle_of_azanulbizar: {
+    popup: createSettlementPopup("War of the Ring (TA June 20th 3018 to November 3rd 3019)",
+      `In 2799, the final battle of the War of the Dwarves and the Orcs was fought outside the East-gate of Moria in the valley the Dwarves called Azanulbizar, also known as the Dimrill Dale.`,
+      "https://thainsbook.minastirith.cz/battles.html#Dwarves-Orcs"
+    ),
+    coords: [44.943707,-93.301448],
+    icon: icons.BattleIcon,
+  },
 };
 export const one_on_one = {
   battle_of_the_peak: {
