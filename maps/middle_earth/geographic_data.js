@@ -1177,6 +1177,19 @@ Called Tol Brandir in Sindarin. The word tol means "island with sheer sides." Th
     tolerance: 1,
     weight: 2,
   },
+  tol_morwen: {
+    pathName: "tol_morwen",
+    color: "blue",
+    name: "Tol Morwen",
+    PopupContent: createGeographicPopup(
+    "Tol Morwen",
+    "Tol Morwen",
+    `Tol Morwen was named after Morwen, mother of Turin and Nienor, all of whom were memorialized on the Stone of the Hapless. The word tol means "island (rising with sheer sides from the Sea or a river)."`,
+    `Island formed from the gravestone of Turin, Nienor, and Morwen after the destruction of Beleriand. Tol Morwen was located in the Sea off the coast of Lindon. It was to the southwest of the islands of Tol Fuin and Himling. Tol Morwen does not appear on any maps and its exact location is uncertain.`,
+    "https://thainsbook.minastirith.cz/coastal.html#Tol-Morwen"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const wetlands = {
   dead_marshes: {
