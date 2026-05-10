@@ -1134,6 +1134,18 @@ export const islands = {
     tolerance: 1,
     weight: 2,
   },
+  tindrock: {
+    pathName: "tindrock",
+    color: "blue",
+    name: "Tindrock",
+    PopupContent: createGeographicPopup(
+    "Tindrock",
+    "Tol Brandir",
+    `Island in Nen Hithoel on the Anduin. The Tindrock was at the southern end of the lake above the Falls of Rauros. On the western shore just south of the Tindrock stood Amon Hen, the Hill of Sight, and on the eastern shore was Amon Lhaw, the Hill of Hearing.`,
+    "https://thainsbook.minastirith.cz/coastal.html#Tindrock"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const wetlands = {
   dead_marshes: {
