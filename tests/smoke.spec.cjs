@@ -237,10 +237,22 @@ test("long settlement popups can expand wider on desktop", async ({ page }) => {
   });
 
   const popup = page.locator(".lore-popup--settlement");
+  const scrollableNotes = page.locator(".lore-popup--settlement .lore-popup__notes--scrollable");
   await expect(popup).toBeVisible();
+  await expect(scrollableNotes).toBeVisible();
 
   const popupWidth = await popup.evaluate((element) => element.getBoundingClientRect().width);
+  const popupHeight = await popup.evaluate((element) => element.getBoundingClientRect().height);
+  const metrics = await scrollableNotes.evaluate((element) => ({
+    clientHeight: element.clientHeight,
+    overflowY: getComputedStyle(element).overflowY,
+    scrollHeight: element.scrollHeight,
+  }));
+
   expect(popupWidth).toBeGreaterThan(560);
+  expect(popupHeight).toBeLessThan(560);
+  expect(metrics.overflowY).toBe("auto");
+  expect(metrics.scrollHeight).toBeGreaterThan(metrics.clientHeight);
 });
 
 test("family tree renders and opens a character sheet", async ({ page }) => {
