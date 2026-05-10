@@ -25,6 +25,7 @@ const iconUrls = {
   book: new URL('./assets/book.png', import.meta.url).href,
   palantíri: new URL('./assets/palantir.png', import.meta.url).href,
   dwarves_durin: new URL('./assets/dwarves_durin.png', import.meta.url).href,
+  eye_of_sauron: new URL('./assets/eye_of_sauron.png', import.meta.url).href,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -47,46 +48,47 @@ BookIcon: createIcon(iconUrls.book),
 PalantirIcon: createIcon(iconUrls.palantíri),
 TentIcon: createIcon(iconUrls.tent, [30, 30]),
 DwarvesIcon: createIcon(iconUrls.dwarves_durin),
+SauronIcon: createIcon(iconUrls.eye_of_sauron),
 };
 
 // Settlements
 export const elves = {
   rivendell: {
-    coords: [44.94677219,-93.30552175],
-    icon: icons.RivendellIcon,
     popup: createSettlementPopup("Rivendell",
     "Rivendell was the realm of Elrond. During the Third Age it was one of the few remaining realms of the Elves in Middle-earth. Much of the history and lore of the Elves was preserved in Rivendell and it was a place of peace and beauty.",
-    "https://thainsbook.minastirith.cz/rivendell.html")
+    "https://thainsbook.minastirith.cz/rivendell.html"),
+    coords: [44.94677219,-93.30552175],
+    icon: icons.RivendellIcon,
   },
   lothlorien: {
-    coords: [44.9448403,-93.3045497],
-    icon: icons.LothlorienIcon,
     popup: createSettlementPopup("Lothlorien",
     "Lothlorien was the home of Galadriel and Celeborn and their people, the Galadhrim. It was the only forest of mallorn-trees in Middle-earth, and thus it was known as the Golden Wood.",
-    "https://thainsbook.minastirith.cz/lothlorien.html")
+    "https://thainsbook.minastirith.cz/lothlorien.html"),
+    coords: [44.9448403,-93.3045497],
+    icon: icons.LothlorienIcon,
   },
   mithlond: {
-    coords: [44.94660051,-93.31353613],
-    icon: icons.MithlondIcon,
     popup: createSettlementPopup("Mithlond",
     "Port on the northwestern coast of Middle-earth. The Grey Havens were the place from which the ships of the Elves sailed westward across the Sea to the Undying Lands, where the spirits called the Valar dwelled. At the end of the Third Age, many Elves left Middle-earth from the Grey Havens, and the Ringbearers Frodo and Bilbo Baggins also embarked from there so they could find peace and healing in the Undying Lands.",
-    "https://thainsbook.minastirith.cz/towns.html#Grey-Havens")
+    "https://thainsbook.minastirith.cz/towns.html#Grey-Havens"),
+    coords: [44.94660051,-93.31353613],
+    icon: icons.MithlondIcon,
   },
 };
 export const dwarves = {
   khazad_dûm: {
-    coords: [44.9449491,-93.3057188],
-    icon: icons.DwarvesIcon,
     popup: createSettlementPopup("Khazad-dûm",
     "Khazad-dum was the greatest of the Dwarf realms in Middle-earth. Its vast and beautiful halls lay under the Misty Mountains. From its mines came great riches and it was the only source of the precious metal called mithril.",
-    "https://thainsbook.minastirith.cz/moria.html")
+    "https://thainsbook.minastirith.cz/moria.html"),
+    coords: [44.9449491,-93.3057188],
+    icon: icons.DwarvesIcon,
   },
   erebor: {
-    coords: [44.9479827,-93.3006965],
-    icon: icons.DwarvesIcon,
     popup: createSettlementPopup("Erebor",
     "Mountain realm of the Dwarves captured by Smaug the Dragon. The Lonely Mountain was a tall, isolated mountain in the far northeast of Wilderland. It stood near the edge of Mirkwood, about 50 miles south of the Grey Mountains and about 125 miles west of the Iron Hills.",
-    "https://thainsbook.minastirith.cz/mountains.html#Lonely")
+    "https://thainsbook.minastirith.cz/mountains.html#Lonely"),
+    coords: [44.9479827,-93.3006965],
+    icon: icons.DwarvesIcon,
   }
 };
 export const men = {
@@ -500,6 +502,15 @@ export const one_on_one = {
     ),
     coords: [44.94095898, -93.30106586],
     icon: icons.BattleIcon,
+  },
+};
+export const enemies = {
+  barad_dur: {
+    popup: createSettlementPopup("Barad-dûr",
+    "Khazad-dum was the greatest of the Dwarf realms in Middle-earth. Its vast and beautiful halls lay under the Misty Mountains. From its mines came great riches and it was the only source of the precious metal called mithril.",
+    "https://thainsbook.minastirith.cz/moria.html"),
+    coords: [44.9416914,-93.2986442],
+    icon: icons.SauronIcon,
   },
 };
 
