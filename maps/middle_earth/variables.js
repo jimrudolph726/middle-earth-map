@@ -18,6 +18,7 @@ import {
   dwarves,
   men,
   hobbits,
+  enemies,
   battles,
   one_on_one,
   swords,
@@ -70,6 +71,7 @@ const settlementGroups = {
   dwarves,
   men,
   hobbits,
+  enemies,
 };
 
 const itemGroups = {
