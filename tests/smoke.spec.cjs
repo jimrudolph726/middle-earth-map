@@ -151,6 +151,58 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   }
 });
 
+test("long settlement popups stay usable on narrow screens", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.waitForLoadState("networkidle");
+
+  await page.evaluate(() => {
+    const checkbox = document.getElementById("palantíriCheckbox");
+
+    if (!checkbox) {
+      throw new Error("Could not find the palantíri checkbox.");
+    }
+
+    checkbox.checked = true;
+    checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+  });
+
+  await page.evaluate(async () => {
+    const [{ getMarkerFromRegistry }, { map }] = await Promise.all([
+      import("/maps/middle_earth/functions.js"),
+      import("/maps/middle_earth/variables.js")
+    ]);
+    const marker = getMarkerFromRegistry("palantíri", "ithil_stone");
+
+    if (!marker) {
+      throw new Error("Could not find the Ithil-stone marker.");
+    }
+
+    map.setView(marker.getLatLng(), 19, { animate: false });
+    marker.openPopup();
+  });
+
+  const popup = page.locator(".lore-popup--settlement");
+  const scrollableNotes = page.locator(".lore-popup--settlement .lore-popup__notes--scrollable");
+
+  await expect(popup).toBeVisible();
+  await expect(scrollableNotes).toBeVisible();
+
+  const metrics = await scrollableNotes.evaluate((element) => ({
+    clientHeight: element.clientHeight,
+    overflowY: getComputedStyle(element).overflowY,
+    scrollHeight: element.scrollHeight,
+  }));
+
+  expect(metrics.overflowY).toBe("auto");
+  expect(metrics.scrollHeight).toBeGreaterThan(metrics.clientHeight);
+
+  await scrollableNotes.click();
+  await expect(popup).toBeVisible();
+});
+
 test("family tree renders and opens a character sheet", async ({ page }) => {
   await page.goto("/family_tree/family_tree.html", { waitUntil: "domcontentloaded" });
 

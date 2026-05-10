@@ -72,7 +72,7 @@ export const createSettlementPopup = (name, description, url) => {
       <div class="lore-popup__frame">
         <h3 class="lore-popup__title">${name}</h3>
 
-        <div class="lore-popup__notes">
+        <div class="lore-popup__notes lore-popup__notes--scrollable">
           <p class="lore-popup__notes-text">${description}</p>
         </div>
 
@@ -80,6 +80,20 @@ export const createSettlementPopup = (name, description, url) => {
       </div>
     </article>
   `;
+};
+
+const campsitePopupOptions = {
+  className: 'campsite-popup-shell',
+  maxWidth: 520,
+  autoPanPadding: [24, 24],
+  keepInView: true,
+};
+
+const lorePopupOptions = {
+  className: 'lore-popup-shell',
+  maxWidth: 520,
+  autoPanPadding: [24, 24],
+  keepInView: true,
 };
 
 // Checkbox listener functions
@@ -126,9 +140,9 @@ export const createMarkers = (locations, campsite = 'no') => {
     const markers = Object.keys(locations).reduce((acc, key) => {
       const { coords, icon, popup } = locations[key];
       const popupOptions = campsite == 'campsite'
-        ? { className: 'campsite-popup-shell', maxWidth: 520 }
-        : { className: 'lore-popup-shell', maxWidth: 520 };
-      const marker = L.marker(coords, { icon }).bindPopup(popup, popupOptions);
+        ? campsitePopupOptions
+        : lorePopupOptions;
+      const marker = L.marker(coords, { icon }).bindPopup(popup, { ...popupOptions });
 
       if (campsite == 'campsite') {
         marker.on('mouseover', () => marker.openPopup());
@@ -189,7 +203,7 @@ export const createGeographicShape = async (geographic_data) => {
 
           // Add click event
           layer.on('click', (e) => {
-            const popup = L.popup({ className: 'lore-popup-shell', maxWidth: 520 })
+            const popup = L.popup({ ...lorePopupOptions })
               .setLatLng(e.latlng)
               .setContent(PopupContent || `Name: ${name}`);
             popup.openOn(layer._map);
