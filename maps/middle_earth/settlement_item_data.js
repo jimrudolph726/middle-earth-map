@@ -406,5 +406,49 @@ export const palantíri = {
     ),
         coords: [44.9408698,-93.3008605],
         icon: icons.PalantirIcon,
-  }
+  },
+  amon_sul_stone: {
+    popup: createSettlementPopup(
+      "The Stone of Amon Sûl",
+      `The Stone of Amon Sul was the primary palantir in the North-kingdom of Arnor and the one that was used most in communication with Gondor. It was also one of the largest stones. The palantir was kept in the Tower on the hill called Amon Sul, or Weathertop. After the North-kingdom was divided into Arthedain, Cardolan, and Rhudaur, the Stone of Amon Sul became a source of contention among the three kingdoms. Arthedain retained possession of the Tower and Stone of Amon Sul, but Cardolan and Rhudaur contested this claim because Arthedain also had both of the other palantiri of the North-kingdom. In 1409 of the Third Age, the Tower of Amon Sul was destroyed by the forces of the Witch-king of Angmar. The Stone of Amon Sul was saved and taken to Fornost. It remained there until 1974 when the Witch-king captured Fornost. Again, the Stone of Amon Sul was rescued and taken north by King Arvedui along with the Stone of Annuminas. But in 1975, Arvedui boarded a ship in the Icebay of Forochel and was lost at sea in a storm along with the two palantiri.`,
+      "https://thainsbook.minastirith.cz/palantir.html"
+    ),
+        coords: [44.94665854,-93.30836735],
+        icon: icons.PalantirIcon,
+  },
+  annuminas_stone: {
+    popup: createSettlementPopup(
+      "The Stone of Annúminas",
+      `The Stone of Annuminas was kept in the capital of the North-kingdom and it was the palantir used by the King. At first, the capital was Annuminas, but the Kings later relocated to Fornost and the Stone of Annuminas was moved there. After the breakup of the North-kingdom, the Stone of Annuminas was in the possession of Arthedain. When the Witch-king captured Fornost in 1974 of the Third Age, the Stone of Annuminas and the Stone of Amon Sul were saved by King Arvedui, but both palantiri were lost at sea when Arvedui's ship sank in a storm on the Icebay of Forochel in 1975.`,
+      "https://thainsbook.minastirith.cz/palantir.html"
+    ),
+        coords: [44.94739100,-93.31121421],
+        icon: icons.PalantirIcon,
+  },
+  elendil_stone: {
+    popup: createSettlementPopup(
+      "The Elendil Stone",
+      `The Elendil Stone was kept in the tower of Elostirion in the Tower Hills. This palantir could not be used to communicate with the others but instead looked only west across the Sea. Elendil used the palantir from time to time to see Tol Eressea in the Undying Lands where the Master-stone was kept in the Tower of Avallone. After the fall of the North-kingdom, the Elendil Stone was guarded by Cirdan and the Elves of Lindon. High-elves sometimes made pilgrimages to the Tower Hills to see the Undying Lands in the Elendil Stone. The Chieftains of the Dunedain were by right the lawful masters of the Elendil Stone, but apparently it was not used again by Men. On September 29, 3021 of the Third Age, Cirdan put the Elendil Stone on the ship carrying the Ring-bearers away from Middle-earth, and the palantir was returned to the Undying Lands from whence it came. Note: Christopher Tolkien in Unfinished Tales states: "it is not known whether any of [the Dunedain], including Aragorn, ever looked into [the Elendil-stone]." But J.R.R. Tolkien wrote in The Road Goes Ever On: "After the fall of Elendil the High-Elves took back this Stone into their own care, and it was not destroyed, nor again used by Men." Tolkien also notes that the Elves who sing a hymn to Elbereth at Rivendell (FotR, p. 250) use the term palan-díriel - meaning "gazing afar" - indicating that these Elves had just returned from looking in the Elendil-stone.`,
+      "https://thainsbook.minastirith.cz/palantir.html"
+    ),
+        coords: [44.9466123,-93.3130522],
+        icon: icons.PalantirIcon,
+  },
+  ithil_stone: {
+    popup: createSettlementPopup(
+      "The Ithil-stone",
+      `The Ithil-stone was the palantir used by Isildur in his stronghold of Minas Ithil on the borders of Mordor. It was most closely in accord with the Anor-stone kept by Isildur's brother Anarion in Minas Anor across the river.
+
+In the year 2002 of the Third Age, Minas Ithil was captured by the Lord of the Nazgul and was renamed Minas Morgul. It is believed that the Nazgul found the Ithil-stone and that it was moved to the Dark Tower for the use of Sauron, who returned to Mordor in 2942. At the time, however, the people of Gondor did not know what had become of the Ithil-stone. Some may have thought that the defenders of Minas Ithil destroyed the palantir so it could not be captured, though given the indestructible nature of the palantiri this was unlikely. Others no doubt realized that the Ithil-stone might be in the hands of the Enemy, but it was thought that there was no danger so long as Sauron could not contact the other two remaining usable palantiri - the Anor-stone and the Orthanc-stone. Thus these palantiri were not used for many years and were largely forgotten.
+
+But in the years leading up to the War of the Ring, Sauron used the Ithil-stone against the holders of the other two palantiri. To Denethor - the Steward of Gondor in possession of the Anor-stone - Sauron showed images of the vast forces of Mordor that were poised to strike Gondor, causing Denethor to despair that Sauron could never be defeated. Saruman, who had the Orthanc-stone, was dominated by the superior will of Sauron and became a traitor.
+
+On the night of March 5, 3019, Sauron looked into the Ithil-stone and saw the Hobbit Pippin Took, who was using the Orthanc-stone. Sauron mistakenly believed that Pippin was the Ring-bearer being held captive by Saruman. The next morning Sauron again used the Ithil-stone and was confronted by Aragorn, who revealed that he was Isildur's heir and that Narsil - the sword that had cut the Ring from Sauron's hand - had been reforged. Sauron felt fear and doubt, causing him to strike prematurely against Gondor and distracting him from the progress of the Ring-bearer toward Mount Doom.
+
+After the Ring was destroyed on March 25, Sauron's realm fell into ruin. It is not known what became of the Ithil-stone, but it is thought that it may have been destroyed in the intense heat following the eruption of Mount Doom.`,
+      "https://thainsbook.minastirith.cz/palantir.html"
+    ),
+        coords: [44.9410039,-93.3002447],
+        icon: icons.PalantirIcon,
+  },
 }
