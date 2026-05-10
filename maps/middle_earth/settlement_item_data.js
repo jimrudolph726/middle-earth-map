@@ -395,3 +395,12 @@ export const books = {
     icon: icons.BookIcon,
   },
 }
+export const palantíri = {
+  osgiliath_stone: {
+    popup: createSettlementPopup(
+      "The Stone of Osgiliath",
+      `The Stone of Osgiliath was the chief and master of the seven palantiri in Middle-earth. It was one of the largest stones. The Stone of Osgiliath could survey all of the other palantiri and could "eavesdrop" on a communication between two other stones. It was kept in the Dome of Stars in Osgiliath. The Stone of Osgiliath was lost in the waters of the Anduin when the Dome of Stars was destroyed during the civil war of the Kin-strife in 1437 of the Third Age.`,
+      "https://thainsbook.minastirith.cz/palantir.html"
+    ),
+  }
+}

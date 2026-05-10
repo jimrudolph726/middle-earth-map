@@ -22,6 +22,7 @@ import {
   swords,
   rings,
   books,
+  palantíri,
 } from './settlement_item_data.js';
 
 import {
@@ -74,6 +75,7 @@ const itemGroups = {
   swords,
   rings,
   books,
+  palantíri,
 };
 
 const battleGroups = {
