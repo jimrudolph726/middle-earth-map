@@ -8,6 +8,7 @@ const iconUrls = {
   hobbits: new URL('./assets/hobbits.png', import.meta.url).href,
   men_gondor: new URL('./assets/tree_of_gondor.png', import.meta.url).href,
   men_rohan: new URL('./assets/men_rohan.png', import.meta.url).href,
+  beacon_of_gondor: new URL('./assets/beacon_of_gondor.png', import.meta.url).href,
   rivendell: new URL('./assets/rivendell.png', import.meta.url).href,
   lothlorien: new URL('./assets/galadriel.png', import.meta.url).href,
   mithlond: new URL('./assets/cirdan.png', import.meta.url).href,
@@ -29,6 +30,7 @@ export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
 MenGondorIcon: createIcon(iconUrls.men_gondor),
 MenRohanIcon: createIcon(iconUrls.men_rohan),
+BeaconOfGondorIcon: createIcon(iconUrls.beacon_of_gondor),
 RivendellIcon: createIcon(iconUrls.rivendell),
 LothlorienIcon: createIcon(iconUrls.lothlorien),
 MithlondIcon: createIcon(iconUrls.mithlond),
@@ -168,6 +170,20 @@ export const men = {
     ),
     coords: [44.94202323, -93.30482241],
     icon: icons.MenRohanIcon,
+  },
+  amon_din: {
+    popup: createSettlementPopup(
+      "Amon Dîn",
+      `The first of the seven Beacon-hills of Gondor. Amon Din was the closest of the Beacon-hills to Minas Tirith. It was located near the eastern end of the Druadan Forest. Amon Din was a rocky, barren hill that stood out from the trees. Birds and animals were rarely found on Amon Din and Men used it only as an outpost.
+
+Amon Din was the first hill to have a beacon built on its summit. Its original purpose was to alert Minas Tirith to the approach of enemy forces. From Amon Din, sentries could keep watch over the crossing of the Anduin near Cair Andros and the passage into Ithilien from Dagorlad.
+
+Names & Etymology:
+Amon Dîn means "Silent Hill" from amon meaning "hill" and dîn meaning "silent." It may have been so named because it was isolated and uninhabited.`,
+      "https://thainsbook.minastirith.cz/towns.html#Edoras"
+    ),
+    coords: [44.94116240,-93.30121250],
+    icon: icons.BeaconOfGondorIcon,
   },
 };
 export const hobbits = {
