@@ -428,6 +428,41 @@
       "bio": "",
       "order": 5
     },
+    "silmariën": {
+      "id": "silmariën",
+      "name": "Silmariën",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "25th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/silmariën.png",
+      "bio": "",
+      "order": 5
+    },
+    "elatan": {
+      "id": "elatan",
+      "name": "Elatan",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "25th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/elatan.png",
+      "bio": "",
+      "order": 5
+    },
+
 
 
 
@@ -2354,7 +2389,7 @@
         "tar-elendil"
       ],
       "children": [
-        "tar-meneldur"
+        "tar-meneldur", "silmariën"
       ],
       "label": "Issue",
       "order": 10
@@ -2578,6 +2613,23 @@
       ],
       "label": "Issue",
       "order": 10
+    },
+{
+      "id": "union-silmariën-elatan",
+      "partners": [
+        "silmariën",
+        "elatan"
+      ],
+      "children": [
+        "valandil"
+      ],
+      "lineagePartner": "silmariën",
+      "lineageChild": "valandil",
+      "childOrder": [
+        "valandil"
+      ],
+      "label": "Marriage",
+      "order": 20
     },
 
 
