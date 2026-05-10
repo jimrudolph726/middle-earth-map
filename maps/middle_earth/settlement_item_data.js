@@ -410,7 +410,9 @@ export const palantíri = {
   amon_sul_stone: {
     popup: createSettlementPopup(
       "The Stone of Amon Sûl",
-      `The Stone of Amon Sul was the primary palantir in the North-kingdom of Arnor and the one that was used most in communication with Gondor. It was also one of the largest stones. The palantir was kept in the Tower on the hill called Amon Sul, or Weathertop. After the North-kingdom was divided into Arthedain, Cardolan, and Rhudaur, the Stone of Amon Sul became a source of contention among the three kingdoms. Arthedain retained possession of the Tower and Stone of Amon Sul, but Cardolan and Rhudaur contested this claim because Arthedain also had both of the other palantiri of the North-kingdom. In 1409 of the Third Age, the Tower of Amon Sul was destroyed by the forces of the Witch-king of Angmar. The Stone of Amon Sul was saved and taken to Fornost. It remained there until 1974 when the Witch-king captured Fornost. Again, the Stone of Amon Sul was rescued and taken north by King Arvedui along with the Stone of Annuminas. But in 1975, Arvedui boarded a ship in the Icebay of Forochel and was lost at sea in a storm along with the two palantiri.`,
+      `The Stone of Amon Sul was the primary palantir in the North-kingdom of Arnor and the one that was used most in communication with Gondor. It was also one of the largest stones. The palantir was kept in the Tower on the hill called Amon Sul, or Weathertop. After the North-kingdom was divided into Arthedain, Cardolan, and Rhudaur, the Stone of Amon Sul became a source of contention among the three kingdoms. Arthedain retained possession of the Tower and Stone of Amon Sul, but Cardolan and Rhudaur contested this claim because Arthedain also had both of the other palantiri of the North-kingdom.
+
+In 1409 of the Third Age, the Tower of Amon Sul was destroyed by the forces of the Witch-king of Angmar. The Stone of Amon Sul was saved and taken to Fornost. It remained there until 1974 when the Witch-king captured Fornost. Again, the Stone of Amon Sul was rescued and taken north by King Arvedui along with the Stone of Annuminas. But in 1975, Arvedui boarded a ship in the Icebay of Forochel and was lost at sea in a storm along with the two palantiri.`,
       "https://thainsbook.minastirith.cz/palantir.html"
     ),
         coords: [44.94665854,-93.30836735],
@@ -428,7 +430,11 @@ export const palantíri = {
   elendil_stone: {
     popup: createSettlementPopup(
       "The Elendil Stone",
-      `The Elendil Stone was kept in the tower of Elostirion in the Tower Hills. This palantir could not be used to communicate with the others but instead looked only west across the Sea. Elendil used the palantir from time to time to see Tol Eressea in the Undying Lands where the Master-stone was kept in the Tower of Avallone. After the fall of the North-kingdom, the Elendil Stone was guarded by Cirdan and the Elves of Lindon. High-elves sometimes made pilgrimages to the Tower Hills to see the Undying Lands in the Elendil Stone. The Chieftains of the Dunedain were by right the lawful masters of the Elendil Stone, but apparently it was not used again by Men. On September 29, 3021 of the Third Age, Cirdan put the Elendil Stone on the ship carrying the Ring-bearers away from Middle-earth, and the palantir was returned to the Undying Lands from whence it came. Note: Christopher Tolkien in Unfinished Tales states: "it is not known whether any of [the Dunedain], including Aragorn, ever looked into [the Elendil-stone]." But J.R.R. Tolkien wrote in The Road Goes Ever On: "After the fall of Elendil the High-Elves took back this Stone into their own care, and it was not destroyed, nor again used by Men." Tolkien also notes that the Elves who sing a hymn to Elbereth at Rivendell (FotR, p. 250) use the term palan-díriel - meaning "gazing afar" - indicating that these Elves had just returned from looking in the Elendil-stone.`,
+      `The Elendil Stone was kept in the tower of Elostirion in the Tower Hills. This palantir could not be used to communicate with the others but instead looked only west across the Sea. Elendil used the palantir from time to time to see Tol Eressea in the Undying Lands where the Master-stone was kept in the Tower of Avallone.
+
+After the fall of the North-kingdom, the Elendil Stone was guarded by Cirdan and the Elves of Lindon. High-elves sometimes made pilgrimages to the Tower Hills to see the Undying Lands in the Elendil Stone. The Chieftains of the Dunedain were by right the lawful masters of the Elendil Stone, but apparently it was not used again by Men.*
+
+On September 29, 3021 of the Third Age, Cirdan put the Elendil Stone on the ship carrying the Ring-bearers away from Middle-earth, and the palantir was returned to the Undying Lands from whence it came.`,
       "https://thainsbook.minastirith.cz/palantir.html"
     ),
         coords: [44.9466123,-93.3130522],
@@ -451,4 +457,58 @@ After the Ring was destroyed on March 25, Sauron's realm fell into ruin. It is n
         coords: [44.9410039,-93.3002447],
         icon: icons.PalantirIcon,
   },
+  anor_stone: {
+    popup: createSettlementPopup(
+      "The Anor-stone",
+      `The Anor-stone was held in Anarion's stronghold of Minas Anor on the western shore of the Anduin. It was most closely in accord with the Ithil-stone. After the fall of Minas Ithil in 2002 of the Third Age, the Anor-stone was no longer used because it was feared that the Enemy might be in possession of the Ithil-stone. Minas Anor was renamed Minas Tirith, the Tower of Guard.
+
+The Anor-stone became a closely guarded secret of the Stewards of Gondor. It was kept in the upper chamber of the Tower of Ecthelion on the highest level of Minas Tirith. The palantir was never again mentioned publicly or written about in public records, though the Stewards kept their own archives about the lore of the palantiri.
+
+Denethor was the first Steward to dare to use the Anor-stone. When he began to do so is not certain, but it seems that it may have been immediately upon assuming the Stewardship in 2984. Denethor wanted to learn information to help Gondor as the threat from Mordor grew, but he was also motivated by jealousy of Thorongil, a captain who had been favored by Denethor's father Ecthelion. Denethor had apparently determined that Thorongil was none other than Aragorn, the heir to the throne of Gondor. Denethor wanted to surpass Thorongil and his friend Gandalf in knowledge and he also wanted to learn what they were doing.
+
+Denethor was strong-willed and confident in his powers, and as the rightful user of the palantir he was able to control and direct its visions for a time. He became aware of many things happening in Gondor and throughout Middle-earth. But eventually Denethor came in contact with the Ithil-stone held by Sauron. It required great strength to maintain control of the Anor-stone and keep Sauron from wrenching its gaze to the Ithil-stone. Denethor was able to do so at first, but the effort drained him and he appeared to age prematurely.
+
+Sauron was never able to dominate Denethor's will, but in the end he led Denethor to despair by revealing the full strength of the forces of Mordor and showing him only selected images in order to convince Denethor that defeat was inevitable. After the death of Denethor's beloved son Boromir, Denethor's spirit was weakened, and when it appeared that his only surviving son Faramir had been mortally wounded, Denethor succumbed to despair.
+
+On the night of March 13, 3019, Denethor went to the top of the Tower of Ecthelion and looked into the palantir. Sauron showed him a fleet of Corsairs' ships sailing up the Anduin from the south, and Denethor believed that end was coming for Minas Tirith. He did not know that in truth the ships were under the command of Aragorn who was coming to the aid of Minas Tirith. Denethor may also have seen the Ring-bearer imprisoned in the Tower of Cirith Ungol and concluded that Sauron had the Ring, not realizing that Sam Gamgee had taken the Ring before Frodo was captured.
+
+On March 15, Denethor tried to burn himself and Faramir alive on a funeral pyre. Faramir was rescued, but Denethor burned to death holding the Anor-stone in his hands. Afterwards it was said that unless one had great strength of will to direct the palantir, it would only show Denethor's burning hands.`,
+      "https://thainsbook.minastirith.cz/palantir.html"
+    ),
+        coords: [44.9409689,-93.3012720],
+        icon: icons.PalantirIcon,
+  },
+  orthanc_stone: {
+    popup: createSettlementPopup(
+      "The Orthanc-stone",
+      `The Orthanc-stone was placed in the impregnable Tower of Orthanc in the stronghold of Isengard on the western edge of Gondor. But the population in that area declined and in 2510 of the Third Age the land was given to the Rohirrim. Isengard remained a stronghold of Gondor, but the guard there became lax and the Orthanc-stone was unused.
+
+In 2759, Saruman offered to take up residence in Isengard and maintain and repair its defenses. Beren, the Steward of Gondor, agreed. It is not known whether Beren took the Orthanc-stone into consideration in doing so, but he may have believed that the palantir would be safest in the hands of one of the Wise. Saruman knew that there was a palantir in Orthanc, for he had studied the archives of Minas Tirith. The Orthanc-stone was one of his primary reasons for moving to Isengard.
+
+Saruman began to use the Orthanc-stone around the year 3000. At first he may have been able to control it and see far-off places and events, but he soon came into contact with the Ithil-stone and fell under Sauron's sway. Saruman's integrity had already been weakened by the abandonment of his moral principles in his quest to obtain power for himself, and he was thus vulnerable to domination by the superior will of Sauron. Before long, Saruman felt compelled to report to Sauron via the palantir. Saruman became a traitor to the White Council and to the free peoples of Middle-earth whom he was supposed to help in their struggle against Sauron.
+
+After Saruman's forces were defeated at the Battle of Helm's Deep and Isengard was destroyed by the Ents, Gandalf and King Theoden of Rohan came to Orthanc to parley with Saruman on March 5, 3019. Saruman's lackey Grima Wormtongue threw the Orthanc-stone down from the tower and it was picked up by Pippin Took.
+
+Gandalf took the palantir away from the Hobbit, but Pippin could not stop thinking about it. That night as they camped at Dol Baran, Pippin retrieved the palantir from Gandalf as the Wizard slept and looked into the stone. He was confronted by Sauron, who mistook him for the Ring-bearer and assumed he was being held captive by Saruman in Orthanc.
+
+Aragorn then claimed the Orthanc-stone as the heir of Elendil and the rightful master of the palantiri. On March 6, he revealed himself to Sauron in the Orthanc-stone and showed him that Narsil - the sword that had cut the Ring from Sauron's hand - had been reforged. Then Aragorn was able to wrench control of the Orthanc-stone away from Sauron and he saw that the Corsairs posed a danger to Minas Tirith from the south. He chose to take the Paths of the Dead and was able to capture the Corsairs' ships and come in time to the Battle of the Pelennor Fields. Sauron was filled with fear and doubt after his confrontation with Aragorn and he was distracted as the Ring-bearer made his way toward Mount Doom.
+
+After the War of the Ring, Aragorn, King Elessar, used the Orthanc-stone to survey his realm and his servants from afar, and it is said that he reinstated it in the tower of Orthanc.`,
+      "https://thainsbook.minastirith.cz/palantir.html"
+    ),
+        coords: [44.9430022,-93.3064925],
+        icon: icons.PalantirIcon,
+  },
+  master_stone: {
+    popup: createSettlementPopup(
+      "Master-stone",
+      `The Master-stone was the chief of all the palantíri, both in Aman and Middle-earth, which was held in the Tower of Avallónë on the Lonely Isle. It was said that the Seeing-stone in Elostirion in the Tower Hills could be used to look back along the Straight Road and glimpse the Tower.[1]
+
+The Stone of Avallónë is variously named the "'Masterstone'" or Master-stone. There was also a 'Master Stone' of Middle-earth, the palantír of Osgiliath, but this was a lesser Stone than the Masterstone in Avallónë, having power only over other palantíri in Middle-earth.`,
+      "https://tolkiengateway.net/wiki/Master-stone"
+    ),
+        coords: [44.9446930,-93.3175164],
+        icon: icons.PalantirIcon,
+  },
+
 }
