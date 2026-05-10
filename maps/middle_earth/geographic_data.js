@@ -1688,7 +1688,7 @@ export const sub_regions = {
     tolerance: 1,
     weight: 2
   },
-  lebennin: {
+  south_ithilien: {
     pathName: 'south_ithilien',
     color: "brown", 
     name: "south_ithilien",
