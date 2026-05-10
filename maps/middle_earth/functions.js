@@ -91,7 +91,7 @@ const campsitePopupOptions = {
 
 const lorePopupOptions = {
   className: 'lore-popup-shell',
-  maxWidth: 520,
+  maxWidth: 760,
   autoPanPadding: [24, 24],
   keepInView: true,
 };

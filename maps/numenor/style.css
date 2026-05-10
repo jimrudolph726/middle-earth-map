@@ -149,7 +149,7 @@ h3,
   padding: 0;
   background: transparent;
   box-shadow: none;
-  max-width: min(520px, calc(100vw - 32px));
+  max-width: min(760px, calc(100vw - 32px));
 }
 
 .lore-popup-shell .leaflet-popup-content {
@@ -233,8 +233,13 @@ h3,
 
 .lore-popup {
   min-width: 260px;
-  max-width: 440px;
+  max-width: 640px;
   color: #38291a;
+}
+
+.lore-popup--settlement {
+  width: min(640px, calc(100vw - 56px));
+  max-width: 100%;
 }
 
 .lore-popup__frame {
