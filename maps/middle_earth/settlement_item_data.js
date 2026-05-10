@@ -26,6 +26,7 @@ const iconUrls = {
   palantíri: new URL('./assets/palantir.png', import.meta.url).href,
   dwarves_durin: new URL('./assets/dwarves_durin.png', import.meta.url).href,
   eye_of_sauron: new URL('./assets/eye_of_sauron.png', import.meta.url).href,
+  white_hand_of_saruman: new URL('./assets/white_hand_of_saruman.png', import.meta.url).href,,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -49,6 +50,7 @@ PalantirIcon: createIcon(iconUrls.palantíri),
 TentIcon: createIcon(iconUrls.tent, [30, 30]),
 DwarvesIcon: createIcon(iconUrls.dwarves_durin),
 SauronIcon: createIcon(iconUrls.eye_of_sauron),
+SarumanIcon: createIcon(iconUrls.white_hand_of_saruman),
 };
 
 // Settlements
@@ -521,10 +523,10 @@ export const enemies = {
   },
   orthanc: {
     popup: createSettlementPopup("Orthanc",
-    "Stronghold of Sauron in Mordor. Barad-dur was at the end of a long spur of the Ash Mountains on the northern border of Mordor. The tower overlooked the plateau of Gorgoroth.",
-    "https://thainsbook.minastirith.cz/fortress.html#Dol_Guldur"),
-    coords: [44.9430398,-93.3064915],
-    icon: icons.SauronIcon,
+    "Orthanc was the impregnable tower of Isengard built by the Dúnedain during the Second Age. The tower of Orthanc was composed of four welded pillars of many-sided stone that stood in the centre of the Ring of Isengard like an island, roughly half a mile from the rim.",
+    "https://tolkiengateway.net/wiki/Orthanc"),
+    coords: [44.9430485,-93.3064879],
+    icon: icons.SarumanIcon,
   },
 };
 
