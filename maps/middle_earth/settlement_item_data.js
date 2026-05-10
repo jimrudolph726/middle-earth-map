@@ -519,6 +519,13 @@ export const enemies = {
     coords: [44.9447549,-93.3028560],
     icon: icons.SauronIcon,
   },
+  orthanc: {
+    popup: createSettlementPopup("Orthanc",
+    "Stronghold of Sauron in Mordor. Barad-dur was at the end of a long spur of the Ash Mountains on the northern border of Mordor. The tower overlooked the plateau of Gorgoroth.",
+    "https://thainsbook.minastirith.cz/fortress.html#Dol_Guldur"),
+    coords: [44.9430398,-93.3064915],
+    icon: icons.SauronIcon,
+  },
 };
 
 // Items
