@@ -1109,6 +1109,20 @@ export const lakes_seas = {
     weight: 2
   },
 };
+export const islands = {
+  cair_andros: {
+    pathName: "cair_andros",
+    color: "blue",
+    name: "Cair Andros",
+    PopupContent: createGeographicPopup(
+    "Cair Andros",
+    "Cair Andros",
+    `Island in the Anduin. Cair Andros was located in the middle of the river about 30 miles north of Osgiliath. There were woods on Cair Andros. The island was long and narrow and was shaped like a ship.`,
+    "https://thainsbook.minastirith.cz/coastal.html#Cair_Andros"),
+    tolerance: 1,
+    weight: 2,
+  },
+};
 export const wetlands = {
   dead_marshes: {
     pathName: 'dead_marshes',
