@@ -404,7 +404,7 @@ export const battles = {
       `Greatest battle of the War of the Ring. The Battle of the Pelennor Fields was fought on March 15, 3019 of the Third Age, between the forces of Sauron and the combined forces of Gondor and Rohan. At the end of the grueling day-long battle, the West was victorious and the Lord of the Nazgul was vanquished, but Sauron remained undefeated.`,
       "https://thainsbook.minastirith.cz/battles.html#Five_Armies"
     ),
-    coords: [44.9409551,-93.3010730],
+    coords: [44.9479316,-93.3007841],
     icon: icons.BattleIcon,
   },
   battle_of_the_field_of_celebrant: {
@@ -473,7 +473,7 @@ export const battles = {
     coords: [44.9449436,-93.3051924],
     icon: icons.BattleIcon,
   },
-  the_battle_of_azanulbizar: {
+  war_of_the_ring: {
     popup: createSettlementPopup("War of the Ring (TA June 20th 3018 to November 3rd 3019)",
       `In 2799, the final battle of the War of the Dwarves and the Orcs was fought outside the East-gate of Moria in the valley the Dwarves called Azanulbizar, also known as the Dimrill Dale.`,
       "https://thainsbook.minastirith.cz/battles.html#Dwarves-Orcs"
