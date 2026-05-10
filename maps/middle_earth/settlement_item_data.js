@@ -22,6 +22,7 @@ const iconUrls = {
   vilya: new URL('./assets/vilya.png', import.meta.url).href,
   barahir: new URL('./assets/barahir.png', import.meta.url).href,
   book: new URL('./assets/book.png', import.meta.url).href,
+  palantíri: new URL('./assets/palantir.png', import.meta.url).href,
   dwarves_durin: new URL('./assets/dwarves_durin.png', import.meta.url).href,
 };
 export const icons = {
@@ -41,6 +42,7 @@ NenyaIcon: createIcon(iconUrls.nenya),
 VilyaIcon: createIcon(iconUrls.vilya),
 BarahirIcon: createIcon(iconUrls.barahir),
 BookIcon: createIcon(iconUrls.book),
+PalantirIcon: createIcon(iconUrls.palantíri),
 TentIcon: createIcon(iconUrls.tent, [30, 30]),
 DwarvesIcon: createIcon(iconUrls.dwarves_durin),
 };
@@ -402,5 +404,7 @@ export const palantíri = {
       `The Stone of Osgiliath was the chief and master of the seven palantiri in Middle-earth. It was one of the largest stones. The Stone of Osgiliath could survey all of the other palantiri and could "eavesdrop" on a communication between two other stones. It was kept in the Dome of Stars in Osgiliath. The Stone of Osgiliath was lost in the waters of the Anduin when the Dome of Stars was destroyed during the civil war of the Kin-strife in 1437 of the Third Age.`,
       "https://thainsbook.minastirith.cz/palantir.html"
     ),
+        coords: [44.9408698,-93.3008605],
+        icon: icons.PalantirIcon,
   }
 }
