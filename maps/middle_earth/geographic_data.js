@@ -1649,7 +1649,7 @@ export const sub_regions = {
   belfalas: {
     pathName: 'belfalas',
     color: "brown", 
-    name: "belfalas",
+    name: "Belfalas",
     PopupContent: createGeographicPopup(
       "Belfalas",
       `Belfalas`,
@@ -1663,7 +1663,7 @@ export const sub_regions = {
   lebennin: {
     pathName: 'lebennin',
     color: "brown", 
-    name: "lebennin",
+    name: "Lebennin",
     PopupContent: createGeographicPopup(
       "Lebennin",
       `Lebennin`,
@@ -1677,7 +1677,7 @@ export const sub_regions = {
   north_ithilien: {
     pathName: 'north_ithilien',
     color: "brown", 
-    name: "north_ithilien",
+    name: "North Ithilien",
     PopupContent: createGeographicPopup(
       "North Ithilien",
       `Ithilien`,
@@ -1691,7 +1691,7 @@ export const sub_regions = {
   south_ithilien: {
     pathName: 'south_ithilien',
     color: "brown", 
-    name: "south_ithilien",
+    name: "South Ithilien",
     PopupContent: createGeographicPopup(
       "South Ithilien",
       `South Ithilien`,
