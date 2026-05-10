@@ -1122,6 +1122,18 @@ export const islands = {
     tolerance: 1,
     weight: 2,
   },
+  tolfalas: {
+    pathName: "tolfalas",
+    color: "blue",
+    name: "Tolfalas",
+    PopupContent: createGeographicPopup(
+    "Tolfalas",
+    "Tolfalas",
+    `Island in the Bay of Belfalas. Tolfalas was located in an inlet at the Mouths of the Anduin. It was a large island, over 50 miles in length. There were hills or mountains in the central region of Tolfalas.`,
+    "https://tolkiengateway.net/wiki/Tolfalas"),
+    tolerance: 1,
+    weight: 2,
+  },
 };
 export const wetlands = {
   dead_marshes: {
