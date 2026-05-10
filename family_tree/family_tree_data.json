@@ -436,7 +436,7 @@
       "groups": [
         "númenórean"
       ],
-      "title": "25th King of Númenor",
+      "title": "Daughter of Tar-Elendil",
       "house": "House of Númenor",
       "realm": "Númenor",
       "born": "Unknown",
@@ -453,7 +453,7 @@
       "groups": [
         "númenórean"
       ],
-      "title": "25th King of Númenor",
+      "title": "Husband of Silmariën",
       "house": "House of Númenor",
       "realm": "Númenor",
       "born": "Unknown",
@@ -462,6 +462,109 @@
       "bio": "",
       "order": 5
     },
+    "tindómiel": {
+      "id": "tindómiel",
+      "name": "Tindómiel",
+      "sex": "female",
+      "kindred": "Woman",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Daughter of Elros",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tindómiel.png",
+      "bio": "",
+      "order": 5
+    },
+    "manwendil": {
+      "id": "manwendil",
+      "name": "Manwendil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Elros",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/manwendil.png",
+      "bio": "",
+      "order": 5
+    },
+    "atanalcar": {
+      "id": "atanalcar",
+      "name": "Atanalcar",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Elros",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/atanalcar.png",
+      "bio": "",
+      "order": 5
+    },
+    "vardilmë": {
+      "id": "vardilmë",
+      "name": "Vardilmë",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Daughter of Vardamir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/vardilmë.png",
+      "bio": "",
+      "order": 5
+    },
+    "aulendil": {
+      "id": "aulendil",
+      "name": "Aulendil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Vardamir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/aulendil.png",
+      "bio": "",
+      "order": 5
+    },
+    "nolondil": {
+      "id": "nolondil",
+      "name": "Nolondil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Vardamir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/nolondil.png",
+      "bio": "",
+      "order": 5
+    },
+
 
 
 
