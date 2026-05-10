@@ -3,6 +3,439 @@
     "initialView": "all_lineages"
   },
   "people": {
+    "elros": {
+      "id": "elros",
+      "name": "Elros",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "1st King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "S.A. 630",
+      "died": "Unknown (aged 240+)",
+      "image": "assets/elros.png",
+      "bio": "",
+      "order": 5
+    },
+    "vardamir": {
+      "id": "vardamir",
+      "name": "Vardamir",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "2nd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/vardamir.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-amandil": {
+      "id": "tar-amandil",
+      "name": "Tar-Amandil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "3rd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-amandil.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-elendil": {
+      "id": "tar-elendil",
+      "name": "Tar-Elendil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "4th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-elendil.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-meneldur": {
+      "id": "tar-meneldur",
+      "name": "Tar-Meneldur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "5th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-meneldur.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-aldarion": {
+      "id": "tar-aldarion",
+      "name": "Tar-Aldarion",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "6th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-aldarion.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-ancalimë": {
+      "id": "tar-ancalimë",
+      "name": "Tar-Ancalimë",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "7th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ancalimë.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-anárion": {
+      "id": "tar-anárion",
+      "name": "Tar-Anárion",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "8th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-anárion.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-súrion": {
+      "id": "tar-súrion",
+      "name": "Tar-Súrion",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "9th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-súrion.png",
+      "bio": "",
+      "order": 5
+    },
+    "isilmo": {
+      "id": "isilmo",
+      "name": "Isilmo",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "10th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/isilmo.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-minastir": {
+      "id": "tar-minastir",
+      "name": "Tar-Minastir",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "11th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-minastir.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-ciryatan": {
+      "id": "tar-ciryatan",
+      "name": "Tar-Ciryatan",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "12th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ciryatan.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-atanamir": {
+      "id": "tar-atanamir",
+      "name": "Tar-Atanamir",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "13th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-atanamir.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-ancalimon": {
+      "id": "tar-ancalimon",
+      "name": "Tar-Ancalimon",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "14th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ancalimon.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-telemmaitë": {
+      "id": "tar-telemmaitë",
+      "name": "Tar-Telemmaitë",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "15th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-telemmaitë.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-vanimeldë": {
+      "id": "tar-vanimeldë",
+      "name": "Tar-Vanimeldë",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "16th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-vanimeldë.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-alcarin": {
+      "id": "tar-alcarin",
+      "name": "Tar-Alcarin",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "17th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-alcarin.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-calmacil": {
+      "id": "tar-calmacil",
+      "name": "Tar-Calmacil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "18th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-calmacil.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-ardamin": {
+      "id": "tar-ardamin",
+      "name": "Tar-Ardamin",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "19th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ardamin.png",
+      "bio": "",
+      "order": 5
+    },
+    "ar-adûnakhôr": {
+      "id": "ar-adûnakhôr",
+      "name": "Ar-Adûnakhôr",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "20th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-adûnakhôr.png",
+      "bio": "",
+      "order": 5
+    },
+    "ar-zimrathôn": {
+      "id": "ar-zimrathôn",
+      "name": "Ar-Zimrathôn",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "21st King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-zimrathôn.png",
+      "bio": "",
+      "order": 5
+    },
+    "ar-sakalthôr": {
+      "id": "ar-sakalthôr",
+      "name": "Ar-Sakalthôr",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "22nd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-sakalthôr.png",
+      "bio": "",
+      "order": 5
+    },
+    "ar-gimilzôr": {
+      "id": "ar-gimilzôr",
+      "name": "Ar-Gimilzôr",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "23rd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-gimilzôr.png",
+      "bio": "",
+      "order": 5
+    },
+    "tar-palantir": {
+      "id": "tar-palantir",
+      "name": "Tar-Palantir",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "24th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-palantir.png",
+      "bio": "",
+      "order": 5
+    },
+    "ar-pharazôn": {
+      "id": "ar-pharazôn",
+      "name": "Ar-Pharazôn",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "25th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-pharazôn.png",
+      "bio": "",
+      "order": 5
+    },
+
+
+
+
+
+
+
+
     "valandil_lord_of_andúnië": {
       "id": "valandil_lord_of_andúnië",
       "name": "Valandil",
@@ -1717,23 +2150,6 @@
       "bio": "Elrond is the loremaster and lord of Rivendell, one of the key keepers of the Elder Days within Middle-earth.",
       "order": 5
     },
-    "elros": {
-      "id": "elros",
-      "name": "Elros",
-      "sex": "male",
-      "kindred": "Man",
-      "groups": [
-        "men"
-      ],
-      "title": "First Lord of Numenor",
-      "house": "House of Earendil",
-      "realm": "Numenor",
-      "born": "F.A. 532",
-      "died": "S.A. 442",
-      "image": "assets/elros.png",
-      "bio": "Elros founded the realm of Numenor and was its first king.",
-      "order": 5
-    },
     "galadriel": {
       "id": "galadriel",
       "name": "Galadriel",
@@ -1899,6 +2315,281 @@
     }
   },
   "unions": [
+    {
+      "id": "union-elros",
+      "partners": [
+        "elros"
+      ],
+      "children": [
+        "vardamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-vardamir",
+      "partners": [
+        "vardamir"
+      ],
+      "children": [
+        "tar-amandil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-amandil",
+      "partners": [
+        "tar-amandil"
+      ],
+      "children": [
+        "tar-elendil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-elendil",
+      "partners": [
+        "tar-elendil"
+      ],
+      "children": [
+        "tar-meneldur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-meneldur",
+      "partners": [
+        "tar-meneldur"
+      ],
+      "children": [
+        "tar-aldarion"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-aldarion",
+      "partners": [
+        "tar-aldarion"
+      ],
+      "children": [
+        "tar-ancalimë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ancalimë",
+      "partners": [
+        "tar-ancalimë"
+      ],
+      "children": [
+        "tar-anárion"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-anárion",
+      "partners": [
+        "tar-anárion"
+      ],
+      "children": [
+        "tar-súrion"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-súrion",
+      "partners": [
+        "tar-súrion"
+      ],
+      "children": [
+        "isilmo"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-isilmo",
+      "partners": [
+        "isilmo"
+      ],
+      "children": [
+        "tar-minastir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-minastir",
+      "partners": [
+        "tar-minastir"
+      ],
+      "children": [
+        "tar-ciryatan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ciryatan",
+      "partners": [
+        "tar-ciryatan"
+      ],
+      "children": [
+        "tar-atanamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-atanamir",
+      "partners": [
+        "tar-atanamir"
+      ],
+      "children": [
+        "tar-ancalimon"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ancalimon",
+      "partners": [
+        "tar-ancalimon"
+      ],
+      "children": [
+        "tar-telemmaitë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-telemmaitë",
+      "partners": [
+        "tar-telemmaitë"
+      ],
+      "children": [
+        "tar-vanimeldë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-vanimeldë",
+      "partners": [
+        "tar-vanimeldë"
+      ],
+      "children": [
+        "tar-alcarin"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-alcarin",
+      "partners": [
+        "tar-alcarin"
+      ],
+      "children": [
+        "tar-calmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-calmacil",
+      "partners": [
+        "tar-calmacil"
+      ],
+      "children": [
+        "tar-ardamin"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ardamin",
+      "partners": [
+        "tar-ardamin"
+      ],
+      "children": [
+        "ar-adûnakhôr"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ar-adûnakhôr",
+      "partners": [
+        "ar-adûnakhôr"
+      ],
+      "children": [
+        "ar-zimrathôn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ar-zimrathôn",
+      "partners": [
+        "ar-zimrathôn"
+      ],
+      "children": [
+        "ar-sakalthôr"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ar-sakalthôr",
+      "partners": [
+        "ar-sakalthôr"
+      ],
+      "children": [
+        "ar-gimilzôr"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ar-gimilzôr",
+      "partners": [
+        "ar-gimilzôr"
+      ],
+      "children": [
+        "tar-palantir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-palantir",
+      "partners": [
+        "tar-palantir"
+      ],
+      "children": [
+        "ar-pharazôn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+
+
+
+
+
+
+
+
+
+
+
     {
       "id": "union-valandil_lord_of_andúnië",
       "partners": [
