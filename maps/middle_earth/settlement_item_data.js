@@ -515,7 +515,7 @@ export const one_on_one = {
 export const enemies = {
   barad_dur: {
     popup: createSettlementPopup("Barad-dûr",
-    "Khazad-dum was the greatest of the Dwarf realms in Middle-earth. Its vast and beautiful halls lay under the Misty Mountains. From its mines came great riches and it was the only source of the precious metal called mithril.",
+    "Stronghold of Sauron in Mordor. Barad-dur was at the end of a long spur of the Ash Mountains on the northern border of Mordor. The tower overlooked the plateau of Gorgoroth.",
     "https://thainsbook.minastirith.cz/fortress.html#Barad-d%C3%BBr"),
     coords: [44.9416914,-93.2986442],
     icon: icons.SauronIcon,
