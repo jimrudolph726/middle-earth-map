@@ -15,7 +15,8 @@ import {
   pathData,
   roadData,
   geographicData,
-  imageUrl,
+  baseTileUrl,
+  baseTileOptions,
   map,
   imageBounds,
 } from './variables.js';
@@ -24,7 +25,7 @@ import { getCuratedStoryById } from './stories.js';
 
 // Add Map
 map.options.wheelPxPerZoomLevel = 40; 
-L.imageOverlay(imageUrl, imageBounds).addTo(map);
+L.tileLayer(baseTileUrl, baseTileOptions).addTo(map);
 map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 const sharedClusterGroups = {};
