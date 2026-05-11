@@ -554,13 +554,13 @@ export const enemies = {
     "https://thainsbook.minastirith.cz/fortress.html#Minas%20Morgul"),
     coords: [44.94101037,-93.30024169],
     icon: icons.MinasMorgulIcon,
+  },
   mount_gram: {
     popup: createSettlementPopup("Mount Gram",
     "Mountain in the Misty Mountains. In 2747 of the Third Age, a band of Orcs led by Golfimbul came from Mount Gram and invaded the Northfarthing of the Shire.",
     "https://tolkiengateway.net/wiki/Mount_Gram"),
     coords: [44.9482634,-93.3067928],
     icon: icons.GoblinIcon,
-  },
   },
 };
 

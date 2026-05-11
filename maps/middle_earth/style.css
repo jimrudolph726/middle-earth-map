@@ -7,7 +7,7 @@ body {
 
 @font-face {
   font-family: "Ringbearer";
-  src: url("./assets/ringbearer.TTF") format("truetype");
+  src: url("../../assets/ringbearer.TTF") format("truetype");
 }
 
 html, body, #map {
