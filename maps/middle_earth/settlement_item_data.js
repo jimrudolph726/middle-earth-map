@@ -26,7 +26,10 @@ const iconUrls = {
   palantíri: new URL('./assets/palantir.png', import.meta.url).href,
   dwarves_durin: new URL('./assets/dwarves_durin.png', import.meta.url).href,
   eye_of_sauron: new URL('./assets/eye_of_sauron.png', import.meta.url).href,
-  white_hand_of_saruman: new URL('./assets/white_hand_of_saruman.png', import.meta.url).href,,
+  white_hand_of_saruman: new URL('./assets/white_hand_of_saruman.png', import.meta.url).href,
+  witchking_of_angmar: new URL('./assets/witchking_of_angmar.png', import.meta.url).href,
+  goblin: new URL('./assets/goblin.png', import.meta.url).href,
+  minas_morgul: new URL('./assets/minas_morgul.png', import.meta.url).href,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -51,6 +54,8 @@ TentIcon: createIcon(iconUrls.tent, [30, 30]),
 DwarvesIcon: createIcon(iconUrls.dwarves_durin),
 SauronIcon: createIcon(iconUrls.eye_of_sauron),
 SarumanIcon: createIcon(iconUrls.white_hand_of_saruman),
+GoblinIcon: createIcon(iconUrls.goblin),
+MinasMorgulIcon: createIcon(iconUrls.minas_morgul),
 };
 
 // Settlements
@@ -527,6 +532,27 @@ export const enemies = {
     "https://tolkiengateway.net/wiki/Orthanc"),
     coords: [44.9430485,-93.3064879],
     icon: icons.SarumanIcon,
+  },
+  carn_dum: {
+    popup: createSettlementPopup("Carn Dûm",
+    "Stronghold of the Witch-king of Angmar. Carn Dum was located at the far northern end of the Misty Mountains. The Lord of the Nazgul established the realm of Angmar in the north around 1300 of the Third Age and he became known as the Witch-king of Angmar.",
+    "https://thainsbook.minastirith.cz/fortress.html#Carn_Dum"),
+    coords: [44.9490940,-93.3082484],
+    icon: icons.WitchkingIcon,
+  },
+  goblin_town: {
+    popup: createSettlementPopup("Carn Dûm",
+    "Orc city in the Misty Mountains. Goblin-town was a network of caves and tunnels near the High Pass in the northern part of the mountain range. The main entrance to Goblin-town was originally on another pass near the High Pass where the Orcs used to capture travellers. ",
+    "https://thainsbook.minastirith.cz/towns.html#Goblin-town"),
+    coords: [44.9470735,-93.3046922],
+    icon: icons.GoblinIcon,
+  },
+  minas_morgul: {
+    popup: createSettlementPopup("Minas Morgul",
+    "Minas Morgul was the stronghold of the Nazgul. It was located in the Morgul Vale, a valley in the Mountains of Shadow on the western border of Mordor. It was a walled city of white marble built on a high shelf of rock.",
+    "https://thainsbook.minastirith.cz/fortress.html#Minas%20Morgul"),
+    coords: [44.94101037,-93.30024169],
+    icon: icons.MinasMorgulIcon,
   },
 };
 
