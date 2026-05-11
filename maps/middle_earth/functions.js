@@ -86,14 +86,12 @@ const campsitePopupOptions = {
   className: 'campsite-popup-shell',
   maxWidth: 520,
   autoPanPadding: [24, 24],
-  keepInView: true,
 };
 
 const lorePopupOptions = {
   className: 'lore-popup-shell',
   maxWidth: 760,
   autoPanPadding: [24, 24],
-  keepInView: true,
 };
 
 export const createMarkerClusterGroup = (options = {}) => {
