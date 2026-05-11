@@ -54,6 +54,7 @@ TentIcon: createIcon(iconUrls.tent, [30, 30]),
 DwarvesIcon: createIcon(iconUrls.dwarves_durin),
 SauronIcon: createIcon(iconUrls.eye_of_sauron),
 SarumanIcon: createIcon(iconUrls.white_hand_of_saruman),
+WitchkingIcon: createIcon(iconUrls.witchking_of_angmar),
 GoblinIcon: createIcon(iconUrls.goblin),
 MinasMorgulIcon: createIcon(iconUrls.minas_morgul),
 };
