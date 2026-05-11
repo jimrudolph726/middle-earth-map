@@ -542,7 +542,7 @@ export const enemies = {
     icon: icons.WitchkingIcon,
   },
   goblin_town: {
-    popup: createSettlementPopup("Carn Dûm",
+    popup: createSettlementPopup("Goblin-town",
     "Orc city in the Misty Mountains. Goblin-town was a network of caves and tunnels near the High Pass in the northern part of the mountain range. The main entrance to Goblin-town was originally on another pass near the High Pass where the Orcs used to capture travellers. ",
     "https://thainsbook.minastirith.cz/towns.html#Goblin-town"),
     coords: [44.9470735,-93.3046922],
