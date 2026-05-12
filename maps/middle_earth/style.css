@@ -51,7 +51,7 @@ h3,
   color: #AAA;
 }
 
-#settlementsSection, #pathsSection, #roadsSection, #geographySection, #battlesSection, #itemsSection, #campsSection, #regionsSection {
+#settlementsSection, #pathsSection, #roadsSection, #geographySection, #battlesSection, #itemsSection, #campsSection, #regionsSection, #provisionsSection {
   display: flex;
   flex-direction: column; /* Stack the labels vertically */
   gap: 8px; /* Optional: Add spacing between items */
@@ -61,6 +61,7 @@ h3,
 #regionsSection h1,
 #campsSection h1,
 #itemsSection h1, 
+#provisionsSection h1,
 #settlementsSection h1, 
 #pathsSection h1, 
 #geographySection h1,
@@ -73,7 +74,7 @@ h3,
   text-align: left; /* Align text to the left */
 }
 
-#settlementsSection label, #pathsSection label, #roadsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label, #campsSection label, #regionsSection label {
+#settlementsSection label, #pathsSection label, #roadsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label, #campsSection label, #regionsSection label, #provisionsSection label {
   display: flex;
   align-items: center; /* Align the checkbox and label text */
   cursor: pointer; /* Change the cursor to indicate clickability */
@@ -84,6 +85,7 @@ h3,
 #regionsSection input[type="checkbox"],
 /* #campsSection input[type="checkbox"], */
 #itemsSection input[type="checkbox"],
+#provisionsSection input[type="checkbox"],
 /* #pathsSection input[type="checkbox"], */
 #roadsSection input[type="checkbox"],
 #itemsSection input[type="checkbox"],

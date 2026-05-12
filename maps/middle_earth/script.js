@@ -164,10 +164,16 @@ const checkboxMappings = {
   allCampCheckbox: "#campsSection input.campCheckbox",
   allRegionCheckbox: "#regionsSection input.regionCheckbox",
   allRoadCheckbox: "#roadsSection input.roadCheckbox",
-  allFoodCheckbox: "#foodSection input.foodCheckbox",
+  allProvisionCheckbox: "#provisionsSection input.provisionCheckbox",
 };
 Object.keys(checkboxMappings).forEach(masterCheckboxId => {
-  document.getElementById(masterCheckboxId).addEventListener("change", function () {
+  const masterCheckbox = document.getElementById(masterCheckboxId);
+
+  if (!masterCheckbox) {
+    return;
+  }
+
+  masterCheckbox.addEventListener("change", function () {
     document.querySelectorAll(checkboxMappings[masterCheckboxId]).forEach(checkbox => {
       checkbox.checked = this.checked;
       checkbox.dispatchEvent(new Event("change")); // Ensures MarkerListeners function runs
