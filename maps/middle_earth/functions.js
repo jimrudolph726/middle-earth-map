@@ -119,7 +119,7 @@ export const getMarkerFromRegistry = (groupName, markerKey) => {
 };
 
 const updateMarkerHoverState = (marker, isHovering = false) => {
-  marker.setOpacity(isHovering ? 0.4 : 1);
+  marker.setOpacity(isHovering ? 0.5 : 1);
 
   const markerElement = marker.getElement();
 
@@ -128,7 +128,7 @@ const updateMarkerHoverState = (marker, isHovering = false) => {
   }
 
   markerElement.classList.add('atlas-marker-icon');
-  markerElement.style.opacity = isHovering ? '0.4' : '1';
+  markerElement.style.opacity = isHovering ? '0.5' : '1';
 
   if (!isHovering) {
     markerElement.classList.remove(MARKER_HOVER_CLASS, MARKER_HOVER_BOUNCE_CLASS);

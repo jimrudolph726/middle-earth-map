@@ -121,7 +121,7 @@ h3,
 }
 
 .leaflet-marker-icon.atlas-marker-icon--hover {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .leaflet-marker-icon.atlas-marker-icon--hover-bounce {
