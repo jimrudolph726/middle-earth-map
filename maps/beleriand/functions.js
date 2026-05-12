@@ -93,6 +93,49 @@ const lorePopupOptions = {
   maxWidth: 760,
   autoPanPadding: [24, 24],
 };
+const MARKER_HOVER_CLASS = 'atlas-marker-icon--hover';
+const MARKER_HOVER_BOUNCE_CLASS = 'atlas-marker-icon--hover-bounce';
+
+const updateMarkerHoverState = (marker, isHovering = false) => {
+  marker.setOpacity(isHovering ? 0.72 : 1);
+
+  const markerElement = marker.getElement();
+
+  if (!markerElement) {
+    return;
+  }
+
+  markerElement.classList.add('atlas-marker-icon');
+  markerElement.style.opacity = isHovering ? '0.72' : '1';
+
+  if (!isHovering) {
+    markerElement.classList.remove(MARKER_HOVER_CLASS, MARKER_HOVER_BOUNCE_CLASS);
+    return;
+  }
+
+  markerElement.classList.add(MARKER_HOVER_CLASS);
+  markerElement.classList.remove(MARKER_HOVER_BOUNCE_CLASS);
+  void markerElement.offsetWidth;
+  markerElement.classList.add(MARKER_HOVER_BOUNCE_CLASS);
+};
+
+const attachMarkerHoverAnimation = (marker) => {
+  marker.on('add', () => {
+    updateMarkerHoverState(marker, false);
+  });
+
+  marker.on('mouseover', () => {
+    updateMarkerHoverState(marker, true);
+  });
+
+  marker.on('mouseout', () => {
+    updateMarkerHoverState(marker, false);
+  });
+
+  marker.on('remove', () => {
+    updateMarkerHoverState(marker, false);
+  });
+};
 
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
@@ -141,6 +184,7 @@ export const createMarkers = (locations, campsite = 'no') => {
         ? campsitePopupOptions
         : lorePopupOptions;
       const marker = L.marker(coords, { icon }).bindPopup(popup, { ...popupOptions });
+      attachMarkerHoverAnimation(marker);
 
       if (campsite == 'campsite') {
         marker.on('mouseover', () => marker.openPopup());

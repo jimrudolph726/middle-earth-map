@@ -111,6 +111,38 @@ h3,
   pointer-events: none;
 }
 
+.leaflet-marker-icon.atlas-marker-icon {
+  transition: opacity 140ms ease;
+  transform-origin: 50% 100%;
+  will-change: opacity, translate;
+}
+
+.leaflet-marker-icon.atlas-marker-icon--hover {
+  opacity: 0.72;
+}
+
+.leaflet-marker-icon.atlas-marker-icon--hover-bounce {
+  animation: atlas-marker-hover-bounce 220ms ease-out 1;
+}
+
+@keyframes atlas-marker-hover-bounce {
+  0% {
+    translate: 0 0;
+  }
+
+  38% {
+    translate: 0 -8px;
+  }
+
+  65% {
+    translate: 0 -5px;
+  }
+
+  100% {
+    translate: 0 0;
+  }
+}
+
 #campsSection, #pathsSection {
   padding-top: 0;
 }

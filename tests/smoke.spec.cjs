@@ -151,6 +151,76 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   }
 });
 
+test("middle-earth markers bounce and fade on hover", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.waitForLoadState("networkidle");
+
+  await page.evaluate(() => {
+    const checkbox = document.getElementById("hobbitsCheckbox");
+
+    if (!checkbox) {
+      throw new Error("Could not find the hobbits checkbox.");
+    }
+
+    checkbox.checked = true;
+    checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+  });
+
+  await expect.poll(async () => {
+    return page.evaluate(async () => {
+      const [{ getMarkerFromRegistry }, { map }] = await Promise.all([
+        import("/maps/middle_earth/functions.js"),
+        import("/maps/middle_earth/variables.js")
+      ]);
+      const marker = getMarkerFromRegistry("hobbits", "hobbiton");
+
+      if (!marker) {
+        return false;
+      }
+
+      map.setView(marker.getLatLng(), 19, { animate: false });
+      return Boolean(marker.getElement());
+    });
+  }, {
+    message: "Expected the Hobbiton marker to become available on the map."
+  }).toBe(true);
+
+  const hoveredState = await page.evaluate(async () => {
+    const { getMarkerFromRegistry } = await import("/maps/middle_earth/functions.js");
+    const marker = getMarkerFromRegistry("hobbits", "hobbiton");
+    marker.fire("mouseover");
+    await new Promise((resolve) => window.requestAnimationFrame(() => resolve()));
+
+    const element = marker.getElement();
+    return {
+      hasHoverClass: element.classList.contains("atlas-marker-icon--hover"),
+      hasBounceClass: element.classList.contains("atlas-marker-icon--hover-bounce"),
+      opacity: Number.parseFloat(element.style.opacity || "1"),
+    };
+  });
+
+  expect(hoveredState.hasHoverClass).toBe(true);
+  expect(hoveredState.hasBounceClass).toBe(true);
+  expect(hoveredState.opacity).toBeLessThan(1);
+
+  const resetState = await page.evaluate(async () => {
+    const { getMarkerFromRegistry } = await import("/maps/middle_earth/functions.js");
+    const marker = getMarkerFromRegistry("hobbits", "hobbiton");
+    marker.fire("mouseout");
+
+    const element = marker.getElement();
+    return {
+      hasHoverClass: element.classList.contains("atlas-marker-icon--hover"),
+      hasBounceClass: element.classList.contains("atlas-marker-icon--hover-bounce"),
+    };
+  });
+
+  expect(resetState.hasHoverClass).toBe(false);
+  expect(resetState.hasBounceClass).toBe(false);
+});
+
 test("long settlement popups stay usable on narrow screens", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
