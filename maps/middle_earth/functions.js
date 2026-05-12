@@ -119,7 +119,7 @@ export const getMarkerFromRegistry = (groupName, markerKey) => {
 };
 
 const updateMarkerHoverState = (marker, isHovering = false) => {
-  marker.setOpacity(isHovering ? 0.72 : 1);
+  marker.setOpacity(isHovering ? 0.4 : 1);
 
   const markerElement = marker.getElement();
 
