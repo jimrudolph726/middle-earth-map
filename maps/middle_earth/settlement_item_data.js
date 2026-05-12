@@ -30,6 +30,7 @@ const iconUrls = {
   witchking_of_angmar: new URL('./assets/witchking_of_angmar.png', import.meta.url).href,
   goblin: new URL('./assets/goblin.png', import.meta.url).href,
   minas_morgul: new URL('./assets/minas_morgul.png', import.meta.url).href,
+  lembas: new URL('./assets/lembas.png', import.meta.url).href,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -57,6 +58,7 @@ SarumanIcon: createIcon(iconUrls.white_hand_of_saruman),
 WitchkingIcon: createIcon(iconUrls.witchking_of_angmar),
 GoblinIcon: createIcon(iconUrls.goblin),
 MinasMorgulIcon: createIcon(iconUrls.minas_morgul),
+LembasIcon: createIcon(iconUrls.lembas),
 };
 
 // Settlements
@@ -784,4 +786,17 @@ The Stone of Avallónë is variously named the "'Masterstone'" or Master-stone. 
         icon: icons.PalantirIcon,
   },
 
+}
+
+//Provisions
+export const food = {
+  lembas: {
+    popup: createSettlementPopup(
+      "Lembas Bread",
+      `Waybread of the Elves. Lembas was used for long journeys. It gave strength to travellers and could also help bring healing to the wounded or sick. One cake was enough for a full day's march.`,
+      "https://thainsbook.minastirith.cz/food.html#Lembas"
+    ),
+    coords: [44.9446710,-93.3044639],
+    icon: icons.LembasIcon,
+  },
 }

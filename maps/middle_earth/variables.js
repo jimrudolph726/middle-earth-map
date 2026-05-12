@@ -25,6 +25,7 @@ import {
   rings,
   books,
   palantíri,
+  food
 } from './settlement_item_data.js';
 
 import {
@@ -95,6 +96,10 @@ const battleGroups = {
   one_on_one,
 };
 
+const provisionGroups = {
+  food,
+};
+
 const miscMarkerGroups = {
 };
 
@@ -129,6 +134,14 @@ export const settlementsData = [
     groupName: name,
     campsite: 'no',
     clusterScope: 'sharedBattleCluster',
+  })),
+
+    ...Object.entries(provisionGroups).map(([name, data]) => ({
+    data,
+    checkboxId: `${name}Checkbox`,
+    groupName: name,
+    campsite: 'no',
+    clusterScope: 'sharedProvisionCluster',
   })),
 
   ...Object.entries(miscMarkerGroups).map(([name, data]) => ({

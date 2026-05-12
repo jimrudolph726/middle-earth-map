@@ -39,7 +39,7 @@ const ensureStoryPane = () => {
 
 ensureStoryPane();
 
-// Add Campsites, Settlements, Items
+// Add Campsites, Settlements, Items and Clustering
 Promise.all(
   settlementsData.map(({ data, checkboxId, groupName, campsite, clusterScope }) => ({
     checkboxId,
@@ -54,7 +54,8 @@ Promise.all(
       clusterScope === 'sharedSettlementCluster' ||
       clusterScope === 'sharedCampsiteCluster' ||
       clusterScope === 'sharedItemCluster' ||
-      clusterScope === 'sharedBattleCluster'
+      clusterScope === 'sharedBattleCluster' ||
+      clusterScope === 'sharedProvisionCluster'
   );
 
   const categoryClusterEntries = markerEntries.filter(
@@ -62,7 +63,8 @@ Promise.all(
       clusterScope !== 'sharedSettlementCluster' &&
       clusterScope !== 'sharedCampsiteCluster' &&
       clusterScope !== 'sharedItemCluster' &&
-      clusterScope !== 'sharedBattleCluster'
+      clusterScope !== 'sharedBattleCluster' &&
+      clusterScope !== 'sharedProvisionCluster'
   );
 
   const sharedClusterConfig = {
@@ -76,6 +78,9 @@ Promise.all(
       maxClusterRadius: 25,
     },
     sharedBattleCluster: {
+      maxClusterRadius: 25,
+    },
+    sharedProvisionCluster: {
       maxClusterRadius: 25,
     },
   };
@@ -158,7 +163,8 @@ const checkboxMappings = {
   allPathCheckbox: "#pathsSection input.pathCheckbox",
   allCampCheckbox: "#campsSection input.campCheckbox",
   allRegionCheckbox: "#regionsSection input.regionCheckbox",
-  allRoadCheckbox: "#roadsSection input.roadCheckbox"
+  allRoadCheckbox: "#roadsSection input.roadCheckbox",
+  allFoodCheckbox: "#foodSection input.foodCheckbox",
 };
 Object.keys(checkboxMappings).forEach(masterCheckboxId => {
   document.getElementById(masterCheckboxId).addEventListener("change", function () {
