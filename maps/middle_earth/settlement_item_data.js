@@ -31,6 +31,7 @@ const iconUrls = {
   goblin: new URL('./assets/goblin.png', import.meta.url).href,
   minas_morgul: new URL('./assets/minas_morgul.png', import.meta.url).href,
   lembas: new URL('./assets/lembas.png', import.meta.url).href,
+  ent_draughts: new URL('./assets/ent_draughts.png', import.meta.url).href,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -59,6 +60,7 @@ WitchkingIcon: createIcon(iconUrls.witchking_of_angmar),
 GoblinIcon: createIcon(iconUrls.goblin),
 MinasMorgulIcon: createIcon(iconUrls.minas_morgul),
 LembasIcon: createIcon(iconUrls.lembas),
+EntDraughtsIcon: createIcon(iconUrls.ent_draughts),
 };
 
 // Settlements
@@ -798,5 +800,16 @@ export const food = {
     ),
     coords: [44.9446710,-93.3044639],
     icon: icons.LembasIcon,
+  },
+}
+export const drink = {
+  ent_draughts: {
+    popup: createSettlementPopup(
+      "Ent-draughts",
+      `Sustenance of the Ents. Ent-draughts were extremely invigorating - so much so that the Hobbits Merry Brandybuck and Pippin Took actually grew taller from drinking them.`,
+      "https://thainsbook.minastirith.cz/food.html#Entdraughts"
+    ),
+    coords: [44.9434852,-93.3051897],
+    icon: icons.EntDraughtsIcon,
   },
 }
