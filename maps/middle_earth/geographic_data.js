@@ -1007,14 +1007,14 @@ export const rivers = {
     tolerance: 10,
     weight: 7
   },
-  rhimdath: {
-    pathName: 'rhimdath',
+  rushdown: {
+    pathName: 'rushdown',
     color: "blue", 
-    name: "Rhimdath",
+    name: "Rushdown",
     PopupContent: createGeographicPopup(
       "Rushdown",
       "Rhimdath",
-      `Rhimdath is a Noldorin name. The first element in Rhimdath is related to Noldorin rhib-, rhimp, rhimmo ("to flow like a torrent"), derived from the stem RIP- ("rush, fly, fling"). As the stem DAT- is glossed as "fall down", it is possible that the second element in Rhimdath is a derivative of this stem.`,
+      `Rhimdath is the Noldorin name for Rushdown. The first element in Rhimdath is related to Noldorin rhib-, rhimp, rhimmo ("to flow like a torrent"), derived from the stem RIP- ("rush, fly, fling"). As the stem DAT- is glossed as "fall down", it is possible that the second element in Rhimdath is a derivative of this stem.`,
       `The Rhimdath or Rushdown was a short, early tributary of the Anduin River.`,
       "https://thainsbook.minastirith.cz/rivers.html#Rushdown"
     ),
