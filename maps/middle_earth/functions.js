@@ -128,7 +128,7 @@ const updateMarkerHoverState = (marker, isHovering = false) => {
   }
 
   markerElement.classList.add('atlas-marker-icon');
-  markerElement.style.opacity = isHovering ? '0.72' : '1';
+  markerElement.style.opacity = isHovering ? '0.4' : '1';
 
   if (!isHovering) {
     markerElement.classList.remove(MARKER_HOVER_CLASS, MARKER_HOVER_BOUNCE_CLASS);
