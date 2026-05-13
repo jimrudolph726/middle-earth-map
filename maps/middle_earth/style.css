@@ -608,7 +608,7 @@ h3,
 .story-panel {
   position: absolute;
   top: 84px;
-  left: 18px;
+  left: 60px;
   bottom: 104px;
   width: min(430px, calc(100vw - 36px));
   z-index: 850;
