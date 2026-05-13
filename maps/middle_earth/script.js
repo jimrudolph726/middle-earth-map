@@ -207,8 +207,8 @@ const storyPlayPauseButton = document.getElementById('storyPlayPauseButton');
 const storyPrevButton = document.getElementById('storyPrevButton');
 const storyNextButton = document.getElementById('storyNextButton');
 const storyStopButton = document.getElementById('storyStopButton');
-const mobileStoryModeQuery = window.matchMedia('(max-width: 860px)');
-const landscapeStoryModeQuery = window.matchMedia('(max-width: 860px) and (orientation: landscape)');
+const mobileStoryModeQuery = window.matchMedia('(max-width: 860px), ((max-height: 500px) and (orientation: landscape))');
+const landscapeStoryModeQuery = window.matchMedia('(max-height: 500px) and (orientation: landscape)');
 const MOBILE_STORY_PANEL_STATES = ['peek', 'expanded', 'full'];
 const STORY_TOUCH_SWIPE_THRESHOLD = 44;
 

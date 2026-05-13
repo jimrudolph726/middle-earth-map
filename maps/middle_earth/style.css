@@ -1036,7 +1036,7 @@ h3,
   }
 }
 
-@media (max-width: 860px) and (orientation: landscape) {
+@media (max-height: 500px) and (orientation: landscape) {
   .story-panel {
     top: 12px;
     right: 12px;

@@ -148,7 +148,7 @@ test("middle-earth story mode uses a collapsible bottom sheet on mobile", async 
 });
 
 test("middle-earth story mode stays map-friendly on landscape mobile", async ({ page }) => {
-  await page.setViewportSize({ width: 844, height: 390 });
+  await page.setViewportSize({ width: 932, height: 430 });
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("#map.leaflet-container")).toBeVisible();
