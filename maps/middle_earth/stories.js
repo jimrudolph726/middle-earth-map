@@ -1,194 +1,684 @@
+import { 
+  getCuratedStoryById 
+} from './stories_data.js';
 import {
-  samfrodocampsites,
-  gandalfthewhitecampsites,
-} from './campsite_data.js';
+  setCampsiteHoverPopupsEnabled,
+} from './functions.js';
+import {
+  map,
+} from './variables.js';
 
-const buildSamFrodoImage = (fileName) => new URL(`./assets/stories/sam_frodo/${fileName}`, import.meta.url).href;
-const buildGandalfTheWhiteImage = (fileName) => new URL(`./assets/stories/gandalf_the_white/${fileName}`, import.meta.url).href;
+const STORY_PANE_NAME = 'storyPane';
+let storySidebar = null;
 
-const samFrodoScenes = [
-  {
-    markerKey: 'September23',
-    title: 'Leaving the Shire',
-    date: 'September 23',
-    location: 'Green Hill Country',
-    narrative: 'Frodo, Sam, and Pippin begin their first deliberate march away from the comforts of the Shire. The road still feels familiar, but the mood has shifted: every hedgerow now seems to carry the shadow of pursuit.',
-    camp: 'Green Hill Country',
-    hoursOnRoad: '5',
-    milesTraveled: '18',
-    pace: '3.6 mph',
-    roadNotes: 'Evening march.',
-    imageFileName: 'scene-01.png',
-  },
-  {
-    markerKey: 'September24',
-    title: 'Black Riders on the Road',
-    date: 'September 24',
-    location: 'West of Woodhall',
-    narrative: 'The company presses on and the menace grows sharper. Black Riders haunt the road while an Elvish encounter briefly reminds the hobbits that the wider world still holds beauty, music, and allies.',
-    camp: 'West of Woodhall',
-    hoursOnRoad: '8',
-    milesTraveled: '28',
-    pace: '3.5 mph',
-    roadNotes: 'Black Riders, Elves.',
-    imageFileName: 'scene-02.png',
-  },
-  {
-    markerKey: 'September25',
-    title: 'Farmer Maggot and the Ferry East',
-    date: 'September 25',
-    location: 'Crickhollow',
-    narrative: `The hobbits cross the Brandywine River and the Marish and encounter a friendly, yet shrewd hobbit by the name of Farmer Maggot. A friend of Tom Bombadil's, Maggot had much knowledge on the goings-on of the Shire. He also gave the three hobbits supplies for their journey.`,
-    camp: 'Crickhollow',
-    hoursOnRoad: '7.5',
-    milesTraveled: '27',
-    pace: '10.4 mph',
-    roadNotes: 'Marish, Farmer Maggot wagon, Buckland.',
-    imageFileName: 'scene-03.png',
-  },
-  {
-    markerKey: 'September26',
-    title: 'Into the Old Forest',
-    date: 'September 26',
-    location: 'The House of Tom Bombadil',
-    narrative: 'Ponies carry them into the strange green silence beyond Buckland. The Forest seems to watch them, Old Man Willow nearly claims them, and Tom Bombadil’s house becomes a sudden pocket of song and safety.',
-    camp: 'The House of Tom Bombadil',
-    hoursOnRoad: '10.5',
-    milesTraveled: '25',
-    pace: '2.4 mph',
-    roadNotes: 'On ponies. Knoll, Old Man Willow.',
-    imageFileName: 'scene-04.png',
-  },
-  {
-    markerKey: 'September27',
-    title: 'A Rainy Respite with Tom',
-    date: 'September 27',
-    location: 'The House of Tom Bombadil',
-    narrative: 'Rain keeps the company at Bombadil’s house for another day. It is a pause in the narrative, but an important one: the hobbits are allowed to breathe, listen, and gather a little courage before the Old Forest gives way to older terrors.',
-    camp: 'The House of Tom Bombadil',
-    hoursOnRoad: 'Unknown',
-    milesTraveled: 'Unknown',
-    pace: 'Unknown',
-    roadNotes: 'Rain.',
-    imageFileName: 'scene-05.png',
-  },
-  {
-    markerKey: 'September28',
-    title: 'Taken by the Barrow',
-    date: 'September 28',
-    location: 'Barrow',
-    narrative: 'The road east becomes truly haunted. After a weary day and afternoon sleep, the company is captured in the Barrow-downs, and their Shire adventure begins to resemble an ancient tale of graves, cold stones, and forgotten kings.',
-    camp: 'Barrow',
-    hoursOnRoad: '5',
-    milesTraveled: '17',
-    pace: '3.4 mph',
-    roadNotes: 'Ponies. Sleep afternoon, captured in evening.',
-    imageFileName: 'scene-06.png',
-  },
-  {
-    markerKey: 'September29',
-    title: 'Bree at Last - Encounter with Strider',
-    date: 'September 29',
-    location: 'Bree',
-    narrative: 'Freed from the Barrow and riding once more, Frodo and his companions finally reach Bree. The Prancing Pony offers shelter and news, but this crossing point between Hobbit-land and the wider world also brings new risks and fateful meetings.',
-    camp: 'Bree',
-    hoursOnRoad: '6',
-    milesTraveled: '20',
-    pace: '3.3 mph',
-    roadNotes: 'Ponies. Start after lunch.',
-    imageFileName: 'scene-07.png',
-  },
-  {
-    markerKey: 'September30',
-    title: 'Heading Out with Strider',
-    date: 'September 30',
-    location: 'Western Chetwood',
-    narrative: 'After an attack by the Ring Wraiths, the hobbits and Strider head out for Rivendell. The first stop is Western Chetwood.',
-    camp: 'Bree',
-    hoursOnRoad: '6',
-    milesTraveled: '20',
-    pace: '3.3 mph',
-    roadNotes: 'Ponies. Start after lunch.',
-    imageFileName: 'scene-08.png',
-  },
-
-].map((scene, index) => ({
-  ...scene,
-  coords: samfrodocampsites[scene.markerKey].coords,
-  image: buildSamFrodoImage(scene.imageFileName),
-  imageRelativePath: `maps/middle_earth/assets/stories/sam_frodo/${scene.imageFileName}`,
-  zoom: 19,
-  order: index + 1,
-}));
-
-const gandalfTheWhiteScenes = [
-  {
-    markerKey: 'February14',
-    title: 'Awakening on Zirakzigil',
-    date: 'February 14',
-    location: 'Peak of the Silvertine (Celebdil)',
-    narrative: `After his struggle with the Balrog is ended, Gandalf returns to life high upon Zirakzigil. Alone on the wind-scoured peak, he lies in a trance while Middle-earth moves on below him, and the Grey Pilgrim begins to pass into a new and greater charge.`,
-    camp: 'Peak of the Silvertine (Celebdil) Mountain',
-    hoursOnRoad: 'Unknown',
-    milesTraveled: 'Unknown',
-    pace: 'Unknown',
-    roadNotes: 'Gandalf returns to life and lies upon the peak in a trance.',
-    imageFileName: 'scene-01.png',
-  },
-  {
-    markerKey: 'February17',
-    title: 'Gwaihir Bears Him to Lothlorien',
-    date: 'February 17',
-    location: 'Lothlorien',
-    narrative: `Three days later, Gwaihir the Windlord finds Gandalf on the heights and carries him away from the mountains. The journey is swift and strange: from the white crown of Celebdil to the golden refuge of Lothlorien, where rest, counsel, and renewal await the newly returned wizard.`,
-    camp: 'Lothlorien',
-    hoursOnRoad: 'Unknown',
-    milesTraveled: 'Unknown',
-    pace: 'Unknown',
-    roadNotes: 'Gwaihir carries Gandalf south from the mountains into Lothlorien.',
-    imageFileName: 'scene-02.png',
-  },
-  {
-    markerKey: 'February18',
-    title: 'Galdriel Clothes Him in White',
-    date: 'February 18',
-    location: 'Lothlorien',
-    narrative: `Gandalf arrives in Lothlorien for much needed rest and respite. He meets his old friend Galadriel, and recognizing the sacrifice he made defending the Fellowship against the terrible terror awoken from the depths of Moria, she graciously clothes him in his white garb. Steadfast and earnest in his dedication to his mission of helping the free peoples of Middle-earth defeat Sauron, he is now Gandalf the White.`,
-    camp: 'Lothlorien',
-    hoursOnRoad: 'Unknown',
-    milesTraveled: 'Unknown',
-    pace: 'Unknown',
-    roadNotes: 'Galadriel meets Gandalf in Lothlorien and clothes him in his well-earned white robe.',
-    imageFileName: 'scene-03.png',
-  },
-].map((scene, index) => ({
-  ...scene,
-  coords: gandalfthewhitecampsites[scene.markerKey].coords,
-  image: buildGandalfTheWhiteImage(scene.imageFileName),
-  imageRelativePath: `maps/middle_earth/assets/stories/gandalf_the_white/${scene.imageFileName}`,
-  zoom: 19,
-  order: index + 1,
-}));
-
-export const curatedStories = [
-  {
-    id: 'sam-frodo-first-seven',
-    title: 'Sam and Frodo: From the Shire to Bree',
-    markerGroupName: 'samfrodocampsites',
-    campCheckboxId: 'samfrodocampsitesCheckbox',
-    pathCheckboxId: 'samfrodopathCheckbox',
-    scenes: samFrodoScenes,
-  },
-  {
-    id: 'gandalf-the-white-first-two',
-    title: 'Gandalf the White: From Zirakzigil to Lothlorien',
-    markerGroupName: 'gandalfthewhitecampsites',
-    campCheckboxId: 'gandalfthewhitecampsitesCheckbox',
-    pathCheckboxId: 'gandalfthewhitepathCheckbox',
-    scenes: gandalfTheWhiteScenes,
-  },
-];
-
-export const getCuratedStoryById = (storyId) => {
-  return curatedStories.find((story) => story.id === storyId) || null;
+export const initializeStoryMode = ({ sidebar } = {}) => {
+  storySidebar = sidebar ?? null;
 };
+
+const ensureStoryPane = () => {
+  if (!map.getPane(STORY_PANE_NAME)) {
+    map.createPane(STORY_PANE_NAME);
+  }
+};
+
+ensureStoryPane();
+
+const storyPanel = document.getElementById('storyPanel');
+const storyPanelSummaryButton = document.getElementById('storyPanelSummaryButton');
+const storyPanelBody = document.getElementById('storyPanelBody');
+const storyControls = document.getElementById('storyControls');
+const storyKicker = document.getElementById('storyKicker');
+const storySceneTitle = document.getElementById('storySceneTitle');
+const storySceneMeta = document.getElementById('storySceneMeta');
+const storySceneSummaryTitle = document.getElementById('storySceneSummaryTitle');
+const storySceneSummaryMeta = document.getElementById('storySceneSummaryMeta');
+const storySceneSummaryCounter = document.getElementById('storySceneSummaryCounter');
+const storySceneNarrative = document.getElementById('storySceneNarrative');
+const storySceneCamp = document.getElementById('storySceneCamp');
+const storySceneHours = document.getElementById('storySceneHours');
+const storySceneMiles = document.getElementById('storySceneMiles');
+const storyScenePace = document.getElementById('storyScenePace');
+const storySceneNotes = document.getElementById('storySceneNotes');
+const storySceneCounter = document.getElementById('storySceneCounter');
+const storySceneImage = document.getElementById('storySceneImage');
+const storyScenePreviewImage = document.getElementById('storyScenePreviewImage');
+const storyScenePreviewPlaceholder = document.getElementById('storyScenePreviewPlaceholder');
+const storySceneImagePlaceholder = document.getElementById('storySceneImagePlaceholder');
+const storySceneImagePath = document.getElementById('storySceneImagePath');
+const storyPlayPauseButton = document.getElementById('storyPlayPauseButton');
+const storyPrevButton = document.getElementById('storyPrevButton');
+const storyNextButton = document.getElementById('storyNextButton');
+const storyStopButton = document.getElementById('storyStopButton');
+const mobileStoryModeQuery = window.matchMedia('(max-width: 860px), ((max-height: 500px) and (orientation: landscape))');
+const landscapeStoryModeQuery = window.matchMedia('(max-height: 500px) and (orientation: landscape)');
+const MOBILE_STORY_PANEL_STATES = ['peek', 'expanded', 'full'];
+const STORY_TOUCH_SWIPE_THRESHOLD = 44;
+
+const storyState = {
+  activeStory: null,
+  currentSceneIndex: 0,
+  isPlaying: false,
+  timerId: null,
+  previousView: null,
+  highlightLayer: null,
+  routeLayer: null,
+  sceneMarkersLayer: null,
+  imageLoadToken: 0,
+  imageCache: new Map(),
+  mobilePanelState: 'peek',
+  landscapeDetailsOpen: false,
+  touchStartY: null,
+  touchGestureHandled: false,
+};
+
+const STORY_AUTOPLAY_MS = 4500;
+
+const isMobileStoryMode = () => mobileStoryModeQuery.matches;
+const isLandscapeStoryMode = () => landscapeStoryModeQuery.matches;
+const usesBottomSheetStoryMode = () => isMobileStoryMode() && !isLandscapeStoryMode();
+const usesLandscapeStoryHudMode = () => isLandscapeStoryMode();
+
+const invalidateStoryLayout = () => {
+  window.requestAnimationFrame(() => {
+    map.invalidateSize(false);
+  });
+};
+
+const restoreMapInteractions = () => {
+  map.dragging?.enable();
+  map.doubleClickZoom?.enable();
+  map.scrollWheelZoom?.enable();
+  map.boxZoom?.enable();
+  map.keyboard?.enable();
+  map.touchZoom?.enable();
+  map.tap?.enable?.();
+  map.getContainer().style.pointerEvents = 'auto';
+  invalidateStoryLayout();
+};
+
+const syncStorySummaryToggle = () => {
+  if (!storyPanelSummaryButton) {
+    return;
+  }
+
+  const isExpanded = usesBottomSheetStoryMode()
+    ? storyState.mobilePanelState !== 'peek'
+    : usesLandscapeStoryHudMode()
+      ? storyState.landscapeDetailsOpen
+      : true;
+  const buttonLabel = usesLandscapeStoryHudMode()
+    ? (storyState.landscapeDetailsOpen ? 'Hide story details' : 'Show story details')
+    : storyState.mobilePanelState === 'peek'
+      ? 'Expand story details'
+      : 'Collapse story details';
+
+  storyPanelSummaryButton.setAttribute('aria-expanded', String(isExpanded));
+  storyPanelSummaryButton.setAttribute('aria-label', buttonLabel);
+};
+
+const getStoryMobileOffsetPixels = () => {
+  if (usesLandscapeStoryHudMode()) {
+    const viewportHeight = map.getSize().y;
+    return storyState.landscapeDetailsOpen
+      ? Math.min(Math.round(viewportHeight * 0.26), 88)
+      : Math.min(Math.round(viewportHeight * 0.16), 52);
+  }
+
+  if (!usesBottomSheetStoryMode()) {
+    return 0;
+  }
+
+  const viewportHeight = map.getSize().y;
+
+  switch (storyState.mobilePanelState) {
+    case 'full':
+      return Math.min(Math.round(viewportHeight * 0.34), 230);
+    case 'expanded':
+      return Math.min(Math.round(viewportHeight * 0.24), 170);
+    case 'peek':
+    default:
+      return Math.min(Math.round(viewportHeight * 0.16), 110);
+  }
+};
+
+const getStoryViewTarget = (coords, zoomLevel) => {
+  if (!isMobileStoryMode() || !storyState.activeStory) {
+    return coords;
+  }
+
+  const anchorPoint = map.project(coords, zoomLevel);
+  const targetPoint = L.point(
+    anchorPoint.x,
+    anchorPoint.y + getStoryMobileOffsetPixels()
+  );
+
+  return map.unproject(targetPoint, zoomLevel);
+};
+
+const focusStoryScene = (scene, { animate = true, duration = 1.1 } = {}) => {
+  const zoomLevel = scene.zoom ?? 19;
+  const targetCoords = getStoryViewTarget(scene.coords, zoomLevel);
+
+  map.stop();
+  map.flyTo(targetCoords, zoomLevel, {
+    animate,
+    duration,
+  });
+};
+
+const setStoryPanelState = (requestedState, { refocus = false } = {}) => {
+  if (!storyPanel) {
+    return;
+  }
+
+  if (!usesBottomSheetStoryMode()) {
+    storyState.mobilePanelState = isLandscapeStoryMode() ? 'landscape' : 'desktop';
+    storyPanel.classList.remove(
+      'story-panel--mobile-peek',
+      'story-panel--mobile-expanded',
+      'story-panel--mobile-full'
+    );
+    storyPanel.classList.toggle('story-panel--landscape-expanded', storyState.landscapeDetailsOpen && usesLandscapeStoryHudMode());
+    syncStorySummaryToggle();
+    invalidateStoryLayout();
+    return;
+  }
+
+  const nextState = MOBILE_STORY_PANEL_STATES.includes(requestedState)
+    ? requestedState
+    : 'peek';
+
+  storyState.mobilePanelState = nextState;
+  storyPanel.classList.toggle('story-panel--mobile-peek', nextState === 'peek');
+  storyPanel.classList.toggle('story-panel--mobile-expanded', nextState === 'expanded');
+  storyPanel.classList.toggle('story-panel--mobile-full', nextState === 'full');
+  storyPanel.classList.remove('story-panel--landscape-expanded');
+  syncStorySummaryToggle();
+  invalidateStoryLayout();
+
+  if (!refocus || !storyState.activeStory) {
+    return;
+  }
+
+  const activeScene = storyState.activeStory.scenes[storyState.currentSceneIndex];
+
+  if (!activeScene) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    focusStoryScene(activeScene, { animate: true, duration: 0.75 });
+  });
+};
+
+const syncStoryPanelToViewport = ({ refocus = false } = {}) => {
+  if (!storyState.activeStory) {
+    return;
+  }
+
+  if (usesBottomSheetStoryMode()) {
+    const nextState = MOBILE_STORY_PANEL_STATES.includes(storyState.mobilePanelState)
+      ? storyState.mobilePanelState
+      : 'peek';
+    setStoryPanelState(nextState, { refocus });
+    return;
+  }
+
+  setStoryPanelState('desktop');
+
+  if (!refocus) {
+    return;
+  }
+
+  const activeScene = storyState.activeStory.scenes[storyState.currentSceneIndex];
+
+  if (activeScene) {
+    window.requestAnimationFrame(() => {
+      focusStoryScene(activeScene, { animate: true, duration: 0.75 });
+    });
+  }
+};
+
+const syncStoryPlayPauseButton = () => {
+  const icon = storyPlayPauseButton.querySelector('.material-icons');
+  const label = storyPlayPauseButton.querySelector('span');
+
+  icon.textContent = storyState.isPlaying ? 'pause' : 'play_arrow';
+  label.textContent = storyState.isPlaying ? 'Pause' : 'Play';
+  storyPlayPauseButton.setAttribute('aria-label', `${label.textContent} story`);
+};
+
+const clearStoryTimer = () => {
+  if (storyState.timerId) {
+    window.clearInterval(storyState.timerId);
+    storyState.timerId = null;
+  }
+};
+
+const removeStoryLayer = (layer) => {
+  if (layer && map.hasLayer(layer)) {
+    map.removeLayer(layer);
+  }
+};
+
+const ensureStoryLayersVisible = (story) => {
+  const routeLatLngs = story.scenes.map((scene) => scene.coords);
+
+  if (!storyState.routeLayer) {
+    storyState.routeLayer = L.polyline(routeLatLngs, {
+      color: '#d9b161',
+      weight: 6,
+      opacity: 0.92,
+      interactive: false,
+      pane: STORY_PANE_NAME,
+    }).addTo(map);
+  }
+
+  if (!storyState.sceneMarkersLayer) {
+    const sceneMarkers = story.scenes.map((scene, index) => L.circleMarker(scene.coords, {
+      radius: index === storyState.currentSceneIndex ? 9 : 6,
+      color: '#f7e5b5',
+      weight: 2,
+      fillColor: '#6f4820',
+      fillOpacity: index === storyState.currentSceneIndex ? 0.92 : 0.72,
+      interactive: false,
+      pane: STORY_PANE_NAME,
+    }));
+
+    storyState.sceneMarkersLayer = L.layerGroup(sceneMarkers).addTo(map);
+  }
+};
+
+const restoreStoryLayers = () => {
+  removeStoryLayer(storyState.routeLayer);
+  removeStoryLayer(storyState.sceneMarkersLayer);
+  removeStoryLayer(storyState.highlightLayer);
+
+  storyState.routeLayer = null;
+  storyState.sceneMarkersLayer = null;
+  storyState.highlightLayer = null;
+};
+
+const showStoryPreviewPlaceholder = () => {
+  storyScenePreviewImage?.classList.add('story-panel__preview-image--hidden');
+  storyScenePreviewPlaceholder?.classList.remove('story-panel__preview-placeholder--hidden');
+};
+
+const hideStoryPreviewPlaceholder = () => {
+  storyScenePreviewImage?.classList.remove('story-panel__preview-image--hidden');
+  storyScenePreviewPlaceholder?.classList.add('story-panel__preview-placeholder--hidden');
+};
+
+const showStoryImagePlaceholder = (scene) => {
+  storySceneImage.classList.add('story-panel__image--hidden');
+  storySceneImagePlaceholder?.classList.remove('story-panel__placeholder--hidden');
+  showStoryPreviewPlaceholder();
+
+  if (storySceneImagePath) {
+    storySceneImagePath.textContent = scene.imageRelativePath;
+  }
+};
+
+const hideStoryImagePlaceholder = () => {
+  storySceneImage.classList.remove('story-panel__image--hidden');
+  storySceneImagePlaceholder?.classList.add('story-panel__placeholder--hidden');
+  hideStoryPreviewPlaceholder();
+};
+
+const preloadStoryImage = (scene) => {
+  if (!scene?.image) {
+    return Promise.reject(new Error('Scene image is missing.'));
+  }
+
+  const existing = storyState.imageCache.get(scene.image);
+  if (existing) {
+    return existing;
+  }
+
+  const imagePromise = new Promise((resolve, reject) => {
+    const preloadedImage = new Image();
+
+    preloadedImage.onload = () => resolve(scene.image);
+    preloadedImage.onerror = () => reject(new Error(`Could not load ${scene.image}`));
+    preloadedImage.src = scene.image;
+  });
+
+  storyState.imageCache.set(scene.image, imagePromise);
+  return imagePromise;
+};
+
+const primeStoryImages = (story) => {
+  if (!story?.scenes?.length) {
+    return;
+  }
+
+  story.scenes.forEach((scene) => {
+    preloadStoryImage(scene).catch(() => {
+      // Missing story art is allowed; the placeholder will handle it if needed.
+    });
+  });
+};
+
+const setStoryImage = (scene) => {
+  const imageLoadToken = storyState.imageLoadToken + 1;
+  storyState.imageLoadToken = imageLoadToken;
+
+  storySceneImage.alt = `${scene.title} illustration`;
+  storySceneImage.dataset.expectedPath = scene.imageRelativePath;
+  storySceneImage.onload = null;
+  storySceneImage.onerror = null;
+  storyScenePreviewImage.alt = `${scene.title} preview illustration`;
+  storyScenePreviewImage.dataset.expectedPath = scene.imageRelativePath;
+
+  preloadStoryImage(scene)
+    .then(() => {
+      if (storyState.imageLoadToken !== imageLoadToken) {
+        return;
+      }
+
+      if (storySceneImage.src !== scene.image) {
+        storySceneImage.src = scene.image;
+      }
+      if (storyScenePreviewImage.src !== scene.image) {
+        storyScenePreviewImage.src = scene.image;
+      }
+      hideStoryImagePlaceholder();
+    })
+    .catch(() => {
+      if (storyState.imageLoadToken !== imageLoadToken) {
+        return;
+      }
+
+      showStoryImagePlaceholder(scene);
+    });
+};
+
+const updateStoryHighlight = (coords) => {
+  if (!storyState.highlightLayer) {
+    storyState.highlightLayer = L.circleMarker(coords, {
+      radius: 18,
+      color: '#f4dba8',
+      weight: 3,
+      fillColor: '#6f4820',
+      fillOpacity: 0.28,
+      interactive: false,
+      pane: STORY_PANE_NAME,
+    }).addTo(map);
+    return;
+  }
+
+  storyState.highlightLayer.setLatLng(coords);
+};
+
+const updateStorySceneMarkers = () => {
+  if (!storyState.sceneMarkersLayer) {
+    return;
+  }
+
+  storyState.sceneMarkersLayer.getLayers().forEach((layer, index) => {
+    const isActive = index === storyState.currentSceneIndex;
+
+    layer.setRadius(isActive ? 9 : 6);
+    layer.setStyle({
+      fillOpacity: isActive ? 0.92 : 0.72,
+    });
+  });
+};
+
+const goToStoryScene = (sceneIndex) => {
+  const story = storyState.activeStory;
+
+  if (!story) {
+    return;
+  }
+
+  const boundedIndex = Math.max(0, Math.min(sceneIndex, story.scenes.length - 1));
+  const scene = story.scenes[boundedIndex];
+  storyState.currentSceneIndex = boundedIndex;
+
+  storyKicker.textContent = story.title;
+  storySceneTitle.textContent = scene.title;
+  storySceneMeta.textContent = `${scene.date} • ${scene.location}`;
+  storySceneSummaryTitle.textContent = scene.title;
+  storySceneSummaryMeta.textContent = `${scene.date} • ${scene.location}`;
+  storySceneNarrative.textContent = scene.narrative;
+  storySceneCamp.textContent = scene.camp;
+  storySceneHours.textContent = scene.hoursOnRoad;
+  storySceneMiles.textContent = scene.milesTraveled;
+  storyScenePace.textContent = scene.pace;
+  storySceneNotes.textContent = scene.roadNotes;
+  const counterText = `Scene ${boundedIndex + 1} of ${story.scenes.length}`;
+  storySceneCounter.textContent = counterText;
+  storySceneSummaryCounter.textContent = counterText;
+  storyPanelBody?.scrollTo({ top: 0 });
+  storyPanel.querySelector('.story-panel__text')?.scrollTo({ top: 0 });
+  setStoryImage(scene);
+  updateStoryHighlight(scene.coords);
+  updateStorySceneMarkers();
+  syncStorySummaryToggle();
+  focusStoryScene(scene);
+};
+
+const stopStoryMode = () => {
+  clearStoryTimer();
+  storyState.isPlaying = false;
+  storyState.landscapeDetailsOpen = false;
+  storyState.touchStartY = null;
+  storyState.touchGestureHandled = false;
+  syncStoryPlayPauseButton();
+  setCampsiteHoverPopupsEnabled(true);
+  map.stop();
+  restoreStoryLayers();
+
+  if (storyState.previousView) {
+    map.setView(storyState.previousView.center, storyState.previousView.zoom, {
+      animate: false,
+    });
+    storyState.previousView = null;
+  }
+
+  map.closePopup();
+  storyState.activeStory = null;
+  storyPanel.classList.add('story-panel--hidden');
+  storyPanel.setAttribute('hidden', '');
+  storyPanel.setAttribute('aria-hidden', 'true');
+  storyPanel.style.display = 'none';
+  storyPanel.style.pointerEvents = 'none';
+  storyControls.classList.add('story-controls--hidden');
+  storyControls.setAttribute('hidden', '');
+  storyControls.setAttribute('aria-hidden', 'true');
+  storyControls.style.display = 'none';
+  storyControls.style.pointerEvents = 'none';
+  storyState.mobilePanelState = 'peek';
+  setStoryPanelState('peek');
+  restoreMapInteractions();
+};
+
+const nextStoryScene = () => {
+  if (!storyState.activeStory) {
+    return;
+  }
+
+  if (storyState.currentSceneIndex >= storyState.activeStory.scenes.length - 1) {
+    stopStoryMode();
+    return;
+  }
+
+  goToStoryScene(storyState.currentSceneIndex + 1);
+};
+
+const previousStoryScene = () => {
+  if (!storyState.activeStory) {
+    return;
+  }
+
+  goToStoryScene(storyState.currentSceneIndex - 1);
+};
+
+const startStoryPlayback = () => {
+  clearStoryTimer();
+  storyState.isPlaying = true;
+  syncStoryPlayPauseButton();
+  storyState.timerId = window.setInterval(nextStoryScene, STORY_AUTOPLAY_MS);
+};
+
+const pauseStoryPlayback = () => {
+  clearStoryTimer();
+  storyState.isPlaying = false;
+  syncStoryPlayPauseButton();
+};
+
+const beginStoryMode = (storyId) => {
+  const story = getCuratedStoryById(storyId);
+
+  if (!story) {
+    return;
+  }
+
+  stopStoryMode();
+  storyState.activeStory = story;
+  storyState.currentSceneIndex = 0;
+  storyState.landscapeDetailsOpen = false;
+  storyState.previousView = {
+    center: map.getCenter(),
+    zoom: map.getZoom(),
+  };
+  primeStoryImages(story);
+  ensureStoryLayersVisible(story);
+  setCampsiteHoverPopupsEnabled(false);
+  map.closePopup();
+  storySidebar?.close?.();
+  storyPanel.removeAttribute('hidden');
+  storyPanel.setAttribute('aria-hidden', 'false');
+  storyPanel.style.display = '';
+  storyPanel.style.pointerEvents = '';
+  storyPanel.classList.remove('story-panel--hidden');
+  storyControls.removeAttribute('hidden');
+  storyControls.setAttribute('aria-hidden', 'false');
+  storyControls.style.display = '';
+  storyControls.style.pointerEvents = '';
+  storyControls.classList.remove('story-controls--hidden');
+  setStoryPanelState(usesBottomSheetStoryMode() ? 'peek' : 'desktop');
+  pauseStoryPlayback();
+  goToStoryScene(0);
+};
+
+document.querySelectorAll('[data-story-id]').forEach((button) => {
+  button.addEventListener('click', () => {
+    beginStoryMode(button.dataset.storyId);
+  });
+});
+
+storyPanelSummaryButton?.addEventListener('click', () => {
+  if (!storyState.activeStory) {
+    return;
+  }
+
+  if (storyState.touchGestureHandled) {
+    storyState.touchGestureHandled = false;
+    return;
+  }
+
+  if (usesLandscapeStoryHudMode()) {
+    storyState.landscapeDetailsOpen = !storyState.landscapeDetailsOpen;
+    setStoryPanelState('desktop', { refocus: true });
+    return;
+  }
+
+  if (!usesBottomSheetStoryMode()) {
+    return;
+  }
+
+  if (storyState.mobilePanelState === 'peek') {
+    setStoryPanelState('expanded', { refocus: true });
+    return;
+  }
+
+  setStoryPanelState('peek', { refocus: true });
+});
+
+storyPanelSummaryButton?.addEventListener('touchstart', (event) => {
+  if (!storyState.activeStory || !usesBottomSheetStoryMode()) {
+    return;
+  }
+
+  storyState.touchGestureHandled = false;
+  storyState.touchStartY = event.changedTouches[0]?.clientY ?? null;
+}, { passive: true });
+
+storyPanelSummaryButton?.addEventListener('touchend', (event) => {
+  if (!storyState.activeStory || !usesBottomSheetStoryMode() || storyState.touchStartY === null) {
+    return;
+  }
+
+  const touchEndY = event.changedTouches[0]?.clientY ?? storyState.touchStartY;
+  const deltaY = storyState.touchStartY - touchEndY;
+  storyState.touchStartY = null;
+
+  if (Math.abs(deltaY) < STORY_TOUCH_SWIPE_THRESHOLD) {
+    return;
+  }
+
+  storyState.touchGestureHandled = true;
+
+  if (deltaY > 0) {
+    if (storyState.mobilePanelState === 'peek') {
+      setStoryPanelState('expanded', { refocus: true });
+      return;
+    }
+
+    if (storyState.mobilePanelState === 'expanded') {
+      setStoryPanelState('full', { refocus: true });
+    }
+    return;
+  }
+
+  if (storyState.mobilePanelState === 'full') {
+    setStoryPanelState('expanded', { refocus: true });
+    return;
+  }
+
+  setStoryPanelState('peek', { refocus: true });
+}, { passive: true });
+
+storyPlayPauseButton.addEventListener('click', () => {
+  if (!storyState.activeStory) {
+    return;
+  }
+
+  if (storyState.isPlaying) {
+    pauseStoryPlayback();
+  } else {
+    startStoryPlayback();
+  }
+});
+
+storyPrevButton.addEventListener('click', () => {
+  pauseStoryPlayback();
+  previousStoryScene();
+});
+
+storyNextButton.addEventListener('click', () => {
+  pauseStoryPlayback();
+  nextStoryScene();
+});
+
+storyStopButton.addEventListener('click', () => {
+  stopStoryMode();
+});
+
+const handleStoryViewportChange = () => {
+  syncStoryPanelToViewport({ refocus: true });
+};
+
+if (typeof mobileStoryModeQuery.addEventListener === 'function') {
+  mobileStoryModeQuery.addEventListener('change', handleStoryViewportChange);
+} else if (typeof mobileStoryModeQuery.addListener === 'function') {
+  mobileStoryModeQuery.addListener(handleStoryViewportChange);
+}
+
+if (typeof landscapeStoryModeQuery.addEventListener === 'function') {
+  landscapeStoryModeQuery.addEventListener('change', handleStoryViewportChange);
+} else if (typeof landscapeStoryModeQuery.addListener === 'function') {
+  landscapeStoryModeQuery.addListener(handleStoryViewportChange);
+}
