@@ -134,6 +134,8 @@ test("middle-earth story mode uses a collapsible bottom sheet on mobile", async 
   await expect(storyBody).toBeHidden();
 
   const peekBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
+  expect(peekBox?.x ?? 0).toBeGreaterThanOrEqual(52);
+  expect((peekBox?.x ?? 0) + (peekBox?.width ?? 0)).toBeLessThanOrEqual(390);
 
   await summaryButton.click();
   await expect(storyPanel).toHaveClass(/story-panel--mobile-expanded/);
@@ -141,6 +143,8 @@ test("middle-earth story mode uses a collapsible bottom sheet on mobile", async 
 
   const expandedBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
   expect(expandedBox?.height ?? 0).toBeGreaterThan((peekBox?.height ?? 0) + 80);
+  expect(expandedBox?.x ?? 0).toBeGreaterThanOrEqual(52);
+  expect((expandedBox?.x ?? 0) + (expandedBox?.width ?? 0)).toBeLessThanOrEqual(390);
 
   await summaryButton.click();
   await expect(storyPanel).toHaveClass(/story-panel--mobile-peek/);

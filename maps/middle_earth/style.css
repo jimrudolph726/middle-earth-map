@@ -624,6 +624,7 @@ h3,
 }
 
 .story-panel__inner {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   display: flex;
@@ -848,10 +849,9 @@ h3,
 @media (max-width: 860px) {
   .story-panel {
     top: auto;
-    right: 12px;
     bottom: 12px;
-    left: 12px;
-    width: auto;
+    left: 52px;
+    width: min(420px, calc(100vw - 64px));
   }
 
   .story-panel__inner {
