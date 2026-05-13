@@ -564,6 +564,57 @@
       "bio": "",
       "order": 5
     },
+        "yávien": {
+      "id": "yávien",
+      "name": "Yávien",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Daughter of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/yávien.png",
+      "bio": "",
+      "order": 5
+    },
+    "ormendil": {
+      "id": "ormendil",
+      "name": "Ormendil",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ormendil.png",
+      "bio": "",
+      "order": 5
+    },
+    "axantur": {
+      "id": "axantur",
+      "name": "Axantur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/axantur.png",
+      "bio": "",
+      "order": 5
+    },
 
 
 
@@ -2475,6 +2526,18 @@
       "label": "Issue",
       "order": 10
     },
+   {
+      "id": "union-nolondil",
+      "partners": [
+        "nolondil"
+      ],
+      "children": [
+        "yávien", "ormendil", "axantur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+
     {
       "id": "union-tar-amandil",
       "partners": [
