@@ -1132,10 +1132,10 @@ h3,
   .story-panel__body {
     display: none;
     position: absolute;
+    top: 0;
     right: 0;
     bottom: 124px;
     left: 0;
-    max-height: min(54vh, 250px);
     grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
     gap: 12px;
     padding: 12px;
