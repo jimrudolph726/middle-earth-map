@@ -171,6 +171,11 @@ test("middle-earth story mode stays map-friendly on landscape mobile", async ({ 
   const summaryBox = await summaryButton.boundingBox();
   const controlsBox = await controls.boundingBox();
   expect(summaryBox?.y ?? 0).toBeLessThan(controlsBox?.y ?? 0);
+  expect(summaryBox?.x ?? 0).toBeGreaterThanOrEqual(52);
+  expect(controlsBox?.x ?? 0).toBeGreaterThanOrEqual(52);
+  expect((summaryBox?.x ?? 0) + (summaryBox?.width ?? 0)).toBeLessThanOrEqual(908);
+  expect((controlsBox?.x ?? 0) + (controlsBox?.width ?? 0)).toBeLessThanOrEqual(908);
+  expect(Math.abs((summaryBox?.width ?? 0) - (controlsBox?.width ?? 0))).toBeLessThanOrEqual(1);
 
   await summaryButton.click();
   await expect(storyPanel).toHaveClass(/story-panel--landscape-expanded/);
