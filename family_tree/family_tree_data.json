@@ -615,7 +615,57 @@
       "bio": "",
       "order": 5
     },
-
+    "cemendur_son_of_axantur": {
+      "id": "cemendur_son_of_axantur",
+      "name": "Cemendur",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/cemendur.png",
+      "bio": "",
+      "order": 5
+    },
+    "ardamir": {
+      "id": "ardamir",
+      "name": "Ardamir",
+      "sex": "male",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ardamir.png",
+      "bio": "",
+      "order": 5
+    },
+    "lindissë": {
+      "id": "lindissë",
+      "name": "Lindissë",
+      "sex": "female",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/lindissë.png",
+      "bio": "",
+      "order": 5
+    },
 
 
 
@@ -2537,7 +2587,17 @@
       "label": "Issue",
       "order": 10
     },
-
+   {
+      "id": "union-axantur",
+      "partners": [
+        "axantur"
+      ],
+      "children": [
+        "cemendur_son_of_axantur", "ardamir", "lindissë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
     {
       "id": "union-tar-amandil",
       "partners": [
