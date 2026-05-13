@@ -208,6 +208,7 @@ const storyPrevButton = document.getElementById('storyPrevButton');
 const storyNextButton = document.getElementById('storyNextButton');
 const storyStopButton = document.getElementById('storyStopButton');
 const mobileStoryModeQuery = window.matchMedia('(max-width: 860px)');
+const landscapeStoryModeQuery = window.matchMedia('(max-width: 860px) and (orientation: landscape)');
 const MOBILE_STORY_PANEL_STATES = ['peek', 'expanded', 'full'];
 const STORY_TOUCH_SWIPE_THRESHOLD = 44;
 
@@ -230,6 +231,8 @@ const storyState = {
 const STORY_AUTOPLAY_MS = 4500;
 
 const isMobileStoryMode = () => mobileStoryModeQuery.matches;
+const isLandscapeStoryMode = () => landscapeStoryModeQuery.matches;
+const usesBottomSheetStoryMode = () => isMobileStoryMode() && !isLandscapeStoryMode();
 
 const invalidateStoryLayout = () => {
   window.requestAnimationFrame(() => {
@@ -254,7 +257,7 @@ const syncStorySummaryToggle = () => {
     return;
   }
 
-  const isExpanded = !isMobileStoryMode() || storyState.mobilePanelState !== 'peek';
+  const isExpanded = !usesBottomSheetStoryMode() || storyState.mobilePanelState !== 'peek';
   const buttonLabel = storyState.mobilePanelState === 'peek'
     ? 'Expand story details'
     : 'Collapse story details';
@@ -264,7 +267,7 @@ const syncStorySummaryToggle = () => {
 };
 
 const getStoryMobileOffsetPixels = () => {
-  if (!isMobileStoryMode()) {
+  if (!usesBottomSheetStoryMode()) {
     return 0;
   }
 
@@ -287,7 +290,15 @@ const getStoryViewTarget = (coords, zoomLevel) => {
   }
 
   const anchorPoint = map.project(coords, zoomLevel);
-  return map.unproject(L.point(anchorPoint.x, anchorPoint.y + getStoryMobileOffsetPixels()), zoomLevel);
+  const landscapeOffsetX = isLandscapeStoryMode()
+    ? Math.min(Math.round(map.getSize().x * 0.16), 120)
+    : 0;
+  const targetPoint = L.point(
+    anchorPoint.x - landscapeOffsetX,
+    anchorPoint.y + getStoryMobileOffsetPixels()
+  );
+
+  return map.unproject(targetPoint, zoomLevel);
 };
 
 const focusStoryScene = (scene, { animate = true, duration = 1.1 } = {}) => {
@@ -306,8 +317,8 @@ const setStoryPanelState = (requestedState, { refocus = false } = {}) => {
     return;
   }
 
-  if (!isMobileStoryMode()) {
-    storyState.mobilePanelState = 'desktop';
+  if (!usesBottomSheetStoryMode()) {
+    storyState.mobilePanelState = isLandscapeStoryMode() ? 'landscape' : 'desktop';
     storyPanel.classList.remove(
       'story-panel--mobile-peek',
       'story-panel--mobile-expanded',
@@ -349,7 +360,7 @@ const syncStoryPanelToViewport = ({ refocus = false } = {}) => {
     return;
   }
 
-  if (isMobileStoryMode()) {
+  if (usesBottomSheetStoryMode()) {
     const nextState = MOBILE_STORY_PANEL_STATES.includes(storyState.mobilePanelState)
       ? storyState.mobilePanelState
       : 'peek';
@@ -689,7 +700,7 @@ const beginStoryMode = (storyId) => {
   storyControls.style.display = '';
   storyControls.style.pointerEvents = '';
   storyControls.classList.remove('story-controls--hidden');
-  setStoryPanelState(isMobileStoryMode() ? 'peek' : 'desktop');
+  setStoryPanelState(usesBottomSheetStoryMode() ? 'peek' : 'desktop');
   pauseStoryPlayback();
   goToStoryScene(0);
 };
@@ -701,7 +712,7 @@ document.querySelectorAll('[data-story-id]').forEach((button) => {
 });
 
 storyPanelSummaryButton?.addEventListener('click', () => {
-  if (!storyState.activeStory || !isMobileStoryMode()) {
+  if (!storyState.activeStory || !usesBottomSheetStoryMode()) {
     return;
   }
 
@@ -719,7 +730,7 @@ storyPanelSummaryButton?.addEventListener('click', () => {
 });
 
 storyPanelSummaryButton?.addEventListener('touchstart', (event) => {
-  if (!storyState.activeStory || !isMobileStoryMode()) {
+  if (!storyState.activeStory || !usesBottomSheetStoryMode()) {
     return;
   }
 
@@ -728,7 +739,7 @@ storyPanelSummaryButton?.addEventListener('touchstart', (event) => {
 }, { passive: true });
 
 storyPanelSummaryButton?.addEventListener('touchend', (event) => {
-  if (!storyState.activeStory || !isMobileStoryMode() || storyState.touchStartY === null) {
+  if (!storyState.activeStory || !usesBottomSheetStoryMode() || storyState.touchStartY === null) {
     return;
   }
 

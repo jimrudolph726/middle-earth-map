@@ -147,6 +147,25 @@ test("middle-earth story mode uses a collapsible bottom sheet on mobile", async 
   await expect(storyBody).toBeHidden();
 });
 
+test("middle-earth story mode stays map-friendly on landscape mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.getByRole("tab", { name: /Curated Stories/i }).click();
+  await page.getByRole("button", { name: /Start Story/i }).click();
+
+  const storyPanel = page.locator("#storyPanel");
+  const storyBody = page.locator("#storyPanelBody");
+  const summaryButton = page.locator("#storyPanelSummaryButton");
+  const storyPanelBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
+
+  await expect(storyPanel).toBeVisible();
+  await expect(summaryButton).toBeHidden();
+  await expect(storyBody).toBeVisible();
+  expect(storyPanelBox?.width ?? 0).toBeLessThan(380);
+});
+
 test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
 
