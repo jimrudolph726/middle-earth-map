@@ -105,6 +105,9 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
   await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of/i);
   await expect(page.locator("#storyControls")).toBeVisible();
 
+  const storyPanelBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
+  expect(storyPanelBox?.width ?? 0).toBeLessThan(520);
+
   await page.getByRole("button", { name: /Next/i }).click();
   await expect(page.locator("#storySceneTitle")).toHaveText(/Black Riders on the Road/i);
   await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 2 of/i);
