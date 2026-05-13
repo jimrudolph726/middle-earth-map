@@ -116,6 +116,37 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
   await expect(page.locator("#storySceneTitle")).toHaveText(/Leaving the Shire/i);
 });
 
+test("middle-earth story mode uses a collapsible bottom sheet on mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.getByRole("tab", { name: /Curated Stories/i }).click();
+  await page.getByRole("button", { name: /Start Story/i }).click();
+
+  const storyPanel = page.locator("#storyPanel");
+  const storyBody = page.locator("#storyPanelBody");
+  const summaryButton = page.locator("#storyPanelSummaryButton");
+
+  await expect(storyPanel).toBeVisible();
+  await expect(storyPanel).toHaveClass(/story-panel--mobile-peek/);
+  await expect(summaryButton).toBeVisible();
+  await expect(storyBody).toBeHidden();
+
+  const peekBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
+
+  await summaryButton.click();
+  await expect(storyPanel).toHaveClass(/story-panel--mobile-expanded/);
+  await expect(storyBody).toBeVisible();
+
+  const expandedBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
+  expect(expandedBox?.height ?? 0).toBeGreaterThan((peekBox?.height ?? 0) + 80);
+
+  await summaryButton.click();
+  await expect(storyPanel).toHaveClass(/story-panel--mobile-peek/);
+  await expect(storyBody).toBeHidden();
+});
+
 test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
 

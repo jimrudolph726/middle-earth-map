@@ -350,64 +350,91 @@
     <div id="map" class="sidebar-map"></div>
     <section id="storyPanel" class="story-panel story-panel--hidden" aria-live="polite" hidden aria-hidden="true">
         <div class="story-panel__inner">
-            <div class="story-panel__text">
-                <p id="storyKicker" class="story-panel__kicker">Curated Story</p>
-                <h2 id="storySceneTitle" class="story-panel__title"></h2>
-                <p id="storySceneMeta" class="story-panel__meta"></p>
-                <p id="storySceneNarrative" class="story-panel__narrative"></p>
-                <div class="story-panel__details">
-                    <div class="story-panel__detail-row">
-                        <span class="story-panel__detail-label">Camp</span>
-                        <span id="storySceneCamp" class="story-panel__detail-value"></span>
-                    </div>
-                    <div class="story-panel__detail-row">
-                        <span class="story-panel__detail-label">Hours on the Road</span>
-                        <span id="storySceneHours" class="story-panel__detail-value"></span>
-                    </div>
-                    <div class="story-panel__detail-row">
-                        <span class="story-panel__detail-label">Miles Traveled</span>
-                        <span id="storySceneMiles" class="story-panel__detail-value"></span>
-                    </div>
-                    <div class="story-panel__detail-row">
-                        <span class="story-panel__detail-label">Pace</span>
-                        <span id="storyScenePace" class="story-panel__detail-value"></span>
-                    </div>
-                    <div class="story-panel__detail-row">
-                        <span class="story-panel__detail-label">Road Notes</span>
-                        <span id="storySceneNotes" class="story-panel__detail-value story-panel__detail-value--notes"></span>
+            <button
+                id="storyPanelSummaryButton"
+                class="story-panel__summary"
+                type="button"
+                aria-controls="storyPanelBody"
+                aria-expanded="false"
+            >
+                <span class="story-panel__grabber" aria-hidden="true"></span>
+                <span class="story-panel__summary-main">
+                    <span class="story-panel__summary-copy">
+                        <span id="storySceneSummaryTitle" class="story-panel__summary-title"></span>
+                        <span id="storySceneSummaryMeta" class="story-panel__summary-meta"></span>
+                        <span id="storySceneSummaryCounter" class="story-panel__summary-counter"></span>
+                    </span>
+                    <span class="story-panel__summary-media">
+                        <img id="storyScenePreviewImage" class="story-panel__preview-image" alt="" />
+                        <span
+                            id="storyScenePreviewPlaceholder"
+                            class="story-panel__preview-placeholder story-panel__preview-placeholder--hidden"
+                        >
+                            Artwork pending
+                        </span>
+                    </span>
+                </span>
+            </button>
+            <div id="storyControls" class="story-controls story-controls--hidden" hidden aria-hidden="true">
+                <button id="storyPrevButton" class="story-controls__button" type="button" aria-label="Previous scene">
+                    <i class="material-icons">skip_previous</i>
+                    <span>Previous</span>
+                </button>
+                <button id="storyPlayPauseButton" class="story-controls__button story-controls__button--primary" type="button" aria-label="Play story">
+                    <i class="material-icons">play_arrow</i>
+                    <span>Play</span>
+                </button>
+                <button id="storyNextButton" class="story-controls__button" type="button" aria-label="Next scene">
+                    <i class="material-icons">skip_next</i>
+                    <span>Next</span>
+                </button>
+                <button id="storyStopButton" class="story-controls__button" type="button" aria-label="Stop story">
+                    <i class="material-icons">stop</i>
+                    <span>Stop</span>
+                </button>
+            </div>
+            <div id="storyPanelBody" class="story-panel__body">
+                <div class="story-panel__media">
+                    <img id="storySceneImage" class="story-panel__image" alt="" />
+                    <div id="storySceneImagePlaceholder" class="story-panel__placeholder story-panel__placeholder--hidden">
+                        <p class="story-panel__placeholder-title">Scene Artwork Pending</p>
+                        <p class="story-panel__placeholder-copy">
+                            Add a generated image at <span id="storySceneImagePath"></span>.
+                        </p>
                     </div>
                 </div>
-                <p id="storySceneCounter" class="story-panel__counter"></p>
-            </div>
-            <div class="story-panel__media">
-                <img id="storySceneImage" class="story-panel__image" alt="" />
-                <div id="storySceneImagePlaceholder" class="story-panel__placeholder story-panel__placeholder--hidden">
-                    <p class="story-panel__placeholder-title">Scene Artwork Pending</p>
-                    <p class="story-panel__placeholder-copy">
-                        Add a generated image at <span id="storySceneImagePath"></span>.
-                    </p>
+                <div class="story-panel__text">
+                    <p id="storyKicker" class="story-panel__kicker">Curated Story</p>
+                    <h2 id="storySceneTitle" class="story-panel__title"></h2>
+                    <p id="storySceneMeta" class="story-panel__meta"></p>
+                    <p id="storySceneNarrative" class="story-panel__narrative"></p>
+                    <div class="story-panel__details">
+                        <div class="story-panel__detail-row">
+                            <span class="story-panel__detail-label">Camp</span>
+                            <span id="storySceneCamp" class="story-panel__detail-value"></span>
+                        </div>
+                        <div class="story-panel__detail-row">
+                            <span class="story-panel__detail-label">Hours on the Road</span>
+                            <span id="storySceneHours" class="story-panel__detail-value"></span>
+                        </div>
+                        <div class="story-panel__detail-row">
+                            <span class="story-panel__detail-label">Miles Traveled</span>
+                            <span id="storySceneMiles" class="story-panel__detail-value"></span>
+                        </div>
+                        <div class="story-panel__detail-row">
+                            <span class="story-panel__detail-label">Pace</span>
+                            <span id="storyScenePace" class="story-panel__detail-value"></span>
+                        </div>
+                        <div class="story-panel__detail-row">
+                            <span class="story-panel__detail-label">Road Notes</span>
+                            <span id="storySceneNotes" class="story-panel__detail-value story-panel__detail-value--notes"></span>
+                        </div>
+                    </div>
+                    <p id="storySceneCounter" class="story-panel__counter"></p>
                 </div>
             </div>
         </div>
     </section>
-    <div id="storyControls" class="story-controls story-controls--hidden" hidden aria-hidden="true">
-        <button id="storyPrevButton" class="story-controls__button" type="button">
-            <i class="material-icons">skip_previous</i>
-            <span>Previous</span>
-        </button>
-        <button id="storyPlayPauseButton" class="story-controls__button story-controls__button--primary" type="button">
-            <i class="material-icons">play_arrow</i>
-            <span>Play</span>
-        </button>
-        <button id="storyNextButton" class="story-controls__button" type="button">
-            <i class="material-icons">skip_next</i>
-            <span>Next</span>
-        </button>
-        <button id="storyStopButton" class="story-controls__button" type="button">
-            <i class="material-icons">stop</i>
-            <span>Stop</span>
-        </button>
-    </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-clicktolerance/src/index.js"></script>
     <script src="../../plugins/leaflet-sidebar.js"></script>

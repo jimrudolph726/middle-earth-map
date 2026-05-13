@@ -182,10 +182,15 @@ Object.keys(checkboxMappings).forEach(masterCheckboxId => {
 });
 
 const storyPanel = document.getElementById('storyPanel');
+const storyPanelSummaryButton = document.getElementById('storyPanelSummaryButton');
+const storyPanelBody = document.getElementById('storyPanelBody');
 const storyControls = document.getElementById('storyControls');
 const storyKicker = document.getElementById('storyKicker');
 const storySceneTitle = document.getElementById('storySceneTitle');
 const storySceneMeta = document.getElementById('storySceneMeta');
+const storySceneSummaryTitle = document.getElementById('storySceneSummaryTitle');
+const storySceneSummaryMeta = document.getElementById('storySceneSummaryMeta');
+const storySceneSummaryCounter = document.getElementById('storySceneSummaryCounter');
 const storySceneNarrative = document.getElementById('storySceneNarrative');
 const storySceneCamp = document.getElementById('storySceneCamp');
 const storySceneHours = document.getElementById('storySceneHours');
@@ -194,12 +199,17 @@ const storyScenePace = document.getElementById('storyScenePace');
 const storySceneNotes = document.getElementById('storySceneNotes');
 const storySceneCounter = document.getElementById('storySceneCounter');
 const storySceneImage = document.getElementById('storySceneImage');
+const storyScenePreviewImage = document.getElementById('storyScenePreviewImage');
+const storyScenePreviewPlaceholder = document.getElementById('storyScenePreviewPlaceholder');
 const storySceneImagePlaceholder = document.getElementById('storySceneImagePlaceholder');
 const storySceneImagePath = document.getElementById('storySceneImagePath');
 const storyPlayPauseButton = document.getElementById('storyPlayPauseButton');
 const storyPrevButton = document.getElementById('storyPrevButton');
 const storyNextButton = document.getElementById('storyNextButton');
 const storyStopButton = document.getElementById('storyStopButton');
+const mobileStoryModeQuery = window.matchMedia('(max-width: 860px)');
+const MOBILE_STORY_PANEL_STATES = ['peek', 'expanded', 'full'];
+const STORY_TOUCH_SWIPE_THRESHOLD = 44;
 
 const storyState = {
   activeStory: null,
@@ -212,9 +222,20 @@ const storyState = {
   sceneMarkersLayer: null,
   imageLoadToken: 0,
   imageCache: new Map(),
+  mobilePanelState: 'peek',
+  touchStartY: null,
+  touchGestureHandled: false,
 };
 
 const STORY_AUTOPLAY_MS = 4500;
+
+const isMobileStoryMode = () => mobileStoryModeQuery.matches;
+
+const invalidateStoryLayout = () => {
+  window.requestAnimationFrame(() => {
+    map.invalidateSize(false);
+  });
+};
 
 const restoreMapInteractions = () => {
   map.dragging?.enable();
@@ -225,10 +246,130 @@ const restoreMapInteractions = () => {
   map.touchZoom?.enable();
   map.tap?.enable?.();
   map.getContainer().style.pointerEvents = 'auto';
+  invalidateStoryLayout();
+};
+
+const syncStorySummaryToggle = () => {
+  if (!storyPanelSummaryButton) {
+    return;
+  }
+
+  const isExpanded = !isMobileStoryMode() || storyState.mobilePanelState !== 'peek';
+  const buttonLabel = storyState.mobilePanelState === 'peek'
+    ? 'Expand story details'
+    : 'Collapse story details';
+
+  storyPanelSummaryButton.setAttribute('aria-expanded', String(isExpanded));
+  storyPanelSummaryButton.setAttribute('aria-label', buttonLabel);
+};
+
+const getStoryMobileOffsetPixels = () => {
+  if (!isMobileStoryMode()) {
+    return 0;
+  }
+
+  const viewportHeight = map.getSize().y;
+
+  switch (storyState.mobilePanelState) {
+    case 'full':
+      return Math.min(Math.round(viewportHeight * 0.34), 230);
+    case 'expanded':
+      return Math.min(Math.round(viewportHeight * 0.24), 170);
+    case 'peek':
+    default:
+      return Math.min(Math.round(viewportHeight * 0.16), 110);
+  }
+};
+
+const getStoryViewTarget = (coords, zoomLevel) => {
+  if (!isMobileStoryMode() || !storyState.activeStory) {
+    return coords;
+  }
+
+  const anchorPoint = map.project(coords, zoomLevel);
+  return map.unproject(L.point(anchorPoint.x, anchorPoint.y + getStoryMobileOffsetPixels()), zoomLevel);
+};
+
+const focusStoryScene = (scene, { animate = true, duration = 1.1 } = {}) => {
+  const zoomLevel = scene.zoom ?? 19;
+  const targetCoords = getStoryViewTarget(scene.coords, zoomLevel);
+
+  map.stop();
+  map.flyTo(targetCoords, zoomLevel, {
+    animate,
+    duration,
+  });
+};
+
+const setStoryPanelState = (requestedState, { refocus = false } = {}) => {
+  if (!storyPanel) {
+    return;
+  }
+
+  if (!isMobileStoryMode()) {
+    storyState.mobilePanelState = 'desktop';
+    storyPanel.classList.remove(
+      'story-panel--mobile-peek',
+      'story-panel--mobile-expanded',
+      'story-panel--mobile-full'
+    );
+    syncStorySummaryToggle();
+    invalidateStoryLayout();
+    return;
+  }
+
+  const nextState = MOBILE_STORY_PANEL_STATES.includes(requestedState)
+    ? requestedState
+    : 'peek';
+
+  storyState.mobilePanelState = nextState;
+  storyPanel.classList.toggle('story-panel--mobile-peek', nextState === 'peek');
+  storyPanel.classList.toggle('story-panel--mobile-expanded', nextState === 'expanded');
+  storyPanel.classList.toggle('story-panel--mobile-full', nextState === 'full');
+  syncStorySummaryToggle();
+  invalidateStoryLayout();
+
+  if (!refocus || !storyState.activeStory) {
+    return;
+  }
+
+  const activeScene = storyState.activeStory.scenes[storyState.currentSceneIndex];
+
+  if (!activeScene) {
+    return;
+  }
 
   window.requestAnimationFrame(() => {
-    map.invalidateSize(false);
+    focusStoryScene(activeScene, { animate: true, duration: 0.75 });
   });
+};
+
+const syncStoryPanelToViewport = ({ refocus = false } = {}) => {
+  if (!storyState.activeStory) {
+    return;
+  }
+
+  if (isMobileStoryMode()) {
+    const nextState = MOBILE_STORY_PANEL_STATES.includes(storyState.mobilePanelState)
+      ? storyState.mobilePanelState
+      : 'peek';
+    setStoryPanelState(nextState, { refocus });
+    return;
+  }
+
+  setStoryPanelState('desktop');
+
+  if (!refocus) {
+    return;
+  }
+
+  const activeScene = storyState.activeStory.scenes[storyState.currentSceneIndex];
+
+  if (activeScene) {
+    window.requestAnimationFrame(() => {
+      focusStoryScene(activeScene, { animate: true, duration: 0.75 });
+    });
+  }
 };
 
 const syncStoryPlayPauseButton = () => {
@@ -237,6 +378,7 @@ const syncStoryPlayPauseButton = () => {
 
   icon.textContent = storyState.isPlaying ? 'pause' : 'play_arrow';
   label.textContent = storyState.isPlaying ? 'Pause' : 'Play';
+  storyPlayPauseButton.setAttribute('aria-label', `${label.textContent} story`);
 };
 
 const clearStoryTimer = () => {
@@ -290,9 +432,20 @@ const restoreStoryLayers = () => {
   storyState.highlightLayer = null;
 };
 
+const showStoryPreviewPlaceholder = () => {
+  storyScenePreviewImage?.classList.add('story-panel__preview-image--hidden');
+  storyScenePreviewPlaceholder?.classList.remove('story-panel__preview-placeholder--hidden');
+};
+
+const hideStoryPreviewPlaceholder = () => {
+  storyScenePreviewImage?.classList.remove('story-panel__preview-image--hidden');
+  storyScenePreviewPlaceholder?.classList.add('story-panel__preview-placeholder--hidden');
+};
+
 const showStoryImagePlaceholder = (scene) => {
   storySceneImage.classList.add('story-panel__image--hidden');
   storySceneImagePlaceholder?.classList.remove('story-panel__placeholder--hidden');
+  showStoryPreviewPlaceholder();
 
   if (storySceneImagePath) {
     storySceneImagePath.textContent = scene.imageRelativePath;
@@ -302,6 +455,7 @@ const showStoryImagePlaceholder = (scene) => {
 const hideStoryImagePlaceholder = () => {
   storySceneImage.classList.remove('story-panel__image--hidden');
   storySceneImagePlaceholder?.classList.add('story-panel__placeholder--hidden');
+  hideStoryPreviewPlaceholder();
 };
 
 const preloadStoryImage = (scene) => {
@@ -346,6 +500,8 @@ const setStoryImage = (scene) => {
   storySceneImage.dataset.expectedPath = scene.imageRelativePath;
   storySceneImage.onload = null;
   storySceneImage.onerror = null;
+  storyScenePreviewImage.alt = `${scene.title} preview illustration`;
+  storyScenePreviewImage.dataset.expectedPath = scene.imageRelativePath;
 
   preloadStoryImage(scene)
     .then(() => {
@@ -355,6 +511,9 @@ const setStoryImage = (scene) => {
 
       if (storySceneImage.src !== scene.image) {
         storySceneImage.src = scene.image;
+      }
+      if (storyScenePreviewImage.src !== scene.image) {
+        storyScenePreviewImage.src = scene.image;
       }
       hideStoryImagePlaceholder();
     })
@@ -413,27 +572,31 @@ const goToStoryScene = (sceneIndex) => {
   storyKicker.textContent = story.title;
   storySceneTitle.textContent = scene.title;
   storySceneMeta.textContent = `${scene.date} • ${scene.location}`;
+  storySceneSummaryTitle.textContent = scene.title;
+  storySceneSummaryMeta.textContent = `${scene.date} • ${scene.location}`;
   storySceneNarrative.textContent = scene.narrative;
   storySceneCamp.textContent = scene.camp;
   storySceneHours.textContent = scene.hoursOnRoad;
   storySceneMiles.textContent = scene.milesTraveled;
   storyScenePace.textContent = scene.pace;
   storySceneNotes.textContent = scene.roadNotes;
-  storySceneCounter.textContent = `Scene ${boundedIndex + 1} of ${story.scenes.length}`;
+  const counterText = `Scene ${boundedIndex + 1} of ${story.scenes.length}`;
+  storySceneCounter.textContent = counterText;
+  storySceneSummaryCounter.textContent = counterText;
+  storyPanelBody?.scrollTo({ top: 0 });
+  storyPanel.querySelector('.story-panel__text')?.scrollTo({ top: 0 });
   setStoryImage(scene);
   updateStoryHighlight(scene.coords);
   updateStorySceneMarkers();
-
-  map.stop();
-  map.flyTo(scene.coords, scene.zoom ?? 19, {
-    animate: true,
-    duration: 1.1,
-  });
+  syncStorySummaryToggle();
+  focusStoryScene(scene);
 };
 
 const stopStoryMode = () => {
   clearStoryTimer();
   storyState.isPlaying = false;
+  storyState.touchStartY = null;
+  storyState.touchGestureHandled = false;
   syncStoryPlayPauseButton();
   setCampsiteHoverPopupsEnabled(true);
   map.stop();
@@ -458,6 +621,8 @@ const stopStoryMode = () => {
   storyControls.setAttribute('aria-hidden', 'true');
   storyControls.style.display = 'none';
   storyControls.style.pointerEvents = 'none';
+  storyState.mobilePanelState = 'peek';
+  setStoryPanelState('peek');
   restoreMapInteractions();
 };
 
@@ -524,6 +689,7 @@ const beginStoryMode = (storyId) => {
   storyControls.style.display = '';
   storyControls.style.pointerEvents = '';
   storyControls.classList.remove('story-controls--hidden');
+  setStoryPanelState(isMobileStoryMode() ? 'peek' : 'desktop');
   pauseStoryPlayback();
   goToStoryScene(0);
 };
@@ -533,6 +699,68 @@ document.querySelectorAll('[data-story-id]').forEach((button) => {
     beginStoryMode(button.dataset.storyId);
   });
 });
+
+storyPanelSummaryButton?.addEventListener('click', () => {
+  if (!storyState.activeStory || !isMobileStoryMode()) {
+    return;
+  }
+
+  if (storyState.touchGestureHandled) {
+    storyState.touchGestureHandled = false;
+    return;
+  }
+
+  if (storyState.mobilePanelState === 'peek') {
+    setStoryPanelState('expanded', { refocus: true });
+    return;
+  }
+
+  setStoryPanelState('peek', { refocus: true });
+});
+
+storyPanelSummaryButton?.addEventListener('touchstart', (event) => {
+  if (!storyState.activeStory || !isMobileStoryMode()) {
+    return;
+  }
+
+  storyState.touchGestureHandled = false;
+  storyState.touchStartY = event.changedTouches[0]?.clientY ?? null;
+}, { passive: true });
+
+storyPanelSummaryButton?.addEventListener('touchend', (event) => {
+  if (!storyState.activeStory || !isMobileStoryMode() || storyState.touchStartY === null) {
+    return;
+  }
+
+  const touchEndY = event.changedTouches[0]?.clientY ?? storyState.touchStartY;
+  const deltaY = storyState.touchStartY - touchEndY;
+  storyState.touchStartY = null;
+
+  if (Math.abs(deltaY) < STORY_TOUCH_SWIPE_THRESHOLD) {
+    return;
+  }
+
+  storyState.touchGestureHandled = true;
+
+  if (deltaY > 0) {
+    if (storyState.mobilePanelState === 'peek') {
+      setStoryPanelState('expanded', { refocus: true });
+      return;
+    }
+
+    if (storyState.mobilePanelState === 'expanded') {
+      setStoryPanelState('full', { refocus: true });
+    }
+    return;
+  }
+
+  if (storyState.mobilePanelState === 'full') {
+    setStoryPanelState('expanded', { refocus: true });
+    return;
+  }
+
+  setStoryPanelState('peek', { refocus: true });
+}, { passive: true });
 
 storyPlayPauseButton.addEventListener('click', () => {
   if (!storyState.activeStory) {
@@ -559,3 +787,13 @@ storyNextButton.addEventListener('click', () => {
 storyStopButton.addEventListener('click', () => {
   stopStoryMode();
 });
+
+const handleStoryViewportChange = () => {
+  syncStoryPanelToViewport({ refocus: true });
+};
+
+if (typeof mobileStoryModeQuery.addEventListener === 'function') {
+  mobileStoryModeQuery.addEventListener('change', handleStoryViewportChange);
+} else if (typeof mobileStoryModeQuery.addListener === 'function') {
+  mobileStoryModeQuery.addListener(handleStoryViewportChange);
+}
