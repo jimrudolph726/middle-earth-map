@@ -87,7 +87,7 @@ const samFrodoScenes = [
   },
   {
     markerKey: 'September29',
-    title: 'Bree at Last',
+    title: 'Bree at Last - Encounter with Strider',
     date: 'September 29',
     location: 'Bree',
     narrative: 'Freed from the Barrow and riding once more, Frodo and his companions finally reach Bree. The Prancing Pony offers shelter and news, but this crossing point between Hobbit-land and the wider world also brings new risks and fateful meetings.',
