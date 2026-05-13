@@ -1,8 +1,10 @@
 import {
   samfrodocampsites,
+  gandalfthewhitecampsites,
 } from './campsite_data.js';
 
 const buildSamFrodoImage = (fileName) => new URL(`./assets/stories/sam_frodo/${fileName}`, import.meta.url).href;
+const buildGandalfTheWhiteImage = (fileName) => new URL(`./assets/stories/gandalf_the_white/${fileName}`, import.meta.url).href;
 
 const samFrodoScenes = [
   {
@@ -119,6 +121,42 @@ const samFrodoScenes = [
   order: index + 1,
 }));
 
+const gandalfTheWhiteScenes = [
+  {
+    markerKey: 'February14',
+    title: 'Awakening on Zirakzigil',
+    date: 'February 14',
+    location: 'Peak of the Silvertine (Celebdil)',
+    narrative: `After his struggle with the Balrog is ended, Gandalf returns to life high upon Zirakzigil. Alone on the wind-scoured peak, he lies in a trance while Middle-earth moves on below him, and the Grey Pilgrim begins to pass into a new and greater charge.`,
+    camp: 'Peak of the Silvertine (Celebdil) Mountain',
+    hoursOnRoad: 'Unknown',
+    milesTraveled: 'Unknown',
+    pace: 'Unknown',
+    roadNotes: 'Gandalf returns to life and lies upon the peak in a trance.',
+    imageFileName: 'scene-01.png',
+  },
+  {
+    markerKey: 'February17',
+    title: 'Gwaihir Bears Him to Lothlorien',
+    date: 'February 17',
+    location: 'Lothlorien',
+    narrative: `Three days later, Gwaihir the Windlord finds Gandalf on the heights and carries him away from the mountains. The journey is swift and strange: from the white crown of Celebdil to the golden refuge of Lothlorien, where rest, counsel, and renewal await the newly returned wizard.`,
+    camp: 'Lothlorien',
+    hoursOnRoad: 'Unknown',
+    milesTraveled: 'Unknown',
+    pace: 'Unknown',
+    roadNotes: 'Gwaihir carries Gandalf south from the mountains into Lothlorien.',
+    imageFileName: 'scene-02.png',
+  },
+].map((scene, index) => ({
+  ...scene,
+  coords: gandalfthewhitecampsites[scene.markerKey].coords,
+  image: buildGandalfTheWhiteImage(scene.imageFileName),
+  imageRelativePath: `maps/middle_earth/assets/stories/gandalf_the_white/${scene.imageFileName}`,
+  zoom: 19,
+  order: index + 1,
+}));
+
 export const curatedStories = [
   {
     id: 'sam-frodo-first-seven',
@@ -127,6 +165,14 @@ export const curatedStories = [
     campCheckboxId: 'samfrodocampsitesCheckbox',
     pathCheckboxId: 'samfrodopathCheckbox',
     scenes: samFrodoScenes,
+  },
+  {
+    id: 'gandalf-the-white-first-two',
+    title: 'Gandalf the White: From Zirakzigil to Lothlorien',
+    markerGroupName: 'gandalfthewhitecampsites',
+    campCheckboxId: 'gandalfthewhitecampsitesCheckbox',
+    pathCheckboxId: 'gandalfthewhitepathCheckbox',
+    scenes: gandalfTheWhiteScenes,
   },
 ];
 

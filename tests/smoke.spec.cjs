@@ -98,7 +98,7 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
 
   await expect(page.locator("#map.leaflet-container")).toBeVisible();
   await page.getByRole("tab", { name: /Curated Stories/i }).click();
-  await page.getByRole("button", { name: /Start Story/i }).click();
+  await page.getByRole("button", { name: /Start Sam and Frodo story/i }).click();
 
   await expect(page.locator("#storyPanel")).toBeVisible();
   await expect(page.locator("#storySceneTitle")).toHaveText(/Leaving the Shire/i);
@@ -114,6 +114,12 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
 
   await page.getByRole("button", { name: /Previous/i }).click();
   await expect(page.locator("#storySceneTitle")).toHaveText(/Leaving the Shire/i);
+
+  await page.getByRole("button", { name: /Stop/i }).click();
+  await page.getByRole("tab", { name: /Curated Stories/i }).click();
+  await page.getByRole("button", { name: /Start Gandalf the White story/i }).click();
+  await expect(page.locator("#storySceneTitle")).toHaveText(/Awakening on Zirakzigil/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of 2/i);
 });
 
 test("middle-earth story mode uses a collapsible bottom sheet on mobile", async ({ page }) => {
@@ -122,7 +128,7 @@ test("middle-earth story mode uses a collapsible bottom sheet on mobile", async 
 
   await expect(page.locator("#map.leaflet-container")).toBeVisible();
   await page.getByRole("tab", { name: /Curated Stories/i }).click();
-  await page.getByRole("button", { name: /Start Story/i }).click();
+  await page.getByRole("button", { name: /Start Sam and Frodo story/i }).click();
 
   const storyPanel = page.locator("#storyPanel");
   const storyBody = page.locator("#storyPanelBody");
@@ -157,7 +163,7 @@ test("middle-earth story mode stays map-friendly on landscape mobile", async ({ 
 
   await expect(page.locator("#map.leaflet-container")).toBeVisible();
   await page.getByRole("tab", { name: /Curated Stories/i }).click();
-  await page.getByRole("button", { name: /Start Story/i }).click();
+  await page.getByRole("button", { name: /Start Sam and Frodo story/i }).click();
 
   const storyPanel = page.locator("#storyPanel");
   const storyBody = page.locator("#storyPanelBody");

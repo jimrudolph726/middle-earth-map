@@ -537,6 +537,8 @@ h3,
 }
 
 .stories-section {
+  display: grid;
+  gap: 16px;
   padding-top: 4px;
 }
 
