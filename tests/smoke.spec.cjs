@@ -158,12 +158,19 @@ test("middle-earth story mode stays map-friendly on landscape mobile", async ({ 
   const storyPanel = page.locator("#storyPanel");
   const storyBody = page.locator("#storyPanelBody");
   const summaryButton = page.locator("#storyPanelSummaryButton");
-  const storyPanelBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
+  const controls = page.locator("#storyControls");
 
   await expect(storyPanel).toBeVisible();
-  await expect(summaryButton).toBeHidden();
+  await expect(summaryButton).toBeVisible();
+  await expect(controls).toBeVisible();
+  await expect(storyBody).toBeHidden();
+  const summaryBox = await summaryButton.boundingBox();
+  const controlsBox = await controls.boundingBox();
+  expect(summaryBox?.y ?? 0).toBeLessThan(controlsBox?.y ?? 0);
+
+  await summaryButton.click();
+  await expect(storyPanel).toHaveClass(/story-panel--landscape-expanded/);
   await expect(storyBody).toBeVisible();
-  expect(storyPanelBox?.width ?? 0).toBeLessThan(380);
 });
 
 test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {

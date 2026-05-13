@@ -224,6 +224,7 @@ const storyState = {
   imageLoadToken: 0,
   imageCache: new Map(),
   mobilePanelState: 'peek',
+  landscapeDetailsOpen: false,
   touchStartY: null,
   touchGestureHandled: false,
 };
@@ -233,6 +234,7 @@ const STORY_AUTOPLAY_MS = 4500;
 const isMobileStoryMode = () => mobileStoryModeQuery.matches;
 const isLandscapeStoryMode = () => landscapeStoryModeQuery.matches;
 const usesBottomSheetStoryMode = () => isMobileStoryMode() && !isLandscapeStoryMode();
+const usesLandscapeStoryHudMode = () => isLandscapeStoryMode();
 
 const invalidateStoryLayout = () => {
   window.requestAnimationFrame(() => {
@@ -257,16 +259,29 @@ const syncStorySummaryToggle = () => {
     return;
   }
 
-  const isExpanded = !usesBottomSheetStoryMode() || storyState.mobilePanelState !== 'peek';
-  const buttonLabel = storyState.mobilePanelState === 'peek'
-    ? 'Expand story details'
-    : 'Collapse story details';
+  const isExpanded = usesBottomSheetStoryMode()
+    ? storyState.mobilePanelState !== 'peek'
+    : usesLandscapeStoryHudMode()
+      ? storyState.landscapeDetailsOpen
+      : true;
+  const buttonLabel = usesLandscapeStoryHudMode()
+    ? (storyState.landscapeDetailsOpen ? 'Hide story details' : 'Show story details')
+    : storyState.mobilePanelState === 'peek'
+      ? 'Expand story details'
+      : 'Collapse story details';
 
   storyPanelSummaryButton.setAttribute('aria-expanded', String(isExpanded));
   storyPanelSummaryButton.setAttribute('aria-label', buttonLabel);
 };
 
 const getStoryMobileOffsetPixels = () => {
+  if (usesLandscapeStoryHudMode()) {
+    const viewportHeight = map.getSize().y;
+    return storyState.landscapeDetailsOpen
+      ? Math.min(Math.round(viewportHeight * 0.26), 88)
+      : Math.min(Math.round(viewportHeight * 0.16), 52);
+  }
+
   if (!usesBottomSheetStoryMode()) {
     return 0;
   }
@@ -290,11 +305,8 @@ const getStoryViewTarget = (coords, zoomLevel) => {
   }
 
   const anchorPoint = map.project(coords, zoomLevel);
-  const landscapeOffsetX = isLandscapeStoryMode()
-    ? Math.min(Math.round(map.getSize().x * 0.16), 120)
-    : 0;
   const targetPoint = L.point(
-    anchorPoint.x - landscapeOffsetX,
+    anchorPoint.x,
     anchorPoint.y + getStoryMobileOffsetPixels()
   );
 
@@ -324,6 +336,7 @@ const setStoryPanelState = (requestedState, { refocus = false } = {}) => {
       'story-panel--mobile-expanded',
       'story-panel--mobile-full'
     );
+    storyPanel.classList.toggle('story-panel--landscape-expanded', storyState.landscapeDetailsOpen && usesLandscapeStoryHudMode());
     syncStorySummaryToggle();
     invalidateStoryLayout();
     return;
@@ -337,6 +350,7 @@ const setStoryPanelState = (requestedState, { refocus = false } = {}) => {
   storyPanel.classList.toggle('story-panel--mobile-peek', nextState === 'peek');
   storyPanel.classList.toggle('story-panel--mobile-expanded', nextState === 'expanded');
   storyPanel.classList.toggle('story-panel--mobile-full', nextState === 'full');
+  storyPanel.classList.remove('story-panel--landscape-expanded');
   syncStorySummaryToggle();
   invalidateStoryLayout();
 
@@ -606,6 +620,7 @@ const goToStoryScene = (sceneIndex) => {
 const stopStoryMode = () => {
   clearStoryTimer();
   storyState.isPlaying = false;
+  storyState.landscapeDetailsOpen = false;
   storyState.touchStartY = null;
   storyState.touchGestureHandled = false;
   syncStoryPlayPauseButton();
@@ -681,6 +696,7 @@ const beginStoryMode = (storyId) => {
   stopStoryMode();
   storyState.activeStory = story;
   storyState.currentSceneIndex = 0;
+  storyState.landscapeDetailsOpen = false;
   storyState.previousView = {
     center: map.getCenter(),
     zoom: map.getZoom(),
@@ -712,12 +728,22 @@ document.querySelectorAll('[data-story-id]').forEach((button) => {
 });
 
 storyPanelSummaryButton?.addEventListener('click', () => {
-  if (!storyState.activeStory || !usesBottomSheetStoryMode()) {
+  if (!storyState.activeStory) {
     return;
   }
 
   if (storyState.touchGestureHandled) {
     storyState.touchGestureHandled = false;
+    return;
+  }
+
+  if (usesLandscapeStoryHudMode()) {
+    storyState.landscapeDetailsOpen = !storyState.landscapeDetailsOpen;
+    setStoryPanelState('desktop', { refocus: true });
+    return;
+  }
+
+  if (!usesBottomSheetStoryMode()) {
     return;
   }
 
@@ -807,4 +833,10 @@ if (typeof mobileStoryModeQuery.addEventListener === 'function') {
   mobileStoryModeQuery.addEventListener('change', handleStoryViewportChange);
 } else if (typeof mobileStoryModeQuery.addListener === 'function') {
   mobileStoryModeQuery.addListener(handleStoryViewportChange);
+}
+
+if (typeof landscapeStoryModeQuery.addEventListener === 'function') {
+  landscapeStoryModeQuery.addEventListener('change', handleStoryViewportChange);
+} else if (typeof landscapeStoryModeQuery.addListener === 'function') {
+  landscapeStoryModeQuery.addListener(handleStoryViewportChange);
 }
