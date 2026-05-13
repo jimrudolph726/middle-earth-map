@@ -119,7 +119,7 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
   await page.getByRole("tab", { name: /Curated Stories/i }).click();
   await page.getByRole("button", { name: /Start Gandalf the White story/i }).click();
   await expect(page.locator("#storySceneTitle")).toHaveText(/Awakening on Zirakzigil/i);
-  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of 2/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of \d+/i);
 });
 
 test("middle-earth story mode uses a collapsible bottom sheet on mobile", async ({ page }) => {

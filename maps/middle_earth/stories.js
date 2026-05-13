@@ -153,7 +153,7 @@ const gandalfTheWhiteScenes = [
     title: 'Galdriel Clothes Him in White',
     date: 'February 18',
     location: 'Lothlorien',
-    narrative: `Gandalf and Galadriel meet, and she clothes him in his white garb - earned from his dedication to his mission of helping the free peoples of Middle-earth defeat Sauron.`,
+    narrative: `Gandalf arrives in Lothlorien for much needed rest and respite. He meets his old friend Galadriel, and recognizing the sacrifice he made defending the Fellowship against the terrible terror awoken from the depths of Moria, she graciously clothes him in his white garb. Steadfast and earnest in his dedication to his mission of helping the free peoples of Middle-earth defeat Sauron, he is now Gandalf the White.`,
     camp: 'Lothlorien',
     hoursOnRoad: 'Unknown',
     milesTraveled: 'Unknown',
