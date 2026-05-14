@@ -51,7 +51,16 @@ h3,
   color: #AAA;
 }
 
-#settlementsSection, #pathsSection, #roadsSection, #geographySection, #battlesSection, #itemsSection, #campsSection, #regionsSection, #provisionsSection #creatures_and_beingsSection {
+#settlementsSection,
+#pathsSection,
+#roadsSection,
+#geographySection,
+#battlesSection,
+#itemsSection,
+#campsSection,
+#regionsSection,
+#provisionsSection,
+#creatures_and_beingsSection {
   display: flex;
   flex-direction: column; /* Stack the labels vertically */
   gap: 8px; /* Optional: Add spacing between items */
@@ -75,7 +84,16 @@ h3,
   text-align: left; /* Align text to the left */
 }
 
-#settlementsSection label, #pathsSection label, #roadsSection label, #geographySection label, #battlesSection label, #itemsSection label #pathsSection label, #itemsSection label, #campsSection label, #regionsSection label, #provisionsSection label #creatures_and_beingsSection label {
+#settlementsSection label,
+#pathsSection label,
+#roadsSection label,
+#geographySection label,
+#battlesSection label,
+#itemsSection label,
+#campsSection label,
+#regionsSection label,
+#provisionsSection label,
+#creatures_and_beingsSection label {
   display: flex;
   align-items: center; /* Align the checkbox and label text */
   cursor: pointer; /* Change the cursor to indicate clickability */
