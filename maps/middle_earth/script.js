@@ -159,6 +159,7 @@ const checkboxMappings = {
   allRegionCheckbox: "#regionsSection input.regionCheckbox",
   allRoadCheckbox: "#roadsSection input.roadCheckbox",
   allProvisionCheckbox: "#provisionsSection input.provisionCheckbox",
+  allCreaturesAndBeingsCheckbox: "#provisionsSection input.provisionCheckbox",
 };
 Object.keys(checkboxMappings).forEach(masterCheckboxId => {
   const masterCheckbox = document.getElementById(masterCheckboxId);
