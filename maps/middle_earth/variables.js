@@ -69,6 +69,8 @@ export const baseTileOptions = {
 };
 
 // Campsites, Settlements, Items
+const sharedAtlasMarkerCluster = 'sharedAtlasMarkerCluster';
+
 const campsiteGroups = {
   samfrodocampsites,
   pippincampsites,
@@ -118,7 +120,7 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     groupName: name,
     campsite: 'campsite',
-    clusterScope: 'sharedCampsiteCluster',
+    clusterScope: sharedAtlasMarkerCluster,
   })),
 
   ...Object.entries(settlementGroups).map(([name, data]) => ({
@@ -126,7 +128,7 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     groupName: name,
     campsite: 'no',
-    clusterScope: 'sharedSettlementCluster',
+    clusterScope: sharedAtlasMarkerCluster,
   })),
 
   ...Object.entries(itemGroups).map(([name, data]) => ({
@@ -134,7 +136,7 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     groupName: name,
     campsite: 'no',
-    clusterScope: 'sharedItemCluster',
+    clusterScope: sharedAtlasMarkerCluster,
   })),
 
   ...Object.entries(battleGroups).map(([name, data]) => ({
@@ -142,7 +144,7 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     groupName: name,
     campsite: 'no',
-    clusterScope: 'sharedBattleCluster',
+    clusterScope: sharedAtlasMarkerCluster,
   })),
 
     ...Object.entries(provisionGroups).map(([name, data]) => ({
@@ -150,7 +152,7 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     groupName: name,
     campsite: 'no',
-    clusterScope: 'sharedProvisionCluster',
+    clusterScope: sharedAtlasMarkerCluster,
   })),
 
     ...Object.entries(creatures_and_beingsGroups).map(([name, data]) => ({
@@ -158,7 +160,7 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     groupName: name,
     campsite: 'no',
-    clusterScope: 'sharedCreaturesAndBeingsCluster',
+    clusterScope: sharedAtlasMarkerCluster,
   })),
 
   ...Object.entries(miscMarkerGroups).map(([name, data]) => ({

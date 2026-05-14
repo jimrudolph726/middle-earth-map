@@ -43,44 +43,18 @@ Promise.all(
     data,
   }))
 ).then((markerEntries) => {
+  const sharedAtlasMarkerClusterScope = 'sharedAtlasMarkerCluster';
   const sharedClusterEntries = markerEntries.filter(
-    ({ clusterScope }) =>
-      clusterScope === 'sharedSettlementCluster' ||
-      clusterScope === 'sharedCampsiteCluster' ||
-      clusterScope === 'sharedItemCluster' ||
-      clusterScope === 'sharedBattleCluster' ||
-      clusterScope === 'sharedProvisionCluster' ||
-      clusterScope === 'sharedCreaturesAndBeingsCluster'
+    ({ clusterScope }) => clusterScope === sharedAtlasMarkerClusterScope
   );
 
   const categoryClusterEntries = markerEntries.filter(
-    ({ clusterScope }) =>
-      clusterScope !== 'sharedSettlementCluster' &&
-      clusterScope !== 'sharedCampsiteCluster' &&
-      clusterScope !== 'sharedItemCluster' &&
-      clusterScope !== 'sharedBattleCluster' &&
-      clusterScope !== 'sharedProvisionCluster' &&
-      clusterScope !== 'sharedCreaturesAndBeingsCluster'
+    ({ clusterScope }) => clusterScope !== sharedAtlasMarkerClusterScope
   );
 
   const sharedClusterConfig = {
-    sharedSettlementCluster: {
-      maxClusterRadius: 50,
-    },
-    sharedCampsiteCluster: {
-      maxClusterRadius: 50,
-    },
-    sharedItemCluster: {
-      maxClusterRadius: 25,
-    },
-    sharedBattleCluster: {
-      maxClusterRadius: 25,
-    },
-    sharedProvisionCluster: {
-      maxClusterRadius: 25,
-    },
-    sharedCreaturesAndBeingsCluster: {
-      maxClusterRadius: 25,
+    [sharedAtlasMarkerClusterScope]: {
+      maxClusterRadius: 40,
     },
   };
 

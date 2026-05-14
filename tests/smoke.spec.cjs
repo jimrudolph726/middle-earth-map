@@ -228,14 +228,21 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   }
 });
 
-test("middle-earth provisions and creatures use separate marker clusters", async ({ page }) => {
+test("middle-earth point marker categories share one marker cluster", async ({ page }) => {
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("#map.leaflet-container")).toBeVisible();
   await page.waitForLoadState("networkidle");
 
   await page.evaluate(() => {
-    ["foodCheckbox", "entsCheckbox"].forEach((checkboxId) => {
+    [
+      "samfrodocampsitesCheckbox",
+      "hobbitsCheckbox",
+      "battlesCheckbox",
+      "swordsCheckbox",
+      "foodCheckbox",
+      "entsCheckbox"
+    ].forEach((checkboxId) => {
       const checkbox = document.getElementById(checkboxId);
 
       if (!checkbox) {
@@ -254,38 +261,40 @@ test("middle-earth provisions and creatures use separate marker clusters", async
         import("/maps/middle_earth/variables.js")
       ]);
 
-      const provisionMarker = getMarkerFromRegistry("food", "lembas");
-      const creatureMarker = getMarkerFromRegistry("ents", "treebeard");
+      const markers = [
+        getMarkerFromRegistry("samfrodocampsites", "September23"),
+        getMarkerFromRegistry("hobbits", "hobbiton"),
+        getMarkerFromRegistry("battles", "battle_of_dagorlad"),
+        getMarkerFromRegistry("swords", "glamdring"),
+        getMarkerFromRegistry("food", "lembas"),
+        getMarkerFromRegistry("ents", "treebeard")
+      ];
 
-      if (!provisionMarker || !creatureMarker) {
+      if (markers.some((marker) => !marker)) {
         return null;
       }
 
       const clusterGroups = [];
       map.eachLayer((layer) => {
         if (window.L.MarkerClusterGroup && layer instanceof window.L.MarkerClusterGroup) {
-          const childMarkers = layer.getLayers();
-          clusterGroups.push({
-            hasProvisionMarker: childMarkers.includes(provisionMarker),
-            hasCreatureMarker: childMarkers.includes(creatureMarker)
-          });
+          clusterGroups.push(layer.getLayers());
         }
       });
 
+      const markerClusterIndexes = markers.map((marker) => (
+        clusterGroups.findIndex((clusterGroup) => clusterGroup.includes(marker))
+      ));
+
       return {
-        hasProvisionCluster: clusterGroups.some((clusterGroup) => clusterGroup.hasProvisionMarker),
-        hasCreatureCluster: clusterGroups.some((clusterGroup) => clusterGroup.hasCreatureMarker),
-        sharesCluster: clusterGroups.some((clusterGroup) => (
-          clusterGroup.hasProvisionMarker && clusterGroup.hasCreatureMarker
-        )),
+        allMarkersClustered: markerClusterIndexes.every((clusterIndex) => clusterIndex >= 0),
+        uniqueClusterCount: new Set(markerClusterIndexes).size,
       };
     });
   }, {
-    message: "Expected provisions and creatures to be registered in separate marker-cluster groups."
+    message: "Expected point-marker categories to be registered in one shared marker-cluster group."
   }).toEqual({
-    hasProvisionCluster: true,
-    hasCreatureCluster: true,
-    sharesCluster: false
+    allMarkersClustered: true,
+    uniqueClusterCount: 1
   });
 });
 
