@@ -104,7 +104,7 @@ const provisionGroups = {
   drink
 };
 
-const provisionGroups = {
+const creatures_and_beingsGroups = {
   spiders,
   ents
 };
@@ -146,6 +146,14 @@ export const settlementsData = [
   })),
 
     ...Object.entries(provisionGroups).map(([name, data]) => ({
+    data,
+    checkboxId: `${name}Checkbox`,
+    groupName: name,
+    campsite: 'no',
+    clusterScope: 'sharedProvisionCluster',
+  })),
+
+    ...Object.entries(creatures_and_beingsGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,
     groupName: name,
