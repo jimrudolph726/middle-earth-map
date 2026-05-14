@@ -2712,14 +2712,15 @@
       "order": 10
     },
     {
-      "id": "union-tar-ancalimë",
+      "id": "union-tar-ancalimë-hallacar",
       "partners": [
-        "tar-ancalimë"
+        "tar-ancalimë",
+        "hallacar"
       ],
       "children": [
         "tar-anárion"
       ],
-      "label": "Issue",
+      "label": "Marriage",
       "order": 10
     },
     {
