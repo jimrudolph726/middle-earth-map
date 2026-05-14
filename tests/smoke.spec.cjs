@@ -202,6 +202,8 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
     { tabName: /Geography/i, checkboxId: "mountain_rangesCheckbox", layerType: "canvas" },
     { tabName: /Battles/i, checkboxId: "battlesCheckbox", layerType: "marker" },
     { tabName: /Important Items/i, checkboxId: "swordsCheckbox", layerType: "marker" },
+    { tabName: /Provisions/i, checkboxId: "foodCheckbox", layerType: "marker" },
+    { tabName: /Creatures & Beings/i, checkboxId: "spidersCheckbox", layerType: "marker" },
     { tabName: /Regions/i, checkboxId: "large_regionsCheckbox", layerType: "canvas" }
   ];
 
@@ -224,6 +226,67 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
       message: `Expected ${checkboxId} layers to be removed after unchecking.`
     }).toBeLessThanOrEqual(layerSignalBeforeCheck);
   }
+});
+
+test("middle-earth provisions and creatures use separate marker clusters", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.waitForLoadState("networkidle");
+
+  await page.evaluate(() => {
+    ["foodCheckbox", "entsCheckbox"].forEach((checkboxId) => {
+      const checkbox = document.getElementById(checkboxId);
+
+      if (!checkbox) {
+        throw new Error(`Could not find ${checkboxId}.`);
+      }
+
+      checkbox.checked = true;
+      checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+  });
+
+  await expect.poll(async () => {
+    return page.evaluate(async () => {
+      const [{ getMarkerFromRegistry }, { map }] = await Promise.all([
+        import("/maps/middle_earth/functions.js"),
+        import("/maps/middle_earth/variables.js")
+      ]);
+
+      const provisionMarker = getMarkerFromRegistry("food", "lembas");
+      const creatureMarker = getMarkerFromRegistry("ents", "treebeard");
+
+      if (!provisionMarker || !creatureMarker) {
+        return null;
+      }
+
+      const clusterGroups = [];
+      map.eachLayer((layer) => {
+        if (window.L.MarkerClusterGroup && layer instanceof window.L.MarkerClusterGroup) {
+          const childMarkers = layer.getLayers();
+          clusterGroups.push({
+            hasProvisionMarker: childMarkers.includes(provisionMarker),
+            hasCreatureMarker: childMarkers.includes(creatureMarker)
+          });
+        }
+      });
+
+      return {
+        hasProvisionCluster: clusterGroups.some((clusterGroup) => clusterGroup.hasProvisionMarker),
+        hasCreatureCluster: clusterGroups.some((clusterGroup) => clusterGroup.hasCreatureMarker),
+        sharesCluster: clusterGroups.some((clusterGroup) => (
+          clusterGroup.hasProvisionMarker && clusterGroup.hasCreatureMarker
+        )),
+      };
+    });
+  }, {
+    message: "Expected provisions and creatures to be registered in separate marker-cluster groups."
+  }).toEqual({
+    hasProvisionCluster: true,
+    hasCreatureCluster: true,
+    sharesCluster: false
+  });
 });
 
 test("middle-earth markers bounce and fade on hover", async ({ page }) => {

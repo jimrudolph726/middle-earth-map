@@ -49,7 +49,8 @@ Promise.all(
       clusterScope === 'sharedCampsiteCluster' ||
       clusterScope === 'sharedItemCluster' ||
       clusterScope === 'sharedBattleCluster' ||
-      clusterScope === 'sharedProvisionCluster'
+      clusterScope === 'sharedProvisionCluster' ||
+      clusterScope === 'sharedCreaturesAndBeingsCluster'
   );
 
   const categoryClusterEntries = markerEntries.filter(
@@ -58,7 +59,8 @@ Promise.all(
       clusterScope !== 'sharedCampsiteCluster' &&
       clusterScope !== 'sharedItemCluster' &&
       clusterScope !== 'sharedBattleCluster' &&
-      clusterScope !== 'sharedProvisionCluster'
+      clusterScope !== 'sharedProvisionCluster' &&
+      clusterScope !== 'sharedCreaturesAndBeingsCluster'
   );
 
   const sharedClusterConfig = {
@@ -75,6 +77,9 @@ Promise.all(
       maxClusterRadius: 25,
     },
     sharedProvisionCluster: {
+      maxClusterRadius: 25,
+    },
+    sharedCreaturesAndBeingsCluster: {
       maxClusterRadius: 25,
     },
   };

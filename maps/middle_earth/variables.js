@@ -158,7 +158,7 @@ export const settlementsData = [
     checkboxId: `${name}Checkbox`,
     groupName: name,
     campsite: 'no',
-    clusterScope: 'sharedProvisionCluster',
+    clusterScope: 'sharedCreaturesAndBeingsCluster',
   })),
 
   ...Object.entries(miscMarkerGroups).map(([name, data]) => ({
