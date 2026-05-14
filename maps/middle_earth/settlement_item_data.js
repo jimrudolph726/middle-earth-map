@@ -827,7 +827,7 @@ export const spiders = {
       "https://thainsbook.minastirith.cz/creatures.html#Shelob"
     ),
     coords: [44.9409524,-93.3000632],
-    icon: icons.ShelobsIcon,
+    icon: icons.ShelobIcon,
   },
 }
 export const ents = {
