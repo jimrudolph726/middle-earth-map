@@ -666,6 +666,75 @@
       "bio": "",
       "order": 5
     },
+    "írildë": {
+      "id": "írildë",
+      "name": "Írildë",
+      "sex": "female",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Daughter of Cemendur",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/írildë.png",
+      "bio": "",
+      "order": 5
+    },
+    "hallatan": {
+      "id": "hallatan",
+      "name": "Hallatan",
+      "sex": "female",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Cemendur",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/hallatan.png",
+      "bio": "",
+      "order": 5
+    },
+    "hallacar": {
+      "id": "hallacar",
+      "name": "Hallacar",
+      "sex": "female",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Son of Hallatan",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/hallacar.png",
+      "bio": "",
+      "order": 5
+    },
+    "nessanië": {
+      "id": "nessanië",
+      "name": "Nessanië",
+      "sex": "female",
+      "kindred": "Men",
+      "groups": [
+        "númenórean"
+      ],
+      "title": "Daughter of Hallatan",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/nessanië.png",
+      "bio": "",
+      "order": 5
+    },
+
 
 
 
@@ -2840,7 +2909,7 @@
       "label": "Issue",
       "order": 10
     },
-{
+    {
       "id": "union-silmariën-elatan",
       "partners": [
         "silmariën",
@@ -2857,6 +2926,29 @@
       "label": "Marriage",
       "order": 20
     },
+    {
+      "id": "union-cemendur_son_of_axantur",
+      "partners": [
+        "cemendur_son_of_axantur"
+      ],
+      "children": [
+        "írildë", "hallatan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-hallatan",
+      "partners": [
+        "hallatan"
+      ],
+      "children": [
+        "hallacar", "nessanië"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+
 
 
 
