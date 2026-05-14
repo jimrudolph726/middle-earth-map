@@ -26,7 +26,9 @@ import {
   books,
   palantíri,
   food,
-  drink
+  drink,
+  spiders,
+  ents
 } from './settlement_item_data.js';
 
 import {
@@ -100,6 +102,11 @@ const battleGroups = {
 const provisionGroups = {
   food,
   drink
+};
+
+const provisionGroups = {
+  spiders,
+  ents
 };
 
 const miscMarkerGroups = {

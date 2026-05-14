@@ -32,6 +32,8 @@ const iconUrls = {
   minas_morgul: new URL('./assets/minas_morgul.png', import.meta.url).href,
   lembas: new URL('./assets/lembas.png', import.meta.url).href,
   ent_draughts: new URL('./assets/ent_draughts.png', import.meta.url).href,
+  shelob: new URL('./assets/shelob.png', import.meta.url).href,
+  treebeard: new URL('./assets/treebeard.png', import.meta.url).href,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -61,6 +63,8 @@ GoblinIcon: createIcon(iconUrls.goblin),
 MinasMorgulIcon: createIcon(iconUrls.minas_morgul),
 LembasIcon: createIcon(iconUrls.lembas),
 EntDraughtsIcon: createIcon(iconUrls.ent_draughts),
+ShelobIcon: createIcon(iconUrls.shelob),
+TreebeardIcon: createIcon(iconUrls.treebeard),
 };
 
 // Settlements
@@ -813,3 +817,28 @@ export const drink = {
     icon: icons.EntDraughtsIcon,
   },
 }
+
+//Creatures & Beings
+export const spiders = {
+  shelob: {
+    popup: createSettlementPopup(
+      "Shelob",
+      `Shelob was a great spider-like creature akin to those of Nan Dungortheb in Beleriand, the last offspring of Ungoliant. Shelob had an out-thrust head with two great clusters of many-windowed eyes and great horns and a short stalk-like neck. Her head had a beak that dribbled venom. She had a huge body that looked like a bloated bag. `,
+      "https://thainsbook.minastirith.cz/creatures.html#Shelob"
+    ),
+    coords: [44.9409524,-93.3000632],
+    icon: icons.ShelobsIcon,
+  },
+}
+export const ents = {
+  treebeard: {
+    popup: createSettlementPopup(
+      "Treebeard",
+      `Treebeard, also known as Fangorn, was the oldest of the Ents, a tree-like being who was a sort of "shepherd of trees". Very tall and stiff-limbed, with bark-like skin and leafy hair, like most Ents, Treebeard took a long time to make up his mind. He repeatedly spoke of not "being hasty".`,
+      "https://tolkiengateway.net/wiki/Treebeard"
+    ),
+    coords: [44.9434298,-93.3053104],
+    icon: icons.TreebeardIcon,
+  },
+}
+
