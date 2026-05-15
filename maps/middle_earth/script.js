@@ -1,13 +1,12 @@
 // script.js
 
 import {
-  PathListeners,
+  LazyLayerListeners,
+  LazyShapeGroupListeners,
   MarkerListeners,
-  createGeographicShape,
-  createMarkers,
   createMarkerClusterGroup,
-  buildMarkers,
-  setCampsiteHoverPopupsEnabled,
+  getMarkerGroupFromRegistry,
+  getOrBuildMarkers,
 } from './functions.js';
 
 import {
@@ -34,97 +33,103 @@ initializeStoryMode({ sidebar });
 const sharedClusterGroups = {};
 
 // Add Campsites, Settlements, Items and Clustering
-Promise.all(
-  settlementsData.map(({ data, checkboxId, groupName, campsite, clusterScope }) => ({
-    checkboxId,
-    groupName,
-    campsite,
-    clusterScope,
-    data,
-  }))
-).then((markerEntries) => {
-  const sharedAtlasMarkerClusterScope = 'sharedAtlasMarkerCluster';
-  const sharedClusterEntries = markerEntries.filter(
-    ({ clusterScope }) => clusterScope === sharedAtlasMarkerClusterScope
-  );
+const markerEntries = settlementsData.map(({ data, checkboxId, groupName, campsite, clusterScope }) => ({
+  checkboxId,
+  groupName,
+  campsite,
+  clusterScope,
+  data,
+}));
 
-  const categoryClusterEntries = markerEntries.filter(
-    ({ clusterScope }) => clusterScope !== sharedAtlasMarkerClusterScope
-  );
+const sharedAtlasMarkerClusterScope = 'sharedAtlasMarkerCluster';
+const sharedClusterEntries = markerEntries.filter(
+  ({ clusterScope }) => clusterScope === sharedAtlasMarkerClusterScope
+);
 
-  const sharedClusterConfig = {
-    [sharedAtlasMarkerClusterScope]: {
-      maxClusterRadius: 40,
-    },
-  };
+const categoryClusterEntries = markerEntries.filter(
+  ({ clusterScope }) => clusterScope !== sharedAtlasMarkerClusterScope
+);
 
-  const syncSharedCluster = (clusterScope) => {
-    const activeMarkers = [];
-    const entries = sharedClusterEntries.filter((entry) => entry.clusterScope === clusterScope);
+const sharedClusterConfig = {
+  [sharedAtlasMarkerClusterScope]: {
+    maxClusterRadius: 40,
+  },
+};
 
-    entries.forEach(({ checkboxId, groupName, data, campsite }) => {
-      const checkbox = document.getElementById(checkboxId);
+const getSharedClusterGroup = (clusterScope) => {
+  if (!sharedClusterGroups[clusterScope]) {
+    sharedClusterGroups[clusterScope] = createMarkerClusterGroup(sharedClusterConfig[clusterScope]);
+  }
 
-      if (!checkbox?.checked) {
-        return;
-      }
+  return sharedClusterGroups[clusterScope];
+};
 
-      const markers = buildMarkers(data, campsite, groupName);
+const syncSharedCluster = (clusterScope) => {
+  const clusterGroup = getSharedClusterGroup(clusterScope);
+  const entries = sharedClusterEntries.filter((entry) => entry.clusterScope === clusterScope);
 
-      Object.values(markers).forEach((marker) => {
-        activeMarkers.push(marker);
-      });
-    });
+  entries.forEach(({ checkboxId, groupName, data, campsite }) => {
+    const checkbox = document.getElementById(checkboxId);
 
-    if (sharedClusterGroups[clusterScope]) {
-      if (map.hasLayer(sharedClusterGroups[clusterScope])) {
-        map.removeLayer(sharedClusterGroups[clusterScope]);
-      }
-
-      sharedClusterGroups[clusterScope].clearLayers();
-    }
-
-    if (activeMarkers.length === 0) {
-      sharedClusterGroups[clusterScope] = null;
+    if (!checkbox) {
       return;
     }
 
-    sharedClusterGroups[clusterScope] = createMarkerClusterGroup(sharedClusterConfig[clusterScope]);
+    const markers = checkbox.checked
+      ? getOrBuildMarkers(data, campsite, groupName)
+      : getMarkerGroupFromRegistry(groupName);
 
-    sharedClusterGroups[clusterScope].addLayers(activeMarkers);
-    map.addLayer(sharedClusterGroups[clusterScope]);
-  };
+    if (!markers) {
+      return;
+    }
 
-  sharedClusterEntries.forEach(({ checkboxId, clusterScope }) => {
-    const checkbox = document.getElementById(checkboxId);
-    checkbox?.addEventListener('change', () => syncSharedCluster(clusterScope));
-  });
+    Object.values(markers).forEach((marker) => {
+      const markerIsClustered = clusterGroup.hasLayer(marker);
 
-  Object.keys(sharedClusterConfig).forEach((clusterScope) => {
-    syncSharedCluster(clusterScope);
-  });
+      if (checkbox.checked && !markerIsClustered) {
+        clusterGroup.addLayer(marker);
+      }
 
-  categoryClusterEntries.forEach(({ checkboxId, groupName, data, campsite }) => {
-    const clusterGroup = createMarkerClusterGroup();
-
-    createMarkers(data, campsite, clusterGroup, groupName).then(({ markers, clusterGroup }) => {
-      MarkerListeners(checkboxId, { markers, clusterGroup }, map);
+      if (!checkbox.checked && markerIsClustered) {
+        clusterGroup.removeLayer(marker);
+      }
     });
   });
+
+  if (clusterGroup.getLayers().length > 0) {
+    if (!map.hasLayer(clusterGroup)) {
+      map.addLayer(clusterGroup);
+    }
+  } else if (map.hasLayer(clusterGroup)) {
+    map.removeLayer(clusterGroup);
+  }
+};
+
+sharedClusterEntries.forEach(({ checkboxId, clusterScope }) => {
+  const checkbox = document.getElementById(checkboxId);
+  checkbox?.addEventListener('change', () => syncSharedCluster(clusterScope));
+});
+
+Object.keys(sharedClusterConfig).forEach((clusterScope) => {
+  syncSharedCluster(clusterScope);
+});
+
+categoryClusterEntries.forEach(({ checkboxId, groupName, data, campsite }) => {
+  const markers = getOrBuildMarkers(data, campsite, groupName);
+  const clusterGroup = createMarkerClusterGroup();
+
+  clusterGroup.addLayers(Object.values(markers));
+  MarkerListeners(checkboxId, { markers, clusterGroup }, map);
 });
  
 // Add Paths and Roads
 [pathData, roadData].forEach((data) => {
-  createGeographicShape(data).then((polygons) => {
-    PathListeners(polygons, map);
-  });
+  LazyLayerListeners(data, map);
 });
 
 // Add Geographic Features
 geographicData.forEach(({ data, checkboxId }) => {
-  createGeographicShape(data).then((polygons) => {
-  MarkerListeners(checkboxId, polygons, map);
-  });
+  LazyShapeGroupListeners(checkboxId, data, map);
 });
 
 // Add "All" Checkboxes

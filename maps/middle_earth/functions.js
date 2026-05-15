@@ -118,6 +118,22 @@ export const getMarkerFromRegistry = (groupName, markerKey) => {
   return markerRegistry.get(groupName)?.[markerKey] || null;
 };
 
+export const getMarkerGroupFromRegistry = (groupName) => {
+  return groupName ? markerRegistry.get(groupName) || null : null;
+};
+
+export const getOrBuildMarkers = (locations, campsite = 'no', groupName = null) => {
+  if (groupName) {
+    const cachedMarkers = markerRegistry.get(groupName);
+
+    if (cachedMarkers) {
+      return cachedMarkers;
+    }
+  }
+
+  return buildMarkers(locations, campsite, groupName);
+};
+
 const updateMarkerHoverState = (marker, isHovering = false) => {
   marker.setOpacity(isHovering ? 0.5 : 1);
 
@@ -271,7 +287,7 @@ export const PathListeners = (items, map) => {
 // Campsites and Settlements function
 export const createMarkers = (locations, campsite = 'no', clusterGroup = null, groupName = null) => {
   return new Promise((resolve) => {
-    const markers = buildMarkers(locations, campsite, groupName);
+    const markers = getOrBuildMarkers(locations, campsite, groupName);
 
     Object.values(markers).forEach((marker) => {
       if (clusterGroup) {
@@ -287,97 +303,241 @@ export const createMarkers = (locations, campsite = 'no', clusterGroup = null, g
 };
 
 // Paths and Geographic Features function
+const geographicLayerCache = new Map();
+const geographicShapeGroupCache = new Map();
+
+const buildGeographicLayer = async (geographicItem) => {
+  const {
+    pathName,
+    color,
+    outlineColor,
+    outlineWeight,
+    name,
+    PopupContent,
+    tolerance,
+    weight,
+    arrows,
+  } = geographicItem;
+  const geojsonPath = new URL(`./geojson_files/${pathName}.geojson`, import.meta.url);
+  const response = await fetch(geojsonPath);
+
+  if (!response.ok) {
+    throw new Error(`Failed to load ${geojsonPath} (${response.status})`);
+  }
+
+  const data = await response.json();
+  const outlinePolygon = outlineColor
+    ? L.geoJSON(data, {
+        style: {
+          color: outlineColor,
+          weight: outlineWeight ?? ((weight ?? 5) + 4),
+          fillOpacity: 0,
+        },
+        interactive: false,
+      })
+    : null;
+
+  // Create the visible path after the outline so it renders above it.
+  const polygon = L.geoJSON(data, {
+    style: {
+      color,
+      weight: weight ?? 5,
+      fillOpacity: 0.5,
+    },
+    clickTolerance: tolerance,
+    onEachFeature: (feature, layer) => {
+      // Create a tooltip but do not bind it statically
+      const tooltip = L.tooltip({
+        permanent: false,
+        className: "polygon-label",
+        direction: "center",
+        offset: L.point(0, 0)
+      });
+
+      layer.on('mousemove', (e) => {
+        tooltip.setLatLng(e.latlng).setContent(name);
+        if (!layer._map.hasLayer(tooltip)) {
+          tooltip.addTo(layer._map);
+        }
+      });
+
+      layer.on('mouseout', () => {
+        if (layer._map.hasLayer(tooltip)) {
+          layer._map.removeLayer(tooltip);
+        }
+      });
+
+      layer.on('click', (e) => {
+        const popup = L.popup({ ...lorePopupOptions })
+          .setLatLng(e.latlng)
+          .setContent(PopupContent || `Name: ${name}`);
+        popup.openOn(layer._map);
+      });
+    }
+  });
+
+  if (arrows) {
+    polygon.eachLayer((layer) => {
+      if (layer instanceof L.Polyline) {
+        layer.arrowheads({
+          size: '16px',
+          frequency: '120px',
+          yawn: 25,
+          fill: true,
+          color: '#222',
+        });
+      }
+    });
+  }
+
+  if (pathName == 'minhiriath') {
+    polygon.bringToFront();
+  }
+
+  return outlinePolygon
+    ? L.layerGroup([outlinePolygon, polygon])
+    : polygon;
+};
+
+export const loadGeographicLayer = (geographicItem) => {
+  const cacheKey = geographicItem.pathName;
+  const cachedLayerPromise = geographicLayerCache.get(cacheKey);
+
+  if (cachedLayerPromise) {
+    return cachedLayerPromise;
+  }
+
+  const layerPromise = buildGeographicLayer(geographicItem).catch((error) => {
+    geographicLayerCache.delete(cacheKey);
+    throw error;
+  });
+
+  geographicLayerCache.set(cacheKey, layerPromise);
+  return layerPromise;
+};
+
+export const LazyLayerListeners = (items, map) => {
+  Object.entries(items).forEach(([key, geographicItem]) => {
+    const checkbox = document.getElementById(`${key}Checkbox`);
+
+    if (!checkbox) {
+      return;
+    }
+
+    const toggleLayer = () => {
+      const cachedLayerPromise = geographicLayerCache.get(geographicItem.pathName);
+
+      if (!checkbox.checked) {
+        if (!cachedLayerPromise) {
+          return;
+        }
+
+        cachedLayerPromise
+          .then((layer) => {
+            if (!checkbox.checked && map.hasLayer(layer)) {
+              map.removeLayer(layer);
+            }
+          })
+          .catch((error) => {
+            console.error(`Error unloading layer for ${key}:`, error);
+          });
+        return;
+      }
+
+      loadGeographicLayer(geographicItem)
+        .then((layer) => {
+          if (checkbox.checked && !map.hasLayer(layer)) {
+            layer.addTo(map);
+          }
+        })
+        .catch((error) => {
+          console.error(`Error fetching data for ${key}:`, error);
+        });
+    };
+
+    checkbox.addEventListener('change', toggleLayer);
+    toggleLayer();
+  });
+};
+
+export const LazyShapeGroupListeners = (checkboxId, geographicData, map) => {
+  const checkbox = document.getElementById(checkboxId);
+
+  if (!checkbox) {
+    return;
+  }
+
+  const loadShapeGroup = () => {
+    const cachedGroupPromise = geographicShapeGroupCache.get(checkboxId);
+
+    if (cachedGroupPromise) {
+      return cachedGroupPromise;
+    }
+
+    const groupPromise = createGeographicShape(geographicData).catch((error) => {
+      geographicShapeGroupCache.delete(checkboxId);
+      throw error;
+    });
+
+    geographicShapeGroupCache.set(checkboxId, groupPromise);
+    return groupPromise;
+  };
+
+  const toggleShapes = () => {
+    const cachedGroupPromise = geographicShapeGroupCache.get(checkboxId);
+
+    if (!checkbox.checked) {
+      if (!cachedGroupPromise) {
+        return;
+      }
+
+      cachedGroupPromise
+        .then((shapes) => {
+          if (!checkbox.checked) {
+            Object.values(shapes).forEach((shape) => {
+              if (shape && map.hasLayer(shape)) {
+                map.removeLayer(shape);
+              }
+            });
+          }
+        })
+        .catch((error) => {
+          console.error(`Error unloading layer group for ${checkboxId}:`, error);
+        });
+      return;
+    }
+
+    loadShapeGroup()
+      .then((shapes) => {
+        if (!checkbox.checked) {
+          return;
+        }
+
+        Object.values(shapes).forEach((shape) => {
+          if (shape && !map.hasLayer(shape)) {
+            shape.addTo(map);
+          }
+        });
+      })
+      .catch((error) => {
+        console.error(`Error fetching data for ${checkboxId}:`, error);
+      });
+  };
+
+  checkbox.addEventListener('change', toggleShapes);
+  toggleShapes();
+};
+
 export const createGeographicShape = async (geographic_data) => {
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
-    const { pathName, color, outlineColor, outlineWeight, name, PopupContent, tolerance, weight, arrows } = geographic_data[key];
-    const geojsonPath = new URL(`./geojson_files/${pathName}.geojson`, import.meta.url);
-
     try {
-      const response = await fetch(geojsonPath);
-      if (!response.ok) {
-        throw new Error(`Failed to load ${geojsonPath} (${response.status})`);
-      }
-      const data = await response.json();
-      
-      const outlinePolygon = outlineColor
-        ? L.geoJSON(data, {
-            style: {
-              color: outlineColor,
-              weight: outlineWeight ?? ((weight ?? 5) + 4),
-              fillOpacity: 0,
-            },
-            interactive: false,
-          })
-        : null;
-
-      // Create the visible path after the outline so it renders above it.
-      const polygon = L.geoJSON(data, {
-        style: {
-          color,
-          weight: weight ?? 5,
-          fillOpacity: 0.5,
-        },
-        clickTolerance: tolerance,
-        onEachFeature: (feature, layer) => {
-          // Create a tooltip but do not bind it statically
-          const tooltip = L.tooltip({
-            permanent: false,
-            className: "polygon-label",
-            direction: "center",
-            offset: L.point(0, 0) // Prevent offset issues
-          });
-
-          layer.on('mousemove', (e) => {
-            tooltip.setLatLng(e.latlng).setContent(name);
-            if (!layer._map.hasLayer(tooltip)) {
-              tooltip.addTo(layer._map);
-            }
-          });
-
-          layer.on('mouseout', () => {
-            if (layer._map.hasLayer(tooltip)) {
-              layer._map.removeLayer(tooltip);
-            }
-          });
-
-          // Add click event
-          layer.on('click', (e) => {
-            const popup = L.popup({ ...lorePopupOptions })
-              .setLatLng(e.latlng)
-              .setContent(PopupContent || `Name: ${name}`);
-            popup
-              .openOn(layer._map);
-          });
-        }
-      });
-      
-      if (arrows) {
-        polygon.eachLayer((layer) => {
-          if (layer instanceof L.Polyline) {
-            layer.arrowheads({
-              size: '16px',
-              frequency: '120px',
-              yawn: 25,
-              fill: true,
-              color: '#222',   // darker than line
-            });
-          }
-        });
-      }
-          
-      // Store the polygon in the polygons object
-      if (pathName == 'minhiriath'){
-        polygon.bringToFront();
-      }
-      polygons[key] = outlinePolygon
-        ? L.layerGroup([outlinePolygon, polygon])
-        : polygon;
+      polygons[key] = await loadGeographicLayer(geographic_data[key]);
     } catch (error) {
       console.error(`Error fetching data for ${key}:`, error);
     }
   });
 
-  await Promise.all(promises); // Wait for all fetches to complete
+  await Promise.all(promises);
   return polygons;
 };

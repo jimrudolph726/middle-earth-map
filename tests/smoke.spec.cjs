@@ -122,6 +122,26 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
   await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of \d+/i);
 });
 
+test("middle-earth defers GeoJSON overlay requests until a layer is toggled", async ({ page }) => {
+  const geojsonRequests = [];
+  page.on("request", (request) => {
+    if (request.url().includes("/maps/middle_earth/geojson_files/")) {
+      geojsonRequests.push(request.url());
+    }
+  });
+
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.waitForLoadState("networkidle");
+  expect(geojsonRequests).toEqual([]);
+
+  await page.getByRole("tab", { name: /Geography/i }).click();
+  await page.locator("#mountain_rangesCheckbox").check();
+  await expect.poll(() => geojsonRequests.length, {
+    message: "Expected a Middle-earth GeoJSON file to be requested only after a layer is toggled."
+  }).toBeGreaterThan(0);
+});
+
 test("middle-earth story mode uses a collapsible bottom sheet on mobile", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
@@ -296,6 +316,37 @@ test("middle-earth point marker categories share one marker cluster", async ({ p
     allMarkersClustered: true,
     uniqueClusterCount: 1
   });
+});
+
+test("middle-earth shared marker groups reuse cached marker instances across toggles", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.waitForLoadState("networkidle");
+
+  const reusesMarkerInstance = await page.evaluate(async () => {
+    const { getMarkerGroupFromRegistry } = await import("/maps/middle_earth/functions.js");
+    const checkbox = document.getElementById("hobbitsCheckbox");
+
+    if (!checkbox) {
+      throw new Error("Could not find the hobbits checkbox.");
+    }
+
+    checkbox.checked = true;
+    checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+    const firstMarker = getMarkerGroupFromRegistry("hobbits")?.hobbiton;
+
+    checkbox.checked = false;
+    checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+
+    checkbox.checked = true;
+    checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+    const secondMarker = getMarkerGroupFromRegistry("hobbits")?.hobbiton;
+
+    return Boolean(firstMarker) && firstMarker === secondMarker;
+  });
+
+  expect(reusesMarkerInstance).toBe(true);
 });
 
 test("middle-earth markers bounce and fade on hover", async ({ page }) => {
