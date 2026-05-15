@@ -704,3 +704,32 @@ test("family tree renders and opens a character sheet", async ({ page }) => {
   await expect(page.locator("#character-sheet")).toBeVisible();
   await expect(page.locator("#character-sheet-content h1")).toHaveText(/Aragorn II Elessar/i);
 });
+
+test("family tree family groups filter switch view options", async ({ page }) => {
+  await page.goto("/family_tree/family_tree.html?family=elves-men", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#tree-view option")).toHaveText([
+    "All Lineages",
+    "Kings of Arnor",
+    "Kings of Arthedain",
+    "Chieftains of the Dúnedain"
+  ]);
+  await expect(page.locator("#tree-view-title")).toHaveText("All Lineages");
+
+  await page.locator("#tree-view").selectOption("kings_of_arnor");
+  await expect(page.locator("#tree-view-title")).toHaveText("Kings of Arnor");
+  await expect.poll(async () => page.locator(".family-tree-node").count(), {
+    timeout: 30_000,
+    message: "Expected the Kings of Arnor view to render at least one character node."
+  }).toBeGreaterThan(0);
+
+  await page.goto("/family_tree/family_tree.html?family=hobbits", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#tree-view option")).toHaveText([
+    "Baggins",
+    "Tooks",
+    "Brandybucks"
+  ]);
+  await expect(page.locator("#tree-view-title")).toHaveText("Baggins");
+  await expect(page.locator("#tree-empty-state")).toBeVisible();
+});

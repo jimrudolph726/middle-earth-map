@@ -28,7 +28,8 @@ import {
   food,
   drink,
   spiders,
-  ents
+  ents,
+  beornings,
 } from './settlement_item_data.js';
 
 import {
@@ -68,7 +69,7 @@ export const baseTileOptions = {
   keepBuffer: 2,
 };
 
-// Campsites, Settlements, Items
+// Campsites, Settlements, Items, Provisions, Creatures & Beings
 const sharedAtlasMarkerCluster = 'sharedAtlasMarkerCluster';
 
 const campsiteGroups = {
@@ -108,7 +109,8 @@ const provisionGroups = {
 
 const creatures_and_beingsGroups = {
   spiders,
-  ents
+  ents,
+  beornings,
 };
 
 const miscMarkerGroups = {

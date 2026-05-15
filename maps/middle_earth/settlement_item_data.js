@@ -42,6 +42,8 @@ const iconDefinitions = {
   CramIcon: { file: 'cram.png' },
   MiruvorIcon: { file: 'miruvor.png' },
   MirkwoodSpiderIcon: { file: 'mirkwood_spider.png' },
+  BeornIcon: { file: 'beorn.png' },
+  GrimbeornIcon: { file: 'grimbeorn.png' },
 };
 
 export const icons = Object.fromEntries(
@@ -898,7 +900,23 @@ export const ents = {
     icon: icons.SkinbarkIcon,
   },
 }
-
-
-
-
+export const beornings = {
+  beorn: {
+    popup: createSettlementPopup(
+      "Beorn",
+      `Man who could turn into a bear. Beorn was of the race of Men, but he was a skinchanger who had the ability to transform into a large black bear. In his original form as a Man, Beorn was large with strong arms and legs and he had black hair, bushy eyebrows, and a beard.`,
+      "https://thainsbook.minastirith.cz/othermen.html#Beorn"
+    ),
+    coords: [44.9472183,-93.3037138],
+    icon: icons.BeornIcon,
+  },
+  grimbeorn: {
+    popup: createSettlementPopup(
+      "Grimbeorn",
+      `Leader of the Beornings during the War of the Ring. Grimbeorn was the son of Beorn - a Man with the ability to change into the form of a bear. Beorn's descendants were said to have this ability for many generations, so Grimbeorn may also have been a skinchanger.`,
+      "https://thainsbook.minastirith.cz/othermen.html#Grimbeorn"
+    ),
+    coords: [44.9472368,-93.3034159],
+    icon: icons.GrimbeornIcon,
+  },
+}

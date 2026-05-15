@@ -63,6 +63,7 @@
   const portraitLightboxImage = document.getElementById("portrait-lightbox-image");
   const portraitLightboxCaption = document.getElementById("portrait-lightbox-caption");
   const portraitLightboxClose = document.getElementById("portrait-lightbox-close");
+  const familyTreeGroupLinks = Array.from(document.querySelectorAll("[data-family-tree-group-link]"));
 
   const cardWidth = 210;
   const cardHeight = 126;
@@ -93,12 +94,14 @@
   const layoutDraftStorageKey = "middle-earth-family-tree-layout-drafts-v1";
   const treeDataUrl = "family_tree_data.json";
   const treeLayoutsUrl = "family_tree_layouts.json";
+  const defaultFamilyGroupId = "elves-men";
   let fileLayouts = window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} };
 
   const elk = window.ELK ? new window.ELK() : null;
 
   const state = {
     indexes: null,
+    currentFamilyGroupId: null,
     currentViewId: null,
     currentRawProjection: null,
     currentProjection: null,
@@ -441,6 +444,7 @@
 
     return {
       defaults: cloneJson(dataset.defaults || {}),
+      familyGroups: cloneJson(dataset.familyGroups || {}),
       people: normalizedPeople,
       unions: getSortedUnionEntries(dataset).map((union) => cloneJson(union)),
       views: cloneJson(dataset.views || {})
@@ -602,6 +606,15 @@
     buildIndexes(normalizedData);
     data = normalizedData;
     state.indexes = buildIndexes();
+    state.currentFamilyGroupId = getFamilyGroups()[state.currentFamilyGroupId]
+      ? state.currentFamilyGroupId
+      : getInitialFamilyGroupId();
+    if (state.currentViewId && (!data.views[state.currentViewId] || !viewBelongsToFamilyGroup(data.views[state.currentViewId], state.currentFamilyGroupId))) {
+      state.currentViewId = getDefaultViewIdForFamilyGroup(state.currentFamilyGroupId);
+    }
+    populateViewSelect();
+    syncFamilyGroupLinks();
+    syncLayoutEditorLink();
     refreshLayoutEditorData();
     saveDataDraft();
     saveLayoutDrafts();
@@ -2465,8 +2478,163 @@
     return layout;
   }
 
+  function getFamilyGroups() {
+    const familyGroups = data?.familyGroups;
+    if (familyGroups && typeof familyGroups === "object" && Object.keys(familyGroups).length > 0) {
+      return familyGroups;
+    }
+
+    return {
+      [defaultFamilyGroupId]: {
+        label: "Elves and Men",
+        defaultView: data?.defaults?.initialView || null,
+        order: 1
+      }
+    };
+  }
+
+  function getDefaultFamilyGroupId() {
+    const familyGroups = getFamilyGroups();
+    const defaultGroupId = data?.defaults?.initialFamilyGroup;
+
+    if (defaultGroupId && familyGroups[defaultGroupId]) {
+      return defaultGroupId;
+    }
+
+    const initialView = data?.views?.[data?.defaults?.initialView];
+    if (initialView?.familyGroup && familyGroups[initialView.familyGroup]) {
+      return initialView.familyGroup;
+    }
+
+    return Object.keys(familyGroups)[0] || defaultFamilyGroupId;
+  }
+
+  function getViewFamilyGroupId(view) {
+    const familyGroups = getFamilyGroups();
+    if (view?.familyGroup && familyGroups[view.familyGroup]) {
+      return view.familyGroup;
+    }
+
+    return getDefaultFamilyGroupId();
+  }
+
+  function viewBelongsToFamilyGroup(view, familyGroupId) {
+    return getViewFamilyGroupId(view) === familyGroupId;
+  }
+
+  function compareViewEntries(leftEntry, rightEntry) {
+    const [, leftView] = leftEntry;
+    const [, rightView] = rightEntry;
+    const leftOrder = leftView.order ?? Number.MAX_SAFE_INTEGER;
+    const rightOrder = rightView.order ?? Number.MAX_SAFE_INTEGER;
+
+    if (leftOrder !== rightOrder) {
+      return leftOrder - rightOrder;
+    }
+
+    return String(leftView.label || leftEntry[0]).localeCompare(String(rightView.label || rightEntry[0]));
+  }
+
+  function getViewsForFamilyGroup(familyGroupId = state.currentFamilyGroupId || getDefaultFamilyGroupId()) {
+    return Object.entries(data?.views || {})
+      .filter(([, view]) => viewBelongsToFamilyGroup(view, familyGroupId))
+      .sort(compareViewEntries);
+  }
+
+  function getDefaultViewIdForFamilyGroup(familyGroupId = state.currentFamilyGroupId || getDefaultFamilyGroupId()) {
+    const familyGroup = getFamilyGroups()[familyGroupId] || null;
+    const defaultViewId = familyGroup?.defaultView;
+
+    if (defaultViewId && data.views[defaultViewId] && viewBelongsToFamilyGroup(data.views[defaultViewId], familyGroupId)) {
+      return defaultViewId;
+    }
+
+    if (data.defaults?.initialView && data.views[data.defaults.initialView] && viewBelongsToFamilyGroup(data.views[data.defaults.initialView], familyGroupId)) {
+      return data.defaults.initialView;
+    }
+
+    return getViewsForFamilyGroup(familyGroupId)[0]?.[0] || null;
+  }
+
+  function getInitialFamilyGroupId() {
+    const params = new URLSearchParams(window.location.search);
+    const requestedFamilyGroup = params.get("family");
+    const familyGroups = getFamilyGroups();
+
+    if (requestedFamilyGroup && familyGroups[requestedFamilyGroup]) {
+      return requestedFamilyGroup;
+    }
+
+    const requestedView = params.get("view");
+    if (requestedView && data.views[requestedView]) {
+      return getViewFamilyGroupId(data.views[requestedView]);
+    }
+
+    return getDefaultFamilyGroupId();
+  }
+
+  function buildFamilyTreeHref({ familyGroupId = null, viewId = null, editor = false } = {}) {
+    const params = new URLSearchParams();
+
+    if (familyGroupId) {
+      params.set("family", familyGroupId);
+    }
+
+    if (viewId) {
+      params.set("view", viewId);
+    }
+
+    if (editor) {
+      params.set("editor", "1");
+    }
+
+    const query = params.toString();
+    return query ? `family_tree.html?${query}` : "family_tree.html";
+  }
+
+  function syncFamilyGroupLinks() {
+    familyTreeGroupLinks.forEach((link) => {
+      const familyGroupId = link.getAttribute("data-family-tree-group-link");
+      const isCurrent = familyGroupId === state.currentFamilyGroupId;
+
+      link.classList.toggle("atlas-map-nav__link--current", isCurrent);
+      if (isCurrent) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+
+      link.setAttribute("href", buildFamilyTreeHref({ familyGroupId }));
+    });
+  }
+
+  function syncLayoutEditorLink() {
+    if (!layoutEditorLink) {
+      return;
+    }
+
+    const viewId = state.currentViewId || getDefaultViewIdForFamilyGroup(state.currentFamilyGroupId);
+    layoutEditorLink.setAttribute("href", buildFamilyTreeHref({
+      familyGroupId: state.currentFamilyGroupId,
+      viewId,
+      editor: !state.layoutEditor.available
+    }));
+
+    const label = layoutEditorLink.querySelector("span");
+    if (label) {
+      label.textContent = state.layoutEditor.available ? "Tree Mode" : "Layout Studio";
+    }
+  }
+
   function syncViewQueryParam(viewId) {
     const url = new URL(window.location.href);
+    const view = data.views[viewId];
+    const familyGroupId = view ? getViewFamilyGroupId(view) : state.currentFamilyGroupId;
+
+    if (familyGroupId) {
+      url.searchParams.set("family", familyGroupId);
+    }
+
     url.searchParams.set("view", viewId);
     window.history.replaceState({}, "", url);
   }
@@ -2474,11 +2642,19 @@
   function getInitialViewId() {
     const params = new URLSearchParams(window.location.search);
     const requestedView = params.get("view");
-    return data.views[requestedView] ? requestedView : data.defaults.initialView;
+    const familyGroupId = state.currentFamilyGroupId || getInitialFamilyGroupId();
+
+    if (requestedView && data.views[requestedView] && viewBelongsToFamilyGroup(data.views[requestedView], familyGroupId)) {
+      return requestedView;
+    }
+
+    return getDefaultViewIdForFamilyGroup(familyGroupId) || data.defaults.initialView;
   }
 
   function populateViewSelect() {
-    Object.entries(data.views).forEach(([viewId, view]) => {
+    viewSelect.innerHTML = "";
+
+    getViewsForFamilyGroup().forEach(([viewId, view]) => {
       const option = document.createElement("option");
       option.value = viewId;
       option.textContent = view.label;
@@ -3475,12 +3651,28 @@
     clearError();
 
     const viewId = options.viewId || state.currentViewId || getInitialViewId();
+    const view = data.views[viewId];
+    if (!view) {
+      throw new Error(`Unknown family tree view "${viewId}".`);
+    }
+
     const switchingView = state.currentViewId !== viewId;
+    const nextFamilyGroupId = getViewFamilyGroupId(view);
+    const switchingFamilyGroup = state.currentFamilyGroupId !== nextFamilyGroupId;
+
+    state.currentFamilyGroupId = nextFamilyGroupId;
     state.currentViewId = viewId;
 
     if (switchingView && !options.preserveCollapsed) {
       state.collapsedIds.clear();
     }
+
+    if (switchingFamilyGroup) {
+      populateViewSelect();
+    }
+
+    syncFamilyGroupLinks();
+    syncLayoutEditorLink();
 
     const seededProjection = projectView(viewId);
     const rawProjection = applyViewFilters(seededProjection);
@@ -3567,20 +3759,15 @@
       state.layoutEditor.draggingEnabled = state.layoutEditor.available;
       state.layoutEditor.drafts = loadLayoutDrafts();
       state.indexes = buildIndexes();
+      state.currentFamilyGroupId = getInitialFamilyGroupId();
       state.scene = initializeScene();
       populateViewSelect();
+      syncFamilyGroupLinks();
+      syncLayoutEditorLink();
       refreshLayoutEditorData();
       clearPersonEditor();
       clearUnionEditor();
       updateLayoutEditorChrome();
-
-      if (layoutEditorLink && state.layoutEditor.available) {
-        layoutEditorLink.setAttribute("href", "family_tree.html");
-        const label = layoutEditorLink.querySelector("span");
-        if (label) {
-          label.textContent = "Tree Mode";
-        }
-      }
 
       if (state.layoutEditor.available) {
         setLayoutEditorStatus(hasAnyDraftLayouts()
