@@ -36,6 +36,9 @@ const iconDefinitions = {
   TreebeardIcon: { file: 'treebeard.png' },
   QuickbeamIcon: { file: 'quickbeam.png' },
   BeechboneIcon: { file: 'beechbone.png' },
+  FimbrethilIcon: { file: 'fimbrethil.png' },
+  LeaflockIcon: { file: 'leaflock.png' },
+  SkinbarkIcon: { file: 'skinbark.png' },
   CramIcon: { file: 'cram.png' },
   MiruvorIcon: { file: 'miruvor.png' },
   MirkwoodSpiderIcon: { file: 'mirkwood_spider.png' },
@@ -867,6 +870,35 @@ export const ents = {
     coords: [44.9435087,-93.3056235],
     icon: icons.BeechboneIcon,
   },
+  fimbrethil: {
+    popup: createSettlementPopup(
+      "Fimbrethil",
+      `Ent of Fangorn Forest. Beechbone was a tall and handsome Ent. On 3 March T.A. 3019[1] he was caught in a burning spray sent up by Saruman from beneath the Ring of Isengard, but his fiery end brought his fellow Ents to the peak of their destructive anger.`,
+      "https://thainsbook.minastirith.cz/otherbeings.html#Fimbrethil"
+    ),
+    coords: [44.943681,-93.302003],
+    icon: icons.FimbrethilIcon,
+  },
+  leaflock: {
+    popup: createSettlementPopup(
+      "Leaflock",
+      `Ent of Fangorn Forest. Leaflock was one of the oldest Ents at the end of the Third Age. Leaflock, Skinbark, and Treebeard were the only ones left of the first Ents in Middle-earth. By the time of the War of the Ring, Leaflock had become sleepy and treeish. He stood alone in a meadow and dozed during the summer. At first he would awake in wintertime, but eventually he remained in place year-round. He was covered in leafy hair.`,
+      "https://thainsbook.minastirith.cz/otherbeings.html#Leaflock"
+    ),
+    coords: [44.9437775,-93.3046530],
+    icon: icons.LeaflockIcon,
+  },
+  skinbark: {
+    popup: createSettlementPopup(
+      "Skinbark",
+      `Ent of Fangorn Forest. Skinbark was one of the first Ents in Middle-earth. By the end of the Third Age, only he, Leaflock, and Treebeard remained of the original Ents.`,
+      "https://thainsbook.minastirith.cz/otherbeings.html#Skinbark"
+    ),
+    coords: [44.9432176,-93.3056131],
+    icon: icons.SkinbarkIcon,
+  },
 }
+
+
 
 
