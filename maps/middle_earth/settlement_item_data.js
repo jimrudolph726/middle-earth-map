@@ -34,6 +34,7 @@ const iconUrls = {
   ent_draughts: new URL('./assets/ent_draughts.png', import.meta.url).href,
   shelob: new URL('./assets/shelob.png', import.meta.url).href,
   treebeard: new URL('./assets/treebeard.png', import.meta.url).href,
+  cram: new URL('./assets/cram.png', import.meta.url).href,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -65,6 +66,7 @@ LembasIcon: createIcon(iconUrls.lembas),
 EntDraughtsIcon: createIcon(iconUrls.ent_draughts),
 ShelobIcon: createIcon(iconUrls.shelob),
 TreebeardIcon: createIcon(iconUrls.treebeard),
+CramIcon: createIcon(iconUrls.cram),
 };
 
 // Settlements
@@ -804,6 +806,15 @@ export const food = {
     ),
     coords: [44.9446710,-93.3044639],
     icon: icons.LembasIcon,
+  },
+  cram: {
+    popup: createSettlementPopup(
+      "Cram",
+      `Waybread made by the Men of Dale and Lake-town. Cram was used by travelers on long journeys. It was made in the form of compact cakes that lasted indefinitely. `,
+      "https://thainsbook.minastirith.cz/food.html#Cram"
+    ),
+    coords: [44.9479200,-93.3006715],
+    icon: icons.CramIcon,
   },
 }
 export const drink = {
