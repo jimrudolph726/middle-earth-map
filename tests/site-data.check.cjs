@@ -112,3 +112,59 @@ test("local html anchor links point at existing files", () => {
 
   expectNoErrors(errors);
 });
+
+test("core third-party browser dependencies are served from local plugin files", () => {
+  const errors = [];
+  const dependencyChecks = [
+    {
+      htmlPath: path.join(repoRoot, "maps", "middle_earth", "middle-earth.html"),
+      requiredRefs: [
+        "../../plugins/MarkerCluster.css",
+        "../../plugins/MarkerCluster.Default.css",
+        "../../plugins/click-tolerance.js",
+        "../../plugins/leaflet.markercluster.js"
+      ],
+      forbiddenRefs: [
+        "https://unpkg.com/leaflet-clicktolerance/src/index.js",
+        "https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js",
+        "https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css",
+        "https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
+      ]
+    },
+    {
+      htmlPath: path.join(repoRoot, "family_tree", "family_tree.html"),
+      requiredRefs: [
+        "../plugins/d3.v7.min.js",
+        "../plugins/elk.bundled.js"
+      ],
+      forbiddenRefs: [
+        "https://d3js.org/d3.v7.min.js",
+        "https://cdn.jsdelivr.net/npm/elkjs/lib/elk.bundled.js"
+      ]
+    }
+  ];
+
+  dependencyChecks.forEach(({ htmlPath, requiredRefs, forbiddenRefs }) => {
+    const html = fs.readFileSync(htmlPath, "utf8");
+    const relativeHtmlPath = path.relative(repoRoot, htmlPath);
+
+    requiredRefs.forEach((ref) => {
+      if (!html.includes(ref)) {
+        errors.push(`${relativeHtmlPath} is missing local dependency reference: ${ref}`);
+      }
+
+      const targetPath = path.resolve(path.dirname(htmlPath), ref);
+      if (!fs.existsSync(targetPath)) {
+        errors.push(`${relativeHtmlPath} points at missing local dependency file: ${ref}`);
+      }
+    });
+
+    forbiddenRefs.forEach((ref) => {
+      if (html.includes(ref)) {
+        errors.push(`${relativeHtmlPath} still references external dependency URL: ${ref}`);
+      }
+    });
+  });
+
+  expectNoErrors(errors);
+});
