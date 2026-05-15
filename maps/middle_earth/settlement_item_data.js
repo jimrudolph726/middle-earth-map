@@ -35,6 +35,7 @@ const iconUrls = {
   shelob: new URL('./assets/shelob.png', import.meta.url).href,
   treebeard: new URL('./assets/treebeard.png', import.meta.url).href,
   cram: new URL('./assets/cram.png', import.meta.url).href,
+  miruvor: new URL('./assets/miruvor.png', import.meta.url).href,
 };
 export const icons = {
 HobbitsIcon: createIcon(iconUrls.hobbits),
@@ -67,6 +68,7 @@ EntDraughtsIcon: createIcon(iconUrls.ent_draughts),
 ShelobIcon: createIcon(iconUrls.shelob),
 TreebeardIcon: createIcon(iconUrls.treebeard),
 CramIcon: createIcon(iconUrls.cram),
+MiruvorIcon: createIcon(iconUrls.miruvor),
 };
 
 // Settlements
@@ -826,6 +828,15 @@ export const drink = {
     ),
     coords: [44.9434852,-93.3051897],
     icon: icons.EntDraughtsIcon,
+  },
+  miruvor: {
+    popup: createSettlementPopup(
+      "Miruvor",
+      `Cordial of the Elves. Miruvor was a warm and fragrant clear liquid. Its special property was to give the drinker renewed strength and vitality. Miruvor was used by the Elves at their festivals.`,
+      "https://thainsbook.minastirith.cz/food.html#Miruvor"
+    ),
+    coords: [44.94676388,-93.30551420],
+    icon: icons.MiruvorIcon,
   },
 }
 
