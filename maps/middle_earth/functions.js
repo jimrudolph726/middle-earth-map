@@ -94,6 +94,12 @@ const lorePopupOptions = {
   autoPanPadding: [24, 24],
 };
 
+// Marker functions
+const markerRegistry = new Map();
+let campsiteHoverPopupsEnabled = true;
+const MARKER_HOVER_CLASS = 'atlas-marker-icon--hover';
+const MARKER_HOVER_BOUNCE_CLASS = 'atlas-marker-icon--hover-bounce';
+
 export const createMarkerClusterGroup = (options = {}) => {
   return L.markerClusterGroup({
     showCoverageOnHover: false,
@@ -104,11 +110,6 @@ export const createMarkerClusterGroup = (options = {}) => {
     ...options,
   });
 };
-
-const markerRegistry = new Map();
-let campsiteHoverPopupsEnabled = true;
-const MARKER_HOVER_CLASS = 'atlas-marker-icon--hover';
-const MARKER_HOVER_BOUNCE_CLASS = 'atlas-marker-icon--hover-bounce';
 
 export const setCampsiteHoverPopupsEnabled = (enabled) => {
   campsiteHoverPopupsEnabled = enabled;
@@ -132,6 +133,14 @@ export const getOrBuildMarkers = (locations, campsite = 'no', groupName = null) 
   }
 
   return buildMarkers(locations, campsite, groupName);
+};
+
+const isCampsiteMarkerGroup = (campsite) => campsite === 'campsite';
+
+const getMarkerPopupOptions = (campsite) => {
+  return isCampsiteMarkerGroup(campsite)
+    ? campsitePopupOptions
+    : lorePopupOptions;
 };
 
 const updateMarkerHoverState = (marker, isHovering = false) => {
@@ -175,31 +184,38 @@ const attachMarkerHoverAnimation = (marker) => {
   });
 };
 
-export const buildMarkers = (locations, campsite = 'no', groupName = null) => {
-  const markers = Object.keys(locations).reduce((acc, key) => {
-    const { coords, icon, popup } = locations[key];
-
-    const popupOptions = campsite == 'campsite'
-      ? campsitePopupOptions
-      : lorePopupOptions;
-
-    const marker = L.marker(coords, { icon }).bindPopup(popup, { ...popupOptions });
-    attachMarkerHoverAnimation(marker);
-
-    if (campsite == 'campsite') {
-      marker.on('mouseover', () => {
-        if (campsiteHoverPopupsEnabled) {
-          marker.openPopup();
-        }
-      });
-      marker.on('mouseout', () => {
-        if (campsiteHoverPopupsEnabled) {
-          marker.closePopup();
-        }
-      });
+const attachCampsiteHoverPopup = (marker) => {
+  marker.on('mouseover', () => {
+    if (campsiteHoverPopupsEnabled) {
+      marker.openPopup();
     }
+  });
 
-    acc[key] = marker;
+  marker.on('mouseout', () => {
+    if (campsiteHoverPopupsEnabled) {
+      marker.closePopup();
+    }
+  });
+};
+
+const createMarker = (location, campsite = 'no') => {
+  const { coords, icon, popup } = location;
+  const marker = L.marker(coords, { icon }).bindPopup(popup, {
+    ...getMarkerPopupOptions(campsite),
+  });
+
+  attachMarkerHoverAnimation(marker);
+
+  if (isCampsiteMarkerGroup(campsite)) {
+    attachCampsiteHoverPopup(marker);
+  }
+
+  return marker;
+};
+
+export const buildMarkers = (locations, campsite = 'no', groupName = null) => {
+  const markers = Object.entries(locations).reduce((acc, [key, location]) => {
+    acc[key] = createMarker(location, campsite);
     return acc;
   }, {});
 
@@ -208,6 +224,23 @@ export const buildMarkers = (locations, campsite = 'no', groupName = null) => {
   }
 
   return markers;
+};
+
+export const createMarkers = (locations, campsite = 'no', clusterGroup = null, groupName = null) => {
+  return new Promise((resolve) => {
+    const markers = getOrBuildMarkers(locations, campsite, groupName);
+
+    Object.values(markers).forEach((marker) => {
+      if (clusterGroup) {
+        clusterGroup.addLayer(marker);
+      }
+    });
+
+    resolve({
+      markers,
+      clusterGroup
+    });
+  });
 };
 
 // Checkbox listener functions
@@ -281,24 +314,6 @@ export const PathListeners = (items, map) => {
         }
       });
     }
-  });
-};
-
-// Campsites and Settlements function
-export const createMarkers = (locations, campsite = 'no', clusterGroup = null, groupName = null) => {
-  return new Promise((resolve) => {
-    const markers = getOrBuildMarkers(locations, campsite, groupName);
-
-    Object.values(markers).forEach((marker) => {
-      if (clusterGroup) {
-        clusterGroup.addLayer(marker);
-      }
-    });
-
-    resolve({
-      markers,
-      clusterGroup
-    });
   });
 };
 
