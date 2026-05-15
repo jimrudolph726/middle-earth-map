@@ -99,6 +99,7 @@ const markerRegistry = new Map();
 let campsiteHoverPopupsEnabled = true;
 const MARKER_HOVER_CLASS = 'atlas-marker-icon--hover';
 const MARKER_HOVER_BOUNCE_CLASS = 'atlas-marker-icon--hover-bounce';
+const TOUCH_HOVER_SUPPRESSION_MS = 900;
 
 export const createMarkerClusterGroup = (options = {}) => {
   return L.markerClusterGroup({
@@ -143,6 +144,18 @@ const getMarkerPopupOptions = (campsite) => {
     : lorePopupOptions;
 };
 
+const usesTouchFirstPointer = () => {
+  return window.matchMedia?.('(hover: none), (pointer: coarse)')?.matches ?? false;
+};
+
+const isTouchLikeMarkerEvent = (event) => {
+  const originalEvent = event?.originalEvent;
+
+  return originalEvent?.pointerType === 'touch'
+    || originalEvent?.type?.startsWith('touch')
+    || originalEvent?.sourceCapabilities?.firesTouchEvents === true;
+};
+
 const updateMarkerHoverState = (marker, isHovering = false) => {
   marker.setOpacity(isHovering ? 0.5 : 1);
 
@@ -185,14 +198,88 @@ const attachMarkerHoverAnimation = (marker) => {
 };
 
 const attachCampsiteHoverPopup = (marker) => {
-  marker.on('mouseover', () => {
+  let ignoreSyntheticHoverUntil = 0;
+  const markTouchInteraction = () => {
+    ignoreSyntheticHoverUntil = Date.now() + TOUCH_HOVER_SUPPRESSION_MS;
+  };
+  const shouldSkipHoverClose = (event) => {
+    return isTouchLikeMarkerEvent(event)
+      || usesTouchFirstPointer()
+      || Date.now() < ignoreSyntheticHoverUntil;
+  };
+  const openCampsitePopup = ({ defer = false } = {}) => {
     if (campsiteHoverPopupsEnabled) {
+      if (defer) {
+        window.requestAnimationFrame(() => {
+          marker.openPopup();
+        });
+        return;
+      }
+
       marker.openPopup();
     }
+  };
+  const openCampsitePopupFromTouch = (originalEvent = null) => {
+    markTouchInteraction();
+    if (originalEvent) {
+      L.DomEvent.stop(originalEvent);
+    }
+    openCampsitePopup({ defer: true });
+  };
+  const handleTouchPointerActivation = (event) => {
+    if (event?.pointerType && event.pointerType !== 'touch') {
+      return;
+    }
+
+    openCampsitePopupFromTouch(event);
+  };
+
+  marker.on('add', () => {
+    const markerElement = marker.getElement();
+
+    if (!markerElement) {
+      return;
+    }
+
+    L.DomEvent.on(markerElement, 'touchend', handleTouchPointerActivation);
+    L.DomEvent.on(markerElement, 'pointerup', handleTouchPointerActivation);
   });
 
-  marker.on('mouseout', () => {
-    if (campsiteHoverPopupsEnabled) {
+  marker.on('remove', () => {
+    const markerElement = marker.getElement();
+
+    if (!markerElement) {
+      return;
+    }
+
+    L.DomEvent.off(markerElement, 'touchend', handleTouchPointerActivation);
+    L.DomEvent.off(markerElement, 'pointerup', handleTouchPointerActivation);
+  });
+
+  marker.on('touchstart', () => {
+    markTouchInteraction();
+  });
+
+  marker.on('click', (event) => {
+    if (!isTouchLikeMarkerEvent(event) && !usesTouchFirstPointer()) {
+      return;
+    }
+
+    openCampsitePopupFromTouch(event.originalEvent);
+  });
+
+  marker.on('mouseover', (event) => {
+    if (isTouchLikeMarkerEvent(event) || usesTouchFirstPointer()) {
+      markTouchInteraction();
+      openCampsitePopup({ defer: true });
+      return;
+    }
+
+    openCampsitePopup();
+  });
+
+  marker.on('mouseout', (event) => {
+    if (!shouldSkipHoverClose(event) && campsiteHoverPopupsEnabled) {
       marker.closePopup();
     }
   });

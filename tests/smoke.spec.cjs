@@ -419,6 +419,170 @@ test("middle-earth markers bounce and fade on hover", async ({ page }) => {
   expect(resetState.hasBounceClass).toBe(false);
 });
 
+test("middle-earth campsite popups still open and close on desktop hover", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#map.leaflet-container")).toBeVisible();
+  await page.waitForLoadState("networkidle");
+
+  await page.evaluate(() => {
+    const checkbox = document.getElementById("samfrodocampsitesCheckbox");
+
+    if (!checkbox) {
+      throw new Error("Could not find the Sam and Frodo campsites checkbox.");
+    }
+
+    checkbox.checked = true;
+    checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+  });
+
+  await expect.poll(async () => {
+    return page.evaluate(async () => {
+      const [{ getMarkerFromRegistry }, { map }] = await Promise.all([
+        import("/maps/middle_earth/functions.js"),
+        import("/maps/middle_earth/variables.js")
+      ]);
+      const marker = getMarkerFromRegistry("samfrodocampsites", "September23");
+
+      if (!marker) {
+        return false;
+      }
+
+      map.setView(marker.getLatLng(), 19, { animate: false });
+      return Boolean(marker.getElement());
+    });
+  }, {
+    message: "Expected the first Sam and Frodo campsite marker to become available on the map."
+  }).toBe(true);
+
+  await page.evaluate(async () => {
+    const { getMarkerFromRegistry } = await import("/maps/middle_earth/functions.js");
+    getMarkerFromRegistry("samfrodocampsites", "September23").fire("mouseover");
+  });
+  await expect(page.locator(".campsite-popup")).toBeVisible();
+
+  await page.evaluate(async () => {
+    const { getMarkerFromRegistry } = await import("/maps/middle_earth/functions.js");
+    getMarkerFromRegistry("samfrodocampsites", "September23").fire("mouseout");
+  });
+  await expect(page.locator(".campsite-popup")).toBeHidden();
+});
+
+test.describe("mobile campsite interactions", () => {
+  test.use({
+    hasTouch: true,
+    isMobile: true,
+    viewport: { width: 390, height: 844 }
+  });
+
+  test("middle-earth campsite popups open with one mobile tap", async ({ page }) => {
+    await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+    await expect(page.locator("#map.leaflet-container")).toBeVisible();
+    await page.waitForLoadState("networkidle");
+
+    await page.evaluate(() => {
+      const checkbox = document.getElementById("samfrodocampsitesCheckbox");
+
+      if (!checkbox) {
+        throw new Error("Could not find the Sam and Frodo campsites checkbox.");
+      }
+
+      checkbox.checked = true;
+      checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    let tapPoint = null;
+    await expect.poll(async () => {
+      tapPoint = await page.evaluate(async () => {
+        const [{ getMarkerFromRegistry }, { map }] = await Promise.all([
+          import("/maps/middle_earth/functions.js"),
+          import("/maps/middle_earth/variables.js")
+        ]);
+        const marker = getMarkerFromRegistry("samfrodocampsites", "September23");
+
+        if (!marker) {
+          return null;
+        }
+
+        map.setView(marker.getLatLng(), 19, { animate: false });
+        await new Promise((resolve) => window.requestAnimationFrame(() => resolve()));
+
+        const markerElement = marker.getElement();
+
+        if (!markerElement) {
+          return null;
+        }
+
+        const markerBox = markerElement.getBoundingClientRect();
+
+        if (markerBox.width === 0 || markerBox.height === 0) {
+          return null;
+        }
+
+        return {
+          x: markerBox.left + (markerBox.width / 2),
+          y: markerBox.top + (markerBox.height / 2)
+        };
+      });
+
+      return Boolean(tapPoint);
+    }, {
+      message: "Expected the first Sam and Frodo campsite marker to be tappable on mobile."
+    }).toBe(true);
+
+    await page.touchscreen.tap(tapPoint.x, tapPoint.y);
+    await expect(page.locator(".campsite-popup")).toBeVisible();
+  });
+
+  test("middle-earth campsite popups survive mobile synthetic hover events", async ({ page }) => {
+    await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+    await expect(page.locator("#map.leaflet-container")).toBeVisible();
+    await page.waitForLoadState("networkidle");
+
+    await page.evaluate(() => {
+      const checkbox = document.getElementById("samfrodocampsitesCheckbox");
+
+      if (!checkbox) {
+        throw new Error("Could not find the Sam and Frodo campsites checkbox.");
+      }
+
+      checkbox.checked = true;
+      checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    await expect.poll(async () => {
+      return page.evaluate(async () => {
+        const [{ getMarkerFromRegistry }, { map }] = await Promise.all([
+          import("/maps/middle_earth/functions.js"),
+          import("/maps/middle_earth/variables.js")
+        ]);
+        const marker = getMarkerFromRegistry("samfrodocampsites", "September23");
+
+        if (!marker) {
+          return false;
+        }
+
+        map.setView(marker.getLatLng(), 19, { animate: false });
+        await new Promise((resolve) => window.requestAnimationFrame(() => resolve()));
+        return Boolean(marker.getElement());
+      });
+    }, {
+      message: "Expected the first Sam and Frodo campsite marker to become available on mobile."
+    }).toBe(true);
+
+    await page.evaluate(async () => {
+      const { getMarkerFromRegistry } = await import("/maps/middle_earth/functions.js");
+      const marker = getMarkerFromRegistry("samfrodocampsites", "September23");
+      marker.fire("mouseover");
+      marker.fire("mouseout");
+    });
+
+    await expect(page.locator(".campsite-popup")).toBeVisible();
+  });
+});
+
 test("long settlement popups stay usable on narrow screens", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
