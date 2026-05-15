@@ -36,6 +36,7 @@ const iconDefinitions = {
   TreebeardIcon: { file: 'treebeard.png' },
   CramIcon: { file: 'cram.png' },
   MiruvorIcon: { file: 'miruvor.png' },
+  MirkwoodSpiderIcon: { file: 'mirkwood_spider.png' },
 };
 
 export const icons = Object.fromEntries(
@@ -826,6 +827,15 @@ export const spiders = {
     coords: [44.9409524,-93.3000632],
     icon: icons.ShelobIcon,
   },
+  mirkwood_spider: {
+    popup: createSettlementPopup(
+      "Great Spiders of Mirkwood",
+      `Descendants of Shelob. The Great Spiders of Mirkwood were not as powerful as Shelob, but they were still large and terrible creatures. Shelob had numerous spawn, and her mates included her own offspring.`,
+      "https://thainsbook.minastirith.cz/creatures.html#Spiders-Mirkwood"
+    ),
+    coords: [44.9477412,-93.3027102],
+    icon: icons.MirkwoodSpiderIcon,
+  },
 }
 export const ents = {
   treebeard: {
@@ -838,4 +848,5 @@ export const ents = {
     icon: icons.TreebeardIcon,
   },
 }
+
 
