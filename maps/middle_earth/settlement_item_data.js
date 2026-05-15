@@ -34,6 +34,8 @@ const iconDefinitions = {
   EntDraughtsIcon: { file: 'ent_draughts.png' },
   ShelobIcon: { file: 'shelob.png' },
   TreebeardIcon: { file: 'treebeard.png' },
+  QuickbeamIcon: { file: 'quickbeam.png' },
+  BeechboneIcon: { file: 'beechbone.png' },
   CramIcon: { file: 'cram.png' },
   MiruvorIcon: { file: 'miruvor.png' },
   MirkwoodSpiderIcon: { file: 'mirkwood_spider.png' },
@@ -846,6 +848,24 @@ export const ents = {
     ),
     coords: [44.9434298,-93.3053104],
     icon: icons.TreebeardIcon,
+  },
+  quickbeam: {
+    popup: createSettlementPopup(
+      "Quickbeam",
+      `Quickbeam, or in Sindarin Bregalad, was one of the younger Ents of Fangorn Forest belonging to the people of Skinbark. His name was given because of his uncharacteristic hastiness. Quickbeam was the first Ent to decide to go to war against Saruman, and he participated in the destruction of Isengard.`,
+      "https://thainsbook.minastirith.cz/otherbeings.html#Quickbeam"
+    ),
+    coords: [44.9438170,-93.3053517],
+    icon: icons.QuickbeamIcon,
+  },
+  beechbone: {
+    popup: createSettlementPopup(
+      "Beechbone",
+      `Ent of Fangorn Forest. Beechbone was a tall and handsome Ent. On 3 March T.A. 3019[1] he was caught in a burning spray sent up by Saruman from beneath the Ring of Isengard, but his fiery end brought his fellow Ents to the peak of their destructive anger.`,
+      "https://thainsbook.minastirith.cz/otherbeings.html#Beechbone"
+    ),
+    coords: [44.9435087,-93.3056235],
+    icon: icons.BeechboneIcon,
   },
 }
 
