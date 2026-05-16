@@ -1,0 +1,125 @@
+{
+  "defaults": {
+    "initialView": "hobbit_baggins"
+  },
+  "people": {
+    "bungo_baggins": {
+      "id": "bungo_baggins",
+      "name": "Bungo Baggins",
+      "sex": "male",
+      "kindred": "Hobbit",
+      "groups": [
+        "hobbits",
+        "baggins"
+      ],
+      "title": "Father of Bilbo Baggins",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "T.A. 2846",
+      "died": "T.A. 2926",
+      "bio": "Bungo Baggins was a respectable Baggins of Hobbiton and the father of Bilbo Baggins.",
+      "order": 10
+    },
+    "belladonna_took": {
+      "id": "belladonna_took",
+      "name": "Belladonna Took",
+      "sex": "female",
+      "kindred": "Hobbit",
+      "groups": [
+        "hobbits",
+        "tooks"
+      ],
+      "title": "Mother of Bilbo Baggins",
+      "house": "Took",
+      "realm": "The Shire",
+      "born": "T.A. 2852",
+      "died": "T.A. 2934",
+      "bio": "Belladonna Took was one of the daughters of the Old Took and the mother of Bilbo Baggins.",
+      "order": 20
+    },
+    "bilbo_baggins": {
+      "id": "bilbo_baggins",
+      "name": "Bilbo Baggins",
+      "sex": "male",
+      "kindred": "Hobbit",
+      "groups": [
+        "hobbits",
+        "baggins",
+        "tooks"
+      ],
+      "title": "Adventurer of the Shire",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "T.A. 2890",
+      "died": "Sailed West in T.A. 3021",
+      "bio": "Bilbo Baggins was the son of Bungo Baggins and Belladonna Took, and the unlikely adventurer who found the One Ring.",
+      "order": 30
+    }
+  },
+  "unions": [
+    {
+      "id": "union_bungo_belladonna",
+      "partners": [
+        "bungo_baggins",
+        "belladonna_took"
+      ],
+      "children": [
+        "bilbo_baggins"
+      ],
+      "lineagePartner": "bungo_baggins",
+      "lineageChild": "bilbo_baggins",
+      "childOrder": [
+        "bilbo_baggins"
+      ],
+      "label": "Marriage",
+      "order": 1
+    }
+  ],
+  "views": {
+    "hobbit_baggins": {
+      "familyGroup": "hobbits",
+      "label": "Baggins",
+      "description": "The Baggins branch seeded with Bilbo and his parents.",
+      "order": 1,
+      "seeds": [
+        "bilbo_baggins"
+      ],
+      "roots": [
+        "bungo_baggins",
+        "belladonna_took"
+      ],
+      "generationsUp": 1,
+      "generationsDown": 0,
+      "includeSpouses": true,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": false
+    },
+    "hobbit_tooks": {
+      "familyGroup": "hobbits",
+      "label": "Tooks",
+      "description": "The Took connection currently represented through Belladonna Took and Bilbo.",
+      "order": 2,
+      "seeds": [
+        "bilbo_baggins"
+      ],
+      "roots": [
+        "belladonna_took"
+      ],
+      "generationsUp": 1,
+      "generationsDown": 0,
+      "includeSpouses": true,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": false
+    },
+    "hobbit_brandybucks": {
+      "familyGroup": "hobbits",
+      "label": "Brandybucks",
+      "description": "A planned branch for the Brandybuck family of the Shire.",
+      "order": 3,
+      "emptyState": {
+        "title": "Brandybuck branch is ready for records",
+        "body": "Add Brandybuck people and unions to the canonical dataset to populate this family branch."
+      }
+    }
+  }
+}

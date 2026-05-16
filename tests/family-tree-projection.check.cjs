@@ -5,7 +5,7 @@ const path = require("node:path");
 
 const repoRoot = path.resolve(__dirname, "..");
 const familyTreeDir = path.join(repoRoot, "family_tree");
-const dataPath = path.join(familyTreeDir, "family_tree_data.json");
+const dataPath = path.join(familyTreeDir, "elves_men", "family_tree_data.json");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
 const people = data.people || {};

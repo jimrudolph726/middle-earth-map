@@ -92,9 +92,11 @@
   const zoomWheelSensitivity = 0.01;
   const treeDataDraftStorageKey = "middle-earth-family-tree-data-drafts-v1";
   const layoutDraftStorageKey = "middle-earth-family-tree-layout-drafts-v1";
-  const treeDataUrl = "family_tree_data.json";
-  const treeLayoutsUrl = "family_tree_layouts.json";
+  const treeManifestUrl = "family_tree_manifest.json";
+  const legacyTreeDataUrl = "family_tree_data.json";
+  const legacyTreeLayoutsUrl = "family_tree_layouts.json";
   const defaultFamilyGroupId = "elves-men";
+  let familyTreeManifest = window.FAMILY_TREE_MANIFEST || null;
   let fileLayouts = window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} };
 
   const elk = window.ELK ? new window.ELK() : null;
@@ -102,6 +104,7 @@
   const state = {
     indexes: null,
     currentFamilyGroupId: null,
+    currentDataBaseUrl: "",
     currentViewId: null,
     currentRawProjection: null,
     currentProjection: null,
@@ -155,9 +158,13 @@
     return JSON.parse(JSON.stringify(value));
   }
 
-  function loadDataDraft() {
+  function getDataDraftStorageKey(familyGroupId = state.currentFamilyGroupId || defaultFamilyGroupId) {
+    return `${treeDataDraftStorageKey}:${familyGroupId}`;
+  }
+
+  function loadDataDraft(familyGroupId = state.currentFamilyGroupId) {
     try {
-      const raw = window.localStorage.getItem(treeDataDraftStorageKey);
+      const raw = window.localStorage.getItem(getDataDraftStorageKey(familyGroupId));
       if (!raw) {
         return null;
       }
@@ -175,7 +182,7 @@
 
   function saveDataDraft() {
     try {
-      window.localStorage.setItem(treeDataDraftStorageKey, JSON.stringify(normalizeDataForExport(data)));
+      window.localStorage.setItem(getDataDraftStorageKey(), JSON.stringify(normalizeDataForExport(data)));
       return true;
     } catch (_error) {
       return false;
@@ -184,16 +191,20 @@
 
   function clearDataDraft() {
     try {
-      window.localStorage.removeItem(treeDataDraftStorageKey);
+      window.localStorage.removeItem(getDataDraftStorageKey());
       return true;
     } catch (_error) {
       return false;
     }
   }
 
-  function loadLayoutDrafts() {
+  function getLayoutDraftStorageKey(familyGroupId = state.currentFamilyGroupId || defaultFamilyGroupId) {
+    return `${layoutDraftStorageKey}:${familyGroupId}`;
+  }
+
+  function loadLayoutDrafts(familyGroupId = state.currentFamilyGroupId) {
     try {
-      const raw = window.localStorage.getItem(layoutDraftStorageKey);
+      const raw = window.localStorage.getItem(getLayoutDraftStorageKey(familyGroupId));
       if (!raw) {
         return { version: 1, views: {} };
       }
@@ -214,7 +225,7 @@
 
   function saveLayoutDrafts() {
     try {
-      window.localStorage.setItem(layoutDraftStorageKey, JSON.stringify(state.layoutEditor.drafts));
+      window.localStorage.setItem(getLayoutDraftStorageKey(), JSON.stringify(state.layoutEditor.drafts));
       return true;
     } catch (_error) {
       return false;
@@ -223,7 +234,7 @@
 
   function clearLayoutDrafts() {
     try {
-      window.localStorage.removeItem(layoutDraftStorageKey);
+      window.localStorage.removeItem(getLayoutDraftStorageKey());
       state.layoutEditor.drafts = { version: 1, views: {} };
       return true;
     } catch (_error) {
@@ -380,13 +391,27 @@
     }
   }
 
+  function getUrlDirectory(url) {
+    const cleanUrl = String(url || "").split("#")[0].split("?")[0];
+    const lastSlashIndex = cleanUrl.lastIndexOf("/");
+    return lastSlashIndex >= 0 ? cleanUrl.slice(0, lastSlashIndex + 1) : "";
+  }
+
   async function loadTreeFiles() {
+    familyTreeManifest = await loadJsonFile(treeManifestUrl, window.FAMILY_TREE_MANIFEST || null);
+    state.currentFamilyGroupId = getInitialFamilyGroupId();
+
+    const familyGroup = getFamilyGroups()[state.currentFamilyGroupId] || {};
+    const dataUrl = familyGroup.dataUrl || legacyTreeDataUrl;
+    const layoutsUrl = familyGroup.layoutsUrl || legacyTreeLayoutsUrl;
+    state.currentDataBaseUrl = getUrlDirectory(dataUrl);
+
     const [loadedData, loadedLayouts] = await Promise.all([
-      loadJsonFile(treeDataUrl, window.FAMILY_TREE_DATA || null),
-      loadJsonFile(treeLayoutsUrl, window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} })
+      loadJsonFile(dataUrl, window.FAMILY_TREE_DATA || null),
+      loadJsonFile(layoutsUrl, window.FAMILY_TREE_LAYOUTS || { version: 1, views: {} })
     ]);
 
-    data = loadDataDraft() || loadedData;
+    data = loadDataDraft(state.currentFamilyGroupId) || loadedData;
     fileLayouts = loadedLayouts && typeof loadedLayouts === "object"
       ? loadedLayouts
       : { version: 1, views: {} };
@@ -442,13 +467,18 @@
       normalizedPeople[personId] = cloneJson(person);
     });
 
-    return {
+    const normalized = {
       defaults: cloneJson(dataset.defaults || {}),
-      familyGroups: cloneJson(dataset.familyGroups || {}),
       people: normalizedPeople,
       unions: getSortedUnionEntries(dataset).map((union) => cloneJson(union)),
       views: cloneJson(dataset.views || {})
     };
+
+    if (dataset.familyGroups && typeof dataset.familyGroups === "object" && Object.keys(dataset.familyGroups).length > 0) {
+      normalized.familyGroups = cloneJson(dataset.familyGroups);
+    }
+
+    return normalized;
   }
 
   function normalizeLayoutsForExport(layouts) {
@@ -1028,8 +1058,25 @@
     return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
   }
 
+  function isAbsoluteOrSpecialUrl(url) {
+    return /^(?:data:|[a-z][a-z0-9+.-]*:|\/|#)/i.test(String(url || ""));
+  }
+
+  function resolveTreeAssetUrl(url) {
+    const source = String(url || "").trim();
+    if (!source || isAbsoluteOrSpecialUrl(source)) {
+      return source;
+    }
+
+    if (!state.currentDataBaseUrl || source.startsWith(state.currentDataBaseUrl)) {
+      return source;
+    }
+
+    return `${state.currentDataBaseUrl}${source}`;
+  }
+
   function getPortrait(person) {
-    return person.image || makePortraitPlaceholder(person);
+    return person.image ? resolveTreeAssetUrl(person.image) : makePortraitPlaceholder(person);
   }
 
   function getLifeLine(person) {
@@ -2479,7 +2526,7 @@
   }
 
   function getFamilyGroups() {
-    const familyGroups = data?.familyGroups;
+    const familyGroups = familyTreeManifest?.familyGroups || data?.familyGroups;
     if (familyGroups && typeof familyGroups === "object" && Object.keys(familyGroups).length > 0) {
       return familyGroups;
     }
@@ -2495,7 +2542,7 @@
 
   function getDefaultFamilyGroupId() {
     const familyGroups = getFamilyGroups();
-    const defaultGroupId = data?.defaults?.initialFamilyGroup;
+    const defaultGroupId = familyTreeManifest?.defaults?.initialFamilyGroup || data?.defaults?.initialFamilyGroup;
 
     if (defaultGroupId && familyGroups[defaultGroupId]) {
       return defaultGroupId;
@@ -2515,10 +2562,14 @@
       return view.familyGroup;
     }
 
-    return getDefaultFamilyGroupId();
+    return state.currentFamilyGroupId || getDefaultFamilyGroupId();
   }
 
   function viewBelongsToFamilyGroup(view, familyGroupId) {
+    if (!view) {
+      return false;
+    }
+
     return getViewFamilyGroupId(view) === familyGroupId;
   }
 
@@ -2545,11 +2596,11 @@
     const familyGroup = getFamilyGroups()[familyGroupId] || null;
     const defaultViewId = familyGroup?.defaultView;
 
-    if (defaultViewId && data.views[defaultViewId] && viewBelongsToFamilyGroup(data.views[defaultViewId], familyGroupId)) {
+    if (defaultViewId && data?.views?.[defaultViewId] && viewBelongsToFamilyGroup(data.views[defaultViewId], familyGroupId)) {
       return defaultViewId;
     }
 
-    if (data.defaults?.initialView && data.views[data.defaults.initialView] && viewBelongsToFamilyGroup(data.views[data.defaults.initialView], familyGroupId)) {
+    if (data?.defaults?.initialView && data?.views?.[data.defaults.initialView] && viewBelongsToFamilyGroup(data.views[data.defaults.initialView], familyGroupId)) {
       return data.defaults.initialView;
     }
 
@@ -2566,7 +2617,7 @@
     }
 
     const requestedView = params.get("view");
-    if (requestedView && data.views[requestedView]) {
+    if (requestedView && data?.views?.[requestedView]) {
       return getViewFamilyGroupId(data.views[requestedView]);
     }
 
@@ -2628,7 +2679,7 @@
 
   function syncViewQueryParam(viewId) {
     const url = new URL(window.location.href);
-    const view = data.views[viewId];
+    const view = data?.views?.[viewId];
     const familyGroupId = view ? getViewFamilyGroupId(view) : state.currentFamilyGroupId;
 
     if (familyGroupId) {
@@ -2644,11 +2695,11 @@
     const requestedView = params.get("view");
     const familyGroupId = state.currentFamilyGroupId || getInitialFamilyGroupId();
 
-    if (requestedView && data.views[requestedView] && viewBelongsToFamilyGroup(data.views[requestedView], familyGroupId)) {
+    if (requestedView && data?.views?.[requestedView] && viewBelongsToFamilyGroup(data.views[requestedView], familyGroupId)) {
       return requestedView;
     }
 
-    return getDefaultViewIdForFamilyGroup(familyGroupId) || data.defaults.initialView;
+    return getDefaultViewIdForFamilyGroup(familyGroupId) || data?.defaults?.initialView;
   }
 
   function populateViewSelect() {
@@ -3824,9 +3875,12 @@
           }
           const exportedData = normalizeDataForExport(data);
           const exportedLayouts = normalizeLayoutsForExport(getMergedLayoutsForExport());
+          const familyGroup = getFamilyGroups()[state.currentFamilyGroupId] || {};
+          const dataTarget = familyGroup.dataUrl || "family_tree_data.json";
+          const layoutsTarget = familyGroup.layoutsUrl || "family_tree_layouts.json";
           downloadJsonFile("family_tree_data.json", exportedData);
           downloadJsonFile("family_tree_layouts.json", exportedLayouts);
-          setLayoutEditorStatus("Downloaded family_tree_data.json and family_tree_layouts.json. Replace those repo files and deploy/commit when you want the public site to use this tree.");
+          setLayoutEditorStatus(`Downloaded family_tree_data.json and family_tree_layouts.json. Replace ${dataTarget} and ${layoutsTarget}, then deploy/commit when you want the public site to use this tree.`);
         });
       }
 

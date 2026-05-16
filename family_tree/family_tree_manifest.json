@@ -1,0 +1,23 @@
+{
+  "defaults": {
+    "initialFamilyGroup": "elves-men"
+  },
+  "familyGroups": {
+    "elves-men": {
+      "label": "Elves and Men",
+      "description": "Elven and Mannish lineages, royal houses, and heir lines.",
+      "defaultView": "all_lineages",
+      "dataUrl": "elves_men/family_tree_data.json",
+      "layoutsUrl": "elves_men/family_tree_layouts.json",
+      "order": 1
+    },
+    "hobbits": {
+      "label": "Hobbits",
+      "description": "Shire family branches for Bagginses, Tooks, and Brandybucks.",
+      "defaultView": "hobbit_baggins",
+      "dataUrl": "hobbits/family_tree_data.json",
+      "layoutsUrl": "hobbits/family_tree_layouts.json",
+      "order": 2
+    }
+  }
+}

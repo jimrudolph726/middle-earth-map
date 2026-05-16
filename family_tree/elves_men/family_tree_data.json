@@ -1,21 +1,6 @@
 {
   "defaults": {
-    "initialFamilyGroup": "elves-men",
     "initialView": "all_lineages"
-  },
-  "familyGroups": {
-    "elves-men": {
-      "label": "Elves and Men",
-      "description": "Elven and Mannish lineages, royal houses, and heir lines.",
-      "defaultView": "all_lineages",
-      "order": 1
-    },
-    "hobbits": {
-      "label": "Hobbits",
-      "description": "Shire family branches for Bagginses, Tooks, and Brandybucks.",
-      "defaultView": "hobbit_baggins",
-      "order": 2
-    }
   },
   "people": {
     "elros": {
@@ -4183,36 +4168,6 @@
           "arathorn_second",
           "aragorn_second"
         ]
-      }
-    },
-    "hobbit_baggins": {
-      "familyGroup": "hobbits",
-      "label": "Baggins",
-      "description": "A planned branch for the Baggins family of the Shire.",
-      "order": 1,
-      "emptyState": {
-        "title": "Baggins branch is ready for records",
-        "body": "Add Baggins people and unions to the canonical dataset to populate this family branch."
-      }
-    },
-    "hobbit_tooks": {
-      "familyGroup": "hobbits",
-      "label": "Tooks",
-      "description": "A planned branch for the Took family of the Shire.",
-      "order": 2,
-      "emptyState": {
-        "title": "Took branch is ready for records",
-        "body": "Add Took people and unions to the canonical dataset to populate this family branch."
-      }
-    },
-    "hobbit_brandybucks": {
-      "familyGroup": "hobbits",
-      "label": "Brandybucks",
-      "description": "A planned branch for the Brandybuck family of the Shire.",
-      "order": 3,
-      "emptyState": {
-        "title": "Brandybuck branch is ready for records",
-        "body": "Add Brandybuck people and unions to the canonical dataset to populate this family branch."
       }
     }
   }

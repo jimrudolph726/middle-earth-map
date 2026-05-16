@@ -731,5 +731,15 @@ test("family tree family groups filter switch view options", async ({ page }) =>
     "Brandybucks"
   ]);
   await expect(page.locator("#tree-view-title")).toHaveText("Baggins");
-  await expect(page.locator("#tree-empty-state")).toBeVisible();
+  await expect(page.locator("#tree-empty-state")).toBeHidden();
+  await expect.poll(async () => page.locator(".family-tree-node").count(), {
+    timeout: 30_000,
+    message: "Expected the Baggins view to render the starter Hobbit family."
+  }).toBeGreaterThan(0);
+
+  await page.getByRole("searchbox", { name: /Search current view/i }).fill("Bilbo");
+  await page.locator('.tree-search-result[data-person-id="bilbo_baggins"]').click();
+
+  await expect(page.locator("#character-sheet")).toBeVisible();
+  await expect(page.locator("#character-sheet-content h1")).toHaveText(/Bilbo Baggins/i);
 });

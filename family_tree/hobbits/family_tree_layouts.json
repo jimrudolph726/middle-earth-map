@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "views": {
+    "hobbit_baggins": {
+      "positions": {
+        "bungo_baggins": {
+          "x": -150,
+          "y": -200
+        },
+        "belladonna_took": {
+          "x": 150,
+          "y": -200
+        },
+        "bilbo_baggins": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "hobbit_tooks": {
+      "positions": {}
+    },
+    "hobbit_brandybucks": {
+      "positions": {}
+    }
+  }
+}
