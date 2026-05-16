@@ -242,16 +242,37 @@
     }
   }
 
+  function getLayoutViewId(viewId) {
+    if (!viewId) {
+      return viewId;
+    }
+
+    const layoutViewId = data?.views?.[viewId]?.layoutView;
+    return layoutViewId && data?.views?.[layoutViewId] ? layoutViewId : viewId;
+  }
+
   function getDraftViewLayout(viewId) {
     if (!state.layoutEditor.available) {
       return null;
     }
 
-    return state.layoutEditor.drafts.views[viewId] || null;
+    const layoutViewId = getLayoutViewId(viewId);
+    const sharedLayout = layoutViewId ? state.layoutEditor.drafts.views[layoutViewId] || null : null;
+    const viewLayout = layoutViewId && layoutViewId !== viewId
+      ? state.layoutEditor.drafts.views[viewId] || null
+      : null;
+
+    return mergeViewLayouts(sharedLayout, viewLayout);
   }
 
   function getFileViewLayout(viewId) {
-    return fileLayouts?.views?.[viewId] || null;
+    const layoutViewId = getLayoutViewId(viewId);
+    const sharedLayout = layoutViewId ? fileLayouts?.views?.[layoutViewId] || null : null;
+    const viewLayout = layoutViewId && layoutViewId !== viewId
+      ? fileLayouts?.views?.[viewId] || null
+      : null;
+
+    return mergeViewLayouts(sharedLayout, viewLayout);
   }
 
   function mergeViewLayouts(baseLayout, overrideLayout) {
@@ -277,17 +298,22 @@
   }
 
   function ensureDraftViewLayout(viewId) {
-    if (!state.layoutEditor.drafts.views[viewId]) {
-      state.layoutEditor.drafts.views[viewId] = {
+    const layoutViewId = getLayoutViewId(viewId);
+    if (!layoutViewId) {
+      return { positions: {} };
+    }
+
+    if (!state.layoutEditor.drafts.views[layoutViewId]) {
+      state.layoutEditor.drafts.views[layoutViewId] = {
         positions: {}
       };
     }
 
-    if (!state.layoutEditor.drafts.views[viewId].positions) {
-      state.layoutEditor.drafts.views[viewId].positions = {};
+    if (!state.layoutEditor.drafts.views[layoutViewId].positions) {
+      state.layoutEditor.drafts.views[layoutViewId].positions = {};
     }
 
-    return state.layoutEditor.drafts.views[viewId];
+    return state.layoutEditor.drafts.views[layoutViewId];
   }
 
   function seedDraftViewLayoutFromLayout(viewId, layout) {
@@ -321,7 +347,14 @@
   }
 
   function clearDraftViewLayout(viewId) {
-    delete state.layoutEditor.drafts.views[viewId];
+    const layoutViewId = getLayoutViewId(viewId);
+    if (layoutViewId) {
+      delete state.layoutEditor.drafts.views[layoutViewId];
+    }
+
+    if (viewId && viewId !== layoutViewId) {
+      delete state.layoutEditor.drafts.views[viewId];
+    }
   }
 
   function hasAnyDraftLayouts() {
@@ -335,7 +368,7 @@
     }
 
     Object.entries(state.layoutEditor.drafts.views || {}).forEach(([viewId, viewLayout]) => {
-      merged.views[viewId] = cloneJson(viewLayout);
+      merged.views[viewId] = mergeViewLayouts(merged.views[viewId] || null, viewLayout) || cloneJson(viewLayout);
     });
 
     merged.version = 1;

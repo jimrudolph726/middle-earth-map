@@ -1,0 +1,98 @@
+{
+  "defaults": {
+    "initialView": "all_hobbit_families"
+  },
+  "views": {
+    "all_hobbit_families": {
+      "familyGroup": "hobbits",
+      "label": "All Hobbit Families",
+      "description": "All Hobbits.",
+      "order": 1,
+      "seeds": [
+        "bilbo_baggins"
+      ],
+      "roots": [
+        "bungo_baggins",
+        "belladonna_took"
+      ],
+      "generationsUp": 100,
+      "generationsDown": 100,
+      "includeSpouses": true,
+      "includeSpouseLineage": true,
+      "includeSiblingBranches": true,
+      "filters": {
+        "includeGroupsAny": [
+          "hobbits"
+        ],
+        "preserveSeeds": true,
+        "preserveSpouses": true,
+        "preserveDescendants": true
+      }
+    },
+    "hobbit_baggins": {
+      "familyGroup": "hobbits",
+      "label": "Baggins",
+      "description": "The Baggins branch seeded with Bilbo and his parents.",
+      "order": 1,
+      "layoutView": "all_hobbit_families",
+      "seeds": [
+        "bilbo_baggins"
+      ],
+      "roots": [
+        "bungo_baggins",
+        "belladonna_took"
+      ],
+      "generationsUp": 100,
+      "generationsDown": 100,
+      "includeSpouses": true,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": true,
+      "filters": {
+        "includeGroupsAny": [
+          "baggins"
+        ],
+        "preserveSeeds": true,
+        "preserveSpouses": true,
+        "preserveDescendants": true
+      }
+    },
+    "hobbit_tooks": {
+      "familyGroup": "hobbits",
+      "label": "Tooks",
+      "description": "The Took connection currently represented through Belladonna Took and Bilbo.",
+      "order": 2,
+      "layoutView": "all_hobbit_families",
+      "seeds": [
+        "bilbo_baggins"
+      ],
+      "roots": [
+        "bungo_baggins",
+        "belladonna_took"
+      ],
+      "generationsUp": 100,
+      "generationsDown": 100,
+      "includeSpouses": true,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": true,
+      "filters": {
+        "includeGroupsAny": [
+          "took"
+        ],
+        "preserveSpouses": true,
+        "preserveSeeds": true,
+        "preserveDescendants": true
+      }
+    },
+    "hobbit_brandybucks": {
+      "familyGroup": "hobbits",
+      "label": "Brandybucks",
+      "description": "A planned branch for the Brandybuck family of the Shire.",
+      "order": 3,
+      "layoutView": "all_hobbit_families",
+      "emptyState": {
+        "title": "Brandybuck branch is ready for records",
+        "body": "Add Brandybuck people and unions to the canonical dataset to populate this family branch."
+      }
+    }
+  }
+}

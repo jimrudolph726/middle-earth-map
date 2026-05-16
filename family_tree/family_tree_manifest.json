@@ -14,7 +14,7 @@
     "hobbits": {
       "label": "Hobbits",
       "description": "Shire family branches for Bagginses, Tooks, and Brandybucks.",
-      "defaultView": "hobbit_baggins",
+      "defaultView": "all_hobbit_families",
       "dataUrl": "hobbits/family_tree_data.json",
       "layoutsUrl": "hobbits/family_tree_layouts.json",
       "order": 2

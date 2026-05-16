@@ -2,6 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const { buildHobbitFamilyTreeData } = require("../tools/build_hobbit_family_tree.cjs");
 
 const repoRoot = path.resolve(__dirname, "..");
 const familyTreeDir = path.join(repoRoot, "family_tree");
@@ -79,6 +80,10 @@ test("family tree manifest points at existing group files", () => {
   });
 
   expectNoErrors(errors);
+});
+
+test("generated Hobbit family tree data matches source files", () => {
+  assert.deepEqual(loadJson("hobbits/family_tree_data.json"), buildHobbitFamilyTreeData());
 });
 
 familyTreeGroups.forEach(({ groupId, group, data, layouts }) => {
@@ -211,6 +216,10 @@ familyTreeGroups.forEach(({ groupId, group, data, layouts }) => {
     }
 
     Object.entries(views).forEach(([viewId, view]) => {
+      if (view.layoutView && !views[view.layoutView]) {
+        errors.push(`views.${viewId}.layoutView references missing view "${view.layoutView}".`);
+      }
+
       [
         ["seeds", view.seeds || []],
         ["roots", view.roots || []],

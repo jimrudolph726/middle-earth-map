@@ -1,13 +1,25 @@
 {
   "version": 1,
   "views": {
-    "hobbit_baggins": {
+    "all_hobbit_families": {
       "positions": {
-        "bungo_baggins": {
-          "x": -150,
+        "gerontius_took": {
+          "x": -900,
+          "y": -400
+        },
+        "adamanta_chubb": {
+          "x": -600,
+          "y": -400
+        },
+        "hildibrand_took": {
+          "x": -450,
           "y": -200
         },
         "belladonna_took": {
+          "x": -150,
+          "y": -200
+        },
+        "bungo_baggins": {
           "x": 150,
           "y": -200
         },
@@ -16,12 +28,6 @@
           "y": 0
         }
       }
-    },
-    "hobbit_tooks": {
-      "positions": {}
-    },
-    "hobbit_brandybucks": {
-      "positions": {}
     }
   }
 }

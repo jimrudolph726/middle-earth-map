@@ -1,0 +1,21 @@
+{
+  "unions": [
+    {
+      "id": "union_bungo_belladonna",
+      "partners": [
+        "bungo_baggins",
+        "belladonna_took"
+      ],
+      "children": [
+        "bilbo_baggins"
+      ],
+      "lineagePartner": "bungo_baggins",
+      "lineageChild": "bilbo_baggins",
+      "childOrder": [
+        "bilbo_baggins"
+      ],
+      "label": "Marriage",
+      "order": 1
+    }
+  ]
+}
