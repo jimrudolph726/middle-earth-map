@@ -5,6 +5,7 @@
   "description": "Smoke tests for the Middle-earth Atlas static site.",
   "scripts": {
     "import:hobbits": "node tools/import_hobbits_from_sheets.cjs",
+    "sync:hobbits": "npm run import:hobbits && npm run build:hobbits",
     "build:hobbits": "node tools/build_hobbit_family_tree.cjs",
     "test": "npm run test:smoke",
     "test:all": "npm run test:data && npm run test:smoke",
