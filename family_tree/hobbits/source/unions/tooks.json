@@ -1,16 +1,15 @@
 {
   "unions": [
     {
-      "id": "union-gerontius_took",
+      "id": "union-gerontius-adamanta",
       "partners": [
         "gerontius_took",
         "adamanta_chubb"
       ],
       "children": [
-        "belladonna_took", "hildibrand_took"
-      ],
-      "label": "Marriage",
-      "order": 10
+        "belladonna_took",
+        "hildibrand_took"
+      ]
     }
   ]
 }

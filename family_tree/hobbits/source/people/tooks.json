@@ -1,69 +1,10 @@
 {
   "people": {
-    "gerontius_took": {
-      "id": "gerontius_took",
-      "name": "Gerontius Took",
-      "sex": "male",
-      "kindred": "Hobbits",
-      "groups": [
-        "took",
-        "hobbits"
-      ],
-      "title": "Son of Fortinbras I",
-      "house": "Took",
-      "realm": "The Shire",
-      "born": "1938",
-      "died": "2106",
-      "image": "assets/gerontius_took.png",
-      "bio": "Gerontius Took bio",
-      "order": 5
-    },
-    "belladonna_took": {
-      "id": "belladonna_took",
-      "name": "Belladonna Took",
-      "sex": "female",
-      "kindred": "Hobbits",
-      "groups": [
-        "baggins",
-        "took",
-        "hobbits"
-      ],
-      "title": "Daughter of Gerontius Took",
-      "house": "Took",
-      "realm": "The Shire",
-      "born": "1938",
-      "died": "2106",
-      "image": "assets/belladonna_took.png",
-      "bio": "Belladonna Took bio",
-      "order": 5
-    },
-    "hildibrand_took": {
-      "id": "hildibrand_took",
-      "name": "Hildibrand Took",
-      "sex": "female",
-      "kindred": "Hobbits",
-      "groups": [
-        "took",
-        "hobbits"
-      ],
-      "title": "Son of Gerontius Took",
-      "house": "Took",
-      "realm": "The Shire",
-      "born": "1938",
-      "died": "2106",
-      "image": "assets/hildibrand_took.png",
-      "bio": "Belladonna Took bio",
-      "order": 5
-    },
     "adamanta_chubb": {
       "id": "adamanta_chubb",
       "name": "Adamanta Chubb",
       "sex": "female",
       "kindred": "Hobbits",
-      "groups": [
-        "took",
-        "hobbits"
-      ],
       "title": "Wife of Gerontius Took",
       "house": "Took",
       "realm": "The Shire",
@@ -71,6 +12,65 @@
       "died": "2106",
       "image": "assets/adamanta_chubb.png",
       "bio": "Belladonna Took bio",
+      "groups": [
+        "took",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "belladonna_took": {
+      "id": "belladonna_took",
+      "name": "Belladonna Took",
+      "sex": "female",
+      "kindred": "Hobbits",
+      "title": "Daughter of Gerontius Took",
+      "house": "Took",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/belladonna_took.png",
+      "bio": "Belladonna Took bio",
+      "groups": [
+        "baggins",
+        "took",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "gerontius_took": {
+      "id": "gerontius_took",
+      "name": "Gerontius Took",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "title": "Son of Fortinbras I",
+      "house": "Took",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/gerontius_took.png",
+      "bio": "Gerontius Took bio",
+      "groups": [
+        "took",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "hildibrand_took": {
+      "id": "hildibrand_took",
+      "name": "Hildibrand Took",
+      "sex": "female",
+      "kindred": "Hobbits",
+      "title": "Son of Gerontius Took",
+      "house": "Took",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/hildibrand_took.png",
+      "bio": "Belladonna Took bio",
+      "groups": [
+        "took",
+        "hobbits"
+      ],
       "order": 5
     }
   }

@@ -4,15 +4,18 @@
   "private": true,
   "description": "Smoke tests for the Middle-earth Atlas static site.",
   "scripts": {
+    "import:hobbits": "node tools/import_hobbits_from_sheets.cjs",
     "build:hobbits": "node tools/build_hobbit_family_tree.cjs",
     "test": "npm run test:smoke",
     "test:all": "npm run test:data && npm run test:smoke",
     "test:data": "node --test tests/family-tree-data.check.cjs tests/family-tree-projection.check.cjs tests/site-data.check.cjs tests/map-data.check.cjs",
     "test:smoke": "playwright test -c tests/playwright.config.cjs",
     "test:smoke:headed": "playwright test -c tests/playwright.config.cjs --headed",
-    "test:smoke:ui": "playwright test -c tests/playwright.config.cjs --ui"
+    "test:smoke:ui": "playwright test -c tests/playwright.config.cjs --ui",
+    "sheets:check": "node tools/check_google_sheets_access.cjs"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.52.0",
+    "googleapis": "^171.4.0"
   }
 }
