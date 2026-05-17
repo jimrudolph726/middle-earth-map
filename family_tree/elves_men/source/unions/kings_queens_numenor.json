@@ -1,0 +1,314 @@
+{
+  "unions": [
+    {
+      "id": "union-ar-adûnakhôr",
+      "partners": [
+        "ar-adûnakhôr"
+      ],
+      "children": [
+        "ar-zimrathôn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ar-gimilzôr",
+      "partners": [
+        "ar-gimilzôr"
+      ],
+      "children": [
+        "tar-palantir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ar-sakalthôr",
+      "partners": [
+        "ar-sakalthôr"
+      ],
+      "children": [
+        "ar-gimilzôr"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ar-zimrathôn",
+      "partners": [
+        "ar-zimrathôn"
+      ],
+      "children": [
+        "ar-sakalthôr"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-axantur",
+      "partners": [
+        "axantur"
+      ],
+      "children": [
+        "cemendur_son_of_axantur",
+        "ardamir",
+        "lindissë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-cemendur_son_of_axantur",
+      "partners": [
+        "cemendur_son_of_axantur"
+      ],
+      "children": [
+        "írildë",
+        "hallatan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-elros",
+      "partners": [
+        "elros"
+      ],
+      "children": [
+        "vardamir",
+        "tindómiel",
+        "manwendil",
+        "atanalcar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-hallatan",
+      "partners": [
+        "hallatan"
+      ],
+      "children": [
+        "hallacar",
+        "nessanië"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-isilmo",
+      "partners": [
+        "isilmo"
+      ],
+      "children": [
+        "tar-minastir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-nolondil",
+      "partners": [
+        "nolondil"
+      ],
+      "children": [
+        "yávien",
+        "ormendil",
+        "axantur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-alcarin",
+      "partners": [
+        "tar-alcarin"
+      ],
+      "children": [
+        "tar-calmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-aldarion",
+      "partners": [
+        "tar-aldarion"
+      ],
+      "children": [
+        "tar-ancalimë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-amandil",
+      "partners": [
+        "tar-amandil"
+      ],
+      "children": [
+        "tar-elendil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-anárion",
+      "partners": [
+        "tar-anárion"
+      ],
+      "children": [
+        "tar-súrion"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ancalimon",
+      "partners": [
+        "tar-ancalimon"
+      ],
+      "children": [
+        "tar-telemmaitë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ardamin",
+      "partners": [
+        "tar-ardamin"
+      ],
+      "children": [
+        "ar-adûnakhôr"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-atanamir",
+      "partners": [
+        "tar-atanamir"
+      ],
+      "children": [
+        "tar-ancalimon"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-calmacil",
+      "partners": [
+        "tar-calmacil"
+      ],
+      "children": [
+        "tar-ardamin"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ciryatan",
+      "partners": [
+        "tar-ciryatan"
+      ],
+      "children": [
+        "tar-atanamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-elendil",
+      "partners": [
+        "tar-elendil"
+      ],
+      "children": [
+        "tar-meneldur",
+        "silmariën"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-meneldur",
+      "partners": [
+        "tar-meneldur"
+      ],
+      "children": [
+        "tar-aldarion"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-minastir",
+      "partners": [
+        "tar-minastir"
+      ],
+      "children": [
+        "tar-ciryatan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-palantir",
+      "partners": [
+        "tar-palantir"
+      ],
+      "children": [
+        "ar-pharazôn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-súrion",
+      "partners": [
+        "tar-súrion"
+      ],
+      "children": [
+        "isilmo"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-telemmaitë",
+      "partners": [
+        "tar-telemmaitë"
+      ],
+      "children": [
+        "tar-vanimeldë"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tar-vanimeldë",
+      "partners": [
+        "tar-vanimeldë"
+      ],
+      "children": [
+        "tar-alcarin"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-vardamir",
+      "partners": [
+        "vardamir"
+      ],
+      "children": [
+        "tar-amandil",
+        "vardilmë",
+        "aulendil",
+        "nolondil"
+      ],
+      "label": "Issue",
+      "order": 10
+    }
+  ]
+}

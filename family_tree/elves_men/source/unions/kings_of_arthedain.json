@@ -1,0 +1,158 @@
+{
+  "unions": [
+    {
+      "id": "union-amlaith",
+      "partners": [
+        "amlaith"
+      ],
+      "children": [
+        "beleg"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-araphant",
+      "partners": [
+        "araphant"
+      ],
+      "children": [
+        "arvedui"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-araphor",
+      "partners": [
+        "araphor"
+      ],
+      "children": [
+        "argeleb_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-araval",
+      "partners": [
+        "araval"
+      ],
+      "children": [
+        "araphant"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-argeleb_first",
+      "partners": [
+        "argeleb_first"
+      ],
+      "children": [
+        "arveleg_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-argeleb_second",
+      "partners": [
+        "argeleb_second"
+      ],
+      "children": [
+        "arvegil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arvegil",
+      "partners": [
+        "arvegil"
+      ],
+      "children": [
+        "arveleg_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arveleg_first",
+      "partners": [
+        "arveleg_first"
+      ],
+      "children": [
+        "araphor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arveleg_second",
+      "partners": [
+        "arveleg_second"
+      ],
+      "children": [
+        "araval"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-beleg",
+      "partners": [
+        "beleg"
+      ],
+      "children": [
+        "mallor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-celebrindor",
+      "partners": [
+        "celebrindor"
+      ],
+      "children": [
+        "malvegil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-celepharn",
+      "partners": [
+        "celepharn"
+      ],
+      "children": [
+        "celebrindor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-mallor",
+      "partners": [
+        "mallor"
+      ],
+      "children": [
+        "celepharn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-malvegil",
+      "partners": [
+        "malvegil"
+      ],
+      "children": [
+        "argeleb_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    }
+  ]
+}

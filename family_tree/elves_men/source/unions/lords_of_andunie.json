@@ -1,0 +1,202 @@
+{
+  "unions": [
+    {
+      "id": "union-amandil",
+      "partners": [
+        "amandil"
+      ],
+      "children": [
+        "elendil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärendur_lord_of_andúnië",
+      "partners": [
+        "eärendur_lord_of_andúnië"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_fourteen"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-númendil",
+      "partners": [
+        "númendil"
+      ],
+      "children": [
+        "amandil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_eight",
+      "partners": [
+        "unknown_lord_of_andúnië_eight"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_nine"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_eleven",
+      "partners": [
+        "unknown_lord_of_andúnië_eleven"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_twelve"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_five",
+      "partners": [
+        "unknown_lord_of_andúnië_five"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_six"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_four",
+      "partners": [
+        "unknown_lord_of_andúnië_four"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_five"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_fourteen",
+      "partners": [
+        "unknown_lord_of_andúnië_fourteen"
+      ],
+      "children": [
+        "númendil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_nine",
+      "partners": [
+        "unknown_lord_of_andúnië_nine"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_ten"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_one",
+      "partners": [
+        "unknown_lord_of_andúnië_one"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_two"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_seven",
+      "partners": [
+        "unknown_lord_of_andúnië_seven"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_eight"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_six",
+      "partners": [
+        "unknown_lord_of_andúnië_six"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_seven"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_ten",
+      "partners": [
+        "unknown_lord_of_andúnië_ten"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_eleven"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_thirteen",
+      "partners": [
+        "unknown_lord_of_andúnië_thirteen"
+      ],
+      "children": [
+        "eärendur_lord_of_andúnië"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_three",
+      "partners": [
+        "unknown_lord_of_andúnië_three"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_four"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_twelve",
+      "partners": [
+        "unknown_lord_of_andúnië_twelve"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_thirteen"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-unknown_lord_of_andúnië_two",
+      "partners": [
+        "unknown_lord_of_andúnië_two"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_three"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-valandil_lord_of_andúnië",
+      "partners": [
+        "valandil_lord_of_andúnië"
+      ],
+      "children": [
+        "unknown_lord_of_andúnië_one"
+      ],
+      "label": "Issue",
+      "order": 10
+    }
+  ]
+}

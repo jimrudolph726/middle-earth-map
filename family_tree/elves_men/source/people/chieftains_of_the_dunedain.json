@@ -1,0 +1,269 @@
+{
+  "people": {
+    "araglas": {
+      "id": "araglas",
+      "name": "Araglas",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "6th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2296",
+      "died": "2455",
+      "image": "assets/araglas.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "aragost": {
+      "id": "aragost",
+      "name": "Aragost",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "8th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2431",
+      "died": "2588",
+      "image": "assets/aragost.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "arahad_first": {
+      "id": "arahad_first",
+      "name": "Arahad I",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "7th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2365",
+      "died": "2523",
+      "image": "assets/arahad_first.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "arahad_second": {
+      "id": "arahad_second",
+      "name": "Arahad II",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "10th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2563",
+      "died": "2719",
+      "image": "assets/arahad_second.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "arahael": {
+      "id": "arahael",
+      "name": "Arahael",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "2nd Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2012",
+      "died": "2177",
+      "image": "assets/arahael.png",
+      "bio": "Arahael was the son of Aranarth, and the 2nd Chieftain of the Dúnedain. He was raised by Elrond in Rivendell, while his father protected Eriador from the evils that plagued that area with the help of other Rangers.",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "aranarth": {
+      "id": "aranarth",
+      "name": "Aranarth",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "1st Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/aranarth.png",
+      "bio": "Aranarth was the son of Arvedui, last King of Arthedain, and Fíriel of Gondor, making him a descendant of both Isildur and Anárion. After the Witch-king of Angmar destroyed Arthedain and Arvedui was lost at sea, Aranarth became heir to the fallen North-kingdom. Though Angmar was defeated soon after, the northern Dúnedain were too few and scattered to restore their realm, so Aranarth took the title Chieftain of the Dúnedain. His line continued in secrecy, with the heirs of the Chieftains raised in Rivendell and the heirlooms of Arnor kept in Elrond’s care.",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "arassuil": {
+      "id": "arassuil",
+      "name": "Arassuil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "11th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2628",
+      "died": "2784",
+      "image": "assets/arassuil.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "arathorn_first": {
+      "id": "arathorn_first",
+      "name": "Arathorn I",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "12th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2693",
+      "died": "2848",
+      "image": "assets/arathorn_first.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "aravorn": {
+      "id": "aravorn",
+      "name": "Aravorn",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "9th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2497",
+      "died": "2654",
+      "image": "assets/aravorn.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "argonui": {
+      "id": "argonui",
+      "name": "Argonui",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "13th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2757",
+      "died": "2912",
+      "image": "assets/argonui.png",
+      "bio": "bio",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 5
+    },
+    "aragorn_first": {
+      "id": "aragorn_first",
+      "name": "Aragorn I",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "5th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2227",
+      "died": "2327",
+      "image": "assets/aragorn_first.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 6
+    },
+    "aranuir": {
+      "id": "aranuir",
+      "name": "Aranuir",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "3rd Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2084",
+      "died": "2247",
+      "image": "assets/aranuir.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 6
+    },
+    "aravir": {
+      "id": "aravir",
+      "name": "Aravir",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "4th Chieftain of the Dúnedain",
+      "house": "House of Isildur",
+      "realm": "Dúnedain of the North",
+      "born": "2156",
+      "died": "2319",
+      "image": "assets/aravir.png",
+      "groups": [
+        "dúnedain"
+      ],
+      "order": 6
+    },
+    "arador": {
+      "id": "arador",
+      "name": "Arador",
+      "sex": "male",
+      "kindred": "Man",
+      "title": "14th Chieftain of the Dunedain, father to Arathorn II",
+      "house": "House of Isildur",
+      "realm": "Dunedain of the North",
+      "born": "T.A. 2700",
+      "died": "T.A. 2930",
+      "image": "assets/arador.png",
+      "bio": "Arador is the father of Arathorn II and part of the northern heir line of Isildur.",
+      "groups": [
+        "men",
+        "dunedain"
+      ],
+      "order": 10
+    },
+    "aragorn_second": {
+      "id": "aragorn_second",
+      "name": "Aragorn II Elessar",
+      "sex": "male",
+      "kindred": "Man",
+      "title": "King of the Reunited Kingdom",
+      "house": "House of Isildur",
+      "realm": "Gondor and Arnor",
+      "born": "T.A. 2931",
+      "died": "F.A. 120",
+      "image": "assets/aragorn_second.png",
+      "bio": "Aragorn, son of Arathorn, is the heir of Isildur and becomes King Elessar after the War of the Ring.",
+      "groups": [
+        "men",
+        "dunedain"
+      ],
+      "order": 30
+    },
+    "arathorn_second": {
+      "id": "arathorn_second",
+      "name": "Arathorn II",
+      "sex": "male",
+      "kindred": "Man",
+      "title": "15th Chieftain of the Dunedain, father to Aragorn II Elessar",
+      "house": "House of Isildur",
+      "realm": "Remnant of Arthedain",
+      "born": "T.A. 2873",
+      "died": "T.A. 2933",
+      "image": "assets/arathorn_second.png",
+      "bio": "Arathorn II was the fifteenth Chieftain of the Dúnedain and succeeded his father, Arador, when he was killed in 2930.",
+      "groups": [
+        "men",
+        "dunedain"
+      ],
+      "order": 30
+    }
+  }
+}

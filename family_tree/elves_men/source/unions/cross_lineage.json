@@ -1,0 +1,133 @@
+{
+  "unions": [
+    {
+      "id": "union-arathorn_second-gilraen",
+      "partners": [
+        "arathorn_second",
+        "gilraen"
+      ],
+      "children": [
+        "aragorn_second"
+      ],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-arvedui-firiel",
+      "partners": [
+        "arvedui",
+        "firiel"
+      ],
+      "children": [
+        "aranarth"
+      ],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-celeborn-galadriel",
+      "partners": [
+        "celeborn",
+        "galadriel"
+      ],
+      "children": [
+        "celebrian"
+      ],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-earendil-elwing",
+      "partners": [
+        "eärendil",
+        "elwing"
+      ],
+      "children": [
+        "elros",
+        "elrond"
+      ],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-eärendur",
+      "partners": [
+        "eärendur"
+      ],
+      "children": [
+        "amlaith"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-elrond-celebrian",
+      "partners": [
+        "elrond",
+        "celebrian"
+      ],
+      "children": [
+        "arwen"
+      ],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-tar-ancalimë-hallacar",
+      "partners": [
+        "tar-ancalimë",
+        "hallacar"
+      ],
+      "children": [
+        "tar-anárion"
+      ],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-aragorn_second-arwen",
+      "partners": [
+        "aragorn_second",
+        "arwen"
+      ],
+      "children": [
+        "eldarion",
+        "unknown_daughters"
+      ],
+      "label": "Marriage",
+      "order": 20,
+      "lineagePartner": "aragorn_second",
+      "lineageChild": "eldarion",
+      "childOrder": [
+        "eldarion",
+        "unknown_daughters"
+      ]
+    },
+    {
+      "id": "union-silmariën-elatan",
+      "partners": [
+        "silmariën",
+        "elatan"
+      ],
+      "children": [
+        "valandil_lord_of_andúnië"
+      ],
+      "label": "Marriage",
+      "order": 20,
+      "lineagePartner": "silmariën",
+      "lineageChild": "valandil_lord_of_andúnië",
+      "childOrder": [
+        "valandil_lord_of_andúnië"
+      ]
+    },
+    {
+      "id": "union-eldarion",
+      "partners": [
+        "eldarion"
+      ],
+      "children": [
+        "eldarion_son"
+      ]
+    }
+  ]
+}

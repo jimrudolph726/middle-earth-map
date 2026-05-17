@@ -1,0 +1,104 @@
+{
+  "unions": [
+    {
+      "id": "union-arantar",
+      "partners": [
+        "arantar"
+      ],
+      "children": [
+        "tarcil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eldacar",
+      "partners": [
+        "eldacar"
+      ],
+      "children": [
+        "arantar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-elendil",
+      "partners": [
+        "elendil"
+      ],
+      "children": [
+        "isildur",
+        "anárion"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-elendur",
+      "partners": [
+        "elendur"
+      ],
+      "children": [
+        "eärendur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-isildur",
+      "partners": [
+        "isildur"
+      ],
+      "children": [
+        "valandil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarcil",
+      "partners": [
+        "tarcil"
+      ],
+      "children": [
+        "tarondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarondor",
+      "partners": [
+        "tarondor"
+      ],
+      "children": [
+        "valandur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-valandil",
+      "partners": [
+        "valandil"
+      ],
+      "children": [
+        "eldacar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-valandur",
+      "partners": [
+        "valandur"
+      ],
+      "children": [
+        "elendur"
+      ],
+      "label": "Issue",
+      "order": 10
+    }
+  ]
+}

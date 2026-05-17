@@ -1,0 +1,372 @@
+{
+  "unions": [
+    {
+      "id": "union-aldamir",
+      "partners": [
+        "aldamir"
+      ],
+      "children": [
+        "hyarmendacil_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-anardil",
+      "partners": [
+        "anardil"
+      ],
+      "children": [
+        "ostoher"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-anárion",
+      "partners": [
+        "anárion"
+      ],
+      "children": [
+        "meneldil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arciryas",
+      "partners": [
+        "arciryas"
+      ],
+      "children": [
+        "calimmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-atanatar_first",
+      "partners": [
+        "atanatar_first"
+      ],
+      "children": [
+        "siriondil_king_of_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-atanatar_second_alcarin",
+      "partners": [
+        "atanatar_second_alcarin"
+      ],
+      "children": [
+        "narmacil_first",
+        "calmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calimehtar_king_of_gondor",
+      "partners": [
+        "calimehtar_king_of_gondor"
+      ],
+      "children": [
+        "ondoher"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calimehtar_son_of_calmacil",
+      "partners": [
+        "calimehtar_son_of_calmacil"
+      ],
+      "children": [
+        "castamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calimmacil",
+      "partners": [
+        "calimmacil"
+      ],
+      "children": [
+        "siriondil_son_of_calimmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-calmacil",
+      "partners": [
+        "calmacil"
+      ],
+      "children": [
+        "rómendacil_second",
+        "calimehtar_son_of_calmacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-cemendur",
+      "partners": [
+        "cemendur"
+      ],
+      "children": [
+        "eärendil_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ciryandil",
+      "partners": [
+        "ciryandil"
+      ],
+      "children": [
+        "hyarmendacil_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärendil_gondor",
+      "partners": [
+        "eärendil_gondor"
+      ],
+      "children": [
+        "anardil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärnil_first",
+      "partners": [
+        "eärnil_first"
+      ],
+      "children": [
+        "ciryandil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eärnil_second",
+      "partners": [
+        "eärnil_second"
+      ],
+      "children": [
+        "eärnur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-eldacar_king_of_gondor",
+      "partners": [
+        "eldacar_king_of_gondor"
+      ],
+      "children": [
+        "aldamir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-hyarmendacil_first",
+      "partners": [
+        "hyarmendacil_first"
+      ],
+      "children": [
+        "atanatar_second_alcarin"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-hyarmendacil_second",
+      "partners": [
+        "hyarmendacil_second"
+      ],
+      "children": [
+        "minardil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-meneldil",
+      "partners": [
+        "meneldil"
+      ],
+      "children": [
+        "cemendur"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-minardil",
+      "partners": [
+        "minardil"
+      ],
+      "children": [
+        "telemnar",
+        "minastan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-minastan",
+      "partners": [
+        "minastan"
+      ],
+      "children": [
+        "tarondor_king_of_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-narmacil_second",
+      "partners": [
+        "narmacil_second"
+      ],
+      "children": [
+        "calimehtar_king_of_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ondoher",
+      "partners": [
+        "ondoher"
+      ],
+      "children": [
+        "firiel"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-ostoher",
+      "partners": [
+        "ostoher"
+      ],
+      "children": [
+        "rómendacil_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-rómendacil_first",
+      "partners": [
+        "rómendacil_first"
+      ],
+      "children": [
+        "turambar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-rómendacil_second",
+      "partners": [
+        "rómendacil_second"
+      ],
+      "children": [
+        "valacar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-siriondil_king_of_gondor",
+      "partners": [
+        "siriondil_king_of_gondor"
+      ],
+      "children": [
+        "tarannon_falastur",
+        "tarciryan"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-siriondil_son_of_calimmacil",
+      "partners": [
+        "siriondil_son_of_calimmacil"
+      ],
+      "children": [
+        "eärnil_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarciryan",
+      "partners": [
+        "tarciryan"
+      ],
+      "children": [
+        "eärnil_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-tarondor_king_of_gondor",
+      "partners": [
+        "tarondor_king_of_gondor"
+      ],
+      "children": [
+        "telumehtar_umbardacil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-telumehtar_umbardacil",
+      "partners": [
+        "telumehtar_umbardacil"
+      ],
+      "children": [
+        "narmacil_second",
+        "arciryas"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-turambar",
+      "partners": [
+        "turambar"
+      ],
+      "children": [
+        "atanatar_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-valacar",
+      "partners": [
+        "valacar"
+      ],
+      "children": [
+        "eldacar_king_of_gondor"
+      ],
+      "label": "Issue",
+      "order": 10
+    }
+  ]
+}

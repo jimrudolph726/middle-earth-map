@@ -1,0 +1,158 @@
+{
+  "unions": [
+    {
+      "id": "union-arador",
+      "partners": [
+        "arador"
+      ],
+      "children": [
+        "arathorn_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-araglas",
+      "partners": [
+        "araglas"
+      ],
+      "children": [
+        "arahad_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-aragorn_first",
+      "partners": [
+        "aragorn_first"
+      ],
+      "children": [
+        "araglas"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-aragost",
+      "partners": [
+        "aragost"
+      ],
+      "children": [
+        "aravorn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arahad_first",
+      "partners": [
+        "arahad_first"
+      ],
+      "children": [
+        "aragost"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arahad_second",
+      "partners": [
+        "arahad_second"
+      ],
+      "children": [
+        "arassuil"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arahael",
+      "partners": [
+        "arahael"
+      ],
+      "children": [
+        "aranuir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-aranarth",
+      "partners": [
+        "aranarth"
+      ],
+      "children": [
+        "arahael"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-aranuir",
+      "partners": [
+        "aranuir"
+      ],
+      "children": [
+        "aravir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arassuil",
+      "partners": [
+        "arassuil"
+      ],
+      "children": [
+        "arathorn_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-arathorn_first",
+      "partners": [
+        "arathorn_first"
+      ],
+      "children": [
+        "argonui"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-aravir",
+      "partners": [
+        "aravir"
+      ],
+      "children": [
+        "aragorn_first"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-aravorn",
+      "partners": [
+        "aravorn"
+      ],
+      "children": [
+        "arahad_second"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-argonui",
+      "partners": [
+        "argonui"
+      ],
+      "children": [
+        "arador"
+      ],
+      "label": "Issue",
+      "order": 10
+    }
+  ]
+}

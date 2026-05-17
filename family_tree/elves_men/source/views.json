@@ -1,0 +1,128 @@
+{
+  "defaults": {
+    "initialView": "all_lineages"
+  },
+  "views": {
+    "all_lineages": {
+      "familyGroup": "elves-men",
+      "label": "All Lineages",
+      "description": "The combined Elven and Mannish branches currently modeled around Aragorn, Arwen, and Elrond's house.",
+      "order": 1,
+      "seeds": [
+        "eldarion"
+      ],
+      "roots": [
+        "galadriel"
+      ],
+      "generationsUp": 100,
+      "generationsDown": 100,
+      "includeSpouses": true,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": true
+    },
+    "kings_of_arnor": {
+      "familyGroup": "elves-men",
+      "label": "Kings of Arnor",
+      "description": "The northern royal line from Elendil through Eärendur.",
+      "order": 2,
+      "seeds": [
+        "eärendur"
+      ],
+      "roots": [
+        "elendil"
+      ],
+      "generationsUp": 100,
+      "generationsDown": 0,
+      "includeSpouses": false,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": false,
+      "filters": {
+        "includePersonIds": [
+          "elendil",
+          "isildur",
+          "valandil",
+          "eldacar",
+          "arantar",
+          "tarcil",
+          "tarondor",
+          "valandur",
+          "elendur",
+          "eärendur"
+        ]
+      }
+    },
+    "kings_of_arthedain": {
+      "familyGroup": "elves-men",
+      "label": "Kings of Arthedain",
+      "description": "The Arthedain royal line from Amlaith through Arvedui.",
+      "order": 3,
+      "seeds": [
+        "arvedui"
+      ],
+      "roots": [
+        "amlaith"
+      ],
+      "generationsUp": 100,
+      "generationsDown": 0,
+      "includeSpouses": false,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": false,
+      "filters": {
+        "includePersonIds": [
+          "amlaith",
+          "beleg",
+          "mallor",
+          "celepharn",
+          "celebrindor",
+          "malvegil",
+          "argeleb_first",
+          "arveleg_first",
+          "araphor",
+          "argeleb_second",
+          "arvegil",
+          "arveleg_second",
+          "araval",
+          "araphant",
+          "arvedui"
+        ]
+      }
+    },
+    "chieftains_of_dunedain": {
+      "familyGroup": "elves-men",
+      "label": "Chieftains of the Dúnedain",
+      "description": "The northern Dúnedain chieftain line from Aranarth to Aragorn II.",
+      "order": 4,
+      "seeds": [
+        "aragorn_second"
+      ],
+      "roots": [
+        "aranarth"
+      ],
+      "generationsUp": 100,
+      "generationsDown": 0,
+      "includeSpouses": false,
+      "includeSpouseLineage": false,
+      "includeSiblingBranches": false,
+      "filters": {
+        "includePersonIds": [
+          "aranarth",
+          "arahael",
+          "aranuir",
+          "aravir",
+          "aragorn_first",
+          "araglas",
+          "arahad_first",
+          "aragost",
+          "aravorn",
+          "arahad_second",
+          "arassuil",
+          "arathorn_first",
+          "argonui",
+          "arador",
+          "arathorn_second",
+          "aragorn_second"
+        ]
+      }
+    }
+  }
+}

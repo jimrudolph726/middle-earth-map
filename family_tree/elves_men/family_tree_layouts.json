@@ -629,6 +629,10 @@
         "unknown_daughters": {
           "x": 1200,
           "y": 200
+        },
+        "eldarion_son": {
+          "x": 900,
+          "y": 400
         }
       }
     }

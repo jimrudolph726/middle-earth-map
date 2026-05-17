@@ -2,6 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const { buildElvesMenFamilyTreeData } = require("../tools/build_elves_men_family_tree.cjs");
 const { buildHobbitFamilyTreeData } = require("../tools/build_hobbit_family_tree.cjs");
 
 const repoRoot = path.resolve(__dirname, "..");
@@ -84,6 +85,10 @@ test("family tree manifest points at existing group files", () => {
 
 test("generated Hobbit family tree data matches source files", () => {
   assert.deepEqual(loadJson("hobbits/family_tree_data.json"), buildHobbitFamilyTreeData());
+});
+
+test("generated Elves/Men family tree data matches source files", () => {
+  assert.deepEqual(loadJson("elves_men/family_tree_data.json"), buildElvesMenFamilyTreeData());
 });
 
 familyTreeGroups.forEach(({ groupId, group, data, layouts }) => {

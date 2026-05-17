@@ -1,0 +1,692 @@
+{
+  "people": {
+    "ar-adûnakhôr": {
+      "id": "ar-adûnakhôr",
+      "name": "Ar-Adûnakhôr",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "20th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-adûnakhôr.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "ar-gimilzôr": {
+      "id": "ar-gimilzôr",
+      "name": "Ar-Gimilzôr",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "23rd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-gimilzôr.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "ar-pharazôn": {
+      "id": "ar-pharazôn",
+      "name": "Ar-Pharazôn",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "25th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-pharazôn.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "ar-sakalthôr": {
+      "id": "ar-sakalthôr",
+      "name": "Ar-Sakalthôr",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "22nd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-sakalthôr.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "ar-zimrathôn": {
+      "id": "ar-zimrathôn",
+      "name": "Ar-Zimrathôn",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "21st King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ar-zimrathôn.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "ardamir": {
+      "id": "ardamir",
+      "name": "Ardamir",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ardamir.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "atanalcar": {
+      "id": "atanalcar",
+      "name": "Atanalcar",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Elros",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/atanalcar.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "aulendil": {
+      "id": "aulendil",
+      "name": "Aulendil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Vardamir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/aulendil.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "axantur": {
+      "id": "axantur",
+      "name": "Axantur",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/axantur.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "cemendur_son_of_axantur": {
+      "id": "cemendur_son_of_axantur",
+      "name": "Cemendur",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/cemendur.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "elatan": {
+      "id": "elatan",
+      "name": "Elatan",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Husband of Silmariën",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/elatan.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "elros": {
+      "id": "elros",
+      "name": "Elros",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "1st King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "S.A. 630",
+      "died": "Unknown (aged 240+)",
+      "image": "assets/elros.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "hallacar": {
+      "id": "hallacar",
+      "name": "Hallacar",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "Son of Hallatan",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/hallacar.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "hallatan": {
+      "id": "hallatan",
+      "name": "Hallatan",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "Son of Cemendur",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/hallatan.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "írildë": {
+      "id": "írildë",
+      "name": "Írildë",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "Daughter of Cemendur",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/írildë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "isilmo": {
+      "id": "isilmo",
+      "name": "Isilmo",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "10th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/isilmo.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "lindissë": {
+      "id": "lindissë",
+      "name": "Lindissë",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "Daughter of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/lindissë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "manwendil": {
+      "id": "manwendil",
+      "name": "Manwendil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Elros",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/manwendil.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "nessanië": {
+      "id": "nessanië",
+      "name": "Nessanië",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "Daughter of Hallatan",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/nessanië.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "nolondil": {
+      "id": "nolondil",
+      "name": "Nolondil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Vardamir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/nolondil.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "ormendil": {
+      "id": "ormendil",
+      "name": "Ormendil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/ormendil.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "silmariën": {
+      "id": "silmariën",
+      "name": "Silmariën",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Daughter of Tar-Elendil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/silmariën.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-alcarin": {
+      "id": "tar-alcarin",
+      "name": "Tar-Alcarin",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "17th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-alcarin.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-aldarion": {
+      "id": "tar-aldarion",
+      "name": "Tar-Aldarion",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "6th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-aldarion.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-amandil": {
+      "id": "tar-amandil",
+      "name": "Tar-Amandil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "3rd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-amandil.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-anárion": {
+      "id": "tar-anárion",
+      "name": "Tar-Anárion",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "8th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-anárion.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-ancalimë": {
+      "id": "tar-ancalimë",
+      "name": "Tar-Ancalimë",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "7th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ancalimë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-ancalimon": {
+      "id": "tar-ancalimon",
+      "name": "Tar-Ancalimon",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "14th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ancalimon.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-ardamin": {
+      "id": "tar-ardamin",
+      "name": "Tar-Ardamin",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "19th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ardamin.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-atanamir": {
+      "id": "tar-atanamir",
+      "name": "Tar-Atanamir",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "13th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-atanamir.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-calmacil": {
+      "id": "tar-calmacil",
+      "name": "Tar-Calmacil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "18th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-calmacil.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-ciryatan": {
+      "id": "tar-ciryatan",
+      "name": "Tar-Ciryatan",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "12th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-ciryatan.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-elendil": {
+      "id": "tar-elendil",
+      "name": "Tar-Elendil",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "4th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-elendil.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-meneldur": {
+      "id": "tar-meneldur",
+      "name": "Tar-Meneldur",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "5th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-meneldur.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-minastir": {
+      "id": "tar-minastir",
+      "name": "Tar-Minastir",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "11th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-minastir.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-palantir": {
+      "id": "tar-palantir",
+      "name": "Tar-Palantir",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "24th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-palantir.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-súrion": {
+      "id": "tar-súrion",
+      "name": "Tar-Súrion",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "9th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-súrion.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-telemmaitë": {
+      "id": "tar-telemmaitë",
+      "name": "Tar-Telemmaitë",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "15th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-telemmaitë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-vanimeldë": {
+      "id": "tar-vanimeldë",
+      "name": "Tar-Vanimeldë",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "16th King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-vanimeldë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tindómiel": {
+      "id": "tindómiel",
+      "name": "Tindómiel",
+      "sex": "female",
+      "kindred": "Woman",
+      "title": "Daughter of Elros",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tindómiel.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "vardamir": {
+      "id": "vardamir",
+      "name": "Vardamir",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "2nd King of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/vardamir.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "vardilmë": {
+      "id": "vardilmë",
+      "name": "Vardilmë",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Daughter of Vardamir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/vardilmë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "yávien": {
+      "id": "yávien",
+      "name": "Yávien",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Daughter of Nolondil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/yávien.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    }
+  }
+}

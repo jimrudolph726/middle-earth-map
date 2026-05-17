@@ -4,16 +4,23 @@
   "private": true,
   "description": "Smoke tests for the Middle-earth Atlas static site.",
   "scripts": {
+    "import:elves-men": "node tools/import_elves_men_from_sheets.cjs",
     "import:hobbits": "node tools/import_hobbits_from_sheets.cjs",
+    "sync:elves-men": "npm run import:elves-men && npm run build:elves-men && npm run check:elves-men-build",
+    "sync:family-tree": "npm run sync:elves-men && npm run sync:hobbits",
     "sync:hobbits": "npm run import:hobbits && npm run build:hobbits",
+    "build:elves-men": "node tools/build_elves_men_family_tree.cjs",
     "build:hobbits": "node tools/build_hobbit_family_tree.cjs",
+    "check:elves-men-build": "node tools/compare_elves_men_generated.cjs",
     "test": "npm run test:smoke",
     "test:all": "npm run test:data && npm run test:smoke",
     "test:data": "node --test tests/family-tree-data.check.cjs tests/family-tree-projection.check.cjs tests/site-data.check.cjs tests/map-data.check.cjs",
     "test:smoke": "playwright test -c tests/playwright.config.cjs",
     "test:smoke:headed": "playwright test -c tests/playwright.config.cjs --headed",
     "test:smoke:ui": "playwright test -c tests/playwright.config.cjs --ui",
-    "sheets:check": "node tools/check_google_sheets_access.cjs"
+    "sheets:check": "node tools/check_google_sheets_access.cjs",
+    "sheets:list": "node tools/list_google_sheets.cjs",
+    "sheets:write-clean-elves-men": "node tools/write_clean_elves_men_sheets.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
