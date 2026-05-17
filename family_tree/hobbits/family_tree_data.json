@@ -110,6 +110,23 @@
       ],
       "order": 5
     },
+    "hildifons_took": {
+      "id": "hildifons_took",
+      "name": "Hildifons Took",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "title": "Son of Gerontius Took",
+      "house": "Took",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/hildifons_took.png",
+      "groups": [
+        "took",
+        "hobbits"
+      ],
+      "order": 5
+    },
     "isembard_took": {
       "id": "isembard_took",
       "name": "Isembard Took",
@@ -150,7 +167,8 @@
       "children": [
         "belladonna_took",
         "hildibrand_took",
-        "isembard_took"
+        "isembard_took",
+        "hildifons_took"
       ]
     }
   ],
