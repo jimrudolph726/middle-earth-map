@@ -119,15 +119,6 @@
       "childOrder": [
         "valandil_lord_of_andúnië"
       ]
-    },
-    {
-      "id": "union-eldarion",
-      "partners": [
-        "eldarion"
-      ],
-      "children": [
-        "eldarion_son"
-      ]
     }
   ]
 }

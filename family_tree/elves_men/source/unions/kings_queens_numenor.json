@@ -12,14 +12,16 @@
       "order": 10
     },
     {
-      "id": "union-ar-gimilzôr",
+      "id": "union-ar-gimilzôr-inzilbêth",
       "partners": [
-        "ar-gimilzôr"
+        "ar-gimilzôr",
+        "inzilbêth"
       ],
       "children": [
-        "tar-palantir"
+        "tar-palantir",
+        "gimilkhâd"
       ],
-      "label": "Issue",
+      "label": "Marriage",
       "order": 10
     },
     {
@@ -79,6 +81,17 @@
         "tindómiel",
         "manwendil",
         "atanalcar"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-gimilkhâd",
+      "partners": [
+        "gimilkhâd"
+      ],
+      "children": [
+        "ar-pharazôn"
       ],
       "label": "Issue",
       "order": 10
@@ -158,7 +171,8 @@
         "tar-anárion"
       ],
       "children": [
-        "tar-súrion"
+        "tar-súrion",
+        "two_daughters_of_tar-anárion"
       ],
       "label": "Issue",
       "order": 10
@@ -191,7 +205,8 @@
         "tar-atanamir"
       ],
       "children": [
-        "tar-ancalimon"
+        "tar-ancalimon",
+        "tar-anducal"
       ],
       "label": "Issue",
       "order": 10
@@ -202,7 +217,8 @@
         "tar-calmacil"
       ],
       "children": [
-        "tar-ardamin"
+        "tar-ardamin",
+        "gimilzagar"
       ],
       "label": "Issue",
       "order": 10
@@ -258,7 +274,7 @@
         "tar-palantir"
       ],
       "children": [
-        "ar-pharazôn"
+        "tar-míriel"
       ],
       "label": "Issue",
       "order": 10
@@ -269,7 +285,8 @@
         "tar-súrion"
       ],
       "children": [
-        "isilmo"
+        "isilmo",
+        "tar-telperiën"
       ],
       "label": "Issue",
       "order": 10
@@ -281,17 +298,6 @@
       ],
       "children": [
         "tar-vanimeldë"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
-      "id": "union-tar-vanimeldë",
-      "partners": [
-        "tar-vanimeldë"
-      ],
-      "children": [
-        "tar-alcarin"
       ],
       "label": "Issue",
       "order": 10
@@ -309,6 +315,16 @@
       ],
       "label": "Issue",
       "order": 10
+    },
+    {
+      "id": "union-tar-anducal-tar-vanimeldë",
+      "partners": [
+        "tar-vanimeldë",
+        "tar-anducal"
+      ],
+      "children": [
+        "tar-alcarin"
+      ]
     }
   ]
 }

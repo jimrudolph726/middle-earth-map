@@ -3117,11 +3117,32 @@
 
       if (children.length === 1) {
         const child = children[0];
+
         descentLines.push({
-          id: `${union.id}-child`,
+          id: `${union.id}-stem`,
           unionId: union.id,
           x1: descentOriginX,
           y1: descentOriginY,
+          x2: descentOriginX,
+          y2: branchY
+        });
+
+        if (child.centerX !== descentOriginX) {
+          descentLines.push({
+            id: `${union.id}-branch`,
+            unionId: union.id,
+            x1: descentOriginX,
+            y1: branchY,
+            x2: child.centerX,
+            y2: branchY
+          });
+        }
+
+        descentLines.push({
+          id: `${union.id}-child`,
+          unionId: union.id,
+          x1: child.centerX,
+          y1: branchY,
           x2: child.centerX,
           y2: child.top
         });

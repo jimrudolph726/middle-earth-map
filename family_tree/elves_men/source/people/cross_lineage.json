@@ -176,25 +176,6 @@
       ],
       "order": 40
     },
-    "eldarion_son": {
-      "id": "eldarion_son",
-      "name": "Eldarion's Son",
-      "sex": "male",
-      "kindred": "Half-elven",
-      "title": "eldarion_son",
-      "house": "eldarion_son",
-      "realm": "Reunited Kingdom",
-      "born": "Fourth Age",
-      "died": "Unknown",
-      "image": "assets/eldarion_son.png",
-      "bio": "Eldarion is the son and heir of Aragorn and Arwen, continuing the reunited royal line into the Fourth Age.",
-      "groups": [
-        "men",
-        "elves",
-        "half-elven"
-      ],
-      "order": 40
-    },
     "unknown_daughters": {
       "id": "unknown_daughters",
       "name": "Unknown Daughters",

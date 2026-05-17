@@ -1067,6 +1067,22 @@
       ],
       "order": 5
     },
+    "gimilkhâd": {
+      "id": "gimilkhâd",
+      "name": "Gimilkhâd",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Ar-Gimilzôr",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/gimilkhâd.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
     "hallacar": {
       "id": "hallacar",
       "name": "Hallacar",
@@ -1141,7 +1157,7 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/írildë.png",
+      "image": "assets/tar-telperiën.png",
       "groups": [
         "númenórean"
       ],
@@ -1168,7 +1184,7 @@
       "name": "Isilmo",
       "sex": "male",
       "kindred": "Men",
-      "title": "10th King of Númenor",
+      "title": "Son of Tar-Súrion",
       "house": "House of Númenor",
       "realm": "Númenor",
       "born": "Unknown",
@@ -1705,6 +1721,22 @@
       ],
       "order": 5
     },
+    "tar-míriel": {
+      "id": "tar-míriel",
+      "name": "Tar-Míriel",
+      "sex": "woman",
+      "kindred": "Men",
+      "title": "Daughter of Tar-Palantir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-míriel.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
     "tar-palantir": {
       "id": "tar-palantir",
       "name": "Tar-Palantir",
@@ -1748,6 +1780,22 @@
       "born": "Unknown",
       "died": "Unknown",
       "image": "assets/tar-telemmaitë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "tar-telperiën": {
+      "id": "tar-telperiën",
+      "name": "Tar-Telperiën",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "10th Ruling Monarch of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/írildë.png",
       "groups": [
         "númenórean"
       ],
@@ -1909,6 +1957,22 @@
       "image": "assets/turambar.png",
       "groups": [
         "dúnedain"
+      ],
+      "order": 5
+    },
+    "two_daughters_of_tar-anárion": {
+      "id": "two_daughters_of_tar-anárion",
+      "name": "Unknown Daughters",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "Two Unknown Daughters of Tar-Anárion",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/two_daughters_of_tar-anárion.png",
+      "groups": [
+        "númenórean"
       ],
       "order": 5
     },
@@ -2422,25 +2486,6 @@
       ],
       "order": 40
     },
-    "eldarion_son": {
-      "id": "eldarion_son",
-      "name": "Eldarion's Son",
-      "sex": "male",
-      "kindred": "Half-elven",
-      "title": "eldarion_son",
-      "house": "eldarion_son",
-      "realm": "Reunited Kingdom",
-      "born": "Fourth Age",
-      "died": "Unknown",
-      "image": "assets/eldarion_son.png",
-      "bio": "Eldarion is the son and heir of Aragorn and Arwen, continuing the reunited royal line into the Fourth Age.",
-      "groups": [
-        "men",
-        "elves",
-        "half-elven"
-      ],
-      "order": 40
-    },
     "unknown_daughters": {
       "id": "unknown_daughters",
       "name": "Unknown Daughters",
@@ -2458,6 +2503,66 @@
         "half-elven"
       ],
       "order": 41
+    },
+    "gimilzagar": {
+      "id": "gimilzagar",
+      "name": "Gimilzagar",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Tar-Calmacil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/gimilzagar.png",
+      "groups": [
+        "númenórean"
+      ]
+    },
+    "inzilbêth": {
+      "id": "inzilbêth",
+      "name": "Inzilbêth",
+      "sex": "woman",
+      "kindred": "Men",
+      "title": "Daughter of Lindórië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/inzilbêth.png",
+      "groups": [
+        "andúnië"
+      ]
+    },
+    "lindórië": {
+      "id": "lindórië",
+      "name": "Lindórië",
+      "sex": "woman",
+      "kindred": "Men",
+      "title": "Lindórië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/lindórië.png",
+      "groups": [
+        "andúnië"
+      ]
+    },
+    "tar-anducal": {
+      "id": "tar-anducal",
+      "name": "Tar-Anducal",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Tar-Anducal",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-anducal.png",
+      "groups": [
+        "númenórean"
+      ]
     }
   },
   "unions": [
@@ -2528,14 +2633,16 @@
       "order": 10
     },
     {
-      "id": "union-ar-gimilzôr",
+      "id": "union-ar-gimilzôr-inzilbêth",
       "partners": [
-        "ar-gimilzôr"
+        "ar-gimilzôr",
+        "inzilbêth"
       ],
       "children": [
-        "tar-palantir"
+        "tar-palantir",
+        "gimilkhâd"
       ],
-      "label": "Issue",
+      "label": "Marriage",
       "order": 10
     },
     {
@@ -3148,6 +3255,17 @@
       "order": 10
     },
     {
+      "id": "union-gimilkhâd",
+      "partners": [
+        "gimilkhâd"
+      ],
+      "children": [
+        "ar-pharazôn"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
       "id": "union-hallatan",
       "partners": [
         "hallatan"
@@ -3199,6 +3317,17 @@
       ],
       "children": [
         "tar-minastir"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
+      "id": "union-lindórië",
+      "partners": [
+        "lindórië"
+      ],
+      "children": [
+        "inzilbêth"
       ],
       "label": "Issue",
       "order": 10
@@ -3400,7 +3529,8 @@
         "tar-anárion"
       ],
       "children": [
-        "tar-súrion"
+        "tar-súrion",
+        "two_daughters_of_tar-anárion"
       ],
       "label": "Issue",
       "order": 10
@@ -3445,7 +3575,8 @@
         "tar-atanamir"
       ],
       "children": [
-        "tar-ancalimon"
+        "tar-ancalimon",
+        "tar-anducal"
       ],
       "label": "Issue",
       "order": 10
@@ -3456,7 +3587,8 @@
         "tar-calmacil"
       ],
       "children": [
-        "tar-ardamin"
+        "tar-ardamin",
+        "gimilzagar"
       ],
       "label": "Issue",
       "order": 10
@@ -3512,7 +3644,7 @@
         "tar-palantir"
       ],
       "children": [
-        "ar-pharazôn"
+        "tar-míriel"
       ],
       "label": "Issue",
       "order": 10
@@ -3523,7 +3655,8 @@
         "tar-súrion"
       ],
       "children": [
-        "isilmo"
+        "isilmo",
+        "tar-telperiën"
       ],
       "label": "Issue",
       "order": 10
@@ -3535,17 +3668,6 @@
       ],
       "children": [
         "tar-vanimeldë"
-      ],
-      "label": "Issue",
-      "order": 10
-    },
-    {
-      "id": "union-tar-vanimeldë",
-      "partners": [
-        "tar-vanimeldë"
-      ],
-      "children": [
-        "tar-alcarin"
       ],
       "label": "Issue",
       "order": 10
@@ -3733,7 +3855,8 @@
         "unknown_lord_of_andúnië_thirteen"
       ],
       "children": [
-        "eärendur_lord_of_andúnië"
+        "eärendur_lord_of_andúnië",
+        "lindórië"
       ],
       "label": "Issue",
       "order": 10
@@ -3866,12 +3989,13 @@
       ]
     },
     {
-      "id": "union-eldarion",
+      "id": "union-tar-anducal-tar-vanimeldë",
       "partners": [
-        "eldarion"
+        "tar-vanimeldë",
+        "tar-anducal"
       ],
       "children": [
-        "eldarion_son"
+        "tar-alcarin"
       ]
     }
   ],

@@ -23,6 +23,17 @@
       "order": 10
     },
     {
+      "id": "union-lindórië",
+      "partners": [
+        "lindórië"
+      ],
+      "children": [
+        "inzilbêth"
+      ],
+      "label": "Issue",
+      "order": 10
+    },
+    {
       "id": "union-númendil",
       "partners": [
         "númendil"
@@ -149,7 +160,8 @@
         "unknown_lord_of_andúnië_thirteen"
       ],
       "children": [
-        "eärendur_lord_of_andúnië"
+        "eärendur_lord_of_andúnië",
+        "lindórië"
       ],
       "label": "Issue",
       "order": 10

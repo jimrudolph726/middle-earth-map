@@ -192,6 +192,22 @@
       ],
       "order": 5
     },
+    "gimilkhâd": {
+      "id": "gimilkhâd",
+      "name": "Gimilkhâd",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Ar-Gimilzôr",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/gimilkhâd.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
     "hallacar": {
       "id": "hallacar",
       "name": "Hallacar",
@@ -234,7 +250,7 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/írildë.png",
+      "image": "assets/tar-telperiën.png",
       "groups": [
         "númenórean"
       ],
@@ -245,7 +261,7 @@
       "name": "Isilmo",
       "sex": "male",
       "kindred": "Men",
-      "title": "10th King of Númenor",
+      "title": "Son of Tar-Súrion",
       "house": "House of Númenor",
       "realm": "Númenor",
       "born": "Unknown",
@@ -560,6 +576,22 @@
       ],
       "order": 5
     },
+    "tar-míriel": {
+      "id": "tar-míriel",
+      "name": "Tar-Míriel",
+      "sex": "woman",
+      "kindred": "Men",
+      "title": "Daughter of Tar-Palantir",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-míriel.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
     "tar-palantir": {
       "id": "tar-palantir",
       "name": "Tar-Palantir",
@@ -608,6 +640,22 @@
       ],
       "order": 5
     },
+    "tar-telperiën": {
+      "id": "tar-telperiën",
+      "name": "Tar-Telperiën",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "10th Ruling Monarch of Númenor",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/írildë.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
     "tar-vanimeldë": {
       "id": "tar-vanimeldë",
       "name": "Tar-Vanimeldë",
@@ -635,6 +683,22 @@
       "born": "Unknown",
       "died": "Unknown",
       "image": "assets/tindómiel.png",
+      "groups": [
+        "númenórean"
+      ],
+      "order": 5
+    },
+    "two_daughters_of_tar-anárion": {
+      "id": "two_daughters_of_tar-anárion",
+      "name": "Unknown Daughters",
+      "sex": "female",
+      "kindred": "Men",
+      "title": "Two Unknown Daughters of Tar-Anárion",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/two_daughters_of_tar-anárion.png",
       "groups": [
         "númenórean"
       ],
@@ -687,6 +751,36 @@
         "númenórean"
       ],
       "order": 5
+    },
+    "gimilzagar": {
+      "id": "gimilzagar",
+      "name": "Gimilzagar",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Son of Tar-Calmacil",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/gimilzagar.png",
+      "groups": [
+        "númenórean"
+      ]
+    },
+    "tar-anducal": {
+      "id": "tar-anducal",
+      "name": "Tar-Anducal",
+      "sex": "male",
+      "kindred": "Men",
+      "title": "Tar-Anducal",
+      "house": "House of Númenor",
+      "realm": "Númenor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/tar-anducal.png",
+      "groups": [
+        "númenórean"
+      ]
     }
   }
 }

@@ -287,6 +287,36 @@
         "andúnië"
       ],
       "order": 5
+    },
+    "inzilbêth": {
+      "id": "inzilbêth",
+      "name": "Inzilbêth",
+      "sex": "woman",
+      "kindred": "Men",
+      "title": "Daughter of Lindórië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/inzilbêth.png",
+      "groups": [
+        "andúnië"
+      ]
+    },
+    "lindórië": {
+      "id": "lindórië",
+      "name": "Lindórië",
+      "sex": "woman",
+      "kindred": "Men",
+      "title": "Lindórië",
+      "house": "House of Andúnië",
+      "realm": "Gondor",
+      "born": "Unknown",
+      "died": "Unknown",
+      "image": "assets/lindórië.png",
+      "groups": [
+        "andúnië"
+      ]
     }
   }
 }

@@ -27,79 +27,79 @@
       ],
       "positions": {
         "eärendil": {
-          "x": 300,
+          "x": 450,
           "y": -14400
         },
         "elwing": {
-          "x": 1500,
+          "x": 1800,
           "y": -14400
         },
         "celeborn": {
-          "x": 2550,
-          "y": -14400
-        },
-        "galadriel": {
           "x": 2850,
           "y": -14400
         },
+        "galadriel": {
+          "x": 3150,
+          "y": -14400
+        },
         "elros": {
-          "x": 300,
+          "x": 450,
           "y": -14200
         },
         "elrond": {
-          "x": 1500,
+          "x": 1800,
           "y": -14200
         },
         "celebrian": {
-          "x": 2700,
+          "x": 3000,
           "y": -14200
         },
         "vardamir": {
-          "x": 300,
+          "x": 450,
           "y": -14000
         },
         "tindómiel": {
-          "x": 600,
+          "x": 750,
           "y": -14000
         },
         "manwendil": {
-          "x": 900,
+          "x": 1050,
           "y": -14000
         },
         "atanalcar": {
-          "x": 1200,
+          "x": 1350,
           "y": -14000
         },
         "tar-amandil": {
-          "x": 300,
+          "x": 450,
           "y": -13800
         },
         "vardilmë": {
-          "x": 600,
+          "x": 750,
           "y": -13800
         },
         "aulendil": {
-          "x": 900,
+          "x": 1050,
           "y": -13800
         },
         "nolondil": {
-          "x": 1200,
+          "x": 1350,
           "y": -13800
         },
         "tar-elendil": {
-          "x": 300,
+          "x": 450,
           "y": -13600
         },
         "yávien": {
-          "x": 600,
+          "x": 750,
           "y": -13600
         },
         "ormendil": {
-          "x": 900,
+          "x": 1050,
           "y": -13600
         },
         "axantur": {
-          "x": 1200,
+          "x": 1350,
           "y": -13600
         },
         "elatan": {
@@ -111,43 +111,43 @@
           "y": -13400
         },
         "tar-meneldur": {
-          "x": 300,
+          "x": 450,
           "y": -13400
         },
         "lindissë": {
-          "x": 600,
+          "x": 750,
           "y": -13400
         },
         "ardamir": {
-          "x": 900,
+          "x": 1050,
           "y": -13400
         },
         "cemendur_son_of_axantur": {
-          "x": 1200,
+          "x": 1350,
           "y": -13400
         },
         "tar-aldarion": {
-          "x": 300,
+          "x": 450,
           "y": -13200
         },
         "írildë": {
-          "x": 900,
+          "x": 1050,
           "y": -13200
         },
         "hallatan": {
-          "x": 1200,
+          "x": 1350,
           "y": -13200
         },
         "tar-ancalimë": {
-          "x": 300,
+          "x": 450,
           "y": -13000
         },
         "hallacar": {
-          "x": 900,
+          "x": 1050,
           "y": -13000
         },
         "nessanië": {
-          "x": 1200,
+          "x": 1350,
           "y": -13000
         },
         "valandil_lord_of_andúnië": {
@@ -155,7 +155,7 @@
           "y": -12800
         },
         "tar-anárion": {
-          "x": 300,
+          "x": 450,
           "y": -12800
         },
         "unknown_lord_of_andúnië_one": {
@@ -163,7 +163,11 @@
           "y": -12600
         },
         "tar-súrion": {
-          "x": 300,
+          "x": 450,
+          "y": -12600
+        },
+        "two_daughters_of_tar-anárion": {
+          "x": 750,
           "y": -12600
         },
         "unknown_lord_of_andúnië_two": {
@@ -171,7 +175,11 @@
           "y": -12400
         },
         "isilmo": {
-          "x": 300,
+          "x": 450,
+          "y": -12400
+        },
+        "tar-telperiën": {
+          "x": 750,
           "y": -12400
         },
         "unknown_lord_of_andúnië_three": {
@@ -179,7 +187,7 @@
           "y": -12200
         },
         "tar-minastir": {
-          "x": 300,
+          "x": 450,
           "y": -12200
         },
         "unknown_lord_of_andúnië_four": {
@@ -187,7 +195,7 @@
           "y": -12000
         },
         "tar-ciryatan": {
-          "x": 300,
+          "x": 450,
           "y": -12000
         },
         "unknown_lord_of_andúnië_five": {
@@ -195,7 +203,7 @@
           "y": -11800
         },
         "tar-atanamir": {
-          "x": 300,
+          "x": 450,
           "y": -11800
         },
         "unknown_lord_of_andúnië_six": {
@@ -203,7 +211,7 @@
           "y": -11600
         },
         "tar-ancalimon": {
-          "x": 300,
+          "x": 450,
           "y": -11600
         },
         "unknown_lord_of_andúnië_seven": {
@@ -211,7 +219,7 @@
           "y": -11400
         },
         "tar-telemmaitë": {
-          "x": 300,
+          "x": 450,
           "y": -11400
         },
         "unknown_lord_of_andúnië_eight": {
@@ -219,7 +227,11 @@
           "y": -11200
         },
         "tar-vanimeldë": {
-          "x": 300,
+          "x": 450,
+          "y": -11200
+        },
+        "tar-anducal": {
+          "x": 750,
           "y": -11200
         },
         "unknown_lord_of_andúnië_nine": {
@@ -227,7 +239,7 @@
           "y": -11000
         },
         "tar-alcarin": {
-          "x": 300,
+          "x": 450,
           "y": -11000
         },
         "unknown_lord_of_andúnië_ten": {
@@ -235,7 +247,7 @@
           "y": -10800
         },
         "tar-calmacil": {
-          "x": 300,
+          "x": 450,
           "y": -10800
         },
         "unknown_lord_of_andúnië_eleven": {
@@ -243,7 +255,11 @@
           "y": -10600
         },
         "tar-ardamin": {
-          "x": 300,
+          "x": 450,
+          "y": -10600
+        },
+        "gimilzagar": {
+          "x": 750,
           "y": -10600
         },
         "unknown_lord_of_andúnië_twelve": {
@@ -251,7 +267,7 @@
           "y": -10400
         },
         "ar-adûnakhôr": {
-          "x": 300,
+          "x": 450,
           "y": -10400
         },
         "unknown_lord_of_andúnië_thirteen": {
@@ -259,39 +275,59 @@
           "y": -10200
         },
         "ar-zimrathôn": {
-          "x": 300,
+          "x": 450,
           "y": -10200
         },
         "eärendur_lord_of_andúnië": {
           "x": -150,
           "y": -10000
         },
+        "lindórië": {
+          "x": 150,
+          "y": -10000
+        },
         "ar-sakalthôr": {
-          "x": 300,
+          "x": 450,
           "y": -10000
         },
         "unknown_lord_of_andúnië_fourteen": {
           "x": -150,
           "y": -9800
         },
+        "inzilbêth": {
+          "x": 150,
+          "y": -9800
+        },
         "ar-gimilzôr": {
-          "x": 300,
+          "x": 450,
           "y": -9800
         },
         "númendil": {
           "x": -150,
           "y": -9600
         },
+        "tar-palantir": {
+          "x": 150,
+          "y": -9600
+        },
+        "gimilkhâd": {
+          "x": 450,
+          "y": -9600
+        },
         "amandil": {
           "x": -150,
           "y": -9400
         },
+        "tar-míriel": {
+          "x": 150,
+          "y": -9400
+        },
+        "ar-pharazôn": {
+          "x": 450,
+          "y": -9400
+        },
         "elendil": {
           "x": -150,
-          "y": -9200
-        },
-        "tar-palantir": {
-          "x": 300,
           "y": -9200
         },
         "isildur": {
@@ -300,10 +336,6 @@
         },
         "anárion": {
           "x": 0,
-          "y": -9000
-        },
-        "ar-pharazôn": {
-          "x": 300,
           "y": -9000
         },
         "valandil": {
@@ -619,20 +651,16 @@
           "y": 0
         },
         "arwen": {
-          "x": 2100,
+          "x": 2400,
           "y": 0
         },
         "eldarion": {
-          "x": 900,
+          "x": 1050,
           "y": 200
         },
         "unknown_daughters": {
-          "x": 1200,
+          "x": 1350,
           "y": 200
-        },
-        "eldarion_son": {
-          "x": 900,
-          "y": 400
         }
       }
     }
