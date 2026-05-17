@@ -11,7 +11,6 @@
       "born": "1938",
       "died": "2106",
       "image": "assets/adamanta_chubb.png",
-      "bio": "Belladonna Took bio",
       "groups": [
         "took",
         "hobbits"
@@ -58,7 +57,7 @@
     "hildibrand_took": {
       "id": "hildibrand_took",
       "name": "Hildibrand Took",
-      "sex": "female",
+      "sex": "male",
       "kindred": "Hobbits",
       "title": "Son of Gerontius Took",
       "house": "Took",
@@ -66,7 +65,23 @@
       "born": "1938",
       "died": "2106",
       "image": "assets/hildibrand_took.png",
-      "bio": "Belladonna Took bio",
+      "groups": [
+        "took",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "isembard_took": {
+      "id": "isembard_took",
+      "name": "Isembard Took",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "title": "Son of Gerontius Took",
+      "house": "Took",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/isembard_took.png",
       "groups": [
         "took",
         "hobbits"
