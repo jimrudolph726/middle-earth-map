@@ -11,6 +11,14 @@
           "x": -600,
           "y": -400
         },
+        "mungo_baggins": {
+          "x": 900,
+          "y": -400
+        },
+        "laura_grubb": {
+          "x": 1200,
+          "y": -400
+        },
         "hildifons_took": {
           "x": -1050,
           "y": -200
@@ -29,6 +37,38 @@
         },
         "bungo_baggins": {
           "x": 150,
+          "y": -200
+        },
+        "belba_baggins": {
+          "x": 450,
+          "y": -200
+        },
+        "rudigar_bolger": {
+          "x": 750,
+          "y": -200
+        },
+        "longo_baggins": {
+          "x": 1050,
+          "y": -200
+        },
+        "camellia_sackville": {
+          "x": 1350,
+          "y": -200
+        },
+        "linda_baggins": {
+          "x": 1650,
+          "y": -200
+        },
+        "bodo_proudfoot": {
+          "x": 1950,
+          "y": -200
+        },
+        "bingo_baggins": {
+          "x": 2250,
+          "y": -200
+        },
+        "chica_chubb": {
+          "x": 2550,
           "y": -200
         },
         "bilbo_baggins": {

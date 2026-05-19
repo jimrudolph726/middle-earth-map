@@ -1,3 +1,60 @@
 {
-  "unions": []
+  "unions": [
+    {
+      "id": "union_rudigar-belba",
+      "partners": [
+        "rudigar_bolger",
+        "belba_baggins"
+      ],
+      "children": [],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-bingo-chica",
+      "partners": [
+        "bingo_baggins",
+        "chica_chubb"
+      ],
+      "children": [],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-bodo-linda",
+      "partners": [
+        "bodo_proudfoot",
+        "linda_baggins"
+      ],
+      "children": [],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-longo-camellia",
+      "partners": [
+        "longo_baggins",
+        "camellia_sackville"
+      ],
+      "children": [],
+      "label": "Marriage",
+      "order": 10
+    },
+    {
+      "id": "union-mungo-laura",
+      "partners": [
+        "mungo_baggins",
+        "laura_grubb"
+      ],
+      "children": [
+        "bungo_baggins",
+        "belba_baggins",
+        "longo_baggins",
+        "linda_baggins",
+        "bingo_baggins"
+      ],
+      "label": "Marriage",
+      "order": 10
+    }
+  ]
 }

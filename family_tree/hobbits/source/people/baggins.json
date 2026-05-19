@@ -1,5 +1,21 @@
 {
   "people": {
+    "belba_baggins": {
+      "id": "belba_baggins",
+      "name": "Belba Baggins",
+      "sex": "female",
+      "kindred": "Hobbits",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/belba_baggins.png",
+      "groups": [
+        "baggins",
+        "hobbits"
+      ],
+      "order": 5
+    },
     "bilbo_baggins": {
       "id": "bilbo_baggins",
       "name": "Bilbo Baggins",
@@ -15,6 +31,40 @@
       "groups": [
         "baggins",
         "hobbits"
+      ],
+      "order": 5
+    },
+    "bingo_baggins": {
+      "id": "bingo_baggins",
+      "name": "Bingo Baggins",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/bingo_baggins.png",
+      "groups": [
+        "baggins",
+        "hobbits",
+        "chubb"
+      ],
+      "order": 5
+    },
+    "bodo_proudfoot": {
+      "id": "bodo_proudfoot",
+      "name": "Bodo Proudfoot",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "house": "Baggins, Proudfoot",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/bodo_proudfoot.png",
+      "groups": [
+        "baggins",
+        "hobbits",
+        "proudfoot"
       ],
       "order": 5
     },
@@ -35,6 +85,124 @@
         "hobbits"
       ],
       "order": 5
+    },
+    "camellia_sackville": {
+      "id": "camellia_sackville",
+      "name": "Camellia Sackville",
+      "sex": "female",
+      "kindred": "Hobbits",
+      "house": "Baggins, Sackville",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/camellia_sackville.png",
+      "groups": [
+        "baggins",
+        "hobbits",
+        "sackville"
+      ],
+      "order": 5
+    },
+    "chica_chubb": {
+      "id": "chica_chubb",
+      "name": "Chica Chubb",
+      "sex": "female",
+      "kindred": "Hobbits",
+      "house": "Baggins, Chubb",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/chica_chubb.png",
+      "groups": [
+        "baggins",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "laura_grubb": {
+      "id": "laura_grubb",
+      "name": "Laura Grubb",
+      "sex": "female",
+      "kindred": "Hobbits",
+      "title": "Wife of Mungo",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/laura_grubb.png",
+      "bio": "no bio yet",
+      "groups": [
+        "baggins",
+        "hobbits",
+        "grubb"
+      ],
+      "order": 5
+    },
+    "linda_baggins": {
+      "id": "linda_baggins",
+      "name": "Linda Baggins",
+      "sex": "female",
+      "kindred": "Hobbits",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/linda_baggins.png",
+      "groups": [
+        "baggins",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "longo_baggins": {
+      "id": "longo_baggins",
+      "name": "Longo Baggins",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/longo_baggins.png",
+      "groups": [
+        "baggins",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "mungo_baggins": {
+      "id": "mungo_baggins",
+      "name": "Mungo Baggins",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "title": "Son of Balbo",
+      "house": "Baggins",
+      "realm": "The Shire",
+      "born": "1938",
+      "died": "2106",
+      "image": "assets/mungo_baggins.png",
+      "bio": "no bio yet",
+      "groups": [
+        "baggins",
+        "hobbits"
+      ],
+      "order": 5
+    },
+    "rudigar_bolger": {
+      "id": "rudigar_bolger",
+      "name": "Rudigar Bolger",
+      "sex": "male",
+      "kindred": "Hobbits",
+      "title": "Rudigar Bolger",
+      "house": "Bolger",
+      "realm": "The Shire",
+      "born": "1000",
+      "died": "1200",
+      "image": "assets/rudigar_bolger.png",
+      "groups": [
+        "hobbits",
+        "bolger"
+      ]
     }
   }
 }
