@@ -15,6 +15,14 @@ const expectedHomepageHotspots = [
   ["study-hotspot--family-tree", "family_tree/family_tree.html"]
 ];
 
+const mapPagePaths = [
+  ["maps", "middle_earth", "middle-earth.html"],
+  ["maps", "numenor", "numenor.html"],
+  ["maps", "beleriand", "beleriand.html"],
+  ["maps", "the_shire", "the_shire.html"],
+  ["maps", "minas_tirith", "minas_tirith.html"]
+];
+
 function expectNoErrors(errors) {
   assert.equal(errors.length, 0, errors.join("\n"));
 }
@@ -148,6 +156,28 @@ test("static pages have no external runtime asset dependencies", () => {
     if (/url\(\s*["']?(?:https?:)?\/\//i.test(css)) {
       errors.push(`${relativeCssPath} loads an external asset.`);
     }
+  });
+
+  expectNoErrors(errors);
+});
+
+test("every map page loads the shared atlas visual theme", () => {
+  const errors = [];
+  const requiredRefs = [
+    "../../plugins/atlas-map-theme.css",
+    "../../plugins/atlas-map-theme.js"
+  ];
+
+  mapPagePaths.forEach((pathParts) => {
+    const htmlPath = path.join(repoRoot, ...pathParts);
+    const html = fs.readFileSync(htmlPath, "utf8");
+    const relativeHtmlPath = path.relative(repoRoot, htmlPath);
+
+    requiredRefs.forEach((ref) => {
+      if (!html.includes(ref)) {
+        errors.push(`${relativeHtmlPath} is missing shared theme reference: ${ref}`);
+      }
+    });
   });
 
   expectNoErrors(errors);

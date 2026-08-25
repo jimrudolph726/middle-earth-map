@@ -177,43 +177,43 @@ export const settlementsData = [
 // Paths and Roads
 export const pathData = { 
   samfrodopath: { 
-    pathName: 'samfrodopath', color: '#ff0000', outlineColor: '#000000', outlineWeight: 10, name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
+    pathName: 'samfrodopath', color: '#71352e', outlineColor: '#2f241b', outlineWeight: 10, name: 'Sam and Frodo', PopupContent: createSettlementPopup('Sam and Frodo', '1766 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
   }, 
   aragornpath: { 
-    pathName: 'aragornpath', color: '#00c3ff', outlineColor: '#000000', name: 'Aragorn, Gimli and Legolas', PopupContent: createSettlementPopup('Aragorn, Gimli, and Legolas', '1575 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'aragornpath', color: '#557887', outlineColor: '#2f241b', name: 'Aragorn, Gimli and Legolas', PopupContent: createSettlementPopup('Aragorn, Gimli, and Legolas', '1575 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
   },
   boromirpath: { 
-    pathName: 'boromirpath', color: '#fef662', outlineColor: '#000000', name: 'Boromir', PopupContent: createSettlementPopup('Boromir', '2400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'boromirpath', color: '#ad8138', outlineColor: '#2f241b', name: 'Boromir', PopupContent: createSettlementPopup('Boromir', '2400 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
   },
   pippinpath: { 
-    pathName: 'pippinpath', color: '#00ab03', outlineColor: '#000000', name: 'Pippin', PopupContent: createSettlementPopup('Pippin', '855 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'pippinpath', color: '#49643f', outlineColor: '#2f241b', name: 'Pippin', PopupContent: createSettlementPopup('Pippin', '855 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
   },
   merrypath: { 
-    pathName: 'merrypath', color: '#ff8400', outlineColor: '#000000', name: 'Merry', PopupContent: createSettlementPopup('Merry', '907 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5 
+    pathName: 'merrypath', color: '#a35f32', outlineColor: '#2f241b', name: 'Merry', PopupContent: createSettlementPopup('Merry', '907 miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5
   },
   gandalfthegreypath: { 
-    pathName: 'gandalfthegreypath', color: '#8a8080', outlineColor: '#000000', name: 'Gandalf the Grey', PopupContent: createSettlementPopup('Gandalf the Grey', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5, arrows: true 
+    pathName: 'gandalfthegreypath', color: '#625d57', outlineColor: '#2f241b', name: 'Gandalf the Grey', PopupContent: createSettlementPopup('Gandalf the Grey', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 5, arrows: true
   },
   gandalfthewhitepath: { 
-    pathName: 'gandalfthewhitepath', color: '#ffffff', outlineColor: '#000000', outlineWeight: 10, name: 'Gandalf the White', PopupContent: createSettlementPopup('Gandalf the White', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 6, arrows: true 
+    pathName: 'gandalfthewhitepath', color: '#e8dfc6', outlineColor: '#2f241b', outlineWeight: 10, name: 'Gandalf the White', PopupContent: createSettlementPopup('Gandalf the White', 'many thounsands of miles', 'https://tolkiengateway.net/wiki/Quest_of_the_Ring'), tolerance: 10, weight: 6, arrows: true
   },
 }
 
 export const roadData = { 
   great_east_road: { 
-    pathName: 'great_east_road', color: 'brown', name: 'Great East Road', PopupContent: createSettlementPopup('Great East Road', 'Major road through Eriador. The Great East Road ran between the Grey Havens and Rivendell. The Road was approximately 575 miles long. The Road was not paved and sometimes developed ruts and potholes during wet weather.', 'https://thainsbook.minastirith.cz/roads.html#Great-East-Road'), tolerance: 10, weight: 6, arrows: false 
+    pathName: 'great_east_road', color: '#765331', outlineColor: '#35261b', outlineWeight: 8, name: 'Great East Road', PopupContent: createSettlementPopup('Great East Road', 'Major road through Eriador. The Great East Road ran between the Grey Havens and Rivendell. The Road was approximately 575 miles long. The Road was not paved and sometimes developed ruts and potholes during wet weather.', 'https://thainsbook.minastirith.cz/roads.html#Great-East-Road'), tolerance: 10, weight: 4, arrows: false
   },
   great_west_road: { 
-    pathName: 'great_west_road', color: 'red', name: 'Great West Road', PopupContent: createSettlementPopup('Great West Road', 'Road connecting Gondor and Rohan. The Great West Road was originally part of the Royal Road linking Gondor to the North-kingdom of Arnor. It ran between Minas Tirith and the Fords of Isen in the Gap of Rohan, where it joined the North-South Road to Arnor. The Great West Road was approximately 425 miles long.', 'https://thainsbook.minastirith.cz/roads.html#Great-West-Road'), tolerance: 10, weight: 6, arrows: false 
+    pathName: 'great_west_road', color: '#8b6138', outlineColor: '#35261b', outlineWeight: 8, name: 'Great West Road', PopupContent: createSettlementPopup('Great West Road', 'Road connecting Gondor and Rohan. The Great West Road was originally part of the Royal Road linking Gondor to the North-kingdom of Arnor. It ran between Minas Tirith and the Fords of Isen in the Gap of Rohan, where it joined the North-South Road to Arnor. The Great West Road was approximately 425 miles long.', 'https://thainsbook.minastirith.cz/roads.html#Great-West-Road'), tolerance: 10, weight: 4, arrows: false
   },
   old_forest_road: { 
-    pathName: 'old_forest_road', color: 'red', name: 'Old Forest Road', PopupContent: createSettlementPopup('Old Forest Road', 'Road through Mirkwood. The Old Forest Road began on the eastern side of the Misty Mountains. It came down from the High Pass, also called the Pass of Imladris. The Old Forest Road ran eastward and crossed the Anduin at the Old Ford. In the late Second Age there was a bridge over the Anduin at this point, but by the late Third Age it was gone.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
+    pathName: 'old_forest_road', color: '#536145', outlineColor: '#35261b', outlineWeight: 8, name: 'Old Forest Road', PopupContent: createSettlementPopup('Old Forest Road', 'Road through Mirkwood. The Old Forest Road began on the eastern side of the Misty Mountains. It came down from the High Pass, also called the Pass of Imladris. The Old Forest Road ran eastward and crossed the Anduin at the Old Ford. In the late Second Age there was a bridge over the Anduin at this point, but by the late Third Age it was gone.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 4, arrows: false
   },
   north_way: { 
-    pathName: 'north_way', color: 'red', name: 'North-way', PopupContent: createSettlementPopup('North-way', 'The North-way began at the Great Gate of Minas Tirith and ran northward across the Pelennor Fields. At the Rammas Echor, the North-way passed through Forannest, the North-gate. The North-way then joined the Great West Road which ran through Anorien and Rohan.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 6, arrows: false 
+    pathName: 'north_way', color: '#6c6252', outlineColor: '#35261b', outlineWeight: 8, name: 'North-way', PopupContent: createSettlementPopup('North-way', 'The North-way began at the Great Gate of Minas Tirith and ran northward across the Pelennor Fields. At the Rammas Echor, the North-way passed through Forannest, the North-gate. The North-way then joined the Great West Road which ran through Anorien and Rohan.', 'https://thainsbook.minastirith.cz/roads.html#Old-Forest-Rd'), tolerance: 10, weight: 4, arrows: false
   },
   harad_road: { 
-    pathName: 'harad_road', color: 'red', name: 'Harad Road', PopupContent: createSettlementPopup('Harad Road', 'Road from Harad through Ithilien to the Black Gate of Mordor. The Harad Road began in the far south of Middle-earth. It passed over the River Harnen into South Gondor and then over the Crossing of Poros into Ithilien. The road ran alongside the Mountains of Shadow on the border of Mordor.', 'https://thainsbook.minastirith.cz/roads.html#Harad-Rd'), tolerance: 10, weight: 6, arrows: false 
+    pathName: 'harad_road', color: '#87513b', outlineColor: '#35261b', outlineWeight: 8, name: 'Harad Road', PopupContent: createSettlementPopup('Harad Road', 'Road from Harad through Ithilien to the Black Gate of Mordor. The Harad Road began in the far south of Middle-earth. It passed over the River Harnen into South Gondor and then over the Crossing of Poros into Ithilien. The road ran alongside the Mountains of Shadow on the border of Mordor.', 'https://thainsbook.minastirith.cz/roads.html#Harad-Rd'), tolerance: 10, weight: 4, arrows: false
   },
 }
 

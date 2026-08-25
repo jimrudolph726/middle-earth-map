@@ -74,7 +74,7 @@ export const settlementsData = [
 // Paths
 export const pathdata = { 
   beren_path: { 
-    pathName: 'beren_path', color: 'red', name: 'Beren', PopupContent: createSettlementPopup('Beren', ' ', 'https://tolkiengateway.net/wiki/Beren'), tolerance: 10, weight: 5
+    pathName: 'beren_path', color: '#71352e', name: 'Beren', PopupContent: createSettlementPopup('Beren', ' ', 'https://tolkiengateway.net/wiki/Beren'), tolerance: 10, weight: 5
   }, 
 }
 
