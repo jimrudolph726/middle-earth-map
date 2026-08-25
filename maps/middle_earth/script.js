@@ -67,6 +67,7 @@ const getSharedClusterGroup = (clusterScope) => {
 const syncSharedCluster = (clusterScope) => {
   const clusterGroup = getSharedClusterGroup(clusterScope);
   const entries = sharedClusterEntries.filter((entry) => entry.clusterScope === clusterScope);
+  let changed = false;
 
   entries.forEach(({ checkboxId, groupName, data, campsite }) => {
     const checkbox = document.getElementById(checkboxId);
@@ -88,10 +89,12 @@ const syncSharedCluster = (clusterScope) => {
 
       if (checkbox.checked && !markerIsClustered) {
         clusterGroup.addLayer(marker);
+        changed = true;
       }
 
       if (!checkbox.checked && markerIsClustered) {
         clusterGroup.removeLayer(marker);
+        changed = true;
       }
     });
   });
@@ -99,15 +102,25 @@ const syncSharedCluster = (clusterScope) => {
   if (clusterGroup.getLayers().length > 0) {
     if (!map.hasLayer(clusterGroup)) {
       map.addLayer(clusterGroup);
+      changed = true;
     }
   } else if (map.hasLayer(clusterGroup)) {
     map.removeLayer(clusterGroup);
+    changed = true;
   }
+
+  return changed;
 };
 
 sharedClusterEntries.forEach(({ checkboxId, clusterScope }) => {
   const checkbox = document.getElementById(checkboxId);
-  checkbox?.addEventListener('change', () => syncSharedCluster(clusterScope));
+  checkbox?.addEventListener('change', () => {
+    if (syncSharedCluster(clusterScope)) {
+      document.dispatchEvent(new CustomEvent('atlas:layerchange', {
+        detail: { source: checkboxId, enabled: checkbox.checked }
+      }));
+    }
+  });
 });
 
 Object.keys(sharedClusterConfig).forEach((clusterScope) => {

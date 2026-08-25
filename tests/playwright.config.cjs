@@ -1,4 +1,6 @@
 const { defineConfig, devices } = require("@playwright/test");
+const port = Number(process.env.PORT || 4173);
+const baseURL = `http://127.0.0.1:${port}`;
 
 module.exports = defineConfig({
   testDir: ".",
@@ -8,7 +10,7 @@ module.exports = defineConfig({
   },
   reporter: [["list"]],
   use: {
-    baseURL: "http://127.0.0.1:4173",
+    baseURL,
     screenshot: "only-on-failure",
     trace: "retain-on-failure"
   },
@@ -20,7 +22,7 @@ module.exports = defineConfig({
   ],
   webServer: {
     command: "node static-server.cjs",
-    url: "http://127.0.0.1:4173",
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000
   }

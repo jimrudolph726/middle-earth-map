@@ -182,6 +182,75 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   }
 });
 
+test("atlas sounds are self-hosted and served as audio", async ({ request }) => {
+  const soundFiles = [
+    "wood-click.mp3",
+    "parchment-flick.mp3",
+    "quill-stroke.mp3",
+    "book-thump.mp3"
+  ];
+
+  for (const soundFile of soundFiles) {
+    const response = await request.get(`/assets/audio/atlas/${soundFile}`);
+
+    expect(response.ok(), `${soundFile} should be available to the static site.`).toBe(true);
+    expect(response.headers()["content-type"]).toBe("audio/mpeg");
+    expect((await response.body()).length, `${soundFile} should not be empty.`).toBeGreaterThan(1_000);
+  }
+});
+
+test("atlas sound preference persists across every map", async ({ page }) => {
+  await page.goto(mapPages[0].path, { waitUntil: "domcontentloaded" });
+  await page.getByRole("tab", { name: /Settings/i }).click();
+
+  const firstToggle = page.getByRole("switch", { name: /Atlas sounds/i });
+  await expect(page.locator(".atlas-sounds-card")).toBeVisible();
+  await expect(firstToggle).toBeAttached();
+  await expect(firstToggle).not.toBeChecked();
+
+  await page.locator("label.atlas-sounds-toggle").click();
+  await expect(firstToggle).toBeChecked();
+  await expect(page.locator("#atlasSoundsStatus")).toContainText(/On/i);
+
+  for (const mapPage of mapPages) {
+    await page.goto(mapPage.path, { waitUntil: "domcontentloaded" });
+    await page.getByRole("tab", { name: /Settings/i }).click();
+
+    const toggle = page.getByRole("switch", { name: /Atlas sounds/i });
+    await expect(page.locator(".atlas-sounds-card"), `${mapPage.label} should expose the atlas sound control.`).toBeVisible();
+    await expect(toggle, `${mapPage.label} should remember that atlas sounds are on.`).toBeChecked();
+  }
+
+  await page.locator("label.atlas-sounds-toggle").click();
+  await expect(page.getByRole("switch", { name: /Atlas sounds/i })).not.toBeChecked();
+});
+
+test("atlas sounds respond to controls, layers, and stories", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+  await page.getByRole("tab", { name: /Settings/i }).click();
+  await page.locator("label.atlas-sounds-toggle").click();
+
+  await expect.poll(async () => page.evaluate(() => window.AtlasSounds?.getState().playCounts.woodClick || 0), {
+    message: "Enabling atlas sounds should play the wooden control click."
+  }).toBeGreaterThan(0);
+
+  await page.getByRole("tab", { name: /Geography/i }).click();
+  await expect.poll(async () => page.evaluate(() => window.AtlasSounds?.getState().playCounts.parchmentFlick || 0), {
+    message: "Opening a sidebar pane should play the parchment flick."
+  }).toBeGreaterThan(0);
+
+  await page.locator("#mountain_rangesCheckbox").check();
+  await expect.poll(async () => page.evaluate(() => window.AtlasSounds?.getState().playCounts.quillStroke || 0), {
+    message: "Successfully adding a map layer should play the quill stroke."
+  }).toBeGreaterThan(0);
+
+  await page.getByRole("tab", { name: /Curated Stories/i }).click();
+  await page.getByRole("button", { name: /Start Sam and Frodo story/i }).click();
+  await expect.poll(async () => page.evaluate(() => window.AtlasSounds?.getState().playCounts.bookThump || 0), {
+    message: "Starting a curated story should play the book thump."
+  }).toBeGreaterThan(0);
+});
+
 test("family tree renders and opens a character sheet", async ({ page }) => {
   await page.goto("/family_tree/family_tree.html", { waitUntil: "domcontentloaded" });
 

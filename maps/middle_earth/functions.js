@@ -330,6 +330,12 @@ export const createMarkers = (locations, campsite = 'no', clusterGroup = null, g
   });
 };
 
+const announceLayerChange = (source, enabled) => {
+  document.dispatchEvent(new CustomEvent('atlas:layerchange', {
+    detail: { source, enabled }
+  }));
+};
+
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markerData, map) => {
   const checkbox = document.getElementById(checkboxId);
@@ -355,31 +361,47 @@ export const MarkerListeners = (checkboxId, markerData, map) => {
       : Object.values(markerData);
   }
 
-  const toggleMarkers = () => {
+  const toggleMarkers = (event) => {
+    let changed = false;
+
     if (isClustered) {
       markersArray.forEach((marker) => {
         const markerIsClustered = clusterGroup.hasLayer(marker);
 
         if (checkbox.checked && !markerIsClustered) {
           clusterGroup.addLayer(marker);
+          changed = true;
         }
 
         if (!checkbox.checked && markerIsClustered) {
           clusterGroup.removeLayer(marker);
+          changed = true;
         }
       });
 
       if (clusterGroup.getLayers().length > 0) {
         if (!map.hasLayer(clusterGroup)) {
           map.addLayer(clusterGroup);
+          changed = true;
         }
       } else if (map.hasLayer(clusterGroup)) {
         map.removeLayer(clusterGroup);
+        changed = true;
       }
     } else {
-      markersArray.forEach(marker =>
-        checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
-      );
+      markersArray.forEach((marker) => {
+        if (checkbox.checked && !map.hasLayer(marker)) {
+          marker.addTo(map);
+          changed = true;
+        } else if (!checkbox.checked && map.hasLayer(marker)) {
+          map.removeLayer(marker);
+          changed = true;
+        }
+      });
+    }
+
+    if (event && changed) {
+      announceLayerChange(checkboxId, checkbox.checked);
     }
   };
 
@@ -392,12 +414,22 @@ export const PathListeners = (items, map) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
+        let changed = false;
+
         if (event.target.checked) {
           // Add the item (polygon or polyline) to the map when checkbox is checked
-          items[key].addTo(map);
-        } else {
+          if (!map.hasLayer(items[key])) {
+            items[key].addTo(map);
+            changed = true;
+          }
+        } else if (map.hasLayer(items[key])) {
           // Remove the item (polygon or polyline) from the map when checkbox is unchecked
           map.removeLayer(items[key]);
+          changed = true;
+        }
+
+        if (changed) {
+          announceLayerChange(key, event.target.checked);
         }
       });
     }
@@ -526,7 +558,7 @@ export const LazyLayerListeners = (items, map) => {
       return;
     }
 
-    const toggleLayer = () => {
+    const toggleLayer = (event) => {
       const cachedLayerPromise = geographicLayerCache.get(geographicItem.pathName);
 
       if (!checkbox.checked) {
@@ -538,6 +570,10 @@ export const LazyLayerListeners = (items, map) => {
           .then((layer) => {
             if (!checkbox.checked && map.hasLayer(layer)) {
               map.removeLayer(layer);
+
+              if (event) {
+                announceLayerChange(key, false);
+              }
             }
           })
           .catch((error) => {
@@ -550,6 +586,10 @@ export const LazyLayerListeners = (items, map) => {
         .then((layer) => {
           if (checkbox.checked && !map.hasLayer(layer)) {
             layer.addTo(map);
+
+            if (event) {
+              announceLayerChange(key, true);
+            }
           }
         })
         .catch((error) => {
@@ -585,7 +625,7 @@ export const LazyShapeGroupListeners = (checkboxId, geographicData, map) => {
     return groupPromise;
   };
 
-  const toggleShapes = () => {
+  const toggleShapes = (event) => {
     const cachedGroupPromise = geographicShapeGroupCache.get(checkboxId);
 
     if (!checkbox.checked) {
@@ -593,15 +633,22 @@ export const LazyShapeGroupListeners = (checkboxId, geographicData, map) => {
         return;
       }
 
-      cachedGroupPromise
-        .then((shapes) => {
-          if (!checkbox.checked) {
-            Object.values(shapes).forEach((shape) => {
-              if (shape && map.hasLayer(shape)) {
-                map.removeLayer(shape);
+        cachedGroupPromise
+          .then((shapes) => {
+            if (!checkbox.checked) {
+              let changed = false;
+
+              Object.values(shapes).forEach((shape) => {
+                if (shape && map.hasLayer(shape)) {
+                  map.removeLayer(shape);
+                  changed = true;
+                }
+              });
+
+              if (event && changed) {
+                announceLayerChange(checkboxId, false);
               }
-            });
-          }
+            }
         })
         .catch((error) => {
           console.error(`Error unloading layer group for ${checkboxId}:`, error);
@@ -615,11 +662,18 @@ export const LazyShapeGroupListeners = (checkboxId, geographicData, map) => {
           return;
         }
 
+        let changed = false;
+
         Object.values(shapes).forEach((shape) => {
           if (shape && !map.hasLayer(shape)) {
             shape.addTo(map);
+            changed = true;
           }
         });
+
+        if (event && changed) {
+          announceLayerChange(checkboxId, true);
+        }
       })
       .catch((error) => {
         console.error(`Error fetching data for ${checkboxId}:`, error);

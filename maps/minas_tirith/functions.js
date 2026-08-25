@@ -137,6 +137,12 @@ const attachMarkerHoverAnimation = (marker) => {
   });
 };
 
+const announceLayerChange = (source, enabled) => {
+  document.dispatchEvent(new CustomEvent('atlas:layerchange', {
+    detail: { source, enabled }
+  }));
+};
+
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
@@ -149,10 +155,22 @@ export const MarkerListeners = (checkboxId, markers, map) => {
 
   const markersArray = Array.isArray(markers) ? markers : Object.values(markers);
 
-  const toggleMarkers = () => {
-    markersArray.forEach(marker => 
-      checkbox.checked ? marker.addTo(map) : map.removeLayer(marker)
-    );
+  const toggleMarkers = (event) => {
+    let changed = false;
+
+    markersArray.forEach((marker) => {
+      if (checkbox.checked && !map.hasLayer(marker)) {
+        marker.addTo(map);
+        changed = true;
+      } else if (!checkbox.checked && map.hasLayer(marker)) {
+        map.removeLayer(marker);
+        changed = true;
+      }
+    });
+
+    if (event && changed) {
+      announceLayerChange(checkboxId, checkbox.checked);
+    }
   };
 
   checkbox.addEventListener('change', toggleMarkers);
@@ -163,12 +181,22 @@ export const PathListeners = (items, map) => {
     const checkbox = document.getElementById(`${key}Checkbox`);
     if (checkbox) {
       checkbox.addEventListener('change', (event) => {
+        let changed = false;
+
         if (event.target.checked) {
           // Add the item (polygon or polyline) to the map when checkbox is checked
-          items[key].addTo(map);
-        } else {
+          if (!map.hasLayer(items[key])) {
+            items[key].addTo(map);
+            changed = true;
+          }
+        } else if (map.hasLayer(items[key])) {
           // Remove the item (polygon or polyline) from the map when checkbox is unchecked
           map.removeLayer(items[key]);
+          changed = true;
+        }
+
+        if (changed) {
+          announceLayerChange(key, event.target.checked);
         }
       });
     }
