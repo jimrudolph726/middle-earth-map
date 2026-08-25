@@ -376,42 +376,41 @@
 /* Parchment popups and cartographic tooltips --------------------------- */
 
 .leaflet-popup-content-wrapper {
-  border: 1px solid var(--atlas-gold);
-  border-radius: 10px;
+  border: 0;
+  border-radius: 0;
   color: var(--atlas-ink);
-  background:
-    linear-gradient(rgba(255, 249, 229, 0.9), rgba(211, 184, 127, 0.36)),
-    var(--atlas-paper-texture) center / cover;
-  box-shadow:
-    0 14px 34px rgba(34, 18, 9, 0.38),
-    inset 0 0 0 1px rgba(255, 247, 220, 0.55);
+  background: var(--atlas-paper-texture) center / 100% 100% no-repeat;
+  box-shadow: none;
   font-family: "Libre Baskerville", Georgia, serif;
 }
 
 .leaflet-popup-tip {
-  border: 1px solid var(--atlas-gold);
-  border-width: 0 1px 1px 0;
-  background: var(--atlas-parchment-200);
-  box-shadow: 3px 3px 8px rgba(34, 18, 9, 0.16);
+  border: 0;
+  background: var(--atlas-paper-texture) center / 600% 600% no-repeat;
+  box-shadow: none;
 }
 
 .campsite-popup-shell .leaflet-popup-content-wrapper,
 .lore-popup-shell .leaflet-popup-content-wrapper {
   border: 0;
-  background: transparent;
+  background: var(--atlas-paper-texture) center / 100% 100% no-repeat;
+  box-shadow: none;
+}
+
+.campsite-popup-shell .leaflet-popup-tip,
+.lore-popup-shell .leaflet-popup-tip {
+  border: 0;
+  background: var(--atlas-paper-texture) center / 600% 600% no-repeat;
   box-shadow: none;
 }
 
 .campsite-popup__frame,
 .lore-popup__frame {
-  border-color: var(--atlas-gold);
+  border: 0;
+  border-radius: 0;
   color: var(--atlas-ink);
-  background:
-    linear-gradient(rgba(255, 249, 229, 0.88), rgba(211, 184, 127, 0.3)),
-    var(--atlas-paper-texture) center / cover;
-  box-shadow:
-    0 12px 30px rgba(34, 18, 9, 0.34),
-    inset 0 0 0 1px rgba(255, 247, 220, 0.62);
+  background: transparent;
+  box-shadow: none;
 }
 
 .campsite-popup__title,
