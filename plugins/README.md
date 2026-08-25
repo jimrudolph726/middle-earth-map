@@ -1,5 +1,9 @@
 Vendored browser dependencies served locally by the atlas.
 
+- `leaflet/leaflet.css`, `leaflet/leaflet.js`, and `leaflet/images/*`
+  Source: `https://unpkg.com/leaflet@1.9.4/dist/`
+  Version: `1.9.4`
+
 - `MarkerCluster.css`
   Source: `https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css`
 - `MarkerCluster.Default.css`

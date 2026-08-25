@@ -113,18 +113,64 @@ test("local html anchor links point at existing files", () => {
   expectNoErrors(errors);
 });
 
+test("static pages have no external runtime asset dependencies", () => {
+  const errors = [];
+
+  listFiles(repoRoot, ".html").forEach((htmlPath) => {
+    const html = fs.readFileSync(htmlPath, "utf8");
+    const relativeHtmlPath = path.relative(repoRoot, htmlPath);
+    const assetPattern = /<(?:link|script)\b[^>]*\b(?:href|src)=["']([^"']+)["']/gi;
+    let match;
+
+    while ((match = assetPattern.exec(html)) !== null) {
+      const assetRef = match[1].trim();
+
+      if (/^(?:https?:)?\/\//i.test(assetRef)) {
+        errors.push(`${relativeHtmlPath} depends on external runtime asset: ${assetRef}`);
+        continue;
+      }
+
+      const targetPath = getLocalHrefTarget(htmlPath, assetRef);
+      if (targetPath && !fs.existsSync(targetPath)) {
+        errors.push(`${relativeHtmlPath} points at missing runtime asset: ${assetRef}`);
+      }
+    }
+  });
+
+  listFiles(repoRoot, ".css").forEach((cssPath) => {
+    const css = fs.readFileSync(cssPath, "utf8");
+    const relativeCssPath = path.relative(repoRoot, cssPath);
+
+    if (/@import\s+(?:url\()?\s*["']?(?:https?:)?\/\//i.test(css)) {
+      errors.push(`${relativeCssPath} imports an external stylesheet.`);
+    }
+
+    if (/url\(\s*["']?(?:https?:)?\/\//i.test(css)) {
+      errors.push(`${relativeCssPath} loads an external asset.`);
+    }
+  });
+
+  expectNoErrors(errors);
+});
+
 test("core third-party browser dependencies are served from local plugin files", () => {
   const errors = [];
   const dependencyChecks = [
     {
       htmlPath: path.join(repoRoot, "maps", "middle_earth", "middle-earth.html"),
       requiredRefs: [
+        "../../assets/vendor/fonts.css",
+        "../../plugins/leaflet/leaflet.css",
+        "../../plugins/leaflet/leaflet.js",
         "../../plugins/MarkerCluster.css",
         "../../plugins/MarkerCluster.Default.css",
         "../../plugins/click-tolerance.js",
         "../../plugins/leaflet.markercluster.js"
       ],
       forbiddenRefs: [
+        "https://fonts.googleapis.com/",
+        "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+        "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
         "https://unpkg.com/leaflet-clicktolerance/src/index.js",
         "https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js",
         "https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css",
