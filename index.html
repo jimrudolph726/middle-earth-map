@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="splash.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="plugins/atlas-map-nav.js"></script>
+    <script src="plugins/homepage-welcome.js" defer></script>
 </head>
 <body class="splash-body">
     <nav class="atlas-map-nav" aria-label="Atlas navigation">
@@ -68,13 +69,13 @@
     </nav>
     <main class="splash-shell">
         <section class="splash-panel">
-            <!-- <p class="splash-kicker">A Cartographer's Table</p> -->
+            <p class="splash-kicker">Welcome, traveller.</p>
             <h1 class="splash-title">Tolkien Legendarium Atlas</h1>
-            <p class="splash-copy">
-                Make yourself at home in Bilbo Baggins's study room and choose a map or genealogy to get started.
+            <p class="splash-copy" id="splash-instructions">
+                Welcome to Bilbo's study. Choose a framed map from the wall, or open the genealogy upon the desk.
             </p>
 
-            <div class="splash-table" aria-label="Bag End study selection">
+            <div class="splash-table" aria-label="Bag End study selection" aria-describedby="splash-instructions">
                 <div class="study-hotspots">
                     <a class="study-hotspot study-hotspot--middle-earth" href="maps/middle_earth/middle-earth.html" aria-label="Open the Middle-earth map">
                         <span class="study-hotspot__label">Middle-earth</span>
@@ -101,6 +102,13 @@
                     </a>
                 </div>
             </div>
+
+            <p class="splash-begin">
+                <span class="splash-begin__prompt">Not sure where to begin?</span>
+                <a class="splash-begin__link" href="maps/middle_earth/middle-earth.html">
+                    Begin with Middle-earth <span aria-hidden="true">&rarr;</span>
+                </a>
+            </p>
 
             <p class="splash-blessing">Elen sila lumenn' omentielvo</p>
         </section>

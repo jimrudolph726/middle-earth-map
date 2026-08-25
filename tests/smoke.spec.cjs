@@ -60,6 +60,9 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
 
   await expect(page).toHaveTitle(/Middle-earth Atlas/i);
+  await expect(page.getByText("Welcome, traveller.")).toBeVisible();
+  await expect(page.getByText(/Welcome to Bilbo's study/i)).toBeVisible();
+  await expect(page.getByRole("link", { name: /Begin with Middle-earth/i })).toBeVisible();
 
   const homepageLinks = [
     /Open the Middle-earth map/i,
@@ -73,6 +76,17 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   for (const linkName of homepageLinks) {
     await expect(page.getByRole("link", { name: linkName })).toBeVisible();
   }
+});
+
+test("homepage hotspot welcome appears only on the first visit", async ({ page }) => {
+  const hotspots = page.locator(".study-hotspots");
+
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await expect(hotspots).toHaveClass(/study-hotspots--welcoming/);
+
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(700);
+  await expect(hotspots).not.toHaveClass(/study-hotspots--welcoming/);
 });
 
 test("all map pages render a Leaflet map", async ({ page }) => {
