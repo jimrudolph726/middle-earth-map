@@ -23,6 +23,9 @@ import {
 import {
   initializeStoryMode,
 } from './stories.js';
+import {
+  initializeAtlasFrontispiece,
+} from './frontispiece.js';
 
 // Add Map
 map.options.wheelPxPerZoomLevel = 40; 
@@ -30,6 +33,7 @@ L.tileLayer(baseTileUrl, baseTileOptions).addTo(map);
 map.fitBounds(imageBounds);
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 initializeStoryMode({ sidebar });
+initializeAtlasFrontispiece({ sidebar });
 const sharedClusterGroups = {};
 
 // Add Campsites, Settlements, Items and Clustering

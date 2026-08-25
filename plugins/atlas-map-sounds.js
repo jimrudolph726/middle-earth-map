@@ -329,6 +329,11 @@
       return;
     }
 
+    if (target.closest("[data-frontispiece-action], [data-atlas-pane]")) {
+      play("parchmentFlick");
+      return;
+    }
+
     if (target.closest("[data-story-id]")) {
       play("bookThump");
       return;

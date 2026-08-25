@@ -122,6 +122,83 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
   await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of \d+/i);
 });
 
+test("middle-earth welcomes first-time visitors with three clear paths", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#sidebar")).not.toHaveClass(/collapsed/);
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+  await expect(page.getByRole("heading", { name: /Where shall the road take you/i })).toBeVisible();
+  await expect(page.locator("[data-frontispiece-action]")).toHaveCount(3);
+  await expect(page.getByRole("button", { name: /Explore places/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Follow a journey/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Browse the atlas/i })).toBeVisible();
+});
+
+test("frontispiece featured places travel to parchment map entries", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: /Explore places/i }).click();
+
+  await expect(page.locator("#featuredPlaces")).toHaveClass(/active/);
+  await expect(page.locator("[data-featured-place]")).toHaveCount(8);
+  await expect.poll(() => getLeafletMarkerLayerCount(page), {
+    message: "Featured Places should add its eight curated medallions to the map."
+  }).toBe(8);
+
+  await page.locator('[data-featured-place="hobbiton"]').click();
+  await expect(page.locator('[data-featured-place="hobbiton"]')).toHaveAttribute("aria-current", "location");
+  await expect(page.locator(".lore-popup__title")).toHaveText("Hobbiton");
+
+  await page.locator('#featuredPlaces [data-atlas-pane="frontispiece"]').click();
+  await expect(page.getByRole("heading", { name: /Where shall the road take you/i })).toBeVisible();
+  await expect.poll(() => getLeafletMarkerLayerCount(page), {
+    message: "Leaving Featured Places should remove its temporary marker layer."
+  }).toBe(0);
+});
+
+test("frontispiece routes into journeys and the complete atlas index", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: /Follow a journey/i }).click();
+  await expect(page.locator("#stories")).toHaveClass(/active/);
+  await expect(page.getByRole("button", { name: /Start Sam and Frodo story/i })).toBeVisible();
+
+  await page.getByRole("tab", { name: /Open atlas frontispiece/i }).click();
+  await page.getByRole("button", { name: /Browse the atlas/i }).click();
+  await expect(page.locator("#atlasIndex")).toHaveClass(/active/);
+  await expect(page.locator("#atlasIndex [data-atlas-pane]")).toHaveCount(10);
+
+  await page.locator('#atlasIndex [data-atlas-pane="geography"]').click();
+  await expect(page.locator("#geography")).toHaveClass(/active/);
+  await expect(page.locator("#mountain_rangesCheckbox")).toBeVisible();
+});
+
+test("frontispiece remembers dismissal but remains available from the book tab", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
+  await page.getByRole("button", { name: /Browse the atlas/i }).click();
+  await page.reload({ waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#sidebar")).toHaveClass(/collapsed/);
+  await expect(page.locator("#frontispiece")).not.toHaveClass(/active/);
+
+  await page.getByRole("tab", { name: /Open atlas frontispiece/i }).click();
+  await expect(page.getByRole("heading", { name: /Where shall the road take you/i })).toBeVisible();
+
+  await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+});
+
+test("featured places hand the map back to visitors on small screens", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("[data-frontispiece-action]")).toHaveCount(3);
+  await page.getByRole("button", { name: /Explore places/i }).click();
+  await expect(page.locator("#featuredPlaces")).toHaveClass(/active/);
+
+  await page.locator('[data-featured-place="hobbiton"]').click();
+  await expect(page.locator("#sidebar")).toHaveClass(/collapsed/);
+  await expect(page.locator(".lore-popup__title")).toHaveText("Hobbiton");
+});
+
 test("middle-earth defers GeoJSON overlay requests until a layer is toggled", async ({ page }) => {
   const geojsonRequests = [];
   page.on("request", (request) => {

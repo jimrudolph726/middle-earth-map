@@ -18,6 +18,11 @@
     <div id="sidebar" class="sidebar collapsed">
         <div class="sidebar-tabs">
             <ul role="tablist">
+                <li class="atlas-frontispiece-tab">
+                    <a href="#frontispiece" role="tab" aria-label="Open atlas frontispiece">
+                        <i class="material-icons">menu_book</i> Atlas Frontispiece
+                    </a>
+                </li>
                 <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
@@ -47,6 +52,149 @@
         </div>
 
         <div class="sidebar-content">
+            <div class="sidebar-pane atlas-frontispiece-pane" id="frontispiece">
+                <h1 class="sidebar-header">
+                    Atlas Frontispiece
+                    <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
+                </h1>
+                <section class="atlas-frontispiece" aria-labelledby="atlasFrontispieceTitle">
+                    <p class="atlas-frontispiece__eyebrow">Middle-earth Atlas</p>
+                    <h2 id="atlasFrontispieceTitle" class="atlas-frontispiece__title">Where shall the road take you?</h2>
+                    <p class="atlas-frontispiece__copy">
+                        Choose a way into Middle-earth. You can always explore freely using the chapter tabs beside the map.
+                    </p>
+                    <div class="atlas-chapter-list">
+                        <button class="atlas-chapter-card" type="button" data-frontispiece-action="places">
+                            <span class="atlas-chapter-card__medallion" aria-hidden="true">
+                                <i class="material-icons">location_on</i>
+                            </span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Explore places</strong>
+                                <span>Visit the realms, settlements, and landmarks of Middle-earth.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron" aria-hidden="true">chevron_right</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-frontispiece-action="journey">
+                            <span class="atlas-chapter-card__medallion" aria-hidden="true">
+                                <i class="material-icons">route</i>
+                            </span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Follow a journey</strong>
+                                <span>Travel with familiar companions, scene by scene.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron" aria-hidden="true">chevron_right</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-frontispiece-action="atlas">
+                            <span class="atlas-chapter-card__medallion" aria-hidden="true">
+                                <i class="material-icons">travel_explore</i>
+                            </span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Browse the atlas</strong>
+                                <span>Open the complete collection of paths, places, creatures, and lore.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron" aria-hidden="true">chevron_right</i>
+                        </button>
+                    </div>
+                    <p class="atlas-frontispiece__return-note">
+                        <i class="material-icons" aria-hidden="true">menu_book</i>
+                        Return here at any time from the book tab.
+                    </p>
+                </section>
+            </div>
+
+            <div class="sidebar-pane atlas-featured-places-pane" id="featuredPlaces">
+                <h1 class="sidebar-header">
+                    Explore Places
+                    <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
+                </h1>
+                <section aria-labelledby="atlasFeaturedPlacesTitle">
+                    <p class="atlas-pane-eyebrow">A traveller's gazetteer</p>
+                    <h2 id="atlasFeaturedPlacesTitle" class="atlas-pane-title">Featured places</h2>
+                    <p class="atlas-pane-copy">
+                        Eight landmarks have been placed upon the map. Choose one to travel there and open its entry.
+                    </p>
+                    <div class="atlas-place-list">
+                        <button class="atlas-place-card" type="button" data-featured-place="hobbiton">
+                            <span><strong>Hobbiton</strong><small>The Shire</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                        <button class="atlas-place-card" type="button" data-featured-place="rivendell">
+                            <span><strong>Rivendell</strong><small>Imladris</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                        <button class="atlas-place-card" type="button" data-featured-place="khazad-dum">
+                            <span><strong>Khazad-dûm</strong><small>The Misty Mountains</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                        <button class="atlas-place-card" type="button" data-featured-place="lothlorien">
+                            <span><strong>Lothlórien</strong><small>The Golden Wood</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                        <button class="atlas-place-card" type="button" data-featured-place="edoras">
+                            <span><strong>Edoras</strong><small>Rohan</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                        <button class="atlas-place-card" type="button" data-featured-place="minas-tirith">
+                            <span><strong>Minas Tirith</strong><small>Gondor</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                        <button class="atlas-place-card" type="button" data-featured-place="erebor">
+                            <span><strong>Erebor</strong><small>The Lonely Mountain</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                        <button class="atlas-place-card" type="button" data-featured-place="barad-dur">
+                            <span><strong>Barad-dûr</strong><small>Mordor</small></span>
+                            <i class="material-icons" aria-hidden="true">east</i>
+                        </button>
+                    </div>
+                    <div class="atlas-pane-actions">
+                        <button class="atlas-pane-link atlas-pane-link--primary" type="button" data-atlas-pane="settlements">
+                            Explore all settlements
+                        </button>
+                        <button class="atlas-pane-link" type="button" data-atlas-pane="frontispiece">
+                            Return to the frontispiece
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="sidebar-pane atlas-index-pane" id="atlasIndex">
+                <h1 class="sidebar-header">
+                    Browse the Atlas
+                    <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
+                </h1>
+                <section aria-labelledby="atlasIndexTitle">
+                    <p class="atlas-pane-eyebrow">The complete collection</p>
+                    <h2 id="atlasIndexTitle" class="atlas-pane-title">Choose a chapter</h2>
+                    <p class="atlas-pane-copy">Every map layer remains here, gathered into a readable table of contents.</p>
+
+                    <div class="atlas-index-group">
+                        <h3>Roads and lands</h3>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="paths"><i class="material-icons">hiking</i><span>Travels</span><i class="material-icons">chevron_right</i></button>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="geography"><i class="material-icons">terrain</i><span>Geography</span><i class="material-icons">chevron_right</i></button>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="regions"><i class="material-icons">travel_explore</i><span>Regions</span><i class="material-icons">chevron_right</i></button>
+                    </div>
+
+                    <div class="atlas-index-group">
+                        <h3>Peoples and history</h3>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="settlements"><i class="material-icons">fort</i><span>Settlements</span><i class="material-icons">chevron_right</i></button>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="battles"><span class="material-symbols-outlined">swords</span><span>Battles</span><i class="material-icons">chevron_right</i></button>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="items"><span class="material-symbols-outlined">diamond</span><span>Important Items</span><i class="material-icons">chevron_right</i></button>
+                    </div>
+
+                    <div class="atlas-index-group">
+                        <h3>Lore and journeys</h3>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="provisions"><i class="material-icons">restaurant</i><span>Provisions</span><i class="material-icons">chevron_right</i></button>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="creatures_and_beings"><i class="material-icons">pets</i><span>Creatures &amp; Beings</span><i class="material-icons">chevron_right</i></button>
+                        <button class="atlas-index-link" type="button" data-atlas-pane="stories"><i class="material-icons">auto_stories</i><span>Curated Stories</span><i class="material-icons">chevron_right</i></button>
+                    </div>
+
+                    <button class="atlas-pane-link" type="button" data-atlas-pane="frontispiece">
+                        Return to the frontispiece
+                    </button>
+                </section>
+            </div>
+
             <div class="sidebar-pane" id="paths">
                 <h1 class="sidebar-header">
                     Travels

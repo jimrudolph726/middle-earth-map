@@ -241,6 +241,334 @@
   box-shadow: inset 0 2px 5px rgba(20, 10, 5, 0.32);
 }
 
+/* Atlas frontispiece --------------------------------------------------- */
+
+.atlas-frontispiece-tab {
+  border-bottom: 1px solid rgba(216, 183, 110, 0.2);
+}
+
+.atlas-frontispiece-pane .sidebar-header:focus,
+.atlas-featured-places-pane .sidebar-header:focus,
+.atlas-index-pane .sidebar-header:focus {
+  outline: none;
+}
+
+.atlas-frontispiece {
+  padding: 2px 0 0;
+}
+
+.atlas-frontispiece__eyebrow,
+.atlas-pane-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 8px;
+  color: var(--atlas-oxblood);
+  font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.atlas-frontispiece__eyebrow::after,
+.atlas-pane-eyebrow::after {
+  width: 42px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, var(--atlas-gold), transparent);
+}
+
+.sidebar-pane .atlas-frontispiece__title,
+.sidebar-pane .atlas-pane-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--atlas-ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.85rem, 4vw, 2.35rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.018em;
+}
+
+.atlas-frontispiece__copy,
+.atlas-pane-copy {
+  margin: 13px 0 18px;
+  color: var(--atlas-ink-soft);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.atlas-chapter-list {
+  display: grid;
+  gap: 11px;
+}
+
+.sidebar-pane button.atlas-chapter-card {
+  display: grid;
+  width: 100%;
+  min-height: 88px;
+  grid-template-columns: 46px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 11px;
+  border: 1px solid rgba(160, 112, 47, 0.66);
+  border-radius: 9px;
+  color: var(--atlas-ink);
+  background:
+    linear-gradient(105deg, rgba(255, 251, 233, 0.78), rgba(219, 196, 147, 0.46)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    0 7px 17px rgba(52, 31, 15, 0.13),
+    inset 0 0 0 1px rgba(255, 249, 226, 0.42);
+  font: inherit;
+  text-align: left;
+}
+
+.sidebar-pane button.atlas-chapter-card:hover,
+.sidebar-pane button.atlas-chapter-card:focus-visible {
+  border-color: var(--atlas-gold-light);
+  color: var(--atlas-parchment-100);
+  background:
+    radial-gradient(circle at 11% 22%, rgba(255, 220, 157, 0.12), transparent 23%),
+    linear-gradient(112deg, var(--atlas-oxblood), var(--atlas-oxblood-deep));
+  box-shadow:
+    0 9px 20px rgba(52, 25, 18, 0.22),
+    inset 0 0 0 1px rgba(255, 232, 182, 0.1);
+  translate: 2px 0;
+}
+
+.atlas-chapter-card__medallion {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--atlas-gold-light);
+  border-radius: 50%;
+  color: var(--atlas-parchment-100);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 230, 178, 0.17), transparent 28%),
+    var(--atlas-walnut-800);
+  box-shadow:
+    0 3px 8px rgba(43, 25, 13, 0.22),
+    inset 0 0 0 2px rgba(77, 45, 25, 0.74);
+}
+
+.atlas-chapter-card__medallion .material-icons {
+  font-size: 21px;
+}
+
+.atlas-chapter-card__copy {
+  display: grid;
+  gap: 3px;
+}
+
+.atlas-chapter-card__copy strong {
+  color: currentColor;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.atlas-chapter-card__copy > span {
+  color: var(--atlas-ink-soft);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 10px;
+  line-height: 1.5;
+  transition: color 130ms ease;
+}
+
+.atlas-chapter-card:hover .atlas-chapter-card__copy > span,
+.atlas-chapter-card:focus-visible .atlas-chapter-card__copy > span {
+  color: var(--atlas-parchment-200);
+}
+
+.atlas-chapter-card__chevron {
+  color: var(--atlas-gold);
+  font-size: 21px;
+  transition: color 130ms ease, translate 130ms ease;
+}
+
+.atlas-chapter-card:hover .atlas-chapter-card__chevron,
+.atlas-chapter-card:focus-visible .atlas-chapter-card__chevron {
+  color: var(--atlas-gold-light);
+  translate: 3px 0;
+}
+
+.atlas-frontispiece__return-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 16px 4px 0;
+  color: var(--atlas-ink-soft);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 9px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.atlas-frontispiece__return-note .material-icons {
+  color: var(--atlas-gold);
+  font-size: 16px;
+}
+
+.atlas-place-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 17px;
+}
+
+.sidebar-pane button.atlas-place-card {
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+  border: 1px solid rgba(160, 112, 47, 0.48);
+  border-radius: 7px;
+  color: var(--atlas-ink);
+  background: rgba(255, 248, 224, 0.36);
+  box-shadow: inset 0 0 0 1px rgba(255, 252, 235, 0.26);
+  text-align: left;
+}
+
+.sidebar-pane button.atlas-place-card:hover,
+.sidebar-pane button.atlas-place-card:focus-visible,
+.sidebar-pane button.atlas-place-card.is-active {
+  border-color: var(--atlas-gold-light);
+  color: var(--atlas-parchment-100);
+  background: linear-gradient(110deg, var(--atlas-oxblood), var(--atlas-oxblood-deep));
+  translate: 0 -1px;
+}
+
+.atlas-place-card > span {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.atlas-place-card strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.atlas-place-card small {
+  overflow: hidden;
+  color: var(--atlas-ink-soft);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 8px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atlas-place-card:hover small,
+.atlas-place-card:focus-visible small,
+.atlas-place-card.is-active small {
+  color: var(--atlas-parchment-200);
+}
+
+.atlas-place-card > .material-icons {
+  flex: 0 0 auto;
+  color: var(--atlas-gold);
+  font-size: 17px;
+}
+
+.atlas-pane-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.sidebar-pane button.atlas-pane-link {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.sidebar-pane button.atlas-pane-link:not(.atlas-pane-link--primary) {
+  border-color: rgba(112, 75, 37, 0.34);
+  color: var(--atlas-ink-soft);
+  background: rgba(255, 248, 224, 0.22);
+  box-shadow: none;
+}
+
+.sidebar-pane button.atlas-pane-link:not(.atlas-pane-link--primary):hover,
+.sidebar-pane button.atlas-pane-link:not(.atlas-pane-link--primary):focus-visible {
+  border-color: var(--atlas-gold);
+  color: var(--atlas-ink);
+  background: rgba(182, 138, 66, 0.13);
+}
+
+.atlas-index-group {
+  margin: 17px 0 0;
+}
+
+.sidebar-pane .atlas-index-group h3 {
+  margin: 0 0 7px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(91, 59, 28, 0.24);
+  color: var(--atlas-oxblood);
+  font-size: 17px;
+  line-height: 1.15;
+}
+
+.sidebar-pane button.atlas-index-link {
+  display: grid;
+  width: 100%;
+  min-height: 43px;
+  grid-template-columns: 24px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 5px;
+  padding: 7px 9px;
+  border-color: transparent;
+  border-radius: 6px;
+  color: var(--atlas-ink);
+  background: transparent;
+  box-shadow: none;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 10px;
+  text-align: left;
+}
+
+.sidebar-pane button.atlas-index-link:hover,
+.sidebar-pane button.atlas-index-link:focus-visible {
+  border-color: rgba(182, 138, 66, 0.58);
+  color: var(--atlas-parchment-100);
+  background: linear-gradient(105deg, var(--atlas-walnut-700), var(--atlas-walnut-900));
+  translate: 2px 0;
+}
+
+.atlas-index-link .material-icons,
+.atlas-index-link .material-symbols-outlined {
+  color: var(--atlas-gold);
+  font-size: 19px;
+}
+
+.atlas-index-link > :last-child {
+  justify-self: end;
+  transition: translate 120ms ease;
+}
+
+.atlas-index-link:hover > :last-child,
+.atlas-index-link:focus-visible > :last-child {
+  translate: 2px 0;
+}
+
+.atlas-index-pane > section > .atlas-pane-link {
+  margin-top: 13px;
+}
+
 /* A quiet reading-surface treatment while the folio is open. */
 #map::after {
   position: absolute;
@@ -705,6 +1033,25 @@
   .sidebar.collapsed {
     width: 44px;
   }
+
+  .sidebar-pane button.atlas-chapter-card {
+    min-height: 82px;
+    grid-template-columns: 42px minmax(0, 1fr) 18px;
+    gap: 10px;
+  }
+
+  .atlas-chapter-card__medallion {
+    width: 38px;
+    height: 38px;
+  }
+
+  .atlas-place-list {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-pane button.atlas-place-card {
+    min-height: 52px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -718,7 +1065,12 @@
   .atlas-map-nav__link,
   .atlas-map-nav__toggle,
   .atlas-sounds-toggle__track,
-  .atlas-sounds-toggle__track::after {
+  .atlas-sounds-toggle__track::after,
+  .atlas-chapter-card,
+  .atlas-chapter-card__chevron,
+  .atlas-place-card,
+  .atlas-index-link,
+  .atlas-index-link > :last-child {
     transition: none;
   }
 }
