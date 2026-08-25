@@ -61,7 +61,7 @@ export const createGeographicPopup = (name, elvish_name, elvish_meaning, descrip
           <div class="lore-popup__section-text">${description}</div>
         </div>
 
-        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read More</a>
+        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read the full entry</a>
       </div>
     </article>
   `;
@@ -76,7 +76,7 @@ export const createSettlementPopup = (name, description, url) => {
           <p class="lore-popup__notes-text">${description}</p>
         </div>
 
-        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read More</a>
+        <a class="lore-popup__link" href="${url}" target="_blank" rel="noopener noreferrer">Read the full entry</a>
       </div>
     </article>
   `;

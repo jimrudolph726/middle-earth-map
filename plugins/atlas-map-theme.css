@@ -422,17 +422,61 @@
   font-family: "Cormorant Garamond", Georgia, serif;
 }
 
-.lore-popup__link {
-  border-color: var(--atlas-gold);
+.leaflet-container a.lore-popup__link {
+  padding: 8px 15px 9px;
+  border: 1px solid var(--atlas-gold);
+  border-radius: 5px;
   color: var(--atlas-parchment-100);
   background: linear-gradient(var(--atlas-oxblood), var(--atlas-oxblood-deep));
   box-shadow: inset 0 1px rgba(255, 231, 184, 0.13);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.035em;
+  text-decoration: none;
+  transition:
+    color 130ms ease,
+    border-color 130ms ease,
+    background 130ms ease,
+    box-shadow 130ms ease,
+    translate 90ms ease;
 }
 
-.lore-popup__link:hover,
-.lore-popup__link:focus-visible {
+.leaflet-container a.lore-popup__link::after {
+  content: "›";
+  display: inline-block;
+  margin-left: 0.42em;
+  font-size: 1.18em;
+  line-height: 0;
+  transition: translate 100ms ease;
+}
+
+.leaflet-container a.lore-popup__link:hover,
+.leaflet-container a.lore-popup__link:focus-visible {
+  border-color: var(--atlas-gold-light);
   color: #fff6de;
   background: linear-gradient(#895047, var(--atlas-oxblood));
+  box-shadow:
+    inset 0 1px rgba(255, 237, 196, 0.18),
+    0 0 0 1px rgba(216, 183, 110, 0.16),
+    0 4px 10px rgba(55, 27, 18, 0.24);
+  translate: 0 -1px;
+}
+
+.leaflet-container a.lore-popup__link:hover::after,
+.leaflet-container a.lore-popup__link:focus-visible::after {
+  translate: 2px 0;
+}
+
+.leaflet-container a.lore-popup__link:focus-visible {
+  outline: 2px solid var(--atlas-gold-light);
+  outline-offset: 3px;
+}
+
+.leaflet-container a.lore-popup__link:active {
+  box-shadow: inset 0 2px 5px rgba(34, 15, 11, 0.34);
+  translate: 0 1px;
 }
 
 .leaflet-container a.leaflet-popup-close-button {
