@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../assets/vendor/fonts.css">
     <link rel="stylesheet" href="../../plugins/leaflet/leaflet.css" />
     <link rel="stylesheet" href="../../plugins/leaflet-sidebar.css" />
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="../shared/map-shell.css">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
 </head>
@@ -46,7 +46,7 @@
                     <h2>Campsites</h2>
                 <div id="campsSection">
                     <label for="allCampCheckbox">
-                        <input type="checkbox" id="allCampCheckbox" /> All
+                        <input type="checkbox" id="allCampCheckbox" data-toggle-all="#campsSection input.campCheckbox" /> All
                     </label>
                     <label for="berencampsitesCheckbox">
                       <input type="checkbox" class="campCheckbox" id="berencampsitesCheckbox" /> Beren Campsites
@@ -55,7 +55,7 @@
                     <h2>Paths</h2>
                 <div id="pathsSection">
                     <label for="allPathCheckbox">
-                        <input type="checkbox" id="allPathCheckbox" /> All
+                        <input type="checkbox" id="allPathCheckbox" data-toggle-all="#pathsSection input.pathCheckbox" /> All
                     </label>
                     <label for="beren_pathCheckbox">
                     <input type="checkbox" class="pathCheckbox" id="beren_pathCheckbox" /> Beren
@@ -70,7 +70,7 @@
                 </h1>
                 <div id="settlementsSection">
                     <label for="allSettlementCheckbox">
-                        <input type="checkbox" id="allSettlementCheckbox" /> All
+                        <input type="checkbox" id="allSettlementCheckbox" data-toggle-all="#settlementsSection input.settlementCheckbox" /> All
                     </label>
                     <label for="menCheckbox">
                       <input type="checkbox" class="settlementCheckbox" id="menCheckbox" /> Men
@@ -91,7 +91,7 @@
                 </h1>
                 <div id="geographySection">
                     <label for="allGeographyCheckbox">
-                        <input type="checkbox" id="allGeographyCheckbox" /> All
+                        <input type="checkbox" id="allGeographyCheckbox" data-toggle-all="#geographySection input.geographyCheckbox" /> All
                     </label>
                     <label for="mountain_rangesCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="mountain_rangesCheckbox" /> Mountain Ranges
@@ -121,7 +121,7 @@
                 </h1>
                 <div id="battlesSection">
                     <label for="allBattleCheckbox">
-                        <input type="checkbox" id="allBattleCheckbox" /> All
+                        <input type="checkbox" id="allBattleCheckbox" data-toggle-all="#battlesSection input.battleCheckbox" /> All
                     </label>
                     <label for="battlesCheckbox">
                         <input type="checkbox" class="battleCheckbox" id="battlesCheckbox" /> Battles
@@ -139,7 +139,7 @@
                 </h1>
                 <div id="regionsSection">
                     <label for="allRegionCheckbox">
-                        <input type="checkbox" id="allRegionCheckbox" /> All
+                        <input type="checkbox" id="allRegionCheckbox" data-toggle-all="#regionsSection input.regionCheckbox" /> All
                     </label>
                     <label for="large_regionsCheckbox">
                         <input type="checkbox" class="regionCheckbox" id="large_regionsCheckbox" /> Large Regions
@@ -157,7 +157,7 @@
                 </h1>
                 <div id="itemsSection">
                     <label for="allItemCheckbox">
-                        <input type="checkbox" id="allItemCheckbox" /> All
+                        <input type="checkbox" id="allItemCheckbox" data-toggle-all="#itemsSection input.itemCheckbox" /> All
                     </label>
                     <label for="swordsCheckbox">
                         <input type="checkbox" class="itemCheckbox" id="swordsCheckbox" /> Swords
@@ -241,12 +241,7 @@
     <script src="../../plugins/atlas-map-sounds.js"></script>
     <script type="module" src="../../plugins/leaflet-arrowheads.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>
-    <script type="module" src="functions.js"></script>  <!-- Utility functions first -->
-    <script type="module" src="geographic_data.js"></script>  <!-- Map features -->
-    <script type="module" src="settlement_item_data.js"></script>  <!-- Settlements -->
-    <script type="module" src="campsite_data.js"></script>  <!-- Campsites -->
-    <script type="module" src="variables.js"></script>  <!-- Variables relying on above -->
-    <script type="module" src="script.js"></script>  <!-- Main script last -->
+    <script type="module" src="../shared/map-page.js"></script>
     
 </body>
 </html>

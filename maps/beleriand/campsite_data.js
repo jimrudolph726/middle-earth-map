@@ -1,6 +1,6 @@
 import {
   createCampsitePopup,
-} from './functions.js';
+} from '../shared/functions.js';
 
 import {
   icons,

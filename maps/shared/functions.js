@@ -1,4 +1,4 @@
-// functions.js
+// Shared marker, popup, and GeoJSON helpers for the compact atlas maps.
 
 // Helper functions
 export function createIcon(url, size = [48, 48]) {
@@ -146,7 +146,6 @@ const announceLayerChange = (source, enabled) => {
 // Checkbox listener functions
 export const MarkerListeners = (checkboxId, markers, map) => {
   const checkbox = document.getElementById(checkboxId);
-  console.log(`Looking for checkbox with ID: ${checkboxId}`, checkbox); // Debugging line
 
   if (!checkbox) {
     console.error(`Checkbox with ID "${checkboxId}" not found in the DOM.`);
@@ -228,11 +227,15 @@ export const createMarkers = (locations, campsite = 'no') => {
 };
 
 // Paths and Geographic Features function
-export const createGeographicShape = async (geographic_data) => {
+export const createGeographicShape = async (geographic_data, geojsonBaseUrl) => {
+  if (!geojsonBaseUrl) {
+    throw new Error('A GeoJSON base URL is required to create geographic shapes.');
+  }
+
   const polygons = {};
   const promises = Object.keys(geographic_data).map(async (key) => {
     const { pathName, color, name, PopupContent, tolerance, weight } = geographic_data[key];
-    const geojsonPath = new URL(`./geojson_files/${pathName}.geojson`, import.meta.url);
+    const geojsonPath = new URL(`${pathName}.geojson`, geojsonBaseUrl);
 
     try {
       const response = await fetch(geojsonPath);

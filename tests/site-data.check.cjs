@@ -23,6 +23,8 @@ const mapPagePaths = [
   ["maps", "minas_tirith", "minas_tirith.html"]
 ];
 
+const compactMapDirectories = ["numenor", "beleriand", "the_shire", "minas_tirith"];
+
 function expectNoErrors(errors) {
   assert.equal(errors.length, 0, errors.join("\n"));
 }
@@ -178,6 +180,42 @@ test("every map page loads the shared atlas visual theme", () => {
         errors.push(`${relativeHtmlPath} is missing shared theme reference: ${ref}`);
       }
     });
+  });
+
+  expectNoErrors(errors);
+});
+
+test("compact map pages use the shared shell and retain declarative sidebars", () => {
+  const errors = [];
+
+  compactMapDirectories.forEach((directory) => {
+    const htmlName = directory === "the_shire" ? "the_shire.html" : `${directory}.html`;
+    const mapDirectory = path.join(repoRoot, "maps", directory);
+    const html = fs.readFileSync(path.join(mapDirectory, htmlName), "utf8");
+
+    if (!html.includes('../shared/map-shell.css')) {
+      errors.push(`${directory} does not load the shared map stylesheet.`);
+    }
+
+    if (!html.includes('../shared/map-page.js')) {
+      errors.push(`${directory} does not load the shared map initializer.`);
+    }
+
+    if (!html.includes('data-toggle-all=')) {
+      errors.push(`${directory} has no declarative sidebar group controls.`);
+    }
+
+    ["functions.js", "script.js", "style.css"].forEach((duplicateFile) => {
+      if (fs.existsSync(path.join(mapDirectory, duplicateFile))) {
+        errors.push(`${directory} still contains duplicated ${duplicateFile}.`);
+      }
+    });
+  });
+
+  ["functions.js", "map-page.js", "map-shell.js", "map-shell.css"].forEach((sharedFile) => {
+    if (!fs.existsSync(path.join(repoRoot, "maps", "shared", sharedFile))) {
+      errors.push(`Shared map resource is missing: ${sharedFile}`);
+    }
   });
 
   expectNoErrors(errors);

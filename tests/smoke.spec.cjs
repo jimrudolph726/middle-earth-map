@@ -96,6 +96,26 @@ test("all map pages render a Leaflet map", async ({ page }) => {
   }
 });
 
+test("compact maps wire the sidebar groups declared by each page", async ({ page }) => {
+  const compactMapPages = mapPages.filter(({ path }) => !path.includes("middle_earth"));
+
+  for (const mapPage of compactMapPages) {
+    await page.goto(mapPage.path, { waitUntil: "domcontentloaded" });
+    await expect(page.locator("#map.leaflet-container")).toBeVisible();
+
+    const geographyMaster = page.locator("#allGeographyCheckbox");
+    const geographyChoices = page.locator("#geographySection input.geographyCheckbox");
+    const choiceCount = await geographyChoices.count();
+
+    expect(choiceCount, `${mapPage.label} should define its own geography choices.`).toBeGreaterThan(0);
+    await geographyMaster.evaluate((checkbox) => {
+      checkbox.checked = true;
+      checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+    await expect(page.locator("#geographySection input.geographyCheckbox:not(:checked)")).toHaveCount(0);
+  }
+});
+
 test("map pages highlight exactly one current map nav link", async ({ page }) => {
   for (const mapPage of mapPages) {
     await page.goto(mapPage.path, { waitUntil: "domcontentloaded" });

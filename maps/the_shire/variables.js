@@ -22,24 +22,14 @@ import {
 
 import {
   createSettlementPopup,
- } from './functions.js';
+ } from '../shared/functions.js';
 
  import {
   berencampsites,
  } from './campsite_data.js';
 
-// Map
+// Map definition
 export const imageUrl = new URL('./assets/the_shire.jpg', import.meta.url).href;
-export const map = L.map('map', {
-crs: L.CRS.EPSG3857,
-minZoom: 15,
-maxZoom: 20,
-zoom: 15.5, // Fractional zoom level
-center: [0, 0],
-zoomSnap: 1, // Allows fractional zoom levels
-zoomDelta: 5, // Controls the increment of zoom changes
-preferCanvas: true
-});
 export const imageBounds = [[44.942894017,-93.288129001],[44.938806559,-93.278576287],];
 
 // Campsites and Settlements

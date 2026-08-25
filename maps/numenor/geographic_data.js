@@ -1,6 +1,6 @@
 import { 
   createGeographicPopup 
-} from "./functions.js";
+} from "../shared/functions.js";
 
 export const forests = {
   nan_elmoth: {
