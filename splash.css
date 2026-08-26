@@ -410,6 +410,34 @@ body.splash-body {
   text-transform: uppercase;
 }
 
+.splash-provenance {
+  margin: 7px 0 0;
+  text-align: center;
+}
+
+.splash-provenance a {
+  color: rgba(236, 218, 174, 0.8);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 0.67rem;
+  line-height: 1.5;
+  text-decoration-color: rgba(200, 155, 75, 0.5);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+.splash-provenance a:hover,
+.splash-provenance a:focus-visible {
+  color: #fff2cf;
+  text-decoration-color: var(--gold-antique);
+}
+
+.splash-provenance a:focus-visible {
+  outline: 2px solid var(--gold-antique);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 @media (max-width: 720px) {
   .atlas-map-nav {
     top: 12px;
@@ -460,13 +488,18 @@ body.splash-body {
     font-size: 0.9rem;
     line-height: 1.4;
   }
+
+  .splash-provenance a {
+    font-size: 0.7rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .study-hotspot,
   .study-hotspot::before,
   .study-hotspot__label,
-  .splash-begin__link {
+  .splash-begin__link,
+  .splash-provenance a {
     transition-duration: 0.01ms;
     transition-delay: 0ms;
   }

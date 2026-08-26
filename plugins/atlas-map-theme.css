@@ -879,7 +879,8 @@
     0 8px 20px rgba(58, 36, 19, 0.08);
 }
 
-.atlas-sounds-card__eyebrow {
+.atlas-sounds-card__eyebrow,
+.atlas-project-card__eyebrow {
   margin: 0 0 11px;
   color: var(--atlas-oxblood);
   font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
@@ -887,6 +888,52 @@
   line-height: 1.2;
   letter-spacing: 0.075em;
   text-transform: uppercase;
+}
+
+.atlas-project-card {
+  box-sizing: border-box;
+  margin: 18px 0 0;
+  padding: 16px 17px 15px;
+  border: 1px solid rgba(103, 77, 50, 0.3);
+  border-radius: 6px;
+  background: rgba(255, 248, 224, 0.28);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 249, 230, 0.38),
+    0 8px 20px rgba(58, 36, 19, 0.08);
+}
+
+.atlas-project-card__link {
+  display: block;
+  color: var(--atlas-ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration-color: rgba(113, 53, 46, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 130ms ease, text-decoration-color 130ms ease;
+}
+
+.atlas-project-card__link:hover,
+.atlas-project-card__link:focus-visible {
+  color: var(--atlas-oxblood);
+  text-decoration-color: var(--atlas-gold);
+}
+
+.atlas-project-card__link:focus-visible {
+  outline: 2px solid var(--atlas-gold);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.atlas-project-card__copy {
+  margin: 10px 0 0;
+  color: var(--atlas-ink-soft);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.55;
 }
 
 .sidebar-pane label.atlas-sounds-toggle {

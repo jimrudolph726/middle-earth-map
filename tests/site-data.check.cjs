@@ -92,6 +92,58 @@ test("homepage hotspots point at expected local destinations", () => {
   expectNoErrors(errors);
 });
 
+test("provenance page and persistent atlas links remain available", () => {
+  const aboutPath = path.join(repoRoot, "about.html");
+  const errors = [];
+
+  if (!fs.existsSync(aboutPath)) {
+    errors.push("about.html is missing.");
+    expectNoErrors(errors);
+    return;
+  }
+
+  const aboutHtml = fs.readFileSync(aboutPath, "utf8");
+  const requiredSectionIds = [
+    "fan-project",
+    "lore-sources",
+    "artwork",
+    "ai-artwork",
+    "fonts-audio",
+    "software",
+    "repository-license",
+    "corrections"
+  ];
+
+  requiredSectionIds.forEach((sectionId) => {
+    if (!aboutHtml.includes(`id="${sectionId}"`)) {
+      errors.push(`about.html is missing provenance section: ${sectionId}`);
+    }
+  });
+
+  if (!aboutHtml.includes("Middle-earth Atlas is an unofficial fan-made project.")) {
+    errors.push("about.html is missing the visible fan-project disclaimer.");
+  }
+
+  if (!aboutHtml.includes("This is a personal, non-commercial project created for exploration and study.")) {
+    errors.push("about.html is missing the non-commercial project statement.");
+  }
+
+  const homepageHtml = fs.readFileSync(path.join(repoRoot, "index.html"), "utf8");
+  if (!homepageHtml.includes('href="about.html"')) {
+    errors.push("index.html is missing its persistent provenance link.");
+  }
+
+  mapPagePaths.forEach((pathParts) => {
+    const mapPath = path.join(repoRoot, ...pathParts);
+    const mapHtml = fs.readFileSync(mapPath, "utf8");
+    if (!mapHtml.includes('id="settings"') || !mapHtml.includes('href="../../about.html"')) {
+      errors.push(`${path.relative(repoRoot, mapPath)} is missing the provenance link in Settings.`);
+    }
+  });
+
+  expectNoErrors(errors);
+});
+
 test("local html anchor links point at existing files", () => {
   const errors = [];
 

@@ -63,6 +63,7 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   await expect(page.getByText("Welcome, traveller.")).toBeVisible();
   await expect(page.getByText(/Welcome to Bilbo's study/i)).toBeVisible();
   await expect(page.getByRole("link", { name: /Begin with Middle-earth/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Unofficial fan project.*Credits & provenance/i })).toBeVisible();
 
   const homepageLinks = [
     /Open the Middle-earth map/i,
@@ -75,6 +76,43 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
 
   for (const linkName of homepageLinks) {
     await expect(page.getByRole("link", { name: linkName })).toBeVisible();
+  }
+});
+
+test("about page presents the disclaimer and provenance ledger", async ({ page }) => {
+  await page.goto("/about.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page).toHaveTitle(/About, Credits & Provenance/i);
+  await expect(page.getByRole("heading", { level: 1, name: "About, Credits & Provenance" })).toBeVisible();
+  await expect(page.getByText("Middle-earth Atlas is an unofficial fan-made project.", { exact: false })).toBeVisible();
+  await expect(page.getByText("This is a personal, non-commercial project created for exploration and study.")).toBeVisible();
+
+  const sectionHeadings = [
+    "Fan-project status",
+    "Lore and map sources",
+    "Artwork and image provenance",
+    "AI-generated artwork",
+    "Fonts and audio",
+    "Software libraries and licenses",
+    "Repository license",
+    "Corrections and rights-holder contact"
+  ];
+
+  for (const heading of sectionHeadings) {
+    await expect(page.getByRole("heading", { level: 2, name: heading })).toBeAttached();
+  }
+
+  await expect(page.getByRole("link", { name: /Return to Bilbo's study/i })).toHaveAttribute("href", "index.html");
+});
+
+test("every map Settings pane links to credits and provenance", async ({ page }) => {
+  for (const mapPage of mapPages) {
+    await page.goto(mapPage.path, { waitUntil: "domcontentloaded" });
+    await page.getByRole("tab", { name: /Settings/i }).click();
+
+    const provenanceLink = page.getByRole("link", { name: /Unofficial fan project.*Credits & provenance/i });
+    await expect(provenanceLink, `${mapPage.label} should expose the provenance page in Settings.`).toBeVisible();
+    await expect(provenanceLink).toHaveAttribute("href", "../../about.html");
   }
 });
 
