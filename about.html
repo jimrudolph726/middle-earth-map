@@ -16,28 +16,28 @@
     <nav class="atlas-map-nav atlas-map-nav--bookshelf" aria-label="Atlas navigation">
         <a class="atlas-map-nav__link atlas-map-nav__link--home" href="index.html">
             <i class="material-icons">home</i>
-            <span>Home</span>
+            <span data-book-kicker="The Study">Home</span>
         </a>
         <details class="atlas-map-nav__menu">
             <summary class="atlas-map-nav__toggle">
                 <span class="atlas-map-nav__toggle-label">
                     <i class="material-icons">map</i>
-                    <span>Maps</span>
+                    <span data-book-kicker="The Atlas">Maps</span>
                 </span>
-                <i class="material-icons atlas-map-nav__chevron">expand_more</i>
+                <span class="atlas-map-nav__bookmark atlas-map-nav__chevron" aria-hidden="true"></span>
             </summary>
             <div class="atlas-map-nav__dropdown">
-                <a class="atlas-map-nav__link" href="maps/middle_earth/middle-earth.html">
+                <a class="atlas-map-nav__link" href="maps/beleriand/beleriand.html">
                     <i class="material-icons">map</i>
-                    <span>Middle-earth</span>
+                    <span>Beleriand</span>
                 </a>
                 <a class="atlas-map-nav__link" href="maps/numenor/numenor.html">
                     <i class="material-icons">map</i>
                     <span>Numenor</span>
                 </a>
-                <a class="atlas-map-nav__link" href="maps/beleriand/beleriand.html">
+                <a class="atlas-map-nav__link" href="maps/middle_earth/middle-earth.html">
                     <i class="material-icons">map</i>
-                    <span>Beleriand</span>
+                    <span>Middle-earth</span>
                 </a>
                 <a class="atlas-map-nav__link" href="maps/the_shire/the_shire.html">
                     <i class="material-icons">map</i>
@@ -53,9 +53,9 @@
             <summary class="atlas-map-nav__toggle">
                 <span class="atlas-map-nav__toggle-label">
                     <i class="material-icons">account_tree</i>
-                    <span>Family Tree</span>
+                    <span data-book-kicker="Genealogies">Family Tree</span>
                 </span>
-                <i class="material-icons atlas-map-nav__chevron">expand_more</i>
+                <span class="atlas-map-nav__bookmark atlas-map-nav__chevron" aria-hidden="true"></span>
             </summary>
             <div class="atlas-map-nav__dropdown">
                 <a class="atlas-map-nav__link" href="family_tree/family_tree.html">
@@ -70,7 +70,7 @@
         </details>
         <a class="atlas-map-nav__link atlas-map-nav__link--current" href="about.html" aria-current="page">
             <i class="material-icons">menu_book</i>
-            <span>About</span>
+            <span data-book-kicker="Colophon">About</span>
         </a>
     </nav>
 

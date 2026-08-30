@@ -534,7 +534,7 @@ body.family-tree-page {
 
 @media (max-width: 760px) {
   .family-tree-page .family-tree-page-tools {
-    top: 76px;
+    top: 98px;
     left: 12px;
     gap: 8px;
   }
@@ -546,7 +546,7 @@ body.family-tree-page {
   }
 
   .family-tree-page .tree-view-panel {
-    top: 130px;
+    top: 153px;
     left: 12px;
     width: calc(100vw - 24px);
   }

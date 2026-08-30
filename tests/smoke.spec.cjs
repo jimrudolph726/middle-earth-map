@@ -103,7 +103,7 @@ test("primary pages share the atlas bookshelf navigation", async ({ page }) => {
     });
 
     expect(shelfAppearance.content).not.toBe("none");
-    expect(shelfAppearance.height).toBe("7px");
+    expect(shelfAppearance.height).toBe("12px");
     expect(shelfAppearance.background).toContain("linear-gradient");
 
     const spineStyles = await bookshelf.locator(
@@ -114,13 +114,30 @@ test("primary pages share the atlas bookshelf navigation", async ({ page }) => {
         radius: style.borderTopLeftRadius,
         background: style.backgroundImage,
         font: style.fontFamily,
+        height: style.height,
       };
     }));
 
     expect(spineStyles.length).toBeGreaterThanOrEqual(3);
-    expect(spineStyles.every(({ radius }) => radius === "3px")).toBe(true);
+    expect(spineStyles.every(({ radius }) => radius === "5px")).toBe(true);
     expect(spineStyles.every(({ background }) => background.includes("linear-gradient"))).toBe(true);
     expect(spineStyles.every(({ font }) => font.includes("Libre Baskerville"))).toBe(true);
+    expect(spineStyles.every(({ height }) => Number.parseFloat(height) >= 62)).toBe(true);
+    await expect(bookshelf.locator("[data-book-kicker]")).toHaveCount(
+      pagePath === "/about.html" ? 4 : 3
+    );
+    await expect(bookshelf.locator(".atlas-map-nav__bookmark")).toHaveCount(2);
+
+    const mapVolumeOrder = await bookshelf.locator(
+      ":scope > .atlas-map-nav__menu:first-of-type .atlas-map-nav__dropdown .atlas-map-nav__link > span"
+    ).allTextContents();
+    expect(mapVolumeOrder).toEqual([
+      "Beleriand",
+      "Numenor",
+      "Middle-earth",
+      "The Shire",
+      "Minas Tirith",
+    ]);
   }
 });
 

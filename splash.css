@@ -438,6 +438,21 @@ body.splash-body {
   border-radius: 2px;
 }
 
+/* Reserve the upper-right corner for the atlas shelf on narrower desktops. */
+@media (min-width: 901px) and (max-width: 1360px) {
+  .splash-title {
+    max-width: calc(100% - 470px);
+    font-size: clamp(2.7rem, 4vw, 3.25rem);
+  }
+}
+
+@media (min-width: 721px) and (max-width: 900px) {
+  .splash-title {
+    max-width: calc(100% - 370px);
+    font-size: clamp(2.2rem, 4vw, 3rem);
+  }
+}
+
 @media (max-width: 720px) {
   .atlas-map-nav {
     top: 12px;
