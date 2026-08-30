@@ -200,6 +200,12 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
   expect(popupSurface.linkBackground).toBe("none");
   expect(popupSurface.linkBorderTopWidth).toBe("0px");
   expect(popupSurface.navigationVisibility).toBe("visible");
+
+  const beleriandPillBackgrounds = await page.locator(
+    '.atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle'
+  ).evaluateAll((pills) => pills.map((pill) => getComputedStyle(pill).backgroundColor));
+  expect(beleriandPillBackgrounds).toHaveLength(3);
+  expect(new Set(beleriandPillBackgrounds)).toEqual(new Set(["rgba(45, 72, 85, 0.96)"]));
 });
 
 test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
@@ -256,6 +262,12 @@ test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) =>
   expect(coverTiming.delay).toBe("3s");
   expect(coverTiming.duration).toBe("0.76s");
   await expect(page.locator("[data-middle-earth-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
+
+  const middleEarthPillBackgrounds = await page.locator(
+    '.atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle'
+  ).evaluateAll((pills) => pills.map((pill) => getComputedStyle(pill).backgroundColor));
+  expect(middleEarthPillBackgrounds).toHaveLength(3);
+  expect(new Set(middleEarthPillBackgrounds)).toEqual(new Set(["rgba(38, 58, 36, 0.96)"]));
 });
 
 test("map pages highlight exactly one current map nav link", async ({ page }) => {
@@ -339,6 +351,21 @@ test("frontispiece featured places travel to parchment map entries", async ({ pa
   await page.locator('[data-featured-place="hobbiton"]').click();
   await expect(page.locator('[data-featured-place="hobbiton"]')).toHaveAttribute("aria-current", "location");
   await expect(page.locator(".lore-popup__title")).toHaveText("Hobbiton");
+
+  const popupAppearance = await page.locator(".lore-popup-shell").evaluate((popup) => {
+    const wrapper = popup.querySelector(".leaflet-popup-content-wrapper");
+    const title = popup.querySelector(".lore-popup__title");
+
+    return {
+      borderWidth: getComputedStyle(wrapper).borderWidth,
+      boxShadow: getComputedStyle(wrapper).boxShadow,
+      ornament: getComputedStyle(title, "::after").content,
+    };
+  });
+
+  expect(popupAppearance.borderWidth).toBe("0px");
+  expect(popupAppearance.boxShadow).toBe("none");
+  expect(popupAppearance.ornament).toContain("❧");
 
   await page.locator('#featuredPlaces [data-atlas-pane="frontispiece"]').click();
   await expect(page.getByRole("heading", { name: /Where shall the road take you/i })).toBeVisible();

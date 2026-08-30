@@ -331,9 +331,25 @@ body.beleriand-volume {
   background: linear-gradient(#627c87, #334750);
 }
 
+.beleriand-volume .atlas-map-nav__link,
+.beleriand-volume .atlas-map-nav__toggle {
+  border-color: rgba(190, 201, 201, 0.7);
+  color: #f0f1eb;
+  background: rgba(45, 72, 85, 0.96);
+  box-shadow: 0 8px 24px rgba(13, 31, 39, 0.34);
+}
+
+.beleriand-volume .atlas-map-nav__link:hover,
+.beleriand-volume .atlas-map-nav__link:focus-visible,
+.beleriand-volume .atlas-map-nav__toggle:hover,
+.beleriand-volume .atlas-map-nav__toggle:focus-visible {
+  color: #fff;
+  background: rgba(82, 118, 133, 0.98);
+}
+
 .beleriand-volume .atlas-map-nav__link--current {
   border-color: var(--beleriand-silver-light);
-  background: rgba(67, 99, 114, 0.96);
+  background: rgba(67, 103, 119, 0.98);
 }
 
 .beleriand-volume.atlas-sidebar-open #map::after {

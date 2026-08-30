@@ -413,6 +413,42 @@ body.middle-earth-volume {
   filter: sepia(0.15) saturate(1.02) brightness(1.05);
 }
 
+/* The navigation pills share the forest-green leather of this volume. */
+.middle-earth-volume .atlas-map-nav__link,
+.middle-earth-volume .atlas-map-nav__toggle {
+  border-color: rgba(194, 153, 70, 0.74);
+  color: #f1e4c3;
+  background: rgba(38, 58, 36, 0.96);
+  box-shadow: 0 8px 24px rgba(16, 29, 15, 0.34);
+}
+
+.middle-earth-volume .atlas-map-nav__link:hover,
+.middle-earth-volume .atlas-map-nav__link:focus-visible,
+.middle-earth-volume .atlas-map-nav__toggle:hover,
+.middle-earth-volume .atlas-map-nav__toggle:focus-visible {
+  color: #fff4d7;
+  background: rgba(62, 82, 55, 0.98);
+}
+
+.middle-earth-volume .atlas-map-nav__link--current {
+  border-color: var(--middle-earth-brass-light);
+  background: rgba(72, 91, 62, 0.98);
+}
+
+/* A quiet leaf device identifies notes from the travelling atlas. */
+.middle-earth-volume .campsite-popup__title::after,
+.middle-earth-volume .lore-popup__title::after {
+  display: block;
+  margin: 8px auto 3px;
+  color: var(--middle-earth-brass);
+  content: "❧  ✥  ❧";
+  font: 400 12px/1 Georgia, serif;
+  letter-spacing: 0.22em;
+  text-align: center;
+  opacity: 0.72;
+  text-shadow: 0 1px rgba(255, 250, 228, 0.56);
+}
+
 /* Cartographic labels ------------------------------------------------ */
 
 .middle-earth-volume .leaflet-tooltip,
