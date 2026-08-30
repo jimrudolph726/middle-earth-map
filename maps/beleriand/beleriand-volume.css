@@ -1,0 +1,581 @@
+/*
+ * Beleriand volume language
+ * Cool vellum, sea-worn blue, and tarnished silver distinguish the Elder Days
+ * without changing the walnut-and-parchment Middle-earth volume.
+ */
+
+body.beleriand-volume {
+  --atlas-walnut-950: #151a1d;
+  --atlas-walnut-900: #20272b;
+  --atlas-walnut-800: #303a3f;
+  --atlas-walnut-700: #465158;
+  --atlas-parchment-100: #f0eee4;
+  --atlas-parchment-200: #dedfd6;
+  --atlas-parchment-300: #c3c7bf;
+  --atlas-parchment-500: #959c98;
+  --atlas-ink: #263238;
+  --atlas-ink-soft: #526168;
+  --atlas-gold: #858f92;
+  --atlas-gold-light: #bcc4c5;
+  --atlas-oxblood: #587687;
+  --atlas-oxblood-deep: #344f5e;
+  --atlas-forest: #4f675f;
+  --atlas-shadow: rgba(12, 21, 26, 0.46);
+  --beleriand-silver: #9ca6a7;
+  --beleriand-silver-light: #cbd0ce;
+  --beleriand-blue: #587a8c;
+  --beleriand-blue-deep: #334e5d;
+  --beleriand-vellum: #dfe1d8;
+  --beleriand-vellum-dark: #bcc4bf;
+  color: var(--atlas-ink);
+}
+
+/* A brief, physical opening of the volume on arrival. */
+.beleriand-volume-cover {
+  position: fixed;
+  z-index: 30000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #d9ddda;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(95, 126, 140, 0.22), transparent 30%),
+    repeating-linear-gradient(96deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 7px),
+    linear-gradient(125deg, #11181c, #263239 56%, #151b1f);
+  box-shadow: inset 0 0 0 10px #12191d, inset 0 0 0 11px rgba(187, 198, 198, 0.48);
+  transform-origin: left center;
+  backface-visibility: hidden;
+  pointer-events: none;
+  animation: beleriand-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
+}
+
+.beleriand-volume-cover::before,
+.beleriand-volume-cover::after {
+  position: absolute;
+  inset-block: 20px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(transparent, rgba(195, 203, 201, 0.7) 12%, rgba(195, 203, 201, 0.7) 88%, transparent);
+}
+
+.beleriand-volume-cover::before {
+  left: 28px;
+}
+
+.beleriand-volume-cover::after {
+  right: 28px;
+}
+
+.beleriand-volume-cover__frame {
+  width: min(640px, calc(100vw - 90px));
+  padding: 42px 28px 45px;
+  border: 1px solid rgba(190, 201, 200, 0.62);
+  box-shadow:
+    inset 0 0 0 4px rgba(13, 23, 28, 0.58),
+    inset 0 0 0 5px rgba(153, 166, 166, 0.3);
+  text-align: center;
+}
+
+.beleriand-volume-cover__eyebrow,
+.beleriand-volume-cover__subtitle {
+  margin: 0;
+  color: #aebbbd;
+  font-family: "Libre Baskerville", Georgia, serif;
+  text-transform: uppercase;
+}
+
+.beleriand-volume-cover__eyebrow {
+  margin-top: 18px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+}
+
+.beleriand-volume-cover__title {
+  margin: 9px 0 6px;
+  color: #e4e6e0;
+  font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3rem, 9vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: 0.045em;
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.58);
+}
+
+.beleriand-volume-cover__subtitle {
+  margin-bottom: 20px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+@keyframes beleriand-volume-open {
+  0% {
+    opacity: 1;
+    transform: perspective(1500px) rotateY(0deg) translateX(0);
+  }
+
+  60% {
+    opacity: 0.92;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: perspective(1500px) rotateY(-72deg) translateX(-76%);
+  }
+}
+
+/* The repeating half-circles evoke waves; the central star recalls the Eldar. */
+.beleriand-ornament {
+  display: grid;
+  grid-template-columns: minmax(32px, 1fr) auto minmax(32px, 1fr);
+  align-items: center;
+  gap: 10px;
+  margin: 9px 0 15px;
+  color: var(--beleriand-blue);
+}
+
+.beleriand-ornament::before,
+.beleriand-ornament::after {
+  height: 9px;
+  content: "";
+  opacity: 0.78;
+  background:
+    radial-gradient(ellipse at 50% 105%, transparent 5px, currentColor 5.5px 6.5px, transparent 7px)
+    0 0 / 16px 9px repeat-x;
+}
+
+.beleriand-ornament > span {
+  color: var(--beleriand-silver);
+  font-size: 17px;
+  line-height: 1;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.beleriand-ornament--cover {
+  margin: 0 auto;
+  color: #738f9b;
+}
+
+.beleriand-ornament--cover > span {
+  color: #b8c1c0;
+  text-shadow: 0 2px 3px #0c1114;
+}
+
+/* Cooler vellum and sea-worn metalwork. */
+.beleriand-volume .sidebar {
+  border-color: rgba(156, 166, 167, 0.9);
+  background: #20282c;
+  box-shadow:
+    0 18px 46px var(--atlas-shadow),
+    0 0 0 1px rgba(221, 226, 223, 0.12);
+}
+
+.beleriand-volume .sidebar-content {
+  background:
+    linear-gradient(rgba(241, 241, 232, 0.9), rgba(181, 194, 191, 0.82)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    inset 14px 0 24px rgba(36, 56, 63, 0.08),
+    inset 0 0 46px rgba(78, 104, 112, 0.06);
+  scrollbar-color: var(--beleriand-silver) rgba(51, 78, 91, 0.12);
+}
+
+.beleriand-volume .sidebar-tabs {
+  border-right-color: rgba(156, 166, 167, 0.72);
+  background:
+    radial-gradient(circle at 50% 5%, rgba(123, 157, 170, 0.15), transparent 25%),
+    linear-gradient(90deg, #151c20, #303b41);
+}
+
+.beleriand-volume .sidebar-tabs > li,
+.beleriand-volume .sidebar-tabs > ul > li {
+  color: #bdc5c3;
+}
+
+.beleriand-volume .sidebar-tabs > li:hover,
+.beleriand-volume .sidebar-tabs > ul > li:hover {
+  color: #eef0e9;
+  background: rgba(109, 143, 158, 0.16);
+}
+
+.beleriand-volume .sidebar-tabs > li.active,
+.beleriand-volume .sidebar-tabs > ul > li.active {
+  color: #f1f1e9;
+  background: linear-gradient(90deg, #304c5a, #5b7b8b);
+  box-shadow:
+    inset 3px 0 var(--beleriand-silver-light),
+    inset 0 0 18px rgba(206, 222, 224, 0.08);
+}
+
+.beleriand-volume .beleriand-frontispiece-tab {
+  border-bottom-color: rgba(189, 199, 198, 0.24);
+}
+
+.beleriand-volume .sidebar-header {
+  position: relative;
+  border-bottom-color: var(--beleriand-silver);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(162, 191, 199, 0.1), transparent 24%),
+    linear-gradient(100deg, #151d21, #46545b);
+}
+
+.beleriand-volume .sidebar-header::after {
+  position: absolute;
+  right: 57px;
+  bottom: 9px;
+  content: "✦  ≋";
+  color: rgba(191, 204, 204, 0.58);
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+}
+
+.beleriand-volume .sidebar-pane h2 {
+  border-bottom-color: rgba(74, 100, 110, 0.25);
+}
+
+.beleriand-volume .sidebar-pane label:hover {
+  border-color: rgba(82, 119, 135, 0.28);
+  background: rgba(79, 112, 125, 0.09);
+}
+
+.beleriand-volume .sidebar-pane label:has(input[id^="all"]) {
+  border-color: rgba(76, 111, 127, 0.28);
+  background: rgba(76, 111, 127, 0.08);
+}
+
+.beleriand-volume .sidebar-pane input[type="checkbox"] {
+  accent-color: var(--beleriand-blue);
+}
+
+.beleriand-volume .atlas-frontispiece__eyebrow {
+  color: var(--beleriand-blue-deep);
+}
+
+.beleriand-volume .atlas-frontispiece__eyebrow::after {
+  background: linear-gradient(90deg, var(--beleriand-silver), transparent);
+}
+
+.beleriand-volume .beleriand-frontispiece .atlas-frontispiece__title {
+  color: #28383f;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.44);
+}
+
+.beleriand-volume .beleriand-frontispiece .atlas-frontispiece__copy {
+  color: #53636a;
+}
+
+.beleriand-volume .sidebar-pane button.atlas-chapter-card {
+  border-color: rgba(123, 141, 144, 0.72);
+  background:
+    linear-gradient(105deg, rgba(244, 243, 234, 0.8), rgba(186, 199, 197, 0.48)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    0 7px 17px rgba(29, 45, 51, 0.14),
+    inset 0 0 0 1px rgba(249, 250, 245, 0.45);
+}
+
+.beleriand-volume .sidebar-pane button.atlas-chapter-card:hover,
+.beleriand-volume .sidebar-pane button.atlas-chapter-card:focus-visible {
+  border-color: var(--beleriand-silver-light);
+  background:
+    radial-gradient(circle at 11% 22%, rgba(210, 229, 232, 0.14), transparent 23%),
+    linear-gradient(112deg, #5b7c8c, #344f5e);
+}
+
+.beleriand-volume .atlas-chapter-card__medallion {
+  border-color: var(--beleriand-silver-light);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(220, 233, 233, 0.17), transparent 28%),
+    #33464f;
+  box-shadow:
+    0 3px 8px rgba(17, 31, 37, 0.28),
+    inset 0 0 0 2px rgba(21, 39, 47, 0.72);
+}
+
+.beleriand-volume .atlas-chapter-card__chevron,
+.beleriand-volume .atlas-frontispiece__return-note .material-icons {
+  color: var(--beleriand-blue);
+}
+
+.beleriand-volume .atlas-frontispiece__return-note {
+  color: #53676e;
+}
+
+.beleriand-volume .atlas-project-card,
+.beleriand-volume .atlas-sounds-card {
+  border-color: rgba(117, 139, 143, 0.42);
+  background: rgba(226, 230, 222, 0.32);
+  box-shadow:
+    inset 0 0 0 1px rgba(249, 250, 245, 0.4),
+    0 8px 20px rgba(37, 57, 63, 0.08);
+}
+
+/* Silver-blue controls stay in the visual vocabulary of this volume. */
+.beleriand-volume .leaflet-bar {
+  border-color: var(--beleriand-silver);
+  box-shadow: 0 8px 20px rgba(15, 29, 35, 0.32);
+}
+
+.beleriand-volume .leaflet-bar a,
+.beleriand-volume .leaflet-bar a:hover,
+.beleriand-volume .leaflet-bar a:focus {
+  border-bottom-color: rgba(190, 201, 201, 0.35);
+  color: #e8eae4;
+  background: linear-gradient(#47575e, #202a2f);
+}
+
+.beleriand-volume .leaflet-bar a:hover,
+.beleriand-volume .leaflet-bar a:focus-visible {
+  color: #fff;
+  background: linear-gradient(#627c87, #334750);
+}
+
+.beleriand-volume .atlas-map-nav__link--current {
+  border-color: var(--beleriand-silver-light);
+  background: rgba(67, 99, 114, 0.96);
+}
+
+.beleriand-volume.atlas-sidebar-open #map::after {
+  background: rgba(24, 47, 57, 0.19);
+}
+
+/* Beleriand markers are sea-worn silver medallions, not Middle-earth gold. */
+.beleriand-volume .leaflet-marker-icon.atlas-marker-icon {
+  padding: 4px;
+  border-color: var(--beleriand-silver-light);
+  background:
+    radial-gradient(circle at 38% 30%, #eef0e8, #aebbb8);
+  box-shadow:
+    0 4px 10px rgba(18, 35, 42, 0.42),
+    0 0 0 2px rgba(50, 75, 85, 0.78),
+    inset 0 0 0 1px rgba(250, 251, 247, 0.64);
+  filter: saturate(0.84) contrast(1.02);
+}
+
+.beleriand-volume .leaflet-marker-icon.atlas-marker-icon--hover {
+  filter: saturate(0.95) brightness(1.07);
+}
+
+.beleriand-volume .marker-cluster-small,
+.beleriand-volume .marker-cluster-medium,
+.beleriand-volume .marker-cluster-large,
+.beleriand-volume .leaflet-oldie .marker-cluster-small,
+.beleriand-volume .leaflet-oldie .marker-cluster-medium,
+.beleriand-volume .leaflet-oldie .marker-cluster-large {
+  border-color: var(--beleriand-silver-light);
+  background:
+    radial-gradient(circle at 34% 28%, rgba(222, 235, 235, 0.18), transparent 24%),
+    #304d5a;
+  box-shadow:
+    0 4px 10px rgba(16, 32, 39, 0.42),
+    0 0 0 2px rgba(47, 71, 80, 0.66),
+    inset 0 0 0 1px rgba(228, 237, 236, 0.13);
+}
+
+.beleriand-volume .marker-cluster-small div,
+.beleriand-volume .marker-cluster-medium div,
+.beleriand-volume .marker-cluster-large div {
+  position: relative;
+  border-color: rgba(202, 213, 212, 0.54);
+  color: #f0f1ea;
+  background:
+    radial-gradient(circle at 38% 30%, #7795a1, #557989 48%, #314f5d);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.72);
+}
+
+.beleriand-volume .marker-cluster-small div::before,
+.beleriand-volume .marker-cluster-medium div::before,
+.beleriand-volume .marker-cluster-large div::before {
+  position: absolute;
+  inset: 0;
+  content: "✦";
+  color: rgba(228, 235, 232, 0.16);
+  font: 24px/30px Georgia, serif;
+  text-align: center;
+}
+
+.beleriand-volume .marker-cluster span {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+ * Moonlit Elven vellum
+ *
+ * A surviving leaf from an Elven chronicle: fully opaque cool-ivory vellum,
+ * charcoal ink, and one restrained star-and-wave device. There is no card,
+ * frame, or translucent wash around the manuscript leaf.
+ */
+.beleriand-volume .leaflet-popup-content-wrapper,
+.beleriand-volume .campsite-popup-shell .leaflet-popup-content-wrapper,
+.beleriand-volume .lore-popup-shell .leaflet-popup-content-wrapper {
+  border: 0;
+  border-radius: 0;
+  color: #27343a;
+  background-color: #eaeadd;
+  background-image:
+    radial-gradient(circle at 88% 12%, rgba(91, 112, 118, 0.09), transparent 27%),
+    radial-gradient(ellipse at center, transparent 58%, rgba(89, 103, 105, 0.13) 100%),
+    linear-gradient(rgba(247, 246, 232, 0.54), rgba(211, 215, 205, 0.28)),
+    var(--atlas-paper-texture);
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}
+
+.beleriand-volume .leaflet-popup-tip,
+.beleriand-volume .campsite-popup-shell .leaflet-popup-tip,
+.beleriand-volume .lore-popup-shell .leaflet-popup-tip {
+  border: 0;
+  background-color: #e4e5d9;
+  background-image:
+    linear-gradient(rgba(244, 244, 231, 0.44), rgba(205, 211, 203, 0.2)),
+    var(--atlas-paper-texture);
+  background-position: center;
+  background-size: 100% 100%, 600% 600%;
+  background-repeat: no-repeat;
+  box-shadow: none;
+}
+
+.beleriand-volume .campsite-popup,
+.beleriand-volume .lore-popup,
+.beleriand-volume .campsite-popup__frame,
+.beleriand-volume .lore-popup__frame,
+.beleriand-volume .campsite-popup__notes-text,
+.beleriand-volume .campsite-popup__value,
+.beleriand-volume .lore-popup__section-text,
+.beleriand-volume .lore-popup__value,
+.beleriand-volume .lore-popup__notes-text {
+  color: #27343a;
+}
+
+.beleriand-volume .lore-popup--settlement {
+  width: min(430px, calc(100vw - 56px));
+}
+
+.beleriand-volume .campsite-popup__title,
+.beleriand-volume .lore-popup__title,
+.beleriand-volume .leaflet-popup-content h1,
+.beleriand-volume .leaflet-popup-content h2,
+.beleriand-volume .leaflet-popup-content h3 {
+  color: #263f53;
+  letter-spacing: 0.012em;
+}
+
+.beleriand-volume .campsite-popup__title::after,
+.beleriand-volume .lore-popup__title::after {
+  display: block;
+  margin: 8px auto 3px;
+  color: #7f9095;
+  content: "✦  ≋  ✦";
+  font: 400 11px/1 Georgia, serif;
+  letter-spacing: 0.28em;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.54);
+}
+
+.beleriand-volume .campsite-popup__subtitle,
+.beleriand-volume .campsite-popup__label,
+.beleriand-volume .campsite-popup__notes-label,
+.beleriand-volume .lore-popup__section-title {
+  color: #536d78;
+}
+
+.beleriand-volume .campsite-popup__subtitle,
+.beleriand-volume .campsite-popup__row,
+.beleriand-volume .campsite-popup__notes,
+.beleriand-volume .lore-popup__section,
+.beleriand-volume .lore-popup__notes {
+  border-color: rgba(102, 125, 132, 0.34);
+}
+
+.beleriand-volume .lore-popup__notes--scrollable {
+  scrollbar-color: #89999d transparent;
+}
+
+.beleriand-volume .leaflet-container a.lore-popup__link {
+  padding: 7px 2px 4px;
+  border: 0;
+  border-bottom: 1px solid #87979a;
+  border-radius: 0;
+  color: #304f65;
+  background: transparent;
+  box-shadow: none;
+  letter-spacing: 0.025em;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+  translate: none;
+}
+
+.beleriand-volume .leaflet-container a.lore-popup__link::after {
+  margin-left: 0.62em;
+  color: #829499;
+  content: "✦";
+  font-size: 0.66em;
+  vertical-align: 0.18em;
+}
+
+.beleriand-volume .leaflet-container a.lore-popup__link:hover,
+.beleriand-volume .leaflet-container a.lore-popup__link:focus-visible {
+  border-color: #526f79;
+  color: #203f56;
+  background: transparent;
+  box-shadow: none;
+  translate: none;
+}
+
+.beleriand-volume .leaflet-container a.lore-popup__link:hover::after,
+.beleriand-volume .leaflet-container a.lore-popup__link:focus-visible::after {
+  color: #526f79;
+  translate: 1px 0;
+}
+
+.beleriand-volume .leaflet-container a.lore-popup__link:active {
+  box-shadow: none;
+  translate: none;
+}
+
+.beleriand-volume .leaflet-container a.leaflet-popup-close-button {
+  color: #60747b;
+}
+
+.beleriand-volume .leaflet-container a.leaflet-popup-close-button:hover,
+.beleriand-volume .leaflet-container a.leaflet-popup-close-button:focus-visible {
+  color: #345667;
+}
+
+.beleriand-volume .leaflet-tooltip,
+.beleriand-volume .polygon-label {
+  border-color: var(--beleriand-silver);
+  color: #27383f;
+  background:
+    linear-gradient(rgba(241, 242, 235, 0.94), rgba(186, 200, 197, 0.88)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow: 0 5px 12px rgba(19, 36, 43, 0.25);
+}
+
+@media (max-width: 520px) {
+  .beleriand-volume-cover__frame {
+    width: calc(100vw - 60px);
+    padding-inline: 16px;
+  }
+
+  .beleriand-volume-cover__subtitle {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beleriand-volume-cover {
+    animation: beleriand-volume-fade 180ms ease-out 3000ms both;
+  }
+
+  @keyframes beleriand-volume-fade {
+    to {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}

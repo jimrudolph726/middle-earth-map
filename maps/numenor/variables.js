@@ -1,85 +1,9 @@
-//variables.js
-
-import {
-  forests,
-  mountain_ranges,
-  mountains,
-  rivers,
-  lakes_seas,
-} from './geographic_data.js';
-
-import {
-  elves,
-  men,
-  dwarves,
-  battles,
-  one_on_one,
-  swords,
-  rings,
-  books,
-} from './settlement_item_data.js';
-
-import {
-  createSettlementPopup,
- } from '../shared/functions.js';
-
- import {
-  berencampsites,
- } from './campsite_data.js';
-
 // Map definition
 export const imageUrl = new URL('./assets/numenor.png', import.meta.url).href;
 export const imageBounds = [[44.9509454,-93.3340925],[44.929893420,-93.295343975],];
 
-// Campsites and Settlements
-const campsiteGroups = {
-  berencampsites,
-};
-
-const settlementGroups = {
-  elves,
-  men,
-  dwarves,
-  battles,
-  one_on_one,
-  swords,
-  rings,
-  books,
-};
-
-export const settlementsData = [
-  ...Object.entries(campsiteGroups).map(([name, data]) => ({
-    data,
-    checkboxId: `${name}Checkbox`,
-    campsite: 'campsite'
-  })),
-
-  ...Object.entries(settlementGroups).map(([name, data]) => ({
-    data,
-    checkboxId: `${name}Checkbox`,
-    campsite: 'no'
-  }))
-];
-
-// Paths
-export const pathdata = { 
-  beren_path: { 
-    pathName: 'beren_path', color: '#71352e', name: 'Beren', PopupContent: createSettlementPopup('Beren', ' ', 'https://tolkiengateway.net/wiki/Beren'), tolerance: 10, weight: 5
-  }, 
-}
-
-// Geographic Features
-const geographicGroups = {
-  mountain_ranges,
-  mountains,
-  forests,
-  rivers,
-  lakes_seas,
-};
-
-export const geographicData = [
-  ...Object.entries(geographicGroups).map(([name, data]) => ({
-    data,
-    checkboxId: `${name}Checkbox`
-  }))
-]
+// The volume shell is ready, but no Númenor atlas entries are published yet.
+// The draft source modules remain in this directory for later replacement.
+export const settlementsData = [];
+export const pathdata = {};
+export const geographicData = [];

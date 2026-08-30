@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Numenor Map</title>
+    <title>Númenor Atlas | The Land of the Star</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+    <meta name="description" content="Unfold a royal maritime atlas of Númenor, the Land of the Star and island kingdom of the Second Age.">
     <link rel="stylesheet" href="../../assets/vendor/fonts.css">
     <link rel="stylesheet" href="../../plugins/leaflet/leaflet.css" />
     <link rel="stylesheet" href="../../plugins/leaflet-sidebar.css" />
     <link rel="stylesheet" href="../shared/map-shell.css">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
+    <link rel="stylesheet" href="numenor-volume.css" />
 </head>
 
-<body>
+<body class="numenor-volume" data-atlas-volume="numenor">
+    <div class="numenor-volume-cover" data-numenor-volume-cover aria-hidden="true">
+        <div class="numenor-volume-cover__spine"></div>
+        <div class="numenor-volume-cover__frame">
+            <div class="numenor-ornament numenor-ornament--cover"><span>✦</span></div>
+            <p class="numenor-volume-cover__eyebrow">The Second Volume</p>
+            <p class="numenor-volume-cover__title">Númenor</p>
+            <p class="numenor-volume-cover__subtitle">The Land of the Star</p>
+            <div class="numenor-ornament numenor-ornament--cover"><span>✦</span></div>
+        </div>
+    </div>
     <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
+                <li class="atlas-frontispiece-tab numenor-frontispiece-tab">
+                    <a href="#frontispiece" role="tab" aria-label="Open Númenor frontispiece">
+                        <i class="material-icons">explore</i> Frontispiece
+                    </a>
+                </li>
                 <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
@@ -38,11 +55,62 @@
 
         <!-- Tab panes -->
         <div class="sidebar-content">
+            <div class="sidebar-pane atlas-frontispiece-pane numenor-frontispiece-pane" id="frontispiece">
+                <h1 class="sidebar-header">
+                    Númenor
+                    <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
+                </h1>
+                <section class="atlas-frontispiece numenor-frontispiece" aria-labelledby="numenorFrontispieceTitle">
+                    <p class="atlas-frontispiece__eyebrow">The Second Volume</p>
+                    <div class="numenor-ornament" aria-hidden="true"><span>✦</span></div>
+                    <h2 id="numenorFrontispieceTitle" class="atlas-frontispiece__title">The Land of the Star</h2>
+                    <p class="atlas-frontispiece__copy">
+                        Open the sea-kings’ atlas: an island raised from the ocean, crowned in white stone,
+                        divided by long roads, and shadowed by the fate beyond the western horizon.
+                    </p>
+                    <div class="atlas-chapter-list numenor-chapter-list">
+                        <button class="atlas-chapter-card" type="button" data-numenor-action="map">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">map</i></span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Unfold the Sea-chart</strong>
+                                <span>Set the royal folio aside and survey the island.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron">open_in_full</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-atlas-pane="geography" data-numenor-pane="geography">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">explore</i></span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Survey the Five Peninsulas</strong>
+                                <span>Preview the geographic ledger prepared for future entries.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-atlas-pane="settlements" data-numenor-pane="settlements">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">account_balance</i></span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Open the Royal Ledger</strong>
+                                <span>See the chapters awaiting the cities and peoples of Númenor.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
+                        </button>
+                    </div>
+                    <p class="atlas-frontispiece__return-note">
+                        <i class="material-icons">explore</i>
+                        The compass-mark in the rail returns to this frontispiece.
+                    </p>
+                </section>
+            </div>
+
             <div class="sidebar-pane" id="paths">
                 <h1 class="sidebar-header">
                     Paths
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
+                <div class="numenor-empty-state" role="note">
+                    <i class="material-icons" aria-hidden="true">route</i>
+                    <strong>The sea-roads await their ink</strong>
+                    <span>Royal roads, voyages, and journeys will be entered here as this volume grows.</span>
+                </div>
                     <h2>Campsites</h2>
                 <div id="campsSection">
                     <label for="allCampCheckbox">
@@ -68,6 +136,11 @@
                     Settlements
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
+                <div class="numenor-empty-state" role="note">
+                    <i class="material-icons" aria-hidden="true">account_balance</i>
+                    <strong>The royal ledger awaits its cities</strong>
+                    <span>Settlements and peoples will appear here once their atlas entries are prepared.</span>
+                </div>
                 <div id="settlementsSection">
                     <label for="allSettlementCheckbox">
                         <input type="checkbox" id="allSettlementCheckbox" data-toggle-all="#settlementsSection input.settlementCheckbox" /> All
@@ -89,6 +162,11 @@
                     Geography
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
+                <div class="numenor-empty-state" role="note">
+                    <i class="material-icons" aria-hidden="true">explore</i>
+                    <strong>The island is not yet charted</strong>
+                    <span>Mountains, forests, waters, and coasts will be recorded in this geographic ledger.</span>
+                </div>
                 <div id="geographySection">
                     <label for="allGeographyCheckbox">
                         <input type="checkbox" id="allGeographyCheckbox" data-toggle-all="#geographySection input.geographyCheckbox" /> All
@@ -116,6 +194,11 @@
                     Battles
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
+                <div class="numenor-empty-state" role="note">
+                    <span class="material-symbols-outlined" aria-hidden="true">swords</span>
+                    <strong>The chronicles remain unopened</strong>
+                    <span>Battles and duels will be catalogued here when the historical layers are written.</span>
+                </div>
                 <div id="battlesSection">
                     <label for="allBattleCheckbox">
                         <input type="checkbox" id="allBattleCheckbox" data-toggle-all="#battlesSection input.battleCheckbox" /> All
@@ -134,6 +217,11 @@
                     Regions
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
+                <div class="numenor-empty-state" role="note">
+                    <i class="material-icons" aria-hidden="true">public</i>
+                    <strong>The provinces await their boundaries</strong>
+                    <span>The island’s regions will be added as the royal survey takes shape.</span>
+                </div>
                 <div id="regionsSection">
                     <label for="allRegionCheckbox">
                         <input type="checkbox" id="allRegionCheckbox" data-toggle-all="#regionsSection input.regionCheckbox" /> All
@@ -152,6 +240,11 @@
                     Important Items
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
+                <div class="numenor-empty-state" role="note">
+                    <span class="material-symbols-outlined" aria-hidden="true">diamond</span>
+                    <strong>The treasury catalogue is forthcoming</strong>
+                    <span>Heirlooms, writings, and objects of the realm will be preserved in this chapter.</span>
+                </div>
                 <div id="itemsSection">
                     <label for="allItemCheckbox">
                         <input type="checkbox" id="allItemCheckbox" data-toggle-all="#itemsSection input.itemCheckbox" /> All
@@ -170,6 +263,12 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
+                <section class="numenor-volume-card" aria-label="Númenor volume style">
+                    <p class="numenor-volume-card__eyebrow">The Second Volume</p>
+                    <div class="numenor-ornament" aria-hidden="true"><span>✦</span></div>
+                    <h2>A royal maritime atlas</h2>
+                    <p>Indigo leather, salt-aged vellum, white stone, and bronze instruments of navigation.</p>
+                </section>
                 <section class="atlas-project-card" aria-label="About this atlas">
                     <p class="atlas-project-card__eyebrow">About this atlas</p>
                     <a class="atlas-project-card__link" href="../../about.html">Unofficial fan project <span aria-hidden="true">&middot;</span> Credits &amp; provenance</a>
@@ -207,10 +306,10 @@
                 <a class="atlas-map-nav__link" href="../the_shire/the_shire.html">
                     <i class="material-icons">map</i>
                     <span>The Shire</span>
+                </a>
                 <a class="atlas-map-nav__link" href="../minas_tirith/minas_tirith.html">
                     <i class="material-icons">map</i>
                     <span>Minas Tirith</span>
-                </a>
                 </a>
             </div>
         </details>
@@ -241,6 +340,7 @@
     <script src="../../plugins/atlas-map-nav.js"></script>
     <script src="../../plugins/atlas-map-theme.js"></script>
     <script src="../../plugins/atlas-map-sounds.js"></script>
+    <script src="numenor-volume.js"></script>
     <script type="module" src="../../plugins/leaflet-arrowheads.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>
     <script type="module" src="../shared/map-page.js"></script>

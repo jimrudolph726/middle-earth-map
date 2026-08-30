@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Middle-earth Map</title>
+    <title>Middle-earth Atlas | Roads and Realms of the Third Age</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../assets/vendor/fonts.css">
@@ -12,13 +12,24 @@
     <link rel="stylesheet" href="../../plugins/MarkerCluster.css" />
     <link rel="stylesheet" href="../../plugins/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
+    <link rel="stylesheet" href="middle-earth-volume.css" />
 </head>
 
-<body>
+<body class="middle-earth-volume" data-atlas-volume="middle-earth">
+    <div class="middle-earth-volume-cover" data-middle-earth-volume-cover aria-hidden="true">
+        <div class="middle-earth-volume-cover__spine"></div>
+        <div class="middle-earth-volume-cover__frame">
+            <div class="middle-earth-ornament middle-earth-ornament--cover"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
+            <p class="middle-earth-volume-cover__eyebrow">The Third Volume</p>
+            <p class="middle-earth-volume-cover__title">Middle-earth</p>
+            <p class="middle-earth-volume-cover__subtitle">Roads and Realms of the Third Age</p>
+            <div class="middle-earth-ornament middle-earth-ornament--cover"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
+        </div>
+    </div>
     <div id="sidebar" class="sidebar collapsed">
         <div class="sidebar-tabs">
             <ul role="tablist">
-                <li class="atlas-frontispiece-tab">
+                <li class="atlas-frontispiece-tab middle-earth-frontispiece-tab">
                     <a href="#frontispiece" role="tab" aria-label="Open atlas frontispiece">
                         <i class="material-icons">menu_book</i> Atlas Frontispiece
                     </a>
@@ -54,14 +65,15 @@
         <div class="sidebar-content">
             <div class="sidebar-pane atlas-frontispiece-pane" id="frontispiece">
                 <h1 class="sidebar-header">
-                    Atlas Frontispiece
+                    Middle-earth
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
-                <section class="atlas-frontispiece" aria-labelledby="atlasFrontispieceTitle">
-                    <p class="atlas-frontispiece__eyebrow">Middle-earth Atlas</p>
+                <section class="atlas-frontispiece middle-earth-frontispiece" aria-labelledby="atlasFrontispieceTitle">
+                    <p class="atlas-frontispiece__eyebrow">The Third Volume</p>
+                    <div class="middle-earth-ornament" aria-hidden="true"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
                     <h2 id="atlasFrontispieceTitle" class="atlas-frontispiece__title">Where shall the road take you?</h2>
                     <p class="atlas-frontispiece__copy">
-                        Choose a way into Middle-earth. You can always explore freely using the chapter tabs beside the map.
+                        Choose a way into this well-worn traveller's folio. You can always explore freely using the chapter tabs beside the map.
                     </p>
                     <div class="atlas-chapter-list">
                         <button class="atlas-chapter-card" type="button" data-frontispiece-action="places">
@@ -96,7 +108,7 @@
                         </button>
                     </div>
                     <p class="atlas-frontispiece__return-note">
-                        <i class="material-icons" aria-hidden="true">menu_book</i>
+                        <i class="material-icons" aria-hidden="true">explore</i>
                         Return here at any time from the book tab.
                     </p>
                 </section>
@@ -501,6 +513,12 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
+                <section class="middle-earth-volume-card" aria-label="Middle-earth volume style">
+                    <p class="middle-earth-volume-card__eyebrow">The Third Volume</p>
+                    <div class="middle-earth-ornament" aria-hidden="true"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
+                    <h2>A traveller's atlas</h2>
+                    <p>Warm parchment, walnut, worn brass, and roads marked by many hands.</p>
+                </section>
                 <section class="atlas-project-card" aria-label="About this atlas">
                     <p class="atlas-project-card__eyebrow">About this atlas</p>
                     <a class="atlas-project-card__link" href="../../about.html">Unofficial fan project <span aria-hidden="true">&middot;</span> Credits &amp; provenance</a>
@@ -648,6 +666,7 @@
     <script src="../../plugins/atlas-map-nav.js"></script>
     <script src="../../plugins/atlas-map-theme.js"></script>
     <script src="../../plugins/atlas-map-sounds.js"></script>
+    <script src="middle-earth-volume.js"></script>
     <script src="../../plugins/leaflet.markercluster.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>
     <script type="module" src="functions.js"></script>

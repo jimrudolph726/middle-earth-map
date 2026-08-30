@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Beleriand Map</title>
+    <title>Beleriand Atlas | The Lost Lands of the Elder Days</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../assets/vendor/fonts.css">
     <link rel="stylesheet" href="../../plugins/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="../../plugins/MarkerCluster.css" />
+    <link rel="stylesheet" href="../../plugins/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="../../plugins/leaflet-sidebar.css" />
     <link rel="stylesheet" href="../shared/map-shell.css">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
+    <link rel="stylesheet" href="beleriand-volume.css" />
 </head>
 
-<body>
+<body class="beleriand-volume" data-atlas-volume="beleriand">
+    <div class="beleriand-volume-cover" data-volume-cover aria-hidden="true">
+        <div class="beleriand-volume-cover__frame">
+            <div class="beleriand-ornament beleriand-ornament--cover"><span>✦</span></div>
+            <p class="beleriand-volume-cover__eyebrow">The First Volume</p>
+            <p class="beleriand-volume-cover__title">Beleriand</p>
+            <p class="beleriand-volume-cover__subtitle">The Lost Lands of the Elder Days</p>
+            <div class="beleriand-ornament beleriand-ornament--cover"><span>✦</span></div>
+        </div>
+    </div>
     <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
+                <li class="atlas-frontispiece-tab beleriand-frontispiece-tab">
+                    <a href="#frontispiece" role="tab" aria-label="Open Beleriand frontispiece">
+                        <i class="material-icons">flare</i> Frontispiece
+                    </a>
+                </li>
                 <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
@@ -38,6 +55,52 @@
 
         <!-- Tab panes -->
         <div class="sidebar-content">
+            <div class="sidebar-pane atlas-frontispiece-pane beleriand-frontispiece-pane" id="frontispiece">
+                <h1 class="sidebar-header">
+                    Beleriand
+                    <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
+                </h1>
+                <section class="atlas-frontispiece beleriand-frontispiece" aria-labelledby="beleriandFrontispieceTitle">
+                    <p class="atlas-frontispiece__eyebrow">The First Volume</p>
+                    <div class="beleriand-ornament" aria-hidden="true"><span>✦</span></div>
+                    <h2 id="beleriandFrontispieceTitle" class="atlas-frontispiece__title">Beneath stars before the Moon</h2>
+                    <p class="atlas-frontispiece__copy">
+                        Open the atlas of the Elder Days: a drowned country of hidden kingdoms,
+                        shadowed forests, blue mountains, and roads remembered only in song.
+                    </p>
+                    <div class="atlas-chapter-list beleriand-chapter-list">
+                        <button class="atlas-chapter-card" type="button" data-atlas-pane="settlements" data-beleriand-pane="settlements">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">fort</i></span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Enter the Lost Realms</strong>
+                                <span>Find the strongholds and peoples of Beleriand.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-atlas-pane="geography" data-beleriand-pane="geography">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">waves</i></span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Read the Shape of the Land</strong>
+                                <span>Trace rivers, forests, mountains, and vanished shores.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-atlas-pane="paths" data-beleriand-pane="paths">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">hiking</i></span>
+                            <span class="atlas-chapter-card__copy">
+                                <strong>Follow Beren’s Road</strong>
+                                <span>Begin with one mortal journey through the Elder Days.</span>
+                            </span>
+                            <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
+                        </button>
+                    </div>
+                    <p class="atlas-frontispiece__return-note">
+                        <i class="material-icons">flare</i>
+                        The star-mark in the rail returns to this frontispiece.
+                    </p>
+                </section>
+            </div>
+
             <div class="sidebar-pane" id="paths">
                 <h1 class="sidebar-header">
                     Paths
@@ -239,6 +302,7 @@
     </nav>
     <div id="map" class="sidebar-map"></div>
     <script src="../../plugins/leaflet/leaflet.js"></script>
+    <script src="../../plugins/leaflet.markercluster.js"></script>
     <script src="../../plugins/click-tolerance.js"></script>
     <script src="../../plugins/leaflet-sidebar.js"></script>
     <script src="../../plugins/atlas-map-nav.js"></script>
@@ -246,6 +310,7 @@
     <script src="../../plugins/atlas-map-sounds.js"></script>
     <script type="module" src="../../plugins/leaflet-arrowheads.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>
+    <script src="beleriand-volume.js"></script>
     <script type="module" src="../shared/map-page.js"></script>
     
 </body>

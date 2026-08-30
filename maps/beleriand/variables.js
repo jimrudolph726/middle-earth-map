@@ -32,6 +32,25 @@ import {
 export const imageUrl = new URL('./assets/beleriand.png', import.meta.url).href;
 export const imageBounds = [[44.94393060,-93.30248833],[44.937485956,-93.290119813],];
 
+export const markerClusterOptions = {
+  checkboxIds: ['menCheckbox', 'elvesCheckbox', 'dwarvesCheckbox'],
+  maxClusterRadius: 44,
+};
+
+const beleriandRoutePalette = Object.freeze({
+  journey: '#825b68',
+  forests: '#4f675f',
+  mountain_ranges: '#8a8479',
+  mountains: '#625f66',
+  rivers: '#537b91',
+  lakes_seas: '#496f85',
+  hills: '#756877',
+});
+
+const applyRouteColor = (group, color) => Object.fromEntries(
+  Object.entries(group).map(([key, item]) => [key, { ...item, color }])
+);
+
 // Campsites and Settlements
 const campsiteGroups = {
   berencampsites,
@@ -65,18 +84,18 @@ export const settlementsData = [
 // Paths
 export const pathdata = { 
   beren_path: { 
-    pathName: 'beren_path', color: '#71352e', name: 'Beren', PopupContent: createSettlementPopup('Beren', ' ', 'https://tolkiengateway.net/wiki/Beren'), tolerance: 10, weight: 5
+    pathName: 'beren_path', color: beleriandRoutePalette.journey, name: 'Beren', PopupContent: createSettlementPopup('Beren', ' ', 'https://tolkiengateway.net/wiki/Beren'), tolerance: 10, weight: 5
   }, 
 }
 
 // Geographic Features
 const geographicGroups = {
-  mountain_ranges,
-  mountains,
-  forests,
-  rivers,
-  lakes_seas,
-  hills,
+  mountain_ranges: applyRouteColor(mountain_ranges, beleriandRoutePalette.mountain_ranges),
+  mountains: applyRouteColor(mountains, beleriandRoutePalette.mountains),
+  forests: applyRouteColor(forests, beleriandRoutePalette.forests),
+  rivers: applyRouteColor(rivers, beleriandRoutePalette.rivers),
+  lakes_seas: applyRouteColor(lakes_seas, beleriandRoutePalette.lakes_seas),
+  hills: applyRouteColor(hills, beleriandRoutePalette.hills),
 };
 
 export const geographicData = [

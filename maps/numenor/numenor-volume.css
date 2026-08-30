@@ -1,0 +1,510 @@
+/*
+ * Númenor volume language
+ * A royal maritime atlas: indigo leather, salt-aged vellum, white stone,
+ * and bronze instruments of navigation.
+ */
+
+body.numenor-volume {
+  --atlas-walnut-950: #07131f;
+  --atlas-walnut-900: #0d2033;
+  --atlas-walnut-800: #17334d;
+  --atlas-walnut-700: #294d67;
+  --atlas-parchment-100: #f6f1e3;
+  --atlas-parchment-200: #e8e0ce;
+  --atlas-parchment-300: #d0c5af;
+  --atlas-parchment-500: #a99b83;
+  --atlas-ink: #1f3442;
+  --atlas-ink-soft: #526775;
+  --atlas-gold: #ae8248;
+  --atlas-gold-light: #d9bd82;
+  --atlas-oxblood: #315c74;
+  --atlas-oxblood-deep: #17394f;
+  --atlas-forest: #47766f;
+  --atlas-shadow: rgba(5, 17, 29, 0.48);
+  --numenor-indigo: #173d5d;
+  --numenor-indigo-deep: #091d30;
+  --numenor-royal-blue: #315f7a;
+  --numenor-bronze: #ae8248;
+  --numenor-bronze-light: #ddc48f;
+  --numenor-sea-green: #47766f;
+  --numenor-vellum: #eee8d8;
+  --numenor-white-stone: #f7f3e8;
+  --numenor-route-royal: #8f6738;
+  --numenor-route-coastal: #416d77;
+  --numenor-route-sacred: #685b80;
+  --numenor-route-road: #334f68;
+  color: var(--atlas-ink);
+}
+
+/* The royal volume rests on screen before opening quickly from its spine. */
+.numenor-volume-cover {
+  position: fixed;
+  z-index: 30000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #ead9b5;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(76, 116, 143, 0.26), transparent 32%),
+    repeating-linear-gradient(93deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 8px),
+    linear-gradient(128deg, #06131f, #173a57 55%, #091a2a);
+  box-shadow:
+    inset 0 0 0 10px #061421,
+    inset 0 0 0 11px rgba(190, 145, 76, 0.66),
+    inset 0 0 90px rgba(0, 0, 0, 0.5);
+  transform-origin: left center;
+  backface-visibility: hidden;
+  pointer-events: none;
+  animation: numenor-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
+}
+
+.numenor-volume-cover::before,
+.numenor-volume-cover::after {
+  position: absolute;
+  inset-block: 24px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(transparent, rgba(202, 164, 101, 0.72) 12%, rgba(202, 164, 101, 0.72) 88%, transparent);
+}
+
+.numenor-volume-cover::before {
+  left: 31px;
+}
+
+.numenor-volume-cover::after {
+  right: 31px;
+}
+
+.numenor-volume-cover__spine {
+  position: absolute;
+  inset-block: 0;
+  left: 18px;
+  width: 34px;
+  border-inline: 1px solid rgba(204, 161, 91, 0.42);
+  background: linear-gradient(90deg, #040e17, #112a40 48%, #06131f);
+  box-shadow: 7px 0 18px rgba(0, 0, 0, 0.38);
+}
+
+.numenor-volume-cover__frame {
+  width: min(650px, calc(100vw - 94px));
+  padding: 43px 28px 46px;
+  border: 1px solid rgba(210, 174, 111, 0.76);
+  box-shadow:
+    inset 0 0 0 4px rgba(5, 18, 30, 0.7),
+    inset 0 0 0 5px rgba(169, 126, 68, 0.42),
+    0 14px 40px rgba(0, 0, 0, 0.34);
+  text-align: center;
+}
+
+.numenor-volume-cover__eyebrow,
+.numenor-volume-cover__subtitle {
+  margin: 0;
+  color: #c7aa75;
+  font-family: "Libre Baskerville", Georgia, serif;
+  text-transform: uppercase;
+}
+
+.numenor-volume-cover__eyebrow {
+  margin-top: 18px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+}
+
+.numenor-volume-cover__title {
+  margin: 10px 0 7px;
+  color: #f2e6c9;
+  font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.1rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.64);
+}
+
+.numenor-volume-cover__subtitle {
+  margin-bottom: 20px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+@keyframes numenor-volume-open {
+  0% {
+    opacity: 1;
+    transform: perspective(1500px) rotateY(0deg) translateX(0);
+  }
+
+  60% {
+    opacity: 0.94;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: perspective(1500px) rotateY(-72deg) translateX(-76%);
+  }
+}
+
+/* A compass-star held between the measured lines of a sea chart. */
+.numenor-ornament {
+  display: grid;
+  grid-template-columns: minmax(34px, 1fr) auto minmax(34px, 1fr);
+  align-items: center;
+  gap: 11px;
+  margin: 9px 0 16px;
+  color: var(--numenor-bronze);
+}
+
+.numenor-ornament::before,
+.numenor-ornament::after {
+  height: 9px;
+  content: "";
+  opacity: 0.78;
+  background:
+    radial-gradient(ellipse at 50% 105%, transparent 5px, currentColor 5.5px 6.4px, transparent 7px)
+    0 0 / 18px 9px repeat-x;
+}
+
+.numenor-ornament > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid currentColor;
+  color: var(--numenor-bronze);
+  font-size: 15px;
+  line-height: 1;
+  rotate: 45deg;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.28);
+}
+
+.numenor-ornament > span::first-letter {
+  rotate: -45deg;
+}
+
+.numenor-ornament--cover {
+  margin: 0 auto;
+  color: #9e7542;
+}
+
+.numenor-ornament--cover > span {
+  color: #d2b274;
+  box-shadow: inset 0 0 0 2px rgba(7, 22, 35, 0.72);
+  text-shadow: 0 2px 3px #02090f;
+}
+
+/* Salt-aged vellum and indigo-blue royal leather. */
+.numenor-volume .sidebar {
+  border-color: rgba(174, 130, 72, 0.92);
+  background: var(--numenor-indigo-deep);
+  box-shadow:
+    0 18px 46px var(--atlas-shadow),
+    0 0 0 1px rgba(238, 219, 180, 0.12);
+}
+
+.numenor-volume .sidebar-content {
+  background:
+    radial-gradient(circle at 86% 9%, rgba(75, 119, 128, 0.08), transparent 26%),
+    linear-gradient(rgba(248, 244, 232, 0.92), rgba(215, 211, 195, 0.84)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    inset 14px 0 25px rgba(19, 50, 70, 0.08),
+    inset 0 0 50px rgba(117, 103, 76, 0.07);
+  scrollbar-color: var(--numenor-bronze) rgba(23, 61, 93, 0.1);
+}
+
+.numenor-volume .sidebar-tabs {
+  border-right-color: rgba(183, 143, 82, 0.72);
+  background:
+    radial-gradient(circle at 50% 5%, rgba(62, 111, 142, 0.2), transparent 25%),
+    linear-gradient(90deg, #071522, #173650);
+}
+
+.numenor-volume .sidebar-tabs > li,
+.numenor-volume .sidebar-tabs > ul > li {
+  color: #c8ba9d;
+}
+
+.numenor-volume .sidebar-tabs > li:hover,
+.numenor-volume .sidebar-tabs > ul > li:hover {
+  color: #fff6df;
+  background: rgba(177, 132, 66, 0.14);
+}
+
+.numenor-volume .sidebar-tabs > li.active,
+.numenor-volume .sidebar-tabs > ul > li.active {
+  color: #fff7e6;
+  background: linear-gradient(90deg, #1d4966, #326b82);
+  box-shadow:
+    inset 3px 0 var(--numenor-bronze-light),
+    inset 0 0 18px rgba(235, 216, 175, 0.08);
+}
+
+.numenor-volume .numenor-frontispiece-tab {
+  border-bottom-color: rgba(208, 176, 118, 0.28);
+}
+
+.numenor-volume .sidebar-header {
+  position: relative;
+  border-bottom-color: var(--numenor-bronze);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(93, 145, 163, 0.14), transparent 24%),
+    linear-gradient(100deg, #081827, #234d68);
+}
+
+.numenor-volume .sidebar-header::after {
+  position: absolute;
+  right: 57px;
+  bottom: 9px;
+  content: "✦  ⊹";
+  color: rgba(222, 193, 137, 0.62);
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+}
+
+.numenor-volume .sidebar-pane h2 {
+  border-bottom-color: rgba(133, 105, 61, 0.28);
+  color: #294454;
+}
+
+.numenor-volume .sidebar-pane label:hover {
+  border-color: rgba(151, 115, 62, 0.3);
+  background: rgba(174, 130, 72, 0.08);
+}
+
+.numenor-volume .sidebar-pane label:has(input[id^="all"]) {
+  border-color: rgba(145, 108, 56, 0.3);
+  background: rgba(174, 130, 72, 0.07);
+}
+
+.numenor-volume .sidebar-pane input[type="checkbox"] {
+  accent-color: var(--numenor-royal-blue);
+}
+
+.numenor-volume .sidebar-pane label:has(input:disabled) {
+  cursor: default;
+  opacity: 0.48;
+  filter: grayscale(0.35);
+}
+
+.numenor-volume .sidebar-pane label:has(input:disabled):hover {
+  border-color: transparent;
+  background: transparent;
+}
+
+.numenor-volume .atlas-frontispiece__eyebrow {
+  color: var(--numenor-indigo);
+}
+
+.numenor-volume .atlas-frontispiece__eyebrow::after {
+  background: linear-gradient(90deg, var(--numenor-bronze), transparent);
+}
+
+.numenor-volume .numenor-frontispiece .atlas-frontispiece__title {
+  color: #1e3d50;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.54);
+}
+
+.numenor-volume .numenor-frontispiece .atlas-frontispiece__copy {
+  color: #526776;
+}
+
+.numenor-volume .sidebar-pane button.atlas-chapter-card {
+  border-color: rgba(160, 125, 73, 0.7);
+  background:
+    linear-gradient(105deg, rgba(250, 246, 233, 0.86), rgba(213, 211, 195, 0.55)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    0 7px 18px rgba(20, 49, 66, 0.14),
+    inset 0 0 0 1px rgba(255, 253, 244, 0.5);
+}
+
+.numenor-volume .sidebar-pane button.atlas-chapter-card:hover,
+.numenor-volume .sidebar-pane button.atlas-chapter-card:focus-visible {
+  border-color: var(--numenor-bronze-light);
+  background:
+    radial-gradient(circle at 11% 22%, rgba(227, 208, 165, 0.16), transparent 23%),
+    linear-gradient(112deg, #376b82, #173c59);
+}
+
+.numenor-volume .atlas-chapter-card__medallion {
+  border-color: var(--numenor-bronze-light);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(231, 215, 178, 0.2), transparent 28%),
+    #173c59;
+  box-shadow:
+    0 3px 8px rgba(10, 31, 45, 0.3),
+    inset 0 0 0 2px rgba(7, 27, 43, 0.72);
+}
+
+.numenor-volume .atlas-chapter-card__chevron,
+.numenor-volume .atlas-frontispiece__return-note .material-icons {
+  color: var(--numenor-bronze);
+}
+
+.numenor-volume .atlas-frontispiece__return-note {
+  color: #596d77;
+}
+
+.numenor-empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  margin: 18px 0 4px;
+  padding: 19px 17px 18px;
+  border: 1px dashed rgba(150, 112, 58, 0.52);
+  color: #596b73;
+  background:
+    radial-gradient(circle at 50% 0, rgba(73, 115, 128, 0.08), transparent 35%),
+    rgba(242, 237, 222, 0.54);
+  text-align: center;
+}
+
+.numenor-empty-state > i,
+.numenor-empty-state > .material-symbols-outlined {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  place-items: center;
+  border: 1px solid var(--numenor-bronze);
+  border-radius: 50%;
+  color: var(--numenor-indigo);
+  background: rgba(247, 243, 229, 0.64);
+  font-size: 20px;
+}
+
+.numenor-empty-state > strong {
+  color: #294859;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 21px;
+  line-height: 1.05;
+}
+
+.numenor-empty-state > span:last-child {
+  max-width: 31ch;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.numenor-volume-card,
+.numenor-volume .atlas-project-card,
+.numenor-volume .atlas-sounds-card {
+  border-color: rgba(151, 116, 66, 0.45);
+  background: rgba(233, 228, 213, 0.38);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 252, 240, 0.43),
+    0 8px 20px rgba(28, 54, 67, 0.08);
+}
+
+.numenor-volume-card {
+  margin: 18px 0;
+  padding: 17px 16px 16px;
+  border: 1px solid rgba(151, 116, 66, 0.45);
+  text-align: center;
+}
+
+.numenor-volume-card__eyebrow {
+  margin: 0;
+  color: var(--numenor-indigo);
+  font-size: 10px;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.numenor-volume-card .numenor-ornament {
+  margin: 9px 0 12px;
+}
+
+.numenor-volume-card h2 {
+  margin: 0 0 6px;
+  border: 0;
+  color: #294859;
+  font-size: 25px;
+}
+
+.numenor-volume-card > p:last-child {
+  margin: 0;
+  color: #5b6d75;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* Bronze-edged controls belong to the royal charting table. */
+.numenor-volume .leaflet-bar {
+  border-color: var(--numenor-bronze);
+  box-shadow: 0 8px 20px rgba(6, 25, 39, 0.34);
+}
+
+.numenor-volume .leaflet-bar a,
+.numenor-volume .leaflet-bar a:hover,
+.numenor-volume .leaflet-bar a:focus {
+  border-bottom-color: rgba(218, 189, 134, 0.34);
+  color: #f2e8d2;
+  background: linear-gradient(#214963, #0b2235);
+}
+
+.numenor-volume .leaflet-bar a:hover,
+.numenor-volume .leaflet-bar a:focus-visible {
+  color: #fff8e8;
+  background: linear-gradient(#397087, #173e59);
+}
+
+.numenor-volume .atlas-map-nav__link,
+.numenor-volume .atlas-map-nav__toggle {
+  border-color: rgba(200, 157, 88, 0.72);
+  color: #f2e7cc;
+  background: rgba(7, 28, 45, 0.94);
+  box-shadow: 0 8px 24px rgba(4, 19, 31, 0.34);
+}
+
+.numenor-volume .atlas-map-nav__link:hover,
+.numenor-volume .atlas-map-nav__link:focus-visible,
+.numenor-volume .atlas-map-nav__toggle:hover,
+.numenor-volume .atlas-map-nav__toggle:focus-visible {
+  color: #fff8e7;
+  background: rgba(28, 72, 96, 0.97);
+}
+
+.numenor-volume .atlas-map-nav__link--current {
+  border-color: var(--numenor-bronze-light);
+  background: rgba(41, 91, 117, 0.97);
+}
+
+.numenor-volume.atlas-sidebar-open #map::after {
+  background: rgba(12, 46, 66, 0.15);
+}
+
+@media (max-width: 520px) {
+  .numenor-volume-cover__frame {
+    width: calc(100vw - 68px);
+    padding-inline: 16px;
+  }
+
+  .numenor-volume-cover__spine {
+    left: 12px;
+    width: 27px;
+  }
+
+  .numenor-volume-cover__subtitle {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+  }
+
+  .numenor-empty-state {
+    margin-top: 14px;
+    padding: 16px 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .numenor-volume-cover {
+    animation: numenor-volume-fade 180ms ease-out 3000ms both;
+  }
+
+  @keyframes numenor-volume-fade {
+    to {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}

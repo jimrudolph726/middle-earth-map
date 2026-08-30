@@ -1,0 +1,461 @@
+/*
+ * Middle-earth volume language
+ * A warm, well-used travelling atlas from Bilbo's study.
+ */
+
+body.middle-earth-volume {
+  --middle-earth-leather: #263a24;
+  --middle-earth-leather-deep: #172518;
+  --middle-earth-leather-worn: #425239;
+  --middle-earth-brass: #aa813e;
+  --middle-earth-brass-light: #d2ae67;
+  --middle-earth-road-ink: #654725;
+}
+
+/* Volume cover -------------------------------------------------------- */
+
+.middle-earth-volume-cover {
+  position: fixed;
+  z-index: 30000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #eadcaf;
+  background:
+    radial-gradient(circle at 18% 17%, rgba(214, 190, 119, 0.08), transparent 18%),
+    radial-gradient(circle at 76% 72%, rgba(111, 62, 28, 0.22), transparent 28%),
+    repeating-linear-gradient(96deg, rgba(255, 244, 205, 0.018) 0 1px, transparent 1px 7px),
+    linear-gradient(125deg, #142016, #32432d 55%, #1b291b);
+  box-shadow:
+    inset 0 0 0 10px #172017,
+    inset 0 0 0 11px rgba(187, 150, 74, 0.65),
+    inset 0 0 90px rgba(8, 12, 7, 0.62);
+  transform-origin: left center;
+  backface-visibility: hidden;
+  pointer-events: none;
+  animation: middle-earth-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
+}
+
+.middle-earth-volume-cover::before,
+.middle-earth-volume-cover::after {
+  position: absolute;
+  inset-block: 22px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(transparent, rgba(204, 166, 89, 0.72) 12%, rgba(204, 166, 89, 0.72) 88%, transparent);
+}
+
+.middle-earth-volume-cover::before {
+  left: 56px;
+}
+
+.middle-earth-volume-cover::after {
+  right: 28px;
+}
+
+.middle-earth-volume-cover__spine {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 43px;
+  border-right: 1px solid rgba(210, 171, 91, 0.46);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.46), transparent 30%, rgba(233, 202, 127, 0.05) 68%, rgba(0, 0, 0, 0.3)),
+    #182419;
+  box-shadow: 7px 0 18px rgba(0, 0, 0, 0.28);
+}
+
+.middle-earth-volume-cover__frame {
+  position: relative;
+  width: min(680px, calc(100vw - 112px));
+  padding: 46px 30px 49px;
+  border: 1px solid rgba(203, 166, 89, 0.78);
+  box-shadow:
+    inset 0 0 0 4px rgba(19, 31, 18, 0.58),
+    inset 0 0 0 5px rgba(180, 142, 67, 0.38),
+    0 18px 44px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.middle-earth-volume-cover__frame::before,
+.middle-earth-volume-cover__frame::after {
+  position: absolute;
+  color: rgba(209, 174, 99, 0.72);
+  content: "❧";
+  font: 30px/1 Georgia, serif;
+}
+
+.middle-earth-volume-cover__frame::before {
+  top: 13px;
+  left: 17px;
+  rotate: -34deg;
+}
+
+.middle-earth-volume-cover__frame::after {
+  right: 17px;
+  bottom: 13px;
+  rotate: 146deg;
+}
+
+.middle-earth-volume-cover__eyebrow,
+.middle-earth-volume-cover__subtitle {
+  margin: 0;
+  color: #ccb47b;
+  font-family: "Libre Baskerville", Georgia, serif;
+  text-transform: uppercase;
+}
+
+.middle-earth-volume-cover__eyebrow {
+  margin-top: 18px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+}
+
+.middle-earth-volume-cover__title {
+  margin: 10px 0 6px;
+  color: #f0e5c1;
+  font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
+  line-height: 0.96;
+  letter-spacing: 0.035em;
+  text-shadow:
+    0 3px 5px rgba(0, 0, 0, 0.58),
+    0 0 18px rgba(208, 169, 88, 0.08);
+}
+
+.middle-earth-volume-cover__subtitle {
+  margin-bottom: 20px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+@keyframes middle-earth-volume-open {
+  0% {
+    opacity: 1;
+    transform: perspective(1500px) rotateY(0deg) translateX(0);
+  }
+
+  60% {
+    opacity: 0.94;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: perspective(1500px) rotateY(-72deg) translateX(-76%);
+  }
+}
+
+/* Winding-road-and-leaf ornament ------------------------------------- */
+
+.middle-earth-ornament {
+  display: grid;
+  grid-template-columns: minmax(32px, 1fr) auto minmax(32px, 1fr);
+  align-items: center;
+  gap: 9px;
+  margin: 9px 0 15px;
+  color: var(--middle-earth-brass);
+}
+
+.middle-earth-ornament::before,
+.middle-earth-ornament::after {
+  height: 13px;
+  content: "";
+  opacity: 0.78;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='13' viewBox='0 0 72 13'%3E%3Cpath d='M0 6.5C12 0.8 24 12.2 36 6.5S60 0.8 72 6.5' fill='none' stroke='%23aa813e' stroke-width='1.2'/%3E%3Cpath d='M0 9.5C12 3.8 24 15.2 36 9.5S60 3.8 72 9.5' fill='none' stroke='%23aa813e' stroke-opacity='.42' stroke-width='.8'/%3E%3C/svg%3E") center / 72px 13px repeat-x;
+}
+
+.middle-earth-ornament > span {
+  color: var(--middle-earth-road-ink);
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1;
+  text-shadow: 0 1px rgba(255, 246, 217, 0.56);
+  white-space: nowrap;
+}
+
+.middle-earth-ornament--cover {
+  margin: 0 auto;
+}
+
+.middle-earth-ornament--cover::before,
+.middle-earth-ornament--cover::after {
+  opacity: 0.72;
+}
+
+.middle-earth-ornament--cover > span {
+  color: #cfad67;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.62);
+}
+
+/* A warmer, more handled folio --------------------------------------- */
+
+.middle-earth-volume .sidebar {
+  border-color: rgba(184, 139, 64, 0.92);
+  box-shadow:
+    0 18px 46px var(--atlas-shadow),
+    0 0 0 1px rgba(255, 235, 187, 0.15),
+    inset 0 0 0 1px rgba(54, 31, 16, 0.5);
+}
+
+.middle-earth-volume .sidebar-content {
+  background:
+    radial-gradient(circle at 82% 15%, rgba(118, 77, 30, 0.08), transparent 23%),
+    radial-gradient(circle at 19% 79%, rgba(95, 57, 23, 0.07), transparent 27%),
+    linear-gradient(rgba(255, 249, 229, 0.9), rgba(207, 178, 119, 0.8)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    inset 14px 0 24px rgba(61, 39, 20, 0.09),
+    inset 0 0 48px rgba(94, 55, 22, 0.06);
+}
+
+.middle-earth-volume .sidebar-tabs {
+  background:
+    radial-gradient(circle at 50% 5%, rgba(238, 206, 136, 0.11), transparent 24%),
+    repeating-linear-gradient(96deg, rgba(255, 238, 190, 0.018) 0 1px, transparent 1px 6px),
+    linear-gradient(90deg, #1d120c, #3a261a);
+}
+
+.middle-earth-volume .sidebar-tabs > li.active,
+.middle-earth-volume .sidebar-tabs > ul > li.active {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(232, 192, 113, 0.09), transparent 38%),
+    linear-gradient(90deg, var(--atlas-oxblood-deep), var(--atlas-oxblood));
+}
+
+.middle-earth-volume .sidebar-header {
+  position: relative;
+}
+
+.middle-earth-volume .sidebar-header::after {
+  position: absolute;
+  right: 57px;
+  bottom: 8px;
+  color: rgba(214, 179, 108, 0.55);
+  content: "❧";
+  font: 16px/1 Georgia, serif;
+  rotate: -9deg;
+}
+
+.middle-earth-volume .middle-earth-frontispiece-tab {
+  border-bottom-color: rgba(216, 183, 110, 0.28);
+}
+
+.middle-earth-volume .middle-earth-frontispiece {
+  position: relative;
+}
+
+.middle-earth-volume .middle-earth-frontispiece::after {
+  position: absolute;
+  z-index: -1;
+  right: -4px;
+  bottom: 22px;
+  width: 96px;
+  height: 96px;
+  border: 1px solid rgba(113, 83, 43, 0.08);
+  border-radius: 50%;
+  content: "";
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(113, 83, 43, 0.08) 50%, transparent 51%),
+    linear-gradient(transparent 49%, rgba(113, 83, 43, 0.08) 50%, transparent 51%);
+  rotate: 12deg;
+}
+
+.middle-earth-volume .atlas-frontispiece__eyebrow {
+  color: var(--atlas-forest);
+}
+
+.middle-earth-volume .atlas-frontispiece__eyebrow::after {
+  background: linear-gradient(90deg, var(--middle-earth-brass), transparent);
+}
+
+.middle-earth-volume .middle-earth-frontispiece .atlas-frontispiece__title {
+  color: #312217;
+  text-shadow: 0 1px rgba(255, 244, 207, 0.52);
+}
+
+.middle-earth-volume .middle-earth-frontispiece .atlas-frontispiece__copy {
+  color: #614a31;
+}
+
+.middle-earth-volume .sidebar-pane button.atlas-chapter-card {
+  border-color: rgba(160, 112, 47, 0.72);
+  background:
+    radial-gradient(circle at 92% 18%, rgba(93, 58, 27, 0.06), transparent 25%),
+    linear-gradient(105deg, rgba(255, 251, 233, 0.82), rgba(216, 191, 139, 0.48)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    0 7px 17px rgba(52, 31, 15, 0.15),
+    inset 0 0 0 1px rgba(255, 249, 226, 0.45);
+}
+
+.middle-earth-volume .sidebar-pane button.atlas-chapter-card:hover,
+.middle-earth-volume .sidebar-pane button.atlas-chapter-card:focus-visible {
+  background:
+    radial-gradient(circle at 11% 22%, rgba(255, 220, 157, 0.13), transparent 23%),
+    repeating-linear-gradient(96deg, rgba(255, 236, 186, 0.018) 0 1px, transparent 1px 6px),
+    linear-gradient(112deg, #7d4037, var(--atlas-oxblood-deep));
+}
+
+.middle-earth-volume .atlas-chapter-card__medallion {
+  border-color: #d1ae68;
+  border-radius: 49% 51% 47% 53% / 52% 47% 53% 48%;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255, 230, 178, 0.2), transparent 28%),
+    linear-gradient(145deg, #69472b, #372318);
+  box-shadow:
+    0 3px 8px rgba(43, 25, 13, 0.24),
+    0 0 0 1px rgba(82, 50, 27, 0.74),
+    inset 0 0 0 2px rgba(78, 45, 25, 0.7);
+}
+
+.middle-earth-volume .atlas-frontispiece__return-note .material-icons {
+  color: var(--atlas-forest);
+}
+
+.middle-earth-volume .atlas-frontispiece__return-note {
+  color: #604b31;
+}
+
+/* Volume note in Settings -------------------------------------------- */
+
+.middle-earth-volume-card {
+  box-sizing: border-box;
+  margin: 18px 0 0;
+  padding: 16px 17px 15px;
+  border: 1px solid rgba(160, 112, 47, 0.5);
+  border-radius: 7px;
+  background:
+    linear-gradient(rgba(255, 248, 224, 0.42), rgba(218, 191, 135, 0.2)),
+    var(--atlas-paper-texture) center / cover;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 249, 230, 0.4),
+    0 8px 20px rgba(58, 36, 19, 0.09);
+}
+
+.middle-earth-volume-card__eyebrow {
+  margin: 0;
+  color: var(--atlas-forest);
+  font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.middle-earth-volume-card .middle-earth-ornament {
+  margin: 7px 0 10px;
+}
+
+.middle-earth-volume-card h2 {
+  margin: 0 0 7px;
+  padding: 0;
+  border: 0;
+  color: var(--atlas-ink);
+  font-size: 24px;
+}
+
+.middle-earth-volume-card > p:last-child {
+  margin: 0;
+  color: var(--atlas-ink-soft);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* Worn wax and brass map marks --------------------------------------- */
+
+.middle-earth-volume .marker-cluster-small,
+.middle-earth-volume .marker-cluster-medium,
+.middle-earth-volume .marker-cluster-large {
+  border-radius: 48% 52% 47% 53% / 52% 48% 54% 46%;
+  box-shadow:
+    0 4px 10px rgba(35, 18, 11, 0.42),
+    0 0 0 2px rgba(70, 38, 24, 0.64),
+    inset 0 0 0 1px rgba(255, 227, 171, 0.12);
+}
+
+.middle-earth-volume .marker-cluster-small div,
+.middle-earth-volume .marker-cluster-medium div,
+.middle-earth-volume .marker-cluster-large div {
+  position: relative;
+  border-radius: 52% 48% 53% 47% / 47% 54% 46% 53%;
+}
+
+.middle-earth-volume .marker-cluster-small div::before,
+.middle-earth-volume .marker-cluster-medium div::before,
+.middle-earth-volume .marker-cluster-large div::before {
+  position: absolute;
+  inset: 0;
+  color: rgba(255, 231, 179, 0.15);
+  content: "✥";
+  font: 24px/30px Georgia, serif;
+  text-align: center;
+}
+
+.middle-earth-volume .marker-cluster span {
+  position: relative;
+  z-index: 1;
+}
+
+.middle-earth-volume .leaflet-marker-icon.atlas-marker-icon {
+  border-color: #d2af68;
+  border-radius: 49% 51% 48% 52% / 52% 48% 53% 47%;
+  background:
+    radial-gradient(circle at 38% 30%, #f6ecd1, #d5bf8c);
+  box-shadow:
+    0 4px 9px rgba(35, 20, 11, 0.4),
+    0 0 0 2px rgba(75, 46, 25, 0.74),
+    inset 0 0 0 1px rgba(255, 248, 221, 0.64);
+  filter: sepia(0.08) saturate(0.94);
+}
+
+.middle-earth-volume .leaflet-marker-icon.atlas-marker-icon--hover {
+  filter: sepia(0.15) saturate(1.02) brightness(1.05);
+}
+
+/* Cartographic labels ------------------------------------------------ */
+
+.middle-earth-volume .leaflet-tooltip,
+.middle-earth-volume .polygon-label {
+  border-color: var(--middle-earth-brass);
+  background:
+    linear-gradient(rgba(255, 249, 229, 0.94), rgba(220, 194, 141, 0.88)),
+    var(--atlas-paper-texture) center / cover;
+}
+
+.middle-earth-volume.atlas-sidebar-open #map::after {
+  background: rgba(50, 31, 17, 0.19);
+}
+
+@media (max-width: 520px) {
+  .middle-earth-volume-cover__frame {
+    width: calc(100vw - 76px);
+    padding-inline: 16px;
+  }
+
+  .middle-earth-volume-cover__subtitle {
+    font-size: 8px;
+    letter-spacing: 0.11em;
+  }
+
+  .middle-earth-ornament {
+    gap: 7px;
+  }
+
+  .middle-earth-ornament > span {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .middle-earth-volume-cover {
+    animation: middle-earth-volume-fade 180ms ease-out 3000ms both;
+  }
+
+  @keyframes middle-earth-volume-fade {
+    to {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}

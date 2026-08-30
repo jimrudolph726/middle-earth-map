@@ -33,6 +33,60 @@ const initializeMasterCheckboxes = (root = document) => {
   });
 };
 
+const announceLayerChange = (source, enabled) => {
+  document.dispatchEvent(new CustomEvent('atlas:layerchange', {
+    detail: { source, enabled }
+  }));
+};
+
+const initializeClusteredMarkerListeners = ({
+  checkboxId,
+  markers,
+  clusterGroup,
+  map,
+}) => {
+  const checkbox = document.getElementById(checkboxId);
+
+  if (!checkbox) {
+    console.error(`Checkbox with ID "${checkboxId}" not found in the DOM.`);
+    return;
+  }
+
+  const markerLayers = Object.values(markers);
+  const syncCluster = (event) => {
+    let changed = false;
+
+    markerLayers.forEach((marker) => {
+      const markerIsClustered = clusterGroup.hasLayer(marker);
+
+      if (checkbox.checked && !markerIsClustered) {
+        clusterGroup.addLayer(marker);
+        changed = true;
+      } else if (!checkbox.checked && markerIsClustered) {
+        clusterGroup.removeLayer(marker);
+        changed = true;
+      }
+    });
+
+    if (clusterGroup.getLayers().length > 0) {
+      if (!map.hasLayer(clusterGroup)) {
+        clusterGroup.addTo(map);
+        changed = true;
+      }
+    } else if (map.hasLayer(clusterGroup)) {
+      map.removeLayer(clusterGroup);
+      changed = true;
+    }
+
+    if (event && changed) {
+      announceLayerChange(checkboxId, checkbox.checked);
+    }
+  };
+
+  checkbox.addEventListener('change', syncCluster);
+  syncCluster();
+};
+
 export const initializeImageAtlasMap = ({
   mapElementId = 'map',
   mapOptions = {},
@@ -42,6 +96,7 @@ export const initializeImageAtlasMap = ({
   pathdata = {},
   geographicData = [],
   geojsonBaseUrl,
+  markerClusterOptions = null,
 }) => {
   if (!imageUrl || !imageBounds) {
     throw new Error('The map image URL and image bounds are required.');
@@ -53,12 +108,48 @@ export const initializeImageAtlasMap = ({
   L.imageOverlay(imageUrl, imageBounds).addTo(map);
   map.fitBounds(imageBounds);
 
+  let sidebar = null;
+
   if (document.getElementById('sidebar')) {
-    L.control.sidebar('sidebar').addTo(map);
+    sidebar = L.control.sidebar('sidebar').addTo(map);
   }
+
+  const {
+    checkboxIds: clusteredCheckboxIds = null,
+    includeCampsites = false,
+    ...leafletClusterOptions
+  } = markerClusterOptions || {};
+  const canClusterMarkers = Boolean(
+    markerClusterOptions && typeof L.markerClusterGroup === 'function'
+  );
+  const settlementClusterGroup = canClusterMarkers
+    ? L.markerClusterGroup({
+        showCoverageOnHover: false,
+        spiderfyOnMaxZoom: true,
+        disableClusteringAtZoom: 19,
+        maxClusterRadius: 38,
+        ...leafletClusterOptions,
+      })
+    : null;
 
   settlementsData.forEach(({ data, checkboxId, campsite }) => {
     createMarkers(data, campsite).then((markers) => {
+      const checkboxIsClustered = !clusteredCheckboxIds
+        || clusteredCheckboxIds.includes(checkboxId);
+      const shouldCluster = settlementClusterGroup
+        && checkboxIsClustered
+        && (includeCampsites || campsite !== 'campsite');
+
+      if (shouldCluster) {
+        initializeClusteredMarkerListeners({
+          checkboxId,
+          markers,
+          clusterGroup: settlementClusterGroup,
+          map,
+        });
+        return;
+      }
+
       MarkerListeners(checkboxId, markers, map);
     });
   });
@@ -74,6 +165,10 @@ export const initializeImageAtlasMap = ({
   });
 
   initializeMasterCheckboxes();
+
+  document.dispatchEvent(new CustomEvent('atlas:mapready', {
+    detail: { map, mapElementId, sidebar }
+  }));
 
   return map;
 };

@@ -154,6 +154,110 @@ test("compact maps wire the sidebar groups declared by each page", async ({ page
   }
 });
 
+test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) => {
+  await page.goto("/maps/beleriand/beleriand.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "beleriand");
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+  await expect(page.locator("[data-beleriand-pane]")).toHaveCount(3);
+  await expect(page.locator("[data-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
+
+  await page.getByRole("button", { name: /Enter the Lost Realms/i }).click();
+  await expect(page.locator("#settlements")).toHaveClass(/active/);
+  await page.locator("#allSettlementCheckbox").check();
+
+  await expect(page.locator(".marker-cluster")).toHaveCount(1);
+  await expect(page.locator(".leaflet-marker-icon.atlas-marker-icon")).toHaveCount(2);
+
+  await page.locator(".leaflet-marker-icon.atlas-marker-icon").first().click();
+  await expect(page.locator(".lore-popup-shell")).toBeVisible();
+
+  const popupSurface = await page.locator(".lore-popup-shell").evaluate((popup) => {
+    const wrapper = popup.querySelector(".leaflet-popup-content-wrapper");
+    const frame = popup.querySelector(".lore-popup__frame");
+    const title = popup.querySelector(".lore-popup__title");
+    const link = popup.querySelector(".lore-popup__link");
+
+    return {
+      frameBorderWidth: getComputedStyle(frame).borderWidth,
+      wrapperBackground: getComputedStyle(wrapper).backgroundImage,
+      wrapperBackgroundColor: getComputedStyle(wrapper).backgroundColor,
+      wrapperBorderWidth: getComputedStyle(wrapper).borderWidth,
+      wrapperBoxShadow: getComputedStyle(wrapper).boxShadow,
+      titleOrnament: getComputedStyle(title, "::after").content,
+      linkBackground: getComputedStyle(link).backgroundImage,
+      linkBorderTopWidth: getComputedStyle(link).borderTopWidth,
+      navigationVisibility: getComputedStyle(document.querySelector(".atlas-map-nav")).visibility,
+    };
+  });
+
+  expect(popupSurface.frameBorderWidth).toBe("0px");
+  expect(popupSurface.wrapperBorderWidth).toBe("0px");
+  expect(popupSurface.wrapperBackground).toContain("linear-gradient");
+  expect(popupSurface.wrapperBackgroundColor).toBe("rgb(234, 234, 221)");
+  expect(popupSurface.wrapperBoxShadow).toBe("none");
+  expect(popupSurface.titleOrnament).toContain("✦");
+  expect(popupSurface.linkBackground).toBe("none");
+  expect(popupSurface.linkBorderTopWidth).toBe("0px");
+  expect(popupSurface.navigationVisibility).toBe("visible");
+});
+
+test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
+  await page.goto("/maps/numenor/numenor.html", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "numenor");
+  await expect(page.locator("[data-numenor-volume-cover]")).toBeAttached();
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+  await expect(page.locator("#frontispiece .atlas-frontispiece__eyebrow")).toHaveText("The Second Volume");
+  await expect(page.locator("#frontispiece .numenor-ornament")).toHaveCount(1);
+  await expect(page.locator("#frontispiece .atlas-chapter-card")).toHaveCount(3);
+  await expect(page.locator(".numenor-empty-state")).toHaveCount(6);
+  await expect(page.locator(".numenor-volume-card")).toBeAttached();
+
+  const coverTiming = await page.locator("[data-numenor-volume-cover]").evaluate((cover) => ({
+    delay: getComputedStyle(cover).animationDelay,
+    duration: getComputedStyle(cover).animationDuration,
+  }));
+
+  expect(coverTiming.delay).toBe("3s");
+  expect(coverTiming.duration).toBe("0.76s");
+  await expect(page.locator("[data-numenor-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
+
+  const plannedLayerInputs = page.locator(
+    '#sidebar .sidebar-pane:not(#frontispiece):not(#settings) input[type="checkbox"]'
+  );
+  expect(await plannedLayerInputs.count()).toBeGreaterThan(0);
+  await expect(page.locator(
+    '#sidebar .sidebar-pane:not(#frontispiece):not(#settings) input[type="checkbox"]:not(:disabled)'
+  )).toHaveCount(0);
+  await expect(page.locator(".leaflet-marker-icon.atlas-marker-icon")).toHaveCount(0);
+
+  await page.getByRole("button", { name: /Unfold the Sea-chart/i }).click();
+  await expect(page.locator("#sidebar")).toHaveClass(/collapsed/);
+  await page.getByRole("tab", { name: /Open Númenor frontispiece/i }).click();
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+});
+
+test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) => {
+  await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "middle-earth");
+  await expect(page.locator("[data-middle-earth-volume-cover]")).toBeAttached();
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+  await expect(page.locator("#frontispiece .atlas-frontispiece__eyebrow")).toHaveText("The Third Volume");
+  await expect(page.locator("#frontispiece .middle-earth-ornament")).toHaveCount(1);
+  await expect(page.locator(".middle-earth-volume-card")).toBeAttached();
+
+  const coverTiming = await page.locator("[data-middle-earth-volume-cover]").evaluate((cover) => ({
+    delay: getComputedStyle(cover).animationDelay,
+    duration: getComputedStyle(cover).animationDuration,
+  }));
+
+  expect(coverTiming.delay).toBe("3s");
+  expect(coverTiming.duration).toBe("0.76s");
+  await expect(page.locator("[data-middle-earth-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
+});
+
 test("map pages highlight exactly one current map nav link", async ({ page }) => {
   for (const mapPage of mapPages) {
     await page.goto(mapPage.path, { waitUntil: "domcontentloaded" });
