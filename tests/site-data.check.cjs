@@ -120,7 +120,7 @@ test("provenance page and persistent atlas links remain available", () => {
     }
   });
 
-  if (!aboutHtml.includes("Middle-earth Atlas is an unofficial fan-made project.")) {
+  if (!/(?:Middle-earth Atlas|Tolkien Legendarium Atlas) is an unofficial fan-made project\./.test(aboutHtml)) {
     errors.push("about.html is missing the visible fan-project disclaimer.");
   }
 

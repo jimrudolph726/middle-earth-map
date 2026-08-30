@@ -34,12 +34,11 @@ const storySceneSummaryTitle = document.getElementById('storySceneSummaryTitle')
 const storySceneSummaryMeta = document.getElementById('storySceneSummaryMeta');
 const storySceneSummaryCounter = document.getElementById('storySceneSummaryCounter');
 const storySceneNarrative = document.getElementById('storySceneNarrative');
-const storySceneCamp = document.getElementById('storySceneCamp');
-const storySceneHours = document.getElementById('storySceneHours');
-const storySceneMiles = document.getElementById('storySceneMiles');
-const storyScenePace = document.getElementById('storyScenePace');
-const storySceneNotes = document.getElementById('storySceneNotes');
+const storySceneDetails = document.getElementById('storySceneDetails');
+const storySceneSource = document.getElementById('storySceneSource');
 const storySceneCounter = document.getElementById('storySceneCounter');
+const storyChapterNav = document.getElementById('storyChapterNav');
+const storyProgressBar = document.getElementById('storyProgressBar');
 const storySceneImage = document.getElementById('storySceneImage');
 const storyScenePreviewImage = document.getElementById('storyScenePreviewImage');
 const storyScenePreviewPlaceholder = document.getElementById('storyScenePreviewPlaceholder');
@@ -61,8 +60,9 @@ const storyState = {
   timerId: null,
   previousView: null,
   highlightLayer: null,
-  routeLayer: null,
   sceneMarkersLayer: null,
+  routeCheckbox: null,
+  routeWasChecked: false,
   imageLoadToken: 0,
   imageCache: new Map(),
   mobilePanelState: 'peek',
@@ -71,7 +71,7 @@ const storyState = {
   touchGestureHandled: false,
 };
 
-const STORY_AUTOPLAY_MS = 4500;
+const STORY_AUTOPLAY_MS = 8000;
 
 const isMobileStoryMode = () => mobileStoryModeQuery.matches;
 const isLandscapeStoryMode = () => landscapeStoryModeQuery.matches;
@@ -262,18 +262,6 @@ const removeStoryLayer = (layer) => {
 };
 
 const ensureStoryLayersVisible = (story) => {
-  const routeLatLngs = story.scenes.map((scene) => scene.coords);
-
-  if (!storyState.routeLayer) {
-    storyState.routeLayer = L.polyline(routeLatLngs, {
-      color: '#d9b161',
-      weight: 6,
-      opacity: 0.92,
-      interactive: false,
-      pane: STORY_PANE_NAME,
-    }).addTo(map);
-  }
-
   if (!storyState.sceneMarkersLayer) {
     const sceneMarkers = story.scenes.map((scene, index) => L.circleMarker(scene.coords, {
       radius: index === storyState.currentSceneIndex ? 9 : 6,
@@ -289,12 +277,32 @@ const ensureStoryLayersVisible = (story) => {
   }
 };
 
+const showStoryRoute = (story) => {
+  const routeCheckbox = document.getElementById(story.pathCheckboxId);
+
+  storyState.routeCheckbox = routeCheckbox;
+  storyState.routeWasChecked = Boolean(routeCheckbox?.checked);
+
+  if (routeCheckbox && !routeCheckbox.checked) {
+    routeCheckbox.checked = true;
+    routeCheckbox.dispatchEvent(new Event('change'));
+  }
+};
+
+const restoreStoryRoute = () => {
+  if (storyState.routeCheckbox && !storyState.routeWasChecked) {
+    storyState.routeCheckbox.checked = false;
+    storyState.routeCheckbox.dispatchEvent(new Event('change'));
+  }
+
+  storyState.routeCheckbox = null;
+  storyState.routeWasChecked = false;
+};
+
 const restoreStoryLayers = () => {
-  removeStoryLayer(storyState.routeLayer);
   removeStoryLayer(storyState.sceneMarkersLayer);
   removeStoryLayer(storyState.highlightLayer);
 
-  storyState.routeLayer = null;
   storyState.sceneMarkersLayer = null;
   storyState.highlightLayer = null;
 };
@@ -347,15 +355,13 @@ const preloadStoryImage = (scene) => {
   return imagePromise;
 };
 
-const primeStoryImages = (story) => {
-  if (!story?.scenes?.length) {
+const preloadNextStoryImage = (story, sceneIndex) => {
+  if (!story?.scenes?.length || sceneIndex >= story.scenes.length - 1) {
     return;
   }
 
-  story.scenes.forEach((scene) => {
-    preloadStoryImage(scene).catch(() => {
-      // Missing story art is allowed; the placeholder will handle it if needed.
-    });
+  preloadStoryImage(story.scenes[sceneIndex + 1]).catch(() => {
+    // Missing story art is allowed; the placeholder will handle it if needed.
   });
 };
 
@@ -425,6 +431,66 @@ const updateStorySceneMarkers = () => {
   });
 };
 
+const renderStoryDetails = (scene) => {
+  if (!storySceneDetails) {
+    return;
+  }
+
+  storySceneDetails.replaceChildren();
+
+  (scene.stats ?? []).forEach(({ label, value }) => {
+    const row = document.createElement('div');
+    const labelElement = document.createElement('span');
+    const valueElement = document.createElement('span');
+
+    row.className = 'story-panel__detail-row';
+    labelElement.className = 'story-panel__detail-label';
+    valueElement.className = 'story-panel__detail-value';
+    labelElement.textContent = label;
+    valueElement.textContent = value;
+
+    if (label === 'Road Notes') {
+      valueElement.classList.add('story-panel__detail-value--notes');
+    }
+
+    row.append(labelElement, valueElement);
+    storySceneDetails.append(row);
+  });
+};
+
+const updateStoryChapterNav = (scene) => {
+  storyChapterNav?.querySelectorAll('[data-story-scene-index]').forEach((button) => {
+    const isActive = button.dataset.chapterId === scene.chapter?.id;
+    button.classList.toggle('story-panel__chapter-button--active', isActive);
+    button.setAttribute('aria-current', isActive ? 'step' : 'false');
+  });
+};
+
+const renderStoryChapterNav = (story) => {
+  if (!storyChapterNav) {
+    return;
+  }
+
+  storyChapterNav.replaceChildren();
+
+  story.chapters?.forEach((chapter) => {
+    const button = document.createElement('button');
+
+    button.type = 'button';
+    button.className = 'story-panel__chapter-button';
+    button.dataset.chapterId = chapter.id;
+    button.dataset.storySceneIndex = String(chapter.startSceneIndex);
+    button.textContent = `${chapter.number}. ${chapter.title}`;
+    button.setAttribute('aria-label', `Go to chapter ${chapter.number}: ${chapter.title}`);
+    button.addEventListener('click', () => {
+      pauseStoryPlayback();
+      goToStoryScene(chapter.startSceneIndex);
+    });
+
+    storyChapterNav.append(button);
+  });
+};
+
 const goToStoryScene = (sceneIndex) => {
   const story = storyState.activeStory;
 
@@ -436,25 +502,37 @@ const goToStoryScene = (sceneIndex) => {
   const scene = story.scenes[boundedIndex];
   storyState.currentSceneIndex = boundedIndex;
 
-  storyKicker.textContent = story.title;
+  const chapterText = scene.chapter
+    ? `Chapter ${scene.chapter.number} of ${scene.chapter.total} · ${scene.chapter.title}`
+    : story.title;
+
+  storyKicker.textContent = chapterText;
   storySceneTitle.textContent = scene.title;
   storySceneMeta.textContent = `${scene.date} • ${scene.location}`;
   storySceneSummaryTitle.textContent = scene.title;
   storySceneSummaryMeta.textContent = `${scene.date} • ${scene.location}`;
   storySceneNarrative.textContent = scene.narrative;
-  storySceneCamp.textContent = scene.camp;
-  storySceneHours.textContent = scene.hoursOnRoad;
-  storySceneMiles.textContent = scene.milesTraveled;
-  storyScenePace.textContent = scene.pace;
-  storySceneNotes.textContent = scene.roadNotes;
+  renderStoryDetails(scene);
+  if (storySceneSource) {
+    storySceneSource.textContent = scene.sourceLabel ?? 'Lore reference';
+    storySceneSource.href = scene.sourceUrl ?? '#';
+    storySceneSource.parentElement.hidden = !scene.sourceUrl;
+  }
   const counterText = `Scene ${boundedIndex + 1} of ${story.scenes.length}`;
   storySceneCounter.textContent = counterText;
-  storySceneSummaryCounter.textContent = counterText;
+  storySceneSummaryCounter.textContent = scene.chapter
+    ? `Chapter ${scene.chapter.number} · ${counterText}`
+    : counterText;
+  if (storyProgressBar) {
+    storyProgressBar.style.width = `${((boundedIndex + 1) / story.scenes.length) * 100}%`;
+  }
   storyPanelBody?.scrollTo({ top: 0 });
   storyPanel.querySelector('.story-panel__text')?.scrollTo({ top: 0 });
   setStoryImage(scene);
+  preloadNextStoryImage(story, boundedIndex);
   updateStoryHighlight(scene.coords);
   updateStorySceneMarkers();
+  updateStoryChapterNav(scene);
   syncStorySummaryToggle();
   focusStoryScene(scene);
 };
@@ -469,6 +547,7 @@ const stopStoryMode = () => {
   setCampsiteHoverPopupsEnabled(true);
   map.stop();
   restoreStoryLayers();
+  restoreStoryRoute();
 
   if (storyState.previousView) {
     map.setView(storyState.previousView.center, storyState.previousView.zoom, {
@@ -479,6 +558,7 @@ const stopStoryMode = () => {
 
   map.closePopup();
   storyState.activeStory = null;
+  document.body.classList.remove('story-mode-active');
   storyPanel.classList.add('story-panel--hidden');
   storyPanel.setAttribute('hidden', '');
   storyPanel.setAttribute('aria-hidden', 'true');
@@ -490,6 +570,10 @@ const stopStoryMode = () => {
   storyControls.style.display = 'none';
   storyControls.style.pointerEvents = 'none';
   storyState.mobilePanelState = 'peek';
+  storyChapterNav?.replaceChildren();
+  if (storyProgressBar) {
+    storyProgressBar.style.width = '0%';
+  }
   setStoryPanelState('peek');
   restoreMapInteractions();
 };
@@ -537,14 +621,16 @@ const beginStoryMode = (storyId) => {
 
   stopStoryMode();
   storyState.activeStory = story;
+  document.body.classList.add('story-mode-active');
   storyState.currentSceneIndex = 0;
   storyState.landscapeDetailsOpen = false;
   storyState.previousView = {
     center: map.getCenter(),
     zoom: map.getZoom(),
   };
-  primeStoryImages(story);
   ensureStoryLayersVisible(story);
+  showStoryRoute(story);
+  renderStoryChapterNav(story);
   setCampsiteHoverPopupsEnabled(false);
   map.closePopup();
   storySidebar?.close?.();
@@ -590,7 +676,7 @@ storyPanelSummaryButton?.addEventListener('click', () => {
   }
 
   if (storyState.mobilePanelState === 'peek') {
-    setStoryPanelState('expanded', { refocus: true });
+    setStoryPanelState('full', { refocus: true });
     return;
   }
 

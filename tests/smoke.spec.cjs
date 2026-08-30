@@ -84,7 +84,7 @@ test("about page presents the disclaimer and provenance ledger", async ({ page }
 
   await expect(page).toHaveTitle(/About, Credits & Provenance/i);
   await expect(page.getByRole("heading", { level: 1, name: "About, Credits & Provenance" })).toBeVisible();
-  await expect(page.getByText("Middle-earth Atlas is an unofficial fan-made project.", { exact: false })).toBeVisible();
+  await expect(page.getByText(/(?:Middle-earth|Tolkien Legendarium) Atlas is an unofficial fan-made project\./i)).toBeVisible();
   await expect(page.getByText("This is a personal, non-commercial project created for exploration and study.")).toBeVisible();
 
   const sectionHeadings = [
@@ -173,21 +173,30 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
   await page.getByRole("button", { name: /Start Sam and Frodo story/i }).click();
 
   await expect(page.locator("#storyPanel")).toBeVisible();
-  await expect(page.locator("#storySceneTitle")).toHaveText(/Leaving the Shire/i);
-  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of/i);
+  await expect(page.locator("#storySceneTitle")).toHaveText(/The First Steps East/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of 18/i);
+  await expect(page.locator("#storyKicker")).toHaveText(/Chapter 1 of 5.*The Shadow Leaves the Shire/i);
+  await expect(page.locator("#storyChapterNav .story-panel__chapter-button")).toHaveCount(5);
+  await expect(page.locator("#samfrodopathCheckbox")).toBeChecked();
+  await expect(page.locator("#storySceneImage")).toBeVisible();
   await expect(page.locator("#storyControls")).toBeVisible();
 
   const storyPanelBox = await page.locator("#storyPanel .story-panel__inner").boundingBox();
   expect(storyPanelBox?.width ?? 0).toBeLessThan(520);
 
   await page.getByRole("button", { name: /Next/i }).click();
-  await expect(page.locator("#storySceneTitle")).toHaveText(/Black Riders on the Road/i);
-  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 2 of/i);
+  await expect(page.locator("#storySceneTitle")).toHaveText(/Riders Beneath the Trees/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 2 of 18/i);
 
   await page.getByRole("button", { name: /Previous/i }).click();
-  await expect(page.locator("#storySceneTitle")).toHaveText(/Leaving the Shire/i);
+  await expect(page.locator("#storySceneTitle")).toHaveText(/The First Steps East/i);
+
+  await page.getByRole("button", { name: /Go to chapter 5: The Land of Shadow/i }).click();
+  await expect(page.locator("#storySceneTitle")).toHaveText(/Shelob's Lair|Shelob’s Lair/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 15 of 18/i);
 
   await page.getByRole("button", { name: /Stop/i }).click();
+  await expect(page.locator("#samfrodopathCheckbox")).not.toBeChecked();
   await page.getByRole("tab", { name: /Curated Stories/i }).click();
   await page.getByRole("button", { name: /Start Gandalf the White story/i }).click();
   await expect(page.locator("#storySceneTitle")).toHaveText(/Awakening on Zirakzigil/i);

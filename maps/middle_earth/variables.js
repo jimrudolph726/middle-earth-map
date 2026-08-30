@@ -11,6 +11,7 @@ import {
   wetlands,
   large_regions,
   sub_regions,
+  bays_and_gulfs,
 } from './geographic_data.js';
 
 import {
@@ -230,6 +231,7 @@ const geographicGroups = {
   wetlands,
   large_regions,
   sub_regions,
+  bays_and_gulfs
 };
 
 export const geographicData = [

@@ -190,6 +190,28 @@ test("middle-earth marker entries reference exported icons and existing icon ass
   expectNoErrors(errors);
 });
 
+test("Sam and Frodo campsites expose structured travel details for story building", () => {
+  const errors = [];
+  const requiredProperties = [
+    "date",
+    "hoursOnRoad",
+    "milesTraveled",
+    "pace",
+    "roadNotes",
+    "camp",
+  ];
+
+  Object.entries(campsiteData.samfrodocampsites).forEach(([markerKey, campsite]) => {
+    requiredProperties.forEach((propertyName) => {
+      if (!Object.hasOwn(campsite.details ?? {}, propertyName)) {
+        errors.push(`samfrodocampsites.${markerKey}.details is missing "${propertyName}".`);
+      }
+    });
+  });
+
+  expectNoErrors(errors);
+});
+
 test("middle-earth curated stories reference existing campsites, images, and html launch ids", () => {
   const errors = [];
   const storyIds = new Set();
@@ -215,6 +237,27 @@ test("middle-earth curated stories reference existing campsites, images, and htm
       return;
     }
 
+    const chapterIds = new Set();
+    let expectedChapterStart = 0;
+
+    story.chapters.forEach((chapter) => {
+      if (chapterIds.has(chapter.id)) {
+        errors.push(`Story "${story.id}" repeats chapter id "${chapter.id}".`);
+      }
+
+      chapterIds.add(chapter.id);
+
+      if (chapter.startSceneIndex !== expectedChapterStart) {
+        errors.push(`Story "${story.id}" chapter "${chapter.id}" starts at ${chapter.startSceneIndex}, expected ${expectedChapterStart}.`);
+      }
+
+      expectedChapterStart += chapter.sceneCount;
+    });
+
+    if (expectedChapterStart !== story.scenes.length) {
+      errors.push(`Story "${story.id}" chapter counts cover ${expectedChapterStart} scenes, expected ${story.scenes.length}.`);
+    }
+
     story.scenes.forEach((scene, index) => {
       const label = `Story "${story.id}" scene ${index + 1}`;
       const campsite = campsiteGroup[scene.markerKey];
@@ -232,6 +275,25 @@ test("middle-earth curated stories reference existing campsites, images, and htm
         errors.push(`${label} coords do not match campsite ${story.markerGroupName}.${scene.markerKey}.`);
       }
 
+      if (!chapterIds.has(scene.chapter?.id)) {
+        errors.push(`${label} references missing chapter "${scene.chapter?.id}".`);
+      }
+
+      if (!Array.isArray(scene.stats) || scene.stats.length === 0) {
+        errors.push(`${label} has no generated story statistics.`);
+      }
+
+      const startKey = scene.rangeStartKey ?? scene.markerKey;
+      const endKey = scene.rangeEndKey ?? startKey;
+      const campsiteKeys = Object.keys(campsiteGroup);
+      const startIndex = campsiteKeys.indexOf(startKey);
+      const endIndex = campsiteKeys.indexOf(endKey);
+      const expectedRangeKeys = campsiteKeys.slice(startIndex, endIndex + 1);
+
+      if (JSON.stringify(scene.rangeMarkerKeys ?? [scene.markerKey]) !== JSON.stringify(expectedRangeKeys)) {
+        errors.push(`${label} has an invalid campsite range from "${startKey}" through "${endKey}".`);
+      }
+
       if (!scene.imageRelativePath) {
         errors.push(`${label} is missing imageRelativePath.`);
       } else {
@@ -246,9 +308,29 @@ test("middle-earth curated stories reference existing campsites, images, and htm
         if (imageFileName !== scene.imageFileName) {
           errors.push(`${label} imageRelativePath does not end with imageFileName "${scene.imageFileName}".`);
         }
+
+        if (story.status === "complete" && !fs.existsSync(imagePath)) {
+          errors.push(`${label} is complete but its image is missing: ${path.relative(repoRoot, imagePath)}.`);
+        }
       }
     });
   });
+
+  const completedSamFrodoStory = storiesDataModule.curatedStories.find(
+    (story) => story.id === "sam-frodo-road-to-mount-doom"
+  );
+
+  if (!completedSamFrodoStory) {
+    errors.push("The completed Sam and Frodo story is missing.");
+  } else {
+    if (completedSamFrodoStory.scenes.length !== 18) {
+      errors.push(`The completed Sam and Frodo story has ${completedSamFrodoStory.scenes.length} scenes, expected 18.`);
+    }
+
+    if (completedSamFrodoStory.chapters.length !== 5) {
+      errors.push(`The completed Sam and Frodo story has ${completedSamFrodoStory.chapters.length} chapters, expected 5.`);
+    }
+  }
 
   middleEarthHtmlStoryIds.forEach((storyId) => {
     if (!storyIds.has(storyId)) {

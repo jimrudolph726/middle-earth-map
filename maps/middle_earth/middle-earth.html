@@ -337,6 +337,9 @@
                     <label for="wetlandsCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="wetlandsCheckbox" /> Wetlands
                     </label>
+                    <label for="bays_and_gulfsCheckbox">
+                        <input type="checkbox" class="geographyCheckbox" id="bays_and_gulfsCheckbox" /> Bays and Gulfs
+                    </label>
                 </div>
             </div>
             
@@ -445,30 +448,37 @@
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
                 <div id="storiesSection" class="stories-section">
-                    <article class="story-launch-card">
-                        <p class="story-launch-card__eyebrow">Prototype Story Mode</p>
-                        <h2 class="story-launch-card__title">Sam and Frodo: From the Shire to Bree</h2>
+                    <article class="story-launch-card story-launch-card--featured">
+                        <p class="story-launch-card__eyebrow">Complete Curated Journey</p>
+                        <h2 class="story-launch-card__title">Sam and Frodo: The Road to Mount Doom</h2>
                         <p class="story-launch-card__copy">
-                            Follow the first seven campsites of the Ring-bearers with a guided route, narrative scenes, and room for AI-generated illustrations at each stop.
+                            Follow the Ring-bearers from the green lanes of the Shire to the fires of Orodruin. Ninety-two atlas stops are distilled into the eighteen moments that shape the Quest.
                         </p>
-                        <div class="story-launch-card__meta">7 scenes</div>
+                        <ol class="story-launch-card__chapters" aria-label="Story chapters">
+                            <li>The Shadow Leaves the Shire</li>
+                            <li>A Fellowship Forged</li>
+                            <li>The Fellowship</li>
+                            <li>A Secret Way into Mordor</li>
+                            <li>The Land of Shadow</li>
+                        </ol>
+                        <div class="story-launch-card__meta">18 scenes <span aria-hidden="true">&middot;</span> 5 chapters</div>
                         <button
                             id="startSamFrodoStoryButton"
                             class="story-launch-card__button"
                             type="button"
-                            data-story-id="sam-frodo-first-seven"
+                            data-story-id="sam-frodo-road-to-mount-doom"
                             aria-label="Start Sam and Frodo story"
                         >
                             Start Story
                         </button>
                     </article>
                     <article class="story-launch-card">
-                        <p class="story-launch-card__eyebrow">Prototype Story Mode</p>
+                        <p class="story-launch-card__eyebrow">Short Curated Journey</p>
                         <h2 class="story-launch-card__title">Gandalf the White: From Zirakzigil to Lothlorien</h2>
                         <p class="story-launch-card__copy">
-                            Follow Gandalf's first two campsites after his return, from the heights of Celebdil to his rescue by Gwaihir and arrival in the Golden Wood.
+                            Follow Gandalf's return from the heights of Celebdil to his rescue by Gwaihir and renewal in the Golden Wood.
                         </p>
-                        <div class="story-launch-card__meta">2 scenes</div>
+                        <div class="story-launch-card__meta">3 scenes <span aria-hidden="true">&middot;</span> 1 chapter</div>
                         <button
                             id="startGandalfTheWhiteStoryButton"
                             class="story-launch-card__button"
@@ -567,7 +577,7 @@
                         <span id="storySceneSummaryCounter" class="story-panel__summary-counter"></span>
                     </span>
                     <span class="story-panel__summary-media">
-                        <img id="storyScenePreviewImage" class="story-panel__preview-image" alt="" />
+                        <img id="storyScenePreviewImage" class="story-panel__preview-image" alt="" decoding="async" />
                         <span
                             id="storyScenePreviewPlaceholder"
                             class="story-panel__preview-placeholder story-panel__preview-placeholder--hidden"
@@ -577,6 +587,10 @@
                     </span>
                 </span>
             </button>
+            <nav id="storyChapterNav" class="story-panel__chapters" aria-label="Story chapters"></nav>
+            <div class="story-panel__progress" aria-hidden="true">
+                <span id="storyProgressBar" class="story-panel__progress-bar"></span>
+            </div>
             <div id="storyControls" class="story-controls story-controls--hidden" hidden aria-hidden="true">
                 <button id="storyPrevButton" class="story-controls__button" type="button" aria-label="Previous scene">
                     <i class="material-icons">skip_previous</i>
@@ -597,7 +611,7 @@
             </div>
             <div id="storyPanelBody" class="story-panel__body">
                 <div class="story-panel__media">
-                    <img id="storySceneImage" class="story-panel__image" alt="" />
+                    <img id="storySceneImage" class="story-panel__image" alt="" decoding="async" />
                     <div id="storySceneImagePlaceholder" class="story-panel__placeholder story-panel__placeholder--hidden">
                         <p class="story-panel__placeholder-title">Scene Artwork Pending</p>
                         <p class="story-panel__placeholder-copy">
@@ -610,28 +624,11 @@
                     <h2 id="storySceneTitle" class="story-panel__title"></h2>
                     <p id="storySceneMeta" class="story-panel__meta"></p>
                     <p id="storySceneNarrative" class="story-panel__narrative"></p>
-                    <div class="story-panel__details">
-                        <div class="story-panel__detail-row">
-                            <span class="story-panel__detail-label">Camp</span>
-                            <span id="storySceneCamp" class="story-panel__detail-value"></span>
-                        </div>
-                        <div class="story-panel__detail-row">
-                            <span class="story-panel__detail-label">Hours on the Road</span>
-                            <span id="storySceneHours" class="story-panel__detail-value"></span>
-                        </div>
-                        <div class="story-panel__detail-row">
-                            <span class="story-panel__detail-label">Miles Traveled</span>
-                            <span id="storySceneMiles" class="story-panel__detail-value"></span>
-                        </div>
-                        <div class="story-panel__detail-row">
-                            <span class="story-panel__detail-label">Pace</span>
-                            <span id="storyScenePace" class="story-panel__detail-value"></span>
-                        </div>
-                        <div class="story-panel__detail-row">
-                            <span class="story-panel__detail-label">Road Notes</span>
-                            <span id="storySceneNotes" class="story-panel__detail-value story-panel__detail-value--notes"></span>
-                        </div>
-                    </div>
+                    <div id="storySceneDetails" class="story-panel__details"></div>
+                    <p class="story-panel__source">
+                        <span>Further reading:</span>
+                        <a id="storySceneSource" href="https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins" target="_blank" rel="noopener noreferrer">Timeline of Frodo Baggins</a>
+                    </p>
                     <p id="storySceneCounter" class="story-panel__counter"></p>
                 </div>
             </div>

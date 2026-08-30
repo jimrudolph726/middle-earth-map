@@ -1799,3 +1799,44 @@ export const sub_regions = {
     weight: 2
   },
 };
+export const bays_and_gulfs = {
+  icebay_of_forochel: {
+    pathName: "icebay_of_forochel",
+    color: "blue",
+    name: "Icebay of Forochel",
+    PopupContent: createGeographicPopup(
+    "Icebay of Forochel",
+    "Forochel",
+    `Forochel means "northern ice" from for meaning "north" and heleg meaning "ice." The Icebay was also called the Bay of Forochel. A cape is a point of land extending into water.`,
+    `Bay and cape in the far north of Middle-earth. The Icebay of Forochel was on the northwestern coast, opening onto the Sea. `,
+    "https://thainsbook.minastirith.cz/coastal.html#Forochel"),
+    tolerance: 1,
+    weight: 2,
+  },
+  gulf_of_lune: {
+    pathName: "gulf_of_lune",
+    color: "blue",
+    name: "Gulf of Lune",
+    PopupContent: createGeographicPopup(
+    "Gulf of Lune",
+    "Gulf of Lune",
+    `The Gulf of Lune is also written as the Gulf of Lhûn. Lune is a Common Speech adaptation of lhûn - an earlier version of the Sindarin word luin meaning "blue." The Gulf of Lune was fed by the River Lune which sprang from the Blue Mountains. The inlets on the north and south sides of the Gulf of Lune were called Forlond - "North Haven" from for meaning "north" and lond meaning "haven" - and Harlond - "South Haven" from har meaning "south."`,
+    `Gulf where the Grey Havens were located. The Gulf of Lune was located on the northwestern coast of Middle-earth.`,
+    "https://thainsbook.minastirith.cz/coastal.html#Gulf-of-Lune"),
+    tolerance: 1,
+    weight: 2,
+  },
+  bay_of_belfalas: {
+    pathName: "bay_of_belfalas",
+    color: "blue",
+    name: "Bay of Belfalas",
+    PopupContent: createGeographicPopup(
+    "Bay of Belfalas",
+    "Bay of Belfalas",
+    `The meaning of Belfalas is uncertain. The word falas means "shore, coast" in Sindarin. In his unfinished Index to The Lord of the Rings, Tolkien defined the word bel as "steep, sheer" in Sindarin. But in a later essay he wrote that Bêl was the name of the region in the language of the original inhabitants and that it meant "shore, coast" so that Belfalas was a combination of two words with the same meaning in different languages.`,
+    `Bay on the southern coast of Gondor. The Bay of Belfalas was very large and opened onto the Sea. It was an important inlet for seafaring ships.`,
+    "https://thainsbook.minastirith.cz/coastal.html#Bay%20of%20Belfalas"),
+    tolerance: 1,
+    weight: 2,
+  },
+};

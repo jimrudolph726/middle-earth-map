@@ -1,14 +1,11 @@
-Place Sam and Frodo story-mode images in this folder.
+# Sam and Frodo: The Road to Mount Doom
 
-Expected files for the first prototype story:
+The completed curated journey uses `journey-01.webp` through
+`journey-18.webp`. The images correspond, in order, to the eighteen scenes
+defined in `maps/middle_earth/stories_data.js`.
 
-- `scene-01.png`
-- `scene-02.png`
-- `scene-03.png`
-- `scene-04.png`
-- `scene-05.png`
-- `scene-06.png`
-- `scene-07.png`
+The older `scene-01.png` through `scene-05.png` files are preserved as legacy
+prototype artwork and are no longer loaded by the completed story.
 
-The story player will automatically look for these files during the
-`Sam and Frodo: From the Shire to Bree` prototype.
+See `PROVENANCE.md` for the generation method, shared visual direction, exact
+scene prompts, and per-file register.
