@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="family_tree.css" />
   <link rel="stylesheet" href="../assets/vendor/fonts.css" />
+  <link rel="stylesheet" href="../plugins/atlas-map-nav.css" />
   <script src="../plugins/atlas-map-nav.js"></script>
   <script src="../plugins/d3.v7.min.js"></script>
   <script src="../plugins/elk.bundled.js"></script>
@@ -15,12 +16,15 @@
 
 <body class="family-tree-page">
   <div id="tree">
-    <nav class="atlas-map-nav" aria-label="Atlas navigation">
+    <div class="family-tree-page-tools" aria-label="Family tree tools">
       <button id="reset-view" type="button">Reset View</button>
       <a id="layout-editor-link" class="atlas-map-nav__link" href="family_tree.html?editor=1">
         <i class="material-icons">edit</i>
         <span>Layout Studio</span>
       </a>
+    </div>
+
+    <nav class="atlas-map-nav atlas-map-nav--bookshelf" aria-label="Atlas navigation">
       <a class="atlas-map-nav__link atlas-map-nav__link--home" href="../index.html">
         <i class="material-icons">home</i>
         <span>Home</span>

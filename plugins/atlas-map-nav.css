@@ -1,0 +1,435 @@
+/*
+ * Shared global navigation: a small shelf of atlas volumes.
+ *
+ * The selectors deliberately target only the top-level navigation books.
+ * Links inside the dropdown remain a readable parchment catalogue, while
+ * page-specific controls continue to use their own visual language.
+ */
+
+.atlas-map-nav--bookshelf {
+  --atlas-nav-spine: rgba(62, 38, 24, 0.97);
+  --atlas-nav-spine-deep: rgba(34, 20, 13, 0.99);
+  --atlas-nav-spine-hover: rgba(83, 51, 30, 0.99);
+  --atlas-nav-spine-current: rgba(111, 72, 32, 0.98);
+  --atlas-nav-gilt: rgba(206, 169, 91, 0.8);
+  --atlas-nav-gilt-light: #f1dda9;
+  --atlas-nav-text: #f6e8c8;
+  --atlas-nav-shelf-top: #6e472d;
+  --atlas-nav-shelf-face: #3b2417;
+  --atlas-nav-shelf-shadow: rgba(18, 10, 6, 0.52);
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  left: auto;
+  bottom: auto;
+  z-index: 900;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 3px;
+  width: auto;
+  max-width: calc(100vw - 24px);
+  padding: 3px 8px 13px;
+  transform: none;
+  box-sizing: border-box;
+  font-family: "Libre Baskerville", Georgia, serif;
+  pointer-events: auto;
+  isolation: isolate;
+}
+
+/* The narrow top and deeper front edge read as one continuous walnut shelf. */
+.atlas-map-nav--bookshelf::before,
+.atlas-map-nav--bookshelf::after {
+  position: absolute;
+  right: 0;
+  left: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.atlas-map-nav--bookshelf::before {
+  z-index: 0;
+  bottom: 6px;
+  height: 7px;
+  border: 1px solid rgba(211, 166, 91, 0.42);
+  border-radius: 2px 2px 1px 1px;
+  background:
+    linear-gradient(90deg, rgba(255, 226, 167, 0.1), transparent 22%, rgba(20, 10, 6, 0.18) 78%),
+    var(--atlas-nav-shelf-top);
+  box-shadow:
+    inset 0 1px rgba(255, 226, 169, 0.14),
+    0 3px 4px var(--atlas-nav-shelf-shadow);
+}
+
+.atlas-map-nav--bookshelf::after {
+  z-index: -1;
+  bottom: 0;
+  height: 7px;
+  border-radius: 0 0 3px 3px;
+  background:
+    linear-gradient(180deg, rgba(255, 222, 157, 0.08), rgba(15, 8, 5, 0.24)),
+    var(--atlas-nav-shelf-face);
+  box-shadow: 0 7px 14px var(--atlas-nav-shelf-shadow);
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu[open] {
+  z-index: 4;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle {
+  list-style: none;
+  cursor: pointer;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle::-webkit-details-marker {
+  display: none;
+}
+
+/* The top-level destinations are the books; their menus are the catalogue. */
+.atlas-map-nav--bookshelf > .atlas-map-nav__link,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+  min-height: 45px;
+  padding: 11px 12px 9px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid var(--atlas-nav-gilt);
+  border-radius: 3px 3px 1px 1px;
+  color: var(--atlas-nav-text);
+  background:
+    linear-gradient(90deg, rgba(255, 246, 214, 0.1), transparent 13%, rgba(0, 0, 0, 0.08) 82%, rgba(0, 0, 0, 0.2)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 31%, rgba(0, 0, 0, 0.18)),
+    var(--atlas-nav-spine);
+  box-shadow:
+    inset 2px 0 rgba(255, 236, 193, 0.07),
+    inset -2px 0 rgba(18, 8, 5, 0.18),
+    inset 0 1px rgba(255, 244, 211, 0.12),
+    0 4px 8px rgba(17, 8, 4, 0.28);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.68);
+  transform-origin: center bottom;
+  transition:
+    transform 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+/* Gilded head- and tail-bands make each control read as a bound spine. */
+.atlas-map-nav--bookshelf > .atlas-map-nav__link::before,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle::before {
+  position: absolute;
+  inset: 5px 4px;
+  border-top: 1px solid var(--atlas-nav-gilt);
+  border-bottom: 1px solid var(--atlas-nav-gilt);
+  content: "";
+  opacity: 0.66;
+  pointer-events: none;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu:first-of-type > .atlas-map-nav__toggle {
+  min-height: 49px;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu:nth-of-type(2) > .atlas-map-nav__toggle {
+  min-height: 47px;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link > *,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle > * {
+  position: relative;
+  z-index: 1;
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link > span,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle .atlas-map-nav__toggle-label > span {
+  flex: initial;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link .material-icons,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle .material-icons {
+  color: var(--atlas-nav-gilt-light);
+  font-size: 18px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.66);
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__chevron {
+  margin-left: -2px;
+  transition: transform 150ms ease;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link:hover,
+.atlas-map-nav--bookshelf > .atlas-map-nav__link:focus-visible,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle:hover,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle:focus-visible,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu[open] > .atlas-map-nav__toggle {
+  color: #fff4d5;
+  border-color: var(--atlas-nav-gilt-light);
+  background:
+    linear-gradient(90deg, rgba(255, 246, 214, 0.13), transparent 13%, rgba(0, 0, 0, 0.07) 82%, rgba(0, 0, 0, 0.18)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 31%, rgba(0, 0, 0, 0.16)),
+    var(--atlas-nav-spine-hover);
+  box-shadow:
+    inset 2px 0 rgba(255, 236, 193, 0.09),
+    inset -2px 0 rgba(18, 8, 5, 0.16),
+    inset 0 1px rgba(255, 244, 211, 0.16),
+    0 7px 12px rgba(17, 8, 4, 0.34);
+  transform: translateY(-3px);
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link:active,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link:focus-visible,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle:focus-visible {
+  outline: 2px solid var(--atlas-nav-gilt-light);
+  outline-offset: 2px;
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__link.atlas-map-nav__link--current,
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu:has(.atlas-map-nav__dropdown .atlas-map-nav__link--current) > .atlas-map-nav__toggle {
+  color: #fff3d0;
+  border-color: var(--atlas-nav-gilt-light);
+  background:
+    linear-gradient(90deg, rgba(255, 246, 214, 0.13), transparent 13%, rgba(0, 0, 0, 0.07) 82%, rgba(0, 0, 0, 0.18)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 31%, rgba(0, 0, 0, 0.16)),
+    var(--atlas-nav-spine-current);
+  transform: translateY(-2px);
+}
+
+.atlas-map-nav--bookshelf > .atlas-map-nav__menu[open] .atlas-map-nav__chevron {
+  transform: rotate(180deg);
+}
+
+/* The opened book reveals a parchment library catalogue. */
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  left: auto;
+  z-index: 5;
+  display: grid;
+  gap: 2px;
+  width: max-content;
+  min-width: 205px;
+  max-width: calc(100vw - 24px);
+  padding: 9px;
+  box-sizing: border-box;
+  border: 1px solid rgba(126, 91, 46, 0.72);
+  border-radius: 3px 3px 6px 6px;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 250, 225, 0.72), transparent 31%),
+    repeating-linear-gradient(0deg, rgba(84, 57, 31, 0.025) 0 1px, transparent 1px 4px),
+    linear-gradient(105deg, #d3bd8b, #ead8ad 48%, #c9ae76);
+  box-shadow:
+    0 13px 26px rgba(27, 15, 8, 0.34),
+    inset 0 0 0 1px rgba(255, 248, 222, 0.46),
+    inset 0 0 18px rgba(91, 57, 25, 0.1);
+  transform: none;
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  min-height: 0;
+  padding: 9px 11px;
+  border: 0;
+  border-bottom: 1px solid rgba(102, 72, 37, 0.15);
+  border-radius: 2px;
+  color: #49331f;
+  background: transparent;
+  box-shadow: none;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 12px;
+  line-height: 1.3;
+  text-decoration: none;
+  text-shadow: none;
+  transform: none;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link:last-child {
+  border-bottom-color: transparent;
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link .material-icons {
+  color: #7b582c;
+  font-size: 18px;
+  text-shadow: none;
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link:hover,
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link:focus-visible {
+  color: #2f2115;
+  background: rgba(119, 79, 35, 0.12);
+  outline: none;
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(122, 83, 38, 0.62);
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link--current {
+  color: #fff1c9;
+  background: linear-gradient(90deg, #72442a, #4a2c1d);
+  box-shadow: inset 3px 0 var(--atlas-nav-gilt-light);
+}
+
+.atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link--current .material-icons {
+  color: var(--atlas-nav-gilt-light);
+}
+
+/* Volume bindings retain the color identity established by each map. */
+body.middle-earth-volume .atlas-map-nav--bookshelf {
+  --atlas-nav-spine: rgba(38, 58, 36, 0.96);
+  --atlas-nav-spine-deep: rgba(23, 37, 24, 0.99);
+  --atlas-nav-spine-hover: rgba(62, 82, 55, 0.98);
+  --atlas-nav-spine-current: rgba(72, 91, 62, 0.98);
+  --atlas-nav-gilt: rgba(194, 153, 70, 0.78);
+  --atlas-nav-gilt-light: #d2ae67;
+}
+
+body.beleriand-volume .atlas-map-nav--bookshelf {
+  --atlas-nav-spine: rgba(45, 72, 85, 0.96);
+  --atlas-nav-spine-deep: rgba(25, 43, 51, 0.99);
+  --atlas-nav-spine-hover: rgba(82, 118, 133, 0.98);
+  --atlas-nav-spine-current: rgba(67, 103, 119, 0.98);
+  --atlas-nav-gilt: rgba(190, 201, 201, 0.78);
+  --atlas-nav-gilt-light: #e3e9e8;
+}
+
+body.numenor-volume .atlas-map-nav--bookshelf {
+  --atlas-nav-spine: rgba(7, 28, 45, 0.94);
+  --atlas-nav-spine-deep: rgba(4, 19, 31, 0.99);
+  --atlas-nav-spine-hover: rgba(28, 72, 96, 0.97);
+  --atlas-nav-spine-current: rgba(41, 91, 117, 0.97);
+  --atlas-nav-gilt: rgba(200, 157, 88, 0.8);
+  --atlas-nav-gilt-light: #e4c584;
+}
+
+body.family-tree-page .atlas-map-nav--bookshelf {
+  --atlas-nav-spine: rgba(82, 34, 35, 0.97);
+  --atlas-nav-spine-deep: rgba(42, 17, 19, 0.99);
+  --atlas-nav-spine-hover: rgba(111, 48, 48, 0.99);
+  --atlas-nav-spine-current: rgba(126, 60, 55, 0.99);
+  --atlas-nav-gilt: rgba(211, 170, 91, 0.8);
+  --atlas-nav-gilt-light: #efd79b;
+}
+
+/* Bilbo's study opens on a mixed collection rather than one active volume. */
+body.splash-body .atlas-map-nav--bookshelf > .atlas-map-nav__link--home {
+  --atlas-nav-spine: rgba(74, 48, 30, 0.98);
+  --atlas-nav-spine-hover: rgba(99, 65, 38, 0.99);
+  --atlas-nav-spine-current: rgba(116, 78, 44, 0.99);
+}
+
+body.splash-body .atlas-map-nav--bookshelf > .atlas-map-nav__menu:first-of-type > .atlas-map-nav__toggle {
+  --atlas-nav-spine: rgba(47, 68, 48, 0.98);
+  --atlas-nav-spine-hover: rgba(65, 91, 62, 0.99);
+  --atlas-nav-spine-current: rgba(77, 103, 70, 0.99);
+}
+
+body.splash-body .atlas-map-nav--bookshelf > .atlas-map-nav__menu:nth-of-type(2) > .atlas-map-nav__toggle {
+  --atlas-nav-spine: rgba(91, 40, 42, 0.98);
+  --atlas-nav-spine-hover: rgba(119, 53, 52, 0.99);
+  --atlas-nav-spine-current: rgba(132, 66, 60, 0.99);
+}
+
+@media (max-width: 600px) {
+  .atlas-map-nav--bookshelf {
+    top: 12px;
+    right: 12px;
+    gap: 2px;
+    max-width: calc(100% - 24px);
+    padding: 2px 6px 11px;
+  }
+
+  .atlas-map-nav--bookshelf > .atlas-map-nav__link,
+  .atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle,
+  .atlas-map-nav--bookshelf > .atlas-map-nav__menu:first-of-type > .atlas-map-nav__toggle,
+  .atlas-map-nav--bookshelf > .atlas-map-nav__menu:nth-of-type(2) > .atlas-map-nav__toggle {
+    min-height: 41px;
+    gap: 4px;
+    padding: 9px 6px 8px;
+    font-size: 10.5px;
+  }
+
+  .atlas-map-nav--bookshelf .atlas-map-nav__toggle-label {
+    gap: 4px;
+  }
+
+  .atlas-map-nav--bookshelf > .atlas-map-nav__link .material-icons,
+  .atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle .material-icons {
+    font-size: 16px;
+  }
+
+  .atlas-map-nav--bookshelf .atlas-map-nav__chevron {
+    font-size: 14px !important;
+  }
+
+  .atlas-map-nav--bookshelf .atlas-map-nav__dropdown {
+    top: calc(100% + 8px);
+    min-width: 190px;
+  }
+
+  .atlas-map-nav--bookshelf > .atlas-map-nav__menu:first-of-type .atlas-map-nav__dropdown {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .atlas-map-nav--bookshelf {
+    gap: 1px;
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  .atlas-map-nav--bookshelf > .atlas-map-nav__link > .material-icons,
+  .atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle .atlas-map-nav__toggle-label > .material-icons {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-map-nav--bookshelf > .atlas-map-nav__link,
+  .atlas-map-nav--bookshelf > .atlas-map-nav__menu > .atlas-map-nav__toggle,
+  .atlas-map-nav--bookshelf .atlas-map-nav__chevron,
+  .atlas-map-nav--bookshelf .atlas-map-nav__dropdown .atlas-map-nav__link {
+    transition: none;
+  }
+}

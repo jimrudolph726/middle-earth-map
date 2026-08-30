@@ -79,6 +79,71 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   }
 });
 
+test("primary pages share the atlas bookshelf navigation", async ({ page }) => {
+  const primaryPages = [
+    "/",
+    "/about.html",
+    "/family_tree/family_tree.html",
+    ...mapPages.map(({ path }) => path),
+  ];
+
+  for (const pagePath of primaryPages) {
+    await page.goto(pagePath, { waitUntil: "domcontentloaded" });
+
+    const bookshelf = page.locator(".atlas-map-nav--bookshelf");
+    await expect(bookshelf, `${pagePath} should use the shared atlas shelf.`).toBeVisible();
+
+    const shelfAppearance = await bookshelf.evaluate((nav) => {
+      const shelfTop = getComputedStyle(nav, "::before");
+      return {
+        content: shelfTop.content,
+        height: shelfTop.height,
+        background: shelfTop.backgroundImage,
+      };
+    });
+
+    expect(shelfAppearance.content).not.toBe("none");
+    expect(shelfAppearance.height).toBe("7px");
+    expect(shelfAppearance.background).toContain("linear-gradient");
+
+    const spineStyles = await bookshelf.locator(
+      ":scope > .atlas-map-nav__link, :scope > .atlas-map-nav__menu > .atlas-map-nav__toggle"
+    ).evaluateAll((spines) => spines.map((spine) => {
+      const style = getComputedStyle(spine);
+      return {
+        radius: style.borderTopLeftRadius,
+        background: style.backgroundImage,
+        font: style.fontFamily,
+      };
+    }));
+
+    expect(spineStyles.length).toBeGreaterThanOrEqual(3);
+    expect(spineStyles.every(({ radius }) => radius === "3px")).toBe(true);
+    expect(spineStyles.every(({ background }) => background.includes("linear-gradient"))).toBe(true);
+    expect(spineStyles.every(({ font }) => font.includes("Libre Baskerville"))).toBe(true);
+  }
+});
+
+test("the atlas shelf and volume catalogue stay inside a phone viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/about.html", { waitUntil: "domcontentloaded" });
+
+  const bookshelf = page.locator(".atlas-map-nav--bookshelf");
+  const shelfBounds = await bookshelf.boundingBox();
+  expect(shelfBounds.x).toBeGreaterThanOrEqual(0);
+  expect(shelfBounds.x + shelfBounds.width).toBeLessThanOrEqual(390);
+
+  const mapsMenu = bookshelf.locator(":scope > .atlas-map-nav__menu").first();
+  await mapsMenu.evaluate((menu) => {
+    menu.open = true;
+  });
+  await expect(mapsMenu).toHaveAttribute("open", "");
+
+  const catalogueBounds = await mapsMenu.locator(".atlas-map-nav__dropdown").boundingBox();
+  expect(catalogueBounds.x).toBeGreaterThanOrEqual(0);
+  expect(catalogueBounds.x + catalogueBounds.width).toBeLessThanOrEqual(390);
+});
+
 test("about page presents the disclaimer and provenance ledger", async ({ page }) => {
   await page.goto("/about.html", { waitUntil: "domcontentloaded" });
 
@@ -201,11 +266,12 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
   expect(popupSurface.linkBorderTopWidth).toBe("0px");
   expect(popupSurface.navigationVisibility).toBe("visible");
 
-  const beleriandPillBackgrounds = await page.locator(
+  const beleriandSpineBackgrounds = await page.locator(
     '.atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle'
-  ).evaluateAll((pills) => pills.map((pill) => getComputedStyle(pill).backgroundColor));
-  expect(beleriandPillBackgrounds).toHaveLength(3);
-  expect(new Set(beleriandPillBackgrounds)).toEqual(new Set(["rgba(45, 72, 85, 0.96)"]));
+  ).evaluateAll((spines) => spines.map((spine) => getComputedStyle(spine).backgroundColor));
+  expect(beleriandSpineBackgrounds).toHaveLength(3);
+  expect(beleriandSpineBackgrounds.filter((color) => color === "rgba(45, 72, 85, 0.96)")).toHaveLength(2);
+  expect(beleriandSpineBackgrounds.filter((color) => color === "rgba(67, 103, 119, 0.98)")).toHaveLength(1);
 });
 
 test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
@@ -228,6 +294,13 @@ test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
   expect(coverTiming.delay).toBe("3s");
   expect(coverTiming.duration).toBe("0.76s");
   await expect(page.locator("[data-numenor-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
+
+  const numenorSpineBackgrounds = await page.locator(
+    '.atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle'
+  ).evaluateAll((spines) => spines.map((spine) => getComputedStyle(spine).backgroundColor));
+  expect(numenorSpineBackgrounds).toHaveLength(3);
+  expect(numenorSpineBackgrounds.filter((color) => color === "rgba(7, 28, 45, 0.94)")).toHaveLength(2);
+  expect(numenorSpineBackgrounds.filter((color) => color === "rgba(41, 91, 117, 0.97)")).toHaveLength(1);
 
   const plannedLayerInputs = page.locator(
     '#sidebar .sidebar-pane:not(#frontispiece):not(#settings) input[type="checkbox"]'
@@ -263,11 +336,12 @@ test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) =>
   expect(coverTiming.duration).toBe("0.76s");
   await expect(page.locator("[data-middle-earth-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
 
-  const middleEarthPillBackgrounds = await page.locator(
+  const middleEarthSpineBackgrounds = await page.locator(
     '.atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle'
-  ).evaluateAll((pills) => pills.map((pill) => getComputedStyle(pill).backgroundColor));
-  expect(middleEarthPillBackgrounds).toHaveLength(3);
-  expect(new Set(middleEarthPillBackgrounds)).toEqual(new Set(["rgba(38, 58, 36, 0.96)"]));
+  ).evaluateAll((spines) => spines.map((spine) => getComputedStyle(spine).backgroundColor));
+  expect(middleEarthSpineBackgrounds).toHaveLength(3);
+  expect(middleEarthSpineBackgrounds.filter((color) => color === "rgba(38, 58, 36, 0.96)")).toHaveLength(2);
+  expect(middleEarthSpineBackgrounds.filter((color) => color === "rgba(72, 91, 62, 0.98)")).toHaveLength(1);
 });
 
 test("map pages highlight exactly one current map nav link", async ({ page }) => {
