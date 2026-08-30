@@ -107,3 +107,59 @@ additions are recorded below.
 ### `journey-18.webp` — The Fire and the End
 
 > Inside the vast Chambers of Fire, Frodo and Sam witness a gaunt ancient creature clutching a small golden ring as it loses footing at the edge of a fiery chasm. Frodo's hand is injured but keep it non-graphic; the ring and fire cast the decisive light. Wide final tableau, figures small against the volcanic fissure and collapsing cavern. Molten gold, ox-blood red and black stone; catastrophe, pity and unexpected deliverance.
+
+## Corrections and revisions
+
+### 2026-08-30 — Tom Bombadil correction for scene 3
+
+The first version of `journey-03.webp` included the intended woodland wanderer,
+but did not make several of Tom Bombadil's defining physical and costume
+features sufficiently clear. The image was edited with the OpenAI built-in
+image-generation tool, using the previous WebP as the edit target. Only the
+fifth figure was requested to change. The approved PNG output was converted
+back to WebP using the same FFmpeg settings recorded above and replaced the
+earlier project file.
+
+#### Final edit prompt for `journey-03.webp`
+
+> Use case: precise-object-edit
+> Asset type: landscape Story Mode illustration for a parchment-themed literary atlas
+> Input images: Image 1 is the edit target.
+> Primary request: Replace only the fifth figure—the smiling figure standing on the far right beneath the willow—with a more faithful, immediately recognizable Tom Bombadil. Keep him in the same location with the same warm, open-armed welcoming gesture toward the four hobbits.
+> Tom Bombadil's proportions: roughly four feet tall, wide-set and sturdy; clearly taller and heavier than a Hobbit, but distinctly too short to be a full-grown Man. Do not make him human-sized.
+> Face and hair: an older, wrinkled, vividly ruddy face as red as a ripe apple; bright, sharp blue eyes; brown-skinned hands; and a long, full, bristling brown beard. His expression remains merry, eccentric, and welcoming.
+> Clothing: a bright blue jacket, a clearly visible green girdle or belt, weathered leather breeches, unmistakably bright yellow boots, and a tall battered hat decorated with one long feather.
+> Style/medium: preserve the original painterly oil-and-gouache fantasy-book illustration, natural anatomy, mossy textures, and atmospheric late-19th-century travel-painting sensibility.
+> Constraints: change only Tom Bombadil; preserve all four hobbits exactly in count, identity, pose, scale, clothing, and location; preserve the ancient willow, forest, roots, ground, framing, lighting, palette, brushwork, and 16:10 composition as closely as possible; keep exactly five figures; make every listed Bombadil feature clearly visible; no text, logo, signature, or watermark.
+> Avoid: no full-grown human proportions; no missing hat, feather, beard, green girdle, or yellow boots; no resemblance to any film actor or film-specific character design; no extra characters or creatures.
+
+### 2026-08-30 — Gollum corrections for scenes 12 and 14
+
+The first versions of `journey-12.webp` and `journey-14.webp` interpreted the
+gaunt guide as a full-sized cloaked man. Both images were edited with the OpenAI
+built-in image-generation tool, using the previous WebP as the edit target.
+Only the incorrect third figure was requested to change. The approved PNG
+outputs were converted back to WebP using the same FFmpeg settings recorded
+above and replaced the earlier project files.
+
+#### Final edit prompt for `journey-12.webp`
+
+> Use case: precise-object-edit
+> Asset type: landscape Story Mode illustration for a parchment-themed literary atlas
+> Input images: Image 1 is the edit target.
+> Primary request: Replace only the tall, adult human figure on the far left who is pointing across the marsh with Gollum.
+> Gollum design: a small, emaciated, ancient hobbit-like creature, noticeably shorter and slighter than Frodo and Sam; pale mottled gray skin; sparse stringy dark hair; large watchful eyes; long thin arms and fingers; hunched crouching posture; bare feet; only a ragged loincloth. He should occupy the same general left-side narrative role and point toward the distant Black Gate, but he must not appear human-sized, cloaked, bearded, muscular, or heroic.
+> Style/medium: preserve the original painterly oil-and-gouache fantasy-book illustration, atmospheric late-19th-century travel-painting sensibility.
+> Constraints: change only the incorrect third figure; keep Frodo and Sam unchanged in identity, pose, clothing, scale, and location; preserve the marsh, ghostly lights, distant mountains and fortress, sky, framing, lighting, palette, texture, and 16:10 composition exactly as closely as possible; keep exactly three foreground characters; no text, logo, signature, or watermark.
+> Avoid: no resemblance to any film actor or film-specific Gollum design; no extra characters or creatures.
+
+#### Final edit prompt for `journey-14.webp`
+
+> Use case: precise-object-edit
+> Asset type: landscape Story Mode illustration for a parchment-themed literary atlas
+> Input images: Image 1 is the edit target.
+> Primary request: Replace only the tall, bearded adult human standing behind Frodo and Sam on the rocky stair with Gollum.
+> Gollum design: a small, emaciated, ancient hobbit-like creature, noticeably shorter and slighter than both hobbits; pale mottled gray skin; sparse stringy dark hair; large watchful eyes; long thin arms and fingers; hunched low crouching posture on the steps; bare feet; only a ragged loincloth. He is furtively guiding the two hobbits along the secret stair. He must not carry a staff and must not appear human-sized, cloaked, bearded, muscular, or heroic.
+> Style/medium: preserve the original painterly oil-and-gouache fantasy-book illustration, atmospheric late-19th-century travel-painting sensibility.
+> Constraints: change only the incorrect third figure; keep Frodo and Sam unchanged in identity, pose, clothing, scale, and location; preserve the rocky stair, cliffs, distant city and army, mounted dark rider, storm sky, framing, lighting, palette, texture, and 16:10 composition exactly as closely as possible; keep exactly three foreground characters; no text, logo, signature, or watermark.
+> Avoid: no resemblance to any film actor or film-specific Gollum design; no extra characters or creatures.

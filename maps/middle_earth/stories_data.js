@@ -6,6 +6,7 @@ import {
 const buildSamFrodoImage = (fileName) => new URL(`./assets/stories/sam_frodo/${fileName}`, import.meta.url).href;
 const buildGandalfTheWhiteImage = (fileName) => new URL(`./assets/stories/gandalf_the_white/${fileName}`, import.meta.url).href;
 const frodoTimelineUrl = 'https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins';
+const thirdAge3019Url = 'https://tolkiengateway.net/wiki/Third_Age_3019';
 
 const asNumber = (value) => {
   if (typeof value === 'number' && Number.isFinite(value)) {
@@ -66,7 +67,7 @@ const buildSceneStats = (definition, records, anchor) => {
       { label: 'Miles Traveled', value: displayValue(details.milesTraveled) },
       { label: 'Pace', value: displayValue(details.pace, ' mph') },
       { label: 'Road Notes', value: displayValue(definition.roadNotes ?? details.roadNotes) },
-    ];
+    ].filter(({ value }) => value !== 'Not recorded');
   }
 
   const recordedHours = sumRecordedValue(records, 'hoursOnRoad');
@@ -80,7 +81,7 @@ const buildSceneStats = (definition, records, anchor) => {
     { label: 'Recorded Travel Time', value: recordedHours > 0 ? `${formatNumber(recordedHours)} hours` : 'Not recorded' },
     { label: 'Average Pace', value: averagePace === null ? 'Not recorded' : `${formatNumber(averagePace)} mph` },
     { label: 'Road Notes', value: displayValue(definition.roadNotes) },
-  ];
+  ].filter(({ value }) => value !== 'Not recorded');
 };
 
 export const buildCuratedStory = ({
@@ -95,6 +96,8 @@ export const buildCuratedStory = ({
   pathKey,
   buildImage,
   imageBasePath,
+  sourceLabel = 'Timeline of Frodo Baggins',
+  sourceUrl = frodoTimelineUrl,
 }) => {
   const flattenedScenes = [];
   const chapterSummaries = chapters.map((chapter, chapterIndex) => {
@@ -130,8 +133,8 @@ export const buildCuratedStory = ({
         imageFileName,
         image: buildImage(imageFileName),
         imageRelativePath: `${imageBasePath}/${imageFileName}`,
-        sourceLabel: definition.sourceLabel ?? 'Timeline of Frodo Baggins',
-        sourceUrl: definition.sourceUrl ?? frodoTimelineUrl,
+        sourceLabel: definition.sourceLabel ?? sourceLabel,
+        sourceUrl: definition.sourceUrl ?? sourceUrl,
         zoom: definition.zoom ?? 19,
         order: flattenedScenes.length + 1,
         chapter: {
@@ -412,89 +415,226 @@ const samFrodoStory = buildCuratedStory({
   ],
 });
 
-const gandalfTheWhiteScenes = [
-  {
-    markerKey: 'February14',
-    title: 'Awakening on Zirakzigil',
-    date: 'February 14',
-    location: 'Peak of the Silvertine (Celebdil)',
-    narrative: 'After his struggle with the Balrog is ended, Gandalf returns to life high upon Zirakzigil. Alone on the wind-scoured peak, he lies in a trance while Middle-earth moves on below him, and the Grey Pilgrim begins to pass into a new and greater charge.',
-    camp: 'Peak of the Silvertine (Celebdil) Mountain',
-    hoursOnRoad: 'Unknown',
-    milesTraveled: 'Unknown',
-    pace: 'Unknown',
-    roadNotes: 'Gandalf returns to life and lies upon the peak in a trance.',
-    imageFileName: 'scene-01.png',
-  },
-  {
-    markerKey: 'February17',
-    title: 'Gwaihir Bears Him to Lothlorien',
-    date: 'February 17',
-    location: 'Lothlorien',
-    narrative: 'Three days later, Gwaihir the Windlord finds Gandalf on the heights and carries him away from the mountains. The journey is swift and strange: from the white crown of Celebdil to the golden refuge of Lothlorien, where rest, counsel, and renewal await the newly returned wizard.',
-    camp: 'Lothlorien',
-    hoursOnRoad: 'Unknown',
-    milesTraveled: 'Unknown',
-    pace: 'Unknown',
-    roadNotes: 'Gwaihir carries Gandalf south from the mountains into Lothlorien.',
-    imageFileName: 'scene-02.png',
-  },
-  {
-    markerKey: 'February18',
-    title: 'Galadriel Clothes Him in White',
-    date: 'February 18',
-    location: 'Lothlorien',
-    narrative: 'Gandalf arrives in Lothlorien for much-needed rest and respite. Galadriel recognizes the sacrifice he made defending the Fellowship and clothes him in white. Steadfast in his mission to help the free peoples resist Sauron, the Grey Pilgrim takes up his new charge as Gandalf the White.',
-    camp: 'Lothlorien',
-    hoursOnRoad: 'Unknown',
-    milesTraveled: 'Unknown',
-    pace: 'Unknown',
-    roadNotes: 'Galadriel clothes Gandalf in white for the work still before him.',
-    imageFileName: 'scene-03.png',
-  },
-].map((scene, index) => ({
-  ...scene,
-  coords: gandalfthewhitecampsites[scene.markerKey].coords,
-  image: buildGandalfTheWhiteImage(scene.imageFileName),
-  imageRelativePath: `maps/middle_earth/assets/stories/gandalf_the_white/${scene.imageFileName}`,
-  stats: [
-    { label: 'Camp', value: scene.camp },
-    { label: 'Hours on the Road', value: scene.hoursOnRoad },
-    { label: 'Miles Traveled', value: scene.milesTraveled },
-    { label: 'Pace', value: scene.pace },
-    { label: 'Road Notes', value: scene.roadNotes },
+const gandalfTheWhiteStory = buildCuratedStory({
+  id: 'gandalf-the-white-zirakzigil-to-black-gate',
+  title: 'Gandalf the White: From Zirakzigil to the Black Gate',
+  markerGroupName: 'gandalfthewhitecampsites',
+  campCheckboxId: 'gandalfthewhitecampsitesCheckbox',
+  pathCheckboxId: 'gandalfthewhitepathCheckbox',
+  pathKey: 'gandalfthewhitepath',
+  campsites: gandalfthewhitecampsites,
+  buildImage: buildGandalfTheWhiteImage,
+  imageBasePath: 'maps/middle_earth/assets/stories/gandalf_the_white',
+  sourceLabel: 'Chronology of the Third Age, 3019',
+  sourceUrl: thirdAge3019Url,
+  chapters: [
+    {
+      id: 'returned-to-the-world',
+      title: 'Returned to the World',
+      scenes: [
+        {
+          type: 'moment',
+          markerKey: 'February15',
+          title: 'Awakening on Zirakzigil',
+          location: 'Peak of the Silvertine (Celebdil)',
+          narrative: 'After the Balrog is cast down and his own strength is spent, Gandalf returns to life upon the high snow of Zirakzigil. For a time he lies beyond thought and memory while the mountain wind moves around him. The Grey Pilgrim has passed through fire and death; the task that calls him back will require a greater authority.',
+          imageFileName: 'scene-01.png',
+        },
+        {
+          type: 'moment',
+          markerKey: 'February17',
+          title: 'Gwaihir Bears Him South',
+          location: 'From Zirakzigil to Lothlórien',
+          narrative: 'Gwaihir the Windlord finds Gandalf alone upon the peak and lifts him from the ruin of the battle. The wizard is light in the Eagle’s grasp, worn almost to nothing by death and return. Beneath them the mountains fall away, and the long flight turns toward the shelter and wisdom of the Golden Wood.',
+          imageFileName: 'scene-02.png',
+        },
+        {
+          type: 'moment',
+          markerKey: 'February18',
+          title: 'Clothed in White',
+          location: 'Lothlórien',
+          narrative: 'In Lothlórien, Galadriel receives the returned traveler and clothes him in white. A new staff is placed in his hand, outward sign of the charge he now bears. Gandalf does not return merely restored: where the Fellowship lost its guide in Moria, Middle-earth receives a messenger newly empowered to oppose Saruman and strengthen the free peoples.',
+          imageFileName: 'scene-03.png',
+        },
+        {
+          type: 'passage',
+          startKey: 'February20',
+          endKey: 'February25',
+          anchorKey: 'February25',
+          title: 'The Windlord’s Errand',
+          date: 'February 20–25',
+          location: 'Lothlórien to Fangorn',
+          narrative: 'Gwaihir carries Gandalf south once more, setting him down near Fangorn as the scattered companions of the Fellowship race across Rohan. Gandalf sends the Windlord abroad to gather tidings. He has returned to a war already in motion, and before he can act openly he must discover where hope still lives—and where the Enemy is looking.',
+          roadNotes: 'Flight south from Lothlórien; arrival in Fangorn; Gwaihir is sent to gather news.',
+          imageFileName: 'journey-04.webp',
+        },
+      ],
+    },
+    {
+      id: 'the-white-rider',
+      title: 'The White Rider',
+      scenes: [
+        {
+          type: 'moment',
+          markerKey: 'February26',
+          title: 'The Contest at Amon Hen',
+          location: 'Fangorn and Amon Hen',
+          narrative: 'From afar Gandalf feels Frodo standing exposed upon Amon Hen, the Ring drawing the Eye toward him. He sets his will against Sauron’s search and commands Frodo to remove it. The struggle is silent and unseen, but its consequence is immense: for one narrow interval, the Ring-bearer is shielded long enough to choose his road freely.',
+          imageFileName: 'journey-05.webp',
+        },
+        {
+          type: 'passage',
+          startKey: 'February27',
+          endKey: 'March1',
+          anchorKey: 'March1',
+          title: 'The Forest Reunion',
+          date: 'February 27–March 1',
+          location: 'Fangorn Forest',
+          narrative: 'Gandalf moves beneath the ancient trees, glimpsing Treebeard before the moment for speech has come. On March first, Aragorn, Legolas, and Gimli meet a white-robed stranger whom they mistake first for Saruman. Recognition breaks through wonder. Grief turns suddenly into purpose, and the four companions ride from Fangorn toward a kingdom held in despair.',
+          roadNotes: 'Gandalf sees Treebeard, reunites with the Three Hunters, and departs for Edoras.',
+          imageFileName: 'journey-06.webp',
+        },
+        {
+          type: 'moment',
+          markerKey: 'March2',
+          title: 'The King Stands Again',
+          location: 'Meduseld, Edoras',
+          narrative: 'In the golden hall of Meduseld, Gandalf confronts the fear and false counsel that have bent Théoden into age before his time. He drives Wormtongue from the king’s side and calls Théoden back to courage. When the king rises and takes his sword again, Rohan awakens with him. Healing becomes the first stroke of war.',
+          imageFileName: 'journey-07.webp',
+        },
+        {
+          type: 'moment',
+          markerKey: 'March3',
+          title: 'Riders in the Night',
+          location: 'The Fords of Isen',
+          narrative: 'While Théoden rides toward the Hornburg, Gandalf turns Shadowfax into the western dark. He seeks the survivors at the Fords of Isen, finds Erkenbrand’s scattered strength, and carries messages between allies who cannot yet see one another. His speed binds separate acts of resistance into a single answer before Saruman can finish destroying Rohan.',
+          imageFileName: 'journey-08.webp',
+        },
+        {
+          type: 'moment',
+          markerKey: 'March4',
+          title: 'Dawn at the Hornburg',
+          location: 'Helm’s Deep',
+          narrative: 'At dawn, when the defenders of the Hornburg seem spent, Gandalf appears upon the western ridge with Erkenbrand and a thousand men. Light rises behind them as they descend, and Saruman’s host breaks between the charge and the strange forest waiting below. The White Rider’s promise is fulfilled at the hour when it seemed least possible.',
+          imageFileName: 'journey-09.webp',
+        },
+      ],
+    },
+    {
+      id: 'the-broken-staff',
+      title: 'The Broken Staff',
+      scenes: [
+        {
+          type: 'moment',
+          markerKey: 'March5',
+          title: 'The Voice of Saruman',
+          location: 'Orthanc, Isengard',
+          narrative: 'Before Orthanc, Saruman’s voice still works upon pride, pity, and doubt, but Gandalf answers with the authority Saruman has betrayed. He offers one final chance to descend and make amends. When it is refused, Gandalf casts him from the order and breaks his staff. The contest between the two wizards ends not in spectacle, but in judgment.',
+          roadNotes: 'Parley at Orthanc; Saruman refuses mercy and his staff is broken.',
+          imageFileName: 'journey-10.webp',
+        },
+        {
+          type: 'moment',
+          markerKey: 'March5',
+          title: 'The Palantír',
+          location: 'Dol Baran',
+          narrative: 'That night, Pippin yields to the pull of the stone cast from Orthanc and looks into the palantír. Gandalf tears him from Sauron’s interrogation and learns, through the Enemy’s mistaken assumptions, that secrecy still protects the true Quest. There is no longer time for caution. He takes Pippin before him on Shadowfax and turns east toward Gondor.',
+          roadNotes: 'Pippin looks into the palantír; Gandalf begins the urgent ride to Minas Tirith.',
+          imageFileName: 'journey-11.webp',
+        },
+        {
+          type: 'passage',
+          startKey: 'March06',
+          endKey: 'March9',
+          anchorKey: 'March9',
+          title: 'A Race to Gondor',
+          date: 'March 6–9',
+          location: 'Rohan, Anórien, and Minas Tirith',
+          narrative: 'Shadowfax races through three nights with Gandalf and Pippin, passing the beacons and the long leagues of Anórien. Each dawn brings the war closer. At last the seven walls of Minas Tirith rise before them beneath a darkening sky. Gandalf enters not as a wandering counselor but as the one leader already measuring the siege to come.',
+          roadNotes: 'A three-night ride on Shadowfax, reaching the Rammas Echor at dawn on March 9.',
+          imageFileName: 'journey-12.webp',
+        },
+      ],
+    },
+    {
+      id: 'the-siege-of-gondor',
+      title: 'The Siege of Gondor',
+      scenes: [
+        {
+          type: 'passage',
+          startKey: 'March9',
+          endKey: 'March10',
+          anchorKey: 'March10',
+          title: 'The Dawnless Day',
+          date: 'March 9–10',
+          location: 'Minas Tirith',
+          narrative: 'Gandalf brings Pippin before Denethor and finds the Steward proud, formidable, and already shadowed by despair. When Faramir’s company is hunted from the sky, Gandalf rides beneath the unnatural darkness and drives back the Nazgûl with white fire. Faramir’s news of Frodo and Gollum confirms that the hidden road now lies beyond anyone’s power to guide.',
+          roadNotes: 'Arrival in the City; counsel with Denethor; rescue of Faramir from the Winged Nazgûl.',
+          imageFileName: 'journey-13.webp',
+        },
+        {
+          type: 'moment',
+          markerKey: 'March12',
+          title: 'The Retreat from Osgiliath',
+          location: 'The Pelennor and Osgiliath',
+          narrative: 'Denethor sends Faramir back toward the lost river defenses. As the retreat begins, Gandalf rides out to meet it, checking the terror of the Winged Nazgûl and lending courage wherever the line falters. He cannot overrule every doomed command, but his presence keeps defeat from becoming collapse and buys the City another measure of time.',
+          imageFileName: 'journey-14.webp',
+        },
+        {
+          type: 'passage',
+          startKey: 'March14',
+          endKey: 'March15',
+          anchorKey: 'March15',
+          title: 'The White Wizard at the Gate',
+          date: 'March 14–15',
+          location: 'The Great Gate of Minas Tirith',
+          narrative: 'With the City encircled and Denethor withdrawn, Gandalf commands the defense through fire, fear, and sleepless night. The Great Gate shatters, and the Lord of the Nazgûl rides beneath its arch to meet him. Gandalf stands alone upon Shadowfax—until a cock crows and the horns of Rohan answer from beyond the walls.',
+          roadNotes: 'Gandalf commands the siege defense and confronts the Lord of the Nazgûl at the broken Gate.',
+          imageFileName: 'journey-15.webp',
+        },
+        {
+          type: 'moment',
+          markerKey: 'March15',
+          title: 'Fire in Rath Dínen',
+          location: 'The Silent Street, Minas Tirith',
+          narrative: 'Pippin’s warning draws Gandalf away from the Gate to the tombs, where Denethor means to burn himself and the wounded Faramir. Gandalf rescues the son but cannot save the father from despair. Even as battle turns outside, the Steward dies in the fire with the palantír in his hands—a private ruin within the City’s deliverance.',
+          roadNotes: 'Gandalf and Pippin save Faramir from the pyre; Denethor dies in the House of Stewards.',
+          imageFileName: 'journey-16.webp',
+        },
+      ],
+    },
+    {
+      id: 'the-last-move',
+      title: 'The Last Move',
+      scenes: [
+        {
+          type: 'passage',
+          startKey: 'March16',
+          endKey: 'March24',
+          anchorKey: 'March24',
+          title: 'The Last Debate',
+          date: 'March 16–24',
+          location: 'Minas Tirith to the Morannon',
+          narrative: 'Victory on the Pelennor cannot defeat Sauron. At the Last Debate, Gandalf reveals the only move left: the Captains must march openly upon the Black Gate and spend their strength as a diversion. The Host crosses the Anduin and advances through Ithilien, growing smaller as the fearful are released, while every deliberate mile draws the Eye away from Frodo.',
+          roadNotes: 'The Last Debate; the Host of the West marches through Ithilien toward the Black Gate.',
+          imageFileName: 'journey-17.webp',
+        },
+        {
+          type: 'moment',
+          markerKey: 'March25',
+          title: 'Before the Black Gate',
+          location: 'The Morannon',
+          narrative: 'Before the Morannon, Gandalf rejects the Mouth of Sauron’s terms and the small Host is surrounded. The Captains stand beneath a darkness they cannot hope to overcome by arms. Yet this battle was never meant to be won. As Gandalf holds the last line and the Eagles arrive, far away the Ring reaches the fire—and Sauron’s power begins to fall.',
+          imageFileName: 'journey-18.webp',
+        },
+      ],
+    },
   ],
-  chapter: {
-    id: 'the-white-rider',
-    title: 'The White Rider',
-    number: 1,
-    total: 1,
-  },
-  zoom: 19,
-  order: index + 1,
-}));
+});
 
 export const curatedStories = [
   samFrodoStory,
-  {
-    id: 'gandalf-the-white-first-two',
-    title: 'Gandalf the White: From Zirakzigil to Lothlorien',
-    status: 'prototype',
-    markerGroupName: 'gandalfthewhitecampsites',
-    campCheckboxId: 'gandalfthewhitecampsitesCheckbox',
-    pathCheckboxId: 'gandalfthewhitepathCheckbox',
-    pathKey: 'gandalfthewhitepath',
-    chapters: [
-      {
-        id: 'the-white-rider',
-        title: 'The White Rider',
-        number: 1,
-        startSceneIndex: 0,
-        sceneCount: gandalfTheWhiteScenes.length,
-      },
-    ],
-    scenes: gandalfTheWhiteScenes,
-  },
+  gandalfTheWhiteStory,
 ];
 
 export const getCuratedStoryById = (storyId) => {

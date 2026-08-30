@@ -1,5 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const crypto = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
@@ -212,6 +213,28 @@ test("Sam and Frodo campsites expose structured travel details for story buildin
   expectNoErrors(errors);
 });
 
+test("Gandalf the White campsites expose structured travel details for story building", () => {
+  const errors = [];
+  const requiredProperties = [
+    "date",
+    "hoursOnRoad",
+    "milesTraveled",
+    "pace",
+    "roadNotes",
+    "camp",
+  ];
+
+  Object.entries(campsiteData.gandalfthewhitecampsites).forEach(([markerKey, campsite]) => {
+    requiredProperties.forEach((propertyName) => {
+      if (!Object.hasOwn(campsite.details ?? {}, propertyName)) {
+        errors.push(`gandalfthewhitecampsites.${markerKey}.details is missing "${propertyName}".`);
+      }
+    });
+  });
+
+  expectNoErrors(errors);
+});
+
 test("middle-earth curated stories reference existing campsites, images, and html launch ids", () => {
   const errors = [];
   const storyIds = new Set();
@@ -332,6 +355,34 @@ test("middle-earth curated stories reference existing campsites, images, and htm
     }
   }
 
+  const completedGandalfStory = storiesDataModule.curatedStories.find(
+    (story) => story.id === "gandalf-the-white-zirakzigil-to-black-gate"
+  );
+
+  if (!completedGandalfStory) {
+    errors.push("The completed Gandalf the White story is missing.");
+  } else {
+    if (completedGandalfStory.status !== "complete") {
+      errors.push(`The Gandalf the White story has status "${completedGandalfStory.status}", expected "complete".`);
+    }
+
+    if (completedGandalfStory.scenes.length !== 18) {
+      errors.push(`The completed Gandalf the White story has ${completedGandalfStory.scenes.length} scenes, expected 18.`);
+    }
+
+    if (completedGandalfStory.chapters.length !== 5) {
+      errors.push(`The completed Gandalf the White story has ${completedGandalfStory.chapters.length} chapters, expected 5.`);
+    }
+
+    const preservedOpeningImages = completedGandalfStory.scenes
+      .slice(0, 3)
+      .map((scene) => scene.imageFileName);
+
+    if (JSON.stringify(preservedOpeningImages) !== JSON.stringify(["scene-01.png", "scene-02.png", "scene-03.png"])) {
+      errors.push(`The first three Gandalf illustrations changed: ${preservedOpeningImages.join(", ")}.`);
+    }
+  }
+
   middleEarthHtmlStoryIds.forEach((storyId) => {
     if (!storyIds.has(storyId)) {
       errors.push(`middle-earth.html contains data-story-id "${storyId}" without a matching curatedStories entry.`);
@@ -339,4 +390,23 @@ test("middle-earth curated stories reference existing campsites, images, and htm
   });
 
   expectNoErrors(errors);
+});
+
+test("the three approved opening Gandalf illustrations remain byte-for-byte unchanged", () => {
+  const imageDirectory = path.join(middleEarthDir, "assets", "stories", "gandalf_the_white");
+  const expectedHashes = {
+    "scene-01.png": "476fed5649af2a648bab323d457e477bc8a739e8110c8eb4ebf2bc721f10abd4",
+    "scene-02.png": "475c1787dc292dc4b10137a3019c96e9a9e4623a206bebd0556e1074acd7c4b8",
+    "scene-03.png": "ccc57dafd82eee466a74d74ae5dd478d9b89d428a65d9fd19c3e4141dd635bf7",
+  };
+
+  Object.entries(expectedHashes).forEach(([fileName, expectedHash]) => {
+    const imagePath = path.join(imageDirectory, fileName);
+    const actualHash = crypto
+      .createHash("sha256")
+      .update(fs.readFileSync(imagePath))
+      .digest("hex");
+
+    assert.equal(actualHash, expectedHash, `${fileName} should remain the approved original illustration.`);
+  });
 });

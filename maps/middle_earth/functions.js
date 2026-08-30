@@ -10,6 +10,11 @@ export function createIcon(url, size = [48, 48]) {
   });
 }
 export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour, comments, campsite) => {
+  const formatTravelValue = (value, suffix = '') => {
+    const normalized = String(value ?? '').trim();
+    return normalized && normalized !== '?' ? `${normalized}${suffix}` : 'Not recorded';
+  };
+
   return `
     <article class="campsite-popup">
       <div class="campsite-popup__frame">
@@ -19,15 +24,15 @@ export const createCampsitePopup = (date, hoursTravelled, mileage, milesPerHour,
         <div class="campsite-popup__details">
           <div class="campsite-popup__row">
             <span class="campsite-popup__label">Hours on the Road</span>
-            <span class="campsite-popup__value">${hoursTravelled}</span>
+            <span class="campsite-popup__value">${formatTravelValue(hoursTravelled)}</span>
           </div>
           <div class="campsite-popup__row">
             <span class="campsite-popup__label">Miles Traveled</span>
-            <span class="campsite-popup__value">${mileage}</span>
+            <span class="campsite-popup__value">${formatTravelValue(mileage)}</span>
           </div>
           <div class="campsite-popup__row">
             <span class="campsite-popup__label">Pace</span>
-            <span class="campsite-popup__value">${milesPerHour} mph</span>
+            <span class="campsite-popup__value">${formatTravelValue(milesPerHour, ' mph')}</span>
           </div>
         </div>
 

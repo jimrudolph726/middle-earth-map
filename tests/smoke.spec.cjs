@@ -200,7 +200,14 @@ test("middle-earth map loads and can start story mode", async ({ page }) => {
   await page.getByRole("tab", { name: /Curated Stories/i }).click();
   await page.getByRole("button", { name: /Start Gandalf the White story/i }).click();
   await expect(page.locator("#storySceneTitle")).toHaveText(/Awakening on Zirakzigil/i);
-  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of \d+/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 1 of 18/i);
+  await expect(page.locator("#storyKicker")).toHaveText(/Chapter 1 of 5.*Returned to the World/i);
+  await expect(page.locator("#storyChapterNav .story-panel__chapter-button")).toHaveCount(5);
+  await expect(page.locator("#gandalfthewhitepathCheckbox")).toBeChecked();
+
+  await page.getByRole("button", { name: /Go to chapter 5: The Last Move/i }).click();
+  await expect(page.locator("#storySceneTitle")).toHaveText(/The Last Debate/i);
+  await expect(page.locator("#storySceneCounter")).toHaveText(/Scene 17 of 18/i);
 });
 
 test("middle-earth welcomes first-time visitors with three clear paths", async ({ page }) => {
