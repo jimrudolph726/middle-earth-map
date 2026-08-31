@@ -42,16 +42,6 @@ body.family-tree-page {
   inset: 0;
 }
 
-.family-tree-page .family-tree-page-tools {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 15;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
 .family-tree-page .atlas-map-nav {
   position: absolute;
   top: 18px;
@@ -533,12 +523,6 @@ body.family-tree-page {
 }
 
 @media (max-width: 760px) {
-  .family-tree-page .family-tree-page-tools {
-    top: 98px;
-    left: 12px;
-    gap: 8px;
-  }
-
   .family-tree-page .atlas-map-nav {
     top: 12px;
     right: 12px;
@@ -546,7 +530,7 @@ body.family-tree-page {
   }
 
   .family-tree-page .tree-view-panel {
-    top: 153px;
+    top: 100px;
     left: 12px;
     width: calc(100vw - 24px);
   }
