@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Middle-earth Atlas</title>
+    <link rel="preload" href="assets/bag_end_study.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="assets/vendor/fonts/cormorant-garamond-v21-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/vendor/fonts/libre-baskerville-v24-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/ringbearer.TTF" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/vendor/fonts/material-icons-v145.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/vendor/fonts.css">
     <link rel="stylesheet" href="splash.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -76,6 +81,16 @@
             </p>
 
             <div class="splash-table" aria-label="Bag End study selection" aria-describedby="splash-instructions">
+                <img
+                    class="splash-table__image"
+                    src="assets/bag_end_study.webp"
+                    width="2304"
+                    height="1296"
+                    alt=""
+                    loading="eager"
+                    decoding="sync"
+                    fetchpriority="high"
+                >
                 <div class="study-hotspots">
                     <a class="study-hotspot study-hotspot--middle-earth" href="maps/middle_earth/middle-earth.html" aria-label="Open the Middle-earth map">
                         <span class="study-hotspot__label">Middle-earth</span>

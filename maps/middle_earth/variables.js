@@ -70,6 +70,14 @@ export const baseTileOptions = {
   keepBuffer: 2,
 };
 
+export const physicalFrame = {
+  theme: 'middle-earth',
+  motif: 'leaf-road',
+  ornamentMaxZoom: 16,
+  frameTextureUrl: new URL('./assets/materials/middle-earth-frame-brass-v1.webp', import.meta.url).href,
+  frameTextureSize: 210,
+};
+
 // Campsites, Settlements, Items, Provisions, Creatures & Beings
 const sharedAtlasMarkerCluster = 'sharedAtlasMarkerCluster';
 

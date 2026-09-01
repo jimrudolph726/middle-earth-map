@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Middle-earth Family Trees</title>
 
+  <link rel="preload" href="../assets/vendor/fonts/material-icons-v145.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../assets/vendor/fonts.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="family_tree.css" />
-  <link rel="stylesheet" href="../assets/vendor/fonts.css" />
   <script src="../plugins/atlas-map-nav.js"></script>
   <script src="../plugins/d3.v7.min.js"></script>
   <script src="../plugins/elk.bundled.js"></script>
@@ -15,12 +16,8 @@
 
 <body class="family-tree-page">
   <div id="tree">
+    <h1 class="visually-hidden">Middle-earth Family Trees</h1>
     <nav class="atlas-map-nav" aria-label="Atlas navigation">
-      <button id="reset-view" type="button">Reset View</button>
-      <a id="layout-editor-link" class="atlas-map-nav__link" href="family_tree.html?editor=1">
-        <i class="material-icons">edit</i>
-        <span>Layout Studio</span>
-      </a>
       <a class="atlas-map-nav__link atlas-map-nav__link--home" href="../index.html">
         <i class="material-icons">home</i>
         <span>Home</span>
@@ -81,9 +78,84 @@
       </details>
     </nav>
 
-    <aside class="tree-view-panel" aria-labelledby="tree-view-title">
+    <section id="tree-welcome" class="tree-welcome hidden" aria-labelledby="tree-welcome-title">
+      <div class="tree-welcome__backdrop" aria-hidden="true"></div>
+      <div class="tree-welcome__dialog" role="dialog" aria-modal="true" aria-labelledby="tree-welcome-title" aria-describedby="tree-welcome-description">
+        <p class="tree-welcome__eyebrow">The genealogies of Middle-earth</p>
+        <h2 id="tree-welcome-title">Whose tale shall we follow?</h2>
+        <p id="tree-welcome-description" class="tree-welcome__description">
+          Begin with one readable branch, seek a name in the record, or unfold the complete genealogy as a scholar's overview.
+        </p>
+
+        <div id="tree-welcome-choices" class="tree-welcome__choices">
+          <button class="tree-welcome-card" type="button" data-welcome-action="lineages">
+            <span class="tree-welcome-card__icon material-icons" aria-hidden="true">account_tree</span>
+            <span class="tree-welcome-card__copy">
+              <strong>Explore a lineage</strong>
+              <span>Open a royal house or family branch at a readable scale.</span>
+            </span>
+          </button>
+
+          <button class="tree-welcome-card" type="button" data-welcome-action="search">
+            <span class="tree-welcome-card__icon material-icons" aria-hidden="true">person_search</span>
+            <span class="tree-welcome-card__copy">
+              <strong>Find a person</strong>
+              <span>Search the current volume and travel directly to a life.</span>
+            </span>
+          </button>
+
+          <button class="tree-welcome-card" type="button" data-welcome-action="complete">
+            <span class="tree-welcome-card__icon material-icons" aria-hidden="true">menu_book</span>
+            <span class="tree-welcome-card__copy">
+              <strong>View the complete genealogy</strong>
+              <span>Unfold every recorded branch in the full scholarly overview.</span>
+            </span>
+          </button>
+        </div>
+
+        <div id="tree-welcome-lineages" class="tree-welcome__subview hidden">
+          <div class="tree-welcome__subview-heading">
+            <button class="tree-welcome__back" type="button" data-welcome-action="back" aria-label="Return to the three opening choices">
+              <span class="material-icons" aria-hidden="true">arrow_back</span>
+            </button>
+            <div>
+              <p>Choose a chapter</p>
+              <h2>Explore a lineage</h2>
+            </div>
+          </div>
+          <div id="tree-welcome-lineage-list" class="tree-welcome__lineage-list"></div>
+        </div>
+
+        <div id="tree-welcome-search-view" class="tree-welcome__subview hidden">
+          <div class="tree-welcome__subview-heading">
+            <button class="tree-welcome__back" type="button" data-welcome-action="back" aria-label="Return to the three opening choices">
+              <span class="material-icons" aria-hidden="true">arrow_back</span>
+            </button>
+            <div>
+              <p>Seek a name</p>
+              <h2>Find a person</h2>
+            </div>
+          </div>
+          <label class="tree-welcome__search-field" for="tree-welcome-search">
+            <span>Search this family volume</span>
+            <input id="tree-welcome-search" type="search" placeholder="Try Aragorn, Elrond, Bilbo..." autocomplete="off" />
+          </label>
+          <div id="tree-welcome-search-results" class="tree-welcome-search-results" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <button id="tree-controls-toggle" class="tree-controls-toggle" type="button" aria-controls="tree-view-panel" aria-expanded="false">
+      <span class="material-icons" aria-hidden="true">account_tree</span>
+      <span>Browse tree</span>
+    </button>
+
+    <aside id="tree-view-panel" class="tree-view-panel" aria-labelledby="tree-view-title">
+      <button id="tree-controls-close" class="tree-view-panel__close" type="button" aria-label="Close family tree controls">
+        <span class="material-icons" aria-hidden="true">close</span>
+      </button>
       <p class="tree-view-panel__eyebrow">Canonical Tree View</p>
-      <h1 id="tree-view-title">Family Tree</h1>
+      <h2 id="tree-view-title">Family Tree</h2>
 
       <label class="tree-view-panel__field" for="tree-view">
         <span>Switch view</span>
@@ -99,194 +171,22 @@
 
       <p id="tree-view-description" class="tree-view-panel__description"></p>
       <p id="tree-view-stats" class="tree-view-panel__stats" aria-live="polite"></p>
+
+      <div class="tree-view-panel__actions">
+        <button id="reset-view" type="button">
+          <span class="material-icons" aria-hidden="true">center_focus_strong</span>
+          <span>Reset view</span>
+        </button>
+        <button id="tree-reopen-welcome" type="button">
+          <span class="material-icons" aria-hidden="true">menu_book</span>
+          <span>Choose another path</span>
+        </button>
+      </div>
     </aside>
 
     <div id="family-tree-host" aria-label="Family tree canvas"></div>
     <div id="lineage-hover-pill" class="lineage-hover-pill hidden" aria-hidden="true"></div>
 
-    <aside id="layout-editor-panel" class="layout-editor-panel hidden" aria-live="polite">
-      <p class="layout-editor-panel__eyebrow">Layout Studio</p>
-      <p id="layout-editor-status" class="layout-editor-panel__status">
-        Open this page with <code>?editor=1</code> to drag cards and save a manual layout.
-      </p>
-      <div class="layout-editor-panel__actions">
-        <button id="layout-editor-toggle" type="button">Enable Dragging</button>
-        <button id="layout-editor-save" type="button">Save To Browser</button>
-        <button id="layout-editor-download" type="button">Download Publish Files</button>
-        <button id="layout-editor-reset" type="button">Reset This View</button>
-        <button id="layout-editor-clear-drafts" type="button">Clear Browser Drafts</button>
-      </div>
-
-      <section class="layout-editor-section" aria-labelledby="person-editor-heading">
-        <div class="layout-editor-section__header">
-          <h2 id="person-editor-heading">People</h2>
-          <button id="person-editor-new" type="button">New Person</button>
-        </div>
-
-        <label class="layout-editor-field" for="person-editor-select">
-          <span>Load existing person</span>
-          <select id="person-editor-select"></select>
-        </label>
-
-        <div class="layout-editor-grid">
-          <label class="layout-editor-field" for="person-editor-id">
-            <span>ID</span>
-            <input id="person-editor-id" type="text" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-name">
-            <span>Name</span>
-            <input id="person-editor-name" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-order">
-            <span>Order</span>
-            <input id="person-editor-order" type="number" step="1" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-sex">
-            <span>Sex</span>
-            <input id="person-editor-sex" type="text" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-title">
-            <span>Title</span>
-            <input id="person-editor-title" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-kindred">
-            <span>Kindred</span>
-            <input id="person-editor-kindred" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-house">
-            <span>House</span>
-            <input id="person-editor-house" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-realm">
-            <span>Realm</span>
-            <input id="person-editor-realm" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-born">
-            <span>Born</span>
-            <input id="person-editor-born" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-died">
-            <span>Died</span>
-            <input id="person-editor-died" type="text" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-image">
-            <span>Image</span>
-            <input id="person-editor-image" type="text" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="person-editor-groups">
-            <span>Groups (comma separated)</span>
-            <input id="person-editor-groups" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="person-editor-record-type">
-            <span>Record Type</span>
-            <input id="person-editor-record-type" type="text" placeholder="person / aggregate / placeholder" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--checkbox" for="person-editor-placeholder">
-            <input id="person-editor-placeholder" type="checkbox" />
-            <span>Placeholder / aggregate helper node</span>
-          </label>
-        </div>
-
-        <label class="layout-editor-field" for="person-editor-bio">
-          <span>Biography</span>
-          <textarea id="person-editor-bio" rows="5"></textarea>
-        </label>
-
-        <div class="layout-editor-panel__actions layout-editor-panel__actions--single">
-          <button id="person-editor-save" type="button">Save Person</button>
-        </div>
-      </section>
-
-      <section class="layout-editor-section" aria-labelledby="union-editor-heading">
-        <div class="layout-editor-section__header">
-          <h2 id="union-editor-heading">Unions</h2>
-          <button id="union-editor-new" type="button">New Union</button>
-        </div>
-
-        <label class="layout-editor-field" for="union-editor-select">
-          <span>Load existing union</span>
-          <select id="union-editor-select"></select>
-        </label>
-
-        <div class="layout-editor-grid">
-          <label class="layout-editor-field" for="union-editor-id">
-            <span>ID</span>
-            <input id="union-editor-id" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="union-editor-order">
-            <span>Order</span>
-            <input id="union-editor-order" type="number" step="1" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-label">
-            <span>Label</span>
-            <input id="union-editor-label" type="text" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-partners">
-            <span>Partners (comma separated IDs)</span>
-            <input id="union-editor-partners" type="text" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-children">
-            <span>Children (comma separated IDs)</span>
-            <input id="union-editor-children" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="union-editor-lineage-partner">
-            <span>Lineage Partner</span>
-            <input id="union-editor-lineage-partner" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="union-editor-lineage-child">
-            <span>Lineage Child</span>
-            <input id="union-editor-lineage-child" type="text" />
-          </label>
-
-          <label class="layout-editor-field" for="union-editor-partner-gap">
-            <span>Partner Gap</span>
-            <input id="union-editor-partner-gap" type="number" step="1" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-partner-order">
-            <span>Partner Order (comma separated IDs)</span>
-            <input id="union-editor-partner-order" type="text" />
-          </label>
-
-          <label class="layout-editor-field layout-editor-field--wide" for="union-editor-child-order">
-            <span>Child Order (comma separated IDs)</span>
-            <input id="union-editor-child-order" type="text" />
-          </label>
-        </div>
-
-        <div class="layout-editor-grid">
-          <label class="layout-editor-field layout-editor-field--wide" for="union-attach-child-select">
-            <span>Attach child to loaded union</span>
-            <select id="union-attach-child-select"></select>
-          </label>
-        </div>
-
-        <div class="layout-editor-panel__actions">
-          <button id="union-editor-save" type="button">Save Union</button>
-          <button id="union-editor-attach-child" type="button">Attach Child</button>
-          <button id="union-editor-detach-child" type="button">Detach Child</button>
-        </div>
-      </section>
-    </aside>
 
     <div id="tree-empty-state" class="tree-empty-state hidden" role="status" aria-live="polite">
       <div class="tree-empty-state__card">

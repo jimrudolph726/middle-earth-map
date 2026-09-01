@@ -10,7 +10,6 @@
       "realm": "Arthedain",
       "born": "726",
       "died": "946",
-      "image": "assets/amlaith.png",
       "groups": [
         "dúnedain"
       ],
@@ -26,7 +25,6 @@
       "realm": "Arthedain",
       "born": "1789",
       "died": "1964",
-      "image": "assets/araphant.png",
       "groups": [
         "dúnedain"
       ],
@@ -42,7 +40,6 @@
       "realm": "Arthedain",
       "born": "1391",
       "died": "1589",
-      "image": "assets/araphor.png",
       "groups": [
         "dúnedain"
       ],
@@ -58,7 +55,6 @@
       "realm": "Arthedain",
       "born": "1711",
       "died": "1891",
-      "image": "assets/araval.png",
       "groups": [
         "dúnedain"
       ],
@@ -74,7 +70,6 @@
       "realm": "Arthedain",
       "born": "1226",
       "died": "1356",
-      "image": "assets/argeleb_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -90,7 +85,6 @@
       "realm": "Arthedain",
       "born": "1473",
       "died": "1670",
-      "image": "assets/argeleb_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -106,7 +100,6 @@
       "realm": "Arthedain",
       "born": "1864",
       "died": "1974",
-      "image": "assets/arvedui.png",
       "groups": [
         "dúnedain"
       ],
@@ -122,7 +115,6 @@
       "realm": "Arthedain",
       "born": "1553",
       "died": "1743",
-      "image": "assets/arvegil.png",
       "groups": [
         "dúnedain"
       ],
@@ -138,7 +130,6 @@
       "realm": "Arthedain",
       "born": "1309",
       "died": "1409",
-      "image": "assets/arveleg_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -154,7 +145,6 @@
       "realm": "Arthedain",
       "born": "1633",
       "died": "1813",
-      "image": "assets/arveleg_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -170,7 +160,6 @@
       "realm": "Arthedain",
       "born": "811",
       "died": "1029",
-      "image": "assets/beleg.png",
       "groups": [
         "dúnedain"
       ],
@@ -186,7 +175,6 @@
       "realm": "Arthedain",
       "born": "1062",
       "died": "1272",
-      "image": "assets/celebrindor.png",
       "groups": [
         "dúnedain"
       ],
@@ -202,7 +190,6 @@
       "realm": "Arthedain",
       "born": "979",
       "died": "1191",
-      "image": "assets/celepharn.png",
       "groups": [
         "dúnedain"
       ],
@@ -218,7 +205,6 @@
       "realm": "Arthedain",
       "born": "895",
       "died": "1110",
-      "image": "assets/mallor.png",
       "groups": [
         "dúnedain"
       ],
@@ -234,7 +220,6 @@
       "realm": "Arthedain",
       "born": "1144",
       "died": "1349",
-      "image": "assets/malvegil.png",
       "groups": [
         "dúnedain"
       ],

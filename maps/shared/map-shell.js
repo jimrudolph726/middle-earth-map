@@ -4,6 +4,7 @@ import {
   createGeographicShape,
   createMarkers,
 } from './functions.js';
+import { initializePhysicalMapFrame } from './physical-map-frame.js';
 
 const defaultMapOptions = {
   crs: L.CRS.EPSG3857,
@@ -97,6 +98,7 @@ export const initializeImageAtlasMap = ({
   geographicData = [],
   geojsonBaseUrl,
   markerClusterOptions = null,
+  physicalFrame = null,
 }) => {
   if (!imageUrl || !imageBounds) {
     throw new Error('The map image URL and image bounds are required.');
@@ -105,8 +107,17 @@ export const initializeImageAtlasMap = ({
   const map = L.map(mapElementId, { ...defaultMapOptions, ...mapOptions });
   map.options.wheelPxPerZoomLevel = 40;
 
-  L.imageOverlay(imageUrl, imageBounds).addTo(map);
+  const imageLayer = L.imageOverlay(imageUrl, imageBounds, {
+    className: physicalFrame
+      ? `atlas-physical-map__surface atlas-physical-map__surface--${physicalFrame.theme || 'default'}`
+      : '',
+  }).addTo(map);
   map.fitBounds(imageBounds);
+  const physicalMapFrame = initializePhysicalMapFrame({
+    map,
+    imageBounds,
+    options: physicalFrame,
+  });
 
   let sidebar = null;
 
@@ -167,7 +178,7 @@ export const initializeImageAtlasMap = ({
   initializeMasterCheckboxes();
 
   document.dispatchEvent(new CustomEvent('atlas:mapready', {
-    detail: { map, mapElementId, sidebar }
+    detail: { map, mapElementId, sidebar, imageLayer, physicalMapFrame }
   }));
 
   return map;

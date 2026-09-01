@@ -30,6 +30,183 @@ body.beleriand-volume {
   color: var(--atlas-ink);
 }
 
+/*
+ * The lost map is mounted on a cool archival cloth rather than floating in
+ * Leaflet's neutral gray. A real CC0 linen scan provides the fibers while the
+ * broad indigo wash and vignette leave the parchment as the brightest object.
+ */
+.beleriand-volume #map {
+  background-color: #101920;
+  background-image:
+    radial-gradient(ellipse at 19% 24%, rgba(148, 179, 185, 0.12), transparent 23%),
+    radial-gradient(ellipse at 78% 72%, rgba(1, 12, 19, 0.24), transparent 29%),
+    linear-gradient(118deg, transparent 17%, rgba(190, 211, 211, 0.075) 38%, transparent 59%),
+    radial-gradient(circle at 48% 38%, rgba(143, 177, 188, 0.11), transparent 41%),
+    radial-gradient(ellipse at center, transparent 36%, rgba(3, 9, 13, 0.5) 112%),
+    linear-gradient(142deg, rgba(8, 24, 33, 0.51), rgba(6, 18, 25, 0.58) 55%, rgba(3, 11, 16, 0.68)),
+    url("./assets/materials/beleriand-cloth-v1.webp");
+  background-position: center, center, center, center, center, center, left top;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-size: cover, cover, cover, cover, cover, cover, 620px 620px;
+  box-shadow:
+    inset 0 0 142px rgba(2, 7, 10, 0.42),
+    inset 0 0 0 1px rgba(191, 207, 208, 0.06);
+}
+
+.beleriand-volume .atlas-physical-map__surface--beleriand {
+  filter:
+    drop-shadow(0 15px 18px rgba(2, 7, 10, 0.42))
+    drop-shadow(0 3px 4px rgba(3, 9, 13, 0.44));
+}
+
+.beleriand-volume .atlas-physical-frame-pane--beleriand,
+.beleriand-volume .atlas-physical-frame-pane--beleriand * {
+  pointer-events: none;
+}
+
+.beleriand-volume .atlas-physical-frame__line {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+}
+
+.beleriand-volume .atlas-physical-frame__line--shadow {
+  stroke: rgba(3, 9, 13, 0.58);
+  stroke-width: 30px;
+  filter: drop-shadow(0 11px 13px rgba(1, 5, 8, 0.5));
+}
+
+.beleriand-volume .atlas-physical-frame__line--outer {
+  stroke: #263a44;
+  stroke-width: 21px;
+}
+
+.beleriand-volume .atlas-physical-frame__line--texture {
+  stroke-width: 17px;
+  filter: drop-shadow(0 1px 0 rgba(212, 222, 219, 0.2));
+}
+
+.beleriand-volume .atlas-physical-frame__line--rail {
+  stroke: rgba(154, 170, 173, 0.52);
+  stroke-width: 11px;
+  mix-blend-mode: screen;
+}
+
+.beleriand-volume .atlas-physical-frame__line--patina {
+  stroke: rgba(57, 90, 105, 0.62);
+  stroke-width: 6px;
+}
+
+.beleriand-volume .atlas-physical-frame__line--highlight {
+  stroke: rgba(205, 216, 213, 0.92);
+  stroke-width: 2px;
+}
+
+.beleriand-volume .atlas-physical-frame__corner {
+  border: 0;
+  background: transparent;
+  opacity: 0.92;
+  transition: opacity 180ms ease;
+}
+
+.beleriand-volume .atlas-physical-frame__ornament {
+  display: block;
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 4px 5px rgba(1, 7, 10, 0.58));
+  transform-origin: center;
+}
+
+.beleriand-volume .atlas-physical-frame__ornament--north-east {
+  transform: rotate(90deg);
+}
+
+.beleriand-volume .atlas-physical-frame__ornament--south-east {
+  transform: rotate(180deg);
+}
+
+.beleriand-volume .atlas-physical-frame__ornament--south-west {
+  transform: rotate(270deg);
+}
+
+.beleriand-volume .atlas-physical-frame__ornament svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.beleriand-volume .atlas-physical-frame__corner-rail,
+.beleriand-volume .atlas-physical-frame__corner-highlight,
+.beleriand-volume .atlas-physical-frame__wave {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.beleriand-volume .atlas-physical-frame__corner-rail {
+  stroke: #87989b;
+  stroke-width: 4.6px;
+}
+
+.beleriand-volume .atlas-physical-frame__corner-highlight {
+  stroke: rgba(210, 220, 216, 0.92);
+  stroke-width: 1.15px;
+}
+
+.beleriand-volume .atlas-physical-frame__wave {
+  stroke: #6f909c;
+  stroke-width: 1.55px;
+}
+
+.beleriand-volume .atlas-physical-frame__wave--echo {
+  opacity: 0.66;
+  stroke-width: 0.9px;
+}
+
+.beleriand-volume .atlas-physical-frame__rail-stud {
+  fill: #c8d2cf;
+  stroke: #385665;
+  stroke-width: 0.8px;
+}
+
+.beleriand-volume .atlas-physical-frame__star {
+  fill: #456775;
+  stroke: #c9d3d0;
+  stroke-width: 1.05px;
+  stroke-linejoin: round;
+}
+
+.beleriand-volume .atlas-physical-frame__star-core {
+  fill: #d5deda;
+}
+
+.beleriand-volume .atlas-physical-frame-pane--detail .atlas-physical-frame__corner {
+  opacity: 0;
+}
+
+@media (max-width: 720px) {
+  .beleriand-volume .atlas-physical-frame__line--shadow {
+    stroke-width: 22px;
+  }
+
+  .beleriand-volume .atlas-physical-frame__line--outer {
+    stroke-width: 16px;
+  }
+
+  .beleriand-volume .atlas-physical-frame__line--texture {
+    stroke-width: 13px;
+  }
+
+  .beleriand-volume .atlas-physical-frame__line--rail {
+    stroke-width: 9px;
+  }
+
+  .beleriand-volume .atlas-physical-frame__ornament {
+    scale: 0.78;
+  }
+}
+
 /* A brief, physical opening of the volume on arrival. */
 .beleriand-volume-cover {
   position: fixed;
@@ -41,8 +218,11 @@ body.beleriand-volume {
   color: #d9ddda;
   background:
     radial-gradient(circle at 50% 36%, rgba(95, 126, 140, 0.22), transparent 30%),
-    repeating-linear-gradient(96deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 7px),
-    linear-gradient(125deg, #11181c, #263239 56%, #151b1f);
+    linear-gradient(125deg, rgba(9, 18, 23, 0.84), rgba(27, 43, 51, 0.8) 56%, rgba(8, 17, 22, 0.88)),
+    url("./assets/materials/beleriand-cloth-v1.webp");
+  background-position: center, center, left top;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: cover, cover, 880px 880px;
   box-shadow: inset 0 0 0 10px #12191d, inset 0 0 0 11px rgba(187, 198, 198, 0.48);
   transform-origin: left center;
   backface-visibility: hidden;

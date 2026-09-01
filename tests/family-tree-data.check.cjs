@@ -91,6 +91,20 @@ test("generated Elves/Men family tree data matches source files", () => {
   assert.deepEqual(loadJson("elves_men/family_tree_data.json"), buildElvesMenFamilyTreeData());
 });
 
+test("Layout Studio has been completely removed from the public family tree", () => {
+  const publicFiles = [
+    "family_tree.html",
+    "family_tree.js",
+    "family_tree.css",
+    "style.css"
+  ];
+
+  publicFiles.forEach((relativePath) => {
+    const source = fs.readFileSync(path.join(familyTreeDir, relativePath), "utf8");
+    assert.doesNotMatch(source, /layout studio|layout-editor|layoutEditor|editor=1/i, relativePath);
+  });
+});
+
 familyTreeGroups.forEach(({ groupId, group, data, layouts }) => {
   const people = data.people || {};
   const peopleIds = new Set(Object.keys(people));
@@ -126,6 +140,39 @@ familyTreeGroups.forEach(({ groupId, group, data, layouts }) => {
 
     findDuplicates(idValues).forEach((personId) => {
       errors.push(`person id "${personId}" is duplicated across people records.`);
+    });
+
+    expectNoErrors(errors);
+  });
+
+  test(`family tree portraits and node thumbnails exist (${groupId})`, () => {
+    const errors = [];
+    const groupDir = path.dirname(path.resolve(familyTreeDir, group.dataUrl));
+
+    Object.entries(people).forEach(([personId, person]) => {
+      if (!person.image) {
+        return;
+      }
+
+      const portraitPath = path.resolve(groupDir, person.image);
+      if (!fs.existsSync(portraitPath)) {
+        errors.push(`people.${personId}.image is missing: "${person.image}".`);
+        return;
+      }
+
+      const parsedImagePath = path.parse(person.image);
+      [64, 128].forEach((size) => {
+        const thumbnailPath = path.resolve(
+          groupDir,
+          parsedImagePath.dir,
+          "thumbs",
+          `${parsedImagePath.name}-${size}.webp`
+        );
+
+        if (!fs.existsSync(thumbnailPath)) {
+          errors.push(`people.${personId} is missing its ${size}px WebP thumbnail.`);
+        }
+      });
     });
 
     expectNoErrors(errors);

@@ -18,6 +18,7 @@ import {
   baseTileOptions,
   map,
   imageBounds,
+  physicalFrame,
 } from './variables.js';
 
 import {
@@ -26,11 +27,21 @@ import {
 import {
   initializeAtlasFrontispiece,
 } from './frontispiece.js';
+import { initializePhysicalMapFrame } from '../shared/physical-map-frame.js';
 
 // Add Map
 map.options.wheelPxPerZoomLevel = 40; 
-L.tileLayer(baseTileUrl, baseTileOptions).addTo(map);
+const baseTileLayer = L.tileLayer(baseTileUrl, baseTileOptions).addTo(map);
+baseTileLayer.getContainer()?.classList.add(
+  'atlas-physical-map__surface',
+  'atlas-physical-map__surface--middle-earth'
+);
 map.fitBounds(imageBounds);
+initializePhysicalMapFrame({
+  map,
+  imageBounds,
+  options: physicalFrame,
+});
 var sidebar = L.control.sidebar('sidebar').addTo(map);
 initializeStoryMode({ sidebar });
 initializeAtlasFrontispiece({ sidebar });

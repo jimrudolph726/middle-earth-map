@@ -13,7 +13,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/adamanta_chubb.png",
       "groups": [
         "took",
         "hobbits"
@@ -29,7 +28,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/belba_baggins.png",
       "groups": [
         "baggins",
         "hobbits"
@@ -46,7 +44,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/belladonna_took.png",
       "bio": "Belladonna Took bio",
       "groups": [
         "baggins",
@@ -82,7 +79,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/bingo_baggins.png",
       "groups": [
         "baggins",
         "hobbits",
@@ -99,7 +95,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/bodo_proudfoot.png",
       "groups": [
         "baggins",
         "hobbits",
@@ -117,7 +112,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/bungo_baggins.png",
       "bio": "Bilbo Baggins was a Hobbit who lived in The Shire during the final years of the Third Age. His adventure with the dwarves Thorin and Company earned him a fortune, and brought the One Ring of Sauron back into knowledge.",
       "groups": [
         "baggins",
@@ -134,7 +128,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/camellia_sackville.png",
       "groups": [
         "baggins",
         "hobbits",
@@ -151,7 +144,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/chica_chubb.png",
       "groups": [
         "baggins",
         "hobbits"
@@ -168,7 +160,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/gerontius_took.png",
       "bio": "Gerontius Took bio",
       "groups": [
         "took",
@@ -186,7 +177,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/hildibrand_took.png",
       "groups": [
         "took",
         "hobbits"
@@ -203,7 +193,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/hildifons_took.png",
       "groups": [
         "took",
         "hobbits"
@@ -220,7 +209,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/isembard_took.png",
       "groups": [
         "took",
         "hobbits"
@@ -237,7 +225,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/laura_grubb.png",
       "bio": "no bio yet",
       "groups": [
         "baggins",
@@ -255,7 +242,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/linda_baggins.png",
       "groups": [
         "baggins",
         "hobbits"
@@ -271,7 +257,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/longo_baggins.png",
       "groups": [
         "baggins",
         "hobbits"
@@ -288,7 +273,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/mungo_baggins.png",
       "bio": "no bio yet",
       "groups": [
         "baggins",
@@ -306,7 +290,6 @@
       "realm": "The Shire",
       "born": "1000",
       "died": "1200",
-      "image": "assets/rudigar_bolger.png",
       "groups": [
         "hobbits",
         "bolger"

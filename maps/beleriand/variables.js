@@ -37,6 +37,14 @@ export const markerClusterOptions = {
   maxClusterRadius: 44,
 };
 
+export const physicalFrame = {
+  theme: 'beleriand',
+  motif: 'star-wave',
+  ornamentMaxZoom: 16,
+  frameTextureUrl: new URL('./assets/materials/beleriand-frame-metal-v1.webp', import.meta.url).href,
+  frameTextureSize: 220,
+};
+
 const beleriandRoutePalette = Object.freeze({
   journey: '#825b68',
   forests: '#4f675f',

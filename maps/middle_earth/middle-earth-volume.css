@@ -12,6 +12,188 @@ body.middle-earth-volume {
   --middle-earth-road-ink: #654725;
 }
 
+/* The travelling map laid open on a mahogany study desk ------------- */
+
+.middle-earth-volume #map {
+  background-color: #21140e;
+  background-image:
+    radial-gradient(circle at 47% 38%, rgba(211, 153, 82, 0.12), transparent 40%),
+    radial-gradient(ellipse at center, transparent 34%, rgba(10, 5, 3, 0.56) 112%),
+    linear-gradient(136deg, rgba(55, 25, 13, 0.28), rgba(22, 10, 6, 0.5) 58%, rgba(8, 4, 3, 0.64)),
+    url("./assets/materials/middle-earth-mahogany-v1.webp");
+  background-position: center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-size: cover, cover, cover, 1200px 1200px;
+  box-shadow:
+    inset 0 0 160px rgba(8, 3, 2, 0.44),
+    inset 0 0 0 1px rgba(229, 186, 105, 0.07);
+}
+
+.middle-earth-volume .atlas-physical-map__surface--middle-earth {
+  filter:
+    drop-shadow(0 17px 20px rgba(10, 5, 3, 0.44))
+    drop-shadow(0 3px 4px rgba(20, 9, 5, 0.5));
+}
+
+.middle-earth-volume .atlas-physical-frame-pane--middle-earth,
+.middle-earth-volume .atlas-physical-frame-pane--middle-earth * {
+  pointer-events: none;
+}
+
+.middle-earth-volume .atlas-physical-frame__line {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+}
+
+.middle-earth-volume .atlas-physical-frame__line--shadow {
+  stroke: rgba(10, 5, 3, 0.67);
+  stroke-width: 30px;
+  filter: drop-shadow(0 12px 14px rgba(8, 3, 2, 0.58));
+}
+
+.middle-earth-volume .atlas-physical-frame__line--outer {
+  stroke: #29160d;
+  stroke-width: 21px;
+}
+
+.middle-earth-volume .atlas-physical-frame__line--texture {
+  stroke-width: 17px;
+  stroke-opacity: 0.88;
+  filter: drop-shadow(0 1px 0 rgba(237, 201, 130, 0.18));
+}
+
+.middle-earth-volume .atlas-physical-frame__line--rail {
+  stroke: rgba(166, 119, 54, 0.68);
+  stroke-width: 11px;
+  mix-blend-mode: screen;
+}
+
+.middle-earth-volume .atlas-physical-frame__line--patina {
+  stroke: rgba(48, 67, 40, 0.68);
+  stroke-width: 6px;
+}
+
+.middle-earth-volume .atlas-physical-frame__line--highlight {
+  stroke: rgba(222, 184, 107, 0.9);
+  stroke-width: 2px;
+}
+
+.middle-earth-volume .atlas-physical-frame__corner {
+  border: 0;
+  background: transparent;
+  opacity: 0.92;
+  transition: opacity 180ms ease;
+}
+
+.middle-earth-volume .atlas-physical-frame__ornament {
+  display: block;
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 4px 5px rgba(8, 3, 2, 0.62));
+  transform-origin: center;
+}
+
+.middle-earth-volume .atlas-physical-frame__ornament--north-east {
+  transform: rotate(90deg);
+}
+
+.middle-earth-volume .atlas-physical-frame__ornament--south-east {
+  transform: rotate(180deg);
+}
+
+.middle-earth-volume .atlas-physical-frame__ornament--south-west {
+  transform: rotate(270deg);
+}
+
+.middle-earth-volume .atlas-physical-frame__ornament svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.middle-earth-volume .atlas-physical-frame__corner-rail,
+.middle-earth-volume .atlas-physical-frame__corner-highlight,
+.middle-earth-volume .atlas-physical-frame__road {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.middle-earth-volume .atlas-physical-frame__corner-rail {
+  stroke: #9c7338;
+  stroke-width: 4.6px;
+}
+
+.middle-earth-volume .atlas-physical-frame__corner-highlight {
+  stroke: rgba(229, 194, 123, 0.9);
+  stroke-width: 1.15px;
+}
+
+.middle-earth-volume .atlas-physical-frame__rail-stud {
+  fill: #d7ac5d;
+  stroke: #382014;
+  stroke-width: 0.8px;
+}
+
+.middle-earth-volume .atlas-physical-frame__road {
+  stroke: #b48645;
+  stroke-width: 1.55px;
+}
+
+.middle-earth-volume .atlas-physical-frame__road--echo {
+  stroke: rgba(222, 184, 107, 0.62);
+  stroke-width: 0.85px;
+}
+
+.middle-earth-volume .atlas-physical-frame__leaf {
+  fill: #3c5235;
+  stroke: #d2a75b;
+  stroke-linejoin: round;
+  stroke-width: 0.85px;
+}
+
+.middle-earth-volume .atlas-physical-frame__leaf--middle {
+  fill: #526347;
+}
+
+.middle-earth-volume .atlas-physical-frame__leaf--upper {
+  fill: #6a704e;
+}
+
+.middle-earth-volume .atlas-physical-frame__road-pin {
+  fill: #e0ba70;
+  stroke: #432517;
+  stroke-width: 0.75px;
+}
+
+.middle-earth-volume .atlas-physical-frame-pane--detail .atlas-physical-frame__corner {
+  opacity: 0;
+}
+
+@media (max-width: 720px) {
+  .middle-earth-volume .atlas-physical-frame__line--shadow {
+    stroke-width: 22px;
+  }
+
+  .middle-earth-volume .atlas-physical-frame__line--outer {
+    stroke-width: 16px;
+  }
+
+  .middle-earth-volume .atlas-physical-frame__line--texture {
+    stroke-width: 13px;
+  }
+
+  .middle-earth-volume .atlas-physical-frame__line--rail {
+    stroke-width: 9px;
+  }
+
+  .middle-earth-volume .atlas-physical-frame__ornament {
+    scale: 0.78;
+  }
+}
+
 /* Volume cover -------------------------------------------------------- */
 
 .middle-earth-volume-cover {

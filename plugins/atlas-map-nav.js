@@ -26,6 +26,33 @@
   }
 
   function initAtlasMapNav() {
+    const currentPageLinks = Array.from(
+      document.querySelectorAll('.atlas-map-nav__link[aria-current="page"]')
+    );
+
+    currentPageLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const isPlainPrimaryClick = (
+          event.button === 0
+          && !event.altKey
+          && !event.ctrlKey
+          && !event.metaKey
+          && !event.shiftKey
+        );
+
+        if (!isPlainPrimaryClick) return;
+
+        // The current-page pill is still a useful link for copying or opening
+        // in another tab, but an ordinary click should not rebuild the page.
+        event.preventDefault();
+
+        const parentMenu = link.closest(".atlas-map-nav__menu");
+        if (parentMenu) {
+          parentMenu.open = false;
+        }
+      });
+    });
+
     const menus = Array.from(document.querySelectorAll(".atlas-map-nav__menu"));
     if (menus.length === 0) return;
 

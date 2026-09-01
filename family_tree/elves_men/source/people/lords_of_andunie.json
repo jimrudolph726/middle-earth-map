@@ -10,7 +10,6 @@
       "realm": "Gondor",
       "born": "Before S.A. 3316",
       "died": "Sailed west for Rómenna in S.A. 3316, aged 197+, was never heard from again",
-      "image": "assets/amandil.png",
       "groups": [
         "andúnië"
       ],
@@ -26,7 +25,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/eärendur_lord_of_andúnië.png",
       "groups": [
         "andúnië"
       ],
@@ -42,7 +40,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/númendil.png",
       "groups": [
         "andúnië"
       ],
@@ -58,7 +55,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_eight.png",
       "groups": [
         "andúnië"
       ],
@@ -74,7 +70,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_eleven.png",
       "groups": [
         "andúnië"
       ],
@@ -90,7 +85,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_five.png",
       "groups": [
         "andúnië"
       ],
@@ -106,7 +100,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_four.png",
       "groups": [
         "andúnië"
       ],
@@ -122,7 +115,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_fourteen.png",
       "groups": [
         "andúnië"
       ],
@@ -138,7 +130,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_nine.png",
       "groups": [
         "andúnië"
       ],
@@ -154,7 +145,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_one.png",
       "groups": [
         "andúnië"
       ],
@@ -170,7 +160,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_seven.png",
       "groups": [
         "andúnië"
       ],
@@ -186,7 +175,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_six.png",
       "groups": [
         "andúnië"
       ],
@@ -202,7 +190,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_ten.png",
       "groups": [
         "andúnië"
       ],
@@ -218,7 +205,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_thirteen.png",
       "groups": [
         "andúnië"
       ],
@@ -234,7 +220,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_three.png",
       "groups": [
         "andúnië"
       ],
@@ -250,7 +235,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_twelve.png",
       "groups": [
         "andúnië"
       ],
@@ -266,7 +250,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_two.png",
       "groups": [
         "andúnië"
       ],
@@ -282,7 +265,6 @@
       "realm": "Gondor",
       "born": "S.A. 630",
       "died": "Unknown (aged 240+)",
-      "image": "assets/valandil_lord_of_andúnië.png",
       "groups": [
         "andúnië"
       ],
@@ -298,7 +280,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/inzilbêth.png",
       "groups": [
         "andúnië"
       ]
@@ -313,7 +294,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/lindórië.png",
       "groups": [
         "andúnië"
       ]

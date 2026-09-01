@@ -10,7 +10,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-adûnakhôr.png",
       "groups": [
         "númenórean"
       ],
@@ -26,7 +25,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-gimilzôr.png",
       "groups": [
         "númenórean"
       ],
@@ -42,7 +40,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-pharazôn.png",
       "groups": [
         "númenórean"
       ],
@@ -58,7 +55,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-sakalthôr.png",
       "groups": [
         "númenórean"
       ],
@@ -74,7 +70,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-zimrathôn.png",
       "groups": [
         "númenórean"
       ],
@@ -90,7 +85,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ardamir.png",
       "groups": [
         "númenórean"
       ],
@@ -106,7 +100,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/atanalcar.png",
       "groups": [
         "númenórean"
       ],
@@ -122,7 +115,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/aulendil.png",
       "groups": [
         "númenórean"
       ],
@@ -138,7 +130,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/axantur.png",
       "groups": [
         "númenórean"
       ],
@@ -154,7 +145,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/cemendur.png",
       "groups": [
         "númenórean"
       ],
@@ -170,7 +160,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/elatan.png",
       "groups": [
         "númenórean"
       ],
@@ -202,7 +191,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/gimilkhâd.png",
       "groups": [
         "númenórean"
       ],
@@ -218,7 +206,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/hallacar.png",
       "groups": [
         "númenórean"
       ],
@@ -234,7 +221,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/hallatan.png",
       "groups": [
         "númenórean"
       ],
@@ -250,7 +236,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-telperiën.png",
       "groups": [
         "númenórean"
       ],
@@ -266,7 +251,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/isilmo.png",
       "groups": [
         "númenórean"
       ],
@@ -282,7 +266,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/lindissë.png",
       "groups": [
         "númenórean"
       ],
@@ -298,7 +281,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/manwendil.png",
       "groups": [
         "númenórean"
       ],
@@ -314,7 +296,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/nessanië.png",
       "groups": [
         "númenórean"
       ],
@@ -330,7 +311,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/nolondil.png",
       "groups": [
         "númenórean"
       ],
@@ -346,7 +326,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ormendil.png",
       "groups": [
         "númenórean"
       ],
@@ -362,7 +341,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/silmariën.png",
       "groups": [
         "númenórean"
       ],
@@ -378,7 +356,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-alcarin.png",
       "groups": [
         "númenórean"
       ],
@@ -394,7 +371,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-aldarion.png",
       "groups": [
         "númenórean"
       ],
@@ -410,7 +386,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-amandil.png",
       "groups": [
         "númenórean"
       ],
@@ -426,7 +401,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-anárion.png",
       "groups": [
         "númenórean"
       ],
@@ -442,7 +416,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ancalimë.png",
       "groups": [
         "númenórean"
       ],
@@ -458,7 +431,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ancalimon.png",
       "groups": [
         "númenórean"
       ],
@@ -474,7 +446,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ardamin.png",
       "groups": [
         "númenórean"
       ],
@@ -490,7 +461,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-atanamir.png",
       "groups": [
         "númenórean"
       ],
@@ -506,7 +476,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-calmacil.png",
       "groups": [
         "númenórean"
       ],
@@ -522,7 +491,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ciryatan.png",
       "groups": [
         "númenórean"
       ],
@@ -538,7 +506,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-elendil.png",
       "groups": [
         "númenórean"
       ],
@@ -554,7 +521,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-meneldur.png",
       "groups": [
         "númenórean"
       ],
@@ -570,7 +536,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-minastir.png",
       "groups": [
         "númenórean"
       ],
@@ -586,7 +551,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-míriel.png",
       "groups": [
         "númenórean"
       ],
@@ -602,7 +566,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-palantir.png",
       "groups": [
         "númenórean"
       ],
@@ -618,7 +581,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-súrion.png",
       "groups": [
         "númenórean"
       ],
@@ -634,7 +596,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-telemmaitë.png",
       "groups": [
         "númenórean"
       ],
@@ -650,7 +611,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/írildë.png",
       "groups": [
         "númenórean"
       ],
@@ -666,7 +626,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-vanimeldë.png",
       "groups": [
         "númenórean"
       ],
@@ -682,7 +641,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tindómiel.png",
       "groups": [
         "númenórean"
       ],
@@ -698,7 +656,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/two_daughters_of_tar-anárion.png",
       "groups": [
         "númenórean"
       ],
@@ -714,7 +671,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/vardamir.png",
       "groups": [
         "númenórean"
       ],
@@ -730,7 +686,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/vardilmë.png",
       "groups": [
         "númenórean"
       ],
@@ -746,7 +701,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/yávien.png",
       "groups": [
         "númenórean"
       ],
@@ -762,7 +716,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/gimilzagar.png",
       "groups": [
         "númenórean"
       ]
@@ -777,7 +730,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-anducal.png",
       "groups": [
         "númenórean"
       ]

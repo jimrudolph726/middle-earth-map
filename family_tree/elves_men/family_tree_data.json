@@ -66,7 +66,6 @@
       "realm": "Gondor",
       "born": "1330",
       "died": "1540",
-      "image": "assets/aldamir.png",
       "groups": [
         "dúnedain"
       ],
@@ -82,7 +81,6 @@
       "realm": "Gondor",
       "born": "Before S.A. 3316",
       "died": "Sailed west for Rómenna in S.A. 3316, aged 197+, was never heard from again",
-      "image": "assets/amandil.png",
       "groups": [
         "andúnië"
       ],
@@ -98,7 +96,6 @@
       "realm": "Arthedain",
       "born": "726",
       "died": "946",
-      "image": "assets/amlaith.png",
       "groups": [
         "dúnedain"
       ],
@@ -114,7 +111,6 @@
       "realm": "Gondor",
       "born": "136",
       "died": "411",
-      "image": "assets/anardil.png",
       "groups": [
         "dúnedain"
       ],
@@ -130,7 +126,6 @@
       "realm": "Gondor",
       "born": "S.A. 3219",
       "died": "S.A 3440",
-      "image": "assets/anárion.png",
       "groups": [
         "dúnedain"
       ],
@@ -146,7 +141,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-adûnakhôr.png",
       "groups": [
         "númenórean"
       ],
@@ -162,7 +156,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-gimilzôr.png",
       "groups": [
         "númenórean"
       ],
@@ -178,7 +171,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-pharazôn.png",
       "groups": [
         "númenórean"
       ],
@@ -194,7 +186,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-sakalthôr.png",
       "groups": [
         "númenórean"
       ],
@@ -210,7 +201,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ar-zimrathôn.png",
       "groups": [
         "númenórean"
       ],
@@ -226,7 +216,6 @@
       "realm": "Dúnedain of the North",
       "born": "2296",
       "died": "2455",
-      "image": "assets/araglas.png",
       "groups": [
         "dúnedain"
       ],
@@ -242,7 +231,6 @@
       "realm": "Dúnedain of the North",
       "born": "2431",
       "died": "2588",
-      "image": "assets/aragost.png",
       "groups": [
         "dúnedain"
       ],
@@ -258,7 +246,6 @@
       "realm": "Dúnedain of the North",
       "born": "2365",
       "died": "2523",
-      "image": "assets/arahad_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -274,7 +261,6 @@
       "realm": "Dúnedain of the North",
       "born": "2563",
       "died": "2719",
-      "image": "assets/arahad_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -290,7 +276,6 @@
       "realm": "Dúnedain of the North",
       "born": "2012",
       "died": "2177",
-      "image": "assets/arahael.png",
       "bio": "Arahael was the son of Aranarth, and the 2nd Chieftain of the Dúnedain. He was raised by Elrond in Rivendell, while his father protected Eriador from the evils that plagued that area with the help of other Rangers.",
       "groups": [
         "dúnedain"
@@ -324,7 +309,6 @@
       "realm": "Arnor",
       "born": "185",
       "died": "435",
-      "image": "assets/arantar.png",
       "groups": [
         "dúnedain"
       ],
@@ -340,7 +324,6 @@
       "realm": "Arthedain",
       "born": "1789",
       "died": "1964",
-      "image": "assets/araphant.png",
       "groups": [
         "dúnedain"
       ],
@@ -356,7 +339,6 @@
       "realm": "Arthedain",
       "born": "1391",
       "died": "1589",
-      "image": "assets/araphor.png",
       "groups": [
         "dúnedain"
       ],
@@ -372,7 +354,6 @@
       "realm": "Dúnedain of the North",
       "born": "2628",
       "died": "2784",
-      "image": "assets/arassuil.png",
       "groups": [
         "dúnedain"
       ],
@@ -388,7 +369,6 @@
       "realm": "Dúnedain of the North",
       "born": "2693",
       "died": "2848",
-      "image": "assets/arathorn_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -404,7 +384,6 @@
       "realm": "Arthedain",
       "born": "1711",
       "died": "1891",
-      "image": "assets/araval.png",
       "groups": [
         "dúnedain"
       ],
@@ -420,7 +399,6 @@
       "realm": "Dúnedain of the North",
       "born": "2497",
       "died": "2654",
-      "image": "assets/aravorn.png",
       "groups": [
         "dúnedain"
       ],
@@ -435,7 +413,6 @@
       "realm": "Gondor",
       "born": "After T.A. 1684",
       "died": "Unknown",
-      "image": "assets/arciryas.png",
       "groups": [
         "dúnedain"
       ],
@@ -451,7 +428,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ardamir.png",
       "groups": [
         "númenórean"
       ],
@@ -467,7 +443,6 @@
       "realm": "Arthedain",
       "born": "1226",
       "died": "1356",
-      "image": "assets/argeleb_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -483,7 +458,6 @@
       "realm": "Arthedain",
       "born": "1473",
       "died": "1670",
-      "image": "assets/argeleb_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -499,7 +473,6 @@
       "realm": "Dúnedain of the North",
       "born": "2757",
       "died": "2912",
-      "image": "assets/argonui.png",
       "bio": "bio",
       "groups": [
         "dúnedain"
@@ -516,7 +489,6 @@
       "realm": "Arthedain",
       "born": "1864",
       "died": "1974",
-      "image": "assets/arvedui.png",
       "groups": [
         "dúnedain"
       ],
@@ -532,7 +504,6 @@
       "realm": "Arthedain",
       "born": "1553",
       "died": "1743",
-      "image": "assets/arvegil.png",
       "groups": [
         "dúnedain"
       ],
@@ -548,7 +519,6 @@
       "realm": "Arthedain",
       "born": "1309",
       "died": "1409",
-      "image": "assets/arveleg_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -564,7 +534,6 @@
       "realm": "Arthedain",
       "born": "1633",
       "died": "1813",
-      "image": "assets/arveleg_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -580,7 +549,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/atanalcar.png",
       "groups": [
         "númenórean"
       ],
@@ -596,7 +564,6 @@
       "realm": "Gondor",
       "born": "480",
       "died": "758",
-      "image": "assets/atanatar_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -612,7 +579,6 @@
       "realm": "Gondor",
       "born": "977",
       "died": "1226",
-      "image": "assets/atanatar_second_alcarin.png",
       "groups": [
         "dúnedain"
       ],
@@ -628,7 +594,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/aulendil.png",
       "groups": [
         "númenórean"
       ],
@@ -644,7 +609,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/axantur.png",
       "groups": [
         "númenórean"
       ],
@@ -660,7 +624,6 @@
       "realm": "Arthedain",
       "born": "811",
       "died": "1029",
-      "image": "assets/beleg.png",
       "groups": [
         "dúnedain"
       ],
@@ -676,7 +639,6 @@
       "realm": "Gondor",
       "born": "1736",
       "died": "1936",
-      "image": "assets/calimehtar_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -691,7 +653,6 @@
       "realm": "Gondor",
       "born": "After T.A. 1126",
       "died": "Unknown",
-      "image": "assets/calimehtar_son_of_calmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -706,7 +667,6 @@
       "realm": "Gondor",
       "born": "Mid-18th century T.A.",
       "died": "Unknown",
-      "image": "assets/calimmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -722,7 +682,6 @@
       "realm": "Gondor",
       "born": "1058",
       "died": "1304",
-      "image": "assets/calmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -738,7 +697,6 @@
       "realm": "Gondor",
       "born": "1259",
       "died": "1447",
-      "image": "assets/castamir.png",
       "groups": [
         "dúnedain"
       ],
@@ -754,7 +712,6 @@
       "realm": "Arthedain",
       "born": "1062",
       "died": "1272",
-      "image": "assets/celebrindor.png",
       "groups": [
         "dúnedain"
       ],
@@ -770,7 +727,6 @@
       "realm": "Arthedain",
       "born": "979",
       "died": "1191",
-      "image": "assets/celepharn.png",
       "groups": [
         "dúnedain"
       ],
@@ -786,7 +742,6 @@
       "realm": "Gondor",
       "born": "S.A. 3399",
       "died": "T.A. 239",
-      "image": "assets/cemendur.png",
       "groups": [
         "dúnedain"
       ],
@@ -802,7 +757,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/cemendur.png",
       "groups": [
         "númenórean"
       ],
@@ -818,7 +772,6 @@
       "realm": "Gondor",
       "born": "820",
       "died": "1015",
-      "image": "assets/ciryandil.png",
       "groups": [
         "dúnedain"
       ],
@@ -834,7 +787,6 @@
       "realm": "Gondor",
       "born": "48",
       "died": "324",
-      "image": "assets/eärendil_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -850,7 +802,6 @@
       "realm": "Arnor",
       "born": "640",
       "died": "861",
-      "image": "assets/eärendur.png",
       "groups": [
         "dúnedain"
       ],
@@ -866,7 +817,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/eärendur_lord_of_andúnië.png",
       "groups": [
         "andúnië"
       ],
@@ -882,7 +832,6 @@
       "realm": "Gondor",
       "born": "736",
       "died": "936",
-      "image": "assets/eärnil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -898,7 +847,6 @@
       "realm": "Gondor",
       "born": "1883",
       "died": "2043",
-      "image": "assets/eärnil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -914,7 +862,6 @@
       "realm": "Gondor",
       "born": "1928",
       "died": "2050",
-      "image": "assets/eärnur.png",
       "groups": [
         "dúnedain"
       ],
@@ -930,7 +877,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/elatan.png",
       "groups": [
         "númenórean"
       ],
@@ -946,7 +892,6 @@
       "realm": "Arnor",
       "born": "87",
       "died": "339",
-      "image": "assets/eldacar.png",
       "groups": [
         "dúnedain"
       ],
@@ -962,7 +907,6 @@
       "realm": "Gondor",
       "born": "1255",
       "died": "1490",
-      "image": "assets/eldacar_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -978,7 +922,6 @@
       "realm": "Arnor",
       "born": "S.A. 3119",
       "died": "S.A 3441",
-      "image": "assets/elendil.png",
       "groups": [
         "dúnedain"
       ],
@@ -994,7 +937,6 @@
       "realm": "Arnor",
       "born": "552",
       "died": "777",
-      "image": "assets/elendur.png",
       "groups": [
         "dúnedain"
       ],
@@ -1044,7 +986,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/firiel.png",
       "groups": [
         "dúnedain"
       ],
@@ -1077,7 +1018,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/gimilkhâd.png",
       "groups": [
         "númenórean"
       ],
@@ -1093,7 +1033,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/hallacar.png",
       "groups": [
         "númenórean"
       ],
@@ -1109,7 +1048,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/hallatan.png",
       "groups": [
         "númenórean"
       ],
@@ -1125,7 +1063,6 @@
       "realm": "Gondor",
       "born": "640",
       "died": "1149",
-      "image": "assets/hyarmendacil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -1141,7 +1078,6 @@
       "realm": "Gondor",
       "born": "1391",
       "died": "1621",
-      "image": "assets/hyarmendacil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -1157,7 +1093,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-telperiën.png",
       "groups": [
         "númenórean"
       ],
@@ -1173,7 +1108,6 @@
       "realm": "Arnor",
       "born": "S.A. 3209",
       "died": "T.A. 2",
-      "image": "assets/isildur.png",
       "groups": [
         "dúnedain"
       ],
@@ -1189,7 +1123,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/isilmo.png",
       "groups": [
         "númenórean"
       ],
@@ -1205,7 +1138,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/lindissë.png",
       "groups": [
         "númenórean"
       ],
@@ -1221,7 +1153,6 @@
       "realm": "Arthedain",
       "born": "895",
       "died": "1110",
-      "image": "assets/mallor.png",
       "groups": [
         "dúnedain"
       ],
@@ -1237,7 +1168,6 @@
       "realm": "Arthedain",
       "born": "1144",
       "died": "1349",
-      "image": "assets/malvegil.png",
       "groups": [
         "dúnedain"
       ],
@@ -1253,7 +1183,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/manwendil.png",
       "groups": [
         "númenórean"
       ],
@@ -1269,7 +1198,6 @@
       "realm": "Gondor",
       "born": "S.A. 3318",
       "died": "T.A. 158",
-      "image": "assets/meneldil.png",
       "groups": [
         "dúnedain"
       ],
@@ -1285,7 +1213,6 @@
       "realm": "Gondor",
       "born": "1454",
       "died": "1634",
-      "image": "assets/minardil.png",
       "groups": [
         "dúnedain"
       ],
@@ -1300,7 +1227,6 @@
       "realm": "Gondor",
       "born": "After T.A. 1516",
       "died": "Unknown",
-      "image": "assets/minastan.png",
       "groups": [
         "dúnedain"
       ],
@@ -1316,7 +1242,6 @@
       "realm": "Gondor",
       "born": "1049",
       "died": "1294",
-      "image": "assets/narmacil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -1332,7 +1257,6 @@
       "realm": "Gondor",
       "born": "1684",
       "died": "1856",
-      "image": "assets/narmacil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -1348,7 +1272,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/nessanië.png",
       "groups": [
         "númenórean"
       ],
@@ -1364,7 +1287,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/nolondil.png",
       "groups": [
         "númenórean"
       ],
@@ -1380,7 +1302,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/númendil.png",
       "groups": [
         "andúnië"
       ],
@@ -1396,7 +1317,6 @@
       "realm": "Gondor",
       "born": "1787",
       "died": "1944",
-      "image": "assets/ondoher.png",
       "groups": [
         "dúnedain"
       ],
@@ -1412,7 +1332,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/ormendil.png",
       "groups": [
         "númenórean"
       ],
@@ -1428,7 +1347,6 @@
       "realm": "Gondor",
       "born": "222",
       "died": "492",
-      "image": "assets/ostoher.png",
       "groups": [
         "dúnedain"
       ],
@@ -1444,7 +1362,6 @@
       "realm": "Gondor",
       "born": "310",
       "died": "541",
-      "image": "assets/rómendacil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -1460,7 +1377,6 @@
       "realm": "Gondor",
       "born": "1126",
       "died": "1366",
-      "image": "assets/rómendacil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -1476,7 +1392,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/silmariën.png",
       "groups": [
         "númenórean"
       ],
@@ -1492,7 +1407,6 @@
       "realm": "Gondor",
       "born": "570",
       "died": "830",
-      "image": "assets/siriondil_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -1507,7 +1421,6 @@
       "realm": "Gondor",
       "born": "Before T.A. 1883",
       "died": "Before or around T.A. 1944",
-      "image": "assets/siriondil_son_of_calimmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -1523,7 +1436,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-alcarin.png",
       "groups": [
         "númenórean"
       ],
@@ -1539,7 +1451,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-aldarion.png",
       "groups": [
         "númenórean"
       ],
@@ -1555,7 +1466,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-amandil.png",
       "groups": [
         "númenórean"
       ],
@@ -1571,7 +1481,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-anárion.png",
       "groups": [
         "númenórean"
       ],
@@ -1587,7 +1496,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ancalimë.png",
       "groups": [
         "númenórean"
       ],
@@ -1603,7 +1511,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ancalimon.png",
       "groups": [
         "númenórean"
       ],
@@ -1619,7 +1526,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ardamin.png",
       "groups": [
         "númenórean"
       ],
@@ -1635,7 +1541,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-atanamir.png",
       "groups": [
         "númenórean"
       ],
@@ -1651,7 +1556,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-calmacil.png",
       "groups": [
         "númenórean"
       ],
@@ -1667,7 +1571,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-ciryatan.png",
       "groups": [
         "númenórean"
       ],
@@ -1683,7 +1586,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-elendil.png",
       "groups": [
         "númenórean"
       ],
@@ -1699,7 +1601,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-meneldur.png",
       "groups": [
         "númenórean"
       ],
@@ -1715,7 +1616,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-minastir.png",
       "groups": [
         "númenórean"
       ],
@@ -1731,7 +1631,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-míriel.png",
       "groups": [
         "númenórean"
       ],
@@ -1747,7 +1646,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-palantir.png",
       "groups": [
         "númenórean"
       ],
@@ -1763,7 +1661,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-súrion.png",
       "groups": [
         "númenórean"
       ],
@@ -1779,7 +1676,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-telemmaitë.png",
       "groups": [
         "númenórean"
       ],
@@ -1795,7 +1691,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/írildë.png",
       "groups": [
         "númenórean"
       ],
@@ -1811,7 +1706,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-vanimeldë.png",
       "groups": [
         "númenórean"
       ],
@@ -1827,7 +1721,6 @@
       "realm": "Gondor",
       "born": "654",
       "died": "913",
-      "image": "assets/tarannon_falastur.png",
       "groups": [
         "dúnedain"
       ],
@@ -1843,7 +1736,6 @@
       "realm": "Arnor",
       "born": "280",
       "died": "515",
-      "image": "assets/tarcil.png",
       "groups": [
         "dúnedain"
       ],
@@ -1858,7 +1750,6 @@
       "realm": "Gondor",
       "born": "After T.A. 65",
       "died": "Before T.A. 913",
-      "image": "assets/tarciryan.png",
       "groups": [
         "dúnedain"
       ],
@@ -1874,7 +1765,6 @@
       "realm": "Arnor",
       "born": "372",
       "died": "602",
-      "image": "assets/tarondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -1890,7 +1780,6 @@
       "realm": "Gondor",
       "born": "1577",
       "died": "1798",
-      "image": "assets/tarondor_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -1906,7 +1795,6 @@
       "realm": "Gondor",
       "born": "1516",
       "died": "1636",
-      "image": "assets/telemnar.png",
       "groups": [
         "dúnedain"
       ],
@@ -1922,7 +1810,6 @@
       "realm": "Gondor",
       "born": "1632",
       "died": "1850",
-      "image": "assets/telumehtar_umbardacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -1938,7 +1825,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tindómiel.png",
       "groups": [
         "númenórean"
       ],
@@ -1954,7 +1840,6 @@
       "realm": "Gondor",
       "born": "397",
       "died": "667",
-      "image": "assets/turambar.png",
       "groups": [
         "dúnedain"
       ],
@@ -1970,7 +1855,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/two_daughters_of_tar-anárion.png",
       "groups": [
         "númenórean"
       ],
@@ -1986,7 +1870,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_eight.png",
       "groups": [
         "andúnië"
       ],
@@ -2002,7 +1885,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_eleven.png",
       "groups": [
         "andúnië"
       ],
@@ -2018,7 +1900,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_five.png",
       "groups": [
         "andúnië"
       ],
@@ -2034,7 +1915,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_four.png",
       "groups": [
         "andúnië"
       ],
@@ -2050,7 +1930,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_fourteen.png",
       "groups": [
         "andúnië"
       ],
@@ -2066,7 +1945,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_nine.png",
       "groups": [
         "andúnië"
       ],
@@ -2082,7 +1960,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_one.png",
       "groups": [
         "andúnië"
       ],
@@ -2098,7 +1975,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_seven.png",
       "groups": [
         "andúnië"
       ],
@@ -2114,7 +1990,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_six.png",
       "groups": [
         "andúnië"
       ],
@@ -2130,7 +2005,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_ten.png",
       "groups": [
         "andúnië"
       ],
@@ -2146,7 +2020,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_thirteen.png",
       "groups": [
         "andúnië"
       ],
@@ -2162,7 +2035,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_three.png",
       "groups": [
         "andúnië"
       ],
@@ -2178,7 +2050,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_twelve.png",
       "groups": [
         "andúnië"
       ],
@@ -2194,7 +2065,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/unknown_lord_of_andúnië_two.png",
       "groups": [
         "andúnië"
       ],
@@ -2210,7 +2080,6 @@
       "realm": "Gondor",
       "born": "1194",
       "died": "1432",
-      "image": "assets/valacar.png",
       "groups": [
         "dúnedain"
       ],
@@ -2226,7 +2095,6 @@
       "realm": "Arnor",
       "born": "S.A. 3430",
       "died": "T.A. 249",
-      "image": "assets/valandil.png",
       "groups": [
         "dúnedain"
       ],
@@ -2242,7 +2110,6 @@
       "realm": "Gondor",
       "born": "S.A. 630",
       "died": "Unknown (aged 240+)",
-      "image": "assets/valandil_lord_of_andúnië.png",
       "groups": [
         "andúnië"
       ],
@@ -2258,7 +2125,6 @@
       "realm": "Arnor",
       "born": "462",
       "died": "652",
-      "image": "assets/valandur.png",
       "groups": [
         "dúnedain"
       ],
@@ -2274,7 +2140,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/vardamir.png",
       "groups": [
         "númenórean"
       ],
@@ -2290,7 +2155,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/vardilmë.png",
       "groups": [
         "númenórean"
       ],
@@ -2306,7 +2170,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/yávien.png",
       "groups": [
         "númenórean"
       ],
@@ -2322,7 +2185,6 @@
       "realm": "Dúnedain of the North",
       "born": "2227",
       "died": "2327",
-      "image": "assets/aragorn_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -2338,7 +2200,6 @@
       "realm": "Dúnedain of the North",
       "born": "2084",
       "died": "2247",
-      "image": "assets/aranuir.png",
       "groups": [
         "dúnedain"
       ],
@@ -2354,7 +2215,6 @@
       "realm": "Dúnedain of the North",
       "born": "2156",
       "died": "2319",
-      "image": "assets/aravir.png",
       "groups": [
         "dúnedain"
       ],
@@ -2514,7 +2374,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/gimilzagar.png",
       "groups": [
         "númenórean"
       ]
@@ -2529,7 +2388,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/inzilbêth.png",
       "groups": [
         "andúnië"
       ]
@@ -2544,7 +2402,6 @@
       "realm": "Gondor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/lindórië.png",
       "groups": [
         "andúnië"
       ]
@@ -2559,7 +2416,6 @@
       "realm": "Númenor",
       "born": "Unknown",
       "died": "Unknown",
-      "image": "assets/tar-anducal.png",
       "groups": [
         "númenórean"
       ]

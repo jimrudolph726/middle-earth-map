@@ -44,6 +44,25 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/*
+ * Material Icons are authored as ligature words (for example,
+ * "account_tree"). During the font's block/swap window, browsers otherwise
+ * measure that whole fallback word and briefly stretch the navigation pills.
+ * Give every atlas-nav icon its final glyph box up front so loading the font
+ * can never change the pill geometry.
+ */
+.atlas-map-nav .material-icons {
+  box-sizing: border-box;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
 @font-face {
   font-family: "Material Symbols Outlined";
   font-style: normal;

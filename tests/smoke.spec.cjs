@@ -64,6 +64,21 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   await expect(page.getByText(/Welcome to Bilbo's study/i)).toBeVisible();
   await expect(page.getByRole("link", { name: /Begin with Middle-earth/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /Unofficial fan project.*Credits & provenance/i })).toBeVisible();
+  await expect(page.locator('link[rel="preload"][as="image"][href="assets/bag_end_study.webp"]')).toHaveCount(1);
+
+  const studyImage = page.locator(".splash-table__image");
+  await expect(studyImage).toBeVisible();
+  await expect(studyImage).toHaveAttribute("src", "assets/bag_end_study.webp");
+  await studyImage.evaluate((image) => image.decode());
+  expect(await studyImage.evaluate((image) => ({
+    complete: image.complete,
+    naturalWidth: image.naturalWidth,
+    naturalHeight: image.naturalHeight,
+  }))).toEqual({
+    complete: true,
+    naturalWidth: 2304,
+    naturalHeight: 1296,
+  });
 
   const homepageLinks = [
     /Open the Middle-earth map/i,
@@ -77,6 +92,21 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   for (const linkName of homepageLinks) {
     await expect(page.getByRole("link", { name: linkName })).toBeVisible();
   }
+});
+
+test("the current Home pill does not reload an already-open homepage", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.evaluate(() => {
+    window.__atlasHomepageDocumentWasRetained = true;
+  });
+
+  await page.locator('.atlas-map-nav__link[aria-current="page"]').click();
+  await page.waitForTimeout(150);
+
+  expect(page.url()).toMatch(/\/$/);
+  expect(await page.evaluate(() => window.__atlasHomepageDocumentWasRetained)).toBe(true);
+  await expect(page.getByRole("heading", { name: "Tolkien Legendarium Atlas" })).toBeVisible();
+  await expect(page.locator(".splash-table__image")).toBeVisible();
 });
 
 test("primary pages share the themed pill navigation", async ({ page }) => {
@@ -93,6 +123,7 @@ test("primary pages share the themed pill navigation", async ({ page }) => {
     const navigation = page.locator(".atlas-map-nav");
     await expect(navigation, `${pagePath} should expose the atlas navigation.`).toBeVisible();
     await expect(page.locator(".atlas-map-nav--bookshelf")).toHaveCount(0);
+    await expect(page.locator('link[rel="preload"][href*="material-icons-v145.woff2"]')).toHaveCount(1);
 
     const pillStyles = await navigation.locator(
       ":scope > .atlas-map-nav__link, :scope > .atlas-map-nav__menu > .atlas-map-nav__toggle"
@@ -105,6 +136,27 @@ test("primary pages share the themed pill navigation", async ({ page }) => {
 
     expect(pillStyles.length).toBeGreaterThanOrEqual(3);
     expect(pillStyles.every(({ radius }) => radius === "999px")).toBe(true);
+
+    const iconStyles = await navigation.locator(".material-icons").evaluateAll((icons) => icons.map((icon) => {
+      const style = getComputedStyle(icon);
+      return {
+        width: style.width,
+        minWidth: style.minWidth,
+        height: style.height,
+        flexBasis: style.flexBasis,
+        overflow: style.overflow,
+      };
+    }));
+
+    expect(iconStyles.length).toBeGreaterThanOrEqual(5);
+    expect(iconStyles.every((style) => (
+      style.width === "20px"
+      && style.minWidth === "20px"
+      && style.height === "20px"
+      && style.flexBasis === "20px"
+      && style.overflow === "hidden"
+    ))).toBe(true);
+
     await expect(navigation.locator("[data-book-kicker], .atlas-map-nav__bookmark")).toHaveCount(0);
     await expect(navigation.locator(".atlas-map-nav__chevron")).toHaveCount(2);
 
@@ -119,6 +171,31 @@ test("primary pages share the themed pill navigation", async ({ page }) => {
       "Minas Tirith",
     ]);
   }
+});
+
+test("navigation pill geometry is stable while the icon font is unavailable", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.evaluate(() => document.fonts.ready);
+
+  const pills = page.locator(
+    ".atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle"
+  );
+  const loadedFontWidths = await pills.evaluateAll((elements) => (
+    elements.map((element) => element.getBoundingClientRect().width)
+  ));
+
+  await page.addStyleTag({
+    content: '.atlas-map-nav .material-icons { font-family: Arial, sans-serif !important; }',
+  });
+
+  const fallbackFontWidths = await pills.evaluateAll((elements) => (
+    elements.map((element) => element.getBoundingClientRect().width)
+  ));
+
+  expect(fallbackFontWidths).toHaveLength(loadedFontWidths.length);
+  fallbackFontWidths.forEach((width, index) => {
+    expect(Math.abs(width - loadedFontWidths[index])).toBeLessThan(0.1);
+  });
 });
 
 test("the atlas pills and volume menu stay inside a phone viewport", async ({ page }) => {
@@ -164,6 +241,15 @@ test("about page presents the disclaimer and provenance ledger", async ({ page }
     await expect(page.getByRole("heading", { level: 2, name: heading })).toBeAttached();
   }
 
+  await expect(page.getByRole("heading", { level: 3, name: "Beleriand physical-volume materials" })).toBeAttached();
+  await expect(page.getByRole("link", { name: "Rough Linen archival cloth" })).toHaveAttribute(
+    "href",
+    "https://polyhaven.com/a/rough_linen"
+  );
+  await expect(page.getByRole("link", { name: "Blue Metal Plate frame patina" })).toHaveAttribute(
+    "href",
+    "https://polyhaven.com/a/blue_metal_plate"
+  );
   await expect(page.getByRole("link", { name: /Return to Bilbo's study/i })).toHaveAttribute("href", "index.html");
 });
 
@@ -217,12 +303,64 @@ test("compact maps wire the sidebar groups declared by each page", async ({ page
 });
 
 test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) => {
+  const materialAssets = [
+    { path: "/maps/beleriand/assets/materials/beleriand-cloth-v1.webp", maximumBytes: 300_000 },
+    { path: "/maps/beleriand/assets/materials/beleriand-frame-metal-v1.webp", maximumBytes: 20_000 },
+  ];
+
+  for (const asset of materialAssets) {
+    const response = await page.request.get(asset.path);
+    expect(response.ok(), `${asset.path} should be served successfully.`).toBe(true);
+    expect(response.headers()["content-type"]).toContain("image/webp");
+    expect((await response.body()).length).toBeLessThan(asset.maximumBytes);
+  }
+
   await page.goto("/maps/beleriand/beleriand.html", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "beleriand");
   await expect(page.locator("#frontispiece")).toHaveClass(/active/);
   await expect(page.locator("[data-beleriand-pane]")).toHaveCount(3);
   await expect(page.locator("[data-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
+
+  const physicalMapSurface = page.locator(".atlas-physical-map__surface--beleriand");
+  const physicalFramePane = page.locator(".atlas-physical-frame-pane--beleriand");
+  await expect(physicalMapSurface).toBeVisible();
+  await expect(physicalFramePane).toHaveCount(1);
+  await expect(page.locator(".atlas-physical-frame__line")).toHaveCount(6);
+  await expect(page.locator(".atlas-physical-frame__corner")).toHaveCount(4);
+
+  const physicalVolumeSurface = await page.locator("#map").evaluate((mapElement) => {
+    const framePane = document.querySelector(".atlas-physical-frame-pane--beleriand");
+    const mapSurface = document.querySelector(".atlas-physical-map__surface--beleriand");
+    const shadowLine = document.querySelector(".atlas-physical-frame__line--shadow");
+    const textureLine = document.querySelector(".atlas-physical-frame__line--texture");
+    const textureImage = document.querySelector("#atlas-physical-frame-texture-beleriand image");
+
+    return {
+      backgroundColor: getComputedStyle(mapElement).backgroundColor,
+      backgroundImage: getComputedStyle(mapElement).backgroundImage,
+      backgroundSize: getComputedStyle(mapElement).backgroundSize,
+      framePointerEvents: getComputedStyle(framePane).pointerEvents,
+      frameTextureHref: textureImage?.getAttribute("href"),
+      mapSurfaceFilter: getComputedStyle(mapSurface).filter,
+      shadowWidth: getComputedStyle(shadowLine).strokeWidth,
+      textureStroke: getComputedStyle(textureLine).stroke,
+    };
+  });
+
+  expect(physicalVolumeSurface.backgroundColor).toBe("rgb(16, 25, 32)");
+  expect(physicalVolumeSurface.backgroundImage).toContain("beleriand-cloth-v1.webp");
+  expect(physicalVolumeSurface.backgroundSize).toContain("620px 620px");
+  expect(physicalVolumeSurface.framePointerEvents).toBe("none");
+  expect(physicalVolumeSurface.frameTextureHref).toContain("beleriand-frame-metal-v1.webp");
+  expect(physicalVolumeSurface.mapSurfaceFilter).toContain("drop-shadow");
+  expect(physicalVolumeSurface.shadowWidth).toBe("30px");
+  expect(physicalVolumeSurface.textureStroke).toContain("atlas-physical-frame-texture-beleriand");
+
+  await page.getByRole("button", { name: "Zoom in" }).click();
+  await expect(physicalFramePane).toHaveClass(/atlas-physical-frame-pane--detail/);
+  await page.getByRole("button", { name: "Zoom out" }).click();
+  await expect(physicalFramePane).not.toHaveClass(/atlas-physical-frame-pane--detail/);
 
   await page.getByRole("button", { name: /Enter the Lost Realms/i }).click();
   await expect(page.locator("#settlements")).toHaveClass(/active/);
@@ -313,6 +451,18 @@ test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
 });
 
 test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) => {
+  const materialAssets = [
+    { path: "/maps/middle_earth/assets/materials/middle-earth-mahogany-v1.webp", maximumBytes: 250_000 },
+    { path: "/maps/middle_earth/assets/materials/middle-earth-frame-brass-v1.webp", maximumBytes: 40_000 },
+  ];
+
+  for (const asset of materialAssets) {
+    const response = await page.request.get(asset.path);
+    expect(response.ok(), `${asset.path} should be served successfully.`).toBe(true);
+    expect(response.headers()["content-type"]).toContain("image/webp");
+    expect((await response.body()).length).toBeLessThan(asset.maximumBytes);
+  }
+
   await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "middle-earth");
@@ -330,6 +480,42 @@ test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) =>
   expect(coverTiming.delay).toBe("3s");
   expect(coverTiming.duration).toBe("0.76s");
   await expect(page.locator("[data-middle-earth-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
+
+  const physicalMapSurface = page.locator(".atlas-physical-map__surface--middle-earth");
+  const physicalFramePane = page.locator(".atlas-physical-frame-pane--middle-earth");
+  await expect(physicalMapSurface).toHaveCount(1);
+  await expect(physicalFramePane).toHaveCount(1);
+  await expect(page.locator(".atlas-physical-frame__line")).toHaveCount(6);
+  await expect(page.locator(".atlas-physical-frame__corner")).toHaveCount(4);
+  await expect(page.locator(".atlas-physical-frame__leaf")).toHaveCount(12);
+
+  const physicalVolumeSurface = await page.locator("#map").evaluate((mapElement) => {
+    const framePane = document.querySelector(".atlas-physical-frame-pane--middle-earth");
+    const mapSurface = document.querySelector(".atlas-physical-map__surface--middle-earth");
+    const textureLine = document.querySelector(".atlas-physical-frame__line--texture");
+    const textureImage = document.querySelector("#atlas-physical-frame-texture-middle-earth image");
+
+    return {
+      backgroundColor: getComputedStyle(mapElement).backgroundColor,
+      backgroundImage: getComputedStyle(mapElement).backgroundImage,
+      framePointerEvents: getComputedStyle(framePane).pointerEvents,
+      frameTextureHref: textureImage?.getAttribute("href"),
+      mapSurfaceFilter: getComputedStyle(mapSurface).filter,
+      textureStroke: getComputedStyle(textureLine).stroke,
+    };
+  });
+
+  expect(physicalVolumeSurface.backgroundColor).toBe("rgb(33, 20, 14)");
+  expect(physicalVolumeSurface.backgroundImage).toContain("middle-earth-mahogany-v1.webp");
+  expect(physicalVolumeSurface.framePointerEvents).toBe("none");
+  expect(physicalVolumeSurface.frameTextureHref).toContain("middle-earth-frame-brass-v1.webp");
+  expect(physicalVolumeSurface.mapSurfaceFilter).toContain("drop-shadow");
+  expect(physicalVolumeSurface.textureStroke).toContain("atlas-physical-frame-texture-middle-earth");
+
+  await page.getByRole("button", { name: "Zoom in" }).click();
+  await expect(physicalFramePane).toHaveClass(/atlas-physical-frame-pane--detail/);
+  await page.getByRole("button", { name: "Zoom out" }).click();
+  await expect(physicalFramePane).not.toHaveClass(/atlas-physical-frame-pane--detail/);
 
   const middleEarthPillBackgrounds = await page.locator(
     '.atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle'
@@ -524,9 +710,15 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
     { tabName: /Creatures & Beings/i, checkboxId: "spidersCheckbox", layerType: "marker" },
     { tabName: /Regions/i, checkboxId: "large_regionsCheckbox", layerType: "canvas" }
   ];
+  let activeTabName = null;
 
   for (const { tabName, checkboxId, layerType } of checkboxChecks) {
-    await page.getByRole("tab", { name: tabName }).click();
+    const tabNameKey = tabName.toString();
+
+    if (activeTabName !== tabNameKey) {
+      await page.getByRole("tab", { name: tabName }).click();
+      activeTabName = tabNameKey;
+    }
 
     const checkbox = page.locator(`#${checkboxId}`);
     await expect(checkbox).toBeVisible();
@@ -618,23 +810,67 @@ test("atlas sounds respond to controls, layers, and stories", async ({ page }) =
 test("family tree renders and opens a character sheet", async ({ page }) => {
   await page.goto("/family_tree/family_tree.html", { waitUntil: "domcontentloaded" });
 
-  await expect(page.locator(".family-tree-canvas")).toBeVisible();
-  const treeNodes = page.locator(".family-tree-node");
-
-  await expect.poll(async () => treeNodes.count(), {
-    timeout: 30_000,
-    message: "Expected the family tree to render at least one character node."
-  }).toBeGreaterThan(0);
-
-  await page.getByRole("searchbox", { name: /Search current view/i }).fill("Aragorn");
-  await page.locator('.tree-search-result[data-person-id="aragorn_second"]').click();
+  await expect(page.getByRole("heading", { name: /Whose tale shall we follow/i })).toBeVisible();
+  await page.getByRole("button", { name: /Find a person/i }).click();
+  await page.getByRole("searchbox", { name: /Search this family volume/i }).fill("Aragorn");
+  await page.locator('[data-welcome-person-id="aragorn_second"]').click();
 
   await expect(page.locator("#character-sheet")).toBeVisible();
   await expect(page.locator("#character-sheet-content h1")).toHaveText(/Aragorn II Elessar/i);
+  await expect(page.locator("#character-sheet-content img")).toHaveAttribute("src", /aragorn_second\.png$/);
+});
+
+test("family tree welcome offers three clear opening paths and readable lineage chapters", async ({ page }) => {
+  await page.goto("/family_tree/family_tree.html?family=elves-men", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("#tree-welcome")).toBeVisible();
+  await expect(page.getByRole("button", { name: /Explore a lineage/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Find a person/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: /View the complete genealogy/i })).toBeVisible();
+
+  await page.getByRole("button", { name: /Explore a lineage/i }).click();
+  await page.getByRole("button", { name: /Kings of Arnor/i }).click();
+
+  await expect(page.locator("#tree-welcome")).toBeHidden();
+  await expect(page.locator("#tree-view-title")).toHaveText("Kings of Arnor");
+  await expect.poll(async () => page.locator(".family-tree-node").count(), {
+    timeout: 30_000,
+    message: "Expected the selected lineage chapter to render character nodes."
+  }).toBeGreaterThan(0);
+
+  const renderedCardWidth = await page.locator(".family-tree-node__card").first().evaluate((card) => card.getBoundingClientRect().width);
+  expect(renderedCardWidth).toBeGreaterThan(80);
+});
+
+test("family tree uses initials medallions for people without portrait artwork", async ({ page }) => {
+  await page.goto("/family_tree/family_tree.html?family=elves-men", { waitUntil: "domcontentloaded" });
+
+  await page.getByRole("button", { name: /Find a person/i }).click();
+  await page.getByRole("searchbox", { name: /Search this family volume/i }).fill("Aldamir");
+  await page.locator('[data-welcome-person-id="aldamir"]').click();
+
+  await expect(page.locator("#character-sheet")).toBeVisible();
+  await expect(page.locator("#character-sheet-content img")).toHaveAttribute("src", /^data:image\/svg\+xml/);
+});
+
+test("family tree controls use a compact drawer on phones", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/family_tree/family_tree.html?family=hobbits&view=hobbit_baggins", { waitUntil: "domcontentloaded" });
+
+  const toggle = page.getByRole("button", { name: /Browse tree/i });
+  await expect(toggle).toBeVisible();
+  await expect(page.locator("#tree-view-panel")).not.toHaveClass(/is-open/);
+
+  await toggle.click();
+  await expect(page.locator("#tree-view-panel")).toHaveClass(/is-open/);
+  await expect(page.getByRole("button", { name: /Close family tree controls/i })).toBeVisible();
+
+  await page.getByRole("button", { name: /Close family tree controls/i }).click();
+  await expect(page.locator("#tree-view-panel")).not.toHaveClass(/is-open/);
 });
 
 test("family tree family groups filter switch view options", async ({ page }) => {
-  await page.goto("/family_tree/family_tree.html?family=elves-men", { waitUntil: "domcontentloaded" });
+  await page.goto("/family_tree/family_tree.html?family=elves-men&view=all_lineages", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("#tree-view option")).toHaveText([
     "All Lineages",
@@ -651,7 +887,7 @@ test("family tree family groups filter switch view options", async ({ page }) =>
     message: "Expected the Kings of Arnor view to render at least one character node."
   }).toBeGreaterThan(0);
 
-  await page.goto("/family_tree/family_tree.html?family=hobbits", { waitUntil: "domcontentloaded" });
+  await page.goto("/family_tree/family_tree.html?family=hobbits&view=all_hobbit_families", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("#tree-view option")).toHaveText([
     "All Hobbit Families",

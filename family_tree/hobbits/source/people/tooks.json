@@ -10,7 +10,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/adamanta_chubb.png",
       "groups": [
         "took",
         "hobbits"
@@ -27,7 +26,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/belladonna_took.png",
       "bio": "Belladonna Took bio",
       "groups": [
         "baggins",
@@ -46,7 +44,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/gerontius_took.png",
       "bio": "Gerontius Took bio",
       "groups": [
         "took",
@@ -64,7 +61,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/hildibrand_took.png",
       "groups": [
         "took",
         "hobbits"
@@ -81,7 +77,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/hildifons_took.png",
       "groups": [
         "took",
         "hobbits"
@@ -98,7 +93,6 @@
       "realm": "The Shire",
       "born": "1938",
       "died": "2106",
-      "image": "assets/isembard_took.png",
       "groups": [
         "took",
         "hobbits"

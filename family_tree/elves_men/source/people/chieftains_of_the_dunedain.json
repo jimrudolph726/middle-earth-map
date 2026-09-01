@@ -10,7 +10,6 @@
       "realm": "Dúnedain of the North",
       "born": "2296",
       "died": "2455",
-      "image": "assets/araglas.png",
       "groups": [
         "dúnedain"
       ],
@@ -26,7 +25,6 @@
       "realm": "Dúnedain of the North",
       "born": "2431",
       "died": "2588",
-      "image": "assets/aragost.png",
       "groups": [
         "dúnedain"
       ],
@@ -42,7 +40,6 @@
       "realm": "Dúnedain of the North",
       "born": "2365",
       "died": "2523",
-      "image": "assets/arahad_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -58,7 +55,6 @@
       "realm": "Dúnedain of the North",
       "born": "2563",
       "died": "2719",
-      "image": "assets/arahad_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -74,7 +70,6 @@
       "realm": "Dúnedain of the North",
       "born": "2012",
       "died": "2177",
-      "image": "assets/arahael.png",
       "bio": "Arahael was the son of Aranarth, and the 2nd Chieftain of the Dúnedain. He was raised by Elrond in Rivendell, while his father protected Eriador from the evils that plagued that area with the help of other Rangers.",
       "groups": [
         "dúnedain"
@@ -108,7 +103,6 @@
       "realm": "Dúnedain of the North",
       "born": "2628",
       "died": "2784",
-      "image": "assets/arassuil.png",
       "groups": [
         "dúnedain"
       ],
@@ -124,7 +118,6 @@
       "realm": "Dúnedain of the North",
       "born": "2693",
       "died": "2848",
-      "image": "assets/arathorn_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -140,7 +133,6 @@
       "realm": "Dúnedain of the North",
       "born": "2497",
       "died": "2654",
-      "image": "assets/aravorn.png",
       "groups": [
         "dúnedain"
       ],
@@ -156,7 +148,6 @@
       "realm": "Dúnedain of the North",
       "born": "2757",
       "died": "2912",
-      "image": "assets/argonui.png",
       "bio": "bio",
       "groups": [
         "dúnedain"
@@ -173,7 +164,6 @@
       "realm": "Dúnedain of the North",
       "born": "2227",
       "died": "2327",
-      "image": "assets/aragorn_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -189,7 +179,6 @@
       "realm": "Dúnedain of the North",
       "born": "2084",
       "died": "2247",
-      "image": "assets/aranuir.png",
       "groups": [
         "dúnedain"
       ],
@@ -205,7 +194,6 @@
       "realm": "Dúnedain of the North",
       "born": "2156",
       "died": "2319",
-      "image": "assets/aravir.png",
       "groups": [
         "dúnedain"
       ],

@@ -10,7 +10,6 @@
       "realm": "Arnor",
       "born": "185",
       "died": "435",
-      "image": "assets/arantar.png",
       "groups": [
         "dúnedain"
       ],
@@ -26,7 +25,6 @@
       "realm": "Arnor",
       "born": "640",
       "died": "861",
-      "image": "assets/eärendur.png",
       "groups": [
         "dúnedain"
       ],
@@ -42,7 +40,6 @@
       "realm": "Arnor",
       "born": "87",
       "died": "339",
-      "image": "assets/eldacar.png",
       "groups": [
         "dúnedain"
       ],
@@ -58,7 +55,6 @@
       "realm": "Arnor",
       "born": "S.A. 3119",
       "died": "S.A 3441",
-      "image": "assets/elendil.png",
       "groups": [
         "dúnedain"
       ],
@@ -74,7 +70,6 @@
       "realm": "Arnor",
       "born": "552",
       "died": "777",
-      "image": "assets/elendur.png",
       "groups": [
         "dúnedain"
       ],
@@ -90,7 +85,6 @@
       "realm": "Arnor",
       "born": "S.A. 3209",
       "died": "T.A. 2",
-      "image": "assets/isildur.png",
       "groups": [
         "dúnedain"
       ],
@@ -106,7 +100,6 @@
       "realm": "Arnor",
       "born": "280",
       "died": "515",
-      "image": "assets/tarcil.png",
       "groups": [
         "dúnedain"
       ],
@@ -122,7 +115,6 @@
       "realm": "Arnor",
       "born": "372",
       "died": "602",
-      "image": "assets/tarondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -138,7 +130,6 @@
       "realm": "Arnor",
       "born": "S.A. 3430",
       "died": "T.A. 249",
-      "image": "assets/valandil.png",
       "groups": [
         "dúnedain"
       ],
@@ -154,7 +145,6 @@
       "realm": "Arnor",
       "born": "462",
       "died": "652",
-      "image": "assets/valandur.png",
       "groups": [
         "dúnedain"
       ],

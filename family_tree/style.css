@@ -27,6 +27,310 @@ body.family-tree-page {
   display: none !important;
 }
 
+.family-tree-page .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.family-tree-page .tree-welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 92px 24px 28px;
+  overflow-y: auto;
+}
+
+.family-tree-page .tree-welcome__backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(185, 137, 65, 0.2), transparent 38%),
+    linear-gradient(rgba(12, 8, 5, 0.82), rgba(5, 3, 2, 0.96));
+  backdrop-filter: blur(5px);
+}
+
+.family-tree-page .tree-welcome__dialog {
+  position: relative;
+  width: min(1040px, 100%);
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid rgba(113, 72, 29, 0.68);
+  border-radius: 10px 28px 12px 24px;
+  background:
+    linear-gradient(90deg, rgba(91, 54, 20, 0.08), transparent 12%, transparent 88%, rgba(91, 54, 20, 0.09)),
+    radial-gradient(circle at 50% 0%, rgba(255, 251, 226, 0.92), transparent 46%),
+    #ead8b4;
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.58),
+    inset 0 0 70px rgba(112, 69, 27, 0.13);
+  color: #342617;
+  text-align: center;
+}
+
+.family-tree-page .tree-welcome__dialog::before,
+.family-tree-page .tree-welcome__dialog::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(111, 69, 25, 0.56), transparent);
+}
+
+.family-tree-page .tree-welcome__dialog::before {
+  top: 22px;
+}
+
+.family-tree-page .tree-welcome__dialog::after {
+  bottom: 22px;
+}
+
+.family-tree-page .tree-welcome__eyebrow {
+  margin: 0 0 12px;
+  color: #77501f;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.family-tree-page .tree-welcome > .tree-welcome__dialog > h2 {
+  margin: 0;
+  color: #302113;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.family-tree-page .tree-welcome__description {
+  max-width: 720px;
+  margin: 20px auto 32px;
+  color: #594329;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 1.7;
+}
+
+.family-tree-page .tree-welcome__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.family-tree-page .tree-welcome-card,
+.family-tree-page .tree-welcome__lineage-button {
+  border: 1px solid rgba(106, 67, 25, 0.4);
+  background:
+    linear-gradient(145deg, rgba(255, 251, 229, 0.7), rgba(214, 187, 139, 0.3)),
+    rgba(239, 221, 184, 0.72);
+  box-shadow: 0 12px 26px rgba(68, 40, 14, 0.12);
+  color: #392718;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.family-tree-page .tree-welcome-card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  align-items: start;
+  min-height: 164px;
+  padding: 24px 20px;
+  border-radius: 18px 8px 16px 7px;
+}
+
+.family-tree-page .tree-welcome-card:hover,
+.family-tree-page .tree-welcome-card:focus-visible,
+.family-tree-page .tree-welcome__lineage-button:hover,
+.family-tree-page .tree-welcome__lineage-button:focus-visible {
+  border-color: rgba(116, 71, 22, 0.78);
+  background:
+    linear-gradient(145deg, rgba(255, 252, 233, 0.94), rgba(217, 185, 127, 0.46)),
+    #eed9ad;
+  box-shadow: 0 16px 34px rgba(68, 40, 14, 0.2);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.family-tree-page .tree-welcome-card__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(116, 71, 22, 0.5);
+  border-radius: 50%;
+  background: #4f3420;
+  color: #f1d799;
+  box-shadow: inset 0 0 0 4px rgba(239, 211, 151, 0.08);
+}
+
+.family-tree-page .tree-welcome-card__copy {
+  display: grid;
+  gap: 8px;
+}
+
+.family-tree-page .tree-welcome-card__copy strong,
+.family-tree-page .tree-welcome__lineage-button strong {
+  color: #3c2817;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.family-tree-page .tree-welcome-card__copy span,
+.family-tree-page .tree-welcome__lineage-button span {
+  color: #674d30;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.family-tree-page .tree-welcome__subview {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.family-tree-page .tree-welcome__subview-heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.family-tree-page .tree-welcome__subview-heading p,
+.family-tree-page .tree-welcome__subview-heading h2 {
+  margin: 0;
+}
+
+.family-tree-page .tree-welcome__subview-heading p {
+  color: #795426;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.family-tree-page .tree-welcome__subview-heading h2 {
+  color: #332315;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(34px, 6vw, 54px);
+  line-height: 1;
+}
+
+.family-tree-page .tree-welcome__back {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(103, 62, 21, 0.45);
+  border-radius: 50%;
+  background: rgba(255, 249, 225, 0.52);
+  color: #4e321b;
+  cursor: pointer;
+}
+
+.family-tree-page .tree-welcome__back:hover,
+.family-tree-page .tree-welcome__back:focus-visible {
+  background: rgba(255, 249, 225, 0.9);
+  outline: 2px solid rgba(111, 69, 25, 0.55);
+  outline-offset: 2px;
+}
+
+.family-tree-page .tree-welcome__lineage-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.family-tree-page .tree-welcome__lineage-button {
+  display: grid;
+  gap: 6px;
+  min-height: 108px;
+  padding: 20px;
+  border-radius: 14px 7px 12px 6px;
+}
+
+.family-tree-page .tree-welcome__search-field {
+  display: grid;
+  gap: 9px;
+}
+
+.family-tree-page .tree-welcome__search-field > span {
+  color: #705026;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.family-tree-page .tree-welcome__search-field input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid rgba(104, 64, 23, 0.52);
+  border-radius: 999px;
+  background: rgba(255, 250, 231, 0.72);
+  box-shadow: inset 0 2px 7px rgba(77, 43, 12, 0.08);
+  color: #392718;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 15px;
+}
+
+.family-tree-page .tree-welcome__search-field input:focus-visible {
+  border-color: #70471f;
+  outline: 2px solid rgba(112, 71, 31, 0.3);
+  outline-offset: 2px;
+}
+
+.family-tree-page .tree-welcome-search-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  max-height: 300px;
+  margin-top: 14px;
+  overflow-y: auto;
+}
+
+.family-tree-page .tree-welcome-search-results .tree-search-result {
+  background: rgba(255, 249, 226, 0.52);
+  border-color: rgba(104, 64, 23, 0.32);
+  color: #392718;
+}
+
+.family-tree-page .tree-welcome-search-results .tree-search-result:hover,
+.family-tree-page .tree-welcome-search-results .tree-search-result:focus-visible {
+  background: rgba(255, 249, 226, 0.88);
+  border-color: rgba(104, 64, 23, 0.62);
+}
+
+.family-tree-page .tree-welcome-search-results .tree-search-result__body strong {
+  color: #3b2817;
+}
+
+.family-tree-page .tree-welcome-search-results .tree-search-result__body span,
+.family-tree-page .tree-welcome-search-results .tree-search-results__empty {
+  color: #694e30;
+}
+
+.family-tree-page .tree-controls-toggle,
+.family-tree-page .tree-view-panel__close {
+  display: none;
+}
+
 .family-tree-page #tree {
   position: relative;
   width: 100vw;
@@ -167,6 +471,43 @@ body.family-tree-page {
   background: rgba(10, 7, 4, 0.7);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(8px);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.family-tree-page .tree-view-panel__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(218, 184, 112, 0.18);
+}
+
+.family-tree-page .tree-view-panel__actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid rgba(218, 184, 112, 0.36);
+  border-radius: 14px;
+  background: rgba(255, 244, 222, 0.07);
+  color: #f2dfb8;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.family-tree-page .tree-view-panel__actions button:hover,
+.family-tree-page .tree-view-panel__actions button:focus-visible {
+  background: rgba(255, 244, 222, 0.14);
+  border-color: rgba(218, 184, 112, 0.64);
+  outline: none;
+}
+
+.family-tree-page .tree-view-panel__actions .material-icons {
+  font-size: 17px;
 }
 
 .family-tree-page .tree-view-panel__eyebrow,
@@ -180,7 +521,7 @@ body.family-tree-page {
   text-transform: uppercase;
 }
 
-.family-tree-page .tree-view-panel h1 {
+.family-tree-page .tree-view-panel h2 {
   margin: 0 0 14px;
   color: #f8e7bc;
   font-size: clamp(24px, 3vw, 36px);
@@ -529,10 +870,101 @@ body.family-tree-page {
     max-width: calc(100vw - 24px);
   }
 
+  .family-tree-page .tree-controls-toggle {
+    position: absolute;
+    top: 116px;
+    left: 12px;
+    z-index: 14;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid rgba(218, 184, 112, 0.55);
+    border-radius: 999px;
+    background: rgba(31, 22, 13, 0.92);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    color: #f5e6c8;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+  }
+
+  .family-tree-page .tree-controls-toggle:hover,
+  .family-tree-page .tree-controls-toggle:focus-visible {
+    background: rgba(47, 33, 18, 0.97);
+    outline: 1px solid rgba(218, 184, 112, 0.7);
+  }
+
+  .family-tree-page .tree-controls-toggle[aria-expanded="true"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .family-tree-page .tree-controls-toggle .material-icons {
+    font-size: 19px;
+  }
+
   .family-tree-page .tree-view-panel {
-    top: 100px;
+    top: 164px;
     left: 12px;
     width: calc(100vw - 24px);
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    transform: translateX(calc(-100% - 28px));
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .family-tree-page .tree-view-panel.is-open {
+    top: 116px;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .family-tree-page .tree-view-panel__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid rgba(218, 184, 112, 0.35);
+    border-radius: 50%;
+    background: rgba(255, 244, 222, 0.07);
+    color: #f2dfb8;
+    cursor: pointer;
+  }
+
+  .family-tree-page .tree-view-panel__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .family-tree-page .tree-welcome {
+    align-items: start;
+    padding: 74px 12px 18px;
+  }
+
+  .family-tree-page .tree-welcome__dialog {
+    padding: 32px 18px;
+    border-radius: 7px 20px 8px 16px;
+  }
+
+  .family-tree-page .tree-welcome__choices,
+  .family-tree-page .tree-welcome__lineage-list,
+  .family-tree-page .tree-welcome-search-results {
+    grid-template-columns: 1fr;
+  }
+
+  .family-tree-page .tree-welcome-card {
+    min-height: 0;
+    padding: 18px 16px;
+  }
+
+  .family-tree-page .tree-welcome__description {
+    margin-bottom: 24px;
   }
 
   .family-tree-page .hint {

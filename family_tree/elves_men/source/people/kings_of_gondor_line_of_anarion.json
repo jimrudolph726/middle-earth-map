@@ -10,7 +10,6 @@
       "realm": "Gondor",
       "born": "1330",
       "died": "1540",
-      "image": "assets/aldamir.png",
       "groups": [
         "dúnedain"
       ],
@@ -26,7 +25,6 @@
       "realm": "Gondor",
       "born": "136",
       "died": "411",
-      "image": "assets/anardil.png",
       "groups": [
         "dúnedain"
       ],
@@ -42,7 +40,6 @@
       "realm": "Gondor",
       "born": "S.A. 3219",
       "died": "S.A 3440",
-      "image": "assets/anárion.png",
       "groups": [
         "dúnedain"
       ],
@@ -57,7 +54,6 @@
       "realm": "Gondor",
       "born": "After T.A. 1684",
       "died": "Unknown",
-      "image": "assets/arciryas.png",
       "groups": [
         "dúnedain"
       ],
@@ -73,7 +69,6 @@
       "realm": "Gondor",
       "born": "480",
       "died": "758",
-      "image": "assets/atanatar_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -89,7 +84,6 @@
       "realm": "Gondor",
       "born": "977",
       "died": "1226",
-      "image": "assets/atanatar_second_alcarin.png",
       "groups": [
         "dúnedain"
       ],
@@ -105,7 +99,6 @@
       "realm": "Gondor",
       "born": "1736",
       "died": "1936",
-      "image": "assets/calimehtar_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -120,7 +113,6 @@
       "realm": "Gondor",
       "born": "After T.A. 1126",
       "died": "Unknown",
-      "image": "assets/calimehtar_son_of_calmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -135,7 +127,6 @@
       "realm": "Gondor",
       "born": "Mid-18th century T.A.",
       "died": "Unknown",
-      "image": "assets/calimmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -151,7 +142,6 @@
       "realm": "Gondor",
       "born": "1058",
       "died": "1304",
-      "image": "assets/calmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -167,7 +157,6 @@
       "realm": "Gondor",
       "born": "1259",
       "died": "1447",
-      "image": "assets/castamir.png",
       "groups": [
         "dúnedain"
       ],
@@ -183,7 +172,6 @@
       "realm": "Gondor",
       "born": "S.A. 3399",
       "died": "T.A. 239",
-      "image": "assets/cemendur.png",
       "groups": [
         "dúnedain"
       ],
@@ -199,7 +187,6 @@
       "realm": "Gondor",
       "born": "820",
       "died": "1015",
-      "image": "assets/ciryandil.png",
       "groups": [
         "dúnedain"
       ],
@@ -215,7 +202,6 @@
       "realm": "Gondor",
       "born": "48",
       "died": "324",
-      "image": "assets/eärendil_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -231,7 +217,6 @@
       "realm": "Gondor",
       "born": "736",
       "died": "936",
-      "image": "assets/eärnil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -247,7 +232,6 @@
       "realm": "Gondor",
       "born": "1883",
       "died": "2043",
-      "image": "assets/eärnil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -263,7 +247,6 @@
       "realm": "Gondor",
       "born": "1928",
       "died": "2050",
-      "image": "assets/eärnur.png",
       "groups": [
         "dúnedain"
       ],
@@ -279,7 +262,6 @@
       "realm": "Gondor",
       "born": "1255",
       "died": "1490",
-      "image": "assets/eldacar_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -295,7 +277,6 @@
       "realm": "Gondor",
       "born": "640",
       "died": "1149",
-      "image": "assets/hyarmendacil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -311,7 +292,6 @@
       "realm": "Gondor",
       "born": "1391",
       "died": "1621",
-      "image": "assets/hyarmendacil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -327,7 +307,6 @@
       "realm": "Gondor",
       "born": "S.A. 3318",
       "died": "T.A. 158",
-      "image": "assets/meneldil.png",
       "groups": [
         "dúnedain"
       ],
@@ -343,7 +322,6 @@
       "realm": "Gondor",
       "born": "1454",
       "died": "1634",
-      "image": "assets/minardil.png",
       "groups": [
         "dúnedain"
       ],
@@ -358,7 +336,6 @@
       "realm": "Gondor",
       "born": "After T.A. 1516",
       "died": "Unknown",
-      "image": "assets/minastan.png",
       "groups": [
         "dúnedain"
       ],
@@ -374,7 +351,6 @@
       "realm": "Gondor",
       "born": "1049",
       "died": "1294",
-      "image": "assets/narmacil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -390,7 +366,6 @@
       "realm": "Gondor",
       "born": "1684",
       "died": "1856",
-      "image": "assets/narmacil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -406,7 +381,6 @@
       "realm": "Gondor",
       "born": "1787",
       "died": "1944",
-      "image": "assets/ondoher.png",
       "groups": [
         "dúnedain"
       ],
@@ -422,7 +396,6 @@
       "realm": "Gondor",
       "born": "222",
       "died": "492",
-      "image": "assets/ostoher.png",
       "groups": [
         "dúnedain"
       ],
@@ -438,7 +411,6 @@
       "realm": "Gondor",
       "born": "310",
       "died": "541",
-      "image": "assets/rómendacil_first.png",
       "groups": [
         "dúnedain"
       ],
@@ -454,7 +426,6 @@
       "realm": "Gondor",
       "born": "1126",
       "died": "1366",
-      "image": "assets/rómendacil_second.png",
       "groups": [
         "dúnedain"
       ],
@@ -470,7 +441,6 @@
       "realm": "Gondor",
       "born": "570",
       "died": "830",
-      "image": "assets/siriondil_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -485,7 +455,6 @@
       "realm": "Gondor",
       "born": "Before T.A. 1883",
       "died": "Before or around T.A. 1944",
-      "image": "assets/siriondil_son_of_calimmacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -501,7 +470,6 @@
       "realm": "Gondor",
       "born": "654",
       "died": "913",
-      "image": "assets/tarannon_falastur.png",
       "groups": [
         "dúnedain"
       ],
@@ -516,7 +484,6 @@
       "realm": "Gondor",
       "born": "After T.A. 65",
       "died": "Before T.A. 913",
-      "image": "assets/tarciryan.png",
       "groups": [
         "dúnedain"
       ],
@@ -532,7 +499,6 @@
       "realm": "Gondor",
       "born": "1577",
       "died": "1798",
-      "image": "assets/tarondor_king_of_gondor.png",
       "groups": [
         "dúnedain"
       ],
@@ -548,7 +514,6 @@
       "realm": "Gondor",
       "born": "1516",
       "died": "1636",
-      "image": "assets/telemnar.png",
       "groups": [
         "dúnedain"
       ],
@@ -564,7 +529,6 @@
       "realm": "Gondor",
       "born": "1632",
       "died": "1850",
-      "image": "assets/telumehtar_umbardacil.png",
       "groups": [
         "dúnedain"
       ],
@@ -580,7 +544,6 @@
       "realm": "Gondor",
       "born": "397",
       "died": "667",
-      "image": "assets/turambar.png",
       "groups": [
         "dúnedain"
       ],
@@ -596,7 +559,6 @@
       "realm": "Gondor",
       "born": "1194",
       "died": "1432",
-      "image": "assets/valacar.png",
       "groups": [
         "dúnedain"
       ],
