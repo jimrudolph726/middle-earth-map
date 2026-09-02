@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../../plugins/leaflet/leaflet.css" />
     <link rel="stylesheet" href="../../plugins/leaflet-sidebar.css" />
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="../shared/study-desk.css">
+    <link rel="stylesheet" href="../shared/volume-introduction.css">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/MarkerCluster.css" />
     <link rel="stylesheet" href="../../plugins/MarkerCluster.Default.css" />
@@ -16,8 +18,8 @@
     <link rel="stylesheet" href="middle-earth-volume.css" />
 </head>
 
-<body class="middle-earth-volume" data-atlas-volume="middle-earth">
-    <div class="middle-earth-volume-cover" data-middle-earth-volume-cover aria-hidden="true">
+<body class="middle-earth-volume atlas-study-desk" data-atlas-volume="middle-earth">
+    <div class="middle-earth-volume-cover" data-middle-earth-volume-cover data-atlas-volume-cover aria-hidden="true">
         <div class="middle-earth-volume-cover__spine"></div>
         <div class="middle-earth-volume-cover__frame">
             <div class="middle-earth-ornament middle-earth-ornament--cover"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
@@ -520,6 +522,11 @@
                     <h2>A traveller's atlas</h2>
                     <p>Warm parchment, walnut, worn brass, and roads marked by many hands.</p>
                 </section>
+                <section class="atlas-project-card atlas-introduction-card" aria-label="Volume introductions">
+                    <p class="atlas-project-card__eyebrow">Volume introductions</p>
+                    <button class="atlas-pane-link" type="button" data-atlas-introduction-reset>Show volume introductions again</button>
+                    <p class="atlas-introduction-card__status" data-atlas-introduction-status aria-live="polite">First visits open each volume’s frontispiece automatically.</p>
+                </section>
                 <section class="atlas-project-card" aria-label="About this atlas">
                     <p class="atlas-project-card__eyebrow">About this atlas</p>
                     <a class="atlas-project-card__link" href="../../about.html">Unofficial fan project <span aria-hidden="true">&middot;</span> Credits &amp; provenance</a>
@@ -667,6 +674,7 @@
     <script src="../../plugins/atlas-map-nav.js"></script>
     <script src="../../plugins/atlas-map-theme.js"></script>
     <script src="../../plugins/atlas-map-sounds.js"></script>
+    <script src="../shared/volume-introduction.js"></script>
     <script src="middle-earth-volume.js"></script>
     <script src="../../plugins/leaflet.markercluster.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>

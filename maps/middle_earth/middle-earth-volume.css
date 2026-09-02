@@ -12,21 +12,14 @@ body.middle-earth-volume {
   --middle-earth-road-ink: #654725;
 }
 
-/* The travelling map laid open on a mahogany study desk ------------- */
+/* The travelling map rests on forest-green leather above the shared desk. */
 
-.middle-earth-volume #map {
-  background-color: #21140e;
-  background-image:
-    radial-gradient(circle at 47% 38%, rgba(211, 153, 82, 0.12), transparent 40%),
-    radial-gradient(ellipse at center, transparent 34%, rgba(10, 5, 3, 0.56) 112%),
-    linear-gradient(136deg, rgba(55, 25, 13, 0.28), rgba(22, 10, 6, 0.5) 58%, rgba(8, 4, 3, 0.64)),
-    url("./assets/materials/middle-earth-mahogany-v1.webp");
-  background-position: center, center, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
-  background-size: cover, cover, cover, 1200px 1200px;
-  box-shadow:
-    inset 0 0 160px rgba(8, 3, 2, 0.44),
-    inset 0 0 0 1px rgba(229, 186, 105, 0.07);
+.middle-earth-volume .atlas-physical-mat-pane--forest-green-leather .atlas-physical-mat__layer--shadow {
+  filter: drop-shadow(0 13px 17px rgba(8, 3, 2, 0.7));
+}
+
+.middle-earth-volume .atlas-physical-mat-pane--forest-green-leather .atlas-physical-mat__layer--edge {
+  filter: drop-shadow(0 1px 0 rgba(229, 195, 124, 0.2));
 }
 
 .middle-earth-volume .atlas-physical-map__surface--middle-earth {

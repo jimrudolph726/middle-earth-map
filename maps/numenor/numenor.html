@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="../../plugins/leaflet/leaflet.css" />
     <link rel="stylesheet" href="../../plugins/leaflet-sidebar.css" />
     <link rel="stylesheet" href="../shared/map-shell.css">
+    <link rel="stylesheet" href="../shared/study-desk.css">
+    <link rel="stylesheet" href="../shared/volume-introduction.css">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
     <link rel="stylesheet" href="numenor-volume.css" />
 </head>
 
-<body class="numenor-volume" data-atlas-volume="numenor">
-    <div class="numenor-volume-cover" data-numenor-volume-cover aria-hidden="true">
+<body class="numenor-volume atlas-study-desk" data-atlas-volume="numenor">
+    <div class="numenor-volume-cover" data-numenor-volume-cover data-atlas-volume-cover aria-hidden="true">
         <div class="numenor-volume-cover__spine"></div>
         <div class="numenor-volume-cover__frame">
             <div class="numenor-ornament numenor-ornament--cover"><span>✦</span></div>
@@ -107,11 +109,6 @@
                     Paths
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
-                <div class="numenor-empty-state" role="note">
-                    <i class="material-icons" aria-hidden="true">route</i>
-                    <strong>The sea-roads await their ink</strong>
-                    <span>Royal roads, voyages, and journeys will be entered here as this volume grows.</span>
-                </div>
                     <h2>Campsites</h2>
                 <div id="campsSection">
                     <label for="allCampCheckbox">
@@ -137,23 +134,15 @@
                     Settlements
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
-                <div class="numenor-empty-state" role="note">
-                    <i class="material-icons" aria-hidden="true">account_balance</i>
-                    <strong>The royal ledger awaits its cities</strong>
-                    <span>Settlements and peoples will appear here once their atlas entries are prepared.</span>
-                </div>
                 <div id="settlementsSection">
                     <label for="allSettlementCheckbox">
                         <input type="checkbox" id="allSettlementCheckbox" data-toggle-all="#settlementsSection input.settlementCheckbox" /> All
                     </label>
-                    <label for="menCheckbox">
-                      <input type="checkbox" class="settlementCheckbox" id="menCheckbox" /> Men
+                    <label for="citiesCheckbox">
+                      <input type="checkbox" class="settlementCheckbox" id="citiesCheckbox" /> Cities and Havens
                     </label>
-                    <label for="elvesCheckbox">
-                      <input type="checkbox" class="settlementCheckbox" id="elvesCheckbox" /> Elves
-                    </label>
-                    <label for="dwarvesCheckbox">
-                        <input type="checkbox" class="settlementCheckbox" id="dwarvesCheckbox" /> Dwarves
+                    <label for="sacredPlacesCheckbox">
+                      <input type="checkbox" class="settlementCheckbox" id="sacredPlacesCheckbox" /> Sacred Places
                     </label>
                 </div>
             </div>
@@ -163,11 +152,6 @@
                     Geography
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
-                <div class="numenor-empty-state" role="note">
-                    <i class="material-icons" aria-hidden="true">explore</i>
-                    <strong>The island is not yet charted</strong>
-                    <span>Mountains, forests, waters, and coasts will be recorded in this geographic ledger.</span>
-                </div>
                 <div id="geographySection">
                     <label for="allGeographyCheckbox">
                         <input type="checkbox" id="allGeographyCheckbox" data-toggle-all="#geographySection input.geographyCheckbox" /> All
@@ -195,11 +179,6 @@
                     Battles
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
-                <div class="numenor-empty-state" role="note">
-                    <span class="material-symbols-outlined" aria-hidden="true">swords</span>
-                    <strong>The chronicles remain unopened</strong>
-                    <span>Battles and duels will be catalogued here when the historical layers are written.</span>
-                </div>
                 <div id="battlesSection">
                     <label for="allBattleCheckbox">
                         <input type="checkbox" id="allBattleCheckbox" data-toggle-all="#battlesSection input.battleCheckbox" /> All
@@ -218,11 +197,6 @@
                     Regions
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
-                <div class="numenor-empty-state" role="note">
-                    <i class="material-icons" aria-hidden="true">public</i>
-                    <strong>The provinces await their boundaries</strong>
-                    <span>The island’s regions will be added as the royal survey takes shape.</span>
-                </div>
                 <div id="regionsSection">
                     <label for="allRegionCheckbox">
                         <input type="checkbox" id="allRegionCheckbox" data-toggle-all="#regionsSection input.regionCheckbox" /> All
@@ -241,11 +215,6 @@
                     Important Items
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
-                <div class="numenor-empty-state" role="note">
-                    <span class="material-symbols-outlined" aria-hidden="true">diamond</span>
-                    <strong>The treasury catalogue is forthcoming</strong>
-                    <span>Heirlooms, writings, and objects of the realm will be preserved in this chapter.</span>
-                </div>
                 <div id="itemsSection">
                     <label for="allItemCheckbox">
                         <input type="checkbox" id="allItemCheckbox" data-toggle-all="#itemsSection input.itemCheckbox" /> All
@@ -269,6 +238,11 @@
                     <div class="numenor-ornament" aria-hidden="true"><span>✦</span></div>
                     <h2>A royal maritime atlas</h2>
                     <p>Indigo leather, salt-aged vellum, white stone, and bronze instruments of navigation.</p>
+                </section>
+                <section class="atlas-project-card atlas-introduction-card" aria-label="Volume introductions">
+                    <p class="atlas-project-card__eyebrow">Volume introductions</p>
+                    <button class="atlas-pane-link" type="button" data-atlas-introduction-reset>Show volume introductions again</button>
+                    <p class="atlas-introduction-card__status" data-atlas-introduction-status aria-live="polite">First visits open each volume’s frontispiece automatically.</p>
                 </section>
                 <section class="atlas-project-card" aria-label="About this atlas">
                     <p class="atlas-project-card__eyebrow">About this atlas</p>
@@ -341,6 +315,7 @@
     <script src="../../plugins/atlas-map-nav.js"></script>
     <script src="../../plugins/atlas-map-theme.js"></script>
     <script src="../../plugins/atlas-map-sounds.js"></script>
+    <script src="../shared/volume-introduction.js"></script>
     <script src="numenor-volume.js"></script>
     <script type="module" src="../../plugins/leaflet-arrowheads.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>

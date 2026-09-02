@@ -304,6 +304,7 @@ test("compact maps wire the sidebar groups declared by each page", async ({ page
 
 test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) => {
   const materialAssets = [
+    { path: "/maps/shared/assets/materials/atlas-mahogany-v1.webp", maximumBytes: 250_000 },
     { path: "/maps/beleriand/assets/materials/beleriand-cloth-v1.webp", maximumBytes: 300_000 },
     { path: "/maps/beleriand/assets/materials/beleriand-frame-metal-v1.webp", maximumBytes: 20_000 },
   ];
@@ -318,16 +319,26 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
   await page.goto("/maps/beleriand/beleriand.html", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "beleriand");
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "first");
+  await expect(page.locator("[data-volume-cover]")).toHaveAttribute("data-atlas-cover-mode", "first");
   await expect(page.locator("#frontispiece")).toHaveClass(/active/);
   await expect(page.locator("[data-beleriand-pane]")).toHaveCount(3);
   await expect(page.locator("[data-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
 
   const physicalMapSurface = page.locator(".atlas-physical-map__surface--beleriand");
   const physicalFramePane = page.locator(".atlas-physical-frame-pane--beleriand");
+  const physicalMatPane = page.locator(".atlas-physical-mat-pane--beleriand");
   await expect(physicalMapSurface).toBeVisible();
   await expect(physicalFramePane).toHaveCount(1);
+  await expect(physicalMatPane).toHaveCount(1);
+  await expect(physicalMatPane).toHaveClass(/atlas-physical-mat-pane--indigo-linen/);
+  await expect(page.locator(".atlas-physical-mat__layer")).toHaveCount(4);
   await expect(page.locator(".atlas-physical-frame__line")).toHaveCount(6);
   await expect(page.locator(".atlas-physical-frame__corner")).toHaveCount(4);
+  const beleriandCornerZIndices = await page.locator(".atlas-physical-frame__corner").evaluateAll(
+    (corners) => corners.map((corner) => Number.parseInt(getComputedStyle(corner).zIndex, 10))
+  );
+  expect(beleriandCornerZIndices.every((zIndex) => zIndex > 9_000)).toBe(true);
 
   const physicalVolumeSurface = await page.locator("#map").evaluate((mapElement) => {
     const framePane = document.querySelector(".atlas-physical-frame-pane--beleriand");
@@ -335,12 +346,18 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
     const shadowLine = document.querySelector(".atlas-physical-frame__line--shadow");
     const textureLine = document.querySelector(".atlas-physical-frame__line--texture");
     const textureImage = document.querySelector("#atlas-physical-frame-texture-beleriand image");
+    const matPane = document.querySelector(".atlas-physical-mat-pane--beleriand");
+    const matSurface = document.querySelector(".atlas-physical-mat__layer--surface");
+    const matTextureImage = document.querySelector("#atlas-physical-mat-texture-beleriand image");
 
     return {
       backgroundColor: getComputedStyle(mapElement).backgroundColor,
       backgroundImage: getComputedStyle(mapElement).backgroundImage,
       backgroundSize: getComputedStyle(mapElement).backgroundSize,
       framePointerEvents: getComputedStyle(framePane).pointerEvents,
+      matPointerEvents: getComputedStyle(matPane).pointerEvents,
+      matTextureFill: getComputedStyle(matSurface).fill,
+      matTextureHref: matTextureImage?.getAttribute("href"),
       frameTextureHref: textureImage?.getAttribute("href"),
       mapSurfaceFilter: getComputedStyle(mapSurface).filter,
       shadowWidth: getComputedStyle(shadowLine).strokeWidth,
@@ -348,10 +365,13 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
     };
   });
 
-  expect(physicalVolumeSurface.backgroundColor).toBe("rgb(16, 25, 32)");
-  expect(physicalVolumeSurface.backgroundImage).toContain("beleriand-cloth-v1.webp");
-  expect(physicalVolumeSurface.backgroundSize).toContain("620px 620px");
+  expect(physicalVolumeSurface.backgroundColor).toBe("rgb(33, 20, 14)");
+  expect(physicalVolumeSurface.backgroundImage).toContain("atlas-mahogany-v1.webp");
+  expect(physicalVolumeSurface.backgroundSize).toContain("1200px 1200px");
   expect(physicalVolumeSurface.framePointerEvents).toBe("none");
+  expect(physicalVolumeSurface.matPointerEvents).toBe("none");
+  expect(physicalVolumeSurface.matTextureHref).toContain("beleriand-cloth-v1.webp");
+  expect(physicalVolumeSurface.matTextureFill).toContain("atlas-physical-mat-texture-beleriand");
   expect(physicalVolumeSurface.frameTextureHref).toContain("beleriand-frame-metal-v1.webp");
   expect(physicalVolumeSurface.mapSurfaceFilter).toContain("drop-shadow");
   expect(physicalVolumeSurface.shadowWidth).toBe("30px");
@@ -409,15 +429,29 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
 });
 
 test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
+  const materialAssets = [
+    { path: "/maps/shared/assets/materials/atlas-mahogany-v1.webp", maximumBytes: 250_000 },
+    { path: "/maps/middle_earth/assets/materials/middle-earth-green-leather-v1.webp", maximumBytes: 130_000 },
+    { path: "/maps/middle_earth/assets/materials/middle-earth-frame-brass-v1.webp", maximumBytes: 40_000 },
+  ];
+
+  for (const asset of materialAssets) {
+    const response = await page.request.get(asset.path);
+    expect(response.ok(), `${asset.path} should be served successfully.`).toBe(true);
+    expect(response.headers()["content-type"]).toContain("image/webp");
+    expect((await response.body()).length).toBeLessThan(asset.maximumBytes);
+  }
+
   await page.goto("/maps/numenor/numenor.html", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "numenor");
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "first");
   await expect(page.locator("[data-numenor-volume-cover]")).toBeAttached();
+  await expect(page.locator("[data-numenor-volume-cover]")).toHaveAttribute("data-atlas-cover-mode", "first");
   await expect(page.locator("#frontispiece")).toHaveClass(/active/);
   await expect(page.locator("#frontispiece .atlas-frontispiece__eyebrow")).toHaveText("The Second Volume");
   await expect(page.locator("#frontispiece .numenor-ornament")).toHaveCount(1);
   await expect(page.locator("#frontispiece .atlas-chapter-card")).toHaveCount(3);
-  await expect(page.locator(".numenor-empty-state")).toHaveCount(6);
   await expect(page.locator(".numenor-volume-card")).toBeAttached();
 
   const coverTiming = await page.locator("[data-numenor-volume-cover]").evaluate((cover) => ({
@@ -429,6 +463,53 @@ test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
   expect(coverTiming.duration).toBe("0.76s");
   await expect(page.locator("[data-numenor-volume-cover]")).toHaveCount(0, { timeout: 6_000 });
 
+  const physicalMapSurface = page.locator(".atlas-physical-map__surface--numenor");
+  const physicalFramePane = page.locator(".atlas-physical-frame-pane--numenor");
+  const physicalMatPane = page.locator(".atlas-physical-mat-pane--numenor");
+  await expect(physicalMapSurface).toBeVisible();
+  await expect(physicalFramePane).toHaveCount(1);
+  await expect(physicalMatPane).toHaveCount(1);
+  await expect(physicalMatPane).toHaveClass(/atlas-physical-mat-pane--royal-indigo-leather/);
+  await expect(page.locator(".atlas-physical-mat__layer")).toHaveCount(4);
+  await expect(page.locator(".atlas-physical-frame__line")).toHaveCount(6);
+  await expect(page.locator(".atlas-physical-frame__corner")).toHaveCount(4);
+  await expect(page.locator(".atlas-physical-frame__compass-rose")).toHaveCount(8);
+  await expect(page.locator(".atlas-physical-frame__compass-core")).toHaveCount(4);
+  const numenorCornerZIndices = await page.locator(".atlas-physical-frame__corner").evaluateAll(
+    (corners) => corners.map((corner) => Number.parseInt(getComputedStyle(corner).zIndex, 10))
+  );
+  expect(numenorCornerZIndices.every((zIndex) => zIndex > 9_000)).toBe(true);
+  await expect(page.getByRole("button", { name: "Zoom out" })).toHaveClass(/leaflet-disabled/);
+
+  const physicalVolumeSurface = await page.locator("#map").evaluate((mapElement) => {
+    const framePane = document.querySelector(".atlas-physical-frame-pane--numenor");
+    const matPane = document.querySelector(".atlas-physical-mat-pane--numenor");
+    const matSurface = document.querySelector(".atlas-physical-mat__layer--surface");
+    const matTextureImage = document.querySelector("#atlas-physical-mat-texture-numenor image");
+    const textureLine = document.querySelector(".atlas-physical-frame__line--texture");
+    const textureImage = document.querySelector("#atlas-physical-frame-texture-numenor image");
+
+    return {
+      backgroundColor: getComputedStyle(mapElement).backgroundColor,
+      backgroundImage: getComputedStyle(mapElement).backgroundImage,
+      framePointerEvents: getComputedStyle(framePane).pointerEvents,
+      matPointerEvents: getComputedStyle(matPane).pointerEvents,
+      matFilter: getComputedStyle(matSurface).filter,
+      matTextureHref: matTextureImage?.getAttribute("href"),
+      frameTextureHref: textureImage?.getAttribute("href"),
+      textureStroke: getComputedStyle(textureLine).stroke,
+    };
+  });
+
+  expect(physicalVolumeSurface.backgroundColor).toBe("rgb(33, 20, 14)");
+  expect(physicalVolumeSurface.backgroundImage).toContain("atlas-mahogany-v1.webp");
+  expect(physicalVolumeSurface.framePointerEvents).toBe("none");
+  expect(physicalVolumeSurface.matPointerEvents).toBe("none");
+  expect(physicalVolumeSurface.matFilter).toContain("hue-rotate");
+  expect(physicalVolumeSurface.matTextureHref).toContain("middle-earth-green-leather-v1.webp");
+  expect(physicalVolumeSurface.frameTextureHref).toContain("middle-earth-frame-brass-v1.webp");
+  expect(physicalVolumeSurface.textureStroke).toContain("atlas-physical-frame-texture-numenor");
+
   const numenorPillBackgrounds = await page.locator(
     '.atlas-map-nav > .atlas-map-nav__link, .atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle'
   ).evaluateAll((pills) => pills.map((pill) => getComputedStyle(pill).backgroundColor));
@@ -438,12 +519,30 @@ test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
   const plannedLayerInputs = page.locator(
     '#sidebar .sidebar-pane:not(#frontispiece):not(#settings) input[type="checkbox"]'
   );
-  expect(await plannedLayerInputs.count()).toBeGreaterThan(0);
+  const plannedLayerInputCount = await plannedLayerInputs.count();
+  expect(plannedLayerInputCount).toBeGreaterThan(0);
   await expect(page.locator(
     '#sidebar .sidebar-pane:not(#frontispiece):not(#settings) input[type="checkbox"]:not(:disabled)'
+  )).toHaveCount(plannedLayerInputCount);
+  await expect(page.locator(
+    '#sidebar .sidebar-pane:not(#frontispiece):not(#settings) input[aria-disabled="true"]'
   )).toHaveCount(0);
   await expect(page.locator(".leaflet-marker-icon.atlas-marker-icon")).toHaveCount(0);
 
+  await page.locator('.sidebar-tabs a[href="#settlements"]').click();
+  await page.locator("#citiesCheckbox").check();
+  const publishedCityMarkers = page.locator(".leaflet-marker-icon.atlas-marker-icon");
+  expect(await publishedCityMarkers.count()).toBeGreaterThan(0);
+  await expect(publishedCityMarkers.first()).toHaveAttribute(
+    "src",
+    /sceptre-of-numenor-medallion\.svg$/
+  );
+  await publishedCityMarkers.first().click();
+  await expect(page.locator(".leaflet-popup .lore-popup__title")).toHaveText(/\S+/);
+  await page.locator("#citiesCheckbox").uncheck();
+  await expect(page.locator(".leaflet-marker-icon.atlas-marker-icon")).toHaveCount(0);
+
+  await page.getByRole("tab", { name: /Open Númenor frontispiece/i }).click();
   await page.getByRole("button", { name: /Unfold the Sea-chart/i }).click();
   await expect(page.locator("#sidebar")).toHaveClass(/collapsed/);
   await page.getByRole("tab", { name: /Open Númenor frontispiece/i }).click();
@@ -452,7 +551,8 @@ test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
 
 test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) => {
   const materialAssets = [
-    { path: "/maps/middle_earth/assets/materials/middle-earth-mahogany-v1.webp", maximumBytes: 250_000 },
+    { path: "/maps/shared/assets/materials/atlas-mahogany-v1.webp", maximumBytes: 250_000 },
+    { path: "/maps/middle_earth/assets/materials/middle-earth-green-leather-v1.webp", maximumBytes: 130_000 },
     { path: "/maps/middle_earth/assets/materials/middle-earth-frame-brass-v1.webp", maximumBytes: 40_000 },
   ];
 
@@ -466,7 +566,9 @@ test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) =>
   await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
 
   await expect(page.locator("body")).toHaveAttribute("data-atlas-volume", "middle-earth");
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "forced");
   await expect(page.locator("[data-middle-earth-volume-cover]")).toBeAttached();
+  await expect(page.locator("[data-middle-earth-volume-cover]")).toHaveAttribute("data-atlas-cover-mode", "first");
   await expect(page.locator("#frontispiece")).toHaveClass(/active/);
   await expect(page.locator("#frontispiece .atlas-frontispiece__eyebrow")).toHaveText("The Third Volume");
   await expect(page.locator("#frontispiece .middle-earth-ornament")).toHaveCount(1);
@@ -483,22 +585,36 @@ test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) =>
 
   const physicalMapSurface = page.locator(".atlas-physical-map__surface--middle-earth");
   const physicalFramePane = page.locator(".atlas-physical-frame-pane--middle-earth");
+  const physicalMatPane = page.locator(".atlas-physical-mat-pane--middle-earth");
   await expect(physicalMapSurface).toHaveCount(1);
   await expect(physicalFramePane).toHaveCount(1);
+  await expect(physicalMatPane).toHaveCount(1);
+  await expect(physicalMatPane).toHaveClass(/atlas-physical-mat-pane--forest-green-leather/);
+  await expect(page.locator(".atlas-physical-mat__layer")).toHaveCount(4);
   await expect(page.locator(".atlas-physical-frame__line")).toHaveCount(6);
   await expect(page.locator(".atlas-physical-frame__corner")).toHaveCount(4);
   await expect(page.locator(".atlas-physical-frame__leaf")).toHaveCount(12);
+  const middleEarthCornerZIndices = await page.locator(".atlas-physical-frame__corner").evaluateAll(
+    (corners) => corners.map((corner) => Number.parseInt(getComputedStyle(corner).zIndex, 10))
+  );
+  expect(middleEarthCornerZIndices.every((zIndex) => zIndex > 9_000)).toBe(true);
 
   const physicalVolumeSurface = await page.locator("#map").evaluate((mapElement) => {
     const framePane = document.querySelector(".atlas-physical-frame-pane--middle-earth");
     const mapSurface = document.querySelector(".atlas-physical-map__surface--middle-earth");
     const textureLine = document.querySelector(".atlas-physical-frame__line--texture");
     const textureImage = document.querySelector("#atlas-physical-frame-texture-middle-earth image");
+    const matPane = document.querySelector(".atlas-physical-mat-pane--middle-earth");
+    const matSurface = document.querySelector(".atlas-physical-mat__layer--surface");
+    const matTextureImage = document.querySelector("#atlas-physical-mat-texture-middle-earth image");
 
     return {
       backgroundColor: getComputedStyle(mapElement).backgroundColor,
       backgroundImage: getComputedStyle(mapElement).backgroundImage,
       framePointerEvents: getComputedStyle(framePane).pointerEvents,
+      matPointerEvents: getComputedStyle(matPane).pointerEvents,
+      matTextureFill: getComputedStyle(matSurface).fill,
+      matTextureHref: matTextureImage?.getAttribute("href"),
       frameTextureHref: textureImage?.getAttribute("href"),
       mapSurfaceFilter: getComputedStyle(mapSurface).filter,
       textureStroke: getComputedStyle(textureLine).stroke,
@@ -506,8 +622,11 @@ test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) =>
   });
 
   expect(physicalVolumeSurface.backgroundColor).toBe("rgb(33, 20, 14)");
-  expect(physicalVolumeSurface.backgroundImage).toContain("middle-earth-mahogany-v1.webp");
+  expect(physicalVolumeSurface.backgroundImage).toContain("atlas-mahogany-v1.webp");
   expect(physicalVolumeSurface.framePointerEvents).toBe("none");
+  expect(physicalVolumeSurface.matPointerEvents).toBe("none");
+  expect(physicalVolumeSurface.matTextureHref).toContain("middle-earth-green-leather-v1.webp");
+  expect(physicalVolumeSurface.matTextureFill).toContain("atlas-physical-mat-texture-middle-earth");
   expect(physicalVolumeSurface.frameTextureHref).toContain("middle-earth-frame-brass-v1.webp");
   expect(physicalVolumeSurface.mapSurfaceFilter).toContain("drop-shadow");
   expect(physicalVolumeSurface.textureStroke).toContain("atlas-physical-frame-texture-middle-earth");
@@ -644,9 +763,13 @@ test("frontispiece routes into journeys and the complete atlas index", async ({ 
   await expect(page.locator("#mountain_rangesCheckbox")).toBeVisible();
 });
 
-test("frontispiece remembers dismissal but remains available from the book tab", async ({ page }) => {
+test("frontispiece remembers its first display but remains available from the book tab", async ({ page }) => {
   await page.goto("/maps/middle_earth/middle-earth.html", { waitUntil: "domcontentloaded" });
-  await page.getByRole("button", { name: /Browse the atlas/i }).click();
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+  expect(await page.evaluate(() => window.localStorage.getItem(
+    "atlas.frontispiece.middle-earth.seen:v1"
+  ))).toBe("seen");
+
   await page.reload({ waitUntil: "domcontentloaded" });
 
   await expect(page.locator("#sidebar")).toHaveClass(/collapsed/);
@@ -657,6 +780,84 @@ test("frontispiece remembers dismissal but remains available from the book tab",
 
   await page.goto("/maps/middle_earth/middle-earth.html?frontispiece=1", { waitUntil: "domcontentloaded" });
   await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+});
+
+test("each physical volume introduces itself once and offers a Settings reset", async ({ page }) => {
+  const physicalVolumes = [
+    { path: "/maps/beleriand/beleriand.html", volume: "beleriand" },
+    { path: "/maps/numenor/numenor.html", volume: "numenor" },
+    { path: "/maps/middle_earth/middle-earth.html", volume: "middle-earth" },
+  ];
+
+  for (const { path, volume } of physicalVolumes) {
+    await page.goto(path, { waitUntil: "domcontentloaded" });
+    await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "first");
+    await expect(page.locator("[data-atlas-volume-cover]")).toHaveAttribute("data-atlas-cover-mode", "first");
+    await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+
+    expect(await page.evaluate(
+      (storageKey) => window.localStorage.getItem(storageKey),
+      `atlas.frontispiece.${volume}.seen:v1`
+    )).toBe("seen");
+
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "returning");
+    await expect(page.locator("#sidebar")).toHaveClass(/collapsed/);
+    await expect(page.locator("#frontispiece")).not.toHaveClass(/active/);
+
+    const returningCover = page.locator("[data-atlas-volume-cover]");
+    await expect(returningCover).toHaveAttribute("data-atlas-cover-mode", "returning");
+    const returningCoverTiming = await returningCover.evaluate((cover) => ({
+      delay: getComputedStyle(cover).animationDelay,
+      duration: getComputedStyle(cover).animationDuration,
+    }));
+    expect(returningCoverTiming).toEqual({ delay: "0s", duration: "0.62s" });
+    await expect(returningCover).toHaveCount(0, { timeout: 2_000 });
+
+    await page.locator('.atlas-frontispiece-tab a[href="#frontispiece"]').click();
+    await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+    await page.locator('.sidebar-tabs a[href="#settings"]').click();
+    await page.getByRole("button", { name: "Show volume introductions again" }).click();
+    await expect(page.locator("[data-atlas-introduction-status]")).toContainText(
+      "Each volume will reopen its frontispiece"
+    );
+
+    const savedIntroductionKeys = await page.evaluate(() => Object.keys(window.localStorage).filter(
+      (key) => key.startsWith("atlas.frontispiece.")
+    ));
+    expect(savedIntroductionKeys).toEqual([]);
+
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "first");
+    await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+    await page.evaluate(() => window.AtlasVolumeIntroduction.resetAllIntroductions());
+  }
+});
+
+test("a direct sidebar link bypasses onboarding without consuming the first visit", async ({ page }) => {
+  await page.goto("/maps/beleriand/beleriand.html#settings", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "deep-link");
+  await expect(page.locator("#settings")).toHaveClass(/active/);
+  await expect(page.locator("#frontispiece")).not.toHaveClass(/active/);
+  await expect(page.locator("[data-atlas-volume-cover]")).toHaveAttribute("data-atlas-cover-mode", "returning");
+  expect(await page.evaluate(() => window.localStorage.getItem(
+    "atlas.frontispiece.beleriand.seen:v1"
+  ))).toBeNull();
+
+  await page.goto("/maps/beleriand/beleriand.html?frontispiece=1", { waitUntil: "domcontentloaded" });
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "forced");
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+  expect(await page.evaluate(() => window.localStorage.getItem(
+    "atlas.frontispiece.beleriand.seen:v1"
+  ))).toBeNull();
+
+  await page.goto("/maps/beleriand/beleriand.html", { waitUntil: "domcontentloaded" });
+  await expect(page.locator("body")).toHaveAttribute("data-atlas-introduction-state", "first");
+  await expect(page.locator("#frontispiece")).toHaveClass(/active/);
+  expect(await page.evaluate(() => window.localStorage.getItem(
+    "atlas.frontispiece.beleriand.seen:v1"
+  ))).toBe("seen");
 });
 
 test("featured places hand the map back to visitors on small screens", async ({ page }) => {

@@ -1,17 +1,24 @@
 # Middle-earth physical-volume material register
 
-These files support the Middle-earth map's mahogany study surface and antique-brass travelling frame. Both source materials were downloaded from Poly Haven under the [CC0 license](https://polyhaven.com/license), then transformed locally for this project. The original high-resolution downloads are not shipped with the site.
+These files support the Middle-earth map's forest-green leather mount and
+antique-brass travelling frame. Their source materials were downloaded from
+Poly Haven under the [CC0 license](https://polyhaven.com/license), then
+transformed locally for this project. The original high-resolution downloads
+are not shipped with the site. The mahogany desk shared by the volumes is
+recorded in the [shared study-material register](../../../shared/assets/materials/CREDITS.md).
 
-## `middle-earth-mahogany-v1.webp`
+## `middle-earth-green-leather-v1.webp`
 
-- Source asset: [Dark Wood](https://polyhaven.com/a/dark_wood), 2K diffuse map
-- Source description: dark cherry/mahogany hardwood
-- Source authors: Dario Barresi (baking), Dimitrios Savva (photography), Rico Cilliers (tiling)
-- License: CC0
-- Local treatment: resized from 2048 × 2048 to 1200 × 1200; contrast increased slightly; brightness reduced; saturation softened; encoded as lossy WebP
-- Purpose: repeating desk surface outside the Middle-earth map bounds
-- Output size: 167,694 bytes
-- SHA-256: `CC7F24F2F5EE5CCB439DDD5602951B0BC7C33823A2CF30A79D7191F5BF33FA64`
+- Source asset: [Brown Leather](https://polyhaven.com/a/brown_leather), 2K diffuse map
+- Source author: Rob Tuytel
+- Provider: Poly Haven
+- License: [CC0 1.0 Universal](https://polyhaven.com/license)
+- Atlas processing: resized from 2048 × 2048 to 768 × 768, shifted toward
+  forest green, slightly darkened and desaturated, then encoded as lossy WebP
+- Purpose: the narrow leather mount between the map and the mahogany desk
+- Output size: 94,466 bytes
+- SHA-256: `6332653A0853D44A12988EF2FDF010E88DC4EDCD27DF2B60B8D9EFF45C582C03`
+- Processed: 2026-09-01
 
 ## `middle-earth-frame-brass-v1.webp`
 
@@ -26,4 +33,7 @@ These files support the Middle-earth map's mahogany study surface and antique-br
 
 ## Original project work
 
-The multi-rail frame geometry, winding-road-and-leaf corner ornament, color treatment, compositing, responsive behavior, and Leaflet integration are original project work. The botanical motif is drawn as inline SVG and does not contain a third-party illustration.
+The multi-rail frame geometry, leather-mount composition,
+winding-road-and-leaf corner ornament, color treatment, responsive behavior,
+and Leaflet integration are original project work. The botanical motif is
+drawn as inline SVG and does not contain a third-party illustration.

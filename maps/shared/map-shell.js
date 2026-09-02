@@ -99,6 +99,7 @@ export const initializeImageAtlasMap = ({
   geojsonBaseUrl,
   markerClusterOptions = null,
   physicalFrame = null,
+  initialZoom = null,
 }) => {
   if (!imageUrl || !imageBounds) {
     throw new Error('The map image URL and image bounds are required.');
@@ -113,6 +114,15 @@ export const initializeImageAtlasMap = ({
       : '',
   }).addTo(map);
   map.fitBounds(imageBounds);
+  if (Number.isFinite(initialZoom)) {
+    const openingZoom = Math.min(
+      map.getMaxZoom(),
+      Math.max(map.getMinZoom(), initialZoom)
+    );
+    map.setView(L.latLngBounds(imageBounds).getCenter(), openingZoom, {
+      animate: false,
+    });
+  }
   const physicalMapFrame = initializePhysicalMapFrame({
     map,
     imageBounds,

@@ -2,7 +2,8 @@
 
 These files are presentation materials for the Beleriand map volume. They are
 self-hosted so the static atlas does not depend on a third-party service at
-runtime.
+runtime. The mahogany desk shared by the volumes is recorded in the
+[shared study-material register](../../../shared/assets/materials/CREDITS.md).
 
 ## `beleriand-cloth-v1.webp`
 
@@ -14,6 +15,7 @@ runtime.
 - License: [CC0 1.0 Universal](https://polyhaven.com/license)
 - Atlas processing: centered crop and resize to 1024 × 1024, subtle contrast,
   brightness, and saturation adjustment, then WebP compression
+- Purpose: indigo-linen mount between the Beleriand chart and shared desk
 - SHA-256: `8340595ABA66CA608D5B3CB9ABD19AACC3C5C07E5101728C28AA108CF856E6A8`
 - Processed: 2026-08-31
 

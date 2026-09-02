@@ -5,59 +5,32 @@ import {
 
  // Icons
 const iconUrls = {
-  finrod: new URL('../assets/finrod.png', import.meta.url).href,
-  beor: new URL('../assets/beor.png', import.meta.url).href,
-  dwarves: new URL('../assets/dwarves.png', import.meta.url).href,
-  tent: new URL('../assets/tent.png', import.meta.url).href,
+  finrod: new URL('./assets/finrod.png', import.meta.url).href,
+  beor: new URL('./assets/beor.png', import.meta.url).href,
+  sceptreOfNumenor: new URL('./assets/sceptre-of-numenor-medallion.svg', import.meta.url).href,
+  dwarves: new URL('./assets/dwarves.png', import.meta.url).href,
+  tent: new URL('./assets/tent.png', import.meta.url).href,
 };
 export const icons = {
-NargothrondIcon: createIcon(iconUrls.finrod),
-LadrosIcon: createIcon(iconUrls.beor),
-DwarvesIcon: createIcon(iconUrls.dwarves),
+ArmenelosIcon: createIcon(iconUrls.sceptreOfNumenor),
 TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
 // Settlements
-export const elves = {
-  nargothrond: {
-    coords: [44.9407283,-93.2984007],
-    icon: icons.NargothrondIcon,
-    popup: createSettlementPopup("Nargothrond",
-    "Nargothrond was the underground fortress of Finrod Felagund and the surrounding realm in West Beleriand. It was one of the great strongholds of the Elves in Middle-earth during the First Age.",
-    "https://thainsbook.minastirith.cz/nargothrond.html")
+export const cities = {
+  armenelos: {
+    popup: createSettlementPopup(
+      "Armenelos",
+      `Royal city of Numenor. Armenelos was located in the eastern part of the Inlands in the region called Arandor.`,
+      "https://thainsbook.minastirith.cz/towns.html#Armenelos"
+    ),
+    coords: [44.9396778,-93.3115786],
+    icon: icons.ArmenelosIcon,
   },
 };
-export const men = {
-  ladros: {
-    popup: createSettlementPopup(
-      "Ladros",
-      `Village at the crossroads of the Great East Road and the Greenway in Eriador. Bree was unique in that the Big Folk (Men) and Little Folk (Hobbits) both dwelled there on friendly terms.`,
-      "https://tolkiengateway.net/wiki/Ladros"
-    ),
-    coords: [44.9430762,-93.2946712],
-    icon: icons.LadrosIcon,
-  },
-};
-export const dwarves = {
-  belegost: {
-    popup: createSettlementPopup(
-      "Belegost",
-      `Belegost was one of two great underground Dwarven cities in the Blue Mountains, the other being Nogrod, that prospered during the First Age.`,
-      "https://tolkiengateway.net/wiki/Belegost"
-    ),
-    coords: [44.9411277,-93.2907660],
-    icon: icons.DwarvesIcon,
-  },
-  nogrod: {
-    popup: createSettlementPopup(
-      "Nogrod",
-      `Nogrod was one of two great underground Dwarven cities in the Ered Luin, the other being Belegost, that prospered during the First Age. `,
-      "https://tolkiengateway.net/wiki/Nogrod"
-    ),
-    coords: [44.9409122,-93.2906264],
-    icon: icons.DwarvesIcon,
-  },
-};
+
+// Add future holy mountains, sanctuaries, and ceremonial places here.
+export const sacredPlaces = {};
 export const battles = {
   battle_of_dagorlad: {
     popup: createSettlementPopup("The Battle of Dagorlad (SA 3434 - 3441)",

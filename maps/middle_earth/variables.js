@@ -52,10 +52,10 @@ export const map = L.map('map', {
 crs: L.CRS.EPSG3857,
 minZoom: 15,
 maxZoom: 20,
-zoom: 15.5, // Fractional zoom level
+zoom: 14, // Fractional zoom level
 center: [0, 0],
 zoomSnap: 1, // Allows fractional zoom levels
-zoomDelta: 5, // Controls the increment of zoom changes
+zoomDelta: 4, // Controls the increment of zoom changes
 preferCanvas: true
 });
 export const imageBounds = [[44.95133395351252, -93.31776393673807],[44.93460911676505, -93.29255872642499],];
@@ -76,6 +76,23 @@ export const physicalFrame = {
   ornamentMaxZoom: 16,
   frameTextureUrl: new URL('./assets/materials/middle-earth-frame-brass-v1.webp', import.meta.url).href,
   frameTextureSize: 210,
+  mat: {
+    theme: 'forest-green-leather',
+    paneZIndex: 190,
+    width: 52,
+    minWidth: 28,
+    responsiveScale: 0.045,
+    textureUrl: new URL('./assets/materials/middle-earth-green-leather-v1.webp', import.meta.url).href,
+    textureSize: 280,
+    baseColor: '#314128',
+    tintColor: '#131e12',
+    tintOpacity: 0.24,
+    edgeColor: '#b38a46',
+    edgeWeight: 2,
+    shadowColor: '#100704',
+    shadowWeight: 16,
+    shadowOpacity: 0.66,
+  },
 };
 
 // Campsites, Settlements, Items, Provisions, Creatures & Beings

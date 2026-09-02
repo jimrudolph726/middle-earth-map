@@ -11,13 +11,15 @@
     <link rel="stylesheet" href="../../plugins/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="../../plugins/leaflet-sidebar.css" />
     <link rel="stylesheet" href="../shared/map-shell.css">
+    <link rel="stylesheet" href="../shared/study-desk.css">
+    <link rel="stylesheet" href="../shared/volume-introduction.css">
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
     <link rel="stylesheet" href="beleriand-volume.css" />
 </head>
 
-<body class="beleriand-volume" data-atlas-volume="beleriand">
-    <div class="beleriand-volume-cover" data-volume-cover aria-hidden="true">
+<body class="beleriand-volume atlas-study-desk" data-atlas-volume="beleriand">
+    <div class="beleriand-volume-cover" data-volume-cover data-atlas-volume-cover aria-hidden="true">
         <div class="beleriand-volume-cover__frame">
             <div class="beleriand-ornament beleriand-ornament--cover"><span>✦</span></div>
             <p class="beleriand-volume-cover__eyebrow">The First Volume</p>
@@ -237,6 +239,11 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
+                <section class="atlas-project-card atlas-introduction-card" aria-label="Volume introductions">
+                    <p class="atlas-project-card__eyebrow">Volume introductions</p>
+                    <button class="atlas-pane-link" type="button" data-atlas-introduction-reset>Show volume introductions again</button>
+                    <p class="atlas-introduction-card__status" data-atlas-introduction-status aria-live="polite">First visits open each volume’s frontispiece automatically.</p>
+                </section>
                 <section class="atlas-project-card" aria-label="About this atlas">
                     <p class="atlas-project-card__eyebrow">About this atlas</p>
                     <a class="atlas-project-card__link" href="../../about.html">Unofficial fan project <span aria-hidden="true">&middot;</span> Credits &amp; provenance</a>
@@ -309,6 +316,7 @@
     <script src="../../plugins/atlas-map-nav.js"></script>
     <script src="../../plugins/atlas-map-theme.js"></script>
     <script src="../../plugins/atlas-map-sounds.js"></script>
+    <script src="../shared/volume-introduction.js"></script>
     <script type="module" src="../../plugins/leaflet-arrowheads.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>
     <script src="beleriand-volume.js"></script>

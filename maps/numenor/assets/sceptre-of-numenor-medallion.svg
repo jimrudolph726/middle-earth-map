@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Sceptre of Númenor medallion</title>
+  <desc id="description">An original atlas emblem: an ivory-silver royal sceptre beneath a star, set in an indigo and antique-bronze circular seal above two waves.</desc>
+  <defs>
+    <radialGradient id="numenor-field" cx="38%" cy="28%" r="74%">
+      <stop offset="0" stop-color="#1d5272"/>
+      <stop offset="0.55" stop-color="#0a2b43"/>
+      <stop offset="1" stop-color="#061924"/>
+    </radialGradient>
+    <linearGradient id="numenor-bronze" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d493"/>
+      <stop offset="0.32" stop-color="#b8843f"/>
+      <stop offset="0.68" stop-color="#6f4824"/>
+      <stop offset="1" stop-color="#d3ad62"/>
+    </linearGradient>
+    <linearGradient id="numenor-silver" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#78909b"/>
+      <stop offset="0.28" stop-color="#edf2ef"/>
+      <stop offset="0.58" stop-color="#cbd7d8"/>
+      <stop offset="1" stop-color="#657c88"/>
+    </linearGradient>
+    <radialGradient id="numenor-star" cx="40%" cy="34%" r="70%">
+      <stop offset="0" stop-color="#fffce8"/>
+      <stop offset="0.56" stop-color="#f1dfa0"/>
+      <stop offset="1" stop-color="#bd8740"/>
+    </radialGradient>
+    <filter id="numenor-medallion-shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.8" flood-color="#02070a" flood-opacity="0.72"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#numenor-medallion-shadow)">
+    <circle cx="32" cy="31" r="29" fill="#07131a" stroke="#342214" stroke-width="1"/>
+    <circle cx="32" cy="31" r="27.4" fill="url(#numenor-bronze)"/>
+    <circle cx="32" cy="31" r="24.2" fill="url(#numenor-field)" stroke="#d7e1e1" stroke-width="1.1"/>
+    <circle cx="32" cy="31" r="21.7" fill="none" stroke="#d0a85f" stroke-width="0.7" opacity="0.45"/>
+
+    <path d="M16.4 44.8c3.3-2.2 6.5-2.2 9.8 0 3.5 2.3 7 2.3 10.5 0 3.4-2.2 6.8-2.2 10.2 0"
+          fill="none" stroke="#9bbbc4" stroke-width="1.45" stroke-linecap="round" opacity="0.82"/>
+    <path d="M18.5 49.1c2.8-1.7 5.6-1.7 8.4 0 3.4 2 6.8 2 10.2 0 2.8-1.7 5.6-1.7 8.4 0"
+          fill="none" stroke="#628da0" stroke-width="1.1" stroke-linecap="round" opacity="0.72"/>
+
+    <path d="M29.9 24.2h4.2l.4 17.8 2.4 3.3-4.9 5.1-4.9-5.1 2.4-3.3.4-17.8Z"
+          fill="url(#numenor-silver)" stroke="#344e5b" stroke-width="1.05" stroke-linejoin="round"/>
+    <path d="M28.4 29.2h7.2M28.3 40.7h7.4"
+          fill="none" stroke="#e8d49b" stroke-width="1.25" stroke-linecap="round"/>
+    <path d="M32 26.4v20.4" fill="none" stroke="#f7faf4" stroke-width="0.75" stroke-linecap="round" opacity="0.75"/>
+
+    <path d="M32 7.2 34.5 13l5.7-2.3-2.4 5.8 5.8 2.4-5.8 2.4 2.4 5.8-5.7-2.4-2.5 5.9-2.4-5.9-5.8 2.4 2.4-5.8-5.8-2.4 5.8-2.4-2.4-5.8 5.8 2.3L32 7.2Z"
+          fill="url(#numenor-star)" stroke="#e9f0ec" stroke-width="1.1" stroke-linejoin="round"/>
+    <circle cx="32" cy="18.9" r="2.45" fill="#f8fbf2" stroke="#8ea8b1" stroke-width="0.8"/>
+    <circle cx="31.4" cy="18.2" r="0.7" fill="#ffffff"/>
+  </g>
+</svg>

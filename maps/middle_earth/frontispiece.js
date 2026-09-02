@@ -12,9 +12,7 @@ import {
   map,
 } from './variables.js';
 
-const FRONTISPIECE_STORAGE_KEY = 'middle-earth-atlas:frontispiece-seen:v1';
 const FEATURED_PLACES_PANE_ID = 'featuredPlaces';
-const FRONTISPIECE_PANE_ID = 'frontispiece';
 const MOBILE_MAP_QUERY = window.matchMedia('(max-width: 767px)');
 const REDUCED_MOTION_QUERY = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -43,22 +41,6 @@ FEATURED_PLACE_DEFINITIONS.forEach(({ id, name }) => {
 });
 
 const featuredPlacesLayer = L.featureGroup(Object.values(featuredMarkers));
-
-const readFrontispieceSeen = () => {
-  try {
-    return window.localStorage.getItem(FRONTISPIECE_STORAGE_KEY) === 'true';
-  } catch (error) {
-    return false;
-  }
-};
-
-const rememberFrontispiece = () => {
-  try {
-    window.localStorage.setItem(FRONTISPIECE_STORAGE_KEY, 'true');
-  } catch (error) {
-    // The frontispiece still works when private storage is unavailable.
-  }
-};
 
 const announceFeaturedPlacesChange = (enabled) => {
   document.dispatchEvent(new CustomEvent('atlas:layerchange', {
@@ -191,10 +173,6 @@ export const initializeAtlasFrontispiece = ({ sidebar } = {}) => {
     return;
   }
 
-  const sidebarElement = document.getElementById('sidebar');
-  const forcedFrontispiece = new URLSearchParams(window.location.search).get('frontispiece') === '1';
-  let activePaneId = null;
-
   const openPane = (paneId, { focusHeading = true } = {}) => {
     sidebar.open(paneId);
 
@@ -204,12 +182,6 @@ export const initializeAtlasFrontispiece = ({ sidebar } = {}) => {
   };
 
   sidebar.on('content', ({ id }) => {
-    if (activePaneId === FRONTISPIECE_PANE_ID && id !== FRONTISPIECE_PANE_ID) {
-      rememberFrontispiece();
-    }
-
-    activePaneId = id;
-
     if (id !== FEATURED_PLACES_PANE_ID) {
       deactivateFeaturedPlaces();
     }
@@ -217,8 +189,6 @@ export const initializeAtlasFrontispiece = ({ sidebar } = {}) => {
 
   document.querySelectorAll('[data-frontispiece-action]').forEach((button) => {
     button.addEventListener('click', () => {
-      rememberFrontispiece();
-
       if (button.dataset.frontispieceAction === 'places') {
         openPane(FEATURED_PLACES_PANE_ID);
         activateFeaturedPlaces();
@@ -248,35 +218,10 @@ export const initializeAtlasFrontispiece = ({ sidebar } = {}) => {
     });
   });
 
-  if (sidebarElement) {
-    new MutationObserver(() => {
-      if (sidebarElement.classList.contains('collapsed') && activePaneId === FRONTISPIECE_PANE_ID) {
-        rememberFrontispiece();
-      }
-    }).observe(sidebarElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-  }
-
   const requestedPaneId = decodeURIComponent(window.location.hash.slice(1));
-  const requestedPane = requestedPaneId
-    ? document.getElementById(requestedPaneId)
-    : null;
-  const hasRequestedSidebarPane = requestedPane?.classList.contains('sidebar-pane');
+  window.AtlasVolumeIntroduction?.connectSidebar({ sidebar });
 
-  window.requestAnimationFrame(() => {
-    if (hasRequestedSidebarPane) {
-      openPane(requestedPaneId, { focusHeading: false });
-
-      if (requestedPaneId === FEATURED_PLACES_PANE_ID) {
-        activateFeaturedPlaces();
-      }
-      return;
-    }
-
-    if (forcedFrontispiece || !readFrontispieceSeen()) {
-      openPane(FRONTISPIECE_PANE_ID, { focusHeading: false });
-    }
-  });
+  if (requestedPaneId === FEATURED_PLACES_PANE_ID) {
+    window.requestAnimationFrame(activateFeaturedPlaces);
+  }
 };

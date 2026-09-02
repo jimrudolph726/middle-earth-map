@@ -43,6 +43,23 @@ export const physicalFrame = {
   ornamentMaxZoom: 16,
   frameTextureUrl: new URL('./assets/materials/beleriand-frame-metal-v1.webp', import.meta.url).href,
   frameTextureSize: 220,
+  mat: {
+    theme: 'indigo-linen',
+    paneZIndex: 390,
+    width: 52,
+    minWidth: 28,
+    responsiveScale: 0.045,
+    textureUrl: new URL('./assets/materials/beleriand-cloth-v1.webp', import.meta.url).href,
+    textureSize: 300,
+    baseColor: '#5f7d89',
+    tintColor: '#102a37',
+    tintOpacity: 0.54,
+    edgeColor: '#aab6b7',
+    edgeWeight: 2,
+    shadowColor: '#02080d',
+    shadowWeight: 16,
+    shadowOpacity: 0.68,
+  },
 };
 
 const beleriandRoutePalette = Object.freeze({

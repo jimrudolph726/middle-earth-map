@@ -10,6 +10,18 @@ const createPhysicalFrameCornerMarkup = ({ position, motif }) => {
       <path class="atlas-physical-frame__star" d="M17 7.5 19.1 14.9 25 10.7 20.9 16.8 28.2 18.9 20.9 21 25 27.1 19.1 22.9 17 30.3 14.9 22.9 9 27.1 13.1 21 5.8 18.9 13.1 16.8 9 10.7 14.9 14.9Z" />
       <circle class="atlas-physical-frame__star-core" cx="17" cy="18.9" r="1.45" />
     `,
+    'star-compass': `
+      <path class="atlas-physical-frame__corner-rail" d="M5 31V5h26" />
+      <path class="atlas-physical-frame__corner-highlight" d="M9 28V9h19" />
+      <circle class="atlas-physical-frame__rail-stud" cx="5" cy="35" r="1.15" />
+      <circle class="atlas-physical-frame__rail-stud" cx="35" cy="5" r="1.15" />
+      <circle class="atlas-physical-frame__compass-ring" cx="19.5" cy="19.5" r="10.2" />
+      <circle class="atlas-physical-frame__compass-ring atlas-physical-frame__compass-ring--inner" cx="19.5" cy="19.5" r="6.8" />
+      <path class="atlas-physical-frame__compass-rose" d="m19.5 5.9 2.55 10.96 11.05 2.64-11.05 2.55-2.55 11.05-2.64-11.05L5.9 19.5l10.96-2.64Z" />
+      <path class="atlas-physical-frame__compass-rose atlas-physical-frame__compass-rose--minor" d="m9.9 9.9 8.1 6.75 11.1-6.75-6.75 9.6 6.75 9.6-9.6-6.75-9.6 6.75 6.75-9.6Z" />
+      <circle class="atlas-physical-frame__compass-core" cx="19.5" cy="19.5" r="1.7" />
+      <path class="atlas-physical-frame__compass-arc" d="M11.2 39.8c5.4-4.3 11.1-4.3 17 0s11.6 4.3 17 0" />
+    `,
     'leaf-road': `
       <path class="atlas-physical-frame__corner-rail" d="M5 31V5h26" />
       <path class="atlas-physical-frame__corner-highlight" d="M9 28V9h19" />
@@ -140,9 +152,6 @@ export const initializePhysicalMapFrame = ({ map, imageBounds, options }) => {
     } = mat;
     const normalizedMatTheme = String(matTheme).replace(/[^a-z0-9_-]/gi, '').toLowerCase() || `${normalizedTheme}-mat`;
     const matPaneName = `atlasPhysicalMat-${normalizedTheme}`;
-    const matRenderer = typeof L.svg === 'function'
-      ? L.svg({ pane: matPaneName, padding: 0.24 })
-      : null;
     const getMatWidth = () => Math.min(
       Math.max(1, Number(width) || 52),
       Math.max(
@@ -159,6 +168,9 @@ export const initializePhysicalMapFrame = ({ map, imageBounds, options }) => {
     );
     matPane.style.zIndex = String(Number(paneZIndex) || 390);
     matPane.style.pointerEvents = 'none';
+    const matRenderer = typeof L.svg === 'function'
+      ? L.svg({ pane: matPaneName, padding: 0.24 })
+      : null;
 
     const initialMatBounds = expandBoundsByPixels({
       map,
@@ -276,6 +288,10 @@ export const initializePhysicalMapFrame = ({ map, imageBounds, options }) => {
 
       layers.push(L.marker(latLng, {
         pane: paneName,
+        // Leaflet normally derives marker z-index from screen latitude. That
+        // made northern ornaments sit behind the SVG rails while southern
+        // ornaments appeared above them. Keep every engraved corner on top.
+        zIndexOffset: 10000,
         interactive: false,
         keyboard: false,
         bubblingMouseEvents: false,

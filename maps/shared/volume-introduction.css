@@ -1,0 +1,31 @@
+/* Shared first-visit and returning-visit behavior for physical atlas volumes. */
+
+[data-atlas-volume-cover].atlas-volume-cover--returning {
+  animation-delay: 0s !important;
+  animation-duration: 620ms !important;
+}
+
+.atlas-introduction-card {
+  margin: 18px 0;
+}
+
+.atlas-introduction-card .atlas-pane-link {
+  margin-top: 9px;
+}
+
+.atlas-introduction-card__status {
+  min-height: 1.5em;
+  margin-top: 8px;
+  color: var(--atlas-ink-soft);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 9px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-atlas-volume-cover] {
+    animation-delay: 0s !important;
+    animation-duration: 180ms !important;
+  }
+}
