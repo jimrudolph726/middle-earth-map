@@ -218,6 +218,56 @@ test("the atlas pills and volume menu stay inside a phone viewport", async ({ pa
   expect(catalogueBounds.x + catalogueBounds.width).toBeLessThanOrEqual(390);
 });
 
+test("the map chapter rail scrolls above pinned Settings in mobile landscape", async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto("/maps/middle_earth/middle-earth.html#settlements", {
+    waitUntil: "domcontentloaded",
+  });
+
+  const rail = page.locator(".sidebar-tabs");
+  const categoryList = rail.locator(":scope > ul").first();
+  const settingsList = rail.locator(":scope > ul").last();
+  const layout = await rail.evaluate((railElement) => {
+    const categoryElement = railElement.querySelector("ul:first-of-type");
+    const settingsElement = railElement.querySelector("ul:last-of-type");
+    const railBounds = railElement.getBoundingClientRect();
+    const categoryBounds = categoryElement.getBoundingClientRect();
+    const settingsBounds = settingsElement.getBoundingClientRect();
+    const buttonHeights = [...railElement.querySelectorAll("li")].map(
+      (item) => item.getBoundingClientRect().height
+    );
+
+    return {
+      overflowY: getComputedStyle(categoryElement).overflowY,
+      categoryClientHeight: categoryElement.clientHeight,
+      categoryScrollHeight: categoryElement.scrollHeight,
+      categoryBottom: categoryBounds.bottom,
+      settingsTop: settingsBounds.top,
+      settingsBottom: settingsBounds.bottom,
+      railBottom: railBounds.bottom,
+      minimumButtonHeight: Math.min(...buttonHeights),
+    };
+  });
+
+  expect(layout.overflowY).toBe("auto");
+  expect(layout.categoryScrollHeight).toBeGreaterThan(layout.categoryClientHeight);
+  expect(layout.categoryBottom).toBeLessThanOrEqual(layout.settingsTop + 1);
+  expect(layout.settingsBottom).toBeLessThanOrEqual(layout.railBottom + 1);
+  expect(layout.minimumButtonHeight).toBeGreaterThanOrEqual(44);
+
+  await categoryList.evaluate((list) => {
+    list.scrollTop = list.scrollHeight;
+  });
+
+  const lastCategoryBounds = await categoryList.locator("li").last().boundingBox();
+  const settingsBounds = await settingsList.boundingBox();
+  expect(lastCategoryBounds.y + lastCategoryBounds.height).toBeLessThanOrEqual(settingsBounds.y + 1);
+
+  await expect(page.locator("[data-atlas-volume-cover]")).toHaveCount(0, { timeout: 2_000 });
+  await settingsList.getByRole("tab").click();
+  await expect(page.locator("#settings")).toHaveClass(/active/);
+});
+
 test("about page presents the disclaimer and provenance ledger", async ({ page }) => {
   await page.goto("/about.html", { waitUntil: "domcontentloaded" });
 
