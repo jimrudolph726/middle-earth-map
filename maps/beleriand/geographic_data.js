@@ -592,7 +592,7 @@ export const hills = {
   amon_ereb: {
     pathName: "amon_ereb",
     color: "red",
-    name: "amon_ereb",
+    name: "Amon Ereb",
     PopupContent: createGeographicPopup(
     "Amon Ereb",
     "Amon Ereb",
@@ -605,7 +605,7 @@ export const hills = {
   himring: {
     pathName: "himring",
     color: "red",
-    name: "himring",
+    name: "Himring",
     PopupContent: createGeographicPopup(
     "Himring",
     "Himring",
