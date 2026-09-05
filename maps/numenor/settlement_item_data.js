@@ -8,11 +8,13 @@ const iconUrls = {
   finrod: new URL('./assets/finrod.png', import.meta.url).href,
   beor: new URL('./assets/beor.png', import.meta.url).href,
   sceptreOfNumenor: new URL('./assets/sceptre-of-numenor-medallion.svg', import.meta.url).href,
+  numenorCity: new URL('./assets/numenor-city-medallion.svg', import.meta.url).href,
   dwarves: new URL('./assets/dwarves.png', import.meta.url).href,
   tent: new URL('./assets/tent.png', import.meta.url).href,
 };
 export const icons = {
 ArmenelosIcon: createIcon(iconUrls.sceptreOfNumenor),
+NumenorCityIcon: createIcon(iconUrls.numenorCity),
 TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
@@ -26,6 +28,15 @@ export const cities = {
     ),
     coords: [44.9396778,-93.3115786],
     icon: icons.ArmenelosIcon,
+  },
+  andunie: {
+    popup: createSettlementPopup(
+      "Andúnië",
+      `City and haven on the west coast of Numenor. Andunie was located on the Bay of Andunie in the Westlands of Andustar - the northwestern promontory of the island of Numenor.`,
+      "https://thainsbook.minastirith.cz/towns.html#And%C3%BAni%C3%AB"
+    ),
+    coords: [44.9431799,-93.3222017],
+    icon: icons.NumenorCityIcon,
   },
 };
 

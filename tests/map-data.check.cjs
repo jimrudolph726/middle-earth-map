@@ -52,6 +52,37 @@ function evaluateModule(filePath, bindings = {}) {
 }
 
 const popupStub = () => "";
+
+test("Númenor subregion exports do not duplicate another region's polygons", () => {
+  const numenorDir = path.join(repoRoot, "maps", "numenor");
+  const { sub_regions } = evaluateModule(path.join(numenorDir, "geographic_data.js"), {
+    createGeographicPopup: () => "",
+  });
+  const owners = new Map();
+
+  for (const [region, { pathName }] of Object.entries(sub_regions)) {
+    const collection = JSON.parse(fs.readFileSync(
+      path.join(numenorDir, "geojson_files", `${pathName}.geojson`), "utf8"
+    ));
+    assert.ok(collection.features.length > 0, `${region} has no features`);
+
+    for (const { geometry } of collection.features) {
+      const polygons = geometry.type === "MultiPolygon"
+        ? geometry.coordinates : [geometry.coordinates];
+      for (const polygon of polygons) {
+        // Ignore ring direction, starting vertex, and the repeated closing vertex.
+        const signature = JSON.stringify(polygon.map((ring) => (
+          [...new Set(ring.map((point) => JSON.stringify(point)))].sort()
+        )).sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))));
+        const existingOwner = owners.get(signature);
+        assert.ok(!existingOwner || existingOwner === region,
+          `${region} contains a duplicate polygon from ${existingOwner}`);
+        owners.set(signature, region);
+      }
+    }
+  }
+});
+
 const createIconStub = (url, size = null) => ({ url, size });
 const leafletStub = {
   CRS: {

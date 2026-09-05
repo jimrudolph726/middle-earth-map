@@ -3,6 +3,13 @@ import {
   cities,
   sacredPlaces,
 } from './settlement_item_data.js';
+// Map definition
+import {
+  mountains,
+  rivers,
+  large_regions,
+  sub_regions
+} from './geographic_data.js';
 
 export const imageUrl = new URL('./assets/numenor.png', import.meta.url).href;
 export const imageBounds = [[44.9509454,-93.3340925],[44.929893420,-93.295343975],];
@@ -52,5 +59,19 @@ export const settlementsData = [
   })),
 ];
 
+// Geographic Features
+const geographicGroups = {
+  mountains,
+  rivers,
+  large_regions,
+  sub_regions
+};
+
+export const geographicData = [
+  ...Object.entries(geographicGroups).map(([name, data]) => ({
+    data,
+    checkboxId: `${name}Checkbox`
+  })),
+]
+
 export const pathdata = {};
-export const geographicData = [];
