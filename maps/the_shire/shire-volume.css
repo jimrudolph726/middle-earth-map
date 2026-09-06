@@ -221,7 +221,6 @@
 
 /* Harvest Almanac: honey, flax, copper, and olive ink. Scoped to this volume. */
 body.shire-volume {
-  --atlas-paper-texture: url('../../assets/map_parchment.png');
   --atlas-walnut-950: #303225;
   --atlas-walnut-900: #393b2b;
   --atlas-walnut-800: #4c5038;
@@ -241,7 +240,7 @@ body.shire-volume {
 }
 
 .shire-volume .sidebar-content {
-  background: linear-gradient(#f1e4c3ed, #e8d6a9df), var(--atlas-paper-texture) center / cover;
+  background: linear-gradient(#f1e4c3ed, #e8d6a9df), url('../../assets/map_parchment.png') center / cover;
   background-color: #f1e4c3;
 }
 
@@ -319,10 +318,10 @@ body.shire-volume {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(#f1e4c3db, #e6c96b33), var(--atlas-paper-texture) center / 100% 100% no-repeat;
+  background: linear-gradient(#f1e4c3db, #e6c96b33), url('../../assets/map_parchment.png') center / 100% 100% no-repeat;
   background-color: #f1e4c3;
-  -webkit-mask: var(--atlas-paper-texture) center / 100% 100% no-repeat;
-  mask: var(--atlas-paper-texture) center / 100% 100% no-repeat;
+  -webkit-mask: url('../../assets/map_parchment.png') center / 100% 100% no-repeat;
+  mask: url('../../assets/map_parchment.png') center / 100% 100% no-repeat;
 }
 .shire-volume .leaflet-popup-tip-container { display: none; }
 .shire-volume .lore-popup__frame::before,

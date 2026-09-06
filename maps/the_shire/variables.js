@@ -14,13 +14,7 @@ import {
   inns_and_gathering_places
 } from './settlement_item_data.js';
 
-import {
-  createSettlementPopup,
- } from '../shared/functions.js';
-
- import {
-  berencampsites,
- } from './campsite_data.js';
+import { campsiteGroups } from './campsite_data.js';
 
 // Map definition
 export const imageUrl = new URL('./assets/the_shire.jpg', import.meta.url).href;
@@ -53,10 +47,6 @@ export const physicalFrame = {
 };
 
 // Campsites and Settlements
-const campsiteGroups = {
-  berencampsites,
-};
-
 const settlementGroups = {
   towns_and_villages,
   homes_and_farms,
@@ -78,11 +68,7 @@ export const settlementsData = [
 ];
 
 // Paths
-export const pathdata = { 
-  beren_path: { 
-    pathName: 'beren_path', color: '#71352e', name: 'Beren', PopupContent: createSettlementPopup('Beren', ' ', 'https://tolkiengateway.net/wiki/Beren'), tolerance: 10, weight: 5
-  }, 
-}
+export const pathdata = {};
 
 // Geographic Features
 const geographicGroups = {

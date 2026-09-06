@@ -495,7 +495,7 @@ body.numenor-volume {
   background:
     radial-gradient(circle at 86% 9%, rgba(75, 119, 128, 0.08), transparent 26%),
     linear-gradient(rgba(248, 244, 232, 0.92), rgba(215, 211, 195, 0.84)),
-    var(--atlas-paper-texture) center / cover;
+    url('../../assets/map_parchment.png') center / cover;
   box-shadow:
     inset 14px 0 25px rgba(19, 50, 70, 0.08),
     inset 0 0 50px rgba(117, 103, 76, 0.07);
@@ -603,7 +603,7 @@ body.numenor-volume {
   border-color: rgba(160, 125, 73, 0.7);
   background:
     linear-gradient(105deg, rgba(250, 246, 233, 0.86), rgba(213, 211, 195, 0.55)),
-    var(--atlas-paper-texture) center / cover;
+    url('../../assets/map_parchment.png') center / cover;
   box-shadow:
     0 7px 18px rgba(20, 49, 66, 0.14),
     inset 0 0 0 1px rgba(255, 253, 244, 0.5);

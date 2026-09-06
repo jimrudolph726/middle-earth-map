@@ -1,13 +1,2 @@
-import {
-  createCampsitePopup,
-} from '../shared/functions.js';
-
-import {
-  icons,
-} from './settlement_item_data.js';
-
-  
-export const berencampsites = {
-    FA460: { coords: [44.9428698,-93.2952427], icon: icons.TentIcon, popup: createCampsitePopup('FA 460-464','NA','NA','NA','Beren lives in Dorthonion during his youth.','Dorthonion'),
-    },
-  };
+// Add Númenor journeys here as they are researched.
+export const campsiteGroups = {};

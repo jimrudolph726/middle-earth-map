@@ -1,3 +1,4 @@
+import { initializePopupLayout } from './popup-layout.js';
 import {
   MarkerListeners,
   PathListeners,
@@ -107,6 +108,7 @@ export const initializeImageAtlasMap = ({
 
   const map = L.map(mapElementId, { ...defaultMapOptions, ...mapOptions });
   map.options.wheelPxPerZoomLevel = 40;
+  initializePopupLayout(map);
 
   const imageLayer = L.imageOverlay(imageUrl, imageBounds, {
     className: physicalFrame

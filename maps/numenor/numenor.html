@@ -15,6 +15,8 @@
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
     <link rel="stylesheet" href="numenor-volume.css" />
+    <link rel="stylesheet" href="../shared/volume-consistency.css">
+    <link rel="stylesheet" href="../../plugins/atlas-navigation-type.css">
 </head>
 
 <body class="numenor-volume atlas-study-desk" data-atlas-volume="numenor">
@@ -46,7 +48,7 @@
                         <i class="material-icons">explore</i> Frontispiece
                     </a>
                 </li>
-                <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
+                <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Travels</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
                 <li><a href="#items" role="tab">
@@ -90,7 +92,7 @@
                             <span class="atlas-chapter-card__medallion"><i class="material-icons">explore</i></span>
                             <span class="atlas-chapter-card__copy">
                                 <strong>Survey the Five Peninsulas</strong>
-                                <span>Preview the geographic ledger prepared for future entries.</span>
+                                <span>Explore the mountains, rivers, and bays of the island.</span>
                             </span>
                             <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
                         </button>
@@ -98,7 +100,7 @@
                             <span class="atlas-chapter-card__medallion"><i class="material-icons">account_balance</i></span>
                             <span class="atlas-chapter-card__copy">
                                 <strong>Open the Royal Ledger</strong>
-                                <span>See the chapters awaiting the cities and peoples of Númenor.</span>
+                                <span>Discover the cities and places of Númenor.</span>
                             </span>
                             <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
                         </button>
@@ -112,7 +114,7 @@
 
             <div class="sidebar-pane" id="paths">
                 <h1 class="sidebar-header">
-                    Paths
+                    Travels
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
                     <h2>Campsites</h2>
@@ -120,17 +122,11 @@
                     <label for="allCampCheckbox">
                         <input type="checkbox" id="allCampCheckbox" data-toggle-all="#campsSection input.campCheckbox" /> All
                     </label>
-                    <label for="berencampsitesCheckbox">
-                      <input type="checkbox" class="campCheckbox" id="berencampsitesCheckbox" /> Beren Campsites
-                    </label>
                 </div>
                     <h2>Paths</h2>
                 <div id="pathsSection">
                     <label for="allPathCheckbox">
                         <input type="checkbox" id="allPathCheckbox" data-toggle-all="#pathsSection input.pathCheckbox" /> All
-                    </label>
-                    <label for="beren_pathCheckbox">
-                    <input type="checkbox" class="pathCheckbox" id="beren_pathCheckbox" /> Beren
                     </label>
                 </div>
             </div>
@@ -184,7 +180,7 @@
                         <input type="checkbox" class="regionCheckbox" id="large_regionsCheckbox" /> Large Regions
                     </label>
                     <label for="sub_regionsCheckbox">
-                        <input type="checkbox" class="regionCheckbox" id="sub_regionsCheckbox" /> Sub Regions
+                        <input type="checkbox" class="regionCheckbox" id="sub_regionsCheckbox" /> Subregions
                     </label>
                 </div>
             </div>
@@ -202,19 +198,13 @@
                         <input type="checkbox" class="itemCheckbox" id="royalheirloomsCheckbox" /> Royal Heirlooms
                     </label>
                     <label for="jewels_and_keepsakesCheckbox">
-                        <input type="checkbox" class="itemCheckbox" id="jewels_and_keepsakesCheckbox" /> Jewels &amp; Keepsakes
+                        <input type="checkbox" class="itemCheckbox" id="jewels_and_keepsakesCheckbox" /> Jewels and Keepsakes
                     </label>
                 </div>
             </div>
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
-                <section class="numenor-volume-card" aria-label="Númenor volume style">
-                    <p class="numenor-volume-card__eyebrow">The Second Volume</p>
-                    <div class="numenor-ornament" aria-hidden="true"><span>✦</span></div>
-                    <h2>A royal maritime atlas</h2>
-                    <p>Indigo leather, salt-aged vellum, white stone, and bronze instruments of navigation.</p>
-                </section>
                 <section class="atlas-project-card atlas-introduction-card" aria-label="Volume introductions">
                     <p class="atlas-project-card__eyebrow">Volume introductions</p>
                     <button class="atlas-pane-link" type="button" data-atlas-introduction-reset>Show volume introductions again</button>
@@ -248,7 +238,7 @@
                 </a>
                 <a class="atlas-map-nav__link atlas-map-nav__link--current" href="numenor.html" aria-current="page">
                     <i class="material-icons">map</i>
-                    <span>Numenor</span>
+                    <span>Númenor</span>
                 </a>
                 <a class="atlas-map-nav__link" href="../middle_earth/middle-earth.html">
                     <i class="material-icons">map</i>

@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../../plugins/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
     <link rel="stylesheet" href="middle-earth-volume.css" />
+    <link rel="stylesheet" href="../shared/volume-consistency.css">
+    <link rel="stylesheet" href="../../plugins/atlas-navigation-type.css">
 </head>
 
 <body class="middle-earth-volume atlas-study-desk" data-atlas-volume="middle-earth">
@@ -28,11 +30,10 @@
           <div class="middle-earth-volume-cover__face">
             <div class="middle-earth-volume-cover__spine"></div>
             <div class="middle-earth-volume-cover__frame">
-            <div class="middle-earth-ornament middle-earth-ornament--cover"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
+            <img class="atlas-cover-ornament" src="./assets/middle-earth-frontispiece-ornament.svg" width="120" height="64" alt="">
             <p class="middle-earth-volume-cover__eyebrow">The Third Volume</p>
             <p class="middle-earth-volume-cover__title">Middle-earth</p>
             <p class="middle-earth-volume-cover__subtitle">Roads and Realms of the Third Age</p>
-            <div class="middle-earth-ornament middle-earth-ornament--cover"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
             </div>
             <div class="middle-earth-volume-cover__light"></div>
           </div>
@@ -43,10 +44,10 @@
             <ul role="tablist">
                 <li class="atlas-frontispiece-tab middle-earth-frontispiece-tab">
                     <a href="#frontispiece" role="tab" aria-label="Open atlas frontispiece">
-                        <i class="material-icons">menu_book</i> Atlas Frontispiece
+                        <i class="material-icons">menu_book</i> Frontispiece
                     </a>
                 </li>
-                <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
+                <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Travels</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
                 <li><a href="#battles" role="tab">
@@ -62,7 +63,7 @@
                     <i class="material-icons">restaurant</i> Provisions
                 </a></li>
                 <li><a href="#creatures_and_beings" role="tab">
-                    <i class="material-icons">pets</i> Creatures &amp; Beings
+                    <i class="material-icons">pets</i> Creatures and Beings
                 </a></li>
                 <li><a href="#stories" role="tab">
                     <i class="material-icons">auto_stories</i> Curated Stories
@@ -120,7 +121,7 @@
                         </button>
                     </div>
                     <p class="atlas-frontispiece__return-note">
-                        <i class="material-icons" aria-hidden="true">explore</i>
+                        <i class="material-icons" aria-hidden="true">menu_book</i>
                         Return here at any time from the book tab.
                     </p>
                 </section>
@@ -239,7 +240,7 @@
                         <input type="checkbox" class="campCheckbox" id="merrycampsitesCheckbox" /> Merry
                     </label>
                     <label for="aragorncampsitesCheckbox">
-                        <input type="checkbox" class="campCheckbox" id="aragorncampsitesCheckbox" /> Aragorn, Gimli, Legolas
+                        <input type="checkbox" class="campCheckbox" id="aragorncampsitesCheckbox" /> Aragorn, Gimli, and Legolas
                     </label>
                     <label for="boromircampsitesCheckbox">
                         <input type="checkbox" class="campCheckbox" id="boromircampsitesCheckbox" /> Boromir
@@ -398,7 +399,7 @@
                         <input type="checkbox" class="regionCheckbox" id="large_regionsCheckbox" /> Large Regions
                     </label>
                     <label for="sub_regionsCheckbox">
-                        <input type="checkbox" class="regionCheckbox" id="sub_regionsCheckbox" /> Sub Regions
+                        <input type="checkbox" class="regionCheckbox" id="sub_regionsCheckbox" /> Subregions
                     </label>
                 </div>
             </div>
@@ -525,12 +526,6 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
-                <section class="middle-earth-volume-card" aria-label="Middle-earth volume style">
-                    <p class="middle-earth-volume-card__eyebrow">The Third Volume</p>
-                    <div class="middle-earth-ornament" aria-hidden="true"><span>❧ &nbsp; ✥ &nbsp; ❧</span></div>
-                    <h2>A traveller's atlas</h2>
-                    <p>Warm parchment, walnut, worn brass, and roads marked by many hands.</p>
-                </section>
                 <section class="atlas-project-card atlas-introduction-card" aria-label="Volume introductions">
                     <p class="atlas-project-card__eyebrow">Volume introductions</p>
                     <button class="atlas-pane-link" type="button" data-atlas-introduction-reset>Show volume introductions again</button>
@@ -564,7 +559,7 @@
                 </a>
                 <a class="atlas-map-nav__link" href="../numenor/numenor.html">
                     <i class="material-icons">map</i>
-                    <span>Numenor</span>
+                    <span>Númenor</span>
                 </a>
                 <a class="atlas-map-nav__link atlas-map-nav__link--current" href="middle-earth.html" aria-current="page">
                     <i class="material-icons">map</i>

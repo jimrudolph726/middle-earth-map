@@ -11,7 +11,7 @@ export const mountains = {
       "Meneltarma",
       "Meneltarma",
       `The name Meneltarma means "Pillar of Heaven" in Quenya from menel meaning "heaven" and tarma meaning "pillar."`,
-      `Mountain in Numenor sacred to the worship of Eru. Meneltarma was a solitary peak near the center of the island of Numenor.`,
+      `Mountain in Númenor sacred to the worship of Eru. Meneltarma was a solitary peak near the center of the island of Númenor.`,
       "https://thainsbook.minastirith.cz/mountains.html#Meneltarma"
     ),
     tolerance: 1,
@@ -55,7 +55,7 @@ export const rivers = {
       "Siril",
       "Siril",
       `The name Siril means "rivulet" in Quenya.`,
-      `Largest river in Numenor. The Siril began under the roots of Meneltarma, the great mountain that stood near the center of Numenor.`,
+      `Largest river in Númenor. The Siril began under the roots of Meneltarma, the great mountain that stood near the center of Númenor.`,
       "https://thainsbook.minastirith.cz/rivers.html#Siril"
     ),
     tolerance: 10,  // Tolerance is set to 10 for every object

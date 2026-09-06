@@ -460,7 +460,7 @@ body.beleriand-volume {
 .beleriand-volume .sidebar-content {
   background:
     linear-gradient(rgba(241, 241, 232, 0.9), rgba(181, 194, 191, 0.82)),
-    var(--atlas-paper-texture) center / cover;
+    url('../../assets/map_parchment.png') center / cover;
   box-shadow:
     inset 14px 0 24px rgba(36, 56, 63, 0.08),
     inset 0 0 46px rgba(78, 104, 112, 0.06);
@@ -556,7 +556,7 @@ body.beleriand-volume {
   border-color: rgba(123, 141, 144, 0.72);
   background:
     linear-gradient(105deg, rgba(244, 243, 234, 0.8), rgba(186, 199, 197, 0.48)),
-    var(--atlas-paper-texture) center / cover;
+    url('../../assets/map_parchment.png') center / cover;
   box-shadow:
     0 7px 17px rgba(29, 45, 51, 0.14),
     inset 0 0 0 1px rgba(249, 250, 245, 0.45);
@@ -721,7 +721,7 @@ body.beleriand-volume {
     radial-gradient(circle at 88% 12%, rgba(91, 112, 118, 0.09), transparent 27%),
     radial-gradient(ellipse at center, transparent 58%, rgba(89, 103, 105, 0.13) 100%),
     linear-gradient(rgba(247, 246, 232, 0.54), rgba(211, 215, 205, 0.28)),
-    var(--atlas-paper-texture);
+    url('../../assets/map_parchment.png');
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -735,7 +735,7 @@ body.beleriand-volume {
   background-color: #e4e5d9;
   background-image:
     linear-gradient(rgba(244, 244, 231, 0.44), rgba(205, 211, 203, 0.2)),
-    var(--atlas-paper-texture);
+    url('../../assets/map_parchment.png');
   background-position: center;
   background-size: 100% 100%, 600% 600%;
   background-repeat: no-repeat;
@@ -803,45 +803,22 @@ body.beleriand-volume {
   scrollbar-color: #89999d transparent;
 }
 
+/* Only the palette varies; button geometry and motion come from the shared theme. */
 .beleriand-volume .leaflet-container a.lore-popup__link {
-  padding: 7px 2px 4px;
-  border: 0;
-  border-bottom: 1px solid #87979a;
-  border-radius: 0;
-  color: #304f65;
-  background: transparent;
-  box-shadow: none;
-  letter-spacing: 0.025em;
-  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
-  translate: none;
-}
-
-.beleriand-volume .leaflet-container a.lore-popup__link::after {
-  margin-left: 0.62em;
-  color: #829499;
-  content: "✦";
-  font-size: 0.66em;
-  vertical-align: 0.18em;
+  border-color: #aebbb8;
+  color: #f3f3e8;
+  background: linear-gradient(#436777, #304d5a);
 }
 
 .beleriand-volume .leaflet-container a.lore-popup__link:hover,
 .beleriand-volume .leaflet-container a.lore-popup__link:focus-visible {
-  border-color: #526f79;
-  color: #203f56;
-  background: transparent;
-  box-shadow: none;
-  translate: none;
+  border-color: #d9e0da;
+  color: #fff;
+  background: linear-gradient(#527685, #345463);
 }
 
-.beleriand-volume .leaflet-container a.lore-popup__link:hover::after,
-.beleriand-volume .leaflet-container a.lore-popup__link:focus-visible::after {
-  color: #526f79;
-  translate: 1px 0;
-}
-
-.beleriand-volume .leaflet-container a.lore-popup__link:active {
-  box-shadow: none;
-  translate: none;
+.beleriand-volume .leaflet-container a.lore-popup__link:focus-visible {
+  outline-color: #d9e0da;
 }
 
 .beleriand-volume .leaflet-container a.leaflet-popup-close-button {
@@ -859,7 +836,7 @@ body.beleriand-volume {
   color: #27383f;
   background:
     linear-gradient(rgba(241, 242, 235, 0.94), rgba(186, 200, 197, 0.88)),
-    var(--atlas-paper-texture) center / cover;
+    url('../../assets/map_parchment.png') center / cover;
   box-shadow: 0 5px 12px rgba(19, 36, 43, 0.25);
 }
 

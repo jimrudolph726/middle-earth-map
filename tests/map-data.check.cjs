@@ -94,7 +94,8 @@ test("Númenor enabled marker groups have defined icons and matching checkboxes"
   const geography = evaluateModule(path.join(directory, "geographic_data.js"), {
     createGeographicPopup: popupStub,
   });
-  const definition = evaluateModule(path.join(directory, "variables.js"), { ...items, ...geography });
+  const campsites = evaluateModule(path.join(directory, "campsite_data.js"), { createCampsitePopup: popupStub, icons: items.icons });
+  const definition = evaluateModule(path.join(directory, "variables.js"), { ...items, ...geography, ...campsites });
   const html = fs.readFileSync(path.join(directory, "numenor.html"), "utf8");
   const ids = new Set(Array.from(html.matchAll(/\bid=["']([^"']+)["']/g), ([, id]) => id));
   for (const { data, checkboxId } of definition.settlementsData) {

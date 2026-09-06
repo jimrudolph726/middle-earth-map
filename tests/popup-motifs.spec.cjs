@@ -12,6 +12,7 @@ for (const [volume, stylesheet] of [
       <link rel="stylesheet" href="${baseURL}/maps/shared/map-shell.css">
       <link rel="stylesheet" href="${baseURL}/plugins/atlas-map-theme.css">
       <link rel="stylesheet" href="${baseURL}/maps/${stylesheet}">
+      <link rel="stylesheet" href="${baseURL}/maps/shared/volume-consistency.css">
       </head><body class="${volume}-volume" style="margin:30px;background:#eee8d8">
       ${['lore', 'campsite'].map(type => `<article class="${type}-popup" style="width:320px">
         <div class="${type}-popup__frame"><h3 class="${type}-popup__title">A note from the atlas</h3>

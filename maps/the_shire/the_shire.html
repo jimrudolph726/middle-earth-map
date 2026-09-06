@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../shared/study-desk.css">
     <link rel="stylesheet" href="../shared/volume-introduction.css">
     <link rel="stylesheet" href="./shire-volume.css">
+    <link rel="stylesheet" href="../shared/volume-consistency.css">
+    <link rel="stylesheet" href="../../plugins/atlas-navigation-type.css">
 </head>
 
 <body class="shire-volume atlas-study-desk" data-atlas-volume="shire">
@@ -42,7 +44,7 @@
                 <li class="atlas-frontispiece-tab">
                     <a href="#frontispiece" role="tab" aria-label="Open Shire frontispiece"><i class="material-icons">menu_book</i> Frontispiece</a>
                 </li>
-                <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
+                <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Travels</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
                 <li><a href="#battles" role="tab">
@@ -68,8 +70,8 @@
                 <section class="atlas-frontispiece shire-frontispiece" aria-labelledby="shireFrontispieceTitle">
                     <p class="atlas-frontispiece__eyebrow">The Fourth Volume</p>
                     <img class="atlas-frontispiece__ornament shire-harvest-ornament" src="./assets/shire-harvest-ornament.svg" width="120" height="64" alt="">
-                    <h2 id="shireFrontispieceTitle" class="atlas-frontispiece__title">An Almanac of<br>Hearth &amp; Harvest</h2>
-                    <p class="atlas-frontispiece__copy">Welcome to the Shire. Here the roads lead past kitchen gardens, over quiet streams, and home again before supper. Settle in, unfold the map, and see where a little wandering takes you.</p>
+                    <h2 id="shireFrontispieceTitle" class="atlas-frontispiece__title">An Almanac of Hearth &amp; Harvest</h2>
+                    <p class="atlas-frontispiece__copy">Welcome to the Shire. Wander past kitchen gardens and quiet streams, and find your way home before supper.</p>
                     <div class="atlas-chapter-list">
                         <button class="atlas-chapter-card" type="button" data-shire-action="map">
                             <span class="atlas-chapter-card__medallion"><i class="material-icons">map</i></span>
@@ -92,7 +94,7 @@
             </div>
             <div class="sidebar-pane" id="paths">
                 <h1 class="sidebar-header">
-                    Paths
+                    Travels
                     <span class="sidebar-close"><i class="material-icons">chevron_left</i></span>
                 </h1>
                     <h2>Campsites</h2>
@@ -100,9 +102,10 @@
                     <label for="allCampCheckbox">
                         <input type="checkbox" id="allCampCheckbox" data-toggle-all="#campsSection input.campCheckbox" /> All
                     </label>
-                    <label for="berencampsitesCheckbox">
-                      <input type="checkbox" class="campCheckbox" id="berencampsitesCheckbox" /> Beren Campsites
-                    </label>
+                </div>
+                <h2>Paths</h2>
+                <div id="pathsSection">
+                    <label for="allPathCheckbox"><input type="checkbox" id="allPathCheckbox" data-toggle-all="#pathsSection input.pathCheckbox" /> All</label>
                 </div>
             </div>
 
@@ -142,7 +145,7 @@
                     <label for="riversCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="riversCheckbox" /> Rivers
                     </label>
-                    <label for="lakes_seasCheckbox">
+                    <label for="wetlandsCheckbox">
                         <input type="checkbox" class="geographyCheckbox" id="wetlandsCheckbox" /> Wetlands
                     </label>
                     <label for="hillsCheckbox">
@@ -182,7 +185,7 @@
                         <input type="checkbox" class="regionCheckbox" id="large_regionsCheckbox" /> Large Regions
                     </label>
                     <label for="sub_regionsCheckbox">
-                        <input type="checkbox" class="regionCheckbox" id="sub_regionsCheckbox" /> Sub Regions
+                        <input type="checkbox" class="regionCheckbox" id="sub_regionsCheckbox" /> Subregions
                     </label>
                 </div>
             </div>
@@ -243,7 +246,7 @@
                 </a>
                 <a class="atlas-map-nav__link" href="../numenor/numenor.html">
                     <i class="material-icons">map</i>
-                    <span>Numenor</span>
+                    <span>Númenor</span>
                 </a>
                 <a class="atlas-map-nav__link" href="../middle_earth/middle-earth.html">
                     <i class="material-icons">map</i>

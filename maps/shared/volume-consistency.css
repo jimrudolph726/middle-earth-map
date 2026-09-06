@@ -1,0 +1,148 @@
+/* Shared geometry; pigments, bindings and materials stay with each volume. */
+[data-atlas-volume-cover] [class$="-volume-cover__frame"] {
+  box-sizing: border-box;
+  width: min(700px, calc(100vw - 112px));
+  padding: 38px 28px 40px;
+}
+[data-atlas-volume-cover] [class$="-volume-cover__frame"]::before,
+[data-atlas-volume-cover] [class$="-volume-cover__frame"]::after,
+[data-atlas-volume-cover] [class*="-ornament--cover"] { display: none; }
+[data-atlas-volume-cover] :is(.atlas-cover-ornament, .shire-harvest-ornament, [class$="-volume-cover__seal"]) {
+  display: block;
+  width: 120px;
+  height: 64px;
+  margin: 0 auto 18px;
+  object-fit: contain;
+}
+[data-atlas-volume-cover] [class$="-volume-cover__eyebrow"] {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: .24em;
+}
+[data-atlas-volume-cover] [class$="-volume-cover__title"] {
+  margin: 10px 0 12px;
+  font-size: clamp(37px, 7vw, 82px);
+  line-height: 1;
+  letter-spacing: .035em;
+}
+[data-atlas-volume-cover] [class$="-volume-cover__subtitle"] {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.7;
+  letter-spacing: .16em;
+}
+
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece__title { min-height: 64px; }
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece__copy { min-height: 60px; margin: 12px 0 18px; }
+
+/* A real illustration, with the same footprint, opens every popup. */
+.middle-earth-volume { --atlas-popup-ornament: url('../middle_earth/assets/popup-leaf.svg'); }
+.beleriand-volume { --atlas-popup-ornament: url('../beleriand/assets/popup-star-wave.svg'); }
+.numenor-volume { --atlas-popup-ornament: url('../numenor/assets/popup-star.svg'); }
+.shire-volume { --atlas-popup-ornament: url('../the_shire/assets/barley-ornament.svg'); }
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) :is(.lore-popup__frame, .campsite-popup__frame)::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 96px;
+  height: 24px;
+  margin: 0 auto 10px;
+  background: var(--atlas-popup-ornament) center / contain no-repeat;
+}
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .leaflet-popup-tip-container { display: none; }
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) :is(.lore-popup, .campsite-popup) {
+  min-width: 0;
+  max-width: min(640px, var(--atlas-popup-width, calc(100vw - 100px)));
+}
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .lore-popup--settlement {
+  width: min(640px, var(--atlas-popup-width, calc(100vw - 100px)));
+}
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .leaflet-popup-content-wrapper {
+  max-width: var(--atlas-popup-width, calc(100vw - 100px));
+}
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) :is(.lore-popup__frame, .campsite-popup__frame) {
+  box-sizing: border-box;
+  max-height: var(--atlas-popup-height, calc(100dvh - 160px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .lore-popup--settlement .lore-popup__frame {
+  max-height: min(520px, var(--atlas-popup-height, calc(100dvh - 160px)));
+}
+
+/* Opaque Elven vellum, confined to the parchment's irregular silhouette. */
+body.beleriand-volume .leaflet-popup .leaflet-popup-content-wrapper {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+body.beleriand-volume .leaflet-popup .leaflet-popup-content-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(#f7f6e889, #d3d7cd47), url('../../assets/map_parchment.png') center / 100% 100% no-repeat;
+  background-color: #eaeadd;
+  background-blend-mode: normal, luminosity;
+  -webkit-mask: url('../../assets/map_parchment.png') center / 100% 100% no-repeat;
+  mask: url('../../assets/map_parchment.png') center / 100% 100% no-repeat;
+}
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .sidebar-header { position: relative; }
+body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .sidebar-header::after {
+  content: '';
+  position: absolute;
+  right: 57px;
+  top: auto;
+  bottom: 9px;
+  width: 26px;
+  height: 14px;
+  transform: none;
+  background: var(--atlas-popup-ornament) center / contain no-repeat;
+  opacity: .7;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  [data-atlas-volume-cover] [class$="-volume-cover__frame"] {
+    width: calc(100vw - 96px);
+    padding: 28px 16px 30px;
+  }
+  [data-atlas-volume-cover] [class$="-volume-cover__spine"] { width: 27px; }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece__title { min-height: 52px; }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece__copy { min-height: 72px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  [data-atlas-volume-cover] [class$="-volume-cover__frame"] { padding-block: 14px; }
+  [data-atlas-volume-cover] :is(.atlas-cover-ornament, .shire-harvest-ornament, [class$="-volume-cover__seal"]) {
+    width: 75px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+  [data-atlas-volume-cover] [class$="-volume-cover__title"] { font-size: 40px; }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece { padding-top: 10px; }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece__eyebrow { margin-bottom: 6px; }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece > .atlas-frontispiece__ornament { width: 60px; height: 32px; margin-bottom: 8px; }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece__title { min-height: 0; margin-top: 0; font-size: 24px; line-height: 1; }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-frontispiece__copy {
+    min-height: 0;
+    margin: 8px 0 12px;
+    font-size: 10px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-chapter-card {
+    min-height: 72px;
+    padding: 10px;
+    grid-template-columns: 32px minmax(0, 1fr) 14px;
+    gap: 8px;
+  }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-chapter-card__medallion {
+    width: 32px;
+    height: 32px;
+  }
+  body:is(.middle-earth-volume, .beleriand-volume, .numenor-volume, .shire-volume) .atlas-chapter-card__copy strong { font-size: 18px; }
+}

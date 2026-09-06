@@ -25,7 +25,7 @@ export const cities = {
   armenelos: {
     popup: createSettlementPopup(
       "Armenelos",
-      `Royal city of Numenor. Armenelos was located in the eastern part of the Inlands in the region called Arandor.`,
+      `Royal city of Númenor. Armenelos was located in the eastern part of the Inlands in the region called Arandor.`,
       "https://thainsbook.minastirith.cz/towns.html#Armenelos"
     ),
     coords: [44.9396778,-93.3115786],
@@ -34,7 +34,7 @@ export const cities = {
   andunie: {
     popup: createSettlementPopup(
       "Andúnië",
-      `City and haven on the west coast of Numenor. Andunie was located on the Bay of Andunie in the Westlands of Andustar - the northwestern promontory of the island of Numenor.`,
+      `City and haven on the west coast of Númenor. Andúnië was located on the Bay of Andúnië in the Westlands of Andustar—the northwestern promontory of the island of Númenor.`,
       "https://thainsbook.minastirith.cz/towns.html#And%C3%BAni%C3%AB"
     ),
     coords: [44.9431799,-93.3222017],

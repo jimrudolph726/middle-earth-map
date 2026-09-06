@@ -1,3 +1,4 @@
+import { initializePopupLayout } from '../shared/popup-layout.js';
 // script.js
 
 import {
@@ -30,7 +31,8 @@ import {
 import { initializePhysicalMapFrame } from '../shared/physical-map-frame.js';
 
 // Add Map
-map.options.wheelPxPerZoomLevel = 40; 
+map.options.wheelPxPerZoomLevel = 40;
+initializePopupLayout(map);
 const baseTileLayer = L.tileLayer(baseTileUrl, baseTileOptions).addTo(map);
 baseTileLayer.getContainer()?.classList.add(
   'atlas-physical-map__surface',

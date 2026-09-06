@@ -4,7 +4,7 @@ const pageErrors = new WeakMap();
 const mapPages = [
   { path: "/maps/middle_earth/middle-earth.html", label: "Middle-earth" },
   { path: "/maps/beleriand/beleriand.html", label: "Beleriand" },
-  { path: "/maps/numenor/numenor.html", label: "Numenor" },
+  { path: "/maps/numenor/numenor.html", label: "Númenor" },
   { path: "/maps/the_shire/the_shire.html", label: "The Shire" },
   { path: "/maps/minas_tirith/minas_tirith.html", label: "Minas Tirith" }
 ];
@@ -83,7 +83,7 @@ test("homepage exposes the major atlas destinations", async ({ page }) => {
   const homepageLinks = [
     /Open the Middle-earth map/i,
     /Open The Shire map/i,
-    /Open the Numenor map/i,
+    /Open the Númenor map/i,
     /Open the Beleriand map/i,
     /Open the Minas Tirith map/i,
     /Open the family tree/i
@@ -165,7 +165,7 @@ test("primary pages share the themed pill navigation", async ({ page }) => {
     ).allTextContents();
     expect(mapVolumeOrder).toEqual([
       "Beleriand",
-      "Numenor",
+      pagePath.includes("/minas_tirith/") ? "Numenor" : "Númenor",
       "Middle-earth",
       "The Shire",
       "Minas Tirith",
@@ -450,11 +450,11 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
 
     return {
       frameBorderWidth: getComputedStyle(frame).borderWidth,
-      wrapperBackground: getComputedStyle(wrapper).backgroundImage,
-      wrapperBackgroundColor: getComputedStyle(wrapper).backgroundColor,
+      wrapperBackground: getComputedStyle(wrapper, "::before").backgroundImage,
+      wrapperBackgroundColor: getComputedStyle(wrapper, "::before").backgroundColor,
       wrapperBorderWidth: getComputedStyle(wrapper).borderWidth,
       wrapperBoxShadow: getComputedStyle(wrapper).boxShadow,
-      titleOrnament: getComputedStyle(title, "::after").content,
+      titleOrnament: getComputedStyle(frame, "::before").backgroundImage,
       linkBackground: getComputedStyle(link).backgroundImage,
       linkBorderTopWidth: getComputedStyle(link).borderTopWidth,
       navigationVisibility: getComputedStyle(document.querySelector(".atlas-map-nav")).visibility,
@@ -466,9 +466,9 @@ test("Beleriand opens as a distinct silver-blue atlas volume", async ({ page }) 
   expect(popupSurface.wrapperBackground).toContain("linear-gradient");
   expect(popupSurface.wrapperBackgroundColor).toBe("rgb(234, 234, 221)");
   expect(popupSurface.wrapperBoxShadow).toBe("none");
-  expect(popupSurface.titleOrnament).toContain("✦");
-  expect(popupSurface.linkBackground).toBe("none");
-  expect(popupSurface.linkBorderTopWidth).toBe("0px");
+  expect(popupSurface.titleOrnament).toContain("popup-star-wave.svg");
+  expect(popupSurface.linkBackground).toContain("linear-gradient");
+  expect(popupSurface.linkBorderTopWidth).toBe("1px");
   expect(popupSurface.navigationVisibility).toBe("visible");
 
   const beleriandPillBackgrounds = await page.locator(
@@ -502,7 +502,7 @@ test("Númenor opens as a royal maritime Second Volume", async ({ page }) => {
   await expect(page.locator("#frontispiece .atlas-frontispiece__eyebrow")).toHaveText("The Second Volume");
   await expect(page.locator("#frontispiece .numenor-ornament")).toHaveCount(1);
   await expect(page.locator("#frontispiece .atlas-chapter-card")).toHaveCount(3);
-  await expect(page.locator(".numenor-volume-card")).toBeAttached();
+  await expect(page.locator(".numenor-volume-card")).toHaveCount(0);
 
   const coverTiming = await page.locator("[data-numenor-volume-cover]").evaluate((cover) => ({
     delay: getComputedStyle(cover).animationDelay,
@@ -622,7 +622,7 @@ test("Middle-earth opens as a warm travelling-atlas volume", async ({ page }) =>
   await expect(page.locator("#frontispiece")).toHaveClass(/active/);
   await expect(page.locator("#frontispiece .atlas-frontispiece__eyebrow")).toHaveText("The Third Volume");
   await expect(page.locator("#frontispiece .middle-earth-ornament")).toHaveCount(1);
-  await expect(page.locator(".middle-earth-volume-card")).toBeAttached();
+  await expect(page.locator(".middle-earth-volume-card")).toHaveCount(0);
 
   const coverTiming = await page.locator("[data-middle-earth-volume-cover]").evaluate((cover) => ({
     delay: getComputedStyle(cover).animationDelay,
@@ -782,13 +782,13 @@ test("frontispiece featured places travel to parchment map entries", async ({ pa
     return {
       borderWidth: getComputedStyle(wrapper).borderWidth,
       boxShadow: getComputedStyle(wrapper).boxShadow,
-      ornament: getComputedStyle(title, "::after").content,
+      ornament: getComputedStyle(popup.querySelector(".lore-popup__frame"), "::before").backgroundImage,
     };
   });
 
   expect(popupAppearance.borderWidth).toBe("0px");
   expect(popupAppearance.boxShadow).toBe("none");
-  expect(popupAppearance.ornament).toContain("❧");
+  expect(popupAppearance.ornament).toContain("popup-leaf.svg");
 
   await page.locator('#featuredPlaces [data-atlas-pane="frontispiece"]').click();
   await expect(page.getByRole("heading", { name: /Where shall the road take you/i })).toBeVisible();
@@ -951,15 +951,15 @@ test("middle-earth sidebar category checkboxes toggle", async ({ page }) => {
   await page.waitForLoadState("networkidle");
 
   const checkboxChecks = [
-    { tabName: /Campsites and Paths/i, checkboxId: "samfrodocampsitesCheckbox", layerType: "marker" },
-    { tabName: /Campsites and Paths/i, checkboxId: "samfrodopathCheckbox", layerType: "canvas" },
-    { tabName: /Campsites and Paths/i, checkboxId: "great_east_roadCheckbox", layerType: "canvas" },
+    { tabName: /Travels/i, checkboxId: "samfrodocampsitesCheckbox", layerType: "marker" },
+    { tabName: /Travels/i, checkboxId: "samfrodopathCheckbox", layerType: "canvas" },
+    { tabName: /Travels/i, checkboxId: "great_east_roadCheckbox", layerType: "canvas" },
     { tabName: /Settlements/i, checkboxId: "hobbitsCheckbox", layerType: "marker" },
     { tabName: /Geography/i, checkboxId: "mountain_rangesCheckbox", layerType: "canvas" },
     { tabName: /Battles/i, checkboxId: "battlesCheckbox", layerType: "marker" },
     { tabName: /Important Items/i, checkboxId: "swordsCheckbox", layerType: "marker" },
     { tabName: /Provisions/i, checkboxId: "foodCheckbox", layerType: "marker" },
-    { tabName: /Creatures & Beings/i, checkboxId: "spidersCheckbox", layerType: "marker" },
+    { tabName: /Creatures and Beings/i, checkboxId: "spidersCheckbox", layerType: "marker" },
     { tabName: /Regions/i, checkboxId: "large_regionsCheckbox", layerType: "canvas" }
   ];
   let activeTabName = null;

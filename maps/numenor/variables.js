@@ -1,4 +1,5 @@
 // Map definition
+import { campsiteGroups } from './campsite_data.js';
 import {
   cities,
   jewels_and_keepsakes,
@@ -55,6 +56,11 @@ const settlementGroups = {
 };
 
 export const settlementsData = [
+  ...Object.entries(campsiteGroups).map(([name, data]) => ({
+    data,
+    checkboxId: `${name}Checkbox`,
+    campsite: 'campsite',
+  })),
   ...Object.entries(settlementGroups).map(([name, data]) => ({
     data,
     checkboxId: `${name}Checkbox`,

@@ -1,0 +1,14 @@
+/* Fixed pill geometry keeps font loading from moving the global navigation. */
+.atlas-map-nav :is(.atlas-map-nav__link, .atlas-map-nav__toggle) {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 13px;
+}
+.atlas-map-nav > .atlas-map-nav__link,
+.atlas-map-nav > .atlas-map-nav__menu > .atlas-map-nav__toggle {
+  box-sizing: border-box;
+  height: 42px;
+  justify-content: center;
+}
+.atlas-map-nav > .atlas-map-nav__link--home { width: 106px; }
+.atlas-map-nav > .atlas-map-nav__menu:first-of-type > .atlas-map-nav__toggle { width: 128px; }
+.atlas-map-nav > .atlas-map-nav__menu:last-of-type > .atlas-map-nav__toggle { width: 176px; }
