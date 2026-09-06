@@ -2,6 +2,8 @@ const { test, expect } = require('@playwright/test');
 for (const volume of [
   { name: 'Middle-earth', prefix: 'middle-earth', url: '/maps/middle_earth/middle-earth.html', texture: 'middle-earth-green-leather-v1.webp', fallback: 'rgb(38, 58, 36)', tab: 'Open atlas frontispiece' },
   { name: 'Beleriand', prefix: 'beleriand', url: '/maps/beleriand/beleriand.html', texture: 'beleriand-cloth-v1.webp', fallback: 'rgb(69, 92, 112)', tab: 'Open Beleriand frontispiece' },
+  { name: 'Numenor', prefix: 'numenor', url: '/maps/numenor/numenor.html', texture: 'middle-earth-green-leather-v1.webp', textureUrl: '../middle_earth/assets/materials/middle-earth-green-leather-v1.webp', fallback: 'rgb(23, 61, 93)', tab: 'Open Númenor frontispiece' },
+  { name: 'Shire', prefix: 'shire', url: '/maps/the_shire/the_shire.html', texture: 'beleriand-cloth-v1.webp', textureUrl: '../beleriand/assets/materials/beleriand-cloth-v1.webp', fallback: 'rgb(205, 164, 83)', tab: 'Open Shire frontispiece' },
 ]) {
 const { url } = volume;
 const coverSelector = '[data-atlas-volume-cover]';
@@ -25,9 +27,9 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844
     await page.evaluate(async textureFile => {
       await document.fonts.ready;
       const texture = new Image();
-      texture.src = `./assets/materials/${textureFile}`;
+      texture.src = textureFile;
       await texture.decode();
-    }, volume.texture);
+    }, volume.textureUrl || `./assets/materials/${volume.texture}`);
     await page.screenshot({ path: testInfo.outputPath('binding-closed.png') });
     await cover.evaluate(element => element.getAnimations({ subtree: true }).forEach(animation => {
       animation.currentTime = 3380;

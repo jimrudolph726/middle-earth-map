@@ -1,40 +1,89 @@
 /* A cloth-bound household almanac, sharing the other volumes' opening rhythm. */
 .shire-volume-cover {
+  --binding-duration: 760ms;
+  --binding-delay: 3000ms;
+  --binding-ease: cubic-bezier(0.58, 0.02, 0.28, 0.99);
   position: fixed;
   z-index: 30000;
   inset: 0;
+  overflow: hidden;
+  perspective: max(1800px, 180vw);
+  perspective-origin: left center;
+  pointer-events: none;
+  animation: shire-volume-open var(--binding-duration) linear var(--binding-delay) both;
+}
+
+.shire-volume-cover.atlas-volume-cover--returning {
+  --binding-duration: 620ms;
+  --binding-delay: 0ms;
+}
+
+.shire-volume-cover__board {
+  position: absolute;
+  inset: 0 10px 6px 22px;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  animation: shire-binding-turn var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.shire-volume-cover__face,
+.shire-volume-cover__inside {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
-  overflow: hidden;
-  color: #302d1f;
-  background:
-    radial-gradient(ellipse at 48% 35%, #efd68799, #88612755),
-    linear-gradient(115deg, #af853e, #d2ac58 55%, #a77c32),
-    url('../beleriand/assets/materials/beleriand-cloth-v1.webp') center / 360px 360px;
-  background-blend-mode: normal, color, normal;
-  box-shadow: inset 0 0 0 10px #654d28, inset 0 0 0 11px #e6c96b, inset 0 0 100px #51351866;
-  transform-origin: left center;
+  border-radius: 0 8px 8px 0;
   backface-visibility: hidden;
-  pointer-events: none;
-  animation: shire-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
 }
-.shire-volume-cover__spine {
+
+.shire-volume-cover__face {
+  transform: translateZ(3px);
+  overflow: hidden;
+  color: #393b2b;
+  /* A broad weave with honey, wheat and oatmeal variation. */
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(246, 232, 190, 0.3), transparent 24%),
+    radial-gradient(ellipse at 96% 100%, rgba(236, 216, 165, 0.24), transparent 24%),
+    linear-gradient(105deg, rgba(105, 70, 30, 0.22), rgba(242, 214, 147, 0.13) 48%, rgba(150, 105, 42, 0.2)),
+    url('../beleriand/assets/materials/beleriand-cloth-v1.webp') center / 800px 800px,
+    #cda453;
+  background-blend-mode: normal, normal, normal, luminosity;
+  box-shadow:
+    inset -2px 0 2px rgba(249, 229, 178, 0.5),
+    inset 0 0 0 9px rgba(91, 62, 29, 0.3),
+    inset 0 0 0 10px rgba(118, 87, 43, 0.7),
+    inset 0 0 0 12px rgba(246, 221, 162, 0.35),
+    inset 0 0 70px rgba(90, 57, 22, 0.18);
+}
+
+.shire-volume-cover__face::before,
+.shire-volume-cover__face::after {
   position: absolute;
-  inset-block: 0;
-  left: 18px;
-  width: 34px;
-  border-inline: 1px solid #e6c96b88;
-  background: linear-gradient(90deg, #634b29, #ae853d 48%, #775829);
-  box-shadow: 7px 0 18px #3b2c254d;
+  inset-block: 20px;
+  width: 1px;
+  content: "";
+  background: linear-gradient(transparent, rgba(122, 86, 39, 0.6) 12%, rgba(122, 86, 39, 0.6) 88%, transparent);
 }
+
+.shire-volume-cover__face::before {
+  left: 56px;
+}
+
+.shire-volume-cover__face::after {
+  right: 28px;
+}
+
 .shire-volume-cover__frame {
+  position: relative;
   box-sizing: border-box;
-  width: min(650px, calc(100vw - 94px));
+  width: min(650px, calc(100vw - 112px));
   padding: 38px 28px 44px;
-  border: 1px solid #6b502b;
-  box-shadow: inset 0 0 0 4px #d5b86c66, inset 0 0 0 5px #efd890aa, 0 14px 40px #49332338;
+  border: 1px solid #73572f;
+  box-shadow: inset 0 0 0 4px #d5b86c66, inset 0 0 0 5px #efd89088,
+    0 1px 0 #f1e4c355, 0 -1px 1px #68462266;
   text-align: center;
 }
+
 .shire-harvest-ornament { display: block; width: 120px; height: 64px; margin: 0 auto 12px; }
 .shire-volume-cover__eyebrow,
 .shire-volume-cover__subtitle {
@@ -54,9 +103,95 @@
 }
 .shire-volume-cover__subtitle { font-size: 10px; letter-spacing: .16em; }
 @keyframes shire-volume-open {
-  0% { opacity: 1; transform: perspective(1500px) rotateY(0deg) translateX(0); }
-  60% { opacity: .94; }
-  100% { visibility: hidden; opacity: 0; transform: perspective(1500px) rotateY(-72deg) translateX(-76%); }
+  from { visibility: visible; }
+  to { visibility: hidden; }
+}
+
+.shire-volume-cover__spine {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 43px;
+  border-right: 1px solid rgba(207, 169, 91, 0.5);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 17%, rgba(40, 21, 12, 0.65) 17.3% 17.7%, rgba(211, 176, 103, 0.34) 18% 18.3%, transparent 18.6% 20%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.45), transparent 30%, rgba(242, 205, 145, 0.17) 68%, rgba(0, 0, 0, 0.35)),
+    url('../middle_earth/assets/materials/middle-earth-green-leather-v1.webp') center / 640px 640px,
+    #704127;
+  background-blend-mode: normal, normal, luminosity;
+  box-shadow: 7px 0 18px rgba(0, 0, 0, 0.28);
+}
+
+.shire-volume-cover__inside {
+  transform: rotateY(180deg) translateZ(3px);
+  background: linear-gradient(90deg, #d3c9a7, #f1e6ca 12%, #f8f0dc 75%, #e3d6b5);
+  border: 12px solid #704b2d;
+  box-shadow: inset 0 0 32px rgba(89, 66, 32, 0.3);
+}
+
+.shire-volume-cover__inside::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #87936a;
+  mask: url('./assets/shire-harvest-ornament.svg') center / 144px 80px repeat;
+  opacity: 0.12;
+}
+
+.shire-volume-cover__edge {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 6px;
+  transform-origin: right center;
+  transform: translateZ(3px) rotateY(-90deg);
+  background: linear-gradient(90deg, #bc985c, #775534 35% 65%, #dbc48d);
+}
+
+.shire-volume-cover__pages {
+  position: absolute;
+  inset: 4px 1px 0 29px;
+  border-right: 12px solid #d5c7a4;
+  border-bottom: 7px solid #d5c7a4;
+  border-radius: 0 7px 7px 0;
+  box-shadow: inset -2px -2px 0 #f8edcf, -2px 0 8px #59432b;
+  background: repeating-linear-gradient(90deg, #b2a17a 0 1px, #e9debb 1px 3px) right / 9px 100% no-repeat;
+  animation: shire-binding-pages var(--binding-duration) ease var(--binding-delay) both;
+}
+
+.shire-volume-cover__cast-shadow {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(35, 26, 14, 0.6), rgba(35, 26, 14, 0.35) 65%, transparent);
+  animation: shire-binding-shadow var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.shire-volume-cover__light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 15%, rgba(255, 237, 189, 0.12) 44%, transparent 68%);
+  animation: shire-binding-light var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+@keyframes shire-binding-turn {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-112deg); }
+}
+
+@keyframes shire-binding-shadow {
+  from { opacity: 0.9; transform: scaleX(1); }
+  70% { opacity: 0.4; }
+  to { opacity: 0; transform: scaleX(0.04); }
+}
+
+@keyframes shire-binding-pages {
+  0%, 35% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+@keyframes shire-binding-light {
+  from { opacity: 0.4; transform: translateX(-20%); }
+  40% { opacity: 1; }
+  to { opacity: 0; transform: translateX(50%); }
 }
 .shire-volume .sidebar-pane button.atlas-chapter-card:hover,
 .shire-volume .sidebar-pane button.atlas-chapter-card:focus-visible {
@@ -67,8 +202,8 @@
 .shire-volume .atlas-chapter-card:focus-visible .atlas-chapter-card__copy > span { color: var(--atlas-ink); }
 .shire-volume .atlas-chapter-card__medallion { color: #393b2b; background: #e6c96b; box-shadow: inset 0 0 0 2px #c99a3a; }
 @media (max-width: 520px) {
-  .shire-volume-cover__frame { width: calc(100vw - 68px); padding: 25px 16px 30px; }
-  .shire-volume-cover__spine { left: 12px; width: 27px; }
+  .shire-volume-cover__frame { width: calc(100vw - 96px); padding: 25px 16px 30px; }
+  .shire-volume-cover__spine { left: 0; width: 27px; }
 }
 @media (max-height: 520px) and (orientation: landscape) {
   .shire-volume-cover__frame { padding: 14px 24px 18px; }
@@ -77,6 +212,10 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .shire-volume-cover { animation-name: shire-volume-fade; }
+  .shire-volume-cover__board,
+  .shire-volume-cover__pages,
+  .shire-volume-cover__cast-shadow,
+  .shire-volume-cover__light { animation: none; }
   @keyframes shire-volume-fade { to { visibility: hidden; opacity: 0; } }
 }
 

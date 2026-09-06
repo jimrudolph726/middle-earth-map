@@ -32,3 +32,15 @@ The multi-rail frame geometry, responsive indigo mount, compass-star corner
 ornaments, wave arc, compositing, and Leaflet integration are original project
 work. The ornaments are rendered from inline SVG and contain no third-party
 illustration.
+
+## Royal leather opening cover (2026-09-05)
+
+The layered cover and spine reuse the above CC0 Brown Leather derivative,
+with a 320px texture repeat (half Middle-earth's scale), a luminosity blend
+over ocean and midnight blue, and a broad satin highlight. The source file
+is unchanged and remains shared; no additional texture download is needed.
+
+The antique-gold cover seal and faint sea-green pattern on ivory endpaper
+reuse the original `../numenor-frontispiece-ornament.svg` compass-star drawing.
+Gold tooling, spine bands, restrained edge wear, board thickness, page edges,
+lighting, and the hinged CSS animation are original project work.

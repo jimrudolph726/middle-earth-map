@@ -18,6 +18,21 @@ third-party artwork or fonts.
 
 Existing map artwork and lore data are unchanged.
 
+## Layered household-almanac binding (2026-09-05)
+
+The opening cover reuses the CC0 Rough Linen derivative at an 800px repeat
+with a honey luminosity blend, wheat and oatmeal highlights, and softened
+corners. The chestnut spine reuses the CC0 Brown Leather derivative credited
+in [Middle-earth's material register](../../middle_earth/assets/materials/CREDITS.md),
+recolored in CSS with modest brass bands and a gentle highlight.
+
+`shire-cover-harvest-ornament.svg` is a warm-brown and muted-gold variant of
+the original harvest ornament, used only on the cover. The original ornament
+also supplies the faint sage pattern on cream endpaper. The layered board,
+page edges, tooling, lighting and hinged motion are original CSS work.
+The textures remain shared and self-hosted; no new third-party assets or
+animation dependencies were added.
+
 ## Towns and villages marker
 
 `shire-village-medallion.svg` is an original code-drawn atlas icon created in

@@ -216,69 +216,106 @@ body.numenor-volume {
 
 /* The royal volume rests on screen before opening quickly from its spine. */
 .numenor-volume-cover {
+  --binding-duration: 760ms;
+  --binding-delay: 3000ms;
+  --binding-ease: cubic-bezier(0.58, 0.02, 0.28, 0.99);
   position: fixed;
   z-index: 30000;
   inset: 0;
-  display: grid;
-  place-items: center;
   overflow: hidden;
-  color: #ead9b5;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(76, 116, 143, 0.26), transparent 32%),
-    repeating-linear-gradient(93deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 8px),
-    linear-gradient(128deg, #06131f, #173a57 55%, #091a2a);
-  box-shadow:
-    inset 0 0 0 10px #061421,
-    inset 0 0 0 11px rgba(190, 145, 76, 0.66),
-    inset 0 0 90px rgba(0, 0, 0, 0.5);
-  transform-origin: left center;
-  backface-visibility: hidden;
+  perspective: max(1800px, 180vw);
+  perspective-origin: left center;
   pointer-events: none;
-  animation: numenor-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
+  animation: numenor-volume-open var(--binding-duration) linear var(--binding-delay) both;
 }
 
-.numenor-volume-cover::before,
-.numenor-volume-cover::after {
+.numenor-volume-cover.atlas-volume-cover--returning {
+  --binding-duration: 620ms;
+  --binding-delay: 0ms;
+}
+
+.numenor-volume-cover__board {
   position: absolute;
-  inset-block: 24px;
+  inset: 0 10px 6px 22px;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  animation: numenor-binding-turn var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.numenor-volume-cover__face,
+.numenor-volume-cover__inside {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 0 8px 8px 0;
+  backface-visibility: hidden;
+}
+
+.numenor-volume-cover__face {
+  transform: translateZ(3px);
+  overflow: hidden;
+  color: #ead9b5;
+  /* A smaller grain and broad satin highlight distinguish the royal binding. */
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(109, 153, 181, 0.14), transparent 24%),
+    radial-gradient(ellipse at 96% 100%, rgba(113, 148, 169, 0.12), transparent 24%),
+    linear-gradient(105deg, rgba(4, 17, 32, 0.38), rgba(24, 71, 109, 0.28) 45%, rgba(6, 26, 47, 0.38)),
+    url('../middle_earth/assets/materials/middle-earth-green-leather-v1.webp') center / 320px 320px,
+    #173d5d;
+  background-blend-mode: normal, normal, normal, luminosity;
+  box-shadow:
+    inset -2px 0 2px rgba(219, 192, 133, 0.4),
+    inset 0 0 0 9px rgba(5, 22, 37, 0.5),
+    inset 0 0 0 10px rgba(187, 146, 77, 0.65),
+    inset 0 0 0 12px rgba(4, 17, 31, 0.45),
+    inset 0 0 85px rgba(3, 12, 22, 0.36);
+}
+
+.numenor-volume-cover__face::before,
+.numenor-volume-cover__face::after {
+  position: absolute;
+  inset-block: 20px;
   width: 1px;
   content: "";
   background: linear-gradient(transparent, rgba(202, 164, 101, 0.72) 12%, rgba(202, 164, 101, 0.72) 88%, transparent);
 }
 
-.numenor-volume-cover::before {
-  left: 31px;
+.numenor-volume-cover__face::before {
+  left: 56px;
 }
 
-.numenor-volume-cover::after {
-  right: 31px;
-}
-
-.numenor-volume-cover__spine {
-  position: absolute;
-  inset-block: 0;
-  left: 18px;
-  width: 34px;
-  border-inline: 1px solid rgba(204, 161, 91, 0.42);
-  background: linear-gradient(90deg, #040e17, #112a40 48%, #06131f);
-  box-shadow: 7px 0 18px rgba(0, 0, 0, 0.38);
+.numenor-volume-cover__face::after {
+  right: 28px;
 }
 
 .numenor-volume-cover__frame {
-  width: min(650px, calc(100vw - 94px));
-  padding: 43px 28px 46px;
+  position: relative;
+  box-sizing: border-box;
+  width: min(700px, calc(100vw - 112px));
+  padding: 42px 28px 45px;
   border: 1px solid rgba(210, 174, 111, 0.76);
   box-shadow:
     inset 0 0 0 4px rgba(5, 18, 30, 0.7),
     inset 0 0 0 5px rgba(169, 126, 68, 0.42),
-    0 14px 40px rgba(0, 0, 0, 0.34);
+    0 1px 0 rgba(235, 205, 145, 0.18),
+    0 -1px 2px rgba(3, 11, 18, 0.7);
   text-align: center;
+  text-shadow: 0 -1px 1px #12212e, 0 1px 0 rgba(235, 205, 145, 0.2);
+}
+
+.numenor-volume-cover__seal {
+  width: 120px;
+  height: 64px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #b18a4d, #f1dba3 38%, #ad8244 67%, #dcc18a);
+  mask: url('./assets/numenor-frontispiece-ornament.svg') center / contain no-repeat;
 }
 
 .numenor-volume-cover__eyebrow,
 .numenor-volume-cover__subtitle {
   margin: 0;
-  color: #c7aa75;
+  color: #d2b982;
   font-family: "Libre Baskerville", Georgia, serif;
   text-transform: uppercase;
 }
@@ -286,40 +323,115 @@ body.numenor-volume {
 .numenor-volume-cover__eyebrow {
   margin-top: 18px;
   font-size: 11px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.24em;
 }
 
 .numenor-volume-cover__title {
-  margin: 10px 0 7px;
+  margin: 9px 0 6px;
   color: #f2e6c9;
   font-family: "Ringbearer", "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(3.1rem, 9vw, 6.5rem);
+  font-size: clamp(3rem, 9vw, 6.4rem);
   line-height: 0.95;
-  letter-spacing: 0.05em;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.64);
+  letter-spacing: 0.045em;
+  text-shadow: 0 -1px 1px #0b1722, 0 1px 0 rgba(240, 213, 151, 0.4), 0 2px 3px rgba(0, 0, 0, 0.48);
 }
 
 .numenor-volume-cover__subtitle {
   margin-bottom: 20px;
   font-size: 10px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
 }
 
 @keyframes numenor-volume-open {
-  0% {
-    opacity: 1;
-    transform: perspective(1500px) rotateY(0deg) translateX(0);
-  }
+  from { visibility: visible; }
+  to { visibility: hidden; }
+}
 
-  60% {
-    opacity: 0.94;
-  }
+.numenor-volume-cover__spine {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 43px;
+  border-right: 1px solid rgba(204, 161, 91, 0.5);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 17%, rgba(4, 12, 19, 0.7) 17.3% 17.7%, rgba(204, 161, 91, 0.3) 18% 18.3%, transparent 18.6% 20%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.45), transparent 30%, rgba(158, 184, 208, 0.1) 68%, rgba(0, 0, 0, 0.35)),
+    url('../middle_earth/assets/materials/middle-earth-green-leather-v1.webp') center / 320px 320px,
+    #091d30;
+  background-blend-mode: normal, normal, luminosity;
+  box-shadow: 7px 0 18px rgba(0, 0, 0, 0.28);
+}
 
-  100% {
-    visibility: hidden;
-    opacity: 0;
-    transform: perspective(1500px) rotateY(-72deg) translateX(-76%);
-  }
+.numenor-volume-cover__inside {
+  transform: rotateY(180deg) translateZ(3px);
+  background: linear-gradient(90deg, #b7c4b9, #e8e6d5 12%, #f2eddf 75%, #c7cdbb);
+  border: 12px solid #18364d;
+  box-shadow: inset 0 0 32px rgba(32, 45, 48, 0.4);
+}
+
+.numenor-volume-cover__inside::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #47766f;
+  mask: url('./assets/numenor-frontispiece-ornament.svg') center / 120px 64px repeat;
+  opacity: 0.12;
+}
+
+.numenor-volume-cover__edge {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 6px;
+  transform-origin: right center;
+  transform: translateZ(3px) rotateY(-90deg);
+  background: linear-gradient(90deg, #b89d68, #193b55 35% 65%, #dfc48c);
+}
+
+.numenor-volume-cover__pages {
+  position: absolute;
+  inset: 4px 1px 0 29px;
+  border-right: 12px solid #d0c9b4;
+  border-bottom: 7px solid #d0c9b4;
+  border-radius: 0 7px 7px 0;
+  box-shadow: inset -2px -2px 0 #f4edda, -2px 0 8px #29343c;
+  background: repeating-linear-gradient(90deg, #a29c85 0 1px, #e4deca 1px 3px) right / 9px 100% no-repeat;
+  animation: numenor-binding-pages var(--binding-duration) ease var(--binding-delay) both;
+}
+
+.numenor-volume-cover__cast-shadow {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(6, 13, 22, 0.64), rgba(6, 13, 22, 0.4) 65%, transparent);
+  animation: numenor-binding-shadow var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.numenor-volume-cover__light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 15%, rgba(222, 232, 223, 0.16) 44%, transparent 68%);
+  animation: numenor-binding-light var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+@keyframes numenor-binding-turn {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-112deg); }
+}
+
+@keyframes numenor-binding-shadow {
+  from { opacity: 0.9; transform: scaleX(1); }
+  70% { opacity: 0.4; }
+  to { opacity: 0; transform: scaleX(0.04); }
+}
+
+@keyframes numenor-binding-pages {
+  0%, 35% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+@keyframes numenor-binding-light {
+  from { opacity: 0.4; transform: translateX(-20%); }
+  40% { opacity: 1; }
+  to { opacity: 0; transform: translateX(50%); }
 }
 
 /* A compass-star held between the measured lines of a sea chart. */
@@ -671,12 +783,12 @@ body.numenor-volume {
 
 @media (max-width: 520px) {
   .numenor-volume-cover__frame {
-    width: calc(100vw - 68px);
+    width: calc(100vw - 96px);
     padding-inline: 16px;
   }
 
   .numenor-volume-cover__spine {
-    left: 12px;
+    left: 0;
     width: 27px;
   }
 
@@ -691,9 +803,24 @@ body.numenor-volume {
   }
 }
 
+@media (max-height: 500px) {
+  .numenor-volume-cover__frame { padding-block: 14px; }
+  .numenor-volume-cover__title { font-size: clamp(2.4rem, 11vh, 4rem); }
+  .numenor-volume-cover__eyebrow { margin-top: 8px; }
+  .numenor-volume-cover__subtitle { margin-bottom: 8px; }
+  .numenor-volume-cover__seal { width: 90px; height: 48px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .numenor-volume-cover {
     animation: numenor-volume-fade 180ms ease-out 3000ms both;
+  }
+
+  .numenor-volume-cover__board,
+  .numenor-volume-cover__pages,
+  .numenor-volume-cover__cast-shadow,
+  .numenor-volume-cover__light {
+    animation: none;
   }
 
   @keyframes numenor-volume-fade {
