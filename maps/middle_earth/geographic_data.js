@@ -26,7 +26,7 @@ export const forests = {
       "(speculative) Iaur Taur",
       `The name Iaur Taur means "old forest" or "ancient forest" from the word iaur meaning old or ancient, and taur meaning forest. This is purely speculative and noncanonical.`,
       "Forest on the east side of the Brandywine River bordering Buckland.",
-      "https://tolkiengateway.net/wiki/Old_Forest"
+      "https://thainsbook.minastirith.cz/forests.html#Old%20Forest"
     ),
     tolerance: 1,
     weight: 2,

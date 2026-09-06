@@ -34,6 +34,24 @@ export const towns_and_villages = {
     coords: [44.9415030,-93.2846241],
     icon: icons.TownsAndVillagesIcon,
   },
+  willow_bottom: {
+    popup: createSettlementPopup(
+      "Willow Bottom",
+      `Village in the Eastfarthing of the Shire. Willowbottom was located at the point where the Thistle Brook flowed into the River Shirebourn.`,
+      "https://thainsbook.minastirith.cz/towns.html#Willowbottom"
+    ),
+    coords: [44.9396203,-93.2809931],
+    icon: icons.TownsAndVillagesIcon,
+  },
+  deephallow: {
+    popup: createSettlementPopup(
+      "Deephallow",
+      `Village in Eastfarthing of the Shire. Deephallow was located at the point where the River Shirebourn flowed into the Brandywine River.`,
+      "https://thainsbook.minastirith.cz/towns.html#Deephallow"
+    ),
+    coords: [44.9398934,-93.2798315],
+    icon: icons.TownsAndVillagesIcon,
+  },
 };
 export const homes_and_farms = {
   bamfurlong: {

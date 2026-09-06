@@ -1,8 +1,108 @@
 import { createGeographicPopup } from "../shared/functions.js";
 
 // Ready for Shire-specific features; no inherited geography from other volumes.
-export const forests = {};
-export const rivers = {};
+export const forests = {
+  the_old_forest: {
+    pathName: "the_old_forest",
+    color: "green",
+    name: "The Old Forest",
+    PopupContent: createGeographicPopup(
+      "The Old Forest",
+      "(speculative) Iaur Taur",
+      `The name Iaur Taur means "old forest" or "ancient forest" from the word iaur meaning old or ancient, and taur meaning forest. This is purely speculative and noncanonical.`,
+      "Forest on the east side of the Brandywine River bordering Buckland.",
+      "https://thainsbook.minastirith.cz/forests.html#Old%20Forest"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+  woody_end: {
+    pathName: "woody_end",
+    color: "green",
+    name: "Woody End",
+    PopupContent: createGeographicPopup(
+      "Woody End",
+      "None",
+      `Woody End means "place at one end of a wood", representing a possible Old Hobbitish Wudig Ende.`,
+      "Woods in the Eastfarthing of the Shire. The Woody End was located at the eastern end of the Green Hill Country. The Stockbrook flowed northeast through the Woody End to the Brandywine River.",
+      "https://thainsbook.minastirith.cz/forests.html#Woody%20End"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+  bindbole_wood: {
+    pathName: "bindbole_wood",
+    color: "green",
+    name: "Bindbole Wood",
+    PopupContent: createGeographicPopup(
+      "Bindbole Wood",
+      "None",
+      `The name Bindbole Wood has been mistakenly interpreted as Bindbale Wood because of unclear type on some maps of the Shire. The word bole means "tree trunk."`,
+      "Woods in the Northfarthing of the Shire, about 15 miles north of Hobbiton.",
+      "https://thainsbook.minastirith.cz/forests.html#Bindbole%20Wood"
+    ),
+    tolerance: 1,
+    weight: 2,
+  },
+};
+export const rivers = {
+  brandywine: {
+    pathName: 'brandywine',
+    color: "blue",  // Color is set to blue for every object
+    name: "Brandywine",
+    PopupContent: createGeographicPopup(
+      "Brandywine",
+      "Baranduin",
+      `so called the Baranduin in Sindarin. The name Baranduin comes from the words baran meaning "golden brown" and duin meaning "river." The old Hobbit name for the river was Branda-nîn meaning "border water," but Hobbits also jokingly referred to the river as Bralda-hîm meaning "heady ale."`,
+      `River in Eriador. The Brandywine originated in Lake Evendim in the north and flowed south-southwest to the Sea. The Brandywine was the eastern border of the Shire.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Brandywine"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+  the_water: {
+    pathName: 'the_water',
+    color: "blue", 
+    name: "The Water",
+    PopupContent: createGeographicPopup(
+      "The Water",
+      "None",
+      `None. The Water was a shortening of the river's full name, the Shire-water.`,
+      `River in the Shire. The Water began north of Needlehole, possibly in the North Moors. Below Needlehole in Rushock Bog, the Water branched into two streams and then rejoined. `,
+      "https://thainsbook.minastirith.cz/rivers.html#The%20Water"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+  river_shirebourn: {
+    pathName: 'river_shirebourn',
+    color: "blue", 
+    name: "River Shirebourn",
+    PopupContent: createGeographicPopup(
+      "River Shirebourn",
+      "None",
+      `None. A bourn is a small stream or brook. The element shire is apparently not from the Shire but instead from the Old English scir meaning "bright, clear." The river Sherbourne in England was sometimes spelled Shirebourn. Mithe is dervied from "mouth, river-mouth" in Old English.`,
+      `River in the Shire. The Shirebourn began in the Green Hill Country. It flowed south and then curved east to join the Brandywine. The outflow of the Shirebourn into the Brandywine was called the Mithe.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Shirebourn"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+  thistle_brook: {
+    pathName: 'thistle_brook',
+    color: "blue", 
+    name: "Thistle Brook",
+    PopupContent: createGeographicPopup(
+      "Thistle Brook",
+      "None",
+      `None`,
+      `Brook in the Shire. The Thistle Brook began in the Green Hill Country.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Thistle%20Brook"
+    ),
+    tolerance: 10,
+    weight: 7
+  },
+};
 export const wetlands = {};
 export const hills = {};
 
