@@ -2,22 +2,16 @@
 
 import {
   forests,
-  mountain_ranges,
-  mountains,
   rivers,
-  lakes_seas,
-  hills
+  wetlands,
+  hills,
+  large_regions
 } from './geographic_data.js';
 
 import {
-  elves,
-  men,
-  dwarves,
-  battles,
-  one_on_one,
-  swords,
-  rings,
-  books,
+  towns_and_villages,
+  homes_and_farms,
+  inns_and_gathering_places
 } from './settlement_item_data.js';
 
 import {
@@ -64,14 +58,9 @@ const campsiteGroups = {
 };
 
 const settlementGroups = {
-  elves,
-  men,
-  dwarves,
-  battles,
-  one_on_one,
-  swords,
-  rings,
-  books,
+  towns_and_villages,
+  homes_and_farms,
+  inns_and_gathering_places
 };
 
 export const settlementsData = [
@@ -97,12 +86,11 @@ export const pathdata = {
 
 // Geographic Features
 const geographicGroups = {
-  mountain_ranges,
-  mountains,
   forests,
   rivers,
-  lakes_seas,
+  wetlands,
   hills,
+  large_regions
 };
 
 export const geographicData = [

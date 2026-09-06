@@ -648,6 +648,23 @@ body.numenor-volume {
   background: rgba(41, 91, 117, 0.97);
 }
 
+/* The royal star opens each parchment note above its title. */
+.numenor-volume .campsite-popup__frame::before,
+.numenor-volume .lore-popup__frame::before {
+  display: block;
+  flex-shrink: 0;
+  width: 96px;
+  height: 24px;
+  margin: 0 auto 10px;
+  color: var(--numenor-bronze);
+  content: "⊹  ✦  ⊹";
+  font: 400 24px/1 Georgia, serif;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 253, 240, 0.54);
+}
+
 .numenor-volume.atlas-sidebar-open #map::after {
   background: rgba(12, 46, 66, 0.15);
 }

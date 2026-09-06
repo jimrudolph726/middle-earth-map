@@ -103,96 +103,6 @@ export const forests = {
   },
 };
 
-export const mountain_ranges = {
-  mountains_of_mithrim: {
-    pathName: "mountains_of_mithrim",
-    color: "orange",
-    name: "Mountains of Mithrim",
-    PopupContent: createGeographicPopup(
-      "Mountains of Mithrim",
-      "Mithrim",
-      'The name Mithrim means "Grey-elves" in Sindarin from mith meaning "grey" and rim meaning "host, great number."',
-      "The Mountains of Mithrim or the Hills of Mithrim were a range of mountains located in Hithlum. They formed the border between Mithrim and Dor-lómin.",
-      "https://tolkiengateway.net/wiki/Mountains_of_Mithrim#:~:text=The%20Mountains%20of%20Mithrim%20or,the%20Noldor%20settled%20in%20Hithlum."
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
-    ered_wethrin: {
-    pathName: "ered_wethrin",
-    color: "orange",
-    name: "Ered Wethrin",
-    PopupContent: createGeographicPopup(
-      "Ered Wethrin",
-      "Ered Wethrin",
-      'Ered Wethrin is Sindarin for "Shadowy Mountains". It consists of ered ("mountains") and gwethrin ("shadowy").',
-      "The Ered Wethrin, or the Mountains of Shadow, was a mountain range in the north of Beleriand in the First Age.",
-      "https://tolkiengateway.net/wiki/Mountains_of_Mithrim#:~:text=The%20Mountains%20of%20Mithrim%20or,the%20Noldor%20settled%20in%20Hithlum."
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
-    ered_luin: {
-    pathName: "ered_luin",
-    color: "orange",
-    name: "Ered Luin",
-    PopupContent: createGeographicPopup(
-      "Ered Luin",
-      "Ered Luin",
-      'The Blue Mountains were so named because they appeared blue from a distance. The Sindarin name for the Blue Mountains was Ered Luin from ered meaning "mountains" and luin meaning "blue."',
-      "Mountain range in northwestern Middle-earth. The Blue Mountains were on the western border of Eriador. The geography of the Blue Mountains changed during the War of Wrath at the end of the First Age.",
-      "https://thainsbook.minastirith.cz/mountains.html#Blue"
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
-    ered_lomin: {
-    pathName: "ered_lomin",
-    color: "orange",
-    name: "Ered Lomin",
-    PopupContent: createGeographicPopup(
-      "Ered Lomin",
-      "Ered Lomin",
-      'The name Ered Lómin means "Echoing Mountains." The word ered means "mountains" in Sindarin and the word lómen means "echoing" in the Doriathrin dialect. Also called the Echoing Hills. The mountains were so named because they resonated and magnified noises, particularly around the region of Lammoth.',
-      "Mountain range on the western border of Hithlum. The Ered Lomin were located on the western shore of Middle-earth. At their southern end, the Ered Lomin joined the Ered Wethrin, which formed the southern and eastern borders of Hithlum.",
-      "https://thainsbook.minastirith.cz/mountains.html#Ered-Lomin"
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
-    ered_gorgoroth: {
-    pathName: "ered_gorgoroth",
-    color: "orange",
-    name: "Ered Gorgoroth",
-    PopupContent: createGeographicPopup(
-      "Ered Gorgoroth",
-      "Ered Gorgoroth",
-      'The name Ered Gorgoroth means "Mountains of Terror." The word ered means "mountains" in Sindarin and the word gorgoroth means "terror".',
-      `The Ered Gorgoroth or Mountains of Terror were a mountain chain in the north of Beleriand. The Ered Gorgoroth was the southern edge of the highlands of Dorthonion, and separated Dorthonion from Beleriand proper.`,
-      "https://thainsbook.minastirith.cz/mountains.html#Ered-Lomin"
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
-};
-
-export const mountains = {
-  mount_dolmed: {
-    pathName: "mount_dolmed",
-    color: "brown",
-    name: "Mount Dolmed",
-    PopupContent: createGeographicPopup(
-      "Mount Dolmed",
-      "Dolmed",
-      `Mountain in the Blue Mountains. Mount Dolmed was a tall mountain located near the midpoint of the range as it was during the First Age.`,
-      `The name Dolmed means "Wet Head" in Sindarin from dol meaning "head" - often used for hills and mountains - and méd meaning "wet."`,
-      "https://thainsbook.minastirith.cz/mountains.html#Mount-Dolmed"
-    ),
-    tolerance: 1,
-    weight: 2,
-  },
-};
-
 export const rivers = {
   greater_gelion: {
     pathName: 'greater_gelion',
@@ -532,7 +442,7 @@ export const rivers = {
   },
 };
 
-export const lakes_seas = {
+export const wetlands = {
   lake_mithrim: {
     pathName: 'lake_mithrim',
     color: "blue", 
@@ -615,4 +525,36 @@ export const hills = {
     tolerance: 1,
     weight: 2,
   },
+}
+export const large_regions = {
+  east_farthing: {
+    pathName: 'east_farthing',
+    color: "brown", 
+    name: "Eastfarthing",
+    PopupContent: createGeographicPopup(
+      "Eastfarthing",
+      `None`,
+      `None. Eastfarthing is an English name meaning “Eastern Quarter”, consisting of east (“eastern”) + farthing (“fourth part, quarter”). Tolkien used farthing in its older geographic sense of “one fourth”, referring to one of the four traditional divisions of the Shire.`,
+      `The Eastfarthing was one of the four Farthings of the Shire. Its westernmost point was the Three-Farthing Stone, its eastern border was the Brandywine River, and its southern border was the River Shirebourn. `,
+      "https://tolkiengateway.net/wiki/Orrostar"
+    ),
+    tolerance: 1,
+    weight: 2
+  },
+}
+export const sub_regions = {
+  arandor: {
+    pathName: 'arandor',
+    color: "brown", 
+    name: "Arandor",
+    PopupContent: createGeographicPopup(
+      "Arandor",
+      `Arandor`,
+      `Arandor is a Quenya name meaning “Kingsland” or “King’s Land”, consisting of aran (“king”) + -ndor (“land, country”).`,
+      `Arandor, also known as Kingsland, was the important central region of Númenor, around the island's capital at Armenelos between the Meneltarma near the centre of the island and the port of Rómenna on its eastern coast.`,
+      "https://tolkiengateway.net/wiki/Arandor"
+    ),
+    tolerance: 1,
+    weight: 2
+  }
 }

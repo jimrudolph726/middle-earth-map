@@ -610,15 +610,19 @@ body.middle-earth-volume {
   background: rgba(72, 91, 62, 0.98);
 }
 
-/* A quiet leaf device identifies notes from the travelling atlas. */
-.middle-earth-volume .campsite-popup__title::after,
-.middle-earth-volume .lore-popup__title::after {
+/* Match the Shire's 96 × 24px popup ornament footprint. */
+.middle-earth-volume .campsite-popup__frame::before,
+.middle-earth-volume .lore-popup__frame::before {
   display: block;
-  margin: 8px auto 3px;
+  flex-shrink: 0;
+  width: 96px;
+  height: 24px;
+  margin: 0 auto 10px;
   color: var(--middle-earth-brass);
   content: "❧  ✥  ❧";
-  font: 400 12px/1 Georgia, serif;
-  letter-spacing: 0.22em;
+  font: 400 24px/1 Georgia, serif;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
   text-align: center;
   opacity: 0.72;
   text-shadow: 0 1px rgba(255, 250, 228, 0.56);

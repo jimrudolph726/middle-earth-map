@@ -5,12 +5,16 @@ import {
 
  // Icons
 const iconUrls = {
+  homesAndFarms: new URL('./assets/shire-homestead-medallion.svg', import.meta.url).href,
+  townsAndVillages: new URL('./assets/shire-village-medallion.svg', import.meta.url).href,
   finrod: new URL('../assets/finrod.png', import.meta.url).href,
   beor: new URL('../assets/beor.png', import.meta.url).href,
   dwarves: new URL('../assets/dwarves.png', import.meta.url).href,
   tent: new URL('../assets/tent.png', import.meta.url).href,
 };
 export const icons = {
+HomesAndFarmsIcon: createIcon(iconUrls.homesAndFarms),
+TownsAndVillagesIcon: createIcon(iconUrls.townsAndVillages),
 NargothrondIcon: createIcon(iconUrls.finrod),
 LadrosIcon: createIcon(iconUrls.beor),
 DwarvesIcon: createIcon(iconUrls.dwarves),
@@ -18,130 +22,37 @@ TentIcon: createIcon(iconUrls.tent, [30, 30])
 };
 
 // Settlements
-export const elves = {
-  nargothrond: {
-    coords: [44.9418004,-93.2847131],
-    icon: icons.NargothrondIcon,
-    popup: createSettlementPopup("Nargothrond",
-    "Nargothrond was the underground fortress of Finrod Felagund and the surrounding realm in West Beleriand. It was one of the great strongholds of the Elves in Middle-earth during the First Age.",
-    "https://thainsbook.minastirith.cz/nargothrond.html")
+export const towns_and_villages = {
+  hobbiton: {
+    popup: createSettlementPopup(
+      "Hobbiton",
+      `Village in the Westfarthing of the Shire; home of Bilbo and Frodo Baggins. Hobbiton was located on the Water, about a mile northwest of its neighboring village Bywater.`,
+      "https://thainsbook.minastirith.cz/towns.html#Hobbiton"
+    ),
+    coords: [44.9415030,-93.2846241],
+    icon: icons.TownsAndVillagesIcon,
   },
 };
-export const men = {
-  ladros: {
+export const homes_and_farms = {
+  bamfurlong: {
     popup: createSettlementPopup(
-      "Ladros",
-      `Village at the crossroads of the Great East Road and the Greenway in Eriador. Bree was unique in that the Big Folk (Men) and Little Folk (Hobbits) both dwelled there on friendly terms.`,
-      "https://tolkiengateway.net/wiki/Ladros"
+      "Bamfurlong",
+      `Farmer Maggot's farm. Bamfurlong was located in the Marish on the west side of the Brandywine River.`,
+      "https://tolkiengateway.net/wiki/Bamfurlong"
     ),
-    coords: [44.9430762,-93.2946712],
-    icon: icons.LadrosIcon,
+    coords: [44.9403689,-93.2804545],
+    icon: icons.HomesAndFarmsIcon,
   },
 };
-export const dwarves = {
-  belegost: {
+export const inns_and_gathering_places = {
+  the_green_dragon: {
     popup: createSettlementPopup(
-      "Belegost",
-      `Belegost was one of two great underground Dwarven cities in the Blue Mountains, the other being Nogrod, that prospered during the First Age.`,
-      "https://tolkiengateway.net/wiki/Belegost"
+      "The Green Dragon",
+      `The Green Dragon was one of the many inns of the Shire. It was located in Bywater on the Bywater Road and was the building nearest to Hobbiton, being one mile south-east from the bridge over the Water that led to Bag End.`,
+      "https://tolkiengateway.net/wiki/The_Green_Dragon"
     ),
-    coords: [44.9411277,-93.2907660],
-    icon: icons.DwarvesIcon,
-  },
-  nogrod: {
-    popup: createSettlementPopup(
-      "Nogrod",
-      `Nogrod was one of two great underground Dwarven cities in the Ered Luin, the other being Belegost, that prospered during the First Age. `,
-      "https://tolkiengateway.net/wiki/Nogrod"
-    ),
-    coords: [44.9409122,-93.2906264],
-    icon: icons.DwarvesIcon,
-  },
-};
-export const battles = {
-  battle_of_dagorlad: {
-    popup: createSettlementPopup("The Battle of Dagorlad (SA 3434 - 3441)",
-      `In 3434, the armies of the Last Alliance and Sauron met in battle outside the Black Gate of Mordor on the great plain that became known as Dagorlad, the Battle Plain. The army of the Last Alliance consisted of the forces that had marched from the north and the Men of Gondor who had been defending their borders.`,
-      "https://thainsbook.minastirith.cz/battles.html#Last-Alliance"
-    ),
-    coords: [44.9424929,-93.3001234],
-    icon: icons.BattleIcon,
-  },
-  battle_of_bywater: {
-    popup: createSettlementPopup("The Battle of Bywater (TA November 3rd 3019)",
-      `Battle between Hobbits and Men in the Shire. The Battle of Bywater was the last battle of the War of the Ring. The battle was fought on November 3, 3019 of the Third Age, on the Bywater Road near the village of Bywater.`,
-      "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Bywater"
-    ),
-    coords: [44.9465615,-93.3111173],
-    icon: icons.BattleIcon,
-  },
-  battle_of_dale: {
-    popup: createSettlementPopup("The Battle of Dale (TA March 15th 3019)",
-      `Battle in the north during the War of the Ring. The Battle of Dale began on March 15, 3019 of the Third Age. An army of Easterlings allied to Sauron crossed the Redwater and King Brand of Dale was forced to retreat to the foot of the Lonely Mountain.`,
-      "https://thainsbook.minastirith.cz/battles.html#Dale"
-    ),
-    coords: [44.9479213,-93.3005827],
-    icon: icons.BattleIcon,
-  },
-  battle_of_fornost: {
-    popup: createSettlementPopup("The Battle of Fornost (TA 1975)",
-      `Battle between the forces of the Witch-king of Angmar and the combined forces of the Dunedain of the North, Elves of Lindon and Rivendell, and Men of Gondor.`,
-      "https://thainsbook.minastirith.cz/battles.html#Fornost"
-    ),
-    coords: [44.9475027,-93.3100271],
-    icon: icons.BattleIcon,
-  },
-  battle_of_greenfields: {
-    popup: createSettlementPopup("Battle of Greenfields (TA 2747)",
-      `Battle between Orcs and Hobbits in the Shire. In the year 2747 of the Third Age, an army of Orcs from Mount Gram led by Golfimbul invaded Greenfields in the Northfarthing.`,
-      "https://thainsbook.minastirith.cz/battles.html#Battle%20of%20Greenfields"
-    ),
-    coords: [44.9470883,-93.3108774],
-    icon: icons.BattleIcon,
-  },
-  battle_of_helms_deep: {
-    popup: createSettlementPopup("Battle of Helm's Deep (TA March 3rd and 4th 3019)",
-      `Battle between the Men of Rohan and the forces of Saruman during the War of the Ring. The Battle of Helm's Deep was fought during the rainy night of March 3-4, 3019 of the Third Age.`,
-      "https://thainsbook.minastirith.cz/battles.html#Helm%27s"
-    ),
-    coords: [44.9422362,-93.3058114],
-    icon: icons.BattleIcon,
-  },
-  battle_of_the_morannon: {
-    popup: createSettlementPopup("Battle of the Morannon (TA March 25th 3019)",
-      `Battle between the Host of the West and the forces of Sauron during the War of the Ring. The Battle of the Morannon took place on March 25, 3019 of the Third Age, in front of the Black Gate of Mordor.`,
-      "https://thainsbook.minastirith.cz/battles.html#Morannon"
-    ),
-    coords: [44.9422380,-93.3001737],
-    icon: icons.BattleIcon,
-  },
-  battle_of_the_camp: {
-    popup: createSettlementPopup("Battle of the Camp (TA July 13th 1944)",
-      `Battle resulting in the final defeat of the Wainriders. The Battle of the Camp was fought in Ithilien on the night of July 13, 1944 of the Third Age, between the Wainriders and the Southern Army of Gondor led by Earnil.`,
-      "https://thainsbook.minastirith.cz/battles.html#Battle-Camp"
-    ),
-    coords: [44.9411760,-93.3006287],
-    icon: icons.BattleIcon,
-  },
-};
-export const one_on_one = {
-  battle_of_the_peak: {
-    popup: createSettlementPopup(
-      "Battle of the Peak (TA January 23rd to January 25th 3019)",
-      `Battle between Gandalf and the Balrog on the Silvertine during the War of the Ring. After Gandalf and the Balrog fell into the abyss in Moria on January 15, 3019 of the Third Age, they fought long underground and then climbed the Endless Stair to the peak of the Silvertine where Durin's Tower stood.`,
-      "https://thainsbook.minastirith.cz/battles.html#Peak"
-    ),
-    coords: [44.94491777, -93.30559552],
-    icon: icons.BattleIcon,
-  },
-  eowyn_witch_king: {
-    popup: createSettlementPopup(
-      "Éowyn vs the Witch-king of Angmar (TA March 15th 3019)",
-      `Battle between Éowyn and the Witch-king of Angmar during the Battle of the Pelennor Fields. On March 15, 3019 of the Third Age, Éowyn, disguised as a soldier, defended Théoden against the Witch-king. After slaying his fell beast, she faced him in combat. With Merry’s aid, she defied prophecy and struck the final blow, destroying him.`,
-      "https://thainsbook.minastirith.cz/eowyn.html"
-    ),
-    coords: [44.94095898, -93.30106586],
-    icon: icons.BattleIcon,
+    coords: [44.9413021,-93.2844148],
+    icon: icons.HomesAndFarmsIcon,
   },
 };
 

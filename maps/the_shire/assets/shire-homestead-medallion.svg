@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Shire homes and farms medallion</title>
+  <desc id="description">A cream farmhouse with a pitched terracotta roof, chimney, rectangular yellow door, and square windows, beside cultivated fields and a rustic fence within a honey-gold rim. A symbolic farm, not a reconstruction of any particular building.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f1e4c3"/><stop offset=".28" stop-color="#e6c96b"/><stop offset=".65" stop-color="#946a2b"/><stop offset="1" stop-color="#c99a3a"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#f1e4c3"/><stop offset="1" stop-color="#d7bd77"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#a3af80"/><stop offset=".4" stop-color="#87936a"/><stop offset="1" stop-color="#535e3f"/>
+    </linearGradient>
+    <clipPath id="field"><circle cx="32" cy="31" r="24"/></clipPath>
+  </defs>
+  <circle cx="32" cy="31" r="29" fill="#393b2b" stroke="#5c4326"/>
+  <circle cx="32" cy="31" r="27.4" fill="url(#gold)"/>
+  <circle cx="32" cy="31" r="24.2" fill="url(#sky)" stroke="#f1e4c3" stroke-width="1.1"/>
+  <g clip-path="url(#field)">
+    <!-- A freestanding house and broad crop rows distinguish farms from hobbit holes. -->
+    <path d="M4 37Q31 31 60 37V58H4Z" fill="url(#hill)"/>
+    <path d="M35 41 59 38V58H27Z" fill="#c99a3a" stroke="#636341" stroke-width="1"/>
+    <path d="M40 41 34 57M46 40 43 58M52 39 53 57" fill="none" stroke="#f1e4c3" stroke-width="1.5"/>
+    <path d="M23 39Q25 46 14 57H25Q32 47 28 39Z" fill="#f1e4c3"/>
+    <path d="M34 15h5v12h-5Z" fill="#a85f42" stroke="#5c4326" stroke-width="1.2"/>
+    <path d="M33 15h7" stroke="#5c4326" stroke-width="2"/>
+    <path d="M14 27 27 17 42 27V40H14Z" fill="#f1e4c3" stroke="#5c4326" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M27 20 42 29V40H36V27Z" fill="#d7c394"/>
+    <path d="M11 28 27 15 45 28 42 30 27 19 14 30Z" fill="#a85f42" stroke="#5c4326" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M14 27 27 17 42 28" fill="none" stroke="#d79968" stroke-width="1"/>
+    <path d="M24 40V29h7v11" fill="#e6c96b" stroke="#5c4326" stroke-width="1.1"/>
+    <circle cx="29" cy="35" r=".7" fill="#393b2b"/>
+    <path d="M17 29h4v5h-4ZM34 29h4v5h-4Z" fill="#53694f" stroke="#5c4326" stroke-width=".8"/>
+    <path d="M13 40h30" stroke="#5c4326" stroke-width="1.5"/>
+    <path d="M8 46h12M10 43v7M18 43v7" fill="none" stroke="#393b2b" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M8 46h12M10 43v7M18 43v7" fill="none" stroke="#b98355" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+  <circle cx="32" cy="31" r="24.2" fill="none" stroke="#f1e4c3" stroke-width="1.1"/>
+</svg>

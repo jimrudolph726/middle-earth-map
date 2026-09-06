@@ -647,14 +647,19 @@ body.beleriand-volume {
   letter-spacing: 0.012em;
 }
 
-.beleriand-volume .campsite-popup__title::after,
-.beleriand-volume .lore-popup__title::after {
+/* A manuscript opening, with the same footprint and spacing as the other volumes. */
+.beleriand-volume .campsite-popup__frame::before,
+.beleriand-volume .lore-popup__frame::before {
   display: block;
-  margin: 8px auto 3px;
+  flex-shrink: 0;
+  width: 96px;
+  height: 24px;
+  margin: 0 auto 10px;
   color: #7f9095;
   content: "✦  ≋  ✦";
-  font: 400 11px/1 Georgia, serif;
-  letter-spacing: 0.28em;
+  font: 400 24px/1 Georgia, serif;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
   text-align: center;
   text-shadow: 0 1px rgba(255, 255, 255, 0.54);
 }
