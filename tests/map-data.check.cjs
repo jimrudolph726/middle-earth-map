@@ -84,6 +84,27 @@ test("Númenor subregion exports do not duplicate another region's polygons", ()
 });
 
 const createIconStub = (url, size = null) => ({ url, size });
+
+test("Númenor enabled marker groups have defined icons and matching checkboxes", () => {
+  const directory = path.join(repoRoot, "maps", "numenor");
+  const items = evaluateModule(path.join(directory, "settlement_item_data.js"), {
+    createSettlementPopup: popupStub,
+    createIcon: createIconStub,
+  });
+  const geography = evaluateModule(path.join(directory, "geographic_data.js"), {
+    createGeographicPopup: popupStub,
+  });
+  const definition = evaluateModule(path.join(directory, "variables.js"), { ...items, ...geography });
+  const html = fs.readFileSync(path.join(directory, "numenor.html"), "utf8");
+  const ids = new Set(Array.from(html.matchAll(/\bid=["']([^"']+)["']/g), ([, id]) => id));
+  for (const { data, checkboxId } of definition.settlementsData) {
+    assert.ok(ids.has(checkboxId), `Missing checkbox: ${checkboxId}`);
+    for (const [name, marker] of Object.entries(data)) {
+      assert.ok(marker.icon?.url, `${checkboxId}/${name} references an undefined icon`);
+      assert.ok(fs.existsSync(fileURLToPath(marker.icon.url)), `${name} icon file does not exist`);
+    }
+  }
+});
 const leafletStub = {
   CRS: {
     EPSG3857: {},

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Gil-galad's letter medallion</title>
+  <desc id="description">A partly unfurled ivory parchment with ink strokes and a blue wax seal, on an indigo field within an antique-bronze rim. The seal is an artistic interpretation.</desc>
+  <defs>
+    <radialGradient id="field" cx="38%" cy="28%" r="74%">
+      <stop offset="0" stop-color="#1d5272"/><stop offset=".55" stop-color="#0a2b43"/><stop offset="1" stop-color="#061924"/>
+    </radialGradient>
+    <linearGradient id="bronze" x2="1" y2="1">
+      <stop stop-color="#f0d493"/><stop offset=".32" stop-color="#b8843f"/><stop offset=".68" stop-color="#6f4824"/><stop offset="1" stop-color="#d3ad62"/>
+    </linearGradient>
+    <linearGradient id="paper" x2="1" y2="1">
+      <stop stop-color="#fffbed"/><stop offset=".55" stop-color="#eee4c6"/><stop offset="1" stop-color="#c8b783"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="31" r="29" fill="#07131a" stroke="#342214"/>
+  <circle cx="32" cy="31" r="27.4" fill="url(#bronze)"/>
+  <circle cx="32" cy="31" r="24.2" fill="url(#field)" stroke="#d7e1e1" stroke-width="1.1"/>
+  <circle cx="32" cy="31" r="21.7" fill="none" stroke="#d0a85f" stroke-width=".7" opacity=".45"/>
+  <g transform="rotate(-9 32 31)" stroke-linejoin="round">
+    <path d="M20 15H42Q46 15 46 20V23H41V42Q41 48 35 48H17Q21 46 21 41V22H16V19Q16 15 20 15Z" fill="url(#paper)" stroke="#ae9864" stroke-width="1"/>
+    <path d="M20 15Q24 15 24 19V22H16V19Q16 15 20 15ZM42 15Q38 15 38 20V23H46" fill="#fff8df" stroke="#ae9864" stroke-width=".9"/>
+    <path d="M17 42H35Q33 47 37 48H17Q13 48 14 45Q14 42 17 42Z" fill="#e1d0a0" stroke="#ae9864" stroke-width=".9"/>
+    <path d="M26 25H35M25 29H36M25 33H33M25 37H30" fill="none" stroke="#465761" stroke-width="1.4" stroke-linecap="round"/>
+    <!-- Decorative blue wax, not a claimed canonical seal or heraldic device. -->
+    <path d="M37 40 34 50 39 47 42 50 41 39Z" fill="#ad8248" stroke="#d5b981" stroke-width=".6"/>
+    <path d="m39 32 2 1 2 .5.5 2 1 2-1 2-.5 2-2 .5-2 1-2-1-2-.5-.5-2-1-2 1-2 .5-2 2-.5Z" fill="#315c78" stroke="#bcced0" stroke-width=".9"/>
+    <circle cx="39" cy="37.5" r="2.8" fill="none" stroke="#91b0c0" stroke-width=".75"/>
+  </g>
+</svg>

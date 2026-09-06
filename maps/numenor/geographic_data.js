@@ -47,6 +47,20 @@ export const rivers = {
     tolerance: 10,  // Tolerance is set to 10 for every object
     weight: 7  // Weight is set to 7 for every object
   },
+  siril: {
+    pathName: 'siril',
+    color: "blue",  // Color is set to blue for every object
+    name: "Siril",
+    PopupContent: createGeographicPopup(
+      "Siril",
+      "Siril",
+      `The name Siril means "rivulet" in Quenya.`,
+      `Largest river in Numenor. The Siril began under the roots of Meneltarma, the great mountain that stood near the center of Numenor.`,
+      "https://thainsbook.minastirith.cz/rivers.html#Siril"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
 };
 export const large_regions = {
   orrostar: {
@@ -176,6 +190,36 @@ export const sub_regions = {
     ),
     tolerance: 1,
     weight: 2
+  },
+}
+export const bays = {
+  bay_of_andunie: {
+    pathName: 'bay_of_andunie',
+    color: "blue",  // Color is set to blue for every object
+    name: "Bay of Andúnië",
+    PopupContent: createGeographicPopup(
+      "Bay of Andúnië",
+      "Bay of Andúnië",
+      `Andúnië is a variant of the Quenya word andúnë, meaning "sunset".`,
+      `The northernmost of the three bays that ran along the western coasts of the Andustar in Númenor. The greatest of the three, its shores were no more than a narrow shelf of land from which steep cliffs rose up.`,
+      "https://tolkiengateway.net/wiki/Bay_of_And%C3%BAni%C3%AB"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
+  },
+  bay_of_eldanna: {
+    pathName: 'bay_of_eldanna',
+    color: "blue",  // Color is set to blue for every object
+    name: "Bay of Eldanna",
+    PopupContent: createGeographicPopup(
+      "Bay of Eldanna",
+      "Bay of Eldanna",
+      `Eldanna is a Quenya name meaning “Elf-wards” or “toward the Elves”, consisting of Elda (“Elf”) + -nna (“to, toward”, the Quenya allative suffix).`,
+      `The Bay of Eldanna was the wide bay in the western part of Númenor, between the promontories of Andustar to the north and Hyarnustar to the south. `,
+      "https://tolkiengateway.net/wiki/Bay_of_And%C3%BAni%C3%AB"
+    ),
+    tolerance: 10,  // Tolerance is set to 10 for every object
+    weight: 7  // Weight is set to 7 for every object
   },
 }
 

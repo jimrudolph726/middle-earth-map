@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Diamond of Erendis medallion</title>
+  <desc id="description">An ivory and icy-silver faceted diamond on an indigo field, within an antique-bronze rim. An original atlas interpretation, without a ring setting.</desc>
+  <defs>
+    <radialGradient id="field" cx="38%" cy="28%" r="74%">
+      <stop offset="0" stop-color="#1d5272"/><stop offset=".55" stop-color="#0a2b43"/><stop offset="1" stop-color="#061924"/>
+    </radialGradient>
+    <linearGradient id="bronze" x2="1" y2="1">
+      <stop stop-color="#f0d493"/><stop offset=".32" stop-color="#b8843f"/><stop offset=".68" stop-color="#6f4824"/><stop offset="1" stop-color="#d3ad62"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#bfe9ed" stop-opacity=".27"/><stop offset="1" stop-color="#bfe9ed" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="31" r="29" fill="#07131a" stroke="#342214"/>
+  <circle cx="32" cy="31" r="27.4" fill="url(#bronze)"/>
+  <circle cx="32" cy="31" r="24.2" fill="url(#field)" stroke="#d7e1e1" stroke-width="1.1"/>
+  <circle cx="32" cy="31" r="21.7" fill="none" stroke="#d0a85f" stroke-width=".7" opacity=".45"/>
+  <ellipse cx="32" cy="31" rx="22" ry="23" fill="url(#glow)"/>
+  <!-- Large facets stay distinct inside Leaflet's 48px medallion frame. -->
+  <path d="M15 26 23 17H41L49 26 32 47Z" fill="#f8f6e9" stroke="#e6f5f4" stroke-width="1.1" stroke-linejoin="round"/>
+  <path d="M15 26H25L32 47Z" fill="#94bdcc"/>
+  <path d="M49 26H39L32 47Z" fill="#b8dce3"/>
+  <path d="M25 26H39L32 47Z" fill="#f5fcf7"/>
+  <path d="M23 17 25 26 32 17ZM41 17 39 26 49 26Z" fill="#d2e8e9"/>
+  <path d="M32 17 39 26H25Z" fill="#ffffff"/>
+  <path d="M15 26H49M23 17 25 26 32 47 39 26 41 17M25 26 32 17 39 26" fill="none" stroke="#557f98" stroke-width=".85" stroke-linejoin="round"/>
+  <path d="M22 13v7M18.5 16.5h7" stroke="#fffbed" stroke-width="1.1" stroke-linecap="round"/>
+  <path d="M44 36v4M42 38h4" stroke="#dceff2" stroke-width=".8" stroke-linecap="round"/>
+</svg>

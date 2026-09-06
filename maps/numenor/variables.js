@@ -1,14 +1,16 @@
 // Map definition
 import {
   cities,
-  sacredPlaces,
+  jewels_and_keepsakes,
+  royalheirlooms
 } from './settlement_item_data.js';
 // Map definition
 import {
   mountains,
   rivers,
   large_regions,
-  sub_regions
+  sub_regions,
+  bays
 } from './geographic_data.js';
 
 export const imageUrl = new URL('./assets/numenor.png', import.meta.url).href;
@@ -48,7 +50,8 @@ export const physicalFrame = {
 
 const settlementGroups = {
   cities,
-  sacredPlaces,
+  jewels_and_keepsakes,
+  royalheirlooms
 };
 
 export const settlementsData = [
@@ -64,7 +67,8 @@ const geographicGroups = {
   mountains,
   rivers,
   large_regions,
-  sub_regions
+  sub_regions,
+  bays
 };
 
 export const geographicData = [

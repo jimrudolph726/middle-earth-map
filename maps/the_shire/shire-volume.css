@@ -1,0 +1,202 @@
+/* Harvest Almanac: honey, flax, copper, and olive ink. Scoped to this volume. */
+body.shire-volume {
+  --atlas-paper-texture: url('../../assets/map_parchment.png');
+  --atlas-walnut-950: #303225;
+  --atlas-walnut-900: #393b2b;
+  --atlas-walnut-800: #4c5038;
+  --atlas-walnut-700: #606347;
+  --atlas-parchment-100: #f8efd8;
+  --atlas-parchment-200: #f1e4c3;
+  --atlas-parchment-300: #e6c96b;
+  --atlas-parchment-500: #a58b50;
+  --atlas-ink: #393b2b;
+  --atlas-ink-soft: #5c6047;
+  --atlas-gold: #c99a3a;
+  --atlas-gold-light: #e6c96b;
+  --atlas-oxblood: #87462f;
+  --atlas-oxblood-deep: #683623;
+  --atlas-forest: #87936a;
+  --shire-terracotta: #a85f42;
+}
+
+.shire-volume .sidebar-content {
+  background: linear-gradient(#f1e4c3ed, #e8d6a9df), var(--atlas-paper-texture) center / cover;
+  background-color: #f1e4c3;
+}
+
+.shire-volume .sidebar-tabs {
+  background: linear-gradient(90deg, #a97d30, #c99a3a);
+  box-shadow: inset -4px 0 10px #6e4d2529;
+}
+
+.shire-volume .sidebar-tabs > ul > li,
+.shire-volume .sidebar-tabs > li {
+  color: var(--atlas-ink);
+}
+
+.shire-volume .sidebar-tabs > ul > li:hover,
+.shire-volume .sidebar-tabs > ul > li.active,
+.shire-volume .sidebar-tabs > li:hover,
+.shire-volume .sidebar-tabs > li.active {
+  color: var(--atlas-ink);
+  background: #e6c96b;
+  box-shadow: inset 3px 0 #f1e4c3;
+}
+
+.shire-volume .sidebar-header {
+  color: var(--atlas-ink);
+  background: linear-gradient(105deg, #c99a3a, #e6c96b);
+  text-shadow: 0 1px #f1e4c366;
+}
+
+.shire-volume .sidebar-close,
+.shire-volume .sidebar-close:hover,
+.shire-volume .sidebar-close:focus-visible { color: var(--atlas-ink); }
+.shire-volume .sidebar-pane input[type="checkbox"] { accent-color: #606b46; }
+.shire-volume .sidebar-pane label:hover { background: #e6c96b33; border-color: #c99a3a66; }
+
+.shire-volume .atlas-map-nav__link,
+.shire-volume .atlas-map-nav__toggle {
+  /* Slightly deeper olive gives small pill labels at least 4.5:1 contrast. */
+  color: #353727;
+  border-color: #e6c96b;
+  background: #c99a3a;
+  box-shadow: 0 8px 24px #21140e40;
+}
+
+.shire-volume .atlas-map-nav__link:hover,
+.shire-volume .atlas-map-nav__link:focus-visible,
+.shire-volume .atlas-map-nav__toggle:hover,
+.shire-volume .atlas-map-nav__toggle:focus-visible,
+.shire-volume .atlas-map-nav__link--current {
+  color: var(--atlas-ink);
+  background: #e6c96b;
+}
+
+.shire-volume .leaflet-bar a,
+.shire-volume .leaflet-bar a:hover,
+.shire-volume .leaflet-bar a:focus {
+  color: var(--atlas-ink);
+  background: #c99a3a;
+  border-bottom-color: #88632e;
+}
+.shire-volume .leaflet-bar a:hover,
+.shire-volume .leaflet-bar a:focus-visible { background: #e6c96b; }
+.shire-volume .leaflet-bar a.leaflet-disabled { color: #5c6047; background: #ddc48a; }
+
+/* Retain the parchment silhouette: tint only inside its existing alpha mask. */
+.shire-volume .leaflet-popup-content-wrapper {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.shire-volume .leaflet-popup-content-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(#f1e4c3db, #e6c96b33), var(--atlas-paper-texture) center / 100% 100% no-repeat;
+  background-color: #f1e4c3;
+  -webkit-mask: var(--atlas-paper-texture) center / 100% 100% no-repeat;
+  mask: var(--atlas-paper-texture) center / 100% 100% no-repeat;
+}
+.shire-volume .leaflet-popup-tip-container { display: none; }
+.shire-volume .lore-popup__frame::before,
+.shire-volume .campsite-popup__frame::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 96px;
+  height: 24px;
+  margin: 0 auto 10px;
+  background: url('./assets/barley-ornament.svg') center / contain no-repeat;
+}
+.shire-volume .lore-popup__section-title,
+.shire-volume .lore-popup__section-text,
+.shire-volume .lore-popup__notes-text,
+.shire-volume .campsite-popup__notes-text,
+.shire-volume .campsite-popup__value { color: var(--atlas-ink); }
+.shire-volume .leaflet-container a.lore-popup__link:hover,
+.shire-volume .leaflet-container a.lore-popup__link:focus-visible {
+  background: linear-gradient(#985237, #683623);
+}
+.shire-volume .leaflet-tooltip,
+.shire-volume .polygon-label { color: var(--atlas-ink); background: #f1e4c3; }
+
+/* Shared frame geometry, Shire-specific material finish. */
+.shire-volume .atlas-physical-map__surface--shire {
+  filter: drop-shadow(0 17px 20px #21140e73) drop-shadow(0 3px 4px #21140e85);
+}
+.shire-volume .atlas-physical-mat-pane--wheat-linen .atlas-physical-mat__layer--surface {
+  filter: grayscale(1) sepia(0.65) brightness(1.1);
+}
+.shire-volume .atlas-physical-frame-pane--shire,
+.shire-volume .atlas-physical-frame-pane--shire * { pointer-events: none; }
+.shire-volume .atlas-physical-frame__line {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+}
+.shire-volume .atlas-physical-frame__line--shadow {
+  stroke: #21140eb3;
+  stroke-width: 30px;
+  filter: drop-shadow(0 12px 14px #21140e99);
+}
+.shire-volume .atlas-physical-frame__line--outer { stroke: #513426; stroke-width: 21px; }
+.shire-volume .atlas-physical-frame__line--texture {
+  stroke-width: 17px;
+  stroke-opacity: 0.9;
+  filter: sepia(0.5) saturate(0.8);
+}
+.shire-volume .atlas-physical-frame__line--rail { stroke: #a85f4299; stroke-width: 11px; }
+.shire-volume .atlas-physical-frame__line--patina { stroke: #724531aa; stroke-width: 6px; }
+.shire-volume .atlas-physical-frame__line--highlight { stroke: #e6c96be6; stroke-width: 2px; }
+.shire-volume .atlas-physical-frame__corner {
+  border: 0;
+  background: transparent;
+  opacity: 0.96;
+  transition: opacity 180ms ease;
+}
+.shire-volume .atlas-physical-frame__ornament {
+  display: block;
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 3px 3px #21140eaa);
+  transform-origin: center;
+}
+.shire-volume .atlas-physical-frame__ornament--north-east { transform: rotate(90deg); }
+.shire-volume .atlas-physical-frame__ornament--south-east { transform: rotate(180deg); }
+.shire-volume .atlas-physical-frame__ornament--south-west { transform: rotate(270deg); }
+.shire-volume .atlas-physical-frame__ornament svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.shire-volume .atlas-physical-frame__corner-rail,
+.shire-volume .atlas-physical-frame__corner-highlight,
+.shire-volume .atlas-physical-frame__barley-stem {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.shire-volume .atlas-physical-frame__corner-rail { stroke: #a85f42; stroke-width: 4.6px; }
+.shire-volume .atlas-physical-frame__corner-highlight { stroke: #e6c96b; stroke-width: 1.15px; }
+.shire-volume .atlas-physical-frame__barley-stem { stroke: #e6c96b; stroke-width: 1.2px; }
+.shire-volume .atlas-physical-frame__barley-grain,
+.shire-volume .atlas-physical-frame__rail-stud { fill: #e6c96b; stroke: #88632e; stroke-width: 0.65px; }
+.shire-volume .atlas-physical-frame__acorn { fill: #c99a3a; stroke: #f1e4c3; stroke-width: 0.85px; }
+.shire-volume .atlas-physical-frame__acorn-cap { fill: #a85f42; stroke: #e6c96b; stroke-width: 0.85px; }
+.shire-volume .atlas-physical-frame-pane--detail .atlas-physical-frame__corner { opacity: 0; }
+
+@media (max-width: 720px) {
+  .shire-volume .atlas-physical-frame__line--shadow { stroke-width: 22px; }
+  .shire-volume .atlas-physical-frame__line--outer { stroke-width: 16px; }
+  .shire-volume .atlas-physical-frame__line--texture { stroke-width: 13px; }
+  .shire-volume .atlas-physical-frame__line--rail { stroke-width: 9px; }
+  .shire-volume .atlas-physical-frame__ornament { scale: 0.78; }
+}
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 1024px) {
+  .shire-volume .sidebar-tabs > ul:last-child { background: #c99a3a; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shire-volume .atlas-physical-frame__corner { transition: none; }
+}

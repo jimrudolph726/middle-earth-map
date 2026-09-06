@@ -1,5 +1,15 @@
 const createPhysicalFrameCornerMarkup = ({ position, motif }) => {
   const ornamentByMotif = {
+    'barley-acorn': `
+      <path class="atlas-physical-frame__corner-rail" d="M5 31V5h26" />
+      <path class="atlas-physical-frame__corner-highlight" d="M9 28V9h19" />
+      <circle class="atlas-physical-frame__rail-stud" cx="5" cy="35" r="1.15" />
+      <circle class="atlas-physical-frame__rail-stud" cx="35" cy="5" r="1.15" />
+      <path class="atlas-physical-frame__barley-stem" d="M34 43Q13 36 14 14M34 43Q42 26 32 12M23 21l-1-4" />
+      <path class="atlas-physical-frame__barley-grain" d="M15 22Q7 21 10 15Q16 16 15 22ZM15 22Q14 15 20 14Q23 20 15 22ZM17 29Q9 29 10 23Q16 22 17 29ZM17 29Q17 22 23 22Q25 28 17 29ZM22 36Q14 37 14 31Q20 29 22 36ZM35 21Q28 21 29 15Q35 15 35 21ZM35 21Q35 14 40 15Q43 21 35 21ZM37 29Q30 27 32 22Q38 23 37 29ZM37 29Q39 22 44 25Q44 31 37 29Z" />
+      <path class="atlas-physical-frame__acorn" d="M20 25Q19 32 26 35Q32 30 29 24Z" />
+      <path class="atlas-physical-frame__acorn-cap" d="M19 26Q17 20 23 20Q30 19 31 25Z" />
+    `,
     'star-wave': `
       <path class="atlas-physical-frame__corner-rail" d="M5 31V5h26" />
       <path class="atlas-physical-frame__corner-highlight" d="M9 28V9h19" />
