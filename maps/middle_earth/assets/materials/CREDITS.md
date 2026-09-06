@@ -15,7 +15,8 @@ recorded in the [shared study-material register](../../../shared/assets/material
 - License: [CC0 1.0 Universal](https://polyhaven.com/license)
 - Atlas processing: resized from 2048 × 2048 to 768 × 768, shifted toward
   forest green, slightly darkened and desaturated, then encoded as lossy WebP
-- Purpose: the narrow leather mount between the map and the mahogany desk
+- Purpose: the narrow leather mount between the map and the mahogany desk;
+  also reused for the layered opening cover and spine (2026-09-05)
 - Output size: 94,466 bytes
 - SHA-256: `6332653A0853D44A12988EF2FDF010E88DC4EDCD27DF2B60B8D9EFF45C582C03`
 - Processed: 2026-09-01
@@ -37,3 +38,9 @@ The multi-rail frame geometry, leather-mount composition,
 winding-road-and-leaf corner ornament, color treatment, responsive behavior,
 and Leaflet integration are original project work. The botanical motif is
 drawn as inline SVG and does not contain a third-party illustration.
+
+The layered CSS binding prototype (2026-09-05) adds original pressed tooling,
+spine bands, board thickness, patterned endpaper, page edges, moving lighting,
+and a hinged opening. It reuses the above leather without shipping another
+image or animation dependency. The Bag End inscription is decorative project
+copy, not a quotation or a claim of canonical book provenance.

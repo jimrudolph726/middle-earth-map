@@ -16,6 +16,9 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 844, height: 390
     await expect(page.locator('.atlas-physical-frame__line')).toHaveCount(6);
     await expect(page.locator('.atlas-physical-mat__layer')).toHaveCount(4);
     await expect(page.locator('#sidebar input:disabled')).toHaveCount(0);
+    await expect(page.locator('#frontispiece')).toHaveClass(/active/);
+    await expect(page.locator('[data-shire-volume-cover]')).toHaveCount(0, { timeout: 6000 });
+    await page.getByRole('button', { name: /Unfold the Shire/ }).click();
     await expect(page.locator('#sidebar')).toHaveClass(/collapsed/);
     await expect(page.locator('#map')).toHaveCSS('background-color', 'rgb(33, 20, 14)');
     expect(await page.locator('#map').evaluate(el => getComputedStyle(el).backgroundImage)).toContain('atlas-mahogany-v1.webp');

@@ -5,6 +5,7 @@ import {
 
  // Icons
 const iconUrls = {
+  innsAndGatheringPlaces: new URL('./assets/shire-inn-medallion.svg', import.meta.url).href,
   homesAndFarms: new URL('./assets/shire-homestead-medallion.svg', import.meta.url).href,
   townsAndVillages: new URL('./assets/shire-village-medallion.svg', import.meta.url).href,
   finrod: new URL('../assets/finrod.png', import.meta.url).href,
@@ -13,6 +14,7 @@ const iconUrls = {
   tent: new URL('../assets/tent.png', import.meta.url).href,
 };
 export const icons = {
+InnsAndGatheringPlacesIcon: createIcon(iconUrls.innsAndGatheringPlaces),
 HomesAndFarmsIcon: createIcon(iconUrls.homesAndFarms),
 TownsAndVillagesIcon: createIcon(iconUrls.townsAndVillages),
 NargothrondIcon: createIcon(iconUrls.finrod),
@@ -52,7 +54,7 @@ export const inns_and_gathering_places = {
       "https://tolkiengateway.net/wiki/The_Green_Dragon"
     ),
     coords: [44.9413021,-93.2844148],
-    icon: icons.HomesAndFarmsIcon,
+    icon: icons.InnsAndGatheringPlacesIcon,
   },
 };
 

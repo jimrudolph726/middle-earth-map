@@ -1,3 +1,85 @@
+/* A cloth-bound household almanac, sharing the other volumes' opening rhythm. */
+.shire-volume-cover {
+  position: fixed;
+  z-index: 30000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #302d1f;
+  background:
+    radial-gradient(ellipse at 48% 35%, #efd68799, #88612755),
+    linear-gradient(115deg, #af853e, #d2ac58 55%, #a77c32),
+    url('../beleriand/assets/materials/beleriand-cloth-v1.webp') center / 360px 360px;
+  background-blend-mode: normal, color, normal;
+  box-shadow: inset 0 0 0 10px #654d28, inset 0 0 0 11px #e6c96b, inset 0 0 100px #51351866;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  pointer-events: none;
+  animation: shire-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
+}
+.shire-volume-cover__spine {
+  position: absolute;
+  inset-block: 0;
+  left: 18px;
+  width: 34px;
+  border-inline: 1px solid #e6c96b88;
+  background: linear-gradient(90deg, #634b29, #ae853d 48%, #775829);
+  box-shadow: 7px 0 18px #3b2c254d;
+}
+.shire-volume-cover__frame {
+  box-sizing: border-box;
+  width: min(650px, calc(100vw - 94px));
+  padding: 38px 28px 44px;
+  border: 1px solid #6b502b;
+  box-shadow: inset 0 0 0 4px #d5b86c66, inset 0 0 0 5px #efd890aa, 0 14px 40px #49332338;
+  text-align: center;
+}
+.shire-harvest-ornament { display: block; width: 120px; height: 64px; margin: 0 auto 12px; }
+.shire-volume-cover__eyebrow,
+.shire-volume-cover__subtitle {
+  margin: 0;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+.shire-volume-cover__eyebrow { font-size: 11px; letter-spacing: .25em; }
+.shire-volume-cover__title {
+  margin: 16px 0 18px;
+  font-family: 'Ringbearer', 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: .035em;
+  text-shadow: 0 1px #f1e4c388;
+}
+.shire-volume-cover__subtitle { font-size: 10px; letter-spacing: .16em; }
+@keyframes shire-volume-open {
+  0% { opacity: 1; transform: perspective(1500px) rotateY(0deg) translateX(0); }
+  60% { opacity: .94; }
+  100% { visibility: hidden; opacity: 0; transform: perspective(1500px) rotateY(-72deg) translateX(-76%); }
+}
+.shire-volume .sidebar-pane button.atlas-chapter-card:hover,
+.shire-volume .sidebar-pane button.atlas-chapter-card:focus-visible {
+  color: var(--atlas-ink);
+  background: linear-gradient(110deg, #e6c96b, #d9b052);
+}
+.shire-volume .atlas-chapter-card:hover .atlas-chapter-card__copy > span,
+.shire-volume .atlas-chapter-card:focus-visible .atlas-chapter-card__copy > span { color: var(--atlas-ink); }
+.shire-volume .atlas-chapter-card__medallion { color: #393b2b; background: #e6c96b; box-shadow: inset 0 0 0 2px #c99a3a; }
+@media (max-width: 520px) {
+  .shire-volume-cover__frame { width: calc(100vw - 68px); padding: 25px 16px 30px; }
+  .shire-volume-cover__spine { left: 12px; width: 27px; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .shire-volume-cover__frame { padding: 14px 24px 18px; }
+  .shire-volume-cover .shire-harvest-ornament { width: 90px; height: 48px; margin-bottom: 6px; }
+  .shire-volume-cover__title { font-size: clamp(2.4rem, 10vh, 4rem); margin: 8px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shire-volume-cover { animation-name: shire-volume-fade; }
+  @keyframes shire-volume-fade { to { visibility: hidden; opacity: 0; } }
+}
+
 /* Harvest Almanac: honey, flax, copper, and olive ink. Scoped to this volume. */
 body.shire-volume {
   --atlas-paper-texture: url('../../assets/map_parchment.png');

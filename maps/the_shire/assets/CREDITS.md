@@ -1,5 +1,10 @@
 # Shire harvest-almanac presentation
 
+The cover reuses the credited Beleriand linen texture with an ochre CSS tint.
+`shire-harvest-ornament.svg` is an original code-drawn barley-and-acorn ornament
+created for the cover and frontispiece in September 2026, with no embedded
+third-party artwork or fonts.
+
 - Desk: the existing [shared mahogany material](../../shared/assets/materials/CREDITS.md).
 - Wheat-linen mat: reuses the CC0 Poly Haven Rough Linen derivative documented in
   [Beleriand's material register](../../beleriand/assets/materials/CREDITS.md),
@@ -28,3 +33,11 @@ September 2026, using the village marker's palette and circular frame. Its
 cream farmhouse, pitched roof, cultivated fields, path, and fence symbolize a Shire farm;
 they are not a claim about Bamfurlong's actual architecture. No third-party
 image or font is embedded.
+
+## Inns and gathering places marker
+
+`shire-inn-medallion.svg` is an original code-drawn atlas icon created in
+September 2026. The hanging wooden sign and painted tankard symbolize
+hospitality; they do not depict the documented sign of the Green Dragon or
+any other particular inn. Its palette and honey-gold rim match the other
+Shire settlement medallions. No third-party image or font is embedded.

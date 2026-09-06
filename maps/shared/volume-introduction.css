@@ -1,5 +1,20 @@
 /* Shared first-visit and returning-visit behavior for physical atlas volumes. */
 
+/* One centered illustration between each volume label and frontispiece title. */
+.atlas-frontispiece > .atlas-frontispiece__ornament {
+  display: block;
+  width: 120px;
+  height: 64px;
+  flex-shrink: 0;
+  margin: 0 auto 18px;
+  object-fit: contain;
+}
+
+.atlas-frontispiece > .atlas-frontispiece__ornament::before,
+.atlas-frontispiece > .atlas-frontispiece__ornament::after {
+  content: none;
+}
+
 [data-atlas-volume-cover].atlas-volume-cover--returning {
   animation-delay: 0s !important;
   animation-duration: 620ms !important;
@@ -24,7 +39,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-atlas-volume-cover] {
+  [data-atlas-volume-cover],
+  [data-atlas-volume-cover].atlas-volume-cover--returning {
     animation-delay: 0s !important;
     animation-duration: 180ms !important;
   }

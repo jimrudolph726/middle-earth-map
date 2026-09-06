@@ -196,29 +196,62 @@ body.beleriand-volume {
 
 /* A brief, physical opening of the volume on arrival. */
 .beleriand-volume-cover {
+  --binding-duration: 760ms;
+  --binding-delay: 3000ms;
+  --binding-ease: cubic-bezier(0.58, 0.02, 0.28, 0.99);
   position: fixed;
   z-index: 30000;
   inset: 0;
+  overflow: hidden;
+  perspective: max(1800px, 180vw);
+  perspective-origin: left center;
+  pointer-events: none;
+  animation: beleriand-volume-open var(--binding-duration) linear var(--binding-delay) both;
+}
+
+.beleriand-volume-cover.atlas-volume-cover--returning {
+  --binding-duration: 620ms;
+  --binding-delay: 0ms;
+}
+
+.beleriand-volume-cover__board {
+  position: absolute;
+  inset: 0 10px 6px 22px;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  animation: beleriand-binding-turn var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.beleriand-volume-cover__face,
+.beleriand-volume-cover__inside {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
+  border-radius: 0 8px 8px 0;
+  backface-visibility: hidden;
+}
+
+.beleriand-volume-cover__face {
+  transform: translateZ(3px);
   overflow: hidden;
   color: #d9ddda;
   background:
-    radial-gradient(circle at 50% 36%, rgba(95, 126, 140, 0.22), transparent 30%),
-    linear-gradient(125deg, rgba(9, 18, 23, 0.84), rgba(27, 43, 51, 0.8) 56%, rgba(8, 17, 22, 0.88)),
-    url("./assets/materials/beleriand-cloth-v1.webp");
-  background-position: center, center, left top;
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-size: cover, cover, 880px 880px;
-  box-shadow: inset 0 0 0 10px #12191d, inset 0 0 0 11px rgba(187, 198, 198, 0.48);
-  transform-origin: left center;
-  backface-visibility: hidden;
-  pointer-events: none;
-  animation: beleriand-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
+    radial-gradient(ellipse at 100% 0, rgba(160, 179, 191, 0.25), transparent 25%),
+    radial-gradient(ellipse at 96% 100%, rgba(107, 123, 160, 0.28), transparent 24%),
+    linear-gradient(105deg, rgba(15, 27, 40, 0.65), rgba(34, 55, 75, 0.55) 45%, rgba(30, 42, 66, 0.64)),
+    url('./assets/materials/beleriand-cloth-v1.webp') center / 600px 600px,
+    #455c70;
+  box-shadow:
+    inset -2px 0 2px rgba(217, 224, 223, 0.43),
+    inset 0 0 0 9px rgba(23, 33, 45, 0.5),
+    inset 0 0 0 10px rgba(177, 193, 198, 0.65),
+    inset 0 0 0 12px rgba(13, 22, 33, 0.45),
+    inset 0 0 85px rgba(7, 16, 24, 0.38);
 }
 
-.beleriand-volume-cover::before,
-.beleriand-volume-cover::after {
+.beleriand-volume-cover__face::before,
+.beleriand-volume-cover__face::after {
   position: absolute;
   inset-block: 20px;
   width: 1px;
@@ -226,28 +259,41 @@ body.beleriand-volume {
   background: linear-gradient(transparent, rgba(195, 203, 201, 0.7) 12%, rgba(195, 203, 201, 0.7) 88%, transparent);
 }
 
-.beleriand-volume-cover::before {
-  left: 28px;
+.beleriand-volume-cover__face::before {
+  left: 56px;
 }
 
-.beleriand-volume-cover::after {
+.beleriand-volume-cover__face::after {
   right: 28px;
 }
 
 .beleriand-volume-cover__frame {
-  width: min(640px, calc(100vw - 90px));
+  position: relative;
+  box-sizing: border-box;
+  width: min(700px, calc(100vw - 112px));
   padding: 42px 28px 45px;
   border: 1px solid rgba(190, 201, 200, 0.62);
   box-shadow:
     inset 0 0 0 4px rgba(13, 23, 28, 0.58),
-    inset 0 0 0 5px rgba(153, 166, 166, 0.3);
+    inset 0 0 0 5px rgba(153, 166, 166, 0.3),
+    0 1px 0 rgba(224, 232, 228, 0.18),
+    0 -1px 2px rgba(3, 11, 18, 0.7);
   text-align: center;
+  text-shadow: 0 -1px 1px #12212e, 0 1px 0 rgba(215, 226, 228, 0.2);
+}
+
+.beleriand-volume-cover__seal {
+  width: 120px;
+  height: 64px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #a7b5bb, #edf0e8 38%, #9caeb8 67%, #c9d4d2);
+  mask: url('./assets/beleriand-frontispiece-ornament.svg') center / contain no-repeat;
 }
 
 .beleriand-volume-cover__eyebrow,
 .beleriand-volume-cover__subtitle {
   margin: 0;
-  color: #aebbbd;
+  color: #d1d9d7;
   font-family: "Libre Baskerville", Georgia, serif;
   text-transform: uppercase;
 }
@@ -265,7 +311,7 @@ body.beleriand-volume {
   font-size: clamp(3rem, 9vw, 6.4rem);
   line-height: 0.95;
   letter-spacing: 0.045em;
-  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.58);
+  text-shadow: 0 -1px 1px #0b1722, 0 1px 0 rgba(237, 240, 231, 0.4), 0 2px 3px rgba(0, 0, 0, 0.48);
 }
 
 .beleriand-volume-cover__subtitle {
@@ -275,20 +321,94 @@ body.beleriand-volume {
 }
 
 @keyframes beleriand-volume-open {
-  0% {
-    opacity: 1;
-    transform: perspective(1500px) rotateY(0deg) translateX(0);
-  }
+  from { visibility: visible; }
+  to { visibility: hidden; }
+}
 
-  60% {
-    opacity: 0.92;
-  }
+.beleriand-volume-cover__spine {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 43px;
+  border-right: 1px solid rgba(186, 202, 209, 0.5);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 17%, rgba(4, 12, 19, 0.7) 17.3% 17.7%, rgba(185, 204, 212, 0.3) 18% 18.3%, transparent 18.6% 20%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.45), transparent 30%, rgba(158, 184, 208, 0.1) 68%, rgba(0, 0, 0, 0.35)),
+    url('../middle_earth/assets/materials/middle-earth-green-leather-v1.webp') center / 640px 640px,
+    #182938;
+  background-blend-mode: normal, normal, luminosity;
+  box-shadow: 7px 0 18px rgba(0, 0, 0, 0.28);
+}
 
-  100% {
-    visibility: hidden;
-    opacity: 0;
-    transform: perspective(1500px) rotateY(-72deg) translateX(-76%);
-  }
+.beleriand-volume-cover__inside {
+  transform: rotateY(180deg) translateZ(3px);
+  background: linear-gradient(90deg, #b3bcb7, #e1e4d9 12%, #eeeee2 75%, #c6cec5);
+  border: 12px solid #293b4d;
+  box-shadow: inset 0 0 32px rgba(32, 45, 48, 0.4);
+}
+
+.beleriand-volume-cover__inside::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('./assets/beleriand-frontispiece-ornament.svg') center / 120px 64px repeat;
+  opacity: 0.12;
+}
+
+.beleriand-volume-cover__edge {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 6px;
+  transform-origin: right center;
+  transform: translateZ(3px) rotateY(-90deg);
+  background: linear-gradient(90deg, #aab6b7, #344556 35% 65%, #cbd2ca);
+}
+
+.beleriand-volume-cover__pages {
+  position: absolute;
+  inset: 4px 1px 0 29px;
+  border-right: 12px solid #c1c6b9;
+  border-bottom: 7px solid #c1c6b9;
+  border-radius: 0 7px 7px 0;
+  box-shadow: inset -2px -2px 0 #eef0e2, -2px 0 8px #29343c;
+  background: repeating-linear-gradient(90deg, #919e96 0 1px, #dde1d1 1px 3px) right / 9px 100% no-repeat;
+  animation: beleriand-binding-pages var(--binding-duration) ease var(--binding-delay) both;
+}
+
+.beleriand-volume-cover__cast-shadow {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(6, 13, 22, 0.64), rgba(6, 13, 22, 0.4) 65%, transparent);
+  animation: beleriand-binding-shadow var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.beleriand-volume-cover__light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 15%, rgba(217, 230, 235, 0.1) 44%, transparent 68%);
+  animation: beleriand-binding-light var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+@keyframes beleriand-binding-turn {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-112deg); }
+}
+
+@keyframes beleriand-binding-shadow {
+  from { opacity: 0.9; transform: scaleX(1); }
+  70% { opacity: 0.4; }
+  to { opacity: 0; transform: scaleX(0.04); }
+}
+
+@keyframes beleriand-binding-pages {
+  0%, 35% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+@keyframes beleriand-binding-light {
+  from { opacity: 0.4; transform: translateX(-20%); }
+  40% { opacity: 1; }
+  to { opacity: 0; transform: translateX(50%); }
 }
 
 /* The repeating half-circles evoke waves; the central star recalls the Eldar. */
@@ -745,7 +865,7 @@ body.beleriand-volume {
 
 @media (max-width: 520px) {
   .beleriand-volume-cover__frame {
-    width: calc(100vw - 60px);
+    width: calc(100vw - 96px);
     padding-inline: 16px;
   }
 
@@ -755,9 +875,24 @@ body.beleriand-volume {
   }
 }
 
+@media (max-height: 500px) {
+  .beleriand-volume-cover__frame { padding-block: 14px; }
+  .beleriand-volume-cover__title { font-size: clamp(2.4rem, 11vh, 4rem); }
+  .beleriand-volume-cover__eyebrow { margin-top: 8px; }
+  .beleriand-volume-cover__subtitle { margin-bottom: 8px; }
+  .beleriand-volume-cover__seal { width: 90px; height: 48px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .beleriand-volume-cover {
     animation: beleriand-volume-fade 180ms ease-out 3000ms both;
+  }
+
+  .beleriand-volume-cover__board,
+  .beleriand-volume-cover__pages,
+  .beleriand-volume-cover__cast-shadow,
+  .beleriand-volume-cover__light {
+    animation: none;
   }
 
   @keyframes beleriand-volume-fade {

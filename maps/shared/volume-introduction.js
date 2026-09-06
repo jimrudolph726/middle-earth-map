@@ -1,6 +1,6 @@
 (() => {
   const FRONTISPIECE_PANE_ID = 'frontispiece';
-  const KNOWN_VOLUMES = ['beleriand', 'numenor', 'middle-earth'];
+  const KNOWN_VOLUMES = ['beleriand', 'numenor', 'middle-earth', 'shire'];
   const LEGACY_STORAGE_KEYS = {
     'middle-earth': ['middle-earth-atlas:frontispiece-seen:v1'],
   };
@@ -124,11 +124,15 @@
 
       cover.dataset.atlasCoverMode = useShortCover ? 'returning' : 'first';
       cover.classList.toggle('atlas-volume-cover--returning', useShortCover);
-      cover.addEventListener('animationend', (event) => {
+      const onCoverAnimationEnd = (event) => {
         if (event.target === cover) {
+          cover.removeEventListener('animationend', onCoverAnimationEnd);
           removeCover();
         }
-      }, { once: true });
+      };
+      // Layered covers have child animations: their bubbled events must not
+      // consume the scene's completion listener before its own animation ends.
+      cover.addEventListener('animationend', onCoverAnimationEnd);
       window.setTimeout(removeCover, useShortCover ? 1600 : 4800);
     }
 

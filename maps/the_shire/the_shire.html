@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Shire Map</title>
+    <title>The Shire Atlas | An Almanac of Hearth &amp; Harvest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="preload" href="../../assets/vendor/fonts/material-icons-v145.woff2" as="font" type="font/woff2" crossorigin>
@@ -12,14 +12,27 @@
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../plugins/atlas-map-theme.css" />
     <link rel="stylesheet" href="../shared/study-desk.css">
+    <link rel="stylesheet" href="../shared/volume-introduction.css">
     <link rel="stylesheet" href="./shire-volume.css">
 </head>
 
-<body class="shire-volume atlas-study-desk">
+<body class="shire-volume atlas-study-desk" data-atlas-volume="shire">
+    <div class="shire-volume-cover" data-shire-volume-cover data-atlas-volume-cover aria-hidden="true">
+        <div class="shire-volume-cover__spine"></div>
+        <div class="shire-volume-cover__frame">
+            <img class="shire-harvest-ornament" src="./assets/shire-harvest-ornament.svg" width="120" height="64" alt="">
+            <p class="shire-volume-cover__eyebrow">The Fourth Volume</p>
+            <p class="shire-volume-cover__title">The Shire</p>
+            <p class="shire-volume-cover__subtitle">An Almanac of Hearth &amp; Harvest</p>
+        </div>
+    </div>
     <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
+                <li class="atlas-frontispiece-tab">
+                    <a href="#frontispiece" role="tab" aria-label="Open Shire frontispiece"><i class="material-icons">menu_book</i> Frontispiece</a>
+                </li>
                 <li><a href="#paths" role="tab"><i class="material-icons">hiking</i> Campsites and Paths</a></li>
                 <li><a href="#settlements" role="tab"><i class="material-icons">fort</i> Settlements</a></li>
                 <li><a href="#geography" role="tab"><i class="material-icons">terrain</i> Geography</a></li>
@@ -41,6 +54,33 @@
 
         <!-- Tab panes -->
         <div class="sidebar-content">
+            <div class="sidebar-pane atlas-frontispiece-pane" id="frontispiece">
+                <h1 class="sidebar-header">The Shire<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
+                <section class="atlas-frontispiece shire-frontispiece" aria-labelledby="shireFrontispieceTitle">
+                    <p class="atlas-frontispiece__eyebrow">The Fourth Volume</p>
+                    <img class="atlas-frontispiece__ornament shire-harvest-ornament" src="./assets/shire-harvest-ornament.svg" width="120" height="64" alt="">
+                    <h2 id="shireFrontispieceTitle" class="atlas-frontispiece__title">An Almanac of<br>Hearth &amp; Harvest</h2>
+                    <p class="atlas-frontispiece__copy">Welcome to the Shire. Here the roads lead past kitchen gardens, over quiet streams, and home again before supper. Settle in, unfold the map, and see where a little wandering takes you.</p>
+                    <div class="atlas-chapter-list">
+                        <button class="atlas-chapter-card" type="button" data-shire-action="map">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">map</i></span>
+                            <span class="atlas-chapter-card__copy"><strong>Unfold the Shire</strong><span>Set the almanac aside and take in the whole map.</span></span>
+                            <i class="material-icons atlas-chapter-card__chevron">open_in_full</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-atlas-pane="settlements" data-shire-pane="settlements">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">home</i></span>
+                            <span class="atlas-chapter-card__copy"><strong>Find a Place to Call Home</strong><span>Explore villages, farmsteads, and welcoming inns.</span></span>
+                            <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
+                        </button>
+                        <button class="atlas-chapter-card" type="button" data-atlas-pane="geography" data-shire-pane="geography">
+                            <span class="atlas-chapter-card__medallion"><i class="material-icons">landscape</i></span>
+                            <span class="atlas-chapter-card__copy"><strong>Wander Field &amp; Stream</strong><span>Browse the woods, waters, and hills of the Shire.</span></span>
+                            <i class="material-icons atlas-chapter-card__chevron">chevron_right</i>
+                        </button>
+                    </div>
+                    <p class="atlas-frontispiece__return-note"><i class="material-icons">menu_book</i> The book tab brings you back here whenever you like.</p>
+                </section>
+            </div>
             <div class="sidebar-pane" id="paths">
                 <h1 class="sidebar-header">
                     Paths
@@ -161,6 +201,11 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="material-icons">chevron_left</i></span></h1>
+                <section class="atlas-project-card atlas-introduction-card" aria-label="Volume introductions">
+                    <p class="atlas-project-card__eyebrow">Volume introductions</p>
+                    <button class="atlas-pane-link" type="button" data-atlas-introduction-reset>Show volume introductions again</button>
+                    <p class="atlas-introduction-card__status" data-atlas-introduction-status aria-live="polite">First visits open each volume’s frontispiece automatically.</p>
+                </section>
                 <section class="atlas-project-card" aria-label="About this atlas">
                     <p class="atlas-project-card__eyebrow">About this atlas</p>
                     <a class="atlas-project-card__link" href="../../about.html">Unofficial fan project <span aria-hidden="true">&middot;</span> Credits &amp; provenance</a>
@@ -232,6 +277,8 @@
     <script src="../../plugins/atlas-map-nav.js"></script>
     <script src="../../plugins/atlas-map-theme.js"></script>
     <script src="../../plugins/atlas-map-sounds.js"></script>
+    <script src="../shared/volume-introduction.js"></script>
+    <script src="./shire-volume.js"></script>
     <script type="module" src="../../plugins/leaflet-arrowheads.js"></script>
     <script type="module" src="../../plugins/leaflet.geometryutil.js"></script>
     <script type="module" src="../shared/map-page.js"></script>

@@ -190,30 +190,62 @@ body.middle-earth-volume {
 /* Volume cover -------------------------------------------------------- */
 
 .middle-earth-volume-cover {
+  --binding-duration: 760ms;
+  --binding-delay: 3000ms;
+  --binding-ease: cubic-bezier(0.58, 0.02, 0.28, 0.99);
   position: fixed;
   z-index: 30000;
   inset: 0;
+  overflow: hidden;
+  perspective: max(1800px, 180vw);
+  perspective-origin: left center;
+  pointer-events: none;
+  animation: middle-earth-volume-open var(--binding-duration) linear var(--binding-delay) both;
+}
+
+.middle-earth-volume-cover.atlas-volume-cover--returning {
+  --binding-duration: 620ms;
+  --binding-delay: 0ms;
+}
+
+.middle-earth-volume-cover__board {
+  position: absolute;
+  inset: 0 10px 6px 22px;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  animation: middle-earth-binding-turn var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.middle-earth-volume-cover__face,
+.middle-earth-volume-cover__inside {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
+  border-radius: 0 8px 8px 0;
+  backface-visibility: hidden;
+}
+
+.middle-earth-volume-cover__face {
+  transform: translateZ(3px);
   overflow: hidden;
   color: #eadcaf;
   background:
-    radial-gradient(circle at 18% 17%, rgba(214, 190, 119, 0.08), transparent 18%),
-    radial-gradient(circle at 76% 72%, rgba(111, 62, 28, 0.22), transparent 28%),
-    repeating-linear-gradient(96deg, rgba(255, 244, 205, 0.018) 0 1px, transparent 1px 7px),
-    linear-gradient(125deg, #142016, #32432d 55%, #1b291b);
+    radial-gradient(ellipse at 100% 0, rgba(206, 164, 96, 0.27), transparent 23%),
+    radial-gradient(ellipse at 96% 100%, rgba(171, 120, 61, 0.23), transparent 22%),
+    linear-gradient(105deg, rgba(7, 17, 10, 0.55), rgba(50, 77, 44, 0.16) 45%, rgba(8, 22, 14, 0.36)),
+    url('./assets/materials/middle-earth-green-leather-v1.webp') center / 640px 640px,
+    #263a24;
   box-shadow:
-    inset 0 0 0 10px #172017,
-    inset 0 0 0 11px rgba(187, 150, 74, 0.65),
-    inset 0 0 90px rgba(8, 12, 7, 0.62);
-  transform-origin: left center;
-  backface-visibility: hidden;
-  pointer-events: none;
-  animation: middle-earth-volume-open 760ms cubic-bezier(0.58, 0.02, 0.28, 0.99) 3000ms both;
+    inset -2px 0 2px rgba(221, 186, 113, 0.43),
+    inset 0 0 0 9px rgba(18, 28, 17, 0.5),
+    inset 0 0 0 10px rgba(187, 150, 74, 0.65),
+    inset 0 0 0 12px rgba(5, 13, 7, 0.45),
+    inset 0 0 85px rgba(8, 12, 7, 0.42);
 }
 
-.middle-earth-volume-cover::before,
-.middle-earth-volume-cover::after {
+.middle-earth-volume-cover__face::before,
+.middle-earth-volume-cover__face::after {
   position: absolute;
   inset-block: 22px;
   width: 1px;
@@ -221,11 +253,11 @@ body.middle-earth-volume {
   background: linear-gradient(transparent, rgba(204, 166, 89, 0.72) 12%, rgba(204, 166, 89, 0.72) 88%, transparent);
 }
 
-.middle-earth-volume-cover::before {
+.middle-earth-volume-cover__face::before {
   left: 56px;
 }
 
-.middle-earth-volume-cover::after {
+.middle-earth-volume-cover__face::after {
   right: 28px;
 }
 
@@ -236,7 +268,9 @@ body.middle-earth-volume {
   width: 43px;
   border-right: 1px solid rgba(210, 171, 91, 0.46);
   background:
+    repeating-linear-gradient(0deg, transparent 0 17%, rgba(5, 12, 6, 0.65) 17.3% 17.7%, rgba(196, 158, 83, 0.28) 18% 18.3%, transparent 18.6% 20%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.46), transparent 30%, rgba(233, 202, 127, 0.05) 68%, rgba(0, 0, 0, 0.3)),
+    url('./assets/materials/middle-earth-green-leather-v1.webp') center / 640px 640px,
     #182419;
   box-shadow: 7px 0 18px rgba(0, 0, 0, 0.28);
 }
@@ -249,8 +283,10 @@ body.middle-earth-volume {
   box-shadow:
     inset 0 0 0 4px rgba(19, 31, 18, 0.58),
     inset 0 0 0 5px rgba(180, 142, 67, 0.38),
-    0 18px 44px rgba(0, 0, 0, 0.22);
+    0 1px 0 rgba(230, 197, 129, 0.16),
+    0 -1px 2px rgba(0, 0, 0, 0.7);
   text-align: center;
+  text-shadow: 0 1px 0 rgba(248, 220, 157, 0.16), 0 -1px 1px #111a0e;
 }
 
 .middle-earth-volume-cover__frame::before,
@@ -295,8 +331,9 @@ body.middle-earth-volume {
   line-height: 0.96;
   letter-spacing: 0.035em;
   text-shadow:
-    0 3px 5px rgba(0, 0, 0, 0.58),
-    0 0 18px rgba(208, 169, 88, 0.08);
+    0 -1px 1px #080e07,
+    0 1px 0 rgba(247, 211, 145, 0.4),
+    0 2px 3px rgba(0, 0, 0, 0.48);
 }
 
 .middle-earth-volume-cover__subtitle {
@@ -305,21 +342,78 @@ body.middle-earth-volume {
   letter-spacing: 0.18em;
 }
 
+.middle-earth-volume-cover__inside {
+  transform: rotateY(180deg) translateZ(3px);
+  color: #796744;
+  background:
+    repeating-radial-gradient(ellipse at 20% 50%, transparent 0 18px, rgba(101, 112, 64, 0.09) 19px 20px, transparent 21px 33px),
+    linear-gradient(90deg, #aaa17e, #e0d2aa 12%, #e9dcb8 75%, #c5b78c);
+  border: 12px solid #293b25;
+  box-shadow: inset 0 0 32px rgba(49, 36, 17, 0.4);
+  font: italic clamp(15px, 3vw, 26px) 'Cormorant Garamond', Georgia, serif;
+}
+
+.middle-earth-volume-cover__edge {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 6px;
+  transform-origin: right center;
+  transform: translateZ(3px) rotateY(-90deg);
+  background: linear-gradient(90deg, #8a7449, #39452b 35% 65%, #bc9a61);
+}
+
+.middle-earth-volume-cover__pages {
+  position: absolute;
+  inset: 4px 1px 0 29px;
+  border-right: 12px solid #c4b48a;
+  border-bottom: 7px solid #c4b48a;
+  border-radius: 0 7px 7px 0;
+  box-shadow: inset -2px -2px 0 #eee0b8, -2px 0 8px #30281c;
+  background: repeating-linear-gradient(90deg, #978661 0 1px, #dfd0a8 1px 3px) right / 9px 100% no-repeat;
+  animation: middle-earth-binding-pages var(--binding-duration) ease var(--binding-delay) both;
+}
+
+.middle-earth-volume-cover__cast-shadow {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(8, 12, 7, 0.64), rgba(8, 12, 7, 0.4) 65%, transparent);
+  animation: middle-earth-binding-shadow var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+.middle-earth-volume-cover__light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 15%, rgba(242, 212, 147, 0.12) 44%, transparent 68%);
+  animation: middle-earth-binding-light var(--binding-duration) var(--binding-ease) var(--binding-delay) both;
+}
+
+/* The scene owns cleanup timing; only its board rotates, around a fixed hinge. */
 @keyframes middle-earth-volume-open {
-  0% {
-    opacity: 1;
-    transform: perspective(1500px) rotateY(0deg) translateX(0);
-  }
+  from { visibility: visible; }
+  to { visibility: hidden; }
+}
 
-  60% {
-    opacity: 0.94;
-  }
+@keyframes middle-earth-binding-turn {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-112deg); }
+}
 
-  100% {
-    visibility: hidden;
-    opacity: 0;
-    transform: perspective(1500px) rotateY(-72deg) translateX(-76%);
-  }
+@keyframes middle-earth-binding-shadow {
+  from { opacity: 0.9; transform: scaleX(1); }
+  70% { opacity: 0.4; }
+  to { opacity: 0; transform: scaleX(0.04); }
+}
+
+@keyframes middle-earth-binding-pages {
+  0%, 35% { opacity: 1; }
+  85%, 100% { opacity: 0; }
+}
+
+@keyframes middle-earth-binding-light {
+  from { opacity: 0.4; transform: translateX(-20%); }
+  40% { opacity: 1; }
+  to { opacity: 0; transform: translateX(50%); }
 }
 
 /* Winding-road-and-leaf ornament ------------------------------------- */
@@ -667,10 +761,30 @@ body.middle-earth-volume {
     animation: middle-earth-volume-fade 180ms ease-out 3000ms both;
   }
 
+  .middle-earth-volume-cover__board,
+  .middle-earth-volume-cover__pages,
+  .middle-earth-volume-cover__cast-shadow,
+  .middle-earth-volume-cover__light {
+    animation: none;
+  }
+
   @keyframes middle-earth-volume-fade {
     to {
       visibility: hidden;
       opacity: 0;
     }
   }
+}
+
+@media (max-height: 500px) {
+  .middle-earth-volume-cover__frame {
+    padding-block: 14px;
+  }
+
+  .middle-earth-volume-cover__title {
+    font-size: clamp(2.8rem, 11vh, 4rem);
+  }
+
+  .middle-earth-volume-cover__eyebrow { margin-top: 8px; }
+  .middle-earth-volume-cover__subtitle { margin-bottom: 8px; }
 }

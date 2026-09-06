@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 for (const { place, category, asset, prefix } of [
   { place: 'Hobbiton', category: 'Towns and Villages', asset: 'shire-village-medallion.svg', prefix: 'shire-village' },
   { place: 'Bamfurlong', category: 'Homes and Farms', asset: 'shire-homestead-medallion.svg', prefix: 'shire-homestead' },
-  { place: 'The Green Dragon', category: 'Inns and Gathering Places', asset: 'shire-homestead-medallion.svg', prefix: 'shire-inn' },
+  { place: 'The Green Dragon', category: 'Inns and Gathering Places', asset: 'shire-inn-medallion.svg', prefix: 'shire-inn' },
 ]) {
 test(`${place} uses its Shire medallion and settlement checkbox`, async ({ page }, testInfo) => {
   const errors = [];

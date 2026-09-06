@@ -837,6 +837,7 @@ test("each physical volume introduces itself once and offers a Settings reset", 
     { path: "/maps/beleriand/beleriand.html", volume: "beleriand" },
     { path: "/maps/numenor/numenor.html", volume: "numenor" },
     { path: "/maps/middle_earth/middle-earth.html", volume: "middle-earth" },
+    { path: "/maps/the_shire/the_shire.html", volume: "shire" },
   ];
 
   for (const { path, volume } of physicalVolumes) {

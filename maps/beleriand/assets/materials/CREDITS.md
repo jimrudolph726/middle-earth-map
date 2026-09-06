@@ -15,7 +15,8 @@ runtime. The mahogany desk shared by the volumes is recorded in the
 - License: [CC0 1.0 Universal](https://polyhaven.com/license)
 - Atlas processing: centered crop and resize to 1024 × 1024, subtle contrast,
   brightness, and saturation adjustment, then WebP compression
-- Purpose: indigo-linen mount between the Beleriand chart and shared desk
+- Purpose: indigo-linen mount between the Beleriand chart and shared desk;
+  reused at a finer visual scale for the blue-gray bookcloth opening cover
 - SHA-256: `8340595ABA66CA608D5B3CB9ABD19AACC3C5C07E5101728C28AA108CF856E6A8`
 - Processed: 2026-08-31
 
@@ -42,3 +43,16 @@ vocabulary was informed by the public-domain [Undulating Wave Motif](https://www
 held by Cooper Hewitt, Smithsonian Design Museum. The museum record marks the
 historic source as CC0. The atlas drawing was simplified and combined with its
 existing eight-pointed star rather than reproducing the source image.
+
+## Layered book binding (2026-09-05)
+
+The cover reuses the above cloth at a 600px repeat with blue-gray shading and
+faded indigo edges. The leather spine reuses the CC0 Poly Haven Brown Leather
+derivative documented in the [Middle-earth material register](../../../middle_earth/assets/materials/CREDITS.md),
+blended toward dark slate blue in CSS. Both textures are self-hosted.
+
+The silver seal and faint cool-ivory endpaper pattern reuse the original
+`../beleriand-frontispiece-ornament.svg` star-and-wave drawing. Pressed tooling,
+spine bands, board thickness, page edges, lighting, and the hinged CSS animation
+are original project work. No new third-party artwork or runtime dependency
+is introduced by this treatment.
